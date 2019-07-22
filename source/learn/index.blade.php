@@ -18,7 +18,7 @@
             </h2>
 
             <ul class="list-disc">
-                <li>Basic Terminal Commands</li>
+                <li>Basic Terminal Commands: <a target="_blank" class="hover:underline text-indigo-900" href="https://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line">Treehouse Article</a><a href="https://www.codecademy.com/courses/learn-the-command-line/lessons/navigation/exercises/your-first-command?action=resume_content_item">Codecademy Course</a></li>
                 <li>HTML: <a target="_blank" class="hover:underline text-indigo-900" href="https://htmlreference.io/">HTML Reference</a></li>
                 <li>CSS: <a target="_blank" class="hover:underline text-indigo-900" href="https://cssreference.io/">CSS Reference</a></li>
                 <li>Git: <a target="_blank" class="hover:underline text-indigo-900" href="https://www.git-tower.com/learn/">Git Tower eBook & Video</a></li>
@@ -45,21 +45,24 @@
                         <li>Entry level Valet</li>
                     </ul>
                 </li>
-                <li>Laravel Routing &amp; HTTP Verbs (using route closures)</li>
-                <li>Blade Syntax and inheritance</li>
-                <li>Deploying</li>
-                <li>Relational Databases</li>
-                <li>Basic Eloquent syntax</li>
-                <li>Basic migrations</li>
-                <li>Sending mail</li>
-                <li>CSRF</li>
-                <li>Validation</li>
-                <li>Artisan</li>
-                <li>Type-hinting, DI, the container</li>
-                <li>Monitoring (e.g. Bugsnag)</li>
+                <li>Laravel: <a href="https://laracasts.com/series/laravel-from-scratch-2018">Laracasts Video</a>
+                    <ul>
+                        <li>Laravel Routing &amp; HTTP Verbs (using route closures)</li>
+                        <li>Blade Syntax and inheritance</li>
+                        <li>Relational Databases</li>
+                        <li>Basic migrations</li>
+                        <li>Basic Eloquent syntax</li>
+                        <li>CSRF</li>
+                        <li>Validation</li>
+                        <li>Sending mail</li>
+                        <li>service container</li>
+                    </ul>
+                </li>
                 <li>JavaScript: <a target="_blank" class="hover:underline text-indigo-900" href="https://javascript30.com/">Wes Bos Video</a></li>
-                <li>Mix</li>
+                <li>Mix: <a target="_blank" class="hover:underline text-indigo-900" href="https://laracasts.com/series/learn-laravel-mix">Laracasts Video</a></li>
                 <li>Basic session-backed internal APIs</li>
+                <li>Deployments</li>
+                <li>Monitoring (e.g. Bugsnag)</li>
             </ul>
 
             <p>That's all, for now. Soon: links to places to learn each of these techs, and then later maybe exercises to test them and prove out your learning.</p>

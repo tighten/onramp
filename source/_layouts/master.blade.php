@@ -1,13 +1,14 @@
 {{-- Template from https://templates.digizu.co.uk/ --}}<!DOCTYPE html>
+
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta property="og:title" content="Onramp to Laravel">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://onramp.dev">
-        {{-- <meta property="og:image" content="change-me.jpg"> --}}
+        <meta property="og:title" content="{{ $ogTitle ?? 'Onramp to Laravel' }}">
+        <meta property="og:type" content="{{ $ogType ?? 'website' }}">
+        <meta property="og:url" content="{{ $ogUrl ?? 'https://onramp.dev' }}">
+        {{-- <meta property="og:image" content="{{ $ogImage ?? 'change-me.jpg' }}"> --}}
         <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
         <link rel="stylesheet" href="{{ mix('css/main.css', 'assets/build') }}">
     </head>

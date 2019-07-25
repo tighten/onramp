@@ -6,7 +6,7 @@
     <div class="text-center px-6 py-12 mb-6 bg-gray-100 border-b">
         <h1 class=" text-xl md:text-4xl pb-4">Learn Laravel</h1>
         <p class="leading-loose text-gray-dark">
-            The outline
+            The tech concepts you should know in order to get a job as a Laravel developer.
         </p>
     </div>
     <!-- /title -->
@@ -15,10 +15,6 @@
 
     <div class="container max-w-4xl mx-auto md:flex items-start py-8 px-12 md:px-0">
         <div class="w-full md:pr-12 mb-12">
-            <h2 class="mb-6 mt-8 text-black text-xl md:text-2xl">
-                Tech you should know, in general order of learning
-            </h2>
-
             <ul class="temp-learn-list">
                 @foreach ($learn as $item)
                 <li>

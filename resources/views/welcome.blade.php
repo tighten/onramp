@@ -1,99 +1,84 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.master')
 
-        <title>Laravel</title>
+@section('body')
+<div class="w-full bg-white">
+    <!-- title -->
+    <div class="text-center px-6 py-12 mb-6 bg-gray-100 border-b">
+        <h1 class=" text-xl md:text-4xl pb-4">Onramp to Laravel</h1>
+        <p class="leading-loose text-gray-dark">
+            Providing an easy entrance to Laravel for new developers
+        </p>
+    </div>
+    <!-- /title -->
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <div class="container max-w-4xl mx-auto md:flex items-start py-8 px-12 md:px-0">
+        <div class="w-full md:pr-12 mb-12">
+            <h2 class="mb-2 mt-8 text-black text-xl md:text-2xl">
+                What is this?
+            </h2>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+            <p class="text-gray-700 leading-normal mb-4">
+                Onramp aims to be a collection of resources presented in a way that makes it possible for folks to become Laravel programmers as easily and effectively as possible.
+            </p>
 
-            .full-height {
-                height: 100vh;
-            }
+            <h2 class="mb-2 mt-8 text-black text-xl md:text-2xl">
+                Who is it for?
+            </h2>
+            <p class="text-gray-700 leading-normal mb-4">
+                The goal is to make it as easy as possible for two groups of people to become capable professional Laravel developers: <strong>Brand-new developers</strong> and <strong>frontend developers.</strong>
+            </p>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+            <h2 class="mb-2 mt-8 text-black text-xl md:text-2xl">
+                Why is it so simple?
+            </h2>
+            <p class="text-gray-700 leading-normal mb-4">
+                It's iterative and opinionated. It's open source and contributions are welcome, but in the end Tighten will keep it focused on the way we think folks are best prepared for a career as a Laravel dev.
+            </p>
+            <p class="text-gray-700 leading-normal mb-4">
+                Right now we're keeping it just a bullet point list so we can gather great content from the community, but shortly we'll turn it into a more fully-fledge site with user accounts and deeper context for every item.
+            </p>
 
-            .position-ref {
-                position: relative;
-            }
+            <h2 class="mb-2 mt-8 text-black text-xl md:text-2xl">
+                Let's do it!
+            </h2>
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+            <p>OK, let's <a href="/learn" class="underline text-blue-700">learn.</a></p>
         </div>
-    </body>
-</html>
+
+        <!-- sidebar -->
+        {{--
+        <div class="w-full md:w-64">
+            <aside class="rounded shadow overflow-hidden mb-6">
+                <h3 class="text-sm bg-gray-100 text-gray-700 py-3 px-4 border-b">Categories</h3>
+
+                <div class="p-4">
+                    <ul class="list-reset leading-normal">
+                        <li><a href="#" class="text-gray-darkest text-sm">Uncategorised</a></li>
+                        <li><a href="#" class="text-gray-darkest text-sm">Food &amp; Drink</a></li>
+                        <li><a href="#" class="text-gray-darkest text-sm">Garden</a></li>
+                        <li><a href="#" class="text-gray-darkest text-sm">Tools</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <aside class="rounded shadow overflow-hidden mb-6">
+                <h3 class="text-sm bg-gray-100 text-gray-700 py-3 px-4 border-b">Latest Posts</h3>
+
+                <div class="p-4">
+                    <ul class="list-reset leading-normal">
+                        <li><a href="#" class="text-gray-darkest text-sm">Lorem ipsum dolor sit amet.</a></li>
+                        <li><a href="#" class="text-gray-darkest text-sm">Sit amet, consectetur adipisicing elit.</a></li>
+                        <li><a href="#" class="text-gray-darkest text-sm">Lorem ipsum dolor sit amet.</a></li>
+                        <li><a href="#" class="text-gray-darkest text-sm">Sit amet, consectetur adipisicing elit.</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+        </div>
+        <!-- /sidebar -->
+        --}}
+
+    </div>
+
+</div>
+@endsection

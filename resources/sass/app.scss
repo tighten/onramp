@@ -1,8 +1,29 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@tailwind base;
 
-// Variables
-@import 'variables';
+@tailwind components;
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@tailwind utilities;
+
+.temp-learn-list {
+    @apply .list-disc;
+}
+
+.temp-learn-list ul {
+    @apply .list-disc .mb-6 .ml-8 .mt-4;
+}
+
+.temp-learn-list li {
+    @apply .mb-3;
+}
+
+.temp-learn-list a {
+    @apply .text-indigo-600;
+}
+
+.temp-learn-list a:hover {
+    text-decoration: underline;
+}
+
+.temp-learn-list .list-title {
+    @apply .font-bold .text-lg;
+}

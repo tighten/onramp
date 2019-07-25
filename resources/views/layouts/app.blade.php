@@ -8,7 +8,7 @@
         <meta property="og:title" content="{{ $ogTitle ?? 'Onramp to Laravel' }}">
         <meta property="og:type" content="{{ $ogType ?? 'website' }}">
         <meta property="og:url" content="{{ $ogUrl ?? 'https://onramp.dev' }}">
-        {{-- <meta property="og:image" content="{{ $ogImage ?? 'change-me.jpg' }}"> --}}
+        <meta property="og:image" content="{{ $ogImage ?? '/images/opengraph_logo.png' }}">
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     </head>
     <body>

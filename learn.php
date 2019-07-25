@@ -30,10 +30,16 @@ return [
         'name' => 'Local PHP Environment',
         'children' => [
             [
-                'name' => 'Valet',
+                'name' => 'Valet (macOS)',
                 'links' => [
                     'Laravel Docs' => 'https://laravel.com/docs/valet',
                     'Laracasts Video' => 'https://laracasts.com/series/setup-a-mac-dev-machine-from-scratch/episodes/10',
+                ],
+            ],
+            [
+                'name' => 'Homestead (Windows or macOS)',
+                'links' => [
+                    'Laravel Docs' => 'https://laravel.com/docs/homestead',
                 ],
             ],
             [

@@ -18,9 +18,6 @@
                 <a href="#" class="block py-6 w-full text-center md:text-left flex justify-left items-center">
                     <img src="/images/onramp_logo.svg" alt="Onramp">
                 </a>
-
-                <div class="w-full md:w-auto text-center md:text-right">
-                </div>
             </div>
         </header>
         <!-- /header -->

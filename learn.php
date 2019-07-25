@@ -180,7 +180,22 @@ return [
         'name' => 'Basic session-backed internal APIs',
     ],
     [
-        'name' => 'Deployments',
+        'name' => 'Hosting &amp; Deployments',
+        'children' => [
+            [
+                'name' => 'Laravel Forge',
+                'links' => [
+                    'Laravel Forge Docs' => 'https://forge.helpscoutdocs.com/',
+                    'Laracasts Series' => 'https://laracasts.com/series/learn-laravel-forge/',
+                ],
+            ],
+            [
+                'name' => 'Laravel Envoyer',
+                'links' => [
+                    'Laravel Envoyer Docs' => 'https://envoyer.io/',
+                ],
+            ],
+        ],
     ],
     [
         'name' => 'Monitoring (e.g. Bugsnag)',

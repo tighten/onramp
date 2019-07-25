@@ -44,4 +44,7 @@ return [
         ],
     ],
 
+    'slack' => [
+        'notification_endpoint' => env('SLACK_ENDPOINT'),
+    ],
 ];

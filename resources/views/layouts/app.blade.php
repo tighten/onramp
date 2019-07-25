@@ -20,7 +20,6 @@
                 </a>
 
                 <div class="w-full md:w-auto text-center md:text-right">
-                    <svg><use xlink:href="#icon-tighten-logo"/></svg>
                 </div>
             </div>
         </header>

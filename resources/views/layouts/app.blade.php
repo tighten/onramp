@@ -16,7 +16,7 @@
         <header class="w-full px-6 text-white" style="background: #3f51d8">
             <div class="container mx-auto max-w-4xl md:flex justify-between items-center">
                 <a href="#" class="block py-6 w-full text-center md:text-left flex justify-left items-center">
-                    <img src="/images/onramp_logo.svg" alt="Onramp">
+                    <img src="/images/onramp_logo.svg" alt="Onramp" class="max-w-sm">
                 </a>
             </div>
         </header>

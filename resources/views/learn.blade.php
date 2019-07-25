@@ -18,7 +18,7 @@
             <ul class="temp-learn-list">
                 @foreach ($learn as $item)
                 <li>
-                    <div class="list-title">{{ $item['name'] }}</div>
+                    <div class="list-title">{!! $item['name'] !!}</div>
                     @if (isset($item['links']))
                     {!!
                         collect($item['links'])->map(function ($value, $key) {

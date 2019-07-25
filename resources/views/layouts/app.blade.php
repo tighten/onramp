@@ -16,7 +16,7 @@
         <header class="w-full px-6 text-white" style="background: #3f51d8">
             <div class="container mx-auto max-w-4xl md:flex justify-between items-center">
                 <a href="#" class="block py-6 w-full text-center md:text-left flex justify-left items-center">
-                    <img src="/images/onramp_logo.svg" alt="Onramp" class="max-w-sm">
+                    <img src="/images/onramp_logo.svg" alt="Onramp" class="max-w-xs w-full">
                 </a>
             </div>
         </header>
@@ -24,8 +24,8 @@
 
         <!-- nav -->
         <nav class="w-full bg-white md:pt-0 px-6 relative z-20 border-t border-b border-gray-light">
-            <div class="container mx-auto max-w-4xl md:flex justify-between items-center text-sm md:text-md md:justify-start">
-                <div class="w-full md:w-1/2 text-center md:text-left py-4 flex flex-wrap justify-center items-stretch md:justify-start md:items-start">
+            <div class="container mx-auto py-4 max-w-4xl md:flex justify-between items-center text-sm md:text-md md:justify-start">
+                <div class="w-full md:w-1/2 text-center md:text-left flex flex-wrap justify-center items-stretch md:justify-start md:items-start mb-4 md:mb-0">
                     <a href="/" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-900 no-underline hover:underline md:border-r border-gray-light">Home</a>
                     <a href="/learn" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-900 no-underline hover:underline">Learn</a>
                 </div>

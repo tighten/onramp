@@ -33,14 +33,31 @@
                     <a href="/learn" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-700 no-underline">Learn</a>
                 </div>
                 <div class="w-full md:w-1/2 text-center md:text-right">
-                    <a href="https://github.com/tightenco/onramp" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-700 no-underline">Source &amp; Roadmap</a>
+
+                    @guest
+                        <a class="no-underline hover:underline text-gray-600 text-sm p-3" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        @if (Route::has('register'))
+                            <a class="no-underline hover:underline text-gray-600 text-sm p-3" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        @endif
+                    @else
+                        <span class="text-gray-600 text-sm pr-4">{{ Auth::user()->name }}</span>
+
+                        <a href="{{ route('logout') }}"
+                           class="no-underline hover:underline text-gray-600 text-sm p-3"
+                           onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                            {{ csrf_field() }}
+                        </form>
+                    @endguest
                 </div>
+
             </div>
         </nav>
         <!-- /nav -->
 
         <!-- blog -->
-        @yield('body')
+        @yield('content')
         <!-- /blog -->
 
         <!-- footer -->
@@ -48,7 +65,7 @@
             <div class="container mx-auto max-w-4xl py-6 flex flex-wrap md:flex-no-wrap justify-between items-center text-sm">
                 <p>From the lovely folks at <a href="https://tighten.co/">Tighten.</a></p>
                 <div class="pt-4 md:p-0 text-center md:text-right text-xs">
-                    <a href="https://github.com/tightenco/onramp" class="text-black no-underline hover:underline">Source</a>
+                    <a href="https://github.com/tightenco/onramp" class="text-black no-underline hover:underline">Source &amp; Roadmap</a>
                     {{--
                     <a href="#" class="text-black no-underline hover:underline ml-4">Terms &amp; Conditions</a>
                     <a href="#" class="text-black no-underline hover:underline ml-4">Contact Us</a>

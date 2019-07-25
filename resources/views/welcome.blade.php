@@ -1,6 +1,6 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
-@section('body')
+@section('content')
 <div class="w-full bg-white">
     <!-- title -->
     <div class="text-center px-6 py-12 mb-6 bg-gray-100 border-b">

@@ -8,3 +8,7 @@ Route::get('learn', function () {
         'learn' => require(base_path('learn.php')),
     ]);
 });
+
+Auth::routes();
+
+Route::view('home', 'home');

@@ -13,14 +13,18 @@ class UserSignedUp extends Notification
 {
     use Queueable;
 
+    public $user;
+    public $ip;
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($user, $ip)
     {
-        //
+        $this->user = $user;
+        $this->ip = $ip;
     }
 
     /**

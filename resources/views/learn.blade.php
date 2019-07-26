@@ -18,7 +18,7 @@
             <ul class="temp-learn-list">
                 @foreach ($learn as $item)
                 <li>
-                    <div class="list-title">{{ $item['name'] }}</div>
+                    <div class="list-title">{!! $item['name'] !!}</div>
                     @if (isset($item['links']))
                     {!!
                         collect($item['links'])->map(function ($value, $key) {
@@ -31,7 +31,7 @@
                     <ul>
                         @foreach ($item['children'] as $childItem)
                         <li>
-                            <div class="list-title">{{ $childItem['name'] }}</div>
+                            <div class="list-title">{!! $childItem['name'] !!}</div>
                             @if (isset($childItem['links']))
                             {!!
                                 collect($childItem['links'])->map(function ($value, $key) {
@@ -47,7 +47,7 @@
                 @endforeach
             </ul>
 
-            <p>That's all, for now. Soon: more and better organized links to places to learn each of these technologies/tools, a more robust list of techhnologies, etc., and then later maybe exercises to test them and prove out your learning.</p>
+            <p>That's all, for now. Soon: more and better organized links to places to learn each of these technologies/tools, a more robust list of technologies, etc., and then later maybe exercises to test them and prove out your learning.</p>
         </div>
     </div>
 </div>

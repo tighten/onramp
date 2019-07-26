@@ -47,7 +47,7 @@
                 @endforeach
             </ul>
 
-            <p>That's all, for now. Soon: more and better organized links to places to learn each of these technologies/tools, a more robust list of techhnologies, etc., and then later maybe exercises to test them and prove out your learning.</p>
+            <p>That's all, for now. Soon: more and better organized links to places to learn each of these technologies/tools, a more robust list of technologies, etc., and then later maybe exercises to test them and prove out your learning.</p>
         </div>
     </div>
 </div>

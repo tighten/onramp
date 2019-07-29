@@ -12,12 +12,14 @@ return [
         'name' => 'HTML',
         'links' => [
             'HTML Reference' => 'https://htmlreference.io/',
+            'TraversyMedia HTML Crash Course' => 'https://www.youtube.com/watch?v=UB1O30fR-EE',
         ],
     ],
     [
         'name' => 'CSS',
         'links' => [
             'CSS Reference' => 'https://cssreference.io/',
+            'TraversyMedia CSS Crash Course' => 'https://www.youtube.com/watch?v=yfoY53QXEnI',
         ],
     ],
     [
@@ -174,6 +176,7 @@ return [
         'name' => 'Basic JavaScript',
         'links' => [
             'Wes Bos Video Series' => 'https://javascript30.com/',
+            'TraversyMedia JavaScript Crash Course' => 'https://www.youtube.com/watch?v=hdI2bqOjy3c',
         ],
     ],
     [

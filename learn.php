@@ -39,6 +39,12 @@ return [
                 ],
             ],
             [
+                'name' => 'Homestead',
+                'links' => [
+                    'Laravel Docs' => 'https://laravel.com/docs/homestead',
+                ],
+            ],
+            [
                 'name' => 'Composer',
                 'links' => [
                     'Laracasts Video' => 'https://laracasts.com/series/setup-a-mac-dev-machine-from-scratch/episodes/6',

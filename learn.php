@@ -194,4 +194,10 @@ return [
     [
         'name' => 'Monitoring (e.g. Bugsnag)',
     ],
+    [
+        'name' => 'Basic Testing',
+        'links' => [
+            'Start Testing Laravel' => 'https://jasonmccreary.me/articles/start-testing-laravel/',
+        ],
+    ]
 ];

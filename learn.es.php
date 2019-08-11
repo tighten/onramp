@@ -115,8 +115,8 @@ return [
                 'name' => 'Sintaxis de Blade &amp; Herencia',
                 'links' => [
                     'Laravel Docs' => 'https://docs.laraveles.com/docs/5.5/blade',
-                    'Laracasts Video' => 'https://styde.net/blade-el-sistema-de-plantillas-de-laravel/',
-                    'Laracasts Video' => 'https://styde.net/layouts-con-blade/',
+                    'Video de Styde' => 'https://styde.net/blade-el-sistema-de-plantillas-de-laravel/',
+                    'Video de Styde' => 'https://styde.net/layouts-con-blade/',
                 ],
             ],
             [
@@ -129,21 +129,21 @@ return [
                 'name' => 'Migraciones',
                 'links' => [
                     'Laravel Docs' => 'https://docs.laraveles.com/docs/5.5/migrations',
-                    'Laracasts Video' => 'https://styde.net/introduccion-a-las-bases-de-datos-y-migraciones-con-laravel/',
+                    'Video de Styde' => 'https://styde.net/introduccion-a-las-bases-de-datos-y-migraciones-con-laravel/',
                 ],
             ],
             [
                 'name' => 'Sintaxis básica de Eloquent',
                 'links' => [
                     'Laravel Docs' => 'https://docs.laraveles.com/docs/5.5/eloquent',
-                    'Laracasts Video' => 'https://styde.net/introduccion-a-eloquent-el-orm-del-framework-laravel/',
+                    'Video de Styde' => 'https://styde.net/introduccion-a-eloquent-el-orm-del-framework-laravel/',
                 ],
             ],
             [
                 'name' => 'CSRF',
                 'links' => [
                     'Laravel Docs' => 'https://docs.laraveles.com/docs/5.5/csrf',
-                    'Laracasts Video' => 'https://styde.net/rutas-con-post-y-proteccion-contra-ataques-de-tipo-csrf-en-laravel/',
+                    'Video de Styde' => 'https://styde.net/rutas-con-post-y-proteccion-contra-ataques-de-tipo-csrf-en-laravel/',
                 ],
             ],
             [

@@ -3,9 +3,17 @@
 
 Route::view('/', 'welcome');
 
-Route::get('learn', function () {
+Route::get('learn/{locale?}', function ($locale = 'en') {
+    App::setLocale($locale);
+
+    if($locale != 'en' && file_exists(base_path("learn.$locale.php"))) {
+        $learnPath = base_path("learn.$locale.php");
+    } else {
+        $learnPath = base_path('learn.php');
+    }
+
     return view('learn', [
-        'learn' => require(base_path('learn.php')),
+        'learn' => require($learnPath),
     ]);
 });
 

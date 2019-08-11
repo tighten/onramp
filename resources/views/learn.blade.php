@@ -4,9 +4,12 @@
 <div class="w-full bg-white">
     <!-- title -->
     <div class="text-center px-6 py-12 mb-6 bg-gray-100 border-b">
-        <h1 class=" text-xl md:text-4xl pb-4">Learn Laravel</h1>
+        <h1 class=" text-xl md:text-4xl pb-4">{{ __('Learn Laravel') }}</h1>
         <p class="leading-loose text-gray-dark">
-            The tech concepts you should know in order to get a job as a Laravel developer.
+            {{ __('The tech concepts you should know in order to get a job as a Laravel developer.') }}
+        </p>
+        <p class="text-gray-dark">
+            <a href="/learn" class="no-underline hover:underline">EN</a> | <a href="/learn/es" class="no-underline hover:underline">ES</a>
         </p>
     </div>
     <!-- /title -->
@@ -47,7 +50,7 @@
                 @endforeach
             </ul>
 
-            <p>That's all, for now. Soon: more and better organized links to places to learn each of these technologies/tools, a more robust list of technologies, etc., and then later maybe exercises to test them and prove out your learning.</p>
+            <p>{{ __("That's all, for now. Soon: more and better organized links to places to learn each of these technologies/tools, a more robust list of technologies, etc., and then later maybe exercises to test them and prove out your learning.") }}</p>
         </div>
     </div>
 </div>

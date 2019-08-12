@@ -4,8 +4,50 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "41f7f3cfcb513cfbb91658e5be6976b9",
+    "content-hash": "5b2c7db37aec69ca591d621703afa5ec",
     "packages": [
+        {
+            "name": "calebporzio/laravel-helpers-file",
+            "version": "v0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/calebporzio/laravel-helpers-file.git",
+                "reference": "568d13ed365b050741b43aa85d1b8b71b9de7053"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/calebporzio/laravel-helpers-file/zipball/568d13ed365b050741b43aa85d1b8b71b9de7053",
+                "reference": "568d13ed365b050741b43aa85d1b8b71b9de7053",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^5.7"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "CalebPorzio\\LaravelHelpersFile\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "CalebPorzio\\LaravelHelpersFile\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Caleb Porzio"
+                }
+            ],
+            "description": "Because I can never remember exactly how to autoload my helpers.php file",
+            "time": "2018-11-12T22:12:27+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",

@@ -42,7 +42,7 @@
                 Let's do it!
             </h2>
 
-            <p>OK, let's <a href="/learn" class="underline text-blue-700">learn.</a></p>
+            <p>OK, let's <a href="{{ url_wlocale('learn') }}" class="underline text-blue-700">learn.</a></p>
         </div>
 
         <!-- sidebar -->

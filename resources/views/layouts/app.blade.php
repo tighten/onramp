@@ -17,7 +17,7 @@
         <!-- header -->
         <header class="w-full px-6 text-white" style="background: #3f51d8">
             <div class="container mx-auto max-w-4xl md:flex justify-between items-center">
-                <a href="/" class="block py-6 w-full text-center md:text-left flex justify-left items-center">
+                <a href="{{ url_wlocale('/') }}" class="block py-6 w-full text-center md:text-left flex justify-left items-center">
                     <img src="/images/onramp_logo.svg" alt="Onramp" class="max-w-xs w-full">
                 </a>
             </div>
@@ -28,27 +28,27 @@
         <nav class="w-full bg-white md:pt-0 px-6 relative z-20 border-t border-b border-gray-light">
             <div class="container mx-auto py-4 max-w-4xl md:flex justify-between items-center text-sm md:text-md md:justify-start">
                 <div class="w-full md:w-1/2 text-center md:text-left flex flex-wrap justify-center items-stretch md:justify-start md:items-start mb-4 md:mb-0">
-                    <a href="/" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-900 no-underline hover:underline md:border-r border-gray-light">{{ __('Home') }}</a>
-                    <a href="/learn" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-900 no-underline hover:underline">{{ __('Learn') }}</a>
+                    <a href="{{ url_wlocale('/') }}" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-900 no-underline hover:underline md:border-r border-gray-light">{{ __('Home') }}</a>
+                    <a href="{{ url_wlocale('learn') }}" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-900 no-underline hover:underline">{{ __('Learn') }}</a>
                 </div>
                 <div class="w-full md:w-1/2 text-center md:text-right">
                     <p class="text-gray-dark">
-                        <a href="/en" class="no-underline hover:underline{{ $locale === 'en' ? ' font-bold' : '' }}">EN</a> | <a href="/es" class="no-underline hover:underline{{ $locale === 'es' ? ' font-bold' : '' }}">ES</a>
+                        <a href="{{ switch_locale('en') }}" class="no-underline hover:underline{{ $locale === 'en' ? ' font-bold' : '' }}">EN</a> | <a href="{{ switch_locale('es') }}" class="no-underline hover:underline{{ $locale === 'es' ? ' font-bold' : '' }}">ES</a>
                     </p>
 
                     @guest
-                        <a class="no-underline hover:underline text-gray-900 text-sm p-3" href="{{ route('login') }}">{{ __('Log in') }}</a>
+                        <a class="no-underline hover:underline text-gray-900 text-sm p-3" href="{{ route_wlocale('login') }}">{{ __('Log in') }}</a>
                         @if (Route::has('register'))
-                            <a class="no-underline hover:underline text-gray-900 text-sm p-3" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="no-underline hover:underline text-gray-900 text-sm p-3" href="{{ route_wlocale('register') }}">{{ __('Register') }}</a>
                         @endif
                     @else
-                        <a href="/home" class="text-gray-900 text-sm pr-4 no-underline hover:underline">{{ Auth::user()->name }}</a>
+                        <a href="{{ url_wlocale('home') }}" class="text-gray-900 text-sm pr-4 no-underline hover:underline">{{ Auth::user()->name }}</a>
 
-                        <a href="{{ route('logout') }}"
+                        <a href="{{ route_wlocale('logout') }}"
                            class="no-underline hover:underline text-gray-900 text-sm p-3"
                            onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                        <form id="logout-form" action="{{ route_wlocale('logout') }}" method="POST" class="hidden">
                             {{ csrf_field() }}
                         </form>
                     @endguest

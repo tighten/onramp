@@ -27,19 +27,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $locale = 'en';
+
         if ($this->app->environment() !== 'testing') {
             Event::subscribe(SlackSubscriber::class);
+
+            $locale = locale();
         }
 
-        // @todo middleware maybe eh?
-        $locale = request()->segments()[0];
-        $locales = ['en', 'es'];
+        $this->app->setlocale($locale);
 
-        if (! in_array($locale, $locales)) {
-            throw new \Exception('Invalid locale '. $locale);
-        }
-
-        App::setlocale($locale);
 
         View::composer('*', function ($view) use ($locale) {
             $view->with('locale', $locale);

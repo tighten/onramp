@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\ResolveLocale;
+use App\Localization\ResolveLocale;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\Request;
@@ -19,7 +19,7 @@ class ResolveLocaleTest extends TestCase
             ->withNoArgs()
             ->andReturn(['es', 'learn']); // Mock onramp.dev/es/learn
 
-        $resolver = new ResolveLocale($requestMock, app());
+        $resolver = new ResolveLocale($requestMock);
 
         $this->assertEquals('es', $resolver());
     }
@@ -35,7 +35,7 @@ class ResolveLocaleTest extends TestCase
             ->withNoArgs()
             ->andReturn(['notalocale', 'learn']); // Mock onramp.dev/notalocale/learn
 
-        $resolver = new ResolveLocale($requestMock, app());
+        $resolver = new ResolveLocale($requestMock);
         $resolver();
     }
 }

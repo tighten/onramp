@@ -5,11 +5,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta property="og:title" content="{{ $ogTitle ?? 'Onramp to Laravel' }}">
+        <meta property="og:title" content="{{ $ogTitle ?? __('Onramp to Laravel') }}">
         <meta property="og:type" content="{{ $ogType ?? 'website' }}">
         <meta property="og:url" content="{{ $ogUrl ?? 'https://onramp.dev' }}">
         <meta property="og:image" content="{{ $ogImage ?? '/images/opengraph_logo.png' }}">
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
+        <title>{{ isset($pageTitle) ? "{$pageTitle} | " : '' }}{{ __('Onramp to Laravel') }}</title>
     </head>
     <body>
         <!-- header -->
@@ -30,9 +32,12 @@
                     <a href="/learn" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-900 no-underline hover:underline">{{ __('Learn') }}</a>
                 </div>
                 <div class="w-full md:w-1/2 text-center md:text-right">
+                    <p class="text-gray-dark">
+                        <a href="/en" class="no-underline hover:underline{{ $locale === 'en' ? ' font-bold' : '' }}">EN</a> | <a href="/es" class="no-underline hover:underline{{ $locale === 'es' ? ' font-bold' : '' }}">ES</a>
+                    </p>
 
                     @guest
-                        <a class="no-underline hover:underline text-gray-900 text-sm p-3" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="no-underline hover:underline text-gray-900 text-sm p-3" href="{{ route('login') }}">{{ __('Log in') }}</a>
                         @if (Route::has('register'))
                             <a class="no-underline hover:underline text-gray-900 text-sm p-3" href="{{ route('register') }}">{{ __('Register') }}</a>
                         @endif
@@ -60,9 +65,9 @@
         <!-- footer -->
         <footer class="w-full bg-white px-6 border-t">
             <div class="container mx-auto max-w-4xl py-6 flex flex-wrap md:flex-no-wrap justify-between items-center text-sm">
-                <p>From the lovely folks at <a href="https://tighten.co/">Tighten.</a></p>
+                <p>{{ __('From the lovely folks at') }} <a href="https://tighten.co/">Tighten.</a></p>
                 <div class="pt-4 md:p-0 text-center md:text-right text-xs">
-                    <a href="https://github.com/tightenco/onramp" class="text-black no-underline hover:underline">Source &amp; Roadmap</a>
+                    <a href="https://github.com/tightenco/onramp" class="text-black no-underline hover:underline">{{ __('Source & Roadmap') }}</a>
                     {{--
                     <a href="#" class="text-black no-underline hover:underline ml-4">Terms &amp; Conditions</a>
                     <a href="#" class="text-black no-underline hover:underline ml-4">Contact Us</a>

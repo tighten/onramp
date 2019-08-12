@@ -1,6 +1,5 @@
 <?php
 
-Auth::routes();
 
 Route::redirect('/', '/en');
 
@@ -10,4 +9,6 @@ Route::group(['prefix' => '{locale}'], function () {
     Route::get('learn', 'LearnController');
 
     Route::view('home', 'home');
+
+    Auth::routes();
 });

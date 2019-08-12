@@ -17,7 +17,7 @@
                         {{ __('Reset Password') }}
                     </div>
 
-                    <form class="w-full p-6" method="POST" action="{{ route('password.email') }}">
+                    <form class="w-full p-6" method="POST" action="{{ route_wlocale('password.email') }}">
                         @csrf
 
                         <div class="flex flex-wrap mb-6">
@@ -40,7 +40,7 @@
                             </button>
 
                             <p class="w-full text-xs text-center text-grey-dark mt-8 -mb-4">
-                                <a class="text-blue-500 hover:text-blue-700 no-underline" href="{{ route('login') }}">
+                                <a class="text-blue-500 hover:text-blue-700 no-underline" href="{{ route_wlocale('login') }}">
                                     Back to login
                                 </a>
                             </p>

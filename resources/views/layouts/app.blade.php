@@ -20,6 +20,14 @@
                 <a href="{{ url_wlocale('/') }}" class="block py-6 w-full text-center md:text-left flex justify-left items-center">
                     <img src="/images/onramp_logo.svg" alt="Onramp" class="max-w-xs w-full">
                 </a>
+                <div class="text-white text-center md:text-right md:w-40">
+                @foreach (Facades\App\ResolveLocale::locales() as $thisLocale)
+                    <a href="{{ switch_locale($thisLocale) }}" class="no-underline hover:underline text-white text-sm p-3{{ $thisLocale === $locale ? ' font-bold' : '' }}">{{ strtoupper($thisLocale) }}</a>
+                    @if (! $loop->last)
+                    <span class="text-gray-400">|</span>
+                    @endif
+                @endforeach
+                </div>
             </div>
         </header>
         <!-- /header -->
@@ -32,15 +40,6 @@
                     <a href="{{ url_wlocale('learn') }}" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-900 no-underline hover:underline">{{ __('Learn') }}</a>
                 </div>
                 <div class="w-full md:w-1/2 text-center md:text-right">
-                    <span class="border-l border-r">
-                    @foreach (Facades\App\ResolveLocale::locales() as $thisLocale)
-                        <a href="{{ switch_locale($thisLocale) }}" class="no-underline hover:underline text-gray-900 text-sm p-3{{ $thisLocale === $locale ? ' font-bold' : '' }}">{{ strtoupper($thisLocale) }}</a>
-                        @if (! $loop->last)
-                        <span class="text-gray-400">|</span>
-                        @endif
-                    @endforeach
-                    </span>
-
                     @guest
                         <a class="no-underline hover:underline text-gray-900 text-sm p-3" href="{{ route_wlocale('login') }}">{{ __('Log in') }}</a>
                         @if (Route::has('register'))

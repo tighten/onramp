@@ -10,7 +10,7 @@
                         {{ __('Reset Password') }}
                     </div>
 
-                    <form class="w-full p-6" method="POST" action="{{ route('password.update') }}">
+                    <form class="w-full p-6" method="POST" action="{{ route_wlocale('password.update') }}">
                         @csrf
 
                         <input type="hidden" name="token" value="{{ $token }}">

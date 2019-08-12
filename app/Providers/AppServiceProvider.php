@@ -37,7 +37,6 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->setlocale($locale);
 
-
         View::composer('*', function ($view) use ($locale) {
             $view->with('locale', $locale);
         });

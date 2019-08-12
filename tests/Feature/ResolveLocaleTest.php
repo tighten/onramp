@@ -33,7 +33,7 @@ class ResolveLocaleTest extends TestCase
         $requestMock = Mockery::mock(Request::class);
         $requestMock->shouldReceive('segments')
             ->withNoArgs()
-            ->andReturn(['fandango', 'learn']); // Mock onramp.dev/es/fandango
+            ->andReturn(['notalocale', 'learn']); // Mock onramp.dev/notalocale/learn
 
         $resolver = new ResolveLocale($requestMock, app());
         $resolver();

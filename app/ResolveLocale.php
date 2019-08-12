@@ -22,11 +22,6 @@ class ResolveLocale
         $this->app = $app;
     }
 
-    public function locales()
-    {
-        return $this->locales;
-    }
-
     public function __invoke()
     {
         // Default to 'en' for Artisan, etc.
@@ -48,5 +43,10 @@ class ResolveLocale
     public function validLocale($locale)
     {
         return in_array($locale, $this->locales);
+    }
+
+    public function locales()
+    {
+        return $this->locales;
     }
 }

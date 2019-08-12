@@ -9,7 +9,7 @@
             {{ __('The tech concepts you should know in order to get a job as a Laravel developer.') }}
         </p>
         <p class="text-gray-dark">
-            <a href="/learn" class="no-underline hover:underline">EN</a> | <a href="/learn/es" class="no-underline hover:underline">ES</a>
+            <a href="/learn" class="no-underline hover:underline{{ $locale === 'en' ? ' font-bold' : '' }}">EN</a> | <a href="/learn/es" class="no-underline hover:underline{{ $locale === 'es' ? ' font-bold' : '' }}">ES</a>
         </p>
     </div>
     <!-- /title -->

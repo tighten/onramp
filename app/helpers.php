@@ -5,14 +5,19 @@ function locale()
     return app(App\ResolveLocale::class)();
 }
 
+function path_wlocale($path)
+{
+    return locale() . '/' . $path;
+}
+
 function url_wlocale($path)
 {
-    return url(locale() . '/' . $path);
+    return url(path_wlocale($path));
 }
 
 function route_wlocale($route, $parameters = [])
 {
-    return url(locale() . route($route, $parameters, false));
+    return route($route, array_merge($parameters, ['locale' => locale()]));
 }
 
 function switch_locale($newLocale)

@@ -32,9 +32,14 @@
                     <a href="{{ url_wlocale('learn') }}" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-900 no-underline hover:underline">{{ __('Learn') }}</a>
                 </div>
                 <div class="w-full md:w-1/2 text-center md:text-right">
-                    <p class="text-gray-dark">
-                        <a href="{{ switch_locale('en') }}" class="no-underline hover:underline{{ $locale === 'en' ? ' font-bold' : '' }}">EN</a> | <a href="{{ switch_locale('es') }}" class="no-underline hover:underline{{ $locale === 'es' ? ' font-bold' : '' }}">ES</a>
-                    </p>
+                    <span class="border-l border-r">
+                    @foreach (Facades\App\ResolveLocale::locales() as $thisLocale)
+                        <a href="{{ switch_locale($thisLocale) }}" class="no-underline hover:underline text-gray-900 text-sm p-3{{ $thisLocale === $locale ? ' font-bold' : '' }}">{{ strtoupper($thisLocale) }}</a>
+                        @if (! $loop->last)
+                        <span class="text-gray-400">|</span>
+                        @endif
+                    @endforeach
+                    </span>
 
                     @guest
                         <a class="no-underline hover:underline text-gray-900 text-sm p-3" href="{{ route_wlocale('login') }}">{{ __('Log in') }}</a>

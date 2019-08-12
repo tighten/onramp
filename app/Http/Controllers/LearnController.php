@@ -4,25 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Route;
 
 class LearnController extends Controller
 {
-    protected $locales = [
-        'en',
-        'es',
-    ];
-
-    public function __invoke($locale = 'en')
+    public function __invoke()
     {
-        if (! in_array($locale, $this->locales)) {
-            return redirect('/');
-        }
-
-        App::setLocale($locale);
+        $locale = Route::current()->parameter('locale');
 
         return view('learn', [
             'learn' => require(base_path("learn.$locale.php")),
-            'locale' => $locale,
+            'pageTitle' => __('Learn Laravel Now'),
         ]);
     }
 }

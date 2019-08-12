@@ -2,8 +2,12 @@
 
 Auth::routes();
 
-Route::view('/', 'welcome');
+Route::redirect('/', '/en');
 
-Route::get('learn/{locale?}', 'LearnController');
+Route::group(['prefix' => '{locale}'], function () {
+    Route::view('/', 'welcome');
 
-Route::view('home', 'home');
+    Route::get('learn', 'LearnController');
+
+    Route::view('home', 'home');
+});

@@ -2,7 +2,7 @@
 
 function locale()
 {
-    return app(App\ResolveLocale::class)();
+    return app(App\Localization\ResolveLocale::class)();
 }
 
 function path_wlocale($path)

@@ -22,7 +22,7 @@ class LearnController extends Controller
 
         return view('learn', [
             'learn' => require(base_path("learn.$locale.php")),
-            'local' => $locale,
+            'locale' => $locale,
         ]);
     }
 }

@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Handlers\Events\SlackSubscriber;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;

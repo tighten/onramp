@@ -20,7 +20,7 @@ function route_wlocale($route, $parameters = [])
     return route($route, array_merge($parameters, ['locale' => locale()]));
 }
 
-function switch_locale($newLocale)
+function switch_locale_link($newLocale)
 {
     $segments = Request::segments();
     $segments[0] = $newLocale;

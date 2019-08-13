@@ -10,7 +10,7 @@
                         {{ __('Login') }}
                     </div>
 
-                    <form class="w-full p-6" method="POST" action="{{ route('login') }}">
+                    <form class="w-full p-6" method="POST" action="{{ route_wlocale('login') }}">
                         @csrf
 
                         <div class="flex flex-wrap mb-6">
@@ -21,7 +21,7 @@
                             <input id="email" type="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline{{ $errors->has('email') ? ' border-red-500' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
                             @if ($errors->has('email'))
-                                <p class="text-red-500 text-xs italic mt-4">
+                                <p class="text-red-500 text-xs italic mt-2">
                                     {{ $errors->first('email') }}
                                 </p>
                             @endif
@@ -35,7 +35,7 @@
                             <input id="password" type="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline{{ $errors->has('password') ? ' border-red-500' : '' }}" name="password" required>
 
                             @if ($errors->has('password'))
-                                <p class="text-red-500 text-xs italic mt-4">
+                                <p class="text-red-500 text-xs italic mt-2">
                                     {{ $errors->first('password') }}
                                 </p>
                             @endif
@@ -55,16 +55,16 @@
                             </button>
 
                             @if (Route::has('password.request'))
-                                <a class="text-sm text-blue-500 hover:text-blue-700 whitespace-no-wrap no-underline ml-auto" href="{{ route('password.request') }}">
+                                <a class="text-sm text-blue-500 hover:text-blue-700 whitespace-no-wrap no-underline ml-auto" href="{{ route_wlocale('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                             @endif
 
                             @if (Route::has('register'))
                                 <p class="w-full text-xs text-center text-gray-700 mt-8 -mb-4">
-                                    Don't have an account?
-                                    <a class="text-blue-500 hover:text-blue-700 no-underline" href="{{ route('register') }}">
-                                        Register
+                                    {{ __("Don't have an account?") }}
+                                    <a class="text-blue-500 hover:text-blue-700 no-underline" href="{{ route_wlocale('register') }}">
+                                        {{ __('Register') }}
                                     </a>
                                 </p>
                             @endif

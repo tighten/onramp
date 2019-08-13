@@ -27,7 +27,7 @@ class ResolveLocale
         $locale = reset($segments);
 
         if (! Locale::isValid($locale)) {
-            throw new Exception('Invalid locale: '. $locale);
+            throw new Exception("Invalid locale: {$locale}");
         }
 
         return $locale;

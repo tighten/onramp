@@ -21,7 +21,7 @@
                     <img src="/images/onramp_logo.svg" alt="Onramp" class="max-w-xs w-full">
                 </a>
                 <div class="text-white text-center md:text-right md:w-40">
-                @foreach (Facades\App\Localization\Locales::all() as $thisLocale)
+                @foreach (Facades\App\Localization\Locale::all() as $thisLocale)
                     <a href="{{ switch_locale($thisLocale) }}" class="no-underline hover:underline text-white text-sm p-3{{ $thisLocale === $locale ? ' font-bold' : '' }}">{{ strtoupper($thisLocale) }}</a>
                     @if (! $loop->last)
                     <span class="text-gray-400">|</span>

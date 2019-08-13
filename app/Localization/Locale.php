@@ -2,7 +2,7 @@
 
 namespace App\Localization;
 
-class Locales
+class Locale
 {
     protected $locales = [
         'en',

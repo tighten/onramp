@@ -47,7 +47,9 @@
                 @endforeach
             </ul>
 
-            <p>{{ __("That's all, for now. Soon: more and better organized links to places to learn each of these technologies/tools, a more robust list of technologies, etc., and then later maybe exercises to test them and prove out your learning.") }}</p>
+            <hr class="border-b border-gray-500 mt-12">
+
+            <p class="mt-12">{{ __("That's all, for now.") }}<br><br>{{ __("Soon: more and better organized links to places to learn each of these technologies/tools, a more robust list of technologies, etc., and then later maybe exercises to test them and prove out your learning.") }}</p>
         </div>
     </div>
 </div>

@@ -13,6 +13,7 @@ return [
         'links' => [
             'HTML Reference' => 'https://htmlreference.io/',
             'TraversyMedia HTML Crash Course' => 'https://www.youtube.com/watch?v=UB1O30fR-EE',
+            'Codecademy Introduction to HTML' => 'https://www.codecademy.com/learn/learn-html',
         ],
     ],
     [
@@ -20,6 +21,7 @@ return [
         'links' => [
             'CSS Reference' => 'https://cssreference.io/',
             'TraversyMedia CSS Crash Course' => 'https://www.youtube.com/watch?v=yfoY53QXEnI',
+            'Codecademy Learn CSS' => 'https://www.codecademy.com/learn/learn-css',
         ],
     ],
     [
@@ -59,24 +61,39 @@ return [
                 'name' => 'Variables',
                 'links' => [
                     'Laracasts Video' => 'https://laracasts.com/series/php-for-beginners/episodes/3',
+                    'Codecademy' => 'https://www.codecademy.com/learn/learn-php/modules/learn-php-variables',
                 ],
             ],
             [
                 'name' => 'Arrays',
                 'links' => [
                     'Laracasts Video' => 'https://laracasts.com/series/php-for-beginners/episodes/6',
+                    'Codecademy' => 'https://www.codecademy.com/learn/learn-php/modules/learn-php-arrays'
                 ],
             ],
             [
                 'name' => 'Functions',
                 'links' => [
                     'Laracasts Video' => 'https://laracasts.com/series/php-for-beginners/episodes/10',
+                    'Codecademy' => 'https://www.codecademy.com/learn/learn-php/modules/introduction-to-functions-in-php'
                 ],
             ],
             [
                 'name' => 'Classes',
                 'links' => [
                     'Laracasts Video' => 'https://laracasts.com/series/php-for-beginners/episodes/12',
+                ],
+            ],
+            [
+                'name' => 'Conditionals',
+                'links' => [
+                    'Codecademy' => 'https://www.codecademy.com/learn/learn-php/modules/conditionals-logic-php',
+                ],
+            ],
+            [
+                'name' => 'Loops',
+                'links' => [
+                    'Codecademy' => 'https://www.codecademy.com/learn/learn-php/modules/php-loops',
                 ],
             ],
             [
@@ -177,6 +194,7 @@ return [
         'links' => [
             'Wes Bos Video Series' => 'https://javascript30.com/',
             'TraversyMedia JavaScript Crash Course' => 'https://www.youtube.com/watch?v=hdI2bqOjy3c',
+            'Codecademy' => 'https://www.codecademy.com/learn/learn-javascript',
         ],
     ],
     [

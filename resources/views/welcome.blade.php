@@ -4,7 +4,7 @@
 <div class="w-full bg-white">
     <!-- title -->
     <div class="text-center px-6 py-12 mb-6 bg-gray-100 border-b">
-        <h1 class=" text-xl md:text-4xl pb-4">Onramp to Laravel</h1>
+        <h1 class=" text-xl md:text-4xl pb-4">{{ __('Onramp to Laravel') }}</h1>
         <p class="leading-loose text-gray-dark">
             Providing an easy entrance to Laravel for new developers
         </p>
@@ -25,7 +25,7 @@
                 Who is it for?
             </h2>
             <p class="text-gray-700 leading-normal mb-4">
-                The goal is to make it as easy as possible for two groups of people to become capable professional Laravel developers: <strong>Brand-new developers</strong> and <strong>frontend developers.</strong>
+                The goal is to make it as easy as possible for three groups of people to become capable professional Laravel developers: <strong>Brand-new developers</strong>, <strong>frontend developers</strong>, and <strong>WordPress developers</strong>.
             </p>
 
             <h2 class="mb-2 mt-8 text-black text-xl md:text-2xl">
@@ -42,7 +42,7 @@
                 Let's do it!
             </h2>
 
-            <p>OK, let's <a href="/learn" class="underline text-blue-700">learn.</a></p>
+            <p>OK, let's <a href="{{ url_wlocale('learn') }}" class="underline text-blue-700">learn.</a></p>
         </div>
 
         <!-- sidebar -->

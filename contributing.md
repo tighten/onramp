@@ -15,8 +15,8 @@
 
 #### **Do you have questions about the plans for Onramp?**
 
-* Ask any question about how to use Ruby on Rails in the issues here
+* Ask any question about how to contribute to or use Onramp in the issues here
 
-Thanks! :heart: :heart: :heart:
+Thanks! :heart:
 
 Matt

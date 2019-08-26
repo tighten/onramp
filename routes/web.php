@@ -1,14 +1,14 @@
-
 <?php
 
-Route::view('/', 'welcome');
 
-Route::get('learn', function () {
-    return view('learn', [
-        'learn' => require(base_path('learn.php')),
-    ]);
+Route::redirect('/', '/en');
+
+Route::group(['prefix' => '{locale}'], function () {
+    Route::view('/', 'welcome');
+
+    Route::get('learn', 'LearnController');
+
+    Route::view('home', 'home');
+
+    Auth::routes();
 });
-
-Auth::routes();
-
-Route::view('home', 'home');

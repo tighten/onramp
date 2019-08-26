@@ -10,7 +10,7 @@
                         {{ __('Reset Password') }}
                     </div>
 
-                    <form class="w-full p-6" method="POST" action="{{ route('password.update') }}">
+                    <form class="w-full p-6" method="POST" action="{{ route_wlocale('password.update') }}">
                         @csrf
 
                         <input type="hidden" name="token" value="{{ $token }}">
@@ -23,7 +23,7 @@
                             <input id="email" type="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline{{ $errors->has('email') ? ' border-red' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
                             @if ($errors->has('email'))
-                                <p class="text-red-500 text-xs italic mt-4">
+                                <p class="text-red-500 text-xs italic mt-2">
                                     {{ $errors->first('email') }}
                                 </p>
                             @endif
@@ -37,7 +37,7 @@
                             <input id="password" type="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline{{ $errors->has('password') ? ' border-red' : '' }}" name="password" required>
 
                             @if ($errors->has('password'))
-                                <p class="text-red-500 text-xs italic mt-4">
+                                <p class="text-red-500 text-xs italic mt-2">
                                     {{ $errors->first('password') }}
                                 </p>
                             @endif

@@ -4,4 +4,4 @@ Onramp aims to be a collection of resources presented in a way that makes it pos
 
 ## How can I help?
 
-Check out the issues and look at `learn.php` to see if there's any *free* content you think we could add.
+Check out the issues and look at `learn.en.php` or `learn.es.php` to see if there's any *free* content you think we could add.

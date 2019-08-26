@@ -2,12 +2,6 @@
 
 return [
     [
-        'name' => 'Comandos de terminal básicos',
-        'links' => [
-            'Video de códigofacilito' => 'https://www.youtube.com/watch?v=FP_4uQXysRU',
-        ],
-    ],
-    [
         'name' => 'HTML',
         'links' => [
             'Refencia de Elementos HTML' => 'https://developer.mozilla.org/es/docs/Web/HTML/Elemento/',
@@ -21,6 +15,12 @@ return [
             'Referencia CSS' => 'https://developer.mozilla.org/es/docs/Web/CSS/Referencia_CSS',
             'Curso CSS para principiantes de Fazt' => 'https://www.youtube.com/watch?v=W6GTDfrWjXs',
             'Curso CSS desde cero de EDteam' => 'https://ed.team/cursos/css',
+        ],
+    ],
+    [
+        'name' => 'Comandos de terminal básicos',
+        'links' => [
+            'Video de códigofacilito' => 'https://www.youtube.com/watch?v=FP_4uQXysRU',
         ],
     ],
     [
@@ -78,7 +78,7 @@ return [
                 'name' => 'Constructores',
                 'links' => [
                     'Video de Styde' => 'https://styde.net/encapsulamiento-y-uso-de-getters-y-setters-en-php/',
-                ],                
+                ],
             ],
             [
                 'name' => 'Herencia Básica',

@@ -2,13 +2,6 @@
 
 return [
     [
-        'name' => 'Basic Terminal Commands',
-        'links' => [
-            'Treehouse Article' => 'https://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line',
-            'Codecademy Course' => 'https://www.codecademy.com/courses/learn-the-command-line/lessons/navigation/exercises/your-first-command?action=resume_content_item',
-        ],
-    ],
-    [
         'name' => 'HTML',
         'links' => [
             'HTML Reference' => 'https://htmlreference.io/',
@@ -22,6 +15,13 @@ return [
             'CSS Reference' => 'https://cssreference.io/',
             'TraversyMedia CSS Crash Course' => 'https://www.youtube.com/watch?v=yfoY53QXEnI',
             'Codecademy Learn CSS' => 'https://www.codecademy.com/learn/learn-css',
+        ],
+    ],
+    [
+        'name' => 'Basic Terminal Commands',
+        'links' => [
+            'Treehouse Article' => 'https://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line',
+            'Codecademy Course' => 'https://www.codecademy.com/courses/learn-the-command-line/lessons/navigation/exercises/your-first-command?action=resume_content_item',
         ],
     ],
     [

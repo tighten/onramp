@@ -46,4 +46,15 @@ class LoginController extends Controller
             'pageTitle' => __('Log in'),
         ]);
     }
+
+    /**
+     * The user has logged out of the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return mixed
+     */
+    protected function loggedOut()
+    {
+        return redirect(locale());
+    }
 }

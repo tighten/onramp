@@ -68,14 +68,14 @@ return [
                 'name' => 'Arrays',
                 'links' => [
                     'Laracasts Video' => 'https://laracasts.com/series/php-for-beginners/episodes/6',
-                    'Codecademy' => 'https://www.codecademy.com/learn/learn-php/modules/learn-php-arrays'
+                    'Codecademy' => 'https://www.codecademy.com/learn/learn-php/modules/learn-php-arrays',
                 ],
             ],
             [
                 'name' => 'Functions',
                 'links' => [
                     'Laracasts Video' => 'https://laracasts.com/series/php-for-beginners/episodes/10',
-                    'Codecademy' => 'https://www.codecademy.com/learn/learn-php/modules/introduction-to-functions-in-php'
+                    'Codecademy' => 'https://www.codecademy.com/learn/learn-php/modules/introduction-to-functions-in-php',
                 ],
             ],
             [
@@ -217,5 +217,5 @@ return [
         'links' => [
             'Start Testing Laravel' => 'https://jasonmccreary.me/articles/start-testing-laravel/',
         ],
-    ]
+    ],
 ];

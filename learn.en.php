@@ -47,9 +47,22 @@ return [
                 ],
             ],
             [
+                'name' => 'Valet (if using GNU/Linux)',
+                'links' => [
+                    'Valet Linux' => 'https://cpriego.github.io/valet-linux/',
+                ],
+            ],
+            [
+                'name' => 'Laragon for Windows (Best Laravel WAMP)',
+                'links' => [
+                    'Laragon' => 'https://laragon.org/',
+                ],
+            ],
+            [
                 'name' => 'Composer',
                 'links' => [
                     'Laracasts Video' => 'https://laracasts.com/series/setup-a-mac-dev-machine-from-scratch/episodes/6',
+                    'Step by Step tutorial (Ubuntu)' => 'https://www.digitalocean.com/community/tutorials/how-to-install-and-use-composer-on-ubuntu-18-04'
                 ],
             ],
         ],
@@ -134,8 +147,8 @@ return [
                 'name' => 'Blade Syntax &amp; Inheritance',
                 'links' => [
                     'Laravel Docs' => 'https://laravel.com/docs/blade',
-                    'Laracasts Video' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/4',
-                    'Laracasts Video' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/5',
+                    'Laracasts Video #4' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/4',
+                    'Laracasts Video #5' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/5',
                 ],
             ],
             [
@@ -177,8 +190,8 @@ return [
             [
                 'name' => 'Sending mail',
                 'links' => [
-                    'Laravel Docs' => 'https://laravel.com/docs/5.8/mail',
-                    'Laravel Docs' => 'https://laravel.com/docs/5.8/notifications',
+                    'Laravel Docs (Mail)' => 'https://laravel.com/docs/5.8/mail',
+                    'Laravel Docs (Notifications)' => 'https://laravel.com/docs/5.8/notifications',
                 ],
             ],
             [

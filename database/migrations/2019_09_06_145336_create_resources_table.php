@@ -14,7 +14,8 @@ class CreateResourcesTable extends Migration
             $table->string('url');
             $table->boolean('is_free')->default(true);
             $table->string('type');
-            $table->unsignedBigInteger('module_id')->references('id')->on('modules');
+            $table->unsignedBigInteger('module_id');
+            $table->foreign('module_id')->references('id')->on('modules');
             $table->timestamps();
         });
     }

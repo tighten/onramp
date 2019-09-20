@@ -12,7 +12,8 @@ class CreateSkillsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->boolean('is_bonus')->default(false);
-            $table->unsignedBigInteger('module_id')->references('id')->on('modules');
+            $table->unsignedBigInteger('module_id');
+            $table->foreign('module_id')->references('id')->on('modules');
             $table->timestamps();
         });
     }

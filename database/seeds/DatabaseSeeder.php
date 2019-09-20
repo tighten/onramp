@@ -3,16 +3,11 @@
 use App\Module;
 use App\Resource;
 use App\Skill;
+use App\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Arr;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
     public function run()
     {
         // Seed a few modules
@@ -47,20 +42,25 @@ class DatabaseSeeder extends Seeder
 
             // Seed skills
             foreach ($module['skills'] as $skill) {
-                Skill::create(['name' => $skill, 'module_id' => $eloquentModule->id]);
+                factory(Skill::class)->create([
+                    'name' => $skill,
+                    'module_id' => $eloquentModule->id,
+                ]);
             }
 
             // Seed resources
             foreach ($module['resources'] as $name => $url) {
-                Resource::create([
+                factory(Resource::class)->create([
                     'name' => $name,
                     'url' => $url,
-                    'type' => Arr::random(['video', 'text', 'book']),
                     'module_id' => $eloquentModule->id,
                 ]);
             }
         }
 
-        // $this->call(UsersTableSeeder::class);
+        factory(User::class)->create([
+            'email' => 'matt@tighten.co',
+            'password' => bcrypt('password'),
+        ]);
     }
 }

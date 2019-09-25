@@ -21,7 +21,7 @@ return [
         'name' => 'Comandos de terminal básicos',
         'links' => [
             'Video de códigofacilito' => 'https://www.youtube.com/watch?v=FP_4uQXysRU',
-            'Git - La guía simple' => 'https://rogerdudler.github.io/git-guide/'
+            'Git - La guía simple' => 'https://rogerdudler.github.io/git-guide/index.es.html'
         ],
     ],
     [

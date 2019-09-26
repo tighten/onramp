@@ -3,8 +3,6 @@
 namespace Tests\Feature;
 
 use App\Localization\ResolveLocale;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\Request;
 use Mockery;
 use Tests\TestCase;

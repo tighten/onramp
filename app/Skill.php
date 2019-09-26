@@ -2,11 +2,12 @@
 
 namespace App;
 
+use App\Completable;
 use App\Completion;
 use App\Module;
 use Illuminate\Database\Eloquent\Model;
 
-class Skill extends Model
+class Skill extends Model implements Completable
 {
     protected $guarded = ['id'];
 

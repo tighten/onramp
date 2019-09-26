@@ -2,9 +2,10 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
+use App\Completable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -27,16 +28,26 @@ class User extends Authenticatable
         return $this->hasMany(Completion::class);
     }
 
-    public function complete($data)
+    public function complete(Completable $completable)
     {
         return $this->completions()->create([
-            'completable_id' => $data->id,
-            'completable_type' => get_class($data),
+            'completable_id' => $completable->getKey(),
+            'completable_type' => $completable->getMorphClass(),
         ]);
     }
 
-    public function undoComplete()
+    public function undoComplete($completable)
     {
-        // @todo
+        return $this->completions()->where([
+            'completable_id' => $completable->getKey(),
+            'completable_type' => $completable->getMorphClass(),
+        ])->delete();
+    }
+
+    public function completedModules()
+    {
+        return $this->completions()->where([
+            'completable_type' => Module::class,
+        ]);
     }
 }

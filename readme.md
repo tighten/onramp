@@ -12,7 +12,7 @@ Right now, the plan is to finalize a decent list of "tracks" (new to programming
 
 Once those have been finalized, we can start building an actual tool. The first steps will be to build out the tracks and modules in a database. Then, we can allow users to pick a track (or pick "Just Exploring") and then log into a dashboard where they will just see the modules recommended for their track.
 
-They can click into a module and see the possible free online sources for learning about that topic, click a checkbox that says "I feel like I know enough about this module to consider it done", and then move to the next module.
+They can click into a module and see the possible free online sources for learning about that topic ("resources"), click a checkbox that says "I feel like I know enough about this resource/module to consider it done" (complete the module), and then move to the next module.
 
 They could also, eventually, take small quizzes about that module (self-testing, not for certification or external validation) and try out some code exercises about that module.
 

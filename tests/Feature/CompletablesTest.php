@@ -3,10 +3,12 @@
 namespace Tests\Feature;
 
 use App\Completion;
+use App\Module;
 use App\Resource;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use TypeError;
 
 class CompletablesTest extends TestCase
 {
@@ -24,9 +26,21 @@ class CompletablesTest extends TestCase
     }
 
     /** @test */
+    function user_can_undo_a_resource_completion()
+    {
+        $user = factory(User::class)->create();
+        $resource = factory(Resource::class)->create();
+
+        $user->complete($resource);
+        $user->undoComplete($resource);
+
+        $this->assertEquals(0, Completion::count());
+    }
+
+    /** @test */
     function user_cannot_complete_another_user()
     {
-        $this->markTestIncomplete('@todo Only allow completion of valid models');
+        $this->expectException(TypeError::class);
 
         $user = factory(User::class)->create();
         $otherUser = factory(User::class)->create();
@@ -39,15 +53,12 @@ class CompletablesTest extends TestCase
     /** @test */
     function user_can_list_completed_modules()
     {
-        $this->markTestIncomplete('Write the completed modules method on user');
-
         $user = factory(User::class)->create();
         $module = factory(Module::class)->create();
         $otherModule = factory(Module::class)->create();
         $user->complete($module);
 
-        // @todo write this method!
-        // @todo might have to do module->id against an array of IDs
-        $this->assertContains($module, $user->completedModules());
+        $this->assertContains($module->id, $user->completedModules->pluck('id'));
+        $this->assertNotContains($otherModule->id, $user->completedModules->pluck('id'));
     }
 }

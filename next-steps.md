@@ -7,6 +7,19 @@
 7. Use consts, or a PHP enum, or something to cement the list of resource types
 8. Start building the UI for it
 
+
+---
+
+## Entities:
+- Tracks
+- Modules
+    - Resources
+    - Skills
+    - Quizzes (?)
+    - Exercises (?)
+- Users
+- Completions (pivot between user and ___)
+
 ---
 
 What is track doing?

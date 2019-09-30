@@ -28,6 +28,7 @@ return [
         'name' => 'Git',
         'links' => [
             'Git Tower eBook &amp; Video' => 'https://www.git-tower.com/learn/',
+            'Git - The simple guide' => 'https://rogerdudler.github.io/git-guide/'
         ],
     ],
     [

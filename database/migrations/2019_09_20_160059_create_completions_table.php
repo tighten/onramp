@@ -10,7 +10,7 @@ class CreateCompletionsTable extends Migration
     {
         Schema::create('completions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('completable_id');
             $table->string('completable_type');

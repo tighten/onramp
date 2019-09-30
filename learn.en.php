@@ -36,26 +36,32 @@ return [
             [
                 'name' => 'Valet (if using a Mac)',
                 'links' => [
-                    'Laravel Docs' => 'https://laravel.com/docs/valet',
+                    'Laravel Docs (Valet)' => 'https://laravel.com/docs/valet',
                     'Laracasts Video' => 'https://laracasts.com/series/setup-a-mac-dev-machine-from-scratch/episodes/10',
                 ],
             ],
             [
-                'name' => 'Homestead (if not using a Mac)',
-                'links' => [
-                    'Laravel Docs' => 'https://laravel.com/docs/homestead',
-                ],
-            ],
-            [
-                'name' => 'Valet (if using GNU/Linux)',
+                'name' => 'Valet Linux (if using Linux)',
                 'links' => [
                     'Valet Linux' => 'https://cpriego.github.io/valet-linux/',
                 ],
             ],
             [
-                'name' => 'Laragon for Windows (Best Laravel WAMP)',
+                'name' => 'Laragon (standalone installable for Windows)',
                 'links' => [
                     'Laragon' => 'https://laragon.org/',
+                ],
+            ],
+            [
+                'name' => 'Homestead (if you prefer Vagrant)',
+                'links' => [
+                    'Laravel Docs' => 'https://laravel.com/docs/homestead',
+                ],
+            ],
+            [
+                'name' => 'Vessel (if you prefer Docker)',
+                'links' => [
+                    'Vessel Docs' => 'https://vessel.shippingdocker.com/',
                 ],
             ],
             [
@@ -139,16 +145,16 @@ return [
             [
                 'name' => 'Laravel Routing &amp; HTTP Verbs (using route closures)',
                 'links' => [
-                    'Laravel Docs' => 'https://laravel.com/docs/routing',
+                    'Laravel Docs (Routing)' => 'https://laravel.com/docs/routing',
                     'Laracasts Video' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/3',
                 ],
             ],
             [
                 'name' => 'Blade Syntax &amp; Inheritance',
                 'links' => [
-                    'Laravel Docs' => 'https://laravel.com/docs/blade',
-                    'Laracasts Video #4' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/4',
-                    'Laracasts Video #5' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/5',
+                    'Laravel Docs (Blade)' => 'https://laravel.com/docs/blade',
+                    'Laracasts Laravel From Scratch #4' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/4',
+                    'Laracasts Laravel From Sratch #5' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/5',
                 ],
             ],
             [
@@ -163,28 +169,28 @@ return [
             [
                 'name' => 'Basic migrations',
                 'links' => [
-                    'Laravel Docs' => 'https://laravel.com/docs/5.8/migrations',
+                    'Laravel Docs (Migrations)' => 'https://laravel.com/docs/5.8/migrations',
                     'Laracasts Video' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/7',
                 ],
             ],
             [
                 'name' => 'Basic Eloquent syntax',
                 'links' => [
-                    'Laravel Docs' => 'https://laravel.com/docs/5.8/eloquent',
+                    'Laravel Docs (Eloquent)' => 'https://laravel.com/docs/5.8/eloquent',
                     'Laracasts Video' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/8',
                 ],
             ],
             [
                 'name' => 'CSRF',
                 'links' => [
-                    'Laravel Docs' => 'https://laravel.com/docs/5.8/csrf',
+                    'Laravel Docs (CSRF)' => 'https://laravel.com/docs/5.8/csrf',
                     'Laracasts Video' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/10',
                 ],
             ],
             [
                 'name' => 'Validation',
                 'links' => [
-                    'Laravel Docs' => 'https://laravel.com/docs/5.8/validation',
+                    'Laravel Docs (Validation)' => 'https://laravel.com/docs/5.8/validation',
                 ],
             ],
             [
@@ -197,7 +203,7 @@ return [
             [
                 'name' => 'Service Container',
                 'links' => [
-                    'Laravel Docs' => 'https://laravel.com/docs/5.8/container',
+                    'Laravel Docs (Container)' => 'https://laravel.com/docs/5.8/container',
                 ],
             ],
         ],

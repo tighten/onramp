@@ -3,6 +3,7 @@
 use App\Module;
 use App\Resource;
 use App\Skill;
+use App\Track;
 use App\User;
 use Illuminate\Database\Seeder;
 
@@ -10,6 +11,22 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
+        $tracks = [
+            [
+                'name' => 'New to Programming',
+            ],
+            [
+                'name' => 'Frontend Developers',
+            ],
+            [
+                'name' => 'WordPress Developers',
+            ],
+        ];
+
+        foreach ($tracks as $track) {
+            factory(Track::class)->create(['name' => $track['name']]);
+        }
+
         // Seed a few modules
         $modules = [
             [
@@ -35,10 +52,41 @@ class DatabaseSeeder extends Seeder
                     'Intro to Git branching at Gitlab' => 'https://www.superyay.com/',
                 ],
             ],
+            [
+                'name' => 'Eloquent for WordPress Developers',
+                'skills' => [
+                    'Make models',
+                    'Make migrations',
+                    'Migrate and relate one-to-many',
+                ],
+                'resources' => [
+                    'Eloquent for WP people Or Something' => 'https://www.superyay.com/',
+                    'Advanced Eloquent' => 'https://www.yay.com/',
+                ],
+            ],
+            [
+                'name' => 'Eloquent for non-WordPress Developers',
+                'skills' => [
+                    'Make models',
+                    'Make migrations',
+                    'Migrate and relate one-to-many',
+                ],
+                'resources' => [
+                    'Intro to Eloquent' => 'https://www.yay.com/',
+                    'Advanced Eloquent' => 'https://www.yay.com/',
+                ],
+            ],
         ];
 
+        $tracks = Track::all();
+
         foreach ($modules as $module) {
-            $eloquentModule = Module::create(['name' => $module['name']]);
+            $eloquentModule = Module::create([
+                'name' => $module['name'],
+            ]);
+
+            // Attach to track
+            $eloquentModule->tracks()->save($tracks->random());
 
             // Seed skills
             foreach ($module['skills'] as $skill) {

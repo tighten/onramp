@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Completable;
+use App\Track;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -49,5 +50,10 @@ class User extends Authenticatable
         return $this->completions()->where([
             'completable_type' => Module::class,
         ]);
+    }
+
+    public function track()
+    {
+        return $this->belongsTo(Track::class);
     }
 }

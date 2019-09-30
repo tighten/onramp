@@ -4,8 +4,10 @@ namespace App;
 
 use App\Completable;
 use App\Completion;
+use App\Module;
 use App\Resource;
 use App\Skill;
+use App\Track;
 use Illuminate\Database\Eloquent\Model;
 
 class Module extends Model implements Completable
@@ -25,5 +27,10 @@ class Module extends Model implements Completable
     public function completions()
     {
         return $this->morphMany(Completion::class, 'completable');
+    }
+
+    public function tracks()
+    {
+        return $this->belongsToMany(Track::class);
     }
 }

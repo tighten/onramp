@@ -155,7 +155,7 @@ return [
                 'links' => [
                     'Laravel Docs (Blade)' => 'https://laravel.com/docs/blade',
                     'Laracasts Laravel From Scratch #4' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/4',
-                    'Laracasts Laravel From Sratch #5' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/5',
+                    'Laracasts Laravel From Scratch #5' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/5',
                 ],
             ],
             [

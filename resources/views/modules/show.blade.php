@@ -87,7 +87,7 @@
                             <input type="checkbox" value="on" checked="">
                             <a href="#">Some great intro to CSS</a>
                         </li>
-                        <li>
+                        <li>s
                             <input type="checkbox" value="on">
                             <a href="#">Wes Bos Javascript 30 days thingy</a>
                         </li>

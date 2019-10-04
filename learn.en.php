@@ -28,8 +28,8 @@ return [
         'name' => 'Git',
         'links' => [
             'Git Tower eBook &amp; Video' => 'https://www.git-tower.com/learn/',
-            'Git - The simple guide' => 'https://rogerdudler.github.io/git-guide/'
-            'Brandch from Master, and Make Your First Commit Article' => 'https://dev.to/taeluralexis/break-git-down-how-to-create-a-branch-from-master-and-make-your-first-commit-2960',
+            'Git - The simple guide' => 'https://rogerdudler.github.io/git-guide/',
+            'Branch from Master, and Make Your First Commit Article' => 'https://dev.to/taeluralexis/break-git-down-how-to-create-a-branch-from-master-and-make-your-first-commit-2960',
         ],
     ],
     [

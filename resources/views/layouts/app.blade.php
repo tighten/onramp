@@ -37,7 +37,7 @@
             <div class="container mx-auto py-4 max-w-4xl md:flex justify-between items-center text-sm md:text-md md:justify-start">
                 <div class="w-full md:w-1/2 text-center md:text-left flex flex-wrap justify-center items-stretch md:justify-start md:items-start mb-4 md:mb-0">
                     <a href="{{ url_wlocale('/') }}" class="px-2 md:pl-0 md:mr-3 md:pr-3 md:border-r border-gray-light">{{ __('Home') }}</a>
-                    <a href="{{ url_wlocale('learn') }}" class="px-2 md:pl-0 md:mr-3 md:pr-3">{{ __('Learn') }}</a>
+                    <a href="{{ route_wlocale('modules.index') }}" class="px-2 md:pl-0 md:mr-3 md:pr-3">{{ __('Learn') }}</a>
                 </div>
                 <div class="w-full md:w-1/2 text-center md:text-right">
                     @guest

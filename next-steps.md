@@ -8,6 +8,8 @@
 8. Deal with the rigamarole of "mustverifyemail" for users
 9. Use consts, or a PHP enum, or something to cement the list of resource types
 10. Start building the UI for it
+11. Consider/decide: allow for marking a give module as "current"
+12. Upgrade to Laravel 6
 
 
 ---

@@ -17,7 +17,9 @@
 
             <ul class="list-disc pl-6">
                 @foreach ($modules as $module)
-                <li><a href="{{ route_wlocale('modules.show', $module) }}">{{ $module->name }}</a></li>
+                <li><input type="checkbox" disabled {{ $completedModules->contains($module->id) ? ' checked="checked"' : '' }}>
+                    <a href="{{ route_wlocale('modules.show', $module) }}">{{ $module->name }}</a>
+                </li>
                 @endforeach
             </ul>
         </div>

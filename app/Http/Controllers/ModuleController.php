@@ -11,6 +11,7 @@ class ModuleController extends Controller
     {
         return view('modules.index', [
             'modules' => Module::all(),
+            'completedModules' => auth()->user()->completedModules()->pluck('id'),
         ]);
     }
 

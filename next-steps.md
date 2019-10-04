@@ -10,6 +10,8 @@
 10. Start building the UI for it
 11. Consider/decide: allow for marking a give module as "current"
 12. Upgrade to Laravel 6
+13. Ensure all content from the master branch learn.en and learn.es files make it into the eventual DB-backed version
+14. Audit all new pages on the mes-database-backed branch for final text, and then convert it all to __() language calls
 
 
 ---

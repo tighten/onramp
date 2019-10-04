@@ -83,6 +83,7 @@ class DatabaseSeeder extends Seeder
         foreach ($modules as $module) {
             $eloquentModule = Module::create([
                 'name' => $module['name'],
+                'slug' => Str::slug($module['name']),
             ]);
 
             // Attach to track

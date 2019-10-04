@@ -2,6 +2,12 @@
 
 return [
     [
+        'name' => 'Introduction',
+        'links' => [
+            'We Learn Code' => 'https://ebook.welearncode.com/'
+        ]
+    ],
+    [
         'name' => 'HTML',
         'links' => [
             'HTML Reference' => 'https://htmlreference.io/',

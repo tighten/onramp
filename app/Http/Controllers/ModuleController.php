@@ -19,6 +19,7 @@ class ModuleController extends Controller
     {
         return view('modules.show', [
             'module' => $module,
+            'resources' => $module->resources,
         ]);
     }
 }

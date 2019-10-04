@@ -14,6 +14,11 @@ class Module extends Model implements Completable
 {
     protected $guarded = ['id'];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function resources()
     {
         return $this->hasMany(Resource::class);

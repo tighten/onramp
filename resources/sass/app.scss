@@ -4,6 +4,13 @@
 
 @tailwind utilities;
 
+a {
+    @apply text-blue-700 no-underline;
+}
+    a:hover {
+        @apply underline;
+    }
+
 .temp-learn-list {
     @apply .list-disc;
 }

@@ -15,6 +15,7 @@ return [
             'CSS Reference' => 'https://cssreference.io/',
             'TraversyMedia CSS Crash Course' => 'https://www.youtube.com/watch?v=yfoY53QXEnI',
             'Codecademy Learn CSS' => 'https://www.codecademy.com/learn/learn-css',
+            'Flexbox Zombies Master Course' => 'https://mastery.games/p/flexbox-zombies',
         ],
     ],
     [

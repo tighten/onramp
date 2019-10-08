@@ -9,6 +9,13 @@
         <meta property="og:type" content="{{ $ogType ?? 'website' }}">
         <meta property="og:url" content="{{ $ogUrl ?? 'https://onramp.dev' }}">
         <meta property="og:image" content="{{ $ogImage ?? url('/images/opengraph_logo.png') }}">
+
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="{{ $ogUrl ?? 'https://onramp.dev' }}">
+        <meta property="twitter:title" content="{{ $ogTitle ?? __('Onramp to Laravel') }}">
+        <meta property="twitter:description" content="{{ $ogDescription ?? __('Learn everything you need to get hired writing Laravel, quickly and easily.') }}">
+        <meta property="twitter:image" content="{{ $ogImage ?? url('/images/twitter_card.png') }}">
+
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
         <title>{{ isset($pageTitle) ? "{$pageTitle} | " : '' }}{{ __('Onramp to Laravel') }}</title>

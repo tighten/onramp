@@ -11,7 +11,7 @@ class ModuleController extends Controller
     {
         return view('modules.index', [
             'modules' => Module::all(),
-            'completedModules' => auth()->user()->completedModules()->pluck('id'),
+            'completedModules' => auth()->user()->moduleCompletions()->pluck('completable_id'),
         ]);
     }
 
@@ -20,6 +20,8 @@ class ModuleController extends Controller
         return view('modules.show', [
             'module' => $module,
             'resources' => $module->resources,
+            'completedResources' => auth()->user()->resourceCompletions()->pluck('completable_id'),
+            'completedSkills' => auth()->user()->skillCompletions()->pluck('completable_id'),
         ]);
     }
 }

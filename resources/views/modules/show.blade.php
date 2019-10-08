@@ -19,12 +19,14 @@
                         Skills
                     </h3>
                     <ul>
-                        @foreach ($module->skills as $skill)
+                        @forelse ($module->skills as $skill)
                         <li>
-                            <input type="checkbox" checked="" value="on">
+                            <input type="checkbox"{{ $completedSkills->contains($skill->id) ? ' checked="checked"' : '' }}>
                             {{ $skill->name }}
                         </li>
-                        @endforeach
+                        @empty
+                        <li>No resources</li>
+                        @endforelse
                         <br>@todo handle bonus skills BONUS:
                         <li>
                             <input type="checkbox" value="on">
@@ -69,7 +71,8 @@
             </h3>
 
             @php
-            $freeResources = $resources->where('is_free', false);
+            $freeResources = $resources->where('is_free', true);
+            $paidResources = $resources->where('is_free', false);
             @endphp
 
             <div class="flex">
@@ -78,20 +81,12 @@
                         Videos/courses
                     </h3>
                     <ul>
-                        <!-- // @todo $freeResources->where('type', 'video') -->
-                        <li>
-                            <input type="checkbox" value="on" checked="">
-                            <a href="#">Some great intro to HTML</a>
-                        </li>
-                        <li>
-                            <input type="checkbox" value="on" checked="">
-                            <a href="#">Some great intro to CSS</a>
-                        </li>
-                        <li>s
-                            <input type="checkbox" value="on">
-                            <a href="#">Wes Bos Javascript 30 days thingy</a>
-                        </li>
-                        <br>BONUS:
+                        @forelse ($freeResources->whereIn('type', ['video', 'course'])->all() as $resource)
+                            @include('partials.resource-on-module-page')
+                        @empty
+                            <li>No resources</li>
+                        @endforelse
+                        <br>BONUS @todo:
                         <li>
                             <input type="checkbox" value="on">
                             <a href="#">Some great Tailwind intro</a>
@@ -103,10 +98,12 @@
                         Articles &amp; audio
                     </h3>
                     <ul>
-                        <li><input type="checkbox" value="on" checked=""> <a href="#">Some great article about some intro HTML thing</a></li>
-                        <li><input type="checkbox" value="on" checked=""> <a href="#">Chris Coyier n stuff!</a></li>
-                        <li><input type="checkbox" value="on" checked=""> <a href="#">I love JS Yes I do</a></li>
-                        <br>BONUS:
+                        @forelse ($freeResources->whereIn('type', ['article', 'audio'])->all() as $resource)
+                            @include('partials.resource-on-module-page')
+                        @empty
+                            <li>No resources</li>
+                        @endforelse
+                        <br>BONUS @todo:
                         <li><input type="checkbox" value="on"> <a href="#">Podcast episode about utility CSS</a></li>
                     </ul>
                 </div>
@@ -122,19 +119,12 @@
                         Videos/courses
                     </h3>
                     <ul>
-                        <li>
-                            <input type="checkbox" checked="" value="on">
-                            <a href="#">Team Treehouse?</a>
-                        </li>
-                        <li>
-                            <input type="checkbox" checked="" value="on">
-                            <a href="#">Net Tuts or something?</a>
-                        </li>
-                        <li>
-                            <input type="checkbox" value="on">
-                            <a href="#">Probably other Wes bos</a>
-                        </li>
-                        <br>BONUS:
+                        @forelse ($paidResources->whereIn('type', ['video', 'course'])->all() as $resource)
+                            @include('partials.resource-on-module-page')
+                        @empty
+                            <li>No resources</li>
+                        @endforelse
+                        <br>BONUS @todo:
                         <li>
                             <input type="checkbox" value="on">
                             <a href="#">Some great paid Tailwind intro</a>
@@ -146,7 +136,11 @@
                         Books
                     </h3>
                     <ul>
-                        <li><input type="checkbox" value="on"> <a href="#">Some book about HTML &amp; CSS &amp; JS</a></li>
+                        @forelse ($paidResources->whereIn('type', ['book'])->all() as $resource)
+                            @include('partials.resource-on-module-page')
+                        @empty
+                            <li>No resources</li>
+                        @endforelse
                     </ul>
                 </div>
             </div>

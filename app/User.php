@@ -3,6 +3,8 @@
 namespace App;
 
 use App\Completable;
+use App\Resource;
+use App\Skill;
 use App\Track;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -23,6 +25,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function track()
+    {
+        return $this->belongsTo(Track::class);
+    }
 
     public function completions()
     {
@@ -45,15 +52,18 @@ class User extends Authenticatable
         ])->delete();
     }
 
-    public function completedModules()
+    public function moduleCompletions()
     {
-        return $this->completions()->where([
-            'completable_type' => Module::class,
-        ]);
+        return $this->completions()->modules();
     }
 
-    public function track()
+    public function resourceCompletions()
     {
-        return $this->belongsTo(Track::class);
+        return $this->completions()->resources();
+    }
+
+    public function skillCompletions()
+    {
+        return $this->completions()->skills();
     }
 }

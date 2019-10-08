@@ -105,6 +105,11 @@ class DatabaseSeeder extends Seeder
                     'module_id' => $eloquentModule->id,
                 ]);
             }
+
+            // Seed faker-generated resources
+            factory(Resource::class, 5)->create([
+                'module_id' => $eloquentModule->id,
+            ]);
         }
 
         factory(User::class)->create([

@@ -3,7 +3,7 @@
 @section('content')
 <div class="w-full bg-white">
     <!-- title -->
-    <div class="text-center px-6 py-12 mb-6 bg-gray-100 border-b">
+    <div class="text-center px-6 py-12 bg-gray-100 border-b">
         <h1 class=" text-xl md:text-4xl pb-4">{{ $module->name }}</h1>
         <p class="leading-loose text-gray-dark">
             @todo
@@ -11,7 +11,9 @@
     </div>
     <!-- /title -->
 
-    <div class="container max-w-4xl mx-auto md:flex items-start py-8 px-12 md:px-0">
+    @include ('partials.you-should-log-in')
+
+    <div class="container max-w-4xl mx-auto md:flex items-start mt-6 py-8 px-12 md:px-0">
         <div class="w-full md:pr-12 mb-12">
             <div class="flex">
                 <div class="flex-1 w-auto p-4 border rounded mr-2">
@@ -19,19 +21,28 @@
                         Skills
                     </h3>
                     <ul>
-                        @forelse ($module->skills as $skill)
-                        <li>
-                            <input type="checkbox"{{ $completedSkills->contains($skill->id) ? ' checked="checked"' : '' }}>
-                            {{ $skill->name }}
-                        </li>
+                        @forelse ($skills as $skill)
+                            <li>
+                                @auth
+                                <!--input type="checkbox"{{ $completedSkills->contains($skill->id) ? ' checked="checked"' : '' }}-->
+                                @endauth
+                                {{ $skill->name }}
+                            </li>
                         @empty
-                        <li>No resources</li>
+                            <li>No skills</li>
                         @endforelse
-                        <br>@todo handle bonus skills BONUS:
-                        <li>
-                            <input type="checkbox" value="on">
-                            Style with TailwindCSS
-                        </li>
+
+                        @if ($bonusSkills->isNotEmpty())
+                            <li class="font-bold mt-4">BONUS:</li>
+                            @foreach ($bonusSkills as $skill)
+                                <li>
+                                    @auth
+                                    <!--input type="checkbox"{{ $completedSkills->contains($skill->id) ? ' checked="checked"' : '' }}-->
+                                    @endauth
+                                    {{ $skill->name }}
+                                </li>
+                            @endforeach
+                        @endif
                     </ul>
                 </div>
                 <!--
@@ -81,16 +92,18 @@
                         Videos/courses
                     </h3>
                     <ul>
-                        @forelse ($freeResources->whereIn('type', ['video', 'course'])->all() as $resource)
+                        @forelse ($freeResources->whereIn('type', ['video', 'course'])->where('is_bonus', false)->all() as $resource)
                             @include('partials.resource-on-module-page')
                         @empty
                             <li>No resources</li>
                         @endforelse
-                        <br>BONUS @todo:
-                        <li>
-                            <input type="checkbox" value="on">
-                            <a href="#">Some great Tailwind intro</a>
-                        </li>
+
+                        @if ($freeResources->whereIn('type', ['video', 'course'])->where('is_bonus', true)->isNotEmpty())
+                            <li class="font-bold mt-4">BONUS</li>
+                            @foreach ($freeResources->whereIn('type', ['video', 'course'])->all() as $resource)
+                                @include('partials.resource-on-module-page')
+                            @endforeach
+                        @endif
                     </ul>
                 </div>
                 <div class="flex-1  w-auto  ml-2 rounded border p-4">
@@ -98,13 +111,18 @@
                         Articles &amp; audio
                     </h3>
                     <ul>
-                        @forelse ($freeResources->whereIn('type', ['article', 'audio'])->all() as $resource)
+                        @forelse ($freeResources->whereIn('type', ['article', 'audio'])->where('is_bonus', false)->all() as $resource)
                             @include('partials.resource-on-module-page')
                         @empty
                             <li>No resources</li>
                         @endforelse
-                        <br>BONUS @todo:
-                        <li><input type="checkbox" value="on"> <a href="#">Podcast episode about utility CSS</a></li>
+
+                        @if ($freeResources->whereIn('type', ['article', 'audio'])->where('is_bonus', true)->isNotEmpty())
+                            <li class="font-bold mt-4">BONUS</li>
+                            @foreach ($freeResources->whereIn('type', ['article', 'audio'])->all() as $resource)
+                                @include('partials.resource-on-module-page')
+                            @endforeach
+                        @endif
                     </ul>
                 </div>
             </div>
@@ -119,16 +137,18 @@
                         Videos/courses
                     </h3>
                     <ul>
-                        @forelse ($paidResources->whereIn('type', ['video', 'course'])->all() as $resource)
+                        @forelse ($paidResources->whereIn('type', ['video', 'course'])->where('is_bonus', false)->all() as $resource)
                             @include('partials.resource-on-module-page')
                         @empty
                             <li>No resources</li>
                         @endforelse
-                        <br>BONUS @todo:
-                        <li>
-                            <input type="checkbox" value="on">
-                            <a href="#">Some great paid Tailwind intro</a>
-                        </li>
+
+                        @if ($paidResources->whereIn('type', ['video', 'course'])->where('is_bonus', true)->isNotEmpty())
+                            <li class="font-bold mt-4">BONUS</li>
+                            @foreach ($paidResources->whereIn('type', ['video', 'course'])->all() as $resource)
+                                @include('partials.resource-on-module-page')
+                            @endforeach
+                        @endif
                     </ul>
                 </div>
                 <div class="flex-1  w-auto  ml-2 rounded border p-4">
@@ -136,11 +156,18 @@
                         Books
                     </h3>
                     <ul>
-                        @forelse ($paidResources->whereIn('type', ['book'])->all() as $resource)
+                        @forelse ($paidResources->whereIn('type', ['book'])->where('is_bonus', false)->all() as $resource)
                             @include('partials.resource-on-module-page')
                         @empty
                             <li>No resources</li>
                         @endforelse
+
+                        @if ($paidResources->whereIn('type', ['book'])->where('is_bonus', true)->isNotEmpty())
+                            <li class="font-bold mt-4">BONUS</li>
+                            @foreach ($paidResources->whereIn('type', ['book'])->all() as $resource)
+                                @include('partials.resource-on-module-page')
+                            @endforeach
+                        @endif
                     </ul>
                 </div>
             </div>

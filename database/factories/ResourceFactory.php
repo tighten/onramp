@@ -9,6 +9,7 @@ $factory->define(Resource::class, function (Faker $faker) {
         'name' => $faker->sentence,
         'url' => $faker->url,
         'is_free' => $faker->boolean,
+        'is_bonus' => $faker->boolean(20),
         'type' => $faker->randomElement(['video', 'course', 'audio', 'book', 'article']),
         'module_id' => factory(Module::class),
     ];

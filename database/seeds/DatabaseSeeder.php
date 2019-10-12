@@ -3,6 +3,7 @@
 use App\Module;
 use App\Resource;
 use App\Skill;
+use App\Term;
 use App\Track;
 use App\User;
 use Illuminate\Database\Seeder;
@@ -110,6 +111,20 @@ class DatabaseSeeder extends Seeder
             factory(Resource::class, 5)->create([
                 'module_id' => $eloquentModule->id,
             ]);
+        }
+
+        $terms = [
+            [
+                'name' => [
+                    'en' => 'Collections'
+                ],
+                'description' => [
+                    'en' => 'A Collection is a convenient wrapper for working with arrays of data.'
+                ]
+            ]
+        ];
+        foreach ($terms as $term) {
+            Term::create($term);
         }
 
         factory(User::class)->create([

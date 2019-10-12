@@ -212,6 +212,12 @@ return [
         ],
     ],
     [
+        'name' => 'Laravel for Wordpress developers',
+        'links' => [
+            'Wordpress to Laravel' => 'https://wptolaravel.com',
+        ],
+    ],
+    [
         'name' => 'Basic JavaScript',
         'links' => [
             'Wes Bos Video Series' => 'https://javascript30.com/',

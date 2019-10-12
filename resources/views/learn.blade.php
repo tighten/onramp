@@ -18,7 +18,7 @@
             <ul class="temp-learn-list">
                 @foreach ($learn as $item)
                 <li>
-                    <div class="list-title">{!! $item['name'] !!}</div>
+                    <div class="list-title">{!! Arr::get($item, 'name.' . locale()) ?? Arr::get($item, 'name.en') !!}</div>
                     @if (isset($item['links']))
                     {!!
                         collect($item['links'])->map(function ($value, $key) {
@@ -31,7 +31,7 @@
                     <ul>
                         @foreach ($item['children'] as $childItem)
                         <li>
-                            <div class="list-title">{!! $childItem['name'] !!}</div>
+                            <div class="list-title">{!! Arr::get($childItem, 'name.' . locale()) ?? Arr::get($childItem, 'name.en') !!}</div>
                             @if (isset($childItem['links']))
                             {!!
                                 collect($childItem['links'])->map(function ($value, $key) {

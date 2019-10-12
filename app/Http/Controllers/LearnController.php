@@ -9,7 +9,7 @@ class LearnController extends Controller
     public function __invoke()
     {
         return view('learn', [
-            'learn' => require(base_path('learn.' . locale() . '.php')),
+            'learn' => require(base_path('learn.php')),
             'pageTitle' => __('Learn Laravel Now'),
         ]);
     }

@@ -7,6 +7,7 @@ class Locale
     protected $locales = [
         'en',
         'es',
+        'sv'
     ];
 
     public function all()

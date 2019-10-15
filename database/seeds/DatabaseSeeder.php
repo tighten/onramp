@@ -118,16 +118,21 @@ class DatabaseSeeder extends Seeder
         $terms = [
             [
                 'name' => [
-                    'en' => 'Collections'
+                    'en' => 'collections',
+                    'es' => 'colecciones',
                 ],
                 'description' => [
-                    'en' => 'A Collection is a convenient wrapper for working with arrays of data.'
+                    'en' => 'A Collection is a convenient wrapper for working with arrays of data.',
+                    'es' => 'Description but in Spanish',
                 ]
             ]
         ];
+
         foreach ($terms as $term) {
             Term::create($term);
         }
+
+        factory(Term::class, 10)->create();
 
         factory(User::class)->create([
             'email' => 'matt@tighten.co',

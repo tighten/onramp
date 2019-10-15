@@ -20,7 +20,7 @@ class ResolveLocale
         $segments = $this->request->segments();
 
         if (count($segments) === 0) {
-            return 'en';
+            return 'not-defined-because-at-site-root';
         }
 
         $locale = reset($segments);

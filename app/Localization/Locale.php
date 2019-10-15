@@ -9,6 +9,7 @@ class Locale
         'es',
         'pt',
         'sv',
+        'da',
     ];
 
     public function all()

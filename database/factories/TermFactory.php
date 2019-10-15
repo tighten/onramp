@@ -1,19 +1,20 @@
 <?php
 
-/* @var $factory \Illuminate\Database\Eloquent\Factory */
-
 use App\Term;
-use Faker\Generator as Faker;
+use Faker\Factory;
+use Faker\Generator;
 
-$factory->define(Term::class, function (Faker $faker) {
+$factory->define(Term::class, function (Generator $faker) {
+    $spanishFaker = Factory::create('es_ES');
+
     return [
         'name' => [
             'en' => $faker->word,
-            'es' => $faker->word
+            'es' => $spanishFaker->word,
         ],
         'description' => [
-            'en' => implode(' ', $faker->sentences),
-            'es' => implode(' ', $faker->sentences)
+            'en' => $faker->paragraph,
+            'es' => $spanishFaker->paragraph,
         ],
     ];
 });

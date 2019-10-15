@@ -39,6 +39,7 @@ class DatabaseSeeder extends Seeder
                 'resources' => [
                     'Intro to HTML at CSS-tricks' => 'https://www.yay.com/',
                     'Intro to CSS at CSS-tricks' => 'https://www.superyay.com/',
+                    'Frontend Masters' =>  'https://frontendmasters.com/bootcamp/',
                 ],
             ],
             [
@@ -51,6 +52,7 @@ class DatabaseSeeder extends Seeder
                 'resources' => [
                     'Intro to Git at Tower' => 'https://www.tower.com/',
                     'Intro to Git branching at Gitlab' => 'https://www.superyay.com/',
+                    'Git - The Simple Guide' => 'https://rogerdudler.github.io/git-guide/'
                 ],
             ],
             [

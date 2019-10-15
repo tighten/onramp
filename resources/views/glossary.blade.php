@@ -14,13 +14,13 @@
         <div class="container max-w-4xl mx-auto md:flex items-start py-8 px-12 md:px-0">
             <div class="w-full md:pr-12 mb-12">
                 <div class="flex">
-                    <ul class="w-3/4 flex-grow">
+                    <ul class="w-3/4 flex-grow pr-8">
                         @forelse ($terms as $term)
-                            <li id="{{ $term->getEnglishName()}}" class="mt-6 py-4 list-none">
+                            <li id="{{ $term->getEnglishName() }}" class="mt-6 py-4 list-none">
                                 <div class="flex justify-start items-baseline">
                                     <a class="text-lg font-bold" href="#{{ $term->getEnglishName() }}">#</a>
                                     <h3 class="ml-2 font-bold text-lg mb-3 capitalize">
-                                        {{ $term->getTranslation('name', locale() ) }}
+                                        {{ $term->getTranslation('name', locale()) }}
                                     </h3>
                                     @if ($term->name !== $term->getEnglishName())
                                         <span class="pl-1 text-grey-800 capitalize text-sm">({{ $term->getEnglishName()}})</span>
@@ -35,11 +35,11 @@
                         @endforelse
                     </ul>
                     <div class="w-1/4 mt-10">
-                        <h3 class="text-xl">{{ __('Table of content') }}</h3>
+                        <h3 class="text-xl">{{ __('Table of contents') }}</h3>
                         <ul class="mt-4">
                             @forelse ($terms as $term)
                                 <li class="leading-relaxed">
-                                    <a class="capitalize" href="#{{ $term->getEnglishName()}}">{{ $term->name }}</a>
+                                    <a class="capitalize" href="#{{ $term->getEnglishName() }}">{{ $term->name }}</a>
                                 </li>
                             @empty
                                 {{__('No terms')}}
@@ -47,11 +47,6 @@
                         </ul>
                     </div>
                 </div>
-                <hr class="border-b border-gray-500 mt-12">
-
-                <p class="mt-12">{{ __("That's all, for now.") }}
-                    <br><br>{{ __("Soon: more and better organized links to places to learn each of these technologies/tools, a more robust list of technologies, etc., and then later maybe exercises to test them and prove out your learning.") }}
-                </p>
             </div>
         </div>
     </div>

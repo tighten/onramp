@@ -1,6 +1,6 @@
 {{-- Template from https://templates.digizu.co.uk/ --}}<!DOCTYPE html>
 
-<html lang="{{ $locale }}">
+<html lang="{{ locale() }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

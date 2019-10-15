@@ -3,6 +3,7 @@
 use App\Module;
 use App\Resource;
 use App\Skill;
+use App\Term;
 use App\Track;
 use App\User;
 use Illuminate\Database\Seeder;
@@ -113,6 +114,25 @@ class DatabaseSeeder extends Seeder
                 'module_id' => $eloquentModule->id,
             ]);
         }
+
+        $terms = [
+            [
+                'name' => [
+                    'en' => 'collections',
+                    'es' => 'colecciones',
+                ],
+                'description' => [
+                    'en' => 'A Collection is a convenient wrapper for working with arrays of data.',
+                    'es' => 'Description but in Spanish',
+                ]
+            ]
+        ];
+
+        foreach ($terms as $term) {
+            Term::create($term);
+        }
+
+        factory(Term::class, 10)->create();
 
         factory(User::class)->create([
             'email' => 'matt@tighten.co',

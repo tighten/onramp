@@ -15,5 +15,7 @@ Route::group(['prefix' => '{locale}'], function () {
         Route::get('{module}', 'ModuleController@show')->name('show');
     });
 
+    Route::get('glossary', 'GlossaryController@index')->name('glossary');
+
     Auth::routes();
 });

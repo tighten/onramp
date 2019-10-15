@@ -71,7 +71,7 @@
 
         <div class="text-center px-6 py-2 bg-blue-200 border-b">
             <p class="leading-loose text-gray-dark">
-                Note: This site is under active development, so it's not complete right now. Check out the <a href="{{ route_wlocale('dev') }}" class="font-bold">dev page</a> to learn more.
+                Note: This site is under active development, so it's not complete right now. Check out the <a href="{{ route_wlocale('dev') }}" class="font-bold hover:underline">dev page</a> to learn more.
             </p>
         </div>
 

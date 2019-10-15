@@ -15,8 +15,8 @@ class CreateTermsTable extends Migration
     {
         Schema::create('terms', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('name')->nullable();
-            $table->text('description')->nullable();
+            $table->json('name');
+            $table->json('description');
             $table->timestamps();
         });
     }

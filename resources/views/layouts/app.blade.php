@@ -17,10 +17,10 @@
         <!-- header -->
         <header class="w-full px-6 text-white" style="background: #3f51d8">
             <div class="container mx-auto max-w-4xl md:flex justify-between items-center">
-                <a href="{{ url_wlocale('/') }}" class="block py-6 w-full text-center md:text-left flex justify-left items-center">
+                <a href="{{ url_wlocale('/') }}" class="block py-6 flex-grow text-center md:text-left flex justify-left items-center">
                     <img src="/images/onramp_logo.svg" alt="Onramp" class="max-w-xs w-full">
                 </a>
-                <div class="text-white text-center md:text-right md:w-40">
+                <div class="text-white text-center md:text-right">
                 @foreach (Facades\App\Localization\Locale::all() as $thisLocale)
                     <a href="{{ switch_locale_link($thisLocale) }}" class="text-white text-sm p-3{{ $thisLocale === $locale ? ' font-bold' : '' }}">{{ strtoupper($thisLocale) }}</a>
                     @if (! $loop->last)

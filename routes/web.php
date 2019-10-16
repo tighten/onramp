@@ -3,7 +3,7 @@
 
 Route::redirect('/', '/en');
 
-Route::group(['prefix' => '{locale}'], function () {
+Route::group(['prefix' => app()->getLocale() ?? 'en'], function () {
     Route::view('/', 'welcome');
 
     Route::get('learn', 'LearnController');

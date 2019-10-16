@@ -1870,9 +1870,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    locale: {
+    language: {
+      type: String,
+      required: true
+    },
+    localeFlag: {
       type: String,
       required: true
     }
@@ -1895,6 +1904,11 @@ __webpack_require__.r(__webpack_exports__);
     this.$once('hook:beforeDestroy', function () {
       document.removeEventListener('keydown', handleEscape);
     });
+  },
+  methods: {
+    flagClass: function flagClass() {
+      return "flag-icon flag-icon-" + this.localeFlag + " mr-2";
+    }
   }
 });
 
@@ -37185,21 +37199,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "relative text-white text-left z-50" }, [
-    _c(
-      "button",
-      {
-        staticClass:
-          "relative z-50 block h-8 w-8 text-gray-100 rounded-full border-2 border-blue-300 focus:outline-none focus:border-white",
-        attrs: { tabindex: "1" },
-        on: {
-          click: function($event) {
-            _vm.isOpen = !_vm.isOpen
-          }
-        }
-      },
-      [_vm._v(_vm._s(_vm.locale))]
-    ),
-    _vm._v(" "),
     _vm.isOpen
       ? _c("button", {
           staticClass: "fixed w-full h-full inset-0 cursor-default",
@@ -37211,6 +37210,24 @@ var render = function() {
           }
         })
       : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass:
+          "relative z-50 block px-2 h-8 bg-white text-gray-800 rounded border-2 focus:outline-none focus:border-white",
+        attrs: { tabindex: "1" },
+        on: {
+          click: function($event) {
+            _vm.isOpen = !_vm.isOpen
+          }
+        }
+      },
+      [
+        _c("span", { class: _vm.flagClass() }),
+        _vm._v("\n        " + _vm._s(_vm.language) + "\n    ")
+      ]
+    ),
     _vm._v(" "),
     _vm.isOpen
       ? _c(

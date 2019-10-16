@@ -6,9 +6,9 @@ class Locale
 {
     protected $locales = [
         'en' => "English",
-        'es' => "Española",
-        'pt' => "Portuguesa",
-        'sv' => "Svenska",
+        'es' => "Spanish [TODO translate]",
+        'pt' => "Portuguese [TODO translate]",
+        'sv' => "Swedish [TODO translate]",
     ];
 
     public function all()

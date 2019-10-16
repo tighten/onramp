@@ -11,6 +11,13 @@ class Locale
         'sv' => "Swedish [TODO translate]",
     ];
 
+    protected $localeToFlag = [
+        'en' => "us",
+        'es' => "es",
+        'pt' => "pt",
+        'sv' => "sv",
+    ];
+
     public function all()
     {
         return $this->locales;
@@ -19,5 +26,15 @@ class Locale
     public function isValid($locale)
     {
         return in_array($locale, array_keys($this->locales));
+    }
+
+    public function getFlagForLocale(string $locale)
+    {
+        return $this->localeToFlag[$locale];
+    }
+
+    public function getLanguageForLocale(string $locale)
+    {
+        return $this->locales[$locale];
     }
 }

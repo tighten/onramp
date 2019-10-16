@@ -10,6 +10,7 @@
         <meta property="og:url" content="{{ $ogUrl ?? 'https://onramp.dev' }}">
         <meta property="og:image" content="{{ $ogImage ?? '/images/opengraph_logo.png' }}">
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <link rel="stylesheet" href="/css/flag-icon.css">
 
         <title>{{ isset($pageTitle) ? "{$pageTitle} | " : '' }}{{ __('Onramp to Laravel') }}</title>
 
@@ -24,12 +25,11 @@
                        class="block py-6 flex-grow text-center md:text-left flex justify-left items-center">
                         <img src="/images/onramp_logo.svg" alt="Onramp" class="max-w-xs w-full">
                     </a>
-                    <language-switcher locale="{{ locale() }}">
+                    <language-switcher language="{{ Facades\App\Localization\Locale::getLanguageForLocale(locale()) }}" locale-flag="{{ Facades\App\Localization\Locale::getFlagForLocale(locale()) }}">
                         @foreach (Facades\App\Localization\Locale::all() as $thisLocale => $thisLanguage)
                         <a href="{{ switch_locale_link($thisLocale) }}"
                            class="block px-4 py-2 text-blue-700 hover:bg-blue-700 hover:text-white"
-                           style="text-decoration: none">{{ $thisLanguage }}</a>
-                            <span class="flag-icon flag-icon-gr"></span>
+                           style="text-decoration: none"><span class="flag-icon flag-icon-{{ Facades\App\Localization\Locale::getFlagForLocale($thisLocale) }} mr-2"></span>{{ $thisLanguage }}</a>
                         @endforeach
                     </language-switcher>
                 </div>

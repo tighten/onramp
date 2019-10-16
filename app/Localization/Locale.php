@@ -5,10 +5,10 @@ namespace App\Localization;
 class Locale
 {
     protected $locales = [
-        'en',
-        'es',
-        'pt',
-        'sv',
+        'en' => "English",
+        'es' => "Española",
+        'pt' => "Portuguesa",
+        'sv' => "Svenska",
     ];
 
     public function all()
@@ -18,6 +18,6 @@ class Locale
 
     public function isValid($locale)
     {
-        return in_array($locale, $this->locales);
+        return in_array($locale, array_keys($this->locales));
     }
 }

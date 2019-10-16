@@ -30,8 +30,9 @@ class AppServiceProvider extends ServiceProvider
 
         if ($this->app->environment() !== 'testing') {
             Event::subscribe(SlackSubscriber::class);
-
-            $locale = locale();
+            if ( ! $this->app->runningInConsole()) {
+                $locale = locale();
+            }
         }
 
         $this->app->setlocale($locale);

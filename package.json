@@ -26,7 +26,6 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "flag-icon-css": "^3.4.2",
         "tailwindcss": "^1.0.5"
     }
 }

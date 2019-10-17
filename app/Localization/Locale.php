@@ -2,6 +2,8 @@
 
 namespace App\Localization;
 
+use Exception;
+
 class Locale
 {
     protected $locales = [
@@ -34,6 +36,10 @@ class Locale
 
     public function getLanguageForLocale(string $locale)
     {
+        if (!$this->isValid($locale)) {
+            throw new Exception("Cannot resolve language for locale: {$locale}");
+        }
+
         return $this->localeToLanguage[$locale];
     }
 }

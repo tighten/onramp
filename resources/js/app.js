@@ -30,10 +30,8 @@ import LanguageSwitcher from './components/LanguageSwitcher.vue'
  */
 
 const app = new Vue({
-
     components: {
         'language-switcher': LanguageSwitcher
     },
-
     el: '#app',
 });

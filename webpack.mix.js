@@ -18,8 +18,8 @@ mix.js('resources/js/app.js', 'public/js')
         processCssUrls: false,
         postCss: [tailwindcss('./tailwind.config.js')],
     })
-    .copy('resources/sass/vendor/flag-icon-css/flag-icon.css', 'public/css')
-    .copy('resources/sass/vendor/flag-icon-css/flags', 'public/flags')
+    .copy('resources/css/vendor/flag-icon-css/flag-icon.css', 'public/css')
+    .copy('resources/css/vendor/flag-icon-css/flags', 'public/flags')
     .browserSync('https://onramp.test');
 
 if (mix.inProduction()) {

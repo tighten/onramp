@@ -18,6 +18,8 @@ class Locale
         'es' => "Spanish",    // [TODO translate]
         'pt' => "Portuguese", // [TODO translate]
         'sv' => "Swedish",    // [TODO translate]
+        'de' => "German",    // [TODO translate]
+        'da' => "Danish",    // [TODO translate]
     ];
 
     public function all()

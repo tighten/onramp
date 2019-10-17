@@ -26,7 +26,7 @@ class Locale
 
     public function isValid($locale)
     {
-        return in_array($locale, array_keys($this->locales));
+        return array_key_exists($locale, $this->locales);
     }
 
     public function getLanguageForLocale(string $locale)

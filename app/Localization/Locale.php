@@ -5,17 +5,17 @@ namespace App\Localization;
 class Locale
 {
     protected $locales = [
-        'en' => "English",
-        'es' => "Spanish [TODO translate]",
-        'pt' => "Portuguese [TODO translate]",
-        'sv' => "Swedish [TODO translate]",
+        'en',
+        'es',
+        'pt',
+        'sv',
     ];
 
-    protected $localeToFlag = [
-        'en' => "us",
-        'es' => "es",
-        'pt' => "pt",
-        'sv' => "sv",
+    protected $localeToLanguage = [
+        'en' => "English",
+        'es' => "Spanish",    // [TODO translate]
+        'pt' => "Portuguese", // [TODO translate]
+        'sv' => "Swedish",    // [TODO translate]
     ];
 
     public function all()
@@ -25,16 +25,11 @@ class Locale
 
     public function isValid($locale)
     {
-        return in_array($locale, array_keys($this->locales));
-    }
-
-    public function getFlagForLocale(string $locale)
-    {
-        return $this->localeToFlag[$locale];
+        return in_array($locale, $this->locales);
     }
 
     public function getLanguageForLocale(string $locale)
     {
-        return $this->locales[$locale];
+        return $this->localeToLanguage[$locale];
     }
 }

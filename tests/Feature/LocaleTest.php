@@ -24,24 +24,13 @@ class LocaleTest extends TestCase
     }
 
     /** @test */
-    public function it_retrieves_the_proper_flag_for_a_given_locale()
-    {
-        $locales = new Locale;
-
-        $this->assertEquals('us', $locales->getFlagForLocale('en'));
-        $this->assertEquals('es', $locales->getFlagForLocale('es'));
-        $this->assertEquals('pt', $locales->getFlagForLocale('pt'));
-        $this->assertEquals('sv', $locales->getFlagForLocale('sv'));
-    }
-
-    /** @test */
     public function it_retrieves_the_proper_language_for_a_given_locale()
     {
         $locales = new Locale;
 
         $this->assertEquals('English', $locales->getLanguageForLocale('en'));
-        $this->assertEquals('Spanish [TODO translate]', $locales->getLanguageForLocale('es'));
-        $this->assertEquals('Portuguese [TODO translate]', $locales->getLanguageForLocale('pt'));
-        $this->assertEquals('Swedish [TODO translate]', $locales->getLanguageForLocale('sv'));
+        $this->assertEquals('Spanish', $locales->getLanguageForLocale('es'));
+        $this->assertEquals('Portuguese', $locales->getLanguageForLocale('pt'));
+        $this->assertEquals('Swedish', $locales->getLanguageForLocale('sv'));
     }
 }

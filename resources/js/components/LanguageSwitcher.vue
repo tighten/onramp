@@ -1,13 +1,23 @@
 <template>
     <div class="relative text-white text-left z-50">
-        <button v-if="isOpen" @click="isOpen = false" tabindex="-1"
-                class="fixed w-full h-full inset-0 cursor-default"></button>
-        <button @click="isOpen = !isOpen" tabindex="1"
-                class="relative z-50 block px-2 h-8 bg-white text-gray-800 rounded border-2 focus:outline-none focus:border-white">
-            <span :class="flagClass()"></span>
-            {{ language }}
+        <button v-if="isOpen"
+                @click="isOpen = false"
+                tabindex="-1"
+                class="fixed w-full h-full inset-0 cursor-default">
         </button>
-        <div v-if="isOpen" class="absolute right-0 mt-2 w-48 py-2 bg-white rounded-lg shadow-xl">
+        <div class="flex items-center">
+            <label for="language-switcher" class="flex items-center relative z-50 block h-8 w-32 bg-white text-gray-800 rounded focus:outline-none">
+                <span class="flex items-center pl-1 w-8 h-8 bg-gray-300 rounded-l cursor-pointer">🌐</span>
+                <button @click="isOpen = !isOpen"
+                        id="language-switcher"
+                        tabindex="1"
+                        class="ml-2 bg-white focus:outline-none focus:border-white">
+                    {{ language }}
+                </button>
+            </label>
+        </div>
+        <div v-if="isOpen"
+             class="absolute right-0 mt-2 w-32 py-2 bg-white rounded-lg shadow-xl">
             <slot></slot>
         </div>
     </div>
@@ -17,10 +27,6 @@
     export default {
         props: {
             language: {
-                type: String,
-                required: true
-            },
-            localeFlag: {
                 type: String,
                 required: true
             }

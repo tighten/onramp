@@ -25,11 +25,11 @@
                        class="block py-6 flex-grow text-center md:text-left flex justify-left items-center">
                         <img src="/images/onramp_logo.svg" alt="Onramp" class="max-w-xs w-full">
                     </a>
-                    <language-switcher language="{{ Facades\App\Localization\Locale::getLanguageForLocale(locale()) }}" locale-flag="{{ Facades\App\Localization\Locale::getFlagForLocale(locale()) }}">
-                        @foreach (Facades\App\Localization\Locale::all() as $thisLocale => $thisLanguage)
-                        <a href="{{ switch_locale_link($thisLocale) }}"
+                    <language-switcher language="{{ $currentLanguage }}">
+                        @foreach ($supportedLocales as $locale)
+                        <a href="{{ switch_locale_link($locale) }}"
                            class="block px-4 py-2 text-blue-700 hover:bg-blue-700 hover:text-white"
-                           style="text-decoration: none"><span class="flag-icon flag-icon-{{ Facades\App\Localization\Locale::getFlagForLocale($thisLocale) }} mr-2"></span>{{ $thisLanguage }}</a>
+                           style="text-decoration: none">{{ $locales->getLanguageForLocale($locale) }}</a>
                         @endforeach
                     </language-switcher>
                 </div>

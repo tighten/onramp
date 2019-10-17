@@ -1875,13 +1875,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     language: {
-      type: String,
-      required: true
-    },
-    localeFlag: {
       type: String,
       required: true
     }
@@ -37211,30 +37217,52 @@ var render = function() {
         })
       : _vm._e(),
     _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass:
-          "relative z-50 block px-2 h-8 bg-white text-gray-800 rounded border-2 focus:outline-none focus:border-white",
-        attrs: { tabindex: "1" },
-        on: {
-          click: function($event) {
-            _vm.isOpen = !_vm.isOpen
-          }
-        }
-      },
-      [
-        _c("span", { class: _vm.flagClass() }),
-        _vm._v("\n        " + _vm._s(_vm.language) + "\n    ")
-      ]
-    ),
+    _c("div", { staticClass: "flex items-center" }, [
+      _c(
+        "label",
+        {
+          staticClass:
+            "flex items-center relative z-50 block h-8 w-32 bg-white text-gray-800 rounded focus:outline-none",
+          attrs: { for: "language-switcher" }
+        },
+        [
+          _c(
+            "span",
+            {
+              staticClass:
+                "flex items-center pl-1 w-8 h-8 bg-gray-300 rounded-l cursor-pointer"
+            },
+            [_vm._v("🌐")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass:
+                "ml-2 bg-white focus:outline-none focus:border-white",
+              attrs: { id: "language-switcher", tabindex: "1" },
+              on: {
+                click: function($event) {
+                  _vm.isOpen = !_vm.isOpen
+                }
+              }
+            },
+            [
+              _vm._v(
+                "\n                " + _vm._s(_vm.language) + "\n            "
+              )
+            ]
+          )
+        ]
+      )
+    ]),
     _vm._v(" "),
     _vm.isOpen
       ? _c(
           "div",
           {
             staticClass:
-              "absolute right-0 mt-2 w-48 py-2 bg-white rounded-lg shadow-xl"
+              "absolute right-0 mt-2 w-32 py-2 bg-white rounded-lg shadow-xl"
           },
           [_vm._t("default")],
           2

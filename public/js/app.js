@@ -37230,7 +37230,7 @@ var render = function() {
             "span",
             {
               staticClass:
-                "flex items-center pl-1 w-8 h-8 bg-gray-300 rounded-l cursor-pointer"
+                "flex items-center pl-2 w-8 h-8 rounded-l cursor-pointer"
             },
             [_vm._v("🌐")]
           ),

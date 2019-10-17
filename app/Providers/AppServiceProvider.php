@@ -37,13 +37,5 @@ class AppServiceProvider extends ServiceProvider
         }
 
         $this->app->setlocale($currentLocale);
-
-        View::composer('*', function ($view) use ($currentLocale) {
-
-            $locale = new Locale();
-            $view->with('currentLanguage', $locale->getLanguageForLocale($currentLocale))
-                ->with('supportedLocales', $locale->all())
-                ->with('locales', $locale);
-        });
     }
 }

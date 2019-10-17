@@ -10,7 +10,6 @@
         <meta property="og:url" content="{{ $ogUrl ?? 'https://onramp.dev' }}">
         <meta property="og:image" content="{{ $ogImage ?? '/images/opengraph_logo.png' }}">
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-        <link rel="stylesheet" href="/css/flag-icon.css">
 
         <title>{{ isset($pageTitle) ? "{$pageTitle} | " : '' }}{{ __('Onramp to Laravel') }}</title>
 
@@ -25,11 +24,11 @@
                        class="block py-6 flex-grow text-center md:text-left flex justify-left items-center">
                         <img src="/images/onramp_logo.svg" alt="Onramp" class="max-w-xs w-full">
                     </a>
-                    <language-switcher language="{{ $currentLanguage }}">
-                        @foreach ($supportedLocales as $locale)
+                    <language-switcher language="{{ Facades\App\Localization\Locale::getLanguageForLocale(locale()) }}">
+                        @foreach (Facades\App\Localization\Locale::all() as $locale)
                         <a href="{{ switch_locale_link($locale) }}"
                            class="block px-4 py-2 text-blue-700 hover:bg-blue-700 hover:text-white"
-                           style="text-decoration: none">{{ $locales->getLanguageForLocale($locale) }}</a>
+                           style="text-decoration: none">{{ Facades\App\Localization\Locale::getLanguageForLocale($locale) }}</a>
                         @endforeach
                     </language-switcher>
                 </div>
@@ -67,14 +66,13 @@
                             </form>
                         @endguest
                     </div>
-
                 </div>
             </nav>
             <!-- /nav -->
 
             <!-- blog -->
-        @yield('content')
-        <!-- /blog -->
+            @yield('content')
+            <!-- /blog -->
 
             <!-- footer -->
             <footer class="w-full bg-white px-6 border-t">

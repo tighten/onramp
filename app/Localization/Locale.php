@@ -7,31 +7,26 @@ use Exception;
 class Locale
 {
     protected $locales = [
-        'en',
-        'es',
-        'pt',
-        'sv',
-        'de',
-        'da',
+        'en' => 'English',
+        'es' => 'Español',
+        'pt' => 'Português',
+        'sv' => 'Svenska',
+        'de' => 'Deutsch',
+        'da' => 'Dansk',
     ];
 
     protected $localeToLanguage = [
-        'en' => "English",
-        'es' => "Spanish",    // [TODO translate]
-        'pt' => "Portuguese", // [TODO translate]
-        'sv' => "Swedish",    // [TODO translate]
-        'de' => "German",    // [TODO translate]
-        'da' => "Danish",    // [TODO translate]
+
     ];
 
     public function all()
     {
-        return $this->locales;
+        return array_keys($this->locales);
     }
 
     public function isValid($locale)
     {
-        return in_array($locale, $this->locales);
+        return in_array($locale, array_keys($this->locales));
     }
 
     public function getLanguageForLocale(string $locale)
@@ -40,6 +35,6 @@ class Locale
             throw new Exception("Cannot resolve language for locale: {$locale}");
         }
 
-        return $this->localeToLanguage[$locale];
+        return $this->locales[$locale];
     }
 }

@@ -1863,6 +1863,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     language: {
@@ -1875,23 +1876,24 @@ __webpack_require__.r(__webpack_exports__);
       isOpen: false
     };
   },
-  created: function created() {
-    var _this = this;
-
-    var handleEscape = function handleEscape(e) {
-      if (e.key === 'Esc' || e.key === 'Escape') {
-        _this.isOpen = false;
-      }
-    };
-
-    document.addEventListener('keydown', handleEscape);
-    this.$once('hook:beforeDestroy', function () {
-      document.removeEventListener('keydown', handleEscape);
-    });
-  },
   methods: {
-    flagClass: function flagClass() {
-      return "flag-icon flag-icon-" + this.localeFlag + " mr-2";
+    closeLanguages: function closeLanguages() {
+      this.isOpen = false;
+      document.removeEventListener('keydown', this.handleEscape);
+    },
+    toggleLanguages: function toggleLanguages() {
+      if (this.isOpen) {
+        this.isOpen = false;
+        document.removeEventListener('keydown', this.handleEscape);
+      } else {
+        this.isOpen = true;
+        document.addEventListener('keydown', this.handleEscape);
+      }
+    },
+    handleEscape: function handleEscape(e) {
+      if (e.key === 'Esc' || e.key === 'Escape') {
+        this.isOpen = false;
+      }
     }
   }
 });
@@ -37199,7 +37201,7 @@ var render = function() {
           attrs: { tabindex: "-1" },
           on: {
             click: function($event) {
-              _vm.isOpen = false
+              return _vm.closeLanguages()
             }
           }
         })
@@ -37231,7 +37233,7 @@ var render = function() {
               attrs: { id: "language-switcher", tabindex: "1" },
               on: {
                 click: function($event) {
-                  _vm.isOpen = !_vm.isOpen
+                  return _vm.toggleLanguages()
                 }
               }
             },

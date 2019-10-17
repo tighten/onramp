@@ -27,15 +27,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $currentLocale = 'en';
-
         if ($this->app->environment() !== 'testing') {
             Event::subscribe(SlackSubscriber::class);
-            if ( ! $this->app->runningInConsole()) {
-                $currentLocale = locale();
-            }
         }
 
-        $this->app->setlocale($currentLocale);
+        $this->app->setLocale($this->app->runningInConsole() ? 'en' : locale());
     }
 }

@@ -7,7 +7,7 @@
         </button>
         <div class="flex items-center">
             <label for="language-switcher" class="flex items-center relative z-50 block h-8 w-32 bg-white text-gray-800 rounded focus:outline-none">
-                <span class="flex items-center pl-1 w-8 h-8 bg-gray-300 rounded-l cursor-pointer">🌐</span>
+                <span class="flex items-center pl-2 w-8 h-8 rounded-l cursor-pointer">🌐</span>
                 <button @click="isOpen = !isOpen"
                         id="language-switcher"
                         tabindex="1"

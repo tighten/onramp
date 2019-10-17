@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Handlers\Events\SlackSubscriber;
-use App\Localization\Locale;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -27,22 +26,19 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $currentLocale = 'en';
+        $locale = 'en';
 
         if ($this->app->environment() !== 'testing') {
             Event::subscribe(SlackSubscriber::class);
-
-            $currentLocale = locale();
+            if ( ! $this->app->runningInConsole()) {
+                $locale = locale();
+            }
         }
 
-        $this->app->setlocale($currentLocale);
+        $this->app->setlocale($locale);
 
-        View::composer('*', function ($view) use ($currentLocale) {
-
-            $locale = new Locale();
-            $view->with('currentLanguage', $locale->getLanguageForLocale($currentLocale))
-                ->with('supportedLocales', $locale->all())
-                ->with('locales', $locale);
+        View::composer('*', function ($view) use ($locale) {
+            $view->with('locale', $locale);
         });
     }
 }

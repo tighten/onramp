@@ -9,6 +9,8 @@ class Locale
         'es',
         'pt',
         'sv',
+        'de',
+        'da',
     ];
 
     protected $localeToLanguage = [

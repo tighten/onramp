@@ -15,11 +15,7 @@ class Locale
         'da' => 'Dansk',
     ];
 
-    protected $localeToLanguage = [
-
-    ];
-
-    public function all()
+    public function slugs()
     {
         return array_keys($this->locales);
     }
@@ -29,7 +25,7 @@ class Locale
         return in_array($locale, array_keys($this->locales));
     }
 
-    public function getLanguageForLocale(string $locale)
+    public function languageForLocale(string $locale)
     {
         if (!$this->isValid($locale)) {
             throw new Exception("Cannot resolve language for locale: {$locale}");

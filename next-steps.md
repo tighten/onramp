@@ -12,6 +12,9 @@
     - [x] Differentiate bonus resources and skills in the UI list
 - [ ] Write intro content on modules.index and modules.show
 - [ ] Migrate all content from the master branch `learn.en` and `learn.es` files into the database seeders
+- [ ] Figure out how we handle resources that are links to projects (e.g. vagrant)... not really an "article"
+- [ ] Allow for translating a skill name
+- [ ] Decide: Do we need to be able to group our resources? e.g. all the hosting resources (valet, vagrant, etc.) are related.. all of the "php variables" resources are related... flat structure seems weak
 - [x] decide: do we show the content to non-logged-in users? Answer: YES
 - [x] Allow guests to view learning pages
     - [x] Allow them to visit

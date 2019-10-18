@@ -1,11 +1,11 @@
 <template>
-    <div class="relative text-white text-left z-50">
+    <div class="relative text-white z-50">
         <button v-if="isOpen"
                 @click="close()"
                 tabindex="-1"
                 class="fixed w-full h-full inset-0 cursor-default">
         </button>
-        <div class="flex items-center">
+        <div class="flex items-center justify-center">
             <label for="language-switcher"
                    class="flex items-center relative z-50 block h-8 w-32 bg-white text-gray-800 rounded focus:outline-none">
                 <span class="flex items-center pl-2 w-8 h-8 rounded-l cursor-pointer">🌐</span>

@@ -3,7 +3,7 @@
 // Each entry is a module, which can have resources and skills
 return [
     [
-        'name' => ['en' => 'Build a basic web site', 'es' => '@todo'],
+        'name' => ['en' => 'Build a basic web site', 'es' => '@todo-espanic-basic-website'],
         'skills' => [
             ['es' => '', 'en' => 'Write HTML'],
             ['es' => '', 'en' => 'Write CSS'],
@@ -81,7 +81,7 @@ return [
         ],
     ],
     [
-        'name' => ['en' => 'Basic Terminal & Git', 'es' => '@todo'],
+        'name' => ['en' => 'Basic Terminal & Git', 'es' => '@todo espanic basic terminal & git'],
         'skills' => [
             ['es' => '', 'en' => 'Navigate the terminal'],
             ['es' => '', 'en' => 'Use Git for basic tasks'],
@@ -139,7 +139,7 @@ return [
         ],
     ],
     [
-        'name' => ['en' => 'Local PHP Environment', 'es' => '@todo'],
+        'name' => ['en' => 'Local PHP Environment', 'es' => '@todo espanic local php environment'],
         'skills' => [
             ['es' => '', 'en' => 'Set up a Laravel dev environment'],
             ['es' => '', 'en' => 'Install Composer'],
@@ -149,24 +149,14 @@ return [
         'resources' => [
             'es' => [
                 [
-                    'name' => 'Valet',
-                    'links' => [
-                        [
-                            'name' => 'Documentación de Laravel',
-                            'url' => 'https://docs.laraveles.com/docs/5.5/valet',
-                            'type' => 'article',
-                        ],
-                    ],
+                    'name' => 'Documentación de Laravel',
+                    'url' => 'https://docs.laraveles.com/docs/5.5/valet',
+                    'type' => 'article',
                 ],
                 [
-                    'name' => 'Composer',
-                    'links' => [
-                        [
-                            'name' => 'Artículo de Styde',
-                            'url' => 'https://styde.net/instalacion-de-composer-y-laravel-en-windows/',
-                            'type' => 'article',
-                        ],
-                    ],
+                    'name' => 'Artículo de Styde',
+                    'url' => 'https://styde.net/instalacion-de-composer-y-laravel-en-windows/',
+                    'type' => 'article',
                 ],
             ],
             'en' => [
@@ -204,17 +194,17 @@ return [
         ],
     ],
     [
-        'name' => ['en' => 'Beginning PHP', 'es' => '@todo'],
+        'name' => ['en' => 'Beginning PHP', 'es' => '@todo espanic beginning php'],
         'skills' => [
             ['es' => 'Variables', 'en' => 'Work with variables'],
             ['es' => 'Arreglos', 'en' => 'Work with arrays'],
             ['es' => 'Funciones', 'en' => 'Define and use functions'],
             ['es' => 'Clases', 'en' => 'Create and instantiate classes'],
-            ['es' => '@todo', 'en' => 'Write conditionals'],
-            ['es' => '@todo', 'en' => 'Write loops'],
+            ['es' => '@todo espanice write conditionals', 'en' => 'Write conditionals'],
+            ['es' => '@todo espanic write loops', 'en' => 'Write loops'],
             ['es' => 'Constructores', 'en' => 'Use class constructors'],
             ['es' => 'Herencia Básica', 'en' => 'Use simple class inheritance'],
-            ['es' => '@todo', 'en' => 'Use simple OOP composition'],
+            ['es' => '@todo espanice simple oop composition', 'en' => 'Use simple OOP composition'],
         ],
         'resources' => [
             'es' => [
@@ -304,7 +294,7 @@ return [
         ],
     ],
     [
-        'name' => ['en' => 'Object-Oriented Programming', 'es' => '@todo'],
+        'name' => ['en' => 'Object-Oriented Programming', 'es' => '@todo espanic object oriented programming'],
         'skills' => [],
         'resources' => [
             'es' => [],
@@ -318,7 +308,7 @@ return [
         ],
     ],
     [
-        'name' => ['en' => 'Laravel Basics', 'es' => '@todo'],
+        'name' => ['en' => 'Laravel Basics', 'es' => '@todo espanic laravel basics'],
         // These aren't quite skills 😬
         'skills' => [
             ['es' => 'Creando y ejecutando un nuevo proyecto de Laravel', 'en' => 'Creating and serving a new Laravel project'],
@@ -530,7 +520,7 @@ return [
         ],
     ],
     [
-        'name' => ['en' => 'Basic JavaScript', 'es' => '@todo'],
+        'name' => ['en' => 'Basic JavaScript', 'es' => '@todo espanic basic javascript'],
         'skills' => [],
         'resources' => [
             'es' => [
@@ -560,7 +550,7 @@ return [
         ],
     ],
     [
-        'name' => ['en' => 'Laravel Mix', 'es' => '@todo'],
+        'name' => ['en' => 'Laravel Mix', 'es' => '@todo espanic laravel mix'],
         'skills' => [],
         'resources' => [
             'es' => [],
@@ -574,7 +564,7 @@ return [
         ],
     ],
     [
-        'name' => ['en' => 'Basic session-backed internal APIs', 'es' => '@todo'],
+        'name' => ['en' => 'Basic session-backed internal APIs', 'es' => '@todo espanic basic session backed internal apis'],
         'skills' => [],
         'resources' => [
             'es' => [],
@@ -582,7 +572,7 @@ return [
         ],
     ],
     [
-        'name' => ['en' => 'Deployments', 'es' => '@todo'],
+        'name' => ['en' => 'Deployments', 'es' => '@todo espanic deployments'],
         'skills' => [],
         'resources' => [
             'es' => [],
@@ -590,7 +580,7 @@ return [
         ],
     ],
     [
-        'name' => ['en' => 'Monitoring (e.g. Bugsnag)', 'es' => '@todo'],
+        'name' => ['en' => 'Monitoring (e.g. Bugsnag)', 'es' => '@todo espanic monitoring e.g. bugsnag'],
         'skills' => [],
         'resources' => [
             'es' => [],
@@ -598,7 +588,7 @@ return [
         ],
     ],
     [
-        'name' => ['en' => 'Basic Testing', 'es' => '@todo'],
+        'name' => ['en' => 'Basic Testing', 'es' => '@todo espanic basic testing'],
         'skills' => [],
         'resources' => [
             'es' => [],

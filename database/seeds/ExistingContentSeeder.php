@@ -14,13 +14,28 @@ class ExistingContentSeeder extends Seeder
         collect(require('learn.php'))->each(function ($moduleArray) use ($tracks) {
             $module = Module::create([
                 'name' => $moduleArray['name'],
-                'slug' => Str::slug($moduleArray['name']),
+                'slug' => Str::slug($moduleArray['name']['en']),
             ]);
 
-            // Well that's not good... @÷todo
             $module->tracks()->save($tracks->random());
 
-            collect($moduleArray['resources'])->each(function ($resources, $language) use ($module) {
+            $this->createResources($moduleArray, $module);
+            $this->createSkills($moduleArray, $module);
+        });
+    }
+
+    protected function createSkills($moduleArray, $module)
+    {
+        collect($moduleArray['skills'])->each(function ($skillGrouping) use ($module) {
+            $module->skills()->create([
+                'name' => $skillGrouping,
+            ]);
+        });
+    }
+
+    protected function createResources($moduleArray, $module)
+    {
+		collect($moduleArray['resources'])->each(function ($resources, $language) use ($module) {
                 foreach ($resources as $resource) {
                     $module->resources()->create([
                         'name' => $resource['name'],
@@ -31,12 +46,5 @@ class ExistingContentSeeder extends Seeder
                     ]);
                 }
             });
-
-            collect($moduleArray['skills'])->each(function ($skillGrouping) use ($module) {
-                $module->skills()->create([
-                    'name' => $skillGrouping,
-                ]);
-            });
-        });
     }
 }

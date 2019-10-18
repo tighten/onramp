@@ -5,9 +5,9 @@
     <!-- title -->
     <div class="text-center px-6 py-12 bg-gray-100 border-b">
         <h1 class=" text-xl md:text-4xl pb-4">{{ $module->name }}</h1>
-        <p class="leading-loose text-gray-dark">
+        <!--p class="leading-loose text-gray-dark">
             @todo
-        </p>
+        </p-->
     </div>
     <!-- /title -->
 
@@ -15,6 +15,13 @@
 
     <div class="container max-w-4xl mx-auto md:flex items-start mt-6 py-8 px-12 md:px-0">
         <div class="w-full md:pr-12 mb-6">
+
+            <p class="mb-8 text-right text-sm">
+                <a href="javascript:alert('Not programmed yet @todo');" class="font-bold">Show only resources for {{ locale() }}</a> |
+                <a href="javascript:alert('Not programmed yet @todo');">Show only {{ locale() }} and English resources</a> |
+                <a href="javascript:alert('Not programmed yet @todo');">Show all resources</a>
+            </p>
+
             <div class="flex">
                 <div class="flex-1 w-auto p-4 border rounded mr-2">
                     <h3 class="font-bold text-lg border-b mb">

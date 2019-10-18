@@ -17,10 +17,13 @@
     - [x] Show a "If you were logged in you could ___ message to guests"
     - [x] Then hide that message ^^ until we have checkboxes working
 - [ ] Write intro content on modules.index and modules.show
-- [ ] Migrate all content from the master branch `learn.en` and `learn.es` files into the database seeders
+- [ ] Allow user to choose preference of which resources to show (based on localization)
+- [ ] Finish implementing resourcesForUser() on module
+- [x] Migrate all content from the master branch `learn.en` and `learn.es` files into the database seeders
 - [ ] Figure out how we handle resources that are links to projects (e.g. vagrant)... not really an "article"
-- [ ] Allow for translating a skill name
-- [ ] Add language to resources
+- [x] Allow for translating a skill name
+- [x] Add language to resources
+- [ ] Add real terms for glossary
 - [ ] Decide: Do we need to be able to group our resources? e.g. all the hosting resources (valet, vagrant, etc.) are related.. all of the "php variables" resources are related... flat structure seems weak
 
 ## Immediate post-launch

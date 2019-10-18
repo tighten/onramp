@@ -13,8 +13,8 @@
 
     {{-- Content for this page will eventually likely be in a DB. Right now, check out learn.php. --}}
 
-    <div class="container max-w-4xl mx-auto md:flex items-start py-8 px-12 md:px-0">
-        <div class="w-full md:pr-12 mb-12">
+    <div class="container max-w-4xl mx-auto md:flex items-start py-8 px-6 md:px-0">
+        <div class="w-full md:pr-12 mb-6">
             <ul class="temp-learn-list">
                 @foreach ($learn as $item)
                 <li>

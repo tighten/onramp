@@ -22,6 +22,7 @@ window.Vue = require('vue');
 // Vue.component('language-switcher', require('./components/LanguageSwitcher.vue').default);
 
 import LanguageSwitcher from './components/LanguageSwitcher.vue'
+import Toggle from './components/Toggle.vue'
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -31,7 +32,8 @@ import LanguageSwitcher from './components/LanguageSwitcher.vue'
 
 const app = new Vue({
     components: {
-        'language-switcher': LanguageSwitcher
+        'language-switcher': LanguageSwitcher,
+        'toggle': Toggle
     },
     el: '#app',
 });

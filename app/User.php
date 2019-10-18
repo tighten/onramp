@@ -3,10 +3,7 @@
 namespace App;
 
 use App\Completable;
-use App\Resource;
-use App\Skill;
 use App\Track;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 

@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
                 'resources' => [
                     'Intro to Git at Tower' => 'https://www.tower.com/',
                     'Intro to Git branching at Gitlab' => 'https://www.superyay.com/',
-                    'Git - The Simple Guide' => 'https://rogerdudler.github.io/git-guide/'
+                    'Git - The Simple Guide' => 'https://rogerdudler.github.io/git-guide/',
                 ],
             ],
             [
@@ -124,8 +124,8 @@ class DatabaseSeeder extends Seeder
                 'description' => [
                     'en' => 'A Collection is a convenient wrapper for working with arrays of data.',
                     'es' => 'Description but in Spanish',
-                ]
-            ]
+                ],
+            ],
         ];
 
         foreach ($terms as $term) {

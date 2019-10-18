@@ -4,7 +4,6 @@ namespace App;
 
 use App\Completable;
 use App\Completion;
-use App\Module;
 use App\Resource;
 use App\Skill;
 use App\Track;

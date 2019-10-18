@@ -6,11 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateModuleTrackTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('module_track', function (Blueprint $table) {
@@ -24,11 +19,6 @@ class CreateModuleTrackTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('module_track');

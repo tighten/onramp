@@ -13,7 +13,7 @@ return [
     ],
     [
         'name' => [
-            'es' => 'HTML',
+            'en' => 'HTML',
         ],
         'description' => [
             'en' => 'HTML description in english',

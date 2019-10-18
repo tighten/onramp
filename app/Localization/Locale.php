@@ -9,7 +9,7 @@ class Locale
     protected $locales = [
         'en' => 'English',
         'es' => 'Español',
-        'pt' => 'Português',
+        'pt_pt' => 'Português',
         'sv' => 'Svenska',
         'de' => 'Deutsch',
         'da' => 'Dansk',

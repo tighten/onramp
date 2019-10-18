@@ -1877,22 +1877,24 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    closeLanguages: function closeLanguages() {
+    open: function open() {
+      this.isOpen = true;
+      document.addEventListener('keydown', this.handleEscape);
+    },
+    close: function close() {
       this.isOpen = false;
       document.removeEventListener('keydown', this.handleEscape);
     },
-    toggleLanguages: function toggleLanguages() {
+    toggle: function toggle() {
       if (this.isOpen) {
-        this.isOpen = false;
-        document.removeEventListener('keydown', this.handleEscape);
+        this.close();
       } else {
-        this.isOpen = true;
-        document.addEventListener('keydown', this.handleEscape);
+        this.open();
       }
     },
     handleEscape: function handleEscape(e) {
       if (e.key === 'Esc' || e.key === 'Escape') {
-        this.isOpen = false;
+        this.close();
       }
     }
   }
@@ -37201,7 +37203,7 @@ var render = function() {
           attrs: { tabindex: "-1" },
           on: {
             click: function($event) {
-              return _vm.closeLanguages()
+              return _vm.close()
             }
           }
         })
@@ -37233,7 +37235,7 @@ var render = function() {
               attrs: { id: "language-switcher", tabindex: "1" },
               on: {
                 click: function($event) {
-                  return _vm.toggleLanguages()
+                  return _vm.toggle()
                 }
               }
             },
@@ -37252,7 +37254,7 @@ var render = function() {
           "div",
           {
             staticClass:
-              "absolute right-0 mt-2 w-32 py-2 bg-white rounded-lg shadow-xl"
+              "absolute border border-blue-700 right-0 mt-2 w-32 bg-white rounded shadow-xl"
           },
           [_vm._t("default")],
           2
@@ -49593,8 +49595,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/jsugar/Documents/Sites/onramp/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/jsugar/Documents/Sites/onramp/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/mattstauffer/Sites/onramp/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/mattstauffer/Sites/onramp/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -27,7 +27,7 @@ class Locale
 
     public function languageForLocale(string $locale)
     {
-        if (!$this->isValid($locale)) {
+        if (! $this->isValid($locale)) {
             throw new Exception("Cannot resolve language for locale: {$locale}");
         }
 

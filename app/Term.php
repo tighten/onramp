@@ -9,9 +9,9 @@ class Term extends Model
 {
     use HasTranslations;
 
-    protected $guarded = ['id'];
-
     public $translatable = ['name', 'description'];
+
+    protected $guarded = ['id'];
 
     public function getEnglishName()
     {

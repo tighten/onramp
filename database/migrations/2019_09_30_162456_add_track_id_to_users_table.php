@@ -6,11 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class AddTrackIdToUsersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
@@ -19,11 +14,6 @@ class AddTrackIdToUsersTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {

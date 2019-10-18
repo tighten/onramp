@@ -10,7 +10,7 @@ class CreateSkillsTable extends Migration
     {
         Schema::create('skills', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->json('name');
             $table->boolean('is_bonus')->default(false);
             $table->unsignedBigInteger('module_id');
             $table->foreign('module_id')->references('id')->on('modules');

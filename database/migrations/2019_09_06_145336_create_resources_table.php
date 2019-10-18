@@ -15,6 +15,7 @@ class CreateResourcesTable extends Migration
             $table->boolean('is_free')->default(true);
             $table->boolean('is_bonus')->default(false);
             $table->string('type');
+            $table->string('language');
             $table->unsignedBigInteger('module_id');
             $table->foreign('module_id')->references('id')->on('modules');
             $table->timestamps();

@@ -12,5 +12,6 @@ $factory->define(Resource::class, function (Faker $faker) {
         'is_bonus' => $faker->boolean(20),
         'type' => $faker->randomElement(['video', 'course', 'audio', 'book', 'article']),
         'module_id' => factory(Module::class),
+        'language' => $faker->randomElement(['en', 'es']),
     ];
 });

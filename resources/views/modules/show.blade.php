@@ -14,7 +14,7 @@
     @include('partials.you-should-log-in')
 
     <div class="container max-w-4xl mx-auto md:flex items-start mt-6 py-8 px-12 md:px-0">
-        <div class="w-full md:pr-12 mb-12">
+        <div class="w-full md:pr-12 mb-6">
             <div class="flex">
                 <div class="flex-1 w-auto p-4 border rounded mr-2">
                     <h3 class="font-bold text-lg border-b mb">

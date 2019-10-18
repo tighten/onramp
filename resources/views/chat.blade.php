@@ -8,8 +8,8 @@
     </div>
     <!-- /title -->
 
-    <div class="container max-w-4xl mx-auto md:flex items-start py-8 px-12 md:px-0">
-        <div class="w-full md:pr-12 mb-12 mt-8 text-black text-lg md:text-xl">
+    <div class="container max-w-4xl mx-auto md:flex items-start py-8 px-6 md:px-0">
+        <div class="w-full md:pr-12 mb-6 mt-8 text-black text-lg md:text-xl">
             <p class="mb-8">The planning and development of Onramp happens primarily on GitHub and in a Telegram chat. If you're reaching this page, you're likely already in the chat, so here are a few notes you might want to know about the chat and the planning of the project.</p>
             <ul class="list-disc pl-8">
                 <li class="mb-4"><strong>Development and streaming</strong>

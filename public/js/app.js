@@ -37196,7 +37196,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "relative text-white text-left z-50" }, [
+  return _c("div", { staticClass: "relative text-white z-50" }, [
     _vm.isOpen
       ? _c("button", {
           staticClass: "fixed w-full h-full inset-0 cursor-default",
@@ -37209,7 +37209,7 @@ var render = function() {
         })
       : _vm._e(),
     _vm._v(" "),
-    _c("div", { staticClass: "flex items-center" }, [
+    _c("div", { staticClass: "flex items-center justify-center" }, [
       _c(
         "label",
         {

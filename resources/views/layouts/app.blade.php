@@ -19,12 +19,12 @@
         <!-- header -->
         <div id="app">
             <header class="w-full px-6 text-white" style="background: #3f51d8">
-                <div class="container mx-auto max-w-4xl md:flex justify-between items-center">
+                <div class="container mx-auto max-w-4xl sm:flex justify-between items-center">
                     <a href="{{ url_wlocale('/') }}"
-                       class="block py-6 flex-grow text-center md:text-left flex justify-left items-center">
+                       class="block pt-6 pb-2 sm:py-6 flex-grow flex justify-left items-center">
                         <img src="/images/onramp_logo.svg" alt="Onramp" class="max-w-xs w-full">
                     </a>
-                    <language-switcher language="{{ Facades\App\Localization\Locale::languageForLocale(locale()) }}">
+                    <language-switcher language="{{ Facades\App\Localization\Locale::languageForLocale(locale()) }}" class="pb-4 md:pb-0">
                         @foreach (Facades\App\Localization\Locale::slugs() as $locale)
                         <a href="{{ switch_locale_link($locale) }}"
                            class="block px-4 py-2 text-blue-700 hover:bg-blue-700 hover:text-white"

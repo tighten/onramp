@@ -9,6 +9,7 @@ class GlossaryController extends Controller
     public function index()
     {
         return view('glossary', [
+            'pageTitle' => 'Glossary',
             'terms' => Term::all(),
         ]);
     }

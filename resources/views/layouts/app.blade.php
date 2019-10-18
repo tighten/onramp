@@ -5,15 +5,15 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta property="og:title" content="{{ $ogTitle ?? __('Onramp to Laravel') }}">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        <meta property="og:title" content="{{ isset($pageTitle) ? "{$pageTitle} | " : '' }}{{ __('Onramp to Laravel') }}">
         <meta property="og:type" content="{{ $ogType ?? 'website' }}">
-        <meta property="og:url" content="{{ $ogUrl ?? 'https://onramp.dev' }}">
-        <meta property="og:image" content="{{ $ogImage ?? '/images/opengraph_logo.png' }}">
+        <meta property="og:url" content="{{ $ogUrl ?? url()->current() }}">
+        <meta property="og:image" content="{{ $ogImage ?? url('/images/opengraph_logo.png') }}">
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
         <title>{{ isset($pageTitle) ? "{$pageTitle} | " : '' }}{{ __('Onramp to Laravel') }}</title>
-
-        <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
     <body>
         <!-- header -->

@@ -9,6 +9,7 @@ class ModuleController extends Controller
     public function index()
     {
         return view('modules.index', [
+            'pageTitle' => 'Modules',
             'modules' => Module::all(),
             'completedModules' => auth()->check() ? auth()->user()->moduleCompletions()->pluck('completable_id') : collect([]),
         ]);
@@ -17,6 +18,7 @@ class ModuleController extends Controller
     public function show($locale, Module $module)
     {
         return view('modules.show', [
+            'pageTitle' => $module->name,
             'module' => $module,
             'resources' => $module->resources,
             'skills' => $module->skills->where('is_bonus', false),

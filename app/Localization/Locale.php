@@ -2,24 +2,35 @@
 
 namespace App\Localization;
 
+use Exception;
+
 class Locale
 {
     protected $locales = [
-        'en',
-        'es',
-        'pt',
-        'sv',
-        'de',
-        'da',
+        'en' => 'English',
+        'es' => 'Español',
+        'pt' => 'Português',
+        'sv' => 'Svenska',
+        'de' => 'Deutsch',
+        'da' => 'Dansk',
     ];
 
-    public function all()
+    public function slugs()
     {
-        return $this->locales;
+        return array_keys($this->locales);
     }
 
     public function isValid($locale)
     {
-        return in_array($locale, $this->locales);
+        return array_key_exists($locale, $this->locales);
+    }
+
+    public function languageForLocale(string $locale)
+    {
+        if (!$this->isValid($locale)) {
+            throw new Exception("Cannot resolve language for locale: {$locale}");
+        }
+
+        return $this->locales[$locale];
     }
 }

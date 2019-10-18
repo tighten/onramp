@@ -8,10 +8,15 @@ use App\Resource;
 use App\Skill;
 use App\Track;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class Module extends Model implements Completable
 {
+    use HasTranslations;
+
     protected $guarded = ['id'];
+
+    public $translatable = ['name'];
 
     public function getRouteKeyName()
     {

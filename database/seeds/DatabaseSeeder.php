@@ -28,6 +28,16 @@ class DatabaseSeeder extends Seeder
             factory(Track::class)->create(['name' => $track['name']]);
         }
 
+        $this->call(ExistingContentSeeder::class);
+
+        return;
+
+
+
+
+
+
+
         // Seed a few modules
         $modules = [
             [

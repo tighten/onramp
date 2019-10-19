@@ -22,6 +22,7 @@
                 <li class="mb-4"><strong>Chat guidelines</strong>
                     <ul class="list-disc pl-8">
                         <li>Be kind to each other.</li>
+                        <li>Follow the <a href="https://github.com/tightenco/onramp/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a>.</li>
                         <li>If you're not familiar with Telegram, it's recommended you consider disabling the alerts on this chat--some times the room gets very chatty!</li>
                         <li>This chat is for planning Onramp. Off-topic conversations are allowed within reason, but try to keep the focus mainly on planning Onramp.</li>
                         <li>Coding questions are fine in this chat if they relate to your work on Onramp, but this isn't an intro-to-Laravel forum; try the <a href="https://discord.gg/mPZNm7A">Laravel Discord</a> for that.</li>

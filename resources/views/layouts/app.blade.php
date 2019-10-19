@@ -25,6 +25,11 @@
     <body>
         <!-- header -->
         <div id="app">
+            <div class="text-center px-6 py-2 bg-blue-200 border-blue-900 border-b">
+                <p class="leading-loose text-gray-dark">
+                    <span class="font-bold uppercase">NOTE:</span> This site is under active development, so it's not complete right now. Check out the <a href="{{ route_wlocale('dev') }}" class="font-bold hover:underline">dev page</a> to learn more.
+                </p>
+            </div>
             <header class="w-full px-6 text-white" style="background: #3f51d8">
                 <div class="container mx-auto max-w-4xl sm:flex justify-between items-center">
                     <a href="{{ url_wlocale('/') }}"
@@ -76,12 +81,6 @@
                 </div>
             </nav>
             <!-- /nav -->
-
-            <div class="text-center px-6 py-2 bg-blue-200 border-b">
-                <p class="leading-loose text-gray-dark">
-                    Note: This site is under active development, so it's not complete right now. Check out the <a href="{{ route_wlocale('dev') }}" class="font-bold hover:underline">dev page</a> to learn more.
-                </p>
-            </div>
 
             <!-- body -->
             @yield('content')

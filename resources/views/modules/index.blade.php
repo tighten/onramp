@@ -4,10 +4,10 @@
 <div class="w-full bg-white">
     <!-- title -->
     <div class="text-center px-6 py-12 bg-gray-100 border-b">
-        <h1 class=" text-xl md:text-4xl pb-4">Modules</h1>
-        <!--p class="leading-loose text-gray-dark">
-            @todo
-        </p-->
+        <h1 class="text-xl md:text-4xl pb-4">Modules</h1>
+        <p class="leading-loose text-gray-dark">
+            {{ __('The tech concepts you should know in order to get a job as a Laravel developer.') }}
+        </p>
     </div>
     <!-- /title -->
 

@@ -6,13 +6,13 @@
     <div class="text-center px-6 py-12 mb-6 bg-gray-100 border-b">
         <h1 class=" text-xl md:text-4xl pb-4">{{ __('Onramp to Laravel') }}</h1>
         <p class="leading-loose text-gray-dark">
-            Providing an easy entrance to Laravel for new developers
+            {{ __('Providing an easy entrance to Laravel for new developers') }}
         </p>
     </div>
     <!-- /title -->
 
-    <div class="container max-w-4xl mx-auto md:flex items-start py-8 px-12 md:px-0">
-        <div class="w-full md:pr-12 mb-12">
+    <div class="container max-w-4xl mx-auto md:flex items-start py-8 px-6 md:px-0">
+        <div class="w-full md:pr-12 mb-6">
             <h2 class="mb-2 mt-8 text-black text-xl md:text-2xl">
                 What is this?
             </h2>
@@ -42,7 +42,7 @@
                 Let's do it!
             </h2>
 
-            <p>OK, let's <a href="{{ url_wlocale('learn') }}" class="underline text-blue-700">learn.</a></p>
+            <p>OK, let's <a href="{{ route_wlocale('modules.index') }}">learn.</a></p>
         </div>
 
         <!-- sidebar -->

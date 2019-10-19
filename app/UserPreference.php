@@ -10,6 +10,10 @@ class UserPreference extends Model
         'id',
     ];
 
+    protected $casts = [
+        'language' => 'integer',
+    ];
+
     public function languagePreferences()
     {
           return [

@@ -10,6 +10,8 @@ Route::group(['prefix' => '{locale}'], function () {
 
     Route::group(['middleware' => 'auth'], function () {
         Route::view('home', 'home')->name('home');
+        Route::get('preferences', 'PreferenceController@index')->name('user.preferences.index');
+        Route::post('preferences', 'PreferenceController@store')->name('user.preferences.store');
     });
 
     Route::group(['prefix' => 'modules', 'as' => 'modules.'], function () {

@@ -23,6 +23,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function preference()
+    {
+        return $this->hasOne(UserPreference::class)->withDefault(['language' => 1]);
+    }
+
     public function track()
     {
         return $this->belongsTo(Track::class);

@@ -8,7 +8,9 @@ use App\Resource;
 use App\Skill;
 use App\Track;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 use Spatie\Translatable\HasTranslations;
+use Facades\App\UserPreference;
 
 class Module extends Model implements Completable
 {
@@ -45,15 +47,22 @@ class Module extends Model implements Completable
 
     public function resourcesForUser($user)
     {
-        // get the user's language and preference, and only select appropriate resources
-        // @todo make this actually function
-        // $language = locale();
-        // $preference = enum('only current', 'only english', 'english and current')
-        $preference = 'only-current'; // @todo pull from user's preferences or whatever
+        $preference = session('resource-language-preference') ?? 'english-and-current';
+        if ($user) {
+            $preference = data_get(UserPreference::languagePreferences(), $user->preference->language);
+        }
 
-        switch ($preference) {
+        $language = locale();
+        switch (Str::slug($preference)) {
             case 'only-current':
-                return $this->resources()->where('language', locale())->get();
+                return $this->resources()->where(compact('language'))->get();
+            case 'only-english':
+                return $this->resources()->where('language', 'en')->get();
+            case 'english-and-current':
+                return $this->resources()
+                        ->where(function ($query) use ($language) {
+                            $query->where(compact('language'))->orWhere('language', 'en');
+                        })->get();
         }
     }
 }

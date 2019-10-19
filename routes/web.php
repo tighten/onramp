@@ -19,5 +19,7 @@ Route::group(['prefix' => '{locale}'], function () {
 
     Route::view('chat', 'chat', ['pageTitle' => 'Chat Guidelines'])->name('chat');
 
+    Route::view('dev', 'dev')->name('dev');
+
     Auth::routes();
 });

@@ -14,9 +14,9 @@ class Module extends Model implements Completable
 {
     use HasTranslations;
 
-    protected $guarded = ['id'];
-
     public $translatable = ['name'];
+
+    protected $guarded = ['id'];
 
     public function getRouteKeyName()
     {

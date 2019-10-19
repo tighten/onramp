@@ -12,13 +12,13 @@ class Skill extends Model implements Completable
 {
     use HasTranslations;
 
+    public $translatable = ['name'];
+
     protected $guarded = ['id'];
 
     protected $casts = [
         'is_bonus' => 'boolean',
     ];
-
-    public $translatable = ['name'];
 
     public function module()
     {

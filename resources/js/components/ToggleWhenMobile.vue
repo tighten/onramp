@@ -2,7 +2,7 @@
     <div>
         <button @click="toggle" class="border rounded py-1 px-4 md:hidden">{{ buttonLabel }}</button>
 
-        <div v-show="slotVisible" class="mb-2">
+        <div class="mb-2 md:block" v-bind:class="{ hidden: !isOpen }">
             <slot></slot>
         </div>
     </div>
@@ -26,12 +26,6 @@
             buttonLabel() {
                 return this.isOpen ? 'Hide' : 'Show';
             },
-            slotVisible() {
-                if (window.innerWidth >= 768) {
-                    this.isOpen = true;
-                };
-                return this.isOpen;
-            }
         },
     }
 </script>

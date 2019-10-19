@@ -16,7 +16,7 @@
     - [x] Ensure it doesn't break
     - [x] Show a "If you were logged in you could ___ message to guests"
     - [x] Then hide that message ^^ until we have checkboxes working
-- [ ] Write intro content on modules.index and modules.show
+- [x] Write intro content on modules.index and modules.show
 - [ ] Allow user to choose preference of which resources to show (based on localization)
 - [ ] Finish implementing resourcesForUser() on module
 - [x] Migrate all content from the master branch `learn.en` and `learn.es` files into the database seeders

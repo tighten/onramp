@@ -4,10 +4,7 @@
 <div class="w-full bg-white">
     <!-- title -->
     <div class="text-center px-6 py-12 bg-gray-100 border-b">
-        <h1 class=" text-xl md:text-4xl pb-4">{{ $module->name }}</h1>
-        <!--p class="leading-loose text-gray-dark">
-            @todo
-        </p-->
+        <h1 class=" text-xl md:text-4xl">{{ $module->name }}</h1>
     </div>
     <!-- /title -->
 

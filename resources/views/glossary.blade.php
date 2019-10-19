@@ -4,10 +4,7 @@
 <div class="w-full bg-white">
     <!-- title -->
     <div class="text-center px-6 py-12 bg-gray-100 border-b">
-        <h1 class=" text-xl md:text-4xl pb-4">{{ __('Glossary') }}</h1>
-        <p class="leading-loose text-gray-dark">
-            {{ __('The tech concepts you should know in order to get a job as a Laravel developer.') }}
-        </p>
+        <h1 class=" text-xl md:text-4xl">{{ __('Glossary') }}</h1>
     </div>
     <!-- /title -->
 
@@ -34,7 +31,7 @@
                     </li>
                     @endforelse
                 </ul>
-                <div class="md:mt-10 pb-4 w-full md:w-1/4 border-b border-grey-100 xl:border-none">
+                <div class="md:mt-10 mb-4 pb-4 w-full md:w-1/4 border-b border-grey-100 md:border-none">
                     <h3 class="text-xl">{{ __('Table of contents') }}</h3>
                     <!-- Mobile -->
                     <toggle class="mb-2 md:hidden">
@@ -50,7 +47,7 @@
                     </toggle>
 
                     <!-- Desktop -->
-                    <ul class="mt-4 hidden md:block border-b">
+                    <ul class="mt-4 hidden md:block">
                         @forelse ($terms as $term)
                             <li class="leading-relaxed">
                                 <a class="capitalize" href="#{{ $term->getEnglishName() }}">{{ $term->name }}</a>

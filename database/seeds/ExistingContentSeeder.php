@@ -1,6 +1,7 @@
 <?php
 
 use App\Module;
+use App\Term;
 use App\Track;
 use Illuminate\Database\Seeder;
 
@@ -21,6 +22,10 @@ class ExistingContentSeeder extends Seeder
 
             $this->createResources($moduleArray, $module);
             $this->createSkills($moduleArray, $module);
+        });
+
+        collect(require('glossary.php'))->each(function ($term){
+            Term::create($term);
         });
     }
 

@@ -2,7 +2,7 @@
 
 namespace App\Localization;
 
-use Exception;
+use App\Exceptions\InvalidLocale;
 use Facades\App\Localization\Locale;
 use Illuminate\Http\Request;
 
@@ -26,7 +26,7 @@ class ResolveLocale
         $locale = reset($segments);
 
         if (! Locale::isValid($locale)) {
-            throw new Exception("Invalid locale: {$locale}");
+            throw new InvalidLocale("Invalid locale: {$locale}");
         }
 
         return $locale;

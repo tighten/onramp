@@ -77,9 +77,9 @@
             <!-- footer -->
             <footer class="w-full bg-white px-6 border-t">
                 <div
-                    class="container mx-auto max-w-4xl py-6 flex flex-wrap md:flex-no-wrap justify-between items-center text-sm">
+                    class="container mx-auto max-w-4xl py-6 flex flex-wrap md:flex-no-wrap justify-between items-end text-sm">
                     <p>{{ __('From the lovely folks at') }} <a href="https://tighten.co/">Tighten.</a></p>
-                    <div class="pt-4 md:p-0 text-center md:text-right text-xs">
+                    <div class="text-center md:text-right text-xs">
                         <a href="https://github.com/tightenco/onramp">{{ __('Source & Roadmap') }}</a>
                         {{--
                         <a href="#" class="text-black ml-4">Terms &amp; Conditions</a>

@@ -23,7 +23,7 @@
                                 {{ $term->getTranslation('name', locale()) }}
                             </h3>
                             @if ($term->name !== $term->getEnglishName())
-                                <span class="pl-1 text-grey-800 capitalize text-sm">({{ $term->getEnglishName() }} )</span>
+                                <span class="pl-1 text-grey-800 capitalize text-sm">({{ $term->getEnglishName() }})</span>
                             @endif
                         </div>
                         <p class="mt-2">{{ $term->getTranslation('description', locale()) }}</p>

@@ -33,11 +33,10 @@
                 </ul>
                 <div class="md:mt-10 mb-4 pb-4 w-full md:w-1/4 border-b border-grey-100 md:border-none">
                     <h3 class="text-xl">{{ __('Table of contents') }}</h3>
-                    <!-- Mobile -->
-                    <toggle class="mb-2 md:hidden">
-                        <ul class="mt-4">
+                    <toggle>
+                        <ul class="mt-4 md:block md:border-b">
                             @forelse ($terms as $term)
-                                <li class="leading-relaxed list-disc ml-4 pl-1">
+                                <li class="leading-relaxed list-disc md:list-none ml-4 md:ml-0 pl-1 md:pl-0">
                                     <a class="capitalize" href="#{{ $term->getEnglishName() }}">{{ $term->name }}</a>
                                 </li>
                             @empty
@@ -45,17 +44,6 @@
                             @endforelse
                         </ul>
                     </toggle>
-
-                    <!-- Desktop -->
-                    <ul class="mt-4 hidden md:block">
-                        @forelse ($terms as $term)
-                            <li class="leading-relaxed">
-                                <a class="capitalize" href="#{{ $term->getEnglishName() }}">{{ $term->name }}</a>
-                            </li>
-                        @empty
-                            {{ __('No terms') }}
-                        @endforelse
-                    </ul>
                 </div>
             </div>
         </div>

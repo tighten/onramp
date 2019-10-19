@@ -1,8 +1,8 @@
 <template>
     <div>
-        <button @click="toggle" class="border rounded py-1 px-4">{{ buttonLabel }}</button>
+        <button @click="toggle" class="border rounded py-1 px-4 md:hidden">{{ buttonLabel }}</button>
 
-        <div v-show="isOpen" :aria-hidden="!isOpen">
+        <div v-show="tableOfContentsVisible" class="mb-2">
             <slot></slot>
         </div>
     </div>
@@ -26,6 +26,12 @@
             buttonLabel() {
                 return this.isOpen ? 'Hide' : 'Show';
             },
+            tableOfContentsVisible() {
+                if (window.innerWidth >= 768) {
+                    this.isOpen = true;
+                };
+                return this.isOpen;
+            }
         },
     }
 </script>

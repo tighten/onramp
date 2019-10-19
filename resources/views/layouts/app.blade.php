@@ -1,5 +1,5 @@
 {{-- Template from https://templates.digizu.co.uk/ --}}<!DOCTYPE html>
-
+@php $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') .  __('Onramp to Laravel'); @endphp
 <html lang="{{ locale() }}">
     <head>
         <meta charset="utf-8">
@@ -7,26 +7,26 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <meta property="og:title" content="{{ isset($pageTitle) ? "{$pageTitle} | " : '' }}{{ __('Onramp to Laravel') }}">
+        <meta property="og:title" content="{{ $fullPageTitle }}">
         <meta property="og:type" content="{{ $ogType ?? 'website' }}">
         <meta property="og:url" content="{{ $ogUrl ?? url()->current() }}">
         <meta property="og:image" content="{{ $ogImage ?? url('/images/opengraph_logo.png') }}">
 
         <meta property="twitter:card" content="summary_large_image">
         <meta property="twitter:url" content="{{ $ogUrl ?? url()->current() }}">
-        <meta property="twitter:title" content="{{ isset($pageTitle) ? "{$pageTitle} | " : '' }}{{ __('Onramp to Laravel') }}">
+        <meta property="twitter:title" content="{{ $fullPageTitle }}">
         <meta property="twitter:description" content="{{ $ogDescription ?? __('Learn everything you need to get hired writing Laravel, quickly and easily.') }}">
         <meta property="twitter:image" content="{{ $ogImage ?? url('/images/twitter_card.png') }}">
 
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
-        <title>{{ isset($pageTitle) ? "{$pageTitle} | " : '' }}{{ __('Onramp to Laravel') }}</title>
+        <title>{{ $fullPageTitle }}</title>
     </head>
     <body>
         <!-- header -->
         <div id="app">
             <div class="text-center px-6 py-2 bg-blue-200 border-blue-900 border-b">
-                <p class="leading-loose text-gray-dark">
+                <p class="text-gray-dark">
                     <span class="font-bold uppercase">NOTE:</span> This site is under active development, so it's not complete right now. Check out the <a href="{{ route_wlocale('dev') }}" class="font-bold hover:underline">dev page</a> to learn more.
                 </p>
             </div>
@@ -50,17 +50,17 @@
             <!-- nav -->
             <nav class="w-full bg-white md:pt-0 px-6 relative z-20 border-t border-b border-gray-light">
                 <div
-                    class="container mx-auto py-4 max-w-4xl md:flex justify-between items-center text-sm md:text-md md:justify-start">
+                    class="container mx-auto py-2 max-w-4xl md:flex justify-between items-center text-sm md:text-md md:justify-start">
                     <div
-                        class="w-full md:w-1/2 text-center md:text-left flex flex-wrap justify-center items-stretch md:justify-start md:items-start mb-4 md:mb-0">
+                        class="w-full md:w-1/2 text-center md:text-left flex flex-wrap justify-center items-stretch md:justify-start md:items-start">
                         <a href="{{ url_wlocale('/') }}"
-                           class="px-2 md:pl-0 md:mr-3 md:pr-3 md:border-r border-gray-light">{{ __('Home') }}</a>
+                           class="p-2 md:px-4 md:border-r border-gray-light">{{ __('Home') }}</a>
                         <a href="{{ route_wlocale('modules.index') }}"
-                           class="px-2 md:pl-0 md:mr-3 md:pr-3 md:border-r border-gray-light">{{ __('Learn') }}</a>
+                           class="p-2 md:px-4 md:border-r border-gray-light">{{ __('Learn') }}</a>
                         <a href="{{ route_wlocale('glossary') }}"
-                           class="px-2 md:pl-0 md:mr-3 md:pr-3">{{ __('Glossary') }}</a>
+                           class="p-2 md:px-4">{{ __('Glossary') }}</a>
                     </div>
-                    <div class="w-full md:w-1/2 text-center md:text-right">
+                    <div class="w-full mb-2 md:mb-0 md:w-1/2 text-center md:text-right">
                         @guest
                             <a class="text-sm p-3" href="{{ route_wlocale('login') }}">{{ __('Log in') }}</a>
                             @if (Route::has('register'))

@@ -17,8 +17,10 @@
         <div class="w-full md:pr-12 mb-6">
 
             <p class="mb-8 text-right text-sm">
-                <a href="javascript:alert('Not programmed yet @todo');" class="font-bold">Show only resources for {{ locale() }}</a> |
-                <a href="javascript:alert('Not programmed yet @todo');">Show only {{ locale() }} and English resources</a> |
+                <a href="javascript:alert('Not programmed yet @todo');" class="font-bold">Show only resources in {{ Facades\App\Localization\Locale::languageForLocale(locale()) }}</a> |
+                @if('en' !== locale())
+                    <a href="javascript:alert('Not programmed yet @todo');">Show only {{ Facades\App\Localization\Locale::languageForLocale(locale()) }} and English resources</a> |
+                @endif
                 <a href="javascript:alert('Not programmed yet @todo');">Show all resources</a>
             </p>
 

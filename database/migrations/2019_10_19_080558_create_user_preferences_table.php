@@ -16,7 +16,7 @@ class CreateUserPreferencesTable extends Migration
         Schema::create('user_preferences', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->index();
-            $table->tinyInteger('language')->default(2);
+            $table->string('language')->default('english-and-current');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

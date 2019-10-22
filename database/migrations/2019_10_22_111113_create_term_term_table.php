@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateTermTermTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('term_term', function (Blueprint $table) {
@@ -21,11 +16,6 @@ class CreateTermTermTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('term_term');

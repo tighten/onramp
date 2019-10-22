@@ -10,10 +10,8 @@ class CreateResourceTermTable extends Migration
     {
         Schema::create('resource_term', function (Blueprint $table) {
             $table->bigIncrements('id');
-
             $table->unsignedBigInteger('resource_id');
             $table->unsignedBigInteger('term_id');
-
             $table->timestamps();
         });
     }

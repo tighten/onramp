@@ -37253,7 +37253,7 @@ var render = function() {
         "label",
         {
           staticClass:
-            "flex items-center relative z-50 block h-8 w-32 bg-white text-gray-800 rounded focus:outline-none",
+            "flex items-center relative z-50 block h-8 w-32 bg-white hover:bg-blue-100 text-gray-800 rounded focus:outline-none",
           attrs: { for: "language-switcher" }
         },
         [
@@ -37269,8 +37269,7 @@ var render = function() {
           _c(
             "button",
             {
-              staticClass:
-                "ml-2 bg-white focus:outline-none focus:border-white",
+              staticClass: "ml-2 focus:outline-none focus:border-white",
               attrs: { id: "language-switcher", tabindex: "1" },
               on: {
                 click: function($event) {

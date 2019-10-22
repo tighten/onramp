@@ -5,6 +5,7 @@ namespace App;
 use App\Completable;
 use App\Completion;
 use App\Module;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class Resource extends Model implements Completable
@@ -19,5 +20,23 @@ class Resource extends Model implements Completable
     public function completions()
     {
         return $this->morphMany(Completion::class, 'completable');
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope('localizedResources', function (Builder $builder) {
+            // get the user's language and preference, and only select appropriate resources
+            // @todo make this actually function
+            // $language = locale();
+            // $preference = enum('only current', 'only english', 'english and current')
+            $preference = 'only-current'; // @todo pull from user's preferences or whatever
+
+            switch ($preference) {
+                case 'only-current':
+                    $builder->where('language', locale());
+            }
+        });
     }
 }

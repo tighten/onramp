@@ -13,7 +13,7 @@
             <div class="flex flex-col-reverse md:flex-row">
                 <ul class="md:w-3/4 flex-grow pr-8">
                     @forelse ($terms as $term)
-                    <li id="{{ $term->getEnglishName() }}" class=" md:mt-6 py-4 list-none">
+                    <li id="{{ $term->getEnglishName() }}" class=" md:mt-6 p-4 list-none">
                         <div class="flex justify-start items-baseline mb-1 md:mb-3">
                             <a class="text-lg font-bold" href="#{{ $term->getEnglishName() }}">#</a>
                             <h3 class="ml-2 font-bold text-lg capitalize">
@@ -24,6 +24,18 @@
                             @endif
                         </div>
                         <p class="mt-2">{{ $term->getTranslation('description', locale()) }}</p>
+                        @if (count($term->resourcesForUser())>0)
+                        <div class="mt-4 flex flex-col">
+                            <span>Onramp suggested learning:</span>
+                            @foreach ($term->resourcesForUser() as $resource)
+                                <span>
+                                    <a href="{{ route_wlocale('modules.show', $resource->module()->first()) }}">{{ $resource->module()->first()->name }}</a>
+                                    &gt;
+                                    <a href="{{ $resource->url }}">{{ $resource->name }}</a>
+                                </span>
+                            @endforeach
+                        </div>
+                        @endif
                     </li>
                     @empty
                     <li class="m-4 mt-6 list-none">

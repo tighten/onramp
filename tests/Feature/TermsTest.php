@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Resource;
 use App\Term;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -43,5 +44,18 @@ class TermsTest extends TestCase
         $this->get('/es/glossary')
             ->assertSee($term->name)
             ->assertSee($term->description);
+    }
+
+    /** @test */
+    function a_term_may_be_related_to_one_or_more_resources()
+    {
+        $term = factory(Term::class)->create();
+        $resourceIds = [
+            factory(Resource::class)->create()->id,
+            factory(Resource::class)->create()->id,
+        ];
+
+        $term->resources()->attach($resourceIds);
+        $this->assertEquals($resourceIds, $term->fresh()->resources()->get()->pluck('id')->toArray());
     }
 }

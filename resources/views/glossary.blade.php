@@ -26,7 +26,7 @@
                         <p class="mt-2">{{ $term->getTranslation('description', locale()) }}</p>
                         @if (count($term->resourcesForUser())>0)
                         <div class="mt-4 flex flex-col">
-                            <span>Onramp suggested learning:</span>
+                            <span class="text-gray-800">Onramp suggested learning:</span>
                             @foreach ($term->resourcesForUser() as $resource)
                                 <span>
                                     <a href="{{ route_wlocale('modules.show', $resource->module()->first()) }}">{{ $resource->module()->first()->name }}</a>
@@ -35,6 +35,14 @@
                                 </span>
                             @endforeach
                         </div>
+                        @endif
+                        @if (count($term->relatedTerms)>0)
+                            <div class="mt-4 flex items-center">
+                                <span class="text-gray-800">Related Terms:</span>
+                                @foreach ($term->relatedTerms as $relatedTerm)
+                                    <a class="ml-2 px-3 bg-gray-400 rounded-full text-sm font-semibold text-gray-700" href="#{{ $relatedTerm->name }}">#{{ $relatedTerm->name }}</a>
+                                @endforeach
+                            </div>
                         @endif
                     </li>
                     @empty

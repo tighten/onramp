@@ -58,4 +58,17 @@ class TermsTest extends TestCase
         $term->resources()->attach($resourceIds);
         $this->assertEquals($resourceIds, $term->fresh()->resources()->get()->pluck('id')->toArray());
     }
+
+    /** @test */
+    function a_term_may_be_related_to_other_terms()
+    {
+        $term = factory(Term::class)->create();
+        $relatedTerms = [
+            factory(Term::class)->create()->id,
+            factory(Term::class)->create()->id,
+        ];
+
+        $term->relatedTerms()->attach($relatedTerms);
+        $this->assertEquals($relatedTerms, $term->fresh()->relatedTerms()->get()->pluck('id')->toArray());
+    }
 }

@@ -1902,10 +1902,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Toggle.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Toggle.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ToggleWhenMobile.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ToggleWhenMobile.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -37307,10 +37307,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Toggle.vue?vue&type=template&id=47b09f7f&":
-/*!*********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Toggle.vue?vue&type=template&id=47b09f7f& ***!
-  \*********************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ToggleWhenMobile.vue?vue&type=template&id=2ecb6d5b&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ToggleWhenMobile.vue?vue&type=template&id=2ecb6d5b& ***!
+  \*******************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -37325,23 +37325,16 @@ var render = function() {
   return _c("div", [
     _c(
       "button",
-      { staticClass: "border rounded py-1 px-4", on: { click: _vm.toggle } },
+      {
+        staticClass: "border rounded py-1 px-4 md:hidden",
+        on: { click: _vm.toggle }
+      },
       [_vm._v(_vm._s(_vm.buttonLabel))]
     ),
     _vm._v(" "),
     _c(
       "div",
-      {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.isOpen,
-            expression: "isOpen"
-          }
-        ],
-        attrs: { "aria-hidden": !_vm.isOpen }
-      },
+      { staticClass: "md:block", class: { hidden: !_vm.isOpen } },
       [_vm._t("default")],
       2
     )
@@ -49500,7 +49493,7 @@ module.exports = function(module) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_LanguageSwitcher_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/LanguageSwitcher.vue */ "./resources/js/components/LanguageSwitcher.vue");
-/* harmony import */ var _components_Toggle_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Toggle.vue */ "./resources/js/components/Toggle.vue");
+/* harmony import */ var _components_ToggleWhenMobile_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/ToggleWhenMobile.vue */ "./resources/js/components/ToggleWhenMobile.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -49531,7 +49524,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 var app = new Vue({
   components: {
     'language-switcher': _components_LanguageSwitcher_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    'toggle': _components_Toggle_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    'toggle-when-mobile': _components_ToggleWhenMobile_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   el: '#app'
 });
@@ -49665,17 +49658,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/Toggle.vue":
-/*!********************************************!*\
-  !*** ./resources/js/components/Toggle.vue ***!
-  \********************************************/
+/***/ "./resources/js/components/ToggleWhenMobile.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/components/ToggleWhenMobile.vue ***!
+  \******************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Toggle_vue_vue_type_template_id_47b09f7f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Toggle.vue?vue&type=template&id=47b09f7f& */ "./resources/js/components/Toggle.vue?vue&type=template&id=47b09f7f&");
-/* harmony import */ var _Toggle_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Toggle.vue?vue&type=script&lang=js& */ "./resources/js/components/Toggle.vue?vue&type=script&lang=js&");
+/* harmony import */ var _ToggleWhenMobile_vue_vue_type_template_id_2ecb6d5b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ToggleWhenMobile.vue?vue&type=template&id=2ecb6d5b& */ "./resources/js/components/ToggleWhenMobile.vue?vue&type=template&id=2ecb6d5b&");
+/* harmony import */ var _ToggleWhenMobile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ToggleWhenMobile.vue?vue&type=script&lang=js& */ "./resources/js/components/ToggleWhenMobile.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -49685,9 +49678,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Toggle_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Toggle_vue_vue_type_template_id_47b09f7f___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Toggle_vue_vue_type_template_id_47b09f7f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _ToggleWhenMobile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ToggleWhenMobile_vue_vue_type_template_id_2ecb6d5b___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ToggleWhenMobile_vue_vue_type_template_id_2ecb6d5b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -49697,38 +49690,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/Toggle.vue"
+component.options.__file = "resources/js/components/ToggleWhenMobile.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/Toggle.vue?vue&type=script&lang=js&":
-/*!*********************************************************************!*\
-  !*** ./resources/js/components/Toggle.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************/
+/***/ "./resources/js/components/ToggleWhenMobile.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/ToggleWhenMobile.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Toggle_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Toggle.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Toggle.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Toggle_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ToggleWhenMobile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ToggleWhenMobile.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ToggleWhenMobile.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ToggleWhenMobile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/Toggle.vue?vue&type=template&id=47b09f7f&":
-/*!***************************************************************************!*\
-  !*** ./resources/js/components/Toggle.vue?vue&type=template&id=47b09f7f& ***!
-  \***************************************************************************/
+/***/ "./resources/js/components/ToggleWhenMobile.vue?vue&type=template&id=2ecb6d5b&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/ToggleWhenMobile.vue?vue&type=template&id=2ecb6d5b& ***!
+  \*************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Toggle_vue_vue_type_template_id_47b09f7f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Toggle.vue?vue&type=template&id=47b09f7f& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Toggle.vue?vue&type=template&id=47b09f7f&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Toggle_vue_vue_type_template_id_47b09f7f___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ToggleWhenMobile_vue_vue_type_template_id_2ecb6d5b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ToggleWhenMobile.vue?vue&type=template&id=2ecb6d5b& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ToggleWhenMobile.vue?vue&type=template&id=2ecb6d5b&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ToggleWhenMobile_vue_vue_type_template_id_2ecb6d5b___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Toggle_vue_vue_type_template_id_47b09f7f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ToggleWhenMobile_vue_vue_type_template_id_2ecb6d5b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

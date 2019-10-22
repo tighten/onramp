@@ -18,27 +18,13 @@ class Term extends Model
         return $this->getTranslation('name', 'en');
     }
 
-    function resources()
+    public function resources()
     {
         return $this->belongsToMany(Resource::class);
     }
 
-    function relatedTerms()
+    public function relatedTerms()
     {
         return $this->belongsToMany(Term::class, 'term_term', 'term_id', 'related_term_id');
-    }
-
-    function resourcesForUser()
-    {
-        // get the user's language and preference, and only select appropriate resources
-        // @todo make this actually function
-        // $language = locale();
-        // $preference = enum('only current', 'only english', 'english and current')
-        $preference = 'only-current'; // @todo pull from user's preferences or whatever
-
-        switch ($preference) {
-            case 'only-current':
-                return $this->resources()->where('language', locale())->get();
-        }
     }
 }

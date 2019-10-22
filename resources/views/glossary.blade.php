@@ -24,10 +24,10 @@
                             @endif
                         </div>
                         <p class="mt-2">{{ $term->getTranslation('description', locale()) }}</p>
-                        @if (count($term->resourcesForUser())>0)
+                        @if (count($term->resources()->get()) > 0)
                         <div class="mt-4 flex flex-col">
                             <span class="text-gray-800">Onramp suggested learning:</span>
-                            @foreach ($term->resourcesForUser() as $resource)
+                            @foreach ($term->resources()->get() as $resource)
                                 <span>
                                     <a href="{{ route_wlocale('modules.show', $resource->module()->first()) }}">{{ $resource->module()->first()->name }}</a>
                                     &gt;

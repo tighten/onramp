@@ -36,7 +36,7 @@
                             @endforeach
                         </div>
                         @endif
-                        @if (count($term->relatedTerms)>0)
+                        @if (count($term->relatedTerms) > 0)
                             <div class="mt-4 flex items-center">
                                 <span class="text-gray-800">Related Terms:</span>
                                 @foreach ($term->relatedTerms as $relatedTerm)

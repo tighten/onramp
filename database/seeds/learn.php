@@ -3,7 +3,7 @@
 // Each entry is a module, which can have resources and skills
 return [
     [
-        'name' => ['en' => 'Build a basic web site', 'es' => '@todo-espanic-basic-website'],
+        'name' => ['en' => 'Build a basic web site', 'es' => ''],
         'skills' => [
             ['es' => '', 'en' => 'Write HTML'],
             ['es' => '', 'en' => 'Write CSS'],
@@ -81,7 +81,7 @@ return [
         ],
     ],
     [
-        'name' => ['en' => 'Basic Terminal & Git', 'es' => '@todo espanic basic terminal & git'],
+        'name' => ['en' => 'Basic Terminal & Git', 'es' => ''],
         'skills' => [
             ['es' => '', 'en' => 'Navigate the terminal'],
             ['es' => '', 'en' => 'Use Git for basic tasks'],
@@ -139,7 +139,7 @@ return [
         ],
     ],
     [
-        'name' => ['en' => 'Local PHP Environment', 'es' => '@todo espanic local php environment'],
+        'name' => ['en' => 'Local PHP Environment', 'es' => ''],
         'skills' => [
             ['es' => '', 'en' => 'Set up a Laravel dev environment'],
             ['es' => '', 'en' => 'Install Composer'],
@@ -194,17 +194,17 @@ return [
         ],
     ],
     [
-        'name' => ['en' => 'Beginning PHP', 'es' => '@todo espanic beginning php'],
+        'name' => ['en' => 'Beginning PHP', 'es' => ''],
         'skills' => [
             ['es' => 'Variables', 'en' => 'Work with variables'],
             ['es' => 'Arreglos', 'en' => 'Work with arrays'],
             ['es' => 'Funciones', 'en' => 'Define and use functions'],
             ['es' => 'Clases', 'en' => 'Create and instantiate classes'],
-            ['es' => '@todo espanice write conditionals', 'en' => 'Write conditionals'],
-            ['es' => '@todo espanic write loops', 'en' => 'Write loops'],
+            ['es' => '', 'en' => 'Write conditionals'],
+            ['es' => '', 'en' => 'Write loops'],
             ['es' => 'Constructores', 'en' => 'Use class constructors'],
             ['es' => 'Herencia Básica', 'en' => 'Use simple class inheritance'],
-            ['es' => '@todo espanice simple oop composition', 'en' => 'Use simple OOP composition'],
+            ['es' => '', 'en' => 'Use simple OOP composition'],
         ],
         'resources' => [
             'es' => [
@@ -294,7 +294,7 @@ return [
         ],
     ],
     [
-        'name' => ['en' => 'Object-Oriented Programming', 'es' => '@todo espanic object oriented programming'],
+        'name' => ['en' => 'Object-Oriented Programming', 'es' => ''],
         'skills' => [],
         'resources' => [
             'es' => [],
@@ -308,7 +308,7 @@ return [
         ],
     ],
     [
-        'name' => ['en' => 'Laravel Basics', 'es' => '@todo espanic laravel basics'],
+        'name' => ['en' => 'Laravel Basics', 'es' => ''],
         // These aren't quite skills 😬
         'skills' => [
             ['es' => 'Creando y ejecutando un nuevo proyecto de Laravel', 'en' => 'Creating and serving a new Laravel project'],
@@ -520,7 +520,7 @@ return [
         ],
     ],
     [
-        'name' => ['en' => 'Basic JavaScript', 'es' => '@todo espanic basic javascript'],
+        'name' => ['en' => 'Basic JavaScript', 'es' => ''],
         'skills' => [],
         'resources' => [
             'es' => [
@@ -550,7 +550,7 @@ return [
         ],
     ],
     [
-        'name' => ['en' => 'Laravel Mix', 'es' => '@todo espanic laravel mix'],
+        'name' => ['en' => 'Laravel Mix', 'es' => ''],
         'skills' => [],
         'resources' => [
             'es' => [],
@@ -564,7 +564,7 @@ return [
         ],
     ],
     [
-        'name' => ['en' => 'Basic session-backed internal APIs', 'es' => '@todo espanic basic session backed internal apis'],
+        'name' => ['en' => 'Basic session-backed internal APIs', 'es' => ''],
         'skills' => [],
         'resources' => [
             'es' => [],
@@ -572,7 +572,7 @@ return [
         ],
     ],
     [
-        'name' => ['en' => 'Deployments', 'es' => '@todo espanic deployments'],
+        'name' => ['en' => 'Deployments', 'es' => ''],
         'skills' => [],
         'resources' => [
             'es' => [],
@@ -580,7 +580,7 @@ return [
         ],
     ],
     [
-        'name' => ['en' => 'Monitoring (e.g. Bugsnag)', 'es' => '@todo espanic monitoring e.g. bugsnag'],
+        'name' => ['en' => 'Monitoring (e.g. Bugsnag)', 'es' => ''],
         'skills' => [],
         'resources' => [
             'es' => [],
@@ -588,7 +588,7 @@ return [
         ],
     ],
     [
-        'name' => ['en' => 'Basic Testing', 'es' => '@todo espanic basic testing'],
+        'name' => ['en' => 'Basic Testing', 'es' => ''],
         'skills' => [],
         'resources' => [
             'es' => [],

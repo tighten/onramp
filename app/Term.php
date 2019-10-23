@@ -23,6 +23,11 @@ class Term extends Model
         return $this->belongsToMany(Resource::class);
     }
 
+    public function resourcesForUser($user = null)
+    {
+        return $this->resources()->forUser($user ?? auth()->user());
+    }
+
     public function relatedTerms()
     {
         return $this->belongsToMany(Term::class, 'term_term', 'term_id', 'related_term_id');

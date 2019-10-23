@@ -2,24 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use Illuminate\Http\Request;
 
 class PreferenceController extends Controller
 {
-    /**
-     * Handle the incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request)
     {
-        $user = $request->user();
-
         return view('preferences', [
-            'currentLanguagePreference' => $user->preference->language,
-            'languagePreferences' => $user->preference->languagePreferences(),
+            'currentLanguagePreference' => auth()->user()->preference->language,
+            'languagePreferences' => auth()->user()->preference->languagePreferences(),
         ]);
     }
 

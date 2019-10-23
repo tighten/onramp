@@ -26,22 +26,23 @@ class Resource extends Model implements Completable
     public function scopeForUser($query, $user = null)
     {
         $preference = session('resource-language-preference') ?? 'english-and-current';
-        if ($user) {
+
+        if ($user ?? $user = auth()->user()) {
             $preference = data_get(UserPreference::languagePreferences(), $user->preference->language);
         }
 
-        $language = locale();
-
         switch (Str::slug($preference)) {
             case 'only-current':
-                return $this->resources()->where(compact('language'))->get();
+                $query->where(['language' => locale()]);
+                break;
             case 'only-english':
-                return $this->resources()->where('language', 'en')->get();
+                $query->where('language', 'en');
+                break;
             case 'english-and-current':
-                return $this->resources()
-                        ->where(function ($query) use ($language) {
-                            $query->where(compact('language'))->orWhere('language', 'en');
-                        })->get();
+                $query->where(function ($query) {
+                    $query->where(['language' => locale()])
+                        ->orWhere('language', 'en');
+                });
         }
     }
 }

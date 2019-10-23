@@ -25,7 +25,8 @@ class User extends Authenticatable
 
     public function preference()
     {
-        return $this->hasOne(UserPreference::class)->withDefault(['language' => 1]);
+        return $this->hasOne(UserPreference::class)
+            ->withDefault(['language' => 1]);
     }
 
     public function track()

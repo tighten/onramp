@@ -43,17 +43,8 @@ class Module extends Model implements Completable
         return $this->belongsToMany(Track::class);
     }
 
-    public function resourcesForUser($user)
+    public function resourcesForUser($user = null)
     {
-        // get the user's language and preference, and only select appropriate resources
-        // @todo make this actually function
-        // $language = locale();
-        // $preference = enum('only current', 'only english', 'english and current')
-        $preference = 'only-current'; // @todo pull from user's preferences or whatever
-
-        switch ($preference) {
-            case 'only-current':
-                return $this->resources()->where('language', locale())->get();
-        }
+        return $this->resources()->forUser($user ?? auth()->user());
     }
 }

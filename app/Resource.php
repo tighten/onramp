@@ -20,4 +20,19 @@ class Resource extends Model implements Completable
     {
         return $this->morphMany(Completion::class, 'completable');
     }
+
+    public function scopeForUser($query, $user = null)
+    {
+        // user would be $user or auth()->user() if $user null
+        // get the user's language and preference, and only select appropriate resources
+        // @todo make this actually function
+        // $language = locale();
+        // $preference = enum('only current', 'only english', 'english and current')
+        $preference = 'only-current'; // @todo pull from user's preferences or whatever
+
+        switch ($preference) {
+            case 'only-current':
+                $query->where('language', locale());
+        }
+    }
 }

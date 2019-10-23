@@ -16,7 +16,7 @@ class UserPreference extends Model
 
     public function languagePreferences()
     {
-          return [
+        return [
             'only-current' => __('Only current'),
             'only-english' => __('Only English'),
             'english-and-current' => __('English and current'),

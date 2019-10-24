@@ -13,11 +13,10 @@
     <div class="container max-w-4xl mx-auto md:flex items-start py-8 px-12 md:px-0">
         <div class="w-full md:pr-12 mb-6">
 
-        <module-language-switcher
-            language="{{ (new \App\Localization\Locale)->languageForLocale(locale()) }}"
-            locale="{{ locale() }}"
-            user="{{ optional(auth()->user())->load('preference') }}">
-        </module-language-switcher>
+            <resource-language-preference-switcher
+                language="{{ (new \App\Localization\Locale)->languageForLocale(locale()) }}"
+                user="{{ /* @todo allow this to keep session/cookie preference for non-authorized users */ optional(auth()->user())->load('preference') }}">
+            </resource-language-preference-switcher>
             <div class="flex">
                 <div class="flex-1 w-auto p-4 border rounded mr-2">
                     <h3 class="font-bold text-lg border-b mb">

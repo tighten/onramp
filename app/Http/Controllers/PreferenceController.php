@@ -14,11 +14,12 @@ class PreferenceController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store()
     {
-        $language = $request->input('lang_pref');
-        $user = $request->user();
-        $user->preference()->updateOrCreate(['user_id' => $user->id], compact('language'));
+        auth()->user()->preference()->updateOrCreate(
+            ['user_id' => auth()->user()->id],
+            ['language' => request('lang_pref')]
+        );
 
         return back();
     }

@@ -9,7 +9,7 @@ class AddPreferencesToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->json('preferences')->default('{}');
+            $table->json('preferences')->nullable();
         });
     }
 

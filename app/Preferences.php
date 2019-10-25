@@ -11,17 +11,28 @@ class Preferences
     protected $preferences = [
         'resource-language-preference' => [
             'options' => [
+                // @todo make these translatable
                 'local' => 'Only local resources',
-                'all' => 'All resoures',
+                'all' => 'All resources',
                 'local-and-english' => 'Only local and English resources',
             ],
             'default' => 'local',
+        ],
+        'language' => [
+            // @todo figure out how we do options that are db-stored.. do we just skip
+            // the options key and then it allows all options?
+            'default' => 'english',
         ],
     ];
 
     public function __construct(User $user = null)
     {
         $this->user = $user ?? auth()->user();
+    }
+
+    public function preferences()
+    {
+        return $this->preferences;
     }
 
     public function set(array $array)

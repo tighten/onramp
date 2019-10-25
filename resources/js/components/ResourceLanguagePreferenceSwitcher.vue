@@ -33,6 +33,7 @@
         methods: {
             choose(value) {
                 this.choice = value;
+                // @todo Axios post to modify my preference
             },
             showAll() {
                 this.choose('all-languages');

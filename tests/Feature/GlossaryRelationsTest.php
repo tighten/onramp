@@ -12,7 +12,7 @@ class GlossaryRelationsTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function glossary_page_shows_related_resources_in_the_current_locale()
+    function glossary_page_shows_related_resources()
     {
         $currentLocale = 'en';
         $resource = factory(Resource::class)->create(['language' => $currentLocale]);

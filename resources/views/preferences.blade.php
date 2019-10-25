@@ -21,10 +21,15 @@
 
             <form method="post" action="{{ route_wlocale('user.preferences.store') }}">
                 @csrf
-                @foreach($languagePreferences as $index => $label)
-                    <input name="lang_pref" type="radio" value="{{ $index }}" {{
-                    $currentLanguagePreference == $index ? 'checked' : ''}}/>
-                    <label for="lang_pref">{{ $label }}</label>
+                @foreach ($resourceLanguagePreferences as $index => $label)
+                    <input
+                        id="lang_pref_{{ $index }}"
+                        name="language_preference"
+                        type="radio"
+                        value="{{ $index }}"
+                        {{ $currentResourceLanguagePreference == $index ? 'checked' : '' }}
+                    />
+                    <label for="lang_pref_{{ $index }}">{{ $label }}</label>
                     <br />
                 @endforeach
                 <p>

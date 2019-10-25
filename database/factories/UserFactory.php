@@ -19,5 +19,14 @@ $factory->define(User::class, function (Faker $faker) {
 
             return factory(Track::class)->create()->id;
         },
+        'preferences' => function () {
+            return [
+                'resource-language-preference' => Arr::random([
+                    'local',
+                    'all',
+                    'local-and-english',
+                ]),
+            ];
+        },
     ];
 });

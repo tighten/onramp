@@ -1942,7 +1942,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     choose: function choose(value) {
-      this.choice = value;
+      this.choice = value; // @todo Axios post to modify my preference
     },
     showAll: function showAll() {
       this.choose('all-languages');

@@ -10,7 +10,8 @@ class ModuleController extends Controller
     {
         return view('modules.index', [
             'pageTitle' => 'Modules',
-            'modules' => Module::all(),
+            'standardModules' => Module::standard()->get(),
+            'bonusModules' => Module::bonus()->get(),
             'completedModules' => auth()->check() ? auth()->user()->moduleCompletions()->pluck('completable_id') : collect([]),
         ]);
     }

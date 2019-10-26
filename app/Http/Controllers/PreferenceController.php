@@ -12,14 +12,14 @@ class PreferenceController extends Controller
         return view('preferences', [
             // @todo but how do we handle that compared to the language they're ON right now URL-wise?
             //     plus session plus cookie?? aghhhh so much to do.
-            'currentResourceLanguagePreference' => auth()->user()->preferences('resource-language-preference'),
+            'currentResourceLanguagePreference' => auth()->user()->preferences()->get('resource-language-preference'),
             'resourceLanguagePreferences' => Preferences::preferences()['resource-language-preference']['options'],
         ]);
     }
 
     public function store()
     {
-        auth()->user()->preferences([
+        Preferences::set([
             'resource-language-preference' => request('language_preference'),
         ]);
 

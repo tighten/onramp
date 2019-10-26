@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Completable;
+use App\Preferences;
 use App\Track;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -10,6 +11,8 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use Notifiable;
+
+    protected $preferences;
 
     protected $guarded = [
         'id',
@@ -65,16 +68,8 @@ class User extends Authenticatable
         return $this->completions()->skills();
     }
 
-    public function preferences($key = null, $value = null)
+    public function preferences()
     {
-        if (is_null($key)) {
-            return app('preferences');
-        }
-
-        if (is_array($key)) {
-            return app('preferences')->set($key);
-        }
-
-        return app('preferences')->get($key, $value);
+        return $this->preferences ?? new Preferences($this);
     }
 }

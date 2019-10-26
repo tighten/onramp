@@ -3,9 +3,11 @@
 namespace App\Providers;
 
 use App\Preferences;
+use Illuminate\Auth\AuthManager;
+use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 
-class PreferencesServiceProvider extends ServiceProvider
+class PreferencesServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     /**
      * Register services.
@@ -14,8 +16,8 @@ class PreferencesServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('preferences', function () {
-            return new Preferences;
+        $this->app->bind('preferences', function ($app) {
+            return new Preferences($app->make(AuthManager::class)->user());
         });
     }
 
@@ -27,5 +29,15 @@ class PreferencesServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+    }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return [Preferences::class];
     }
 }

@@ -27,7 +27,7 @@ class Preferences
 
     public function __construct(User $user = null)
     {
-        $this->user = $user ?? auth()->user();
+        $this->user = $user;
     }
 
     public function preferences()
@@ -37,7 +37,6 @@ class Preferences
 
     public function set(array $array)
     {
-        $this->checkUser();
         $this->checkKeys(array_keys($array));
 
         $this->user->update([
@@ -47,7 +46,6 @@ class Preferences
 
     public function get($key, $default = null)
     {
-        $this->checkUser();
         $this->checkKeys([$key]);
 
         return data_get(
@@ -60,13 +58,6 @@ class Preferences
     public function defaultForKey($key, $defaultOverride = null)
     {
         return $defaultOverride ?? $this->preferences[$key]['default'];
-    }
-
-    protected function checkUser()
-    {
-        if (! $this->user) {
-            throw new Exception('Cannot use Preferences method for un-logged-in users.');
-        }
     }
 
     protected function checkKeys($keys)

@@ -47,4 +47,14 @@ class Module extends Model implements Completable
     {
         return $this->resources()->forUser($user ?? auth()->user());
     }
+
+    public function scopeStandard($query)
+    {
+        return $query->where('is_bonus', 0);
+    }
+
+    public function scopeBonus($query)
+    {
+        return $query->where('is_bonus', 1);
+    }
 }

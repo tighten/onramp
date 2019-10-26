@@ -9,7 +9,7 @@ class AddDescriptionColumnToModuleTable extends Migration
     public function up()
     {
         Schema::table('modules', function (Blueprint $table) {
-            $table->text('description')->after('name')->nullable();
+            $table->json('description')->after('name')->nullable();
         });
     }
 

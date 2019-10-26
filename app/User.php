@@ -65,8 +65,12 @@ class User extends Authenticatable
         return $this->completions()->skills();
     }
 
-    public function preferences($key, $value = null)
+    public function preferences($key = null, $value = null)
     {
+        if (is_null($key)) {
+            return app('preferences');
+        }
+
         if (is_array($key)) {
             return app('preferences')->set($key);
         }

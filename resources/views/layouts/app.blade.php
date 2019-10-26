@@ -1,5 +1,7 @@
 {{-- Template from https://templates.digizu.co.uk/ --}}<!DOCTYPE html>
-@php $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') .  __('Onramp to Laravel'); @endphp
+@php
+$fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') .  __('Onramp to Laravel');
+@endphp
 <html lang="{{ locale() }}">
     <head>
         <meta charset="utf-8">
@@ -36,13 +38,7 @@
                        class="block pt-6 pb-2 sm:py-6 flex-grow flex justify-left items-center">
                         <img src="/images/onramp_logo.svg" alt="Onramp" class="max-w-xs w-full">
                     </a>
-                    <language-switcher language="{{ Facades\App\Localization\Locale::languageForLocale(locale()) }}" class="pb-4 md:pb-0">
-                        @foreach (Facades\App\Localization\Locale::slugs() as $locale)
-                        <a href="{{ switch_locale_link($locale) }}"
-                           class="block px-4 py-2 text-blue-700 hover:bg-blue-700 hover:text-white"
-                           style="text-decoration: none">{{ Facades\App\Localization\Locale::languageForLocale($locale) }}</a>
-                        @endforeach
-                    </language-switcher>
+                    @include('partials.language-switcher')
                 </div>
             </header>
             <!-- /header -->

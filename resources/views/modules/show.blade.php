@@ -2,11 +2,9 @@
 
 @section('content')
 <div class="w-full bg-white">
-    <!-- title -->
     <div class="text-center px-6 py-12 bg-gray-100 border-b">
         <h1 class=" text-xl md:text-4xl">{{ $module->name }}</h1>
     </div>
-    <!-- /title -->
 
     @include('partials.you-should-log-in')
 
@@ -14,8 +12,8 @@
         <div class="w-full md:pr-12 mb-6">
 
             <resource-language-preference-switcher
-                language="{{ (new \App\Localization\Locale)->languageForLocale(locale()) }}"
-                user="{{ /* @todo allow this to keep session/cookie preference for non-authorized users */ optional(auth()->user())->load('preference') }}">
+                language="{{ Localization::languageForLocale(locale()) }}"
+                user="{{ /* @todo allow this to keep session/cookie preference for non-authorized users */ auth()->user() }}">
             </resource-language-preference-switcher>
             <div class="flex">
                 <div class="flex-1 w-auto p-4 border rounded mr-2">

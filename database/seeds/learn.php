@@ -5,7 +5,7 @@ return [
     [
         'name' => ['en' => 'Build a basic web site', 'es' => ''],
         'description' => [
-            'en' => '',
+            'en' => 'Building a website can unlock a whole set of opportunities.',
             'es' => ''
         ],
         'skills' => [

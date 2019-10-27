@@ -26,7 +26,7 @@ class AddOsToResources extends Migration
     public function down()
     {
         Schema::table('resources', function (Blueprint $table) {
-            //
+            $table->dropColumn('os');
         });
     }
 }

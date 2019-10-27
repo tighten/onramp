@@ -13,5 +13,6 @@ $factory->define(Resource::class, function (Faker $faker) {
         'type' => $faker->randomElement(['video', 'course', 'audio', 'book', 'article']),
         'module_id' => factory(Module::class),
         'language' => $faker->randomElement(['en', 'es']),
+        'os' => $faker->randomElement(['any', 'osx', 'linux', 'windows']),
     ];
 });

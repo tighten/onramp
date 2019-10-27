@@ -47,6 +47,7 @@ class ExistingContentSeeder extends Seeder
                     'type' => $resource['type'],
                     'is_free' => true,
                     'language' => $language,
+                    'os' => $resource['os'] ?? 'any',
                 ]);
             }
         });

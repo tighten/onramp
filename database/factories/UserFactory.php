@@ -19,5 +19,6 @@ $factory->define(User::class, function (Faker $faker) {
 
             return factory(Track::class)->create()->id;
         },
+        'os' => $faker->randomElement(['any', 'osx', 'linux', 'windows']),
     ];
 });

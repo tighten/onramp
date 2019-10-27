@@ -9,6 +9,8 @@ Route::group(['prefix' => '{locale}'], function () {
     Route::get('glossary', 'GlossaryController@index')->name('glossary');
 
     Route::group(['middleware' => 'auth'], function () {
+        Route::view('wizard', 'wizard')->name('wizard');
+        Route::post('wizard', 'Auth\\WizardController')->name('wizard.write');
         Route::view('home', 'home')->name('home');
     });
 

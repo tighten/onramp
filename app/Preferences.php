@@ -9,6 +9,7 @@ class Preferences
 {
     protected $user;
 
+    // @todo: These keys feel like magic strings. Let's consider making them constants
     protected $preferences = [
         'resource-language-preference' => [
             'options' => [
@@ -54,9 +55,8 @@ class Preferences
     {
         $this->checkKeys(array_keys($array));
 
-        $this->user->update([
-            'preferences' => array_merge((array) $this->user->preferences, $array),
-        ]);
+        $this->user->preferences = array_merge((array) $this->user->preferences, $array);
+        $this->user->save();
     }
 
     public function get($key, $default = null)

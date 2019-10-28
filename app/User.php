@@ -67,9 +67,4 @@ class User extends Authenticatable
     {
         return $this->completions()->skills();
     }
-
-    public function preferences()
-    {
-        return $this->preferences ?? new Preferences($this);
-    }
 }

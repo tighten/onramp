@@ -7,7 +7,7 @@ use Illuminate\Auth\AuthManager;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 
-class PreferencesServiceProvider extends ServiceProvider implements DeferrableProvider
+class PreferencesServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -29,15 +29,5 @@ class PreferencesServiceProvider extends ServiceProvider implements DeferrablePr
     public function boot()
     {
         //
-    }
-
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return array
-     */
-    public function provides()
-    {
-        return [Preferences::class];
     }
 }

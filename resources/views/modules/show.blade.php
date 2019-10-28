@@ -100,7 +100,7 @@
 
                         @if ($freeResources->whereIn('type', ['video', 'course'])->where('is_bonus', true)->isNotEmpty())
                             <li class="font-bold mt-4">BONUS</li>
-                            @foreach ($freeResources->whereIn('type', ['video', 'course'])->all() as $resource)
+                            @foreach ($freeResources->whereIn('type', ['video', 'course'])->where('is_bonus', true) as $resource)
                                 @include('partials.resource-on-module-page')
                             @endforeach
                         @endif
@@ -119,7 +119,7 @@
 
                         @if ($freeResources->whereIn('type', ['article', 'audio'])->where('is_bonus', true)->isNotEmpty())
                             <li class="font-bold mt-4">BONUS</li>
-                            @foreach ($freeResources->whereIn('type', ['article', 'audio'])->all() as $resource)
+                            @foreach ($freeResources->whereIn('type', ['article', 'audio'])->where('is_bonus', true) as $resource)
                                 @include('partials.resource-on-module-page')
                             @endforeach
                         @endif
@@ -145,7 +145,7 @@
 
                         @if ($paidResources->whereIn('type', ['video', 'course'])->where('is_bonus', true)->isNotEmpty())
                             <li class="font-bold mt-4">BONUS</li>
-                            @foreach ($paidResources->whereIn('type', ['video', 'course'])->all() as $resource)
+                            @foreach ($paidResources->whereIn('type', ['video', 'course'])->where('is_bonus', true) as $resource)
                                 @include('partials.resource-on-module-page')
                             @endforeach
                         @endif
@@ -164,7 +164,7 @@
 
                         @if ($paidResources->whereIn('type', ['book'])->where('is_bonus', true)->isNotEmpty())
                             <li class="font-bold mt-4">BONUS</li>
-                            @foreach ($paidResources->whereIn('type', ['book'])->all() as $resource)
+                            @foreach ($paidResources->whereIn('type', ['book'])->where('is_bonus', true) as $resource)
                                 @include('partials.resource-on-module-page')
                             @endforeach
                         @endif

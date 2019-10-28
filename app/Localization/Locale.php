@@ -13,6 +13,7 @@ class Locale
         'sv' => 'Svenska',
         'de' => 'Deutsch',
         'da' => 'Dansk',
+        'cs' => 'Česky'
     ];
 
     public function slugs()

@@ -20,7 +20,7 @@ class UserPreferencesTest extends TestCase
         $preferences = new Preferences($user);
         $preferences->set(['resource-language-preference' => 'def']);
 
-        $this->assertEquals('def', $user->preferences()->get('resource-language-preference'));
+        $this->assertEquals('def', app('preferences')->get('resource-language-preference'));
     }
 
     /** @test */
@@ -40,16 +40,6 @@ class UserPreferencesTest extends TestCase
         app('preferences')->set(['resource-language-preference' => 'local-and-english']);
 
         $this->assertEquals('local-and-english', app('preferences')->get('resource-language-preference'));
-    }
-
-    /** @test */
-    function user_can_set_and_get_preferences_via_the_user_object()
-    {
-        $user = factory(User::class)->create();
-        $this->be($user);
-        $user->preferences()->set(['resource-language-preference' => 'local-and-english']);
-
-        $this->assertEquals('local-and-english', $user->preferences()->get('resource-language-preference'));
     }
 
     /** @test */

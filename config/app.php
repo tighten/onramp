@@ -230,6 +230,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Localization' => App\Facades\Localization::class,
+        'Preferences' => App\Facades\Preferences::class,
     ],
 
 ];

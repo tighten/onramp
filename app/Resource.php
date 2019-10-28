@@ -5,7 +5,7 @@ namespace App;
 use App\Completable;
 use App\Completion;
 use App\Module;
-use App\UserPreference;
+use App\Facades\Preferences;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
@@ -28,7 +28,7 @@ class Resource extends Model implements Completable
         $preference = session('resource-language-preference') ?? 'english-and-current';
 
         if ($user ?? $user = auth()->user()) {
-            $preference = $user->preferences()->get('resource-language-preference');
+            $preference = Preferences::get('resource-language-preference');
         }
 
         switch (Str::slug($preference)) {

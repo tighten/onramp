@@ -7588,6 +7588,24 @@ a:hover {
   font-size: 1.125rem;
 }
 
+.simple-form-button {
+  display: block;
+  border-width: 1px;
+  border-color: #a0aec0;
+  margin-top: 1rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  border-radius: 0.25rem;
+}
+
+.simple-form-button:hover {
+  border-color: #e2e8f0;
+  background-color: #4299e1;
+  color: #fff;
+}
+
 @media (min-width: 640px) {
   .sm\:appearance-none {
     -webkit-appearance: none;

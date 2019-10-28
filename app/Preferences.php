@@ -3,6 +3,7 @@
 namespace App;
 
 use Exception;
+use Illuminate\Support\Arr;
 
 class Preferences
 {
@@ -12,9 +13,9 @@ class Preferences
         'resource-language-preference' => [
             'options' => [
                 // @todo make these translatable
-                'local' => 'Only local resources',
+                'local' => 'Only resources for my language',
                 'all' => 'All resources',
-                'local-and-english' => 'Only local and English resources',
+                'local-and-english' => 'Only resources for my language and English',
             ],
             'default' => 'local',
         ],
@@ -28,6 +29,20 @@ class Preferences
     public function __construct(User $user = null)
     {
         $this->user = $user;
+        $this->translatePreferences();
+    }
+
+    protected function translatePreferences()
+    {
+        $this->preferences = collect($this->preferences)->map(function ($preference) {
+            // Translate the descriptions of each option
+            $options = collect(Arr::get($preference, 'options', []));
+            $preference['options'] = $options->flatMap(function ($value, $key) {
+                return [$key => __($value)];
+            })->toArray();
+
+            return $preference;
+        })->toArray();
     }
 
     public function preferences()

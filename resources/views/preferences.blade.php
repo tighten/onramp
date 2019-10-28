@@ -9,7 +9,7 @@
     <div class="container max-w-4xl mx-auto md:flex items-start py-8 px-6 md:px-0">
         <div class="w-full md:pr-12 mb-6">
             <h2 class="mb-6 mt-8 text-black text-xl md:text-2xl">
-                {{ __('Language preference') }}
+                {{ __('Which resources should we show?') }}
             </h2>
 
             <form method="post" action="{{ route_wlocale('user.preferences.store') }}">
@@ -26,7 +26,7 @@
                     <br />
                 @endforeach
                 <p>
-                    <button class="button block">{{ __('save') }}</button>
+                    <button class="simple-form-button">{{ __('Save') }}</button>
                 </p>
             </form>
         </div>

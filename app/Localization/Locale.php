@@ -18,6 +18,8 @@ class Locale
 
     public function slugs()
     {
+        asort($this->locales);
+
         return array_keys($this->locales);
     }
 

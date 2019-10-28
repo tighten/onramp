@@ -17,7 +17,7 @@
                 @foreach ($resourceLanguagePreferences as $index => $label)
                     <input
                         id="lang_pref_{{ $index }}"
-                        name="language_preference"
+                        name="resource-language-preference"
                         type="radio"
                         value="{{ $index }}"
                         {{ $currentResourceLanguagePreference == $index ? 'checked' : '' }}

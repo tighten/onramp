@@ -1933,25 +1933,32 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      choice: null
+      choice: this.initialChoice
     };
   },
-  mount: function mount() {
-    // @todo make the UI words translateable
-    this.choice = this.initialChoice;
+  mount: function mount() {// @todo make the UI words translateable
   },
   methods: {
     choose: function choose(value) {
       this.choice = value; // @todo Axios post to modify my preference
+      // @todo ziggy
+      // @todo locale
+
+      axios.post('/en/preferences', {
+        'resource-language-preference': value
+      })["catch"](function (error) {
+        // @todo Handle better
+        alert('Error!');
+      });
     },
     showAll: function showAll() {
-      this.choose('all-languages');
+      this.choose('all');
     },
     showOnlyLocalLanguage: function showOnlyLocalLanguage() {
-      this.choose('only-local-language');
+      this.choose('local');
     },
     showEnglishAndLocalLanguage: function showEnglishAndLocalLanguage() {
-      this.choose('english-and-local-language');
+      this.choose('local-and-english');
     },
     choiceIsSelected: function choiceIsSelected(value) {
       return this.choice === value;
@@ -37386,7 +37393,7 @@ var render = function() {
       "a",
       {
         staticClass: "cursor-pointer",
-        class: { "font-bold": _vm.choiceIsSelected("only-local-language") },
+        class: { "font-bold": _vm.choiceIsSelected("local") },
         on: {
           click: function($event) {
             return _vm.showOnlyLocalLanguage()
@@ -37400,9 +37407,7 @@ var render = function() {
       "a",
       {
         staticClass: "cursor-pointer",
-        class: {
-          "font-bold": _vm.choiceIsSelected("english-and-local-language")
-        },
+        class: { "font-bold": _vm.choiceIsSelected("local-and-english") },
         on: {
           click: function($event) {
             return _vm.showEnglishAndLocalLanguage()
@@ -37416,7 +37421,7 @@ var render = function() {
       "a",
       {
         staticClass: "cursor-pointer",
-        class: { "font-bold": _vm.choiceIsSelected("all-languages") },
+        class: { "font-bold": _vm.choiceIsSelected("all") },
         on: {
           click: function($event) {
             return _vm.showAll()
@@ -49792,14 +49797,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************************************************!*\
   !*** ./resources/js/components/ResourceLanguagePreferenceSwitcher.vue ***!
   \************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ResourceLanguagePreferenceSwitcher_vue_vue_type_template_id_658b38a6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ResourceLanguagePreferenceSwitcher.vue?vue&type=template&id=658b38a6& */ "./resources/js/components/ResourceLanguagePreferenceSwitcher.vue?vue&type=template&id=658b38a6&");
 /* harmony import */ var _ResourceLanguagePreferenceSwitcher_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ResourceLanguagePreferenceSwitcher.vue?vue&type=script&lang=js& */ "./resources/js/components/ResourceLanguagePreferenceSwitcher.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ResourceLanguagePreferenceSwitcher_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ResourceLanguagePreferenceSwitcher_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -49829,7 +49835,7 @@ component.options.__file = "resources/js/components/ResourceLanguagePreferenceSw
 /*!*************************************************************************************************!*\
   !*** ./resources/js/components/ResourceLanguagePreferenceSwitcher.vue?vue&type=script&lang=js& ***!
   \*************************************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

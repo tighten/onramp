@@ -1,9 +1,9 @@
 <?php
 
-
 Route::redirect('/', '/en');
 
 Route::group(['prefix' => '{locale}'], function () {
+
     Route::view('/', 'welcome')->name('welcome');
 
     Route::get('glossary', 'GlossaryController@index')->name('glossary');

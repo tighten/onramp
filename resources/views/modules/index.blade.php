@@ -28,7 +28,7 @@
                 @endforeach
             </ul>
 
-            @if($bonusModules->count() > 0)
+            @if ($bonusModules->count() > 0)
             <p class="my-2">The following bonus modules are optional:</p>
 
             <ul class="list-disc pl-6">

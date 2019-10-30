@@ -5,6 +5,11 @@
     <!-- title -->
     <div class="text-center px-6 py-12 bg-gray-100 border-b">
         <h1 class=" text-xl md:text-4xl">{{ $module->name }}</h1>
+        @if ($module->description)
+            <p class="leading-loose text-gray-dark">
+                {{ $module->description }}
+            </p>
+        @endif
     </div>
     <!-- /title -->
 

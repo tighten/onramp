@@ -4,6 +4,10 @@
 return [
     [
         'name' => ['en' => 'Build a basic web site', 'es' => ''],
+        'description' => [
+            'en' => 'Building a website can unlock a whole set of opportunities.',
+            'es' => ''
+        ],
         'skills' => [
             ['es' => '', 'en' => 'Write HTML'],
             ['es' => '', 'en' => 'Write CSS'],
@@ -82,6 +86,7 @@ return [
     ],
     [
         'name' => ['en' => 'Basic Terminal & Git', 'es' => ''],
+        'description' => null,
         'skills' => [
             ['es' => '', 'en' => 'Navigate the terminal'],
             ['es' => '', 'en' => 'Use Git for basic tasks'],
@@ -140,6 +145,7 @@ return [
     ],
     [
         'name' => ['en' => 'Local PHP Environment', 'es' => ''],
+        'description' => null,
         'skills' => [
             ['es' => '', 'en' => 'Set up a Laravel dev environment'],
             ['es' => '', 'en' => 'Install Composer'],
@@ -195,6 +201,7 @@ return [
     ],
     [
         'name' => ['en' => 'Beginning PHP', 'es' => ''],
+        'description' => null,
         'skills' => [
             ['es' => 'Variables', 'en' => 'Work with variables'],
             ['es' => 'Arreglos', 'en' => 'Work with arrays'],
@@ -295,6 +302,7 @@ return [
     ],
     [
         'name' => ['en' => 'Object-Oriented Programming', 'es' => ''],
+        'description' => null,
         'skills' => [],
         'resources' => [
             'es' => [],
@@ -309,6 +317,7 @@ return [
     ],
     [
         'name' => ['en' => 'Laravel Basics', 'es' => ''],
+        'description' => null,
         // These aren't quite skills 😬
         'skills' => [
             ['es' => 'Creando y ejecutando un nuevo proyecto de Laravel', 'en' => 'Creating and serving a new Laravel project'],
@@ -521,6 +530,7 @@ return [
     ],
     [
         'name' => ['en' => 'Basic JavaScript', 'es' => ''],
+        'description' => null,
         'skills' => [],
         'resources' => [
             'es' => [
@@ -551,6 +561,7 @@ return [
     ],
     [
         'name' => ['en' => 'Laravel Mix', 'es' => ''],
+        'description' => null,
         'skills' => [],
         'resources' => [
             'es' => [],
@@ -565,6 +576,7 @@ return [
     ],
     [
         'name' => ['en' => 'Basic session-backed internal APIs', 'es' => ''],
+        'description' => null,
         'skills' => [],
         'resources' => [
             'es' => [],
@@ -573,6 +585,7 @@ return [
     ],
     [
         'name' => ['en' => 'Deployments', 'es' => ''],
+        'description' => null,
         'skills' => [],
         'resources' => [
             'es' => [],
@@ -581,6 +594,7 @@ return [
     ],
     [
         'name' => ['en' => 'Monitoring (e.g. Bugsnag)', 'es' => ''],
+        'description' => null,
         'skills' => [],
         'resources' => [
             'es' => [],
@@ -589,6 +603,7 @@ return [
     ],
     [
         'name' => ['en' => 'Basic Testing', 'es' => ''],
+        'description' => null,
         'skills' => [],
         'resources' => [
             'es' => [],

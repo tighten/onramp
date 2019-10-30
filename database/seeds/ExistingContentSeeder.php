@@ -48,6 +48,7 @@ class ExistingContentSeeder extends Seeder
                     'type' => $resource['type'],
                     'is_free' => true,
                     'language' => $language,
+                    'is_bonus' => Arr::get($resource, 'bonus', false),
                 ]);
             }
         });

@@ -86,6 +86,7 @@ return [
                     'name' => 'Wes Bos - CSS Grid',
                     'url' => 'https://cssgrid.io/',
                     'type' => 'course',
+                    'bonus' => true,
                 ],
                 [
                     'name' => 'Wes Bos - What The Flexbox?!',

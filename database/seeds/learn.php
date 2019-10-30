@@ -187,7 +187,7 @@ return [
                     'type' => 'article',
                 ],
                 [
-                    'name' => 'Vessel Docs (if you prefer Vagrant)',
+                    'name' => 'Vessel Docs (if you prefer Docker)',
                     'url' => 'https://vessel.shippingdocker.com/',
                     'type' => 'article',
                 ],

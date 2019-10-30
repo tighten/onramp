@@ -47,9 +47,15 @@ class ModulesTest extends TestCase
 
         $response = $this->get("/en/modules");
 
-        $this->assertTrue(count($this->getResponseData($response, 'standardModules')) == 1);
-        $this->assertTrue($this->getResponseData($response, 'standardModules')[0]->name == $standardModule->name);
-        $this->assertFalse($this->getResponseData($response, 'standardModules')[0]->name == $bonusModule->name);
+        $response->assertViewHas('standardModules', function($standardModules) {
+            return $standardModules->count() == 1;
+        });
+        $response->assertViewHas('standardModules', function($standardModules) use ($standardModule) {
+            return $standardModules->contains($standardModule);
+        });
+        $response->assertViewHas('standardModules', function($standardModules) use ($bonusModule) {
+            return !$standardModules->contains($bonusModule);
+        });
     }
 
     /** @test */
@@ -67,8 +73,14 @@ class ModulesTest extends TestCase
 
         $response = $this->get("/en/modules");
 
-        $this->assertTrue(count($this->getResponseData($response, 'bonusModules')) == 1);
-        $this->assertTrue($this->getResponseData($response, 'bonusModules')[0]->name == $bonusModule->name);
-        $this->assertFalse($this->getResponseData($response, 'bonusModules')[0]->name == $standardModule->name);
+        $response->assertViewHas('standardModules', function($bonusModules) {
+            return $bonusModules->count() == 1;
+        });
+        $response->assertViewHas('bonusModules', function($bonusModules) use ($bonusModule) {
+            return $bonusModules->contains($bonusModule);
+        });
+        $response->assertViewHas('bonusModules', function($bonusModules) use ($standardModule) {
+            return !$bonusModules->contains($standardModule);
+        });
     }
 }

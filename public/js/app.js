@@ -1919,6 +1919,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     language: {
@@ -1940,12 +1942,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     choose: function choose(value) {
-      this.choice = value; // @todo Axios post to modify my preference
-      // @todo ziggy
+      this.choice = value; // @todo ziggy
       // @todo locale
 
       axios.post('/en/preferences', {
         'resource-language-preference': value
+      }).then(function () {
+        // wait a sec, why is this vue if it has to reload the page??? @todo
+        window.location.reload(false);
       })["catch"](function (error) {
         // @todo Handle better
         alert('Error!');
@@ -37403,20 +37407,25 @@ var render = function() {
       [_vm._v(_vm._s(_vm.language) + " resources")]
     ),
     _vm._v(" |\n    "),
-    _c(
-      "a",
-      {
-        staticClass: "cursor-pointer",
-        class: { "font-bold": _vm.choiceIsSelected("local-and-english") },
-        on: {
-          click: function($event) {
-            return _vm.showEnglishAndLocalLanguage()
-          }
-        }
-      },
-      [_vm._v("English and " + _vm._s(_vm.language) + " resources")]
-    ),
-    _vm._v(" |\n    "),
+    _vm.language !== "English"
+      ? _c("span", [
+          _c(
+            "a",
+            {
+              staticClass: "cursor-pointer",
+              class: { "font-bold": _vm.choiceIsSelected("local-and-english") },
+              on: {
+                click: function($event) {
+                  return _vm.showEnglishAndLocalLanguage()
+                }
+              }
+            },
+            [_vm._v("English and " + _vm._s(_vm.language) + " resources")]
+          ),
+          _vm._v(" |\n    ")
+        ])
+      : _vm._e(),
+    _vm._v(" "),
     _c(
       "a",
       {
@@ -49797,15 +49806,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************************************************!*\
   !*** ./resources/js/components/ResourceLanguagePreferenceSwitcher.vue ***!
   \************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ResourceLanguagePreferenceSwitcher_vue_vue_type_template_id_658b38a6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ResourceLanguagePreferenceSwitcher.vue?vue&type=template&id=658b38a6& */ "./resources/js/components/ResourceLanguagePreferenceSwitcher.vue?vue&type=template&id=658b38a6&");
 /* harmony import */ var _ResourceLanguagePreferenceSwitcher_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ResourceLanguagePreferenceSwitcher.vue?vue&type=script&lang=js& */ "./resources/js/components/ResourceLanguagePreferenceSwitcher.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ResourceLanguagePreferenceSwitcher_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ResourceLanguagePreferenceSwitcher_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -49835,7 +49843,7 @@ component.options.__file = "resources/js/components/ResourceLanguagePreferenceSw
 /*!*************************************************************************************************!*\
   !*** ./resources/js/components/ResourceLanguagePreferenceSwitcher.vue?vue&type=script&lang=js& ***!
   \*************************************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

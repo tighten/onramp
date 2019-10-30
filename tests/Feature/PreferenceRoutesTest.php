@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use App\Facades\Preferences;
 use App\User;
-use Exception;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -20,7 +19,7 @@ class PreferenceRoutesTest extends TestCase
         $user = factory(User::class)->create();
         $this->be($user);
         $response = $this->post(route_wlocale('user.preferences.store'), [
-            'resource-language-preference' => 'qwerty'
+            'resource-language-preference' => 'qwerty',
         ]);
 
         $this->assertEquals('qwerty', Preferences::get('resource-language-preference'));

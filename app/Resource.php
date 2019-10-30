@@ -23,26 +23,30 @@ class Resource extends Model implements Completable
         return $this->morphMany(Completion::class, 'completable');
     }
 
+    public function scopeForLocalePreferences($query, $locale, $resourceLanguagePreference)
+    {
+        switch ($resourceLanguagePreference) {
+            case 'local':
+                $query->where(['language' => $locale]);
+                break;
+            case 'local-and-english':
+                $query->where(function ($query) use ($locale) {
+                    $query->where(['language' => $locale])
+                        ->orWhere('language', 'en');
+                });
+            case 'all':
+                break;
+        }
+    }
+
     public function scopeForUser($query, $user = null)
     {
-        $preference = session('resource-language-preference') ?? 'english-and-current';
+        $preference = 'english-and-current';
 
         if ($user ?? $user = auth()->user()) {
             $preference = Preferences::get('resource-language-preference');
         }
 
-        switch (Str::slug($preference)) {
-            case 'only-current':
-                $query->where(['language' => locale()]);
-                break;
-            case 'only-english':
-                $query->where('language', 'en');
-                break;
-            case 'english-and-current':
-                $query->where(function ($query) {
-                    $query->where(['language' => locale()])
-                        ->orWhere('language', 'en');
-                });
-        }
+        $this->scopeForLocalePreferences($query, locale(), $preference);
     }
 }

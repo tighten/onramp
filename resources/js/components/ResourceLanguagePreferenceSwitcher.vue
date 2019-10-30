@@ -1,7 +1,9 @@
 <template>
     <p class="mb-8 text-right text-sm">
         <a @click="showOnlyLocalLanguage()" class="cursor-pointer" v-bind:class="{'font-bold' : choiceIsSelected('local')}">{{ language }} resources</a> |
-        <a @click="showEnglishAndLocalLanguage()" class="cursor-pointer" v-bind:class="{'font-bold' : choiceIsSelected('local-and-english')}">English and {{ language }} resources</a> |
+        <span v-if="language !== 'English'">
+            <a @click="showEnglishAndLocalLanguage()" class="cursor-pointer" v-bind:class="{'font-bold' : choiceIsSelected('local-and-english')}">English and {{ language }} resources</a> |
+        </span>
         <a @click="showAll()" class="cursor-pointer" v-bind:class="{'font-bold' : choiceIsSelected('all')}">All resources</a>
     </p>
 </template>
@@ -32,11 +34,14 @@
         methods: {
             choose(value) {
                 this.choice = value;
-                // @todo Axios post to modify my preference
                 // @todo ziggy
                 // @todo locale
                 axios.post('/en/preferences', {
                     'resource-language-preference': value,
+                })
+                .then(function () {
+                    // wait a sec, why is this vue if it has to reload the page??? @todo
+                    window.location.reload(false);
                 })
                 .catch(function (error) {
                     // @todo Handle better

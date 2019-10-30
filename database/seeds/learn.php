@@ -77,6 +77,11 @@ return [
                     'url' => 'https://mastery.games/p/flexbox-zombies',
                     'type' => 'game',
                 ],
+                [
+                    'name' => 'Frontend Masters Web Development Bootcamp',
+                    'url' => 'https://frontendmasters.com/bootcamp/',
+                    'type' => 'course',
+                ],
             ],
         ],
     ],

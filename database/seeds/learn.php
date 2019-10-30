@@ -6,7 +6,7 @@ return [
         'name' => ['en' => 'Build a basic web site', 'es' => ''],
         'description' => [
             'en' => 'Building a website can unlock a whole set of opportunities.',
-            'es' => ''
+            'es' => '',
         ],
         'skills' => [
             ['es' => '', 'en' => 'Write HTML'],
@@ -79,7 +79,8 @@ return [
                 [
                     'name' => 'Flexbox Zombies Master Course',
                     'url' => 'https://mastery.games/p/flexbox-zombies',
-                    'type' => 'game',
+                    'type' => 'course',
+                    'bonus' => true,
                 ],
             ],
         ],

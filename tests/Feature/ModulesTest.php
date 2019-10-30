@@ -12,7 +12,7 @@ class ModulesTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function modules_can_be_seen()
+    function module_index_page_lists_modules()
     {
         $standardModule = factory(Module::class)->create([
             'name' => 'Standard module',

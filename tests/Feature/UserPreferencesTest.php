@@ -2,7 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\Preferences;
+use App\Module;
+use App\Preferences\Preferences;
 use App\User;
 use Exception;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -11,6 +12,14 @@ use Tests\TestCase;
 class UserPreferencesTest extends TestCase
 {
     use RefreshDatabase;
+
+    /** @test */
+    function guests_can_use_pages_with_preferences_without_errors()
+    {
+        $module = factory(Module::class)->create();
+        $response = $this->get('/en/modules/' . $module->slug);
+        $response->assertOk();
+    }
 
     /** @test */
     function preference_service_uses_logged_in_user_by_default()

@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Completion;
+use App\Facades\Preferences;
 use App\Resource;
 use App\Skill;
 use App\Track;
@@ -40,6 +41,18 @@ class Module extends Model implements Completable
     public function tracks()
     {
         return $this->belongsToMany(Track::class);
+    }
+
+    public function resourcesForCurrentSession()
+    {
+        if (auth()->user()) {
+            return $this->resources()->forUser(auth()->user());
+        }
+
+        return $this->resources()->forLocalePreferences(
+            locale(),
+            Preferences::get('resource-language-preference')
+        );
     }
 
     public function resourcesForUser($user = null)

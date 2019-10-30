@@ -3,7 +3,7 @@
 namespace App;
 
 use App\Completable;
-use App\Preferences;
+use App\Preferences\Preferences;
 use App\Track;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;

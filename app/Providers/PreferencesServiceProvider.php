@@ -2,9 +2,8 @@
 
 namespace App\Providers;
 
-use App\Preferences;
+use App\Preferences\Preferences;
 use Illuminate\Auth\AuthManager;
-use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 
 class PreferencesServiceProvider extends ServiceProvider

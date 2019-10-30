@@ -3,7 +3,6 @@
 namespace App;
 
 use App\Completable;
-use App\Preferences\Preferences;
 use App\Track;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -11,8 +10,6 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use Notifiable;
-
-    protected $preferences;
 
     protected $guarded = [
         'id',

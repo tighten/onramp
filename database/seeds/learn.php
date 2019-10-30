@@ -92,6 +92,7 @@ return [
                     'name' => 'Wes Bos - What The Flexbox?!',
                     'url' => 'http://flexbox.io/',
                     'type' => 'course',
+                    'bonus' => true,
                 ],
             ],
         ],

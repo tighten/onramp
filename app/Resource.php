@@ -7,7 +7,6 @@ use App\Completion;
 use App\Module;
 use App\Facades\Preferences;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
 class Resource extends Model implements Completable
 {
@@ -39,9 +38,22 @@ class Resource extends Model implements Completable
         }
     }
 
+    public function scopeForCurrentSession($query)
+    {
+        if (auth()->check()) {
+            return $this->scopeForUser($query, auth()->user());
+        }
+
+        return $this->scopeForLocalePreferences(
+            $query,
+            locale(),
+            Preferences::get('resource-language-preference')
+        );
+    }
+
     public function scopeForUser($query, $user = null)
     {
-        $preference = 'english-and-current';
+        $preference = 'local-and-english';
 
         if ($user ?? $user = auth()->user()) {
             $preference = Preferences::get('resource-language-preference');

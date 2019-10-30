@@ -45,14 +45,7 @@ class Module extends Model implements Completable
 
     public function resourcesForCurrentSession()
     {
-        if (auth()->user()) {
-            return $this->resources()->forUser(auth()->user());
-        }
-
-        return $this->resources()->forLocalePreferences(
-            locale(),
-            Preferences::get('resource-language-preference')
-        );
+        return $this->resources()->forCurrentSession();
     }
 
     public function resourcesForUser($user = null)

@@ -22,10 +22,10 @@
                             @endif
                         </div>
                         <p class="mt-2">{{ $term->getTranslation('description', locale()) }}</p>
-                        @if (count($term->resourcesForUser()->get()) > 0)
+                        @if (count($term->resourcesForCurrentSession()->get()) > 0)
                         <div class="mt-4 flex flex-col">
                             <span class="text-gray-800">Related resources:</span>
-                            @foreach ($term->resourcesForUser()->get() as $resource)
+                            @foreach ($term->resourcesForCurrentSession()->get() as $resource)
                                 <span>
                                     <a href="{{ route_wlocale('modules.show', $resource->module()->first()) }}">{{ $resource->module()->first()->name }}</a>
                                     &gt;

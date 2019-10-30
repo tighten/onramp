@@ -82,6 +82,16 @@ return [
                     'url' => 'https://frontendmasters.com/bootcamp/',
                     'type' => 'course',
                 ],
+                [
+                    'name' => 'Wes Bos - CSS Grid',
+                    'url' => 'https://cssgrid.io/',
+                    'type' => 'course',
+                ],
+                [
+                    'name' => 'Wes Bos - What The Flexbox?!',
+                    'url' => 'http://flexbox.io/',
+                    'type' => 'course',
+                ],
             ],
         ],
     ],

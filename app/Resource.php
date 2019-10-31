@@ -23,6 +23,9 @@ class Resource extends Model implements Completable
 
     public function scopeForUser($query, $user = null)
     {
+        if (!isset($user)) {
+            return $query;
+        }
         // user would be $user or auth()->user() if $user null
         // get the user's language and preference, and only select appropriate resources
         // @todo make this actually function
@@ -33,6 +36,10 @@ class Resource extends Model implements Completable
         switch ($preference) {
             case 'only-current':
                 $query->where('language', locale());
+        }
+
+        if ($user->os != OperatingSystem::ANY) {
+            $query->whereIn('os', [OperatingSystem::ANY, $user->os]);
         }
     }
 }

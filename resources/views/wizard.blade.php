@@ -30,10 +30,9 @@ $locale = new App\Localization\Locale();
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline{{ $errors->has('name') ? ' border-red-500' : '' }}" 
                                 name="os"
                                 aria-labelledby="os-label">
-                                <option value="any" @if(auth()->user()->os == 'any' || old('os') == 'any') selected @endif>@lang('Any')</option>
-                                <option value="osx" @if(auth()->user()->os == 'osx' || old('os') == 'osx') selected @endif>@lang('Mac OSX')</option>
-                                <option value="linux" @if(auth()->user()->os == 'linux' || old('os') == 'linux') selected @endif>@lang('Linux')</option>
-                                <option value="windows" @if(auth()->user()->os == 'windows' || old('os') == 'windows') selected @endif>@lang('Windows')</option>
+                                @foreach (\Facades\App\OperatingSystem::toArray() as $key => $value)
+                                    <option value="{{ $key }}" @if(auth()->user()->os == $key || old('os') == $key) selected @endif>@lang("operatingsystems.{$value}")</option>
+                                @endforeach
                             </select>
                             @if ($errors->has('os'))
                                 <p class="text-red-500 text-xs italic mt-2">

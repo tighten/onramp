@@ -1,10 +1,19 @@
 @extends('layouts.app')
 
+@php
+use App\Resource;
+@endphp
+
 @section('content')
 <div class="w-full bg-white">
     <!-- title -->
     <div class="text-center px-6 py-12 bg-gray-100 border-b">
         <h1 class=" text-xl md:text-4xl">{{ $module->name }}</h1>
+        @if ($module->description)
+            <p class="leading-loose text-gray-dark">
+                {{ $module->description }}
+            </p>
+        @endif
     </div>
     <!-- /title -->
 
@@ -98,15 +107,15 @@
                         Videos/courses
                     </h3>
                     <ul>
-                        @forelse ($freeResources->whereIn('type', ['video', 'course'])->where('is_bonus', false)->all() as $resource)
+                        @forelse ($freeResources->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])->where('is_bonus', false)->all() as $resource)
                             @include('partials.resource-on-module-page')
                         @empty
                             <li>No resources</li>
                         @endforelse
 
-                        @if ($freeResources->whereIn('type', ['video', 'course'])->where('is_bonus', true)->isNotEmpty())
+                        @if ($freeResources->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])->where('is_bonus', true)->isNotEmpty())
                             <li class="font-bold mt-4">BONUS</li>
-                            @foreach ($freeResources->whereIn('type', ['video', 'course'])->where('is_bonus', true) as $resource)
+                            @foreach ($freeResources->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])->where('is_bonus', true) as $resource)
                                 @include('partials.resource-on-module-page')
                             @endforeach
                         @endif
@@ -117,15 +126,15 @@
                         Articles &amp; audio
                     </h3>
                     <ul>
-                        @forelse ($freeResources->whereIn('type', ['article', 'audio'])->where('is_bonus', false)->all() as $resource)
+                        @forelse ($freeResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE])->where('is_bonus', false)->all() as $resource)
                             @include('partials.resource-on-module-page')
                         @empty
                             <li>No resources</li>
                         @endforelse
 
-                        @if ($freeResources->whereIn('type', ['article', 'audio'])->where('is_bonus', true)->isNotEmpty())
+                        @if ($freeResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE])->where('is_bonus', true)->isNotEmpty())
                             <li class="font-bold mt-4">BONUS</li>
-                            @foreach ($freeResources->whereIn('type', ['article', 'audio'])->where('is_bonus', true) as $resource)
+                            @foreach ($freeResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE])->where('is_bonus', true) as $resource)
                                 @include('partials.resource-on-module-page')
                             @endforeach
                         @endif
@@ -143,15 +152,15 @@
                         Videos/courses
                     </h3>
                     <ul>
-                        @forelse ($paidResources->whereIn('type', ['video', 'course'])->where('is_bonus', false)->all() as $resource)
+                        @forelse ($paidResources->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])->where('is_bonus', false)->all() as $resource)
                             @include('partials.resource-on-module-page')
                         @empty
                             <li>No resources</li>
                         @endforelse
 
-                        @if ($paidResources->whereIn('type', ['video', 'course'])->where('is_bonus', true)->isNotEmpty())
+                        @if ($paidResources->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])->where('is_bonus', true)->isNotEmpty())
                             <li class="font-bold mt-4">BONUS</li>
-                            @foreach ($paidResources->whereIn('type', ['video', 'course'])->where('is_bonus', true) as $resource)
+                            @foreach ($paidResources->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])->where('is_bonus', true) as $resource)
                                 @include('partials.resource-on-module-page')
                             @endforeach
                         @endif
@@ -162,13 +171,13 @@
                         Books
                     </h3>
                     <ul>
-                        @forelse ($paidResources->whereIn('type', ['book'])->where('is_bonus', false)->all() as $resource)
+                        @forelse ($paidResources->whereIn('type', [Resource::BOOK_TYPE])->where('is_bonus', false)->all() as $resource)
                             @include('partials.resource-on-module-page')
                         @empty
                             <li>No resources</li>
                         @endforelse
 
-                        @if ($paidResources->whereIn('type', ['book'])->where('is_bonus', true)->isNotEmpty())
+                        @if ($paidResources->whereIn('type', [Resource::BOOK_TYPE])->where('is_bonus', true)->isNotEmpty())
                             <li class="font-bold mt-4">BONUS</li>
                             @foreach ($paidResources->whereIn('type', ['book'])->where('is_bonus', true) as $resource)
                                 @include('partials.resource-on-module-page')

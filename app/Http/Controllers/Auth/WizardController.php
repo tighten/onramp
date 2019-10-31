@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use App\Localization\Locale;
-use App\OperatingSystem;
 use Illuminate\Validation\Rule;
+use Facades\App\OperatingSystem;
+use App\Http\Controllers\Controller;
 
 class WizardController extends Controller
 {

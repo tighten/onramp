@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "79bed0eccd8d948c074554e5244dc6a8",
+    "content-hash": "47dafab1d6f9f68e19c12a9a179baff4",
     "packages": [
         {
             "name": "bugsnag/bugsnag",
@@ -1727,6 +1727,49 @@
                 "math"
             ],
             "time": "2017-02-16T16:54:46+00:00"
+        },
+        {
+            "name": "mrmonat/nova-translatable",
+            "version": "2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mrmonat/nova-translatable.git",
+                "reference": "986e616781e249c23f1269d43f12b9a0dc51645f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mrmonat/nova-translatable/zipball/986e616781e249c23f1269d43f12b9a0dc51645f",
+                "reference": "986e616781e249c23f1269d43f12b9a0dc51645f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0",
+                "spatie/laravel-translatable": "^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "MrMonat\\Translatable\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MrMonat\\Translatable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova field for spatie/laravel-translatable.",
+            "keywords": [
+                "laravel",
+                "nova",
+                "translatable"
+            ],
+            "time": "2019-10-22T11:50:26+00:00"
         },
         {
             "name": "nesbot/carbon",

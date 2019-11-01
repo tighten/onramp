@@ -1,18 +1,24 @@
 {
-    "name": "laravel/laravel",
+    "name": "tightenco/onramp",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Onramp to Laravel.",
     "keywords": [
-        "framework",
         "laravel"
     ],
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        }
+    ],
     "require": {
         "php": "^7.1.3",
         "bugsnag/bugsnag-laravel": "^2.0",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^6.0",
+        "laravel/nova": "~2.0",
         "laravel/slack-notification-channel": "^2.0",
         "laravel/tinker": "^1.0",
         "spatie/laravel-translatable": "^4.2",

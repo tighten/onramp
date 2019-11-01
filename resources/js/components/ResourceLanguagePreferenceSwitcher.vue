@@ -16,7 +16,7 @@
                 required: true
             },
             initialChoice: {
-                type: String, // @todo can this be made enum?
+                type: String,
                 required: true
             },
         },
@@ -40,7 +40,6 @@
                     'resource-language-preference': value,
                 })
                 .then(function () {
-                    // wait a sec, why is this vue if it has to reload the page??? @todo
                     window.location.reload(false);
                 })
                 .catch(function (error) {

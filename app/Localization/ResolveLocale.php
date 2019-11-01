@@ -26,6 +26,11 @@ class ResolveLocale
         $locale = reset($segments);
 
         if (! Locale::isValid($locale)) {
+            // Allow Nova passthrough; @todo see if there's a cleaner way
+            if ($locale === 'nova' || $locale === 'nova-api') {
+                return 'nova';
+            }
+
             throw new InvalidLocale("Invalid locale: {$locale}");
         }
 

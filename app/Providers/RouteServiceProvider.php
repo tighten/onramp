@@ -21,7 +21,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Route::pattern('locale', '^[a-z]{2}(?:_[a-z]{2})?$');
 
         parent::boot();
     }

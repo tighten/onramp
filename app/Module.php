@@ -2,7 +2,6 @@
 
 namespace App;
 
-use App\Completable;
 use App\Completion;
 use App\Resource;
 use App\Skill;

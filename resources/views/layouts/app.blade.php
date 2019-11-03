@@ -68,6 +68,7 @@
                             @endif
                         @else
                             <a href="{{ url_wlocale('home') }}" class="text-sm pr-4">{{ Auth::user()->name }}</a>
+                            <a href="{{ url_wlocale('preferences') }}" class="text-sm pr-4">{{ __('Preferences') }}</a>
 
                             <a href="{{ route_wlocale('logout') }}"
                                class="text-sm p-3"

@@ -5,7 +5,9 @@ namespace App;
 use App\Completable;
 use App\Completion;
 use App\Module;
+use App\UserPreference;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Resource extends Model implements Completable
 {
@@ -37,22 +39,28 @@ class Resource extends Model implements Completable
 
     public function scopeForUser($query, $user = null)
     {
-        if (!isset($user)) {
-            return $query;
-        }
-        // user would be $user or auth()->user() if $user null
-        // get the user's language and preference, and only select appropriate resources
-        // @todo make this actually function
-        // $language = locale();
-        // $preference = enum('only current', 'only english', 'english and current')
-        $preference = 'only-current'; // @todo pull from user's preferences or whatever
 
-        switch ($preference) {
+        $preference = session('resource-language-preference') ?? 'english-and-current';
+
+        if ($user ?? $user = auth()->user()) {
+            $preference = data_get(UserPreference::languagePreferences(), $user->preference->language);
+        }
+
+        switch (Str::slug($preference)) {
             case 'only-current':
-                $query->where('language', locale());
+                $query->where(['language' => locale()]);
+                break;
+            case 'only-english':
+                $query->where('language', 'en');
+                break;
+            case 'english-and-current':
+                $query->where(function ($query) {
+                    $query->where(['language' => locale()])
+                        ->orWhere('language', 'en');
+                });
         }
-
-        if ($user->os != OperatingSystem::ANY) {
+        
+        if ($user && $user->os != OperatingSystem::ANY) {
             $query->whereIn('os', [OperatingSystem::ANY, $user->os]);
         }
     }

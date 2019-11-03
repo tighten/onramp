@@ -21,6 +21,7 @@ class User extends Authenticatable
 
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'preferences' => 'object',
     ];
 
     public function track()
@@ -62,5 +63,14 @@ class User extends Authenticatable
     public function skillCompletions()
     {
         return $this->completions()->skills();
+    }
+
+    public function preferences($key, $value = null)
+    {
+        if (is_array($key)) {
+            return app('preferences')->set($key);
+        }
+
+        return app('preferences')->get($key, $value);
     }
 }

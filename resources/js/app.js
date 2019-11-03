@@ -23,6 +23,7 @@ window.Vue = require('vue');
 
 import LanguageSwitcher from './components/LanguageSwitcher.vue'
 import ToggleWhenMobile from './components/ToggleWhenMobile.vue'
+import ResourceLanguagePreferenceSwitcher from './components/ResourceLanguagePreferenceSwitcher.vue'
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -33,7 +34,8 @@ import ToggleWhenMobile from './components/ToggleWhenMobile.vue'
 const app = new Vue({
     components: {
         'language-switcher': LanguageSwitcher,
-        'toggle-when-mobile': ToggleWhenMobile
+        'toggle-when-mobile': ToggleWhenMobile,
+        'resource-language-preference-switcher': ResourceLanguagePreferenceSwitcher
     },
     el: '#app',
 });

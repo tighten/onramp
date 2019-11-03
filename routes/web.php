@@ -12,6 +12,8 @@ Route::group(['prefix' => '{locale}'], function () {
         Route::view('wizard', 'wizard')->name('wizard');
         Route::post('wizard', 'Auth\\WizardController')->name('wizard.write');
         Route::view('home', 'home')->name('home');
+        Route::get('preferences', 'PreferenceController@index')->name('user.preferences.index');
+        Route::post('preferences', 'PreferenceController@store')->name('user.preferences.store');
     });
 
     Route::group(['prefix' => 'modules', 'as' => 'modules.'], function () {

@@ -13,7 +13,7 @@ class Module extends Model implements Completable
 {
     use HasTranslations;
 
-    public $translatable = ['name'];
+    public $translatable = ['name', 'description'];
 
     protected $guarded = ['id'];
 

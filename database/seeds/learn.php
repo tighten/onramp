@@ -273,6 +273,11 @@ return [
                     'url' => 'https://styde.net/herencia-y-abstraccion-con-php/',
                     'type' => 'article',
                 ],
+                [
+                    'name' => 'Open Source Learning for PHP (course)',
+                    'url' => 'https://www.phpschool.io/',
+                    'type' => \App\Resource::COURSE_TYPE,
+                ],
             ],
             'en' => [
                 [
@@ -319,6 +324,11 @@ return [
                     'name' => 'Codecademy - Loops',
                     'url' => 'https://www.codecademy.com/learn/learn-php/modules/php-loops',
                     'type' => 'article',
+                ],
+                [
+                    'name' => 'Open Source Learning for PHP (course)',
+                    'url' => 'https://www.phpschool.io/',
+                    'type' => \App\Resource::COURSE_TYPE,
                 ],
             ],
         ],

@@ -43,7 +43,7 @@ class Resource extends Model implements Completable
         $preference = session('resource-language-preference') ?? 'english-and-current';
 
         if ($user ?? $user = auth()->user()) {
-            $preference = data_get(UserPreference::languagePreferences(), $user->preference->language);
+            $preference = $user->preference('resource-language-preference') ?? $preference;
         }
 
         switch (Str::slug($preference)) {

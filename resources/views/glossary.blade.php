@@ -22,7 +22,7 @@
                             @endif
                         </div>
                         <p class="mt-2">{{ $term->getTranslation('description', locale()) }}</p>
-                        @if (count($term->resourcesForCurrentSession()->get()) > 0)
+                        @if ($term->resourcesForCurrentSession()->count() > 0)
                         <div class="mt-4 flex flex-col">
                             <span class="text-gray-800">Related resources:</span>
                             @foreach ($term->resourcesForCurrentSession()->get() as $resource)
@@ -34,7 +34,7 @@
                             @endforeach
                         </div>
                         @endif
-                        @if (count($term->relatedTerms) > 0)
+                        @if ($term->relatedTerms->count() > 0)
                             <div class="mt-4 flex items-center">
                                 <span class="text-gray-800">Related Terms:</span>
                                 @foreach ($term->relatedTerms as $relatedTerm)

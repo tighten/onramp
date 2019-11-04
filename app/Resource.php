@@ -4,7 +4,9 @@ namespace App;
 
 use App\Completable;
 use App\Completion;
+use App\Facades\Preferences;
 use App\Module;
+use Facades\App\Preferences\ResourceLanguagePreference;
 use Illuminate\Database\Eloquent\Model;
 
 class Resource extends Model implements Completable
@@ -35,18 +37,43 @@ class Resource extends Model implements Completable
         return $this->morphMany(Completion::class, 'completable');
     }
 
+    public function scopeForLocalePreferences($query, $locale, $resourceLanguagePreference)
+    {
+        switch ($resourceLanguagePreference) {
+            case 'local':
+                $query->where(['language' => $locale]);
+                break;
+            case 'local-and-english':
+                $query->where(function ($query) use ($locale) {
+                    $query->where(['language' => $locale])
+                        ->orWhere('language', 'en');
+                });
+            case 'all':
+                break;
+        }
+    }
+
+    public function scopeForCurrentSession($query)
+    {
+        if (auth()->check()) {
+            return $this->scopeForUser($query, auth()->user());
+        }
+
+        return $this->scopeForLocalePreferences(
+            $query,
+            locale(),
+            Preferences::get(ResourceLanguagePreference::key())
+        );
+    }
+
     public function scopeForUser($query, $user = null)
     {
-        // user would be $user or auth()->user() if $user null
-        // get the user's language and preference, and only select appropriate resources
-        // @todo make this actually function
-        // $language = locale();
-        // $preference = enum('only current', 'only english', 'english and current')
-        $preference = 'only-current'; // @todo pull from user's preferences or whatever
+        $preference = 'local-and-english';
 
-        switch ($preference) {
-            case 'only-current':
-                $query->where('language', locale());
+        if ($user ?? $user = auth()->user()) {
+            $preference = Preferences::get(ResourceLanguagePreference::key());
         }
+
+        $this->scopeForLocalePreferences($query, locale(), $preference);
     }
 }

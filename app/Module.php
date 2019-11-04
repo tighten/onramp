@@ -2,7 +2,6 @@
 
 namespace App;
 
-use App\Completable;
 use App\Completion;
 use App\Resource;
 use App\Skill;
@@ -41,6 +40,11 @@ class Module extends Model implements Completable
     public function tracks()
     {
         return $this->belongsToMany(Track::class);
+    }
+
+    public function resourcesForCurrentSession()
+    {
+        return $this->resources()->forCurrentSession();
     }
 
     public function resourcesForUser($user = null)

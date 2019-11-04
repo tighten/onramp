@@ -2,11 +2,9 @@
 
 @section('content')
 <div class="w-full bg-white">
-    <!-- title -->
     <div class="text-center px-6 py-12 bg-gray-100 border-b">
         <h1 class=" text-xl md:text-4xl">{{ __('Glossary') }}</h1>
     </div>
-    <!-- /title -->
 
     <div class="container max-w-4xl mx-auto md:flex items-start py-8 px-6 md:px-0">
         <div class="w-full md:pr-12 mb-6">
@@ -24,10 +22,10 @@
                             @endif
                         </div>
                         <p class="mt-2">{{ $term->getTranslation('description', locale()) }}</p>
-                        @if (count($term->resourcesForUser()->get()) > 0)
+                        @if ($term->resourcesForCurrentSession()->count() > 0)
                         <div class="mt-4 flex flex-col">
                             <span class="text-gray-800">Related resources:</span>
-                            @foreach ($term->resourcesForUser()->get() as $resource)
+                            @foreach ($term->resourcesForCurrentSession()->get() as $resource)
                                 <span>
                                     <a href="{{ route_wlocale('modules.show', $resource->module()->first()) }}">{{ $resource->module()->first()->name }}</a>
                                     &gt;
@@ -36,7 +34,7 @@
                             @endforeach
                         </div>
                         @endif
-                        @if (count($term->relatedTerms) > 0)
+                        @if ($term->relatedTerms->count() > 0)
                             <div class="mt-4 flex items-center">
                                 <span class="text-gray-800">Related Terms:</span>
                                 @foreach ($term->relatedTerms as $relatedTerm)

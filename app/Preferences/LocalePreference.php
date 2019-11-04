@@ -4,7 +4,7 @@ namespace App\Preferences;
 
 use Facades\App\Localization\Locale;
 
-class LanguagePreference extends Preference
+class LocalePreference extends Preference
 {
     public function options()
     {
@@ -13,11 +13,11 @@ class LanguagePreference extends Preference
 
     public function key()
     {
-        return 'language';
+        return 'locale';
     }
 
     public function default()
     {
-        return 'english';
+        return 'en';
     }
 }

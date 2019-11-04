@@ -9,13 +9,16 @@
     <div class="container max-w-4xl mx-auto md:flex items-start py-8 px-6 md:px-0">
         <div class="w-full md:pr-12 mb-6">
             <h2 class="mb-6 mt-8 text-black text-xl md:text-2xl">
-                {{ __('Which resources should we show?') }}
+                {{ __('Account Preferences') }}
             </h2>
 
             <form method="post" action="{{ route_wlocale('user.preferences.store') }}">
                 @csrf
                 <div class="mb-6">
-                    {{ __('Which resources should we show for you?') }}
+                    <label for="{{ Facades\App\Preferences\LocalePreference::key() }}" id="locale-label">
+                        {{ __('Which resources should we show for you?') }}
+                    </label>
+                    <div>
                     @foreach ($resourceLanguagePreferences as $index => $label)
                         <input
                             id="lang_pref_{{ $index }}"
@@ -27,26 +30,27 @@
                         <label for="lang_pref_{{ $index }}">{{ $label }}</label>
                         <br />
                     @endforeach
+                    </div>
                 </div>
                 <div class="flex flex-wrap mb-6">
-                    <label for="locale" id="locale-label">
+                    <label for="{{ Facades\App\Preferences\LocalePreference::key() }}" id="locale-label">
                         {{ __('Preferred Language') }}
                     </label>
                     <select
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline{{ $errors->has('name') ? ' border-red-500' : '' }}"
-                        name="locale"
+                        name="{{ Facades\App\Preferences\LocalePreference::key() }}"
                         aria-labelledby="locale-label">
 
-                        @foreach ($locale->slugs() as $slug)
+                        @foreach (Facades\App\Localization\Locale::slugs() as $slug)
                             <option value="{{ $slug }}"
-                                @if(locale() == $slug || old('locale') == $slug || $preferredLocale == $slug) selected @endif
-                                >{{ $locale->languageForLocale($slug) }}</option>
+                                @if (locale() == $slug || old(Facades\App\Preferences\LocalePreference::key()) == $slug || $preferredLocale == $slug) selected @endif
+                                >{{ Facades\App\Localization\Locale::languageForLocale($slug) }}</option>
                         @endforeach
                     </select>
 
-                    @if ($errors->has('locale'))
+                    @if ($errors->has(Facades\App\Preferences\LocalePreference::key()))
                         <p class="text-red-500 text-xs italic mt-2">
-                            {{ $errors->first('locale') }}
+                            {{ $errors->first(Facades\App\Preferences\LocalePreference::key()) }}
                         </p>
                     @endif
                 </div>

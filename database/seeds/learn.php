@@ -181,7 +181,7 @@ return [
                     'name' => 'Documentación de Laravel',
                     'url' => 'https://docs.laraveles.com/docs/5.5/valet',
                     'type' => 'article',
-                    'os' => 'osx',
+                    'os' => 'macos',
                 ],
                 [
                     'name' => 'Artículo de Styde',
@@ -195,13 +195,13 @@ return [
                     'name' => 'Laravel Docs (Valet)',
                     'url' => 'https://laravel.com/docs/valet',
                     'type' => 'article',
-                    'os' => 'osx'
+                    'os' => 'macos'
                 ],
                 [
                     'name' => 'Laracasts Video (Valet)',
                     'url' => 'https://laracasts.com/series/setup-a-mac-dev-machine-from-scratch/episodes/10',
                     'type' => 'video',
-                    'os' => 'osx',
+                    'os' => 'macos',
                 ],
                 [
                     'name' => 'Valet Linux',

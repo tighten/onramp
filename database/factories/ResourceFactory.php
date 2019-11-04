@@ -1,6 +1,7 @@
 <?php
 
 use App\Module;
+use App\OperatingSystem;
 use App\Resource;
 use Faker\Generator as Faker;
 
@@ -13,6 +14,6 @@ $factory->define(Resource::class, function (Faker $faker) {
         'type' => $faker->randomElement(Resource::TYPES),
         'module_id' => factory(Module::class),
         'language' => $faker->randomElement(['en', 'es']),
-        'os' => $faker->randomElement(['any', 'osx', 'linux', 'windows']),
+        'os' => $faker->randomElement(OperatingSystem::ALL),
     ];
 });

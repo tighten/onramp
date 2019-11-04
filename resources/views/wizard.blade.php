@@ -28,8 +28,8 @@ $locale = new App\Localization\Locale;
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline{{ $errors->has('name') ? ' border-red-500' : '' }}"
                                 name="os"
                                 aria-labelledby="os-label">
-                                @foreach (App\OperatingSystem::ALL as $oskey => $oslabel)
-                                    <option value="{{ $oskey }}" @if (auth()->user()->os == $oskey || old('os') == $oskey) selected @endif>{{ $oslabel }}</option>
+                                @foreach (App\OperatingSystem::ALL as $key)
+                                    <option value="{{ $key }}" @if (auth()->user()->os == $key || old('os') == $key) selected @endif>@lang('operatingsystems.' . $key)</option>
                                 @endforeach
                             </select>
                             @if ($errors->has('os'))

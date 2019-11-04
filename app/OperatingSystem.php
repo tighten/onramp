@@ -10,9 +10,9 @@ class OperatingSystem
     const WINDOWS = 'windows';
 
     const ALL = [
-        self::ANY => 'Any',
-        self::MACOS => 'macOS',
-        self::LINUX => 'Linux',
-        self::WINDOWS => 'Windows',
+        self::ANY,
+        self::MACOS,
+        self::LINUX,
+        self::WINDOWS,
     ];
 }

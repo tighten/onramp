@@ -21,7 +21,7 @@ $factory->define(User::class, function (Faker $faker) {
 
             return factory(Track::class)->create()->id;
         },
-        'os' => $faker->randomElement(array_keys(OperatingSystem::ALL)),
+        'os' => $faker->randomElement(OperatingSystem::ALL),
         'preferences' => function () {
             return [
                 ResourceLanguagePreference::key() => Arr::random([

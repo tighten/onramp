@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class AddOsToResources extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::table('resources', function (Blueprint $table) {
@@ -18,11 +13,6 @@ class AddOsToResources extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::table('resources', function (Blueprint $table) {

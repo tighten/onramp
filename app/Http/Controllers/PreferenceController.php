@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Facades\Preferences;
-use App\Preferences\ResourceLanguagePreference;
+use Facades\App\Preferences\ResourceLanguagePreference;
 use Illuminate\Http\Request;
 
 class PreferenceController extends Controller
@@ -11,15 +11,15 @@ class PreferenceController extends Controller
     public function index()
     {
         return view('preferences', [
-            'currentResourceLanguagePreference' => Preferences::get('resource-language-preference'),
-            'resourceLanguagePreferences' => (new ResourceLanguagePreference)->options(),
+            'currentResourceLanguagePreference' => Preferences::get(ResourceLanguagePreference::key()),
+            'resourceLanguagePreferences' =>  ResourceLanguagePreference::options(),
         ]);
     }
 
     public function store(Request $request)
     {
         Preferences::set([
-            'resource-language-preference' => $request->input('resource-language-preference'),
+            ResourceLanguagePreference::key() => $request->input(ResourceLanguagePreference::key()),
         ]);
 
         if ($request->wantsJson()) {

@@ -27,15 +27,9 @@
             }
         },
 
-        mount() {
-            // @todo make the UI words translateable
-        },
-
         methods: {
             choose(value) {
                 this.choice = value;
-                // @todo ziggy
-                // @todo locale
                 axios.post('/en/preferences', {
                     'resource-language-preference': value,
                 })
@@ -43,7 +37,6 @@
                     window.location.reload(false);
                 })
                 .catch(function (error) {
-                    // @todo Handle better
                     alert('Error!');
                 });
             },

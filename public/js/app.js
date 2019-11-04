@@ -1937,19 +1937,14 @@ __webpack_require__.r(__webpack_exports__);
       choice: this.initialChoice
     };
   },
-  mount: function mount() {// @todo make the UI words translateable
-  },
   methods: {
     choose: function choose(value) {
-      this.choice = value; // @todo ziggy
-      // @todo locale
-
+      this.choice = value;
       axios.post('/en/preferences', {
         'resource-language-preference': value
       }).then(function () {
         window.location.reload(false);
       })["catch"](function (error) {
-        // @todo Handle better
         alert('Error!');
       });
     },

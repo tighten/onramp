@@ -1,6 +1,6 @@
 <?php
 
-Route::redirect('/', '/en');
+Route::get('/', 'RootRedirectController');
 
 Route::group(['prefix' => '{locale}'], function () {
 

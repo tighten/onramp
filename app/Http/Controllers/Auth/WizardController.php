@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Localization\Locale;
-use Facades\App\OperatingSystem;
+use App\OperatingSystem;
 use Facades\App\Preferences;
 use Facades\App\Preferences\LocalePreference;
 use Illuminate\Validation\Rule;
@@ -13,10 +13,15 @@ class WizardController extends Controller
 {
     protected $redirectTo = 'home';
 
-    public function __invoke()
+    public function index()
+    {
+        return view('wizard');
+    }
+
+    public function store()
     {
         $valid = $this->validate(request(), [
-            'os' => ['required', 'string', Rule::in(OperatingSystem::keys())],
+            'os' => ['required', 'string', Rule::in(array_keys(OperatingSystem::ALL))],
             'track' => ['required', 'int', 'exists:tracks,id'],
             'locale' => ['required', 'string', Rule::in((new Locale)->slugs())]
         ], [], [
@@ -25,7 +30,7 @@ class WizardController extends Controller
 
         auth()->user()->update([
             'os' => $valid['os'],
-            'track_id' => $valid['track']
+            'track_id' => $valid['track'],
         ]);
 
         Preferences::set(LocalePreference::key(), $valid[LocalePreference::key()]);

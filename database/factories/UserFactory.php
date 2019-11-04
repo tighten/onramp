@@ -1,6 +1,6 @@
 <?php
 
-use Facades\App\OperatingSystem;
+use App\OperatingSystem;
 use App\Track;
 use App\User;
 use Facades\App\Preferences\ResourceLanguagePreference;
@@ -21,7 +21,7 @@ $factory->define(User::class, function (Faker $faker) {
 
             return factory(Track::class)->create()->id;
         },
-        'os' => $faker->randomElement(OperatingSystem::keys()),
+        'os' => $faker->randomElement(array_keys(OperatingSystem::ALL)),
         'preferences' => function () {
             return [
                 ResourceLanguagePreference::key() => Arr::random([

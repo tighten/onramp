@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Localization\Locale;
 use Facades\App\Preferences;
 use Illuminate\Http\Request;
 
@@ -14,6 +15,8 @@ class PreferenceController extends Controller
             //     plus session plus cookie?? aghhhh so much to do.
             'currentResourceLanguagePreference' => auth()->user()->preferences('resource-language-preference'),
             'resourceLanguagePreferences' => Preferences::preferences()['resource-language-preference']['options'],
+            'preferredLocale' => auth()->user()->preferences('language'),
+            'locale' => new Locale
         ]);
     }
 
@@ -21,8 +24,10 @@ class PreferenceController extends Controller
     {
         auth()->user()->preferences([
             'resource-language-preference' => request('language_preference'),
+            'language' => request('locale'),
         ]);
 
-        return back();
+        $redirectTo = request('locale') . '/preferences';
+        return redirect($redirectTo);
     }
 }

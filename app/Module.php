@@ -3,7 +3,6 @@
 namespace App;
 
 use App\Completion;
-use App\Facades\Preferences;
 use App\Resource;
 use App\Skill;
 use App\Track;

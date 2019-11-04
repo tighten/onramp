@@ -22,7 +22,7 @@ class LoginController extends Controller
 
     public function redirectTo()
     {
-        return path_wlocale('home');
+        return auth()->user()->preferences('language', 'en') . '/home';
     }
 
     /**

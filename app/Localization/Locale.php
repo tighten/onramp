@@ -16,6 +16,11 @@ class Locale
         'cs' => 'Česky'
     ];
 
+    public function locales()
+    {
+        return $this->locales;
+    }
+
     public function slugs()
     {
         asort($this->locales);

@@ -19,9 +19,9 @@ class PreferenceRoutesTest extends TestCase
         $key = ResourceLanguagePreference::key();
         $this->be($user);
         $response = $this->post(route_wlocale('user.preferences.store'), [
-            $key => 'qwerty',
+            $key => 'local-and-english',
         ]);
 
-        $this->assertEquals('qwerty', Preferences::get($key));
+        $this->assertEquals('local-and-english', Preferences::get($key));
     }
 }

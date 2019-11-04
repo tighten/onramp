@@ -2,7 +2,7 @@
 
 return [
     'any' => 'Any',
-    'macos' => 'Mac OSX',
+    'macos' => 'macOS',
     'windows' => 'Windows',
     'linux' => 'Linux',
 ];

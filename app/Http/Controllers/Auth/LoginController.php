@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Facades\Preferences;
+use Facades\App\Preferences\LocalePreference;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -22,7 +24,7 @@ class LoginController extends Controller
 
     public function redirectTo()
     {
-        return auth()->user()->preferences('language', 'en') . '/home';
+        return Preferences::get(LocalePreference::key()) . '/home';
     }
 
     /**

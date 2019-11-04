@@ -2,7 +2,7 @@
 
 @section('content')
 @php
-$locale = new App\Localization\Locale();
+$locale = new App\Localization\Locale;
 @endphp
 <div class="w-full bg-white">
     <!-- title -->
@@ -14,24 +14,22 @@ $locale = new App\Localization\Locale();
     </div>
     <!-- /title -->
 
-    {{-- Content for this page will eventually likely be in a DB. Right now, check out learn.php. --}}
-
     <div class="container mx-auto mb-8 mt-8">
         <div class="flex flex-wrap justify-center">
             <div class="w-full max-w-lg">
                 <div class="flex flex-col break-words bg-white border border-2 rounded shadow-md">
-                    <form class="w-full p-6"  action="{{ route_wlocale('wizard.write') }}" method="POST">
+                    <form class="w-full p-6"  action="{{ route_wlocale('wizard.store') }}" method="POST">
                         @csrf
                         <div class="flex flex-wrap mb-6">
                             <label id="os-label" for="os">
-                                @lang('Preferred Operating System'):
+                                {{ __('Preferred Operating System') }}
                             </label>
-                            <select 
-                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline{{ $errors->has('name') ? ' border-red-500' : '' }}" 
+                            <select
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline{{ $errors->has('name') ? ' border-red-500' : '' }}"
                                 name="os"
                                 aria-labelledby="os-label">
-                                @foreach (\Facades\App\OperatingSystem::toArray() as $key => $value)
-                                    <option value="{{ $key }}" @if(auth()->user()->os == $key || old('os') == $key) selected @endif>@lang("operatingsystems.{$value}")</option>
+                                @foreach (Facades\App\OperatingSystem::toArray() as $key => $value)
+                                    <option value="{{ $key }}" @if(auth()->user()->os == $key || old('os') == $key) selected @endif>{{ __("operatingsystems.{$value}") }}</option>
                                 @endforeach
                             </select>
                             @if ($errors->has('os'))
@@ -49,7 +47,7 @@ $locale = new App\Localization\Locale();
                                 name="track"
                                 aria-labelledby="track-label">
                                 @foreach (App\Track::all() as $track)
-                                    <option value="{{ $track->id }}" @if(old('track') == $track->id) selected @endif>{{ $track->name }}</option>
+                                    <option value="{{ $track->id }}" @if (old('track') == $track->id) selected @endif>{{ $track->name }}</option>
                                 @endforeach
                             </select>
                             @if ($errors->has('track'))
@@ -62,17 +60,17 @@ $locale = new App\Localization\Locale();
                             <label for="locale" id="locale-label">
                                 @lang('Preferred Language'):
                             </label>
-                            <select 
-                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline{{ $errors->has('name') ? ' border-red-500' : '' }}" 
-                                name="locale"
+                            <select
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline{{ $errors->has('name') ? ' border-red-500' : '' }}"
+                                name="{{ Facades\App\Preferences\LocalePreference::key() }}"
                                 aria-labelledby="locale-label">
-                                @foreach($locale->slugs() as $slug)
-                                    <option value="{{ $slug }}" @if(locale() == $slug || old('locale') == $slug) selected @endif>{{ $locale->languageForLocale($slug) }}</option>
+                                @foreach ($locale->slugs() as $slug)
+                                    <option value="{{ $slug }}" @if (locale() == $slug || old(Facades\App\Preferences\LocalePreference::key()) == $slug) selected @endif>{{ $locale->languageForLocale($slug) }}</option>
                                 @endforeach
                             </select>
-                            @if ($errors->has('locale'))
+                            @if ($errors->has(Facades\App\Preferences\LocalePreference::key()))
                                 <p class="text-red-500 text-xs italic mt-2">
-                                    {{ $errors->first('locale') }}
+                                    {{ $errors->first(Facades\App\Preferences\LocalePreference::key()) }}
                                 </p>
                             @endif
                         </div>

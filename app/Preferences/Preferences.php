@@ -11,7 +11,7 @@ class Preferences
     protected $user;
     protected $preferences = [
         ResourceLanguagePreference::class,
-        LanguagePreference::class,
+        LocalePreference::class,
     ];
     protected $preferencesInstances = [];
     protected $cookieLength = 43200; // one month-ish

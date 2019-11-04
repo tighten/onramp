@@ -16,8 +16,8 @@ Route::group(['prefix' => '{locale}'], function () {
     });
 
     Route::group(['middleware' => 'auth'], function () {
-        Route::view('wizard', 'wizard')->name('wizard');
-        Route::post('wizard', 'Auth\\WizardController')->name('wizard.write');
+        Route::view('wizard', 'wizard')->name('wizard.index');
+        Route::post('wizard', 'Auth\\WizardController')->name('wizard.store');
         Route::view('home', 'home')->name('home');
         Route::get('preferences', 'PreferenceController@index')->name('user.preferences.index');
     });

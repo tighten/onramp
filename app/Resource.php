@@ -75,5 +75,10 @@ class Resource extends Model implements Completable
         }
 
         $this->scopeForLocalePreferences($query, locale(), $preference);
+
+        // @todo why is this a field not a preference?
+        if ($user && $user->os != OperatingSystem::ANY) {
+            $query->whereIn('os', [OperatingSystem::ANY, $user->os]);
+        }
     }
 }

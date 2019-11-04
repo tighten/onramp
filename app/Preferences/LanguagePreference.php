@@ -2,11 +2,13 @@
 
 namespace App\Preferences;
 
+use Facades\App\Localization\Locale;
+
 class LanguagePreference extends Preference
 {
     public function options()
     {
-        throw new \Exception('@Todo return all from DB');
+        return Locale::locales();
     }
 
     public function key()

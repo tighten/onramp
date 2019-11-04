@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Facades\Preferences;
+use App\Preferences\ResourceLanguagePreference;
 use Illuminate\Http\Request;
 
 class PreferenceController extends Controller
@@ -11,7 +12,7 @@ class PreferenceController extends Controller
     {
         return view('preferences', [
             'currentResourceLanguagePreference' => Preferences::get('resource-language-preference'),
-            'resourceLanguagePreferences' => Preferences::preferences()['resource-language-preference']['options'],
+            'resourceLanguagePreferences' => (new ResourceLanguagePreference)->options(),
         ]);
     }
 

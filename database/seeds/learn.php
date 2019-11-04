@@ -276,7 +276,7 @@ return [
                 [
                     'name' => 'Open Source Learning for PHP (course)',
                     'url' => 'https://www.phpschool.io/',
-                    'type' => \App\Resource::COURSE_TYPE,
+                    'type' => 'course',
                 ],
             ],
             'en' => [
@@ -328,7 +328,7 @@ return [
                 [
                     'name' => 'Open Source Learning for PHP (course)',
                     'url' => 'https://www.phpschool.io/',
-                    'type' => \App\Resource::COURSE_TYPE,
+                    'type' => 'course',
                 ],
             ],
         ],

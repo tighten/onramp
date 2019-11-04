@@ -25,8 +25,10 @@ class WizardController extends Controller
             'os' => $valid['os'],
             'track_id' => $valid['track']
         ]);
-        // @todo Add language save. Waiting on PR#103.
+        auth()->user()->preferences([
+            'language' => $valid['locale'],
+        ]);
 
-        return redirect(path_wlocale($this->redirectTo));
+        return redirect("{$valid['locale']}/{$this->redirectTo}");
     }
 }

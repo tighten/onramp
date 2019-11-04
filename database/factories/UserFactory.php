@@ -1,5 +1,6 @@
 <?php
 
+use Facades\App\OperatingSystem;
 use App\Track;
 use App\User;
 use Faker\Generator as Faker;
@@ -19,7 +20,7 @@ $factory->define(User::class, function (Faker $faker) {
 
             return factory(Track::class)->create()->id;
         },
-        'os' => $faker->randomElement(['any', 'osx', 'linux', 'windows']),
+        'os' => $faker->randomElement(OperatingSystem::keys()),
         'preferences' => function () {
             return [
                 'resource-language-preference' => Arr::random([

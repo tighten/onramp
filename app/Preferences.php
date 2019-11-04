@@ -21,7 +21,7 @@ class Preferences
         'language' => [
             // @todo figure out how we do options that are db-stored.. do we just skip
             // the options key and then it allows all options?
-            'default' => 'english',
+            'default' => 'en',
         ],
     ];
 

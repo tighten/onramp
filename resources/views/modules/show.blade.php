@@ -14,7 +14,7 @@
             <resource-language-preference-switcher
                 language="{{ Localization::languageForLocale(locale()) }}"
                 initial-choice="{{ $currentResourceLanguagePreference }}"
-                user="{{ /* @todo allow this to keep session/cookie preference for non-authorized users */ auth()->user() }}">
+                >
             </resource-language-preference-switcher>
             <div class="flex">
                 <div class="flex-1 w-auto p-4 border rounded mr-2">

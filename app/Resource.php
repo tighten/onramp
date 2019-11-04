@@ -4,8 +4,9 @@ namespace App;
 
 use App\Completable;
 use App\Completion;
-use App\Module;
 use App\Facades\Preferences;
+use App\Module;
+use Facades\App\Preferences\ResourceLanguagePreference;
 use Illuminate\Database\Eloquent\Model;
 
 class Resource extends Model implements Completable
@@ -47,7 +48,7 @@ class Resource extends Model implements Completable
         return $this->scopeForLocalePreferences(
             $query,
             locale(),
-            Preferences::get('resource-language-preference')
+            Preferences::get(ResourceLanguagePreference::key())
         );
     }
 
@@ -56,7 +57,7 @@ class Resource extends Model implements Completable
         $preference = 'local-and-english';
 
         if ($user ?? $user = auth()->user()) {
-            $preference = Preferences::get('resource-language-preference');
+            $preference = Preferences::get(ResourceLanguagePreference::key());
         }
 
         $this->scopeForLocalePreferences($query, locale(), $preference);

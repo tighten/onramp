@@ -2,6 +2,7 @@
 
 use App\Track;
 use App\User;
+use Facades\App\Preferences\ResourceLanguagePreference;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
@@ -21,7 +22,7 @@ $factory->define(User::class, function (Faker $faker) {
         },
         'preferences' => function () {
             return [
-                'resource-language-preference' => Arr::random([
+                ResourceLanguagePreference::key() => Arr::random([
                     'local',
                     'all',
                     'local-and-english',

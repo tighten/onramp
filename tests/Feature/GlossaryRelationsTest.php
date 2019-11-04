@@ -31,7 +31,6 @@ class GlossaryRelationsTest extends TestCase
     /** @test */
     function glossary_page_hides_related_resources_not_in_the_current_locale()
     {
-        $this->markTestIncomplete('@todo mark the preference for this user to be "only my current locale" so this actually triggers');
         $currentLocale = 'en';
         $englishResource = factory(Resource::class)->create(['language' => $currentLocale]);
         $spanishResource = factory(Resource::class)->create(['language' => 'es']);
@@ -41,7 +40,7 @@ class GlossaryRelationsTest extends TestCase
 
         $this->assertContains($englishResource->id, $term->fresh()->resources()->pluck('resources.id'));
         $this->assertContains($spanishResource->id, $term->fresh()->resources()->pluck('resources.id'));
-        $this->assertNotContains($spanishResource->id, $term->fresh()->resourcesForUser()->pluck('resources.id'));
+        $this->assertNotContains($spanishResource->id, $term->fresh()->resourcesForCurrentSession()->pluck('resources.id'));
 
         $response = $this->get("/{$currentLocale}/glossary");
         $response->assertSee($englishResource->name);

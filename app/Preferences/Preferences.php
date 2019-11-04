@@ -13,10 +13,8 @@ class Preferences
         ResourceLanguagePreference::class,
         LanguagePreference::class,
     ];
-    protected $cookieLength = 43200; // one month-ish
-
-    // @todo this feels awkward?
     protected $preferencesInstances = [];
+    protected $cookieLength = 43200; // one month-ish
 
     public function __construct(User $user = null)
     {
@@ -25,17 +23,6 @@ class Preferences
         foreach ($this->preferences as $class) {
             $this->preferencesInstances[] = new $class;
         }
-    }
-
-    public function preferenceForKey($key)
-    {
-        foreach ($this->preferencesInstances as $preference) {
-            if ($preference->key() === $key) {
-                return $preference;
-            }
-        }
-
-        throw new Exception('No preference matching key ' . $key);
     }
 
     public function set(array $array)
@@ -69,6 +56,17 @@ class Preferences
         $preference = $this->preferenceForKey($key);
 
         return $defaultOverride ?? $preference->default();
+    }
+
+    public function preferenceForKey($key)
+    {
+        foreach ($this->preferencesInstances as $preference) {
+            if ($preference->key() === $key) {
+                return $preference;
+            }
+        }
+
+        throw new Exception('No preference matching key ' . $key);
     }
 
     public function cookieNameForKey($key)

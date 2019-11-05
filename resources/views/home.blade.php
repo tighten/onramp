@@ -2,17 +2,15 @@
 
 @section('content')
 <div class="w-full bg-white">
-    <!-- title -->
     <div class="text-center px-6 py-12 mb-6 bg-gray-100 border-b">
-        <h1 class=" text-xl md:text-4xl pb-4">My Onramp</h1>
+        <h1 class=" text-xl md:text-4xl pb-4">{{ __('My Onramp') }}</h1>
         <p class="leading-loose text-gray-dark">
             Tracking your progress
         </p>
     </div>
-    <!-- /title -->
 
-    <div class="container max-w-4xl mx-auto md:flex items-start py-8 px-12 md:px-0">
-        <div class="w-full md:pr-12 mb-12">
+    <div class="container max-w-4xl mx-auto md:flex items-start py-8 px-6 md:px-0">
+        <div class="w-full md:pr-12 mb-6">
             <h2 class="mb-6 mt-8 text-black text-xl md:text-2xl">
                 Hi, friend! Thank you for signing up.<br><br>
                 There's nothing here... yet :)<br><br>

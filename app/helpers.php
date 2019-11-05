@@ -17,6 +17,10 @@ function url_wlocale($path)
 
 function route_wlocale($route, $parameters = [])
 {
+    if (! is_array($parameters)) {
+        $parameters = [$parameters];
+    }
+
     return route($route, array_merge($parameters, ['locale' => locale()]));
 }
 

@@ -37,6 +37,6 @@ class WizardController extends Controller
             LocalePreference::key() => $valid[LocalePreference::key()],
         ]);
 
-        return redirect("{$valid[LocalePreference::key()]}/{$this->redirectTo}");
+        return redirect("{$valid['locale']}/{$this->redirectTo}");
     }
 }

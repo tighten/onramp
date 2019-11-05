@@ -24,7 +24,7 @@ class LoginController extends Controller
 
     public function redirectTo()
     {
-        return Preferences::get(LocalePreference::key()) . '/home';
+        return path(Preferences::get(LocalePreference::key()) . '/home');
     }
 
     /**

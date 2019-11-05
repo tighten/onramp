@@ -3,8 +3,7 @@
 namespace App\Localization;
 
 use App\Exceptions\InvalidLocale;
-use Facades\App\Localization\Locale;
-use Illuminate\Foundation\Application;
+use App\Facades\Localization;
 use Illuminate\Http\Request;
 
 class ResolveLocale
@@ -21,12 +20,12 @@ class ResolveLocale
         $segments = $this->request->segments();
 
         if (count($segments) === 0) {
-            return 'not-any';
+            return 'not-defined-because-at-site-root';
         }
 
         $locale = reset($segments);
 
-        if (! Locale::isValid($locale)) {
+        if (! Localization::isValid($locale)) {
             throw new InvalidLocale("Invalid locale: {$locale}");
         }
 

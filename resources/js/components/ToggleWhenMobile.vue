@@ -1,8 +1,8 @@
 <template>
     <div>
-        <button @click="toggle" class="border rounded py-1 px-4">{{ buttonLabel }}</button>
+        <button @click="toggle" class="border rounded py-1 px-4 md:hidden">{{ buttonLabel }}</button>
 
-        <div v-show="isOpen" :aria-hidden="!isOpen">
+        <div class="md:block" v-bind:class="{ hidden: !isOpen }">
             <slot></slot>
         </div>
     </div>

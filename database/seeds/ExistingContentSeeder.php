@@ -14,6 +14,7 @@ class ExistingContentSeeder extends Seeder
         collect(require('learn.php'))->each(function ($moduleArray) use ($tracks) {
             $module = Module::create([
                 'name' => $moduleArray['name'],
+                'description' => $moduleArray['description'],
                 'slug' => Str::slug($moduleArray['name']['en']),
             ]);
 
@@ -47,6 +48,7 @@ class ExistingContentSeeder extends Seeder
                     'type' => $resource['type'],
                     'is_free' => true,
                     'language' => $language,
+                    'is_bonus' => Arr::get($resource, 'bonus', false),
                 ]);
             }
         });

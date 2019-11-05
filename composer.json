@@ -10,14 +10,13 @@
     "require": {
         "php": "^7.1.3",
         "bugsnag/bugsnag-laravel": "^2.0",
-        "calebporzio/laravel-helpers-file": "^0.1.1",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^6.3",
-        "laravel/framework": "5.8.*",
+        "laravel/framework": "^6.0",
         "laravel/slack-notification-channel": "^2.0",
         "laravel/tinker": "^1.0",
         "spatie/laravel-translatable": "^4.2",
-        "tightenco/tlint": "^2.0"
+        "tightenco/tlint": "^3.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
@@ -45,6 +44,9 @@
         "classmap": [
             "database/seeds",
             "database/factories"
+        ],
+        "files": [
+            "app/helpers.php"
         ]
     },
     "autoload-dev": {

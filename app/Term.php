@@ -17,4 +17,19 @@ class Term extends Model
     {
         return $this->getTranslation('name', 'en');
     }
+
+    public function resources()
+    {
+        return $this->belongsToMany(Resource::class);
+    }
+
+    public function resourcesForCurrentSession()
+    {
+        return $this->resources()->forCurrentSession();
+    }
+
+    public function relatedTerms()
+    {
+        return $this->belongsToMany(Term::class, 'term_term', 'term_id', 'related_term_id');
+    }
 }

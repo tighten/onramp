@@ -18,7 +18,6 @@
     - [x] Then hide that message ^^ until we have checkboxes working
 - [x] Write intro content on modules.index and modules.show
 - [ ] Allow user to choose preference of which resources to show (based on localization)
-- [ ] Finish implementing resourcesForUser() on module
 - [x] Migrate all content from the master branch `learn.en` and `learn.es` files into the database seeders
 - [ ] Figure out how we handle resources that are links to projects (e.g. vagrant)... not really an "article"
 - [x] Allow for translating a skill name

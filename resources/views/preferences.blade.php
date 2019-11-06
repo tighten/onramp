@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@php
+$localePreferenceKey = 'locale';
+$resourceLanguagePreferenceKey = 'resource-language';
+@endphp
+
 @section('content')
 <div class="w-full bg-white">
     <div class="text-center px-6 py-12 mb-6 bg-gray-100 border-b">
@@ -15,14 +20,14 @@
             <form method="post" action="{{ route_wlocale('user.preferences.store') }}">
                 @csrf
                 <div class="mb-6">
-                    <label for="{{ Facades\App\Preferences\LocalePreference::key() }}" id="locale-label">
+                    <label for="{{ $localePreferenceKey }}" id="locale-label">
                         {{ __('Which resources should we show for you?') }}
                     </label>
                     <div>
                     @foreach ($resourceLanguagePreferences as $index => $label)
                         <input
                             id="lang_pref_{{ $index }}"
-                            name="{{ Facades\App\Preferences\ResourceLanguagePreference::key() }}"
+                            name="{{ $resourceLanguagePreferenceKey }}"
                             type="radio"
                             value="{{ $index }}"
                             {{ $currentResourceLanguagePreference == $index ? 'checked' : '' }}
@@ -33,24 +38,24 @@
                     </div>
                 </div>
                 <div class="flex flex-wrap mb-6">
-                    <label for="{{ Facades\App\Preferences\LocalePreference::key() }}" id="locale-label">
+                    <label for="{{ $localePreferenceKey }}" id="locale-label">
                         {{ __('Preferred Language') }}
                     </label>
                     <select
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline{{ $errors->has('name') ? ' border-red-500' : '' }}"
-                        name="{{ Facades\App\Preferences\LocalePreference::key() }}"
+                        name="{{ $localePreferenceKey }}"
                         aria-labelledby="locale-label">
 
                         @foreach (Facades\App\Localization\Locale::slugs() as $slug)
                             <option value="{{ $slug }}"
-                                @if (locale() == $slug || old(Facades\App\Preferences\LocalePreference::key()) == $slug || $preferredLocale == $slug) selected @endif
+                                @if (old($localePreferenceKey) == $slug || $preferredLocale == $slug) selected @endif
                                 >{{ Facades\App\Localization\Locale::languageForLocale($slug) }}</option>
                         @endforeach
                     </select>
 
-                    @if ($errors->has(Facades\App\Preferences\LocalePreference::key()))
+                    @if ($errors->has($localePreferenceKey))
                         <p class="text-red-500 text-xs italic mt-2">
-                            {{ $errors->first(Facades\App\Preferences\LocalePreference::key()) }}
+                            {{ $errors->first($localePreferenceKey) }}
                         </p>
                     @endif
                 </div>

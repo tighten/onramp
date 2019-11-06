@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Facades\App\Preferences\LocalePreference;
-use Illuminate\Http\Request;
+use App\Facades\Preferences;
+use App\Preferences\LocalePreference;
 
 class RootRedirectController extends Controller
 {
-    public function __invoke(Request $request)
+    public function __invoke()
     {
         if (auth()->user()) {
-            return redirect(Preferences::get(LocalePreference::key()));
+            return redirect(Preferences::get('locale'));
         }
 
-        return redirect(LocalePreference::default());
+        return redirect((new LocalePreference)->default());
     }
 }

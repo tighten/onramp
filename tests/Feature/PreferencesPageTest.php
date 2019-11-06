@@ -18,4 +18,6 @@ class PreferencesPageTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    // @todo test every preference to make sure that it can be changed via the page
 }

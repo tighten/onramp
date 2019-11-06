@@ -3,35 +3,35 @@
 namespace App\Http\Controllers;
 
 use App\Facades\Preferences;
-use App\Preferences\LocalePreference;
-use App\Preferences\ResourceLanguagePreference;
 use Illuminate\Http\Request;
+use App\Preferences\ResourceLanguagePreference;
 
 class PreferenceController extends Controller
 {
     public function index()
     {
-        $resourceLanguagePreference = new ResourceLanguagePreference;
-
         return view('preferences', [
-            'currentResourceLanguagePreference' => Preferences::get($resourceLanguagePreference->key()),
-            'resourceLanguagePreferences' => $resourceLanguagePreference->options(),
-            'preferredLocale' => Preferences::get((new LocalePreference)->key()),
+            'currentResourceLanguagePreference' => Preferences::get('resource-language'),
+            'resourceLanguagePreferences' => (new ResourceLanguagePreference)->options(),
+            'preferredLocale' => Preferences::get('locale'),
         ]);
     }
 
     public function store(Request $request)
     {
-        $resourceLanguagePreferenceKey = (new ResourceLanguagePreference)->key();
-        $localePreferenceKey = (new LocalePreference)->key();
-
         Preferences::set([
-            $resourceLanguagePreferenceKey => $request->input($resourceLanguagePreferenceKey),
-            $localePreferenceKey => $request->input($localePreferenceKey),
+            'resource-language' => $request->input('resource-language'),
+            'locale' => $request->input('locale'),
         ]);
 
         if ($request->wantsJson()) {
             return response()->json(['status' => 'success']);
+        }
+
+        if ($request->input('locale') !== locale()) {
+            return redirect(
+                str_replace('/' . locale() . '/', '/' . $request->input('locale') . '/', back()->getTargetUrl())
+            );
         }
 
         return back();

@@ -6,7 +6,6 @@ use App\Facades\Preferences;
 use App\Http\Controllers\Controller;
 use App\Localization\Locale;
 use App\OperatingSystem;
-use App\Preferences\LocalePreference;
 use Illuminate\Validation\Rule;
 
 class WizardController extends Controller
@@ -32,10 +31,12 @@ class WizardController extends Controller
             'track_id' => $valid['track'],
         ]);
 
+        // @todo: test that if someone passes invalid preferences key it throws exception
         Preferences::set([
-            (new LocalePreference)->key() => $valid['locale'],
-            (new OperatingSystemPreference)->key() => $valid['os'],
+            'locale' => $valid['locale'],
+            'operating-system' => $valid['os'],
         ]);
+        // @todo if user has resource language preference set in a cookie, save it here
 
         return redirect("{$valid['locale']}/{$this->redirectTo}");
     }

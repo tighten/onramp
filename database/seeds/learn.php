@@ -195,7 +195,7 @@ return [
                     'name' => 'Laravel Docs (Valet)',
                     'url' => 'https://laravel.com/docs/valet',
                     'type' => 'article',
-                    'os' => 'macos'
+                    'os' => 'macos',
                 ],
                 [
                     'name' => 'Laracasts Video (Valet)',

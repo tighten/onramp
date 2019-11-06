@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Facades\Preferences;
-use Illuminate\Http\Request;
 use App\Preferences\ResourceLanguagePreference;
+use Illuminate\Http\Request;
 
 class PreferenceController extends Controller
 {

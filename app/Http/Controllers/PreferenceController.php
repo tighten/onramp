@@ -3,27 +3,31 @@
 namespace App\Http\Controllers;
 
 use App\Facades\Preferences;
-use App\Localization\Locale;
-use Facades\App\Preferences\LocalePreference;
-use Facades\App\Preferences\ResourceLanguagePreference;
+use App\Preferences\LocalePreference;
+use App\Preferences\ResourceLanguagePreference;
 use Illuminate\Http\Request;
 
 class PreferenceController extends Controller
 {
     public function index()
     {
+        $resourceLanguagePreference = new ResourceLanguagePreference;
+
         return view('preferences', [
-            'currentResourceLanguagePreference' => Preferences::get(ResourceLanguagePreference::key()),
-            'resourceLanguagePreferences' =>  ResourceLanguagePreference::options(),
-            'preferredLocale' => Preferences::get(LocalePreference::key()),
+            'currentResourceLanguagePreference' => Preferences::get($resourceLanguagePreference->key()),
+            'resourceLanguagePreferences' => $resourceLanguagePreference->options(),
+            'preferredLocale' => Preferences::get((new LocalePreference)->key()),
         ]);
     }
 
     public function store(Request $request)
     {
+        $resourceLanguagePreferenceKey = (new ResourceLanguagePreference)->key();
+        $localePreferenceKey = (new LocalePreference)->key();
+
         Preferences::set([
-            ResourceLanguagePreference::key() => $request->input(ResourceLanguagePreference::key()),
-            LocalePreference::key() => $request->input(LocalePreference::key()),
+            $resourceLanguagePreferenceKey => $request->input($resourceLanguagePreferenceKey),
+            $localePreferenceKey => $request->input($localePreferenceKey),
         ]);
 
         if ($request->wantsJson()) {

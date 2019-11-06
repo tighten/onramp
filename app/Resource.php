@@ -6,7 +6,8 @@ use App\Completable;
 use App\Completion;
 use App\Facades\Preferences;
 use App\Module;
-use Facades\App\Preferences\ResourceLanguagePreference;
+use App\Preferences\OperatingSystemPreference;
+use App\Preferences\ResourceLanguagePreference;
 use Illuminate\Database\Eloquent\Model;
 
 class Resource extends Model implements Completable
@@ -56,29 +57,22 @@ class Resource extends Model implements Completable
     public function scopeForCurrentSession($query)
     {
         if (auth()->check()) {
-            return $this->scopeForUser($query, auth()->user());
+            return $this->scopeForLoggedInUser($query);
         }
 
         return $this->scopeForLocalePreferences(
             $query,
             locale(),
-            Preferences::get(ResourceLanguagePreference::key())
+            Preferences::get((new ResourceLanguagePreference)->key())
         );
     }
 
-    public function scopeForUser($query, $user = null)
+    public function scopeForLoggedInUser($query)
     {
-        $preference = 'local-and-english';
+        $user = auth()->user();
 
-        if ($user ?? $user = auth()->user()) {
-            $preference = Preferences::get(ResourceLanguagePreference::key());
-        }
+        $this->scopeForLocalePreferences($query, locale(), Preferences::get((new ResourceLanguagePreference)->key()));
 
-        $this->scopeForLocalePreferences($query, locale(), $preference);
-
-        // @todo why is this a field not a preference?
-        if ($user && $user->os != OperatingSystem::ANY) {
-            $query->whereIn('os', [OperatingSystem::ANY, $user->os]);
-        }
+        $query->whereIn('os', [OperatingSystem::ANY, Preferences::get((new OperatingSystemPreference)->key())]);
     }
 }

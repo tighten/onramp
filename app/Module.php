@@ -46,9 +46,4 @@ class Module extends Model implements Completable
     {
         return $this->resources()->forCurrentSession();
     }
-
-    public function resourcesForUser($user = null)
-    {
-        return $this->resources()->forUser($user ?? auth()->user());
-    }
 }

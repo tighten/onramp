@@ -31,7 +31,7 @@
             choose(value) {
                 this.choice = value;
                 axios.post('/en/preferences', {
-                    'resource-language-preference': value,
+                    'resource-language': value,
                 })
                 .then(function () {
                     window.location.reload(false);

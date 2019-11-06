@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Facades\Preferences;
 use App\Module;
-use App\Preferences\ResourceLanguagePreference;
 
 class ModuleController extends Controller
 {
@@ -27,7 +26,7 @@ class ModuleController extends Controller
             'bonusSkills' => $module->skills->where('is_bonus', true),
             'completedResources' => auth()->check() ? auth()->user()->resourceCompletions()->pluck('completable_id') : collect([]),
             'completedSkills' => auth()->check() ? auth()->user()->skillCompletions()->pluck('completable_id') : collect([]),
-            'currentResourceLanguagePreference' => Preferences::get((new ResourceLanguagePreference)->key()),
+            'currentResourceLanguagePreference' => Preferences::get('resource-language'),
         ]);
     }
 }

@@ -13,11 +13,6 @@ class ResourceLanguagePreference extends Preference
         ];
     }
 
-    public function key()
-    {
-        return 'resource-language-preference';
-    }
-
     public function default()
     {
         return 'local';

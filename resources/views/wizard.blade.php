@@ -3,6 +3,7 @@
 @section('content')
 @php
 $locale = new App\Localization\Locale;
+$localePreferenceKey = 'locale'; // @todo should this come from somewhere else?
 @endphp
 <div class="w-full bg-white">
     <!-- title -->
@@ -62,15 +63,15 @@ $locale = new App\Localization\Locale;
                             </label>
                             <select
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline{{ $errors->has('name') ? ' border-red-500' : '' }}"
-                                name="{{ Facades\App\Preferences\LocalePreference::key() }}"
+                                name="{{ $localePreferenceKey }}"
                                 aria-labelledby="locale-label">
                                 @foreach ($locale->slugs() as $slug)
-                                    <option value="{{ $slug }}" @if (locale() == $slug || old(Facades\App\Preferences\LocalePreference::key()) == $slug) selected @endif>{{ $locale->languageForLocale($slug) }}</option>
+                                    <option value="{{ $slug }}" @if (locale() == $slug || old($localePreferenceKey == $slug) selected @endif>{{ $locale->languageForLocale($slug) }}</option>
                                 @endforeach
                             </select>
-                            @if ($errors->has(Facades\App\Preferences\LocalePreference::key()))
+                            @if ($errors->has($localePreferenceKey)
                                 <p class="text-red-500 text-xs italic mt-2">
-                                    {{ $errors->first(Facades\App\Preferences\LocalePreference::key()) }}
+                                    {{ $errors->first($localePreferenceKey }}
                                 </p>
                             @endif
                         </div>

@@ -3,7 +3,6 @@
 use App\OperatingSystem;
 use App\Track;
 use App\User;
-use Facades\App\Preferences\ResourceLanguagePreference;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
@@ -24,7 +23,7 @@ $factory->define(User::class, function (Faker $faker) {
         'os' => $faker->randomElement(OperatingSystem::ALL),
         'preferences' => function () {
             return [
-                ResourceLanguagePreference::key() => Arr::random([
+                'resource-language' => Arr::random([
                     'local',
                     'all',
                     'local-and-english',

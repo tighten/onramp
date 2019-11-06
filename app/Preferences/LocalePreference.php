@@ -11,11 +11,6 @@ class LocalePreference extends Preference
         return Locale::locales();
     }
 
-    public function key()
-    {
-        return 'locale';
-    }
-
     public function default()
     {
         return 'en';

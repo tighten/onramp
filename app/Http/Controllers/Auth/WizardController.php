@@ -14,6 +14,7 @@ class WizardController extends Controller
 
     public function index()
     {
+        // @todo write tests around wizard
         return view('wizard');
     }
 

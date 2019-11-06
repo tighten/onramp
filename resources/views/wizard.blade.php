@@ -66,10 +66,10 @@ $localePreferenceKey = 'locale'; // @todo should this come from somewhere else?
                                 name="{{ $localePreferenceKey }}"
                                 aria-labelledby="locale-label">
                                 @foreach ($locale->slugs() as $slug)
-                                    <option value="{{ $slug }}" @if (locale() == $slug || old($localePreferenceKey == $slug) selected @endif>{{ $locale->languageForLocale($slug) }}</option>
+                                    <option value="{{ $slug }}"{{ (locale() == $slug || old($localePreferenceKey == $slug)) ? ' selected' : '' }}>{{ $locale->languageForLocale($slug) }}</option>
                                 @endforeach
                             </select>
-                            @if ($errors->has($localePreferenceKey)
+                            @if ($errors->has($localePreferenceKey))
                                 <p class="text-red-500 text-xs italic mt-2">
                                     {{ $errors->first($localePreferenceKey }}
                                 </p>

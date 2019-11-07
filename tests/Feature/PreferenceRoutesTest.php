@@ -12,7 +12,7 @@ class PreferenceRoutesTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function valid_preferences_posted_are_persisted()
+    function resource_language_can_be_changed()
     {
         $user = factory(User::class)->create();
         $this->be($user);
@@ -21,5 +21,29 @@ class PreferenceRoutesTest extends TestCase
         ]);
 
         $this->assertEquals('local-and-english', Preferences::get('resource-language'));
+    }
+
+    /** @test */
+    function locale_can_be_changed()
+    {
+        $user = factory(User::class)->create();
+        $this->be($user);
+        $response = $this->post(route_wlocale('user.preferences.store'), [
+            'locale' => 'es',
+        ]);
+
+        $this->assertEquals('es', Preferences::get('locale'));
+    }
+
+    /** @test */
+    function operating_system_can_be_changed()
+    {
+        $user = factory(User::class)->create();
+        $this->be($user);
+        $response = $this->post(route_wlocale('user.preferences.store'), [
+            'operating-system' => 'linux',
+        ]);
+
+        $this->assertEquals('linux', Preferences::get('operating-system'));
     }
 }

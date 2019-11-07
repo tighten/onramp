@@ -60,6 +60,25 @@ $resourceLanguagePreferenceKey = 'resource-language';
                     @endif
                 </div>
 
+                <div class="flex flex-wrap mb-6">
+                    <label id="os-label" for="operating-system">
+                        {{ __('Preferred Operating System') }}
+                    </label>
+                    <select
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline{{ $errors->has('operating-system') ? ' border-red-500' : '' }}"
+                        name="operating-system"
+                        aria-labelledby="os-label">
+                        @foreach (App\OperatingSystem::ALL as $key)
+                            <option value="{{ $key }}" {{ (Preferences::get('operating-system') == $key || old('operating-system') == $key) ? 'selected' : '' }}>@lang('operatingsystems.' . $key)</option>
+                        @endforeach
+                    </select>
+                    @if ($errors->has('operating-system'))
+                        <p class="text-red-500 text-xs italic mt-2">
+                            {{ $errors->first('operating-system') }}
+                        </p>
+                    @endif
+                </div>
+
                 <button class="inline-block align-middle text-center select-none border font-bold whitespace-no-wrap py-2 px-4 rounded text-base leading-normal no-underline text-gray-100 bg-blue-500 hover:bg-blue-700">{{ ucfirst(__('save')) }}</button>
             </form>
         </div>

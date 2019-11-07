@@ -46,9 +46,50 @@ This command drops every table in the database and starts 'fresh' applying every
 
 ## Keep your fork up to date
 
+Using the git remote we set up earlier, we first need to fetch changes that were made upstream.
+
+`git fetch upstream --prune`
+
+Next, change to your local master branch.
+
+`git checkout master`
+
+And merge the changes that were made upstream into your local branch.
+
+`git merge upstream/master --no-ff`
+
 ## Prepare your pull request
 
+Before actually creating a pull request, you have the chance to clean up both your git commit messages and your code.
+Remove debug statements, clean up commented code and refactor if needed.
+
+With regards to commit messages, keep these descriptive. Explain what is being changed and why.
+
+It is possible to rewrite, squash or merge your commit messages. This is done with `git rebase`.
+_This is a powerful tool, but may need some practice before using it._
+
+To start using rebase issue the following command, while inside your branch.
+
+`git rebase -i origin/master`
+
+This will launch you into an editor in which you can decide what to do with your commits.
+
+_the following only applies if you have pushed your branch to your remote_
+
+When rebase is done your commit id's will have been rewritten and you will see the following message.
+
+  Your branch has diverged
+
+Because your are the only one working on the branch, you can run the following command.
+This will force the new commit into the remote, but only if there are no other changes.
+
+`git push origin HEAD --force-with-lease`
+
 ## Creating a pull request
+
+When you have your changes ready in your own branch on your fork, it's time to create a pull request.
+Try to describe what kind of changes you have made and why you have made them.
+This helps us in understanding why you are suggesting this change and what your reasoning behind it is.
 
 # How to contribute to Onramp
 

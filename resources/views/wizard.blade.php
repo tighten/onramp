@@ -3,7 +3,7 @@
 @section('content')
 @php
 $locale = new App\Localization\Locale;
-$localePreferenceKey = 'locale'; // @todo should this come from somewhere else?
+$localePreferenceKey = 'locale';
 @endphp
 <div class="w-full bg-white">
     <!-- title -->

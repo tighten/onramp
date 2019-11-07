@@ -20,7 +20,6 @@ $factory->define(User::class, function (Faker $faker) {
 
             return factory(Track::class)->create()->id;
         },
-        'os' => $faker->randomElement(OperatingSystem::ALL),
         'preferences' => function () {
             return [
                 'resource-language' => Arr::random([
@@ -28,6 +27,7 @@ $factory->define(User::class, function (Faker $faker) {
                     'all',
                     'local-and-english',
                 ]),
+                'os' => Arr::random(OperatingSystem::ALL),
             ];
         },
     ];

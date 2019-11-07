@@ -9,7 +9,7 @@ class RootRedirectController extends Controller
 {
     public function __invoke()
     {
-        if (auth()->user()) {
+        if (auth()->check()) {
             return redirect(Preferences::get('locale'));
         }
 

@@ -1,6 +1,6 @@
 <?php
 
-Route::redirect('/', '/en');
+Route::get('/', 'RootRedirectController');
 
 Route::group(['prefix' => '{locale}'], function () {
 
@@ -16,6 +16,8 @@ Route::group(['prefix' => '{locale}'], function () {
     });
 
     Route::group(['middleware' => 'auth'], function () {
+        Route::get('wizard', 'Auth\\WizardController@index')->name('wizard.index');
+        Route::post('wizard', 'Auth\\WizardController@store')->name('wizard.store');
         Route::view('home', 'home')->name('home');
         Route::get('preferences', 'PreferenceController@index')->name('user.preferences.index');
     });

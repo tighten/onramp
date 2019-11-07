@@ -8,21 +8,17 @@ use Illuminate\Support\Facades\Cookie;
 
 class Preferences
 {
-    protected $user;
     protected $preferences = [
-        ResourceLanguagePreference::class,
-        LanguagePreference::class,
+        'locale' => LocalePreference::class,
+        'operating-system' => OperatingSystemPreference::class,
+        'resource-language' => ResourceLanguagePreference::class,
     ];
-    protected $preferencesInstances = [];
+    protected $user;
     protected $cookieLength = 43200; // one month-ish
 
     public function __construct(User $user = null)
     {
         $this->user = $user;
-
-        foreach ($this->preferences as $class) {
-            $this->preferencesInstances[] = new $class;
-        }
     }
 
     public function set(array $array)
@@ -40,6 +36,10 @@ class Preferences
 
     public function get($key, $default = null)
     {
+        if (! array_key_exists($key, $this->preferences)) {
+            throw new Exception('Invalid preferences key: ' . $key);
+        }
+
         if ($this->user) {
             return data_get(
                 $this->user->preferences,
@@ -60,10 +60,8 @@ class Preferences
 
     public function preferenceForKey($key)
     {
-        foreach ($this->preferencesInstances as $preference) {
-            if ($preference->key() === $key) {
-                return $preference;
-            }
+        if (array_key_exists($key, $this->preferences)) {
+            return (new $this->preferences[$key]);
         }
 
         throw new Exception('No preference matching key ' . $key);

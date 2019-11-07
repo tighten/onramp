@@ -29,5 +29,5 @@ function switch_locale_link($newLocale)
     $segments = Request::segments();
     $segments[0] = $newLocale;
 
-    return url(implode($segments, '/'));
+    return url(implode('/', $segments));
 }

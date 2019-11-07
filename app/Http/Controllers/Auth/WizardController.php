@@ -14,7 +14,6 @@ class WizardController extends Controller
 
     public function index()
     {
-        // @todo write tests around wizard
         return view('wizard');
     }
 
@@ -34,7 +33,6 @@ class WizardController extends Controller
             'locale' => $valid['locale'],
             'operating-system' => $valid['os'],
         ]);
-        // @todo if user has resource language preference set in a cookie, save it here
 
         return redirect("{$valid['locale']}/{$this->redirectTo}");
     }

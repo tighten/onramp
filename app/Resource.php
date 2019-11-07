@@ -58,7 +58,7 @@ class Resource extends Model implements Completable
             return $this->scopeForLoggedInUser($query);
         }
 
-        return $this->scopeForLocalePreferences(
+        $this->scopeForLocalePreferences(
             $query,
             locale(),
             Preferences::get('resource-language')
@@ -67,9 +67,11 @@ class Resource extends Model implements Completable
 
     public function scopeForLoggedInUser($query)
     {
-        $user = auth()->user();
-
-        $this->scopeForLocalePreferences($query, locale(), Preferences::get('resource-language'));
+        $this->scopeForLocalePreferences(
+            $query,
+            locale(),
+            Preferences::get('resource-language')
+        );
 
         $query->whereIn('os', [OperatingSystem::ANY, Preferences::get('operating-system')]);
     }

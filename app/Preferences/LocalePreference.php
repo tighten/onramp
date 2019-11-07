@@ -2,13 +2,13 @@
 
 namespace App\Preferences;
 
-use Facades\App\Localization\Locale;
+use App\Localization\Locale;
 
 class LocalePreference extends Preference
 {
     public function options()
     {
-        return Locale::locales();
+        return (new Locale)->locales();
     }
 
     public function default()

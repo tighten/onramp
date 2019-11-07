@@ -10,7 +10,7 @@ class PreferencesServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->app->bind('preferences', function ($app) {
+        $this->app->singleton('preferences', function ($app) {
             return new Preferences($app->make(AuthManager::class)->user());
         });
     }

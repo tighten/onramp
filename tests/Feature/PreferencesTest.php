@@ -6,11 +6,10 @@ use App\Module;
 use App\Preferences\Preferences;
 use App\User;
 use Exception;
-use Facades\App\Preferences\ResourceLanguagePreference;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class UserPreferencesTest extends TestCase
+class PreferencesTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -28,9 +27,9 @@ class UserPreferencesTest extends TestCase
         $user = factory(User::class)->create();
         $this->be($user);
         $preferences = new Preferences($user);
-        $preferences->set([ResourceLanguagePreference::key() => 'def']);
+        $preferences->set(['resource-language' => 'def']);
 
-        $this->assertEquals('def', app('preferences')->get(ResourceLanguagePreference::key()));
+        $this->assertEquals('def', app('preferences')->get('resource-language'));
     }
 
     /** @test */
@@ -47,9 +46,9 @@ class UserPreferencesTest extends TestCase
     {
         $user = factory(User::class)->create();
         $this->be($user);
-        app('preferences')->set([ResourceLanguagePreference::key() => 'local-and-english']);
+        app('preferences')->set(['resource-language' => 'local-and-english']);
 
-        $this->assertEquals('local-and-english', app('preferences')->get(ResourceLanguagePreference::key()));
+        $this->assertEquals('local-and-english', app('preferences')->get('resource-language'));
     }
 
     /** @test */
@@ -60,7 +59,7 @@ class UserPreferencesTest extends TestCase
         ]);
         $this->be($user);
 
-        $this->assertEquals('local', app('preferences')->get(ResourceLanguagePreference::key()));
+        $this->assertEquals('local', app('preferences')->get('resource-language'));
     }
 
     /** @test */
@@ -73,7 +72,7 @@ class UserPreferencesTest extends TestCase
 
         $this->assertEquals(
             'abcde',
-            app('preferences')->get(ResourceLanguagePreference::key(), 'abcde')
+            app('preferences')->get('resource-language', 'abcde')
         );
     }
 }

@@ -22,6 +22,7 @@ class PreferenceController extends Controller
         Preferences::set([
             'resource-language' => $request->input('resource-language'),
             'locale' => $request->input('locale'),
+            'operating-system' => $request->input('operating-system'),
         ]);
 
         if ($request->wantsJson()) {

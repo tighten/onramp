@@ -26,11 +26,11 @@ $localePreferenceKey = 'locale';
                                 {{ __('Preferred Operating System') }}
                             </label>
                             <select
-                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline{{ $errors->has('name') ? ' border-red-500' : '' }}"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline{{ $errors->has('os') ? ' border-red-500' : '' }}"
                                 name="os"
                                 aria-labelledby="os-label">
                                 @foreach (App\OperatingSystem::ALL as $key)
-                                    <option value="{{ $key }}" {{ (auth()->user()->os == $key || old('os') == $key) ? 'selected' : '' }}>@lang('operatingsystems.' . $key)</option>
+                                    <option value="{{ $key }}" {{ (Preferences::get('operating-system') == $key || old('os') == $key) ? 'selected' : '' }}>@lang('operatingsystems.' . $key)</option>
                                 @endforeach
                             </select>
                             @if ($errors->has('os'))

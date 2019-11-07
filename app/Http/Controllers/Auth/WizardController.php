@@ -28,11 +28,8 @@ class WizardController extends Controller
             'os' => 'OS'
         ]);
 
-        auth()->user()->update([
-            'track_id' => $valid['track'],
-        ]);
+        auth()->user()->update(['track_id' => $valid['track']]);
 
-        // @todo: test that if someone passes invalid preferences key it throws exception
         Preferences::set([
             'locale' => $valid['locale'],
             'operating-system' => $valid['os'],

@@ -30,7 +30,7 @@ $localePreferenceKey = 'locale'; // @todo should this come from somewhere else?
                                 name="os"
                                 aria-labelledby="os-label">
                                 @foreach (App\OperatingSystem::ALL as $key)
-                                    <option value="{{ $key }}" @if (auth()->user()->os == $key || old('os') == $key) selected @endif>@lang('operatingsystems.' . $key)</option>
+                                    <option value="{{ $key }}" {{ (auth()->user()->os == $key || old('os') == $key) ? 'selected' : '' }}>@lang('operatingsystems.' . $key)</option>
                                 @endforeach
                             </select>
                             @if ($errors->has('os'))
@@ -41,14 +41,14 @@ $localePreferenceKey = 'locale'; // @todo should this come from somewhere else?
                         </div>
                         <div class="flex flex-wrap mb-6">
                             <label for="track" id="track-label">
-                                @lang('Background experience'):
+                                {{ __('Background experience') }}
                             </label>
                             <select
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline{{ $errors->has('name') ? ' border-red-500' : '' }}"
                                 name="track"
                                 aria-labelledby="track-label">
                                 @foreach (App\Track::all() as $track)
-                                    <option value="{{ $track->id }}" @if (old('track') == $track->id) selected @endif>{{ $track->name }}</option>
+                                    <option value="{{ $track->id }}" {{ (old('track') == $track->id) ? 'selected' : '' }}>{{ $track->name }}</option>
                                 @endforeach
                             </select>
                             @if ($errors->has('track'))
@@ -59,19 +59,19 @@ $localePreferenceKey = 'locale'; // @todo should this come from somewhere else?
                         </div>
                         <div class="flex flex-wrap mb-6">
                             <label for="locale" id="locale-label">
-                                @lang('Preferred Language'):
+                                {{ __('Preferred Language') }}
                             </label>
                             <select
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline{{ $errors->has('name') ? ' border-red-500' : '' }}"
                                 name="{{ $localePreferenceKey }}"
                                 aria-labelledby="locale-label">
                                 @foreach ($locale->slugs() as $slug)
-                                    <option value="{{ $slug }}"{{ (locale() == $slug || old($localePreferenceKey == $slug)) ? ' selected' : '' }}>{{ $locale->languageForLocale($slug) }}</option>
+                                    <option value="{{ $slug }}" {{ (locale() == $slug || old($localePreferenceKey) == $slug) ? 'selected' : '' }}>{{ $locale->languageForLocale($slug) }}</option>
                                 @endforeach
                             </select>
                             @if ($errors->has($localePreferenceKey))
                                 <p class="text-red-500 text-xs italic mt-2">
-                                    {{ $errors->first($localePreferenceKey }}
+                                    {{ $errors->first($localePreferenceKey) }}
                                 </p>
                             @endif
                         </div>

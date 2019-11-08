@@ -16,7 +16,7 @@ class PreferenceRoutesTest extends TestCase
     {
         $user = factory(User::class)->create();
         $this->be($user);
-        $response = $this->post(route_wlocale('user.preferences.store'), [
+        $response = $this->post(route('user.preferences.store', ['locale' => 'en']), [
             'resource-language' => 'local-and-english',
         ]);
 
@@ -28,7 +28,7 @@ class PreferenceRoutesTest extends TestCase
     {
         $user = factory(User::class)->create();
         $this->be($user);
-        $response = $this->post(route_wlocale('user.preferences.store'), [
+        $response = $this->post(route('user.preferences.store', ['locale' => 'en']), [
             'locale' => 'es',
         ]);
 
@@ -38,9 +38,10 @@ class PreferenceRoutesTest extends TestCase
     /** @test */
     function operating_system_can_be_changed()
     {
+        $this->withExceptionHandling();
         $user = factory(User::class)->create();
         $this->be($user);
-        $response = $this->post(route_wlocale('user.preferences.store'), [
+        $response = $this->post(route('user.preferences.store', ['locale' => 'en']), [
             'operating-system' => 'linux',
         ]);
 

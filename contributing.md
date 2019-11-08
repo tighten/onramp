@@ -101,7 +101,7 @@ Before actually creating a pull request, you have the chance to clean up your co
 
 Look to [this blog post](https://chris.beams.io/posts/git-commit/) for how to write a good git commit message.
 
-## Creating a pull request
+## Create a pull request
 
 When you have your changes ready in your own branch on your fork, it's time to create a pull request.
 Try to describe what kind of changes you have made and why you have made them. This helps us in understanding why you are suggesting this change and what your reasoning behind it is.
@@ -118,6 +118,10 @@ Look to [this blog post](https://tighten.co/blog/building-a-great-pull-request/)
 
 * Open or comment on an issue before starting to code to ensure @mattstauffer (or someone else) isn't already working on it and that you fully understand the goals and scope
 * Once ready to code, fork the repo, and PR your changes in, referencing the original issue number
+
+## Do you want to help translate Onramp?
+
+* Please check out the [translation guide](/translation-guide.md).
 
 ## Do you have questions about the plans for Onramp?
 

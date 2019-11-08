@@ -79,6 +79,25 @@ $resourceLanguagePreferenceKey = 'resource-language';
                     @endif
                 </div>
 
+                <div class="flex flex-wrap mb-6">
+                    <label id="track-label" for="track">
+                        {{ __('Current Track') }}
+                    </label>
+                    <select
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline{{ $errors->has('track') ? ' border-red-500' : '' }}"
+                        name="track"
+                        aria-labelledby="track-label">
+                        @foreach (App\Track::all() as $track)
+                            <option value="{{ $track->id }}" {{ (Preferences::get('track') == $track->id || old('track') == $track->id) ? 'selected' : '' }}>{{ $track->name }}</option>
+                        @endforeach
+                    </select>
+                    @if ($errors->has('track'))
+                        <p class="text-red-500 text-xs italic mt-2">
+                            {{ $errors->first('track') }}
+                        </p>
+                    @endif
+                </div>
+
                 <button class="inline-block align-middle text-center select-none border font-bold whitespace-no-wrap py-2 px-4 rounded text-base leading-normal no-underline text-gray-100 bg-blue-500 hover:bg-blue-700">{{ ucfirst(__('save')) }}</button>
             </form>
         </div>

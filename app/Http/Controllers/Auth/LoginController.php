@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Facades\Preferences;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -22,7 +23,7 @@ class LoginController extends Controller
 
     public function redirectTo()
     {
-        return path_wlocale('home');
+        return Preferences::get('locale') . '/home';
     }
 
     /**

@@ -12,6 +12,7 @@ class Preferences
         'locale' => LocalePreference::class,
         'operating-system' => OperatingSystemPreference::class,
         'resource-language' => ResourceLanguagePreference::class,
+        'track' => TrackPreference::class,
     ];
     protected $user;
     protected $cookieLength = 43200; // one month-ish

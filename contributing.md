@@ -1,10 +1,16 @@
-# How to get started
+# Contributing
+
+Contributions are **welcome** and will be fully **credited**.
+
+Please read and understand the contribution guide before creating an issue or pull request.
+
+## How to get started
 
 Hey there! You're probably here because you want to help out. Thanks for joining us!
 
 In this document we'll try to outline how to get started contributing to Onramp, and how to perform common tasks, like keeping your local fork of Onramp up to date.
 
-## Set up your own fork of the repository
+### Set up your own fork of the repository
 
 In order to contribute you'll want to make a "fork" of this repository.
 
@@ -53,7 +59,7 @@ Each Laravel application needs an unique application key, which can be generated
 php artisan key:generate
 ```
 
-## Setup the database, run the migrations and seeders
+### Set up the database, and run the migrations and seeders
 
 Next, edit the `.env` file and fill the `DB_` variables with your correct database configuration details.
 

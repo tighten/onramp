@@ -63,4 +63,9 @@ class User extends Authenticatable
     {
         return $this->completions()->skills();
     }
+
+    public function isAtLeastEditor()
+    {
+        return in_array($this->role, ['editor', 'admin']);
+    }
 }

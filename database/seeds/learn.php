@@ -181,11 +181,13 @@ return [
                     'name' => 'Documentación de Laravel',
                     'url' => 'https://docs.laraveles.com/docs/5.5/valet',
                     'type' => 'article',
+                    'os' => 'macos',
                 ],
                 [
                     'name' => 'Artículo de Styde',
                     'url' => 'https://styde.net/instalacion-de-composer-y-laravel-en-windows/',
                     'type' => 'article',
+                    'os' => 'windows',
                 ],
             ],
             'en' => [
@@ -193,21 +195,25 @@ return [
                     'name' => 'Laravel Docs (Valet)',
                     'url' => 'https://laravel.com/docs/valet',
                     'type' => 'article',
+                    'os' => 'macos',
                 ],
                 [
                     'name' => 'Laracasts Video (Valet)',
                     'url' => 'https://laracasts.com/series/setup-a-mac-dev-machine-from-scratch/episodes/10',
                     'type' => 'video',
+                    'os' => 'macos',
                 ],
                 [
                     'name' => 'Valet Linux',
                     'url' => 'https://cpriego.github.io/valet-linux/',
                     'type' => 'article',
+                    'os' => 'linux',
                 ],
                 [
                     'name' => 'Laragon (for Windows)',
                     'url' => 'https://laragon.org/',
                     'type' => 'article',
+                    'os' => 'windows',
                 ],
                 [
                     'name' => 'Vessel Docs (if you prefer Docker)',

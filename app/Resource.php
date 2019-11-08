@@ -4,6 +4,7 @@ namespace App;
 
 use App\Completable;
 use App\Completion;
+use App\Facades\Preferences;
 use App\Module;
 use Illuminate\Database\Eloquent\Model;
 
@@ -24,6 +25,10 @@ class Resource extends Model implements Completable
     ];
 
     protected $guarded = ['id'];
+    protected $casts = [
+        'is_bonus' => 'boolean',
+        'is_free' => 'boolean',
+    ];
 
     public function module()
     {
@@ -35,18 +40,43 @@ class Resource extends Model implements Completable
         return $this->morphMany(Completion::class, 'completable');
     }
 
-    public function scopeForUser($query, $user = null)
+    public function scopeForLocalePreferences($query, $locale, $resourceLanguagePreference)
     {
-        // user would be $user or auth()->user() if $user null
-        // get the user's language and preference, and only select appropriate resources
-        // @todo make this actually function
-        // $language = locale();
-        // $preference = enum('only current', 'only english', 'english and current')
-        $preference = 'only-current'; // @todo pull from user's preferences or whatever
-
-        switch ($preference) {
-            case 'only-current':
-                $query->where('language', locale());
+        switch ($resourceLanguagePreference) {
+            case 'local':
+                $query->where(['language' => $locale]);
+                break;
+            case 'local-and-english':
+                $query->where(function ($query) use ($locale) {
+                    $query->where(['language' => $locale])
+                        ->orWhere('language', 'en');
+                });
+            case 'all':
+                break;
         }
+    }
+
+    public function scopeForCurrentSession($query)
+    {
+        if (auth()->check()) {
+            return $this->scopeForLoggedInUser($query);
+        }
+
+        $this->scopeForLocalePreferences(
+            $query,
+            locale(),
+            Preferences::get('resource-language')
+        );
+    }
+
+    public function scopeForLoggedInUser($query)
+    {
+        $this->scopeForLocalePreferences(
+            $query,
+            locale(),
+            Preferences::get('resource-language')
+        );
+
+        $query->whereIn('os', [OperatingSystem::ANY, Preferences::get('operating-system')]);
     }
 }

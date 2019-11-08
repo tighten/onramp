@@ -26,7 +26,7 @@ class RegisterController extends Controller
 
     public function redirectTo()
     {
-        return path_wlocale('home');
+        return route_wlocale('wizard.index');
     }
 
     /**

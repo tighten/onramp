@@ -23,9 +23,9 @@ class Term extends Model
         return $this->belongsToMany(Resource::class);
     }
 
-    public function resourcesForUser($user = null)
+    public function resourcesForCurrentSession()
     {
-        return $this->resources()->forUser($user ?? auth()->user());
+        return $this->resources()->forCurrentSession();
     }
 
     public function relatedTerms()

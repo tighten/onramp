@@ -3,7 +3,7 @@
 namespace App\Localization;
 
 use App\Exceptions\InvalidLocale;
-use Facades\App\Localization\Locale;
+use App\Facades\Localization;
 use Illuminate\Http\Request;
 
 class ResolveLocale
@@ -25,8 +25,8 @@ class ResolveLocale
 
         $locale = reset($segments);
 
-        if (! Locale::isValid($locale)) {
-            // Allow Nova passthrough; @todo see if there's a cleaner way
+        if (! Localization::isValid($locale)) {
+            // Allow Nova passthrough
             if ($locale === 'nova' || $locale === 'nova-api') {
                 return 'nova';
             }

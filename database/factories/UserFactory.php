@@ -1,5 +1,6 @@
 <?php
 
+use App\OperatingSystem;
 use App\Track;
 use App\User;
 use Faker\Generator as Faker;
@@ -20,6 +21,16 @@ $factory->define(User::class, function (Faker $faker) {
             }
 
             return factory(Track::class)->create()->id;
+        },
+        'preferences' => function () {
+            return [
+                'resource-language' => Arr::random([
+                    'local',
+                    'all',
+                    'local-and-english',
+                ]),
+                'os' => Arr::random(OperatingSystem::ALL),
+            ];
         },
     ];
 });

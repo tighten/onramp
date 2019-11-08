@@ -23,7 +23,7 @@ class GlossaryRelationsTest extends TestCase
 
         $this->assertContains($resource->id, $term->fresh()->resources()->pluck('resources.id'));
 
-        $response = $this->get("/${currentLocale}/glossary");
+        $response = $this->get("/{$currentLocale}/glossary");
         $response->assertSee($resource->name);
         $response->assertDontSee($otherResource->name);
     }
@@ -40,9 +40,9 @@ class GlossaryRelationsTest extends TestCase
 
         $this->assertContains($englishResource->id, $term->fresh()->resources()->pluck('resources.id'));
         $this->assertContains($spanishResource->id, $term->fresh()->resources()->pluck('resources.id'));
-        $this->assertNotContains($spanishResource->id, $term->fresh()->resourcesForUser()->pluck('resources.id'));
+        $this->assertNotContains($spanishResource->id, $term->fresh()->resourcesForCurrentSession()->pluck('resources.id'));
 
-        $response = $this->get("/${currentLocale}/glossary");
+        $response = $this->get("/{$currentLocale}/glossary");
         $response->assertSee($englishResource->name);
         $response->assertDontSee($spanishResource->name);
     }

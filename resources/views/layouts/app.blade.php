@@ -99,6 +99,7 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') .  __('Onramp to L
             </footer>
             <!-- /footer -->
         </div>
+        @routes
         <script src="{{ mix('js/app.js') }}"></script>
     </body>
 </html>

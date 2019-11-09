@@ -30,7 +30,7 @@
         methods: {
             choose(value) {
                 this.choice = value;
-                axios.post('/en/preferences', {
+                axios.post(route('user.preferences.store', {'locale': 'en'}), {
                     'resource-language': value,
                 })
                 .then(function () {

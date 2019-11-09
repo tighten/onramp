@@ -326,6 +326,11 @@ return [
                     'url' => 'https://www.codecademy.com/learn/learn-php/modules/php-loops',
                     'type' => 'article',
                 ],
+                [
+                    'name' => 'Open Source Learning for PHP (course)',
+                    'url' => 'https://www.phpschool.io/',
+                    'type' => 'course',
+                ],
             ],
         ],
     ],

@@ -1940,7 +1940,9 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     choose: function choose(value) {
       this.choice = value;
-      axios.post('/en/preferences', {
+      axios.post(route('user.preferences.store', {
+        'locale': 'en'
+      }), {
         'resource-language': value
       }).then(function () {
         window.location.reload(false);
@@ -49951,8 +49953,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/mattstauffer/Sites/onramp/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/mattstauffer/Sites/onramp/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/zuzana/Sites/onramp/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/zuzana/Sites/onramp/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -4,6 +4,13 @@
 
 @tailwind utilities;
 
+a {
+    @apply text-blue-700 no-underline;
+}
+    a:hover {
+        @apply underline;
+    }
+
 .temp-learn-list {
     @apply .list-disc;
 }
@@ -27,3 +34,11 @@
 .temp-learn-list .list-title {
     @apply .font-bold .text-lg;
 }
+
+.simple-form-button {
+    @apply .block .border .border-gray-500 .mt-4 .px-3 .py-1 .rounded;
+}
+
+    .simple-form-button:hover {
+        @apply .border-gray-300 .bg-blue-500 .text-white;
+    }

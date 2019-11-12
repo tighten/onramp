@@ -14,7 +14,7 @@ class Locale
         'de' => 'Deutsch',
         'da' => 'Dansk',
         'cs' => 'Česky',
-        'id' => 'Bahasa Indonesia'
+        'id' => 'Bahasa'
     ];
 
     public function locales()

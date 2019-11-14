@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d1925d12e67410dda30c6ee334a9efac",
+    "content-hash": "8d540794a1055c1a541c5e691ce96683",
     "packages": [
         {
             "name": "bugsnag/bugsnag",
@@ -889,6 +889,59 @@
             ],
             "description": "Highlight PHP code in terminal",
             "time": "2018-09-29T18:48:56+00:00"
+        },
+        {
+            "name": "kg-bot/laravel-localization-to-vue",
+            "version": "v1.6.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kg-bot/laravel-localization-to-vue.git",
+                "reference": "f3b7126edefc5be5df48f1057df80a32ce7a5057"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kg-bot/laravel-localization-to-vue/zipball/f3b7126edefc5be5df48f1057df80a32ce7a5057",
+                "reference": "f3b7126edefc5be5df48f1057df80a32ce7a5057",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "5.*|^6"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "KgBot\\LaravelLocalization\\LaravelLocalizationServiceProvider"
+                    ],
+                    "aliases": {
+                        "ExportLocalization": "KgBot\\LaravelLocalization\\Facades\\ExportLocalizations"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "KgBot\\LaravelLocalization\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stefan Ninic",
+                    "email": "ninicstefan94@gmail.com"
+                }
+            ],
+            "description": "Laravel package used to collect all localization files from resources/lang directory and sub-directories and make them available as JSON file",
+            "keywords": [
+                "Vue.js",
+                "json",
+                "laravel",
+                "localization",
+                "trans"
+            ],
+            "time": "2019-10-14T20:30:56+00:00"
         },
         {
             "name": "laravel/framework",

@@ -1,10 +1,10 @@
 <template>
     <p class="mb-8 text-right text-sm">
-        <a @click="showOnlyLocalLanguage()" class="cursor-pointer" v-bind:class="{'font-bold' : choiceIsSelected('local')}">{{ language }} resources</a> |
+        <a @click="showOnlyLocalLanguage()" class="cursor-pointer" v-bind:class="{'font-bold' : choiceIsSelected('local')}">{{ language }} {{ trans.get('resources') }}</a> |
         <span v-if="language !== 'English'">
-            <a @click="showEnglishAndLocalLanguage()" class="cursor-pointer" v-bind:class="{'font-bold' : choiceIsSelected('local-and-english')}">English and {{ language }} resources</a> |
+            <a @click="showEnglishAndLocalLanguage()" class="cursor-pointer" v-bind:class="{'font-bold' : choiceIsSelected('local-and-english')}">{{ trans.get('English and') }} {{ language }} {{ trans.get('resources') }}</a> |
         </span>
-        <a @click="showAll()" class="cursor-pointer" v-bind:class="{'font-bold' : choiceIsSelected('all')}">All resources</a>
+        <a @click="showAll()" class="cursor-pointer" v-bind:class="{'font-bold' : choiceIsSelected('all')}">{{ trans.get('All resources') }}</a>
     </p>
 </template>
 

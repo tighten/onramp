@@ -24,6 +24,17 @@ window.Vue = require('vue');
 import LanguageSwitcher from './components/LanguageSwitcher.vue'
 import ToggleWhenMobile from './components/ToggleWhenMobile.vue'
 import ResourceLanguagePreferenceSwitcher from './components/ResourceLanguagePreferenceSwitcher.vue'
+import Lang from 'lang.js'
+
+const default_locale = window.default_language;
+const fallback_locale = window.fallback_locale;
+const messages = window.messages;
+
+Vue.prototype.trans = new Lang( {
+    messages: messages, 
+    locale: default_locale, 
+    fallback: fallback_locale 
+});
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -39,3 +50,5 @@ const app = new Vue({
     },
     el: '#app',
 });
+
+

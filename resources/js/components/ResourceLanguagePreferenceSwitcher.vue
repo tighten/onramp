@@ -1,10 +1,22 @@
 <template>
     <p class="mb-8 text-right text-sm">
-        <a @click="showOnlyLocalLanguage()" class="cursor-pointer" v-bind:class="{'font-bold' : choiceIsSelected('local')}">{{ language }} {{ trans.get('resources') }}</a> |
+        <a
+            @click="showOnlyLocalLanguage()"
+            class="cursor-pointer"
+            v-bind:class="{'font-bold' : choiceIsSelected('local')}"
+            >{{ trans.get('__JSON__.:locale resources', {'locale': language}) }}</a> |
         <span v-if="language !== 'English'">
-            <a @click="showEnglishAndLocalLanguage()" class="cursor-pointer" v-bind:class="{'font-bold' : choiceIsSelected('local-and-english')}">{{ trans.get('English and') }} {{ language }} {{ trans.get('resources') }}</a> |
+            <a
+                @click="showEnglishAndLocalLanguage()"
+                class="cursor-pointer"
+                v-bind:class="{'font-bold' : choiceIsSelected('local-and-english')}"
+                >{{ trans.get('__JSON__.English and :locale resources', {'locale': language}) }}</a> |
         </span>
-        <a @click="showAll()" class="cursor-pointer" v-bind:class="{'font-bold' : choiceIsSelected('all')}">{{ trans.get('All resources') }}</a>
+        <a
+            @click="showAll()"
+            class="cursor-pointer"
+            v-bind:class="{'font-bold' : choiceIsSelected('all')}"
+            >{{ trans.get('__JSON__.All resources') }}</a>
     </p>
 </template>
 

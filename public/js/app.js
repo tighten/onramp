@@ -1921,6 +1921,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     language: {
@@ -38098,7 +38110,15 @@ var render = function() {
           }
         }
       },
-      [_vm._v(_vm._s(_vm.language) + " " + _vm._s(_vm.trans.get("resources")))]
+      [
+        _vm._v(
+          _vm._s(
+            _vm.trans.get("__JSON__.:locale resources", {
+              locale: _vm.language
+            })
+          )
+        )
+      ]
     ),
     _vm._v(" |\n    "),
     _vm.language !== "English"
@@ -38116,11 +38136,11 @@ var render = function() {
             },
             [
               _vm._v(
-                _vm._s(_vm.trans.get("English and")) +
-                  " " +
-                  _vm._s(_vm.language) +
-                  " " +
-                  _vm._s(_vm.trans.get("resources"))
+                _vm._s(
+                  _vm.trans.get("__JSON__.English and :locale resources", {
+                    locale: _vm.language
+                  })
+                )
               )
             ]
           ),
@@ -38139,7 +38159,7 @@ var render = function() {
           }
         }
       },
-      [_vm._v(_vm._s(_vm.trans.get("All resources")))]
+      [_vm._v(_vm._s(_vm.trans.get("__JSON__.All resources")))]
     )
   ])
 }
@@ -50363,13 +50383,10 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 
 
-var default_locale = window.default_language;
-var fallback_locale = window.fallback_locale;
-var messages = window.messages;
 Vue.prototype.trans = new lang_js__WEBPACK_IMPORTED_MODULE_3___default.a({
-  messages: messages,
-  locale: default_locale,
-  fallback: fallback_locale
+  messages: window.jsonTranslations,
+  locale: window.locale,
+  fallback: window.fallback_locale
 });
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -50671,8 +50688,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/zuzana/Sites/onramp/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/zuzana/Sites/onramp/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/mattstauffer/Sites/onramp/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/mattstauffer/Sites/onramp/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

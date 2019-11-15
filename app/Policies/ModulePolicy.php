@@ -12,7 +12,7 @@ class ModulePolicy
 
     public function before($user)
     {
-        return $user->isAtLeastEditor();
+        return ($user->isAtLeastEditor() ?: null);
     }
 
     /**

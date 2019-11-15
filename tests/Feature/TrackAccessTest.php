@@ -16,7 +16,7 @@ class TrackAccessTest extends TestCase
     {
         $user = factory(User::class)->create(['role' => 'user']);
 
-        $this->assertFalse($user->can('update', Track::class));
+        $this->assertFalse($user->can('update', new Track));
     }
 
     /** @test */
@@ -24,7 +24,7 @@ class TrackAccessTest extends TestCase
     {
         $user = factory(User::class)->create(['role' => 'editor']);
 
-        $this->assertTrue($user->can('update', Track::class));
+        $this->assertTrue($user->can('update', new Track));
     }
 
     /** @test */
@@ -32,6 +32,6 @@ class TrackAccessTest extends TestCase
     {
         $user = factory(User::class)->create(['role' => 'admin']);
 
-        $this->assertTrue($user->can('update', Track::class));
+        $this->assertTrue($user->can('update', new Track));
     }
 }

@@ -16,7 +16,7 @@ class ModuleAccessTest extends TestCase
     {
         $user = factory(User::class)->create(['role' => 'user']);
 
-        $this->assertFalse($user->can('update', Module::class));
+        $this->assertFalse($user->can('update', new Module));
     }
 
     /** @test */
@@ -24,14 +24,15 @@ class ModuleAccessTest extends TestCase
     {
         $user = factory(User::class)->create(['role' => 'editor']);
 
-        $this->assertTrue($user->can('update', Module::class));
+        $this->assertTrue($user->can('update', new Module));
     }
 
     /** @test */
     function users_with_admin_role_can_update_modules()
     {
         $user = factory(User::class)->create(['role' => 'admin']);
+        $module = factory(Module::class)->create();
 
-        $this->assertTrue($user->can('update', Module::class));
+        $this->assertTrue($user->can('update', new Module));
     }
 }

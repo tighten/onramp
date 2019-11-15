@@ -1,0 +1,17 @@
+language: php
+
+php:
+  - 7.3
+
+env:
+  matrix:
+    - COMPOSER_FLAGS="--prefer-lowest"
+    - COMPOSER_FLAGS=""
+
+before_script:
+  - cp .env.example .env
+  - composer self-update
+  - composer install --prefer-source --no-interaction
+  - php artisan key:generate
+
+script: vendor/bin/phpunit

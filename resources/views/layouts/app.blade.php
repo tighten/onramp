@@ -22,6 +22,12 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') .  __('Onramp to L
 
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
+        <script>
+            window.locale = "{{ app()->getLocale() }}";
+            window.fallback_locale = "{{ config('app.fallback_locale') }}";
+            window.jsonTranslations = @json($jsonTranslations);
+        </script>
+
         <title>{{ $fullPageTitle }}</title>
     </head>
     <body>
@@ -99,6 +105,7 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') .  __('Onramp to L
             </footer>
             <!-- /footer -->
         </div>
+        @routes
         <script src="{{ mix('js/app.js') }}"></script>
     </body>
 </html>

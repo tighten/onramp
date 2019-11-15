@@ -15,7 +15,7 @@ class UserAccessTest extends TestCase
     {
         $user = factory(User::class)->create(['role' => 'user']);
 
-        $this->assertFalse($user->can('update', User::class));
+        $this->assertFalse($user->can('update', new User));
     }
 
     /** @test */
@@ -23,7 +23,7 @@ class UserAccessTest extends TestCase
     {
         $user = factory(User::class)->create(['role' => 'editor']);
 
-        $this->assertTrue($user->can('update', User::class));
+        $this->assertTrue($user->can('update', new User));
     }
 
     /** @test */
@@ -31,6 +31,6 @@ class UserAccessTest extends TestCase
     {
         $user = factory(User::class)->create(['role' => 'admin']);
 
-        $this->assertTrue($user->can('update', User::class));
+        $this->assertTrue($user->can('update', new User));
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Module;
+use App\Track;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -12,7 +12,7 @@ class TrackPolicy
 
     public function before($user)
     {
-        return $user->isAtLeastEditor();
+        return ($user->isAtLeastEditor() ?: null);
     }
 
     /**
@@ -30,10 +30,10 @@ class TrackPolicy
      * Determine whether the user can view the module.
      *
      * @param  \App\User  $user
-     * @param  \App\Module  $module
+     * @param  \App\Track  $track
      * @return mixed
      */
-    public function view(User $user, Module $module)
+    public function view(User $user, Track $track)
     {
         //
     }
@@ -53,10 +53,10 @@ class TrackPolicy
      * Determine whether the user can update the module.
      *
      * @param  \App\User  $user
-     * @param  \App\Module  $module
+     * @param  \App\Track  $track
      * @return mixed
      */
-    public function update(User $user, Module $module)
+    public function update(User $user, Track $track)
     {
         //
     }
@@ -65,10 +65,10 @@ class TrackPolicy
      * Determine whether the user can delete the module.
      *
      * @param  \App\User  $user
-     * @param  \App\Module  $module
+     * @param  \App\Track  $track
      * @return mixed
      */
-    public function delete(User $user, Module $module)
+    public function delete(User $user, Track $track)
     {
         //
     }
@@ -77,10 +77,10 @@ class TrackPolicy
      * Determine whether the user can restore the module.
      *
      * @param  \App\User  $user
-     * @param  \App\Module  $module
+     * @param  \App\Track  $track
      * @return mixed
      */
-    public function restore(User $user, Module $module)
+    public function restore(User $user, Track $track)
     {
         //
     }
@@ -89,10 +89,10 @@ class TrackPolicy
      * Determine whether the user can permanently delete the module.
      *
      * @param  \App\User  $user
-     * @param  \App\Module  $module
+     * @param  \App\Track  $track
      * @return mixed
      */
-    public function forceDelete(User $user, Module $module)
+    public function forceDelete(User $user, Track $track)
     {
         //
     }

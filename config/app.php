@@ -178,7 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\PreferencesServiceProvider::class,
         App\Providers\ViewServiceProvider::class,
-
+        KgBot\LaravelLocalization\LaravelLocalizationServiceProvider::class,
     ],
 
     /*
@@ -232,6 +232,8 @@ return [
 
         'Localization' => App\Facades\Localization::class,
         'Preferences' => App\Facades\Preferences::class,
+
+        'ExportLocalization' => 'KgBot\\LaravelLocalization\\Facades\\ExportLocalization'
     ],
 
 ];

@@ -21,9 +21,16 @@ window.Vue = require('vue');
 
 // Vue.component('language-switcher', require('./components/LanguageSwitcher.vue').default);
 
-import LanguageSwitcher from './components/LanguageSwitcher.vue'
-import ToggleWhenMobile from './components/ToggleWhenMobile.vue'
-import ResourceLanguagePreferenceSwitcher from './components/ResourceLanguagePreferenceSwitcher.vue'
+import LanguageSwitcher from './components/LanguageSwitcher.vue';
+import ToggleWhenMobile from './components/ToggleWhenMobile.vue';
+import ResourceLanguagePreferenceSwitcher from './components/ResourceLanguagePreferenceSwitcher.vue';
+import Lang from 'lang.js';
+
+Vue.prototype.trans = new Lang({
+    messages: window.jsonTranslations,
+    locale: window.locale,
+    fallback: window.fallback_locale
+});
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

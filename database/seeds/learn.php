@@ -590,6 +590,11 @@ return [
                     'url' => 'https://www.codecademy.com/learn/learn-javascript',
                     'type' => 'course',
                 ],
+                [
+                    'name' => 'Console cheat sheet for JavaScript developers',
+                    'url' => 'https://levelup.gitconnected.com/console-cheat-sheet-for-javascript-developers-21f0c49604d4',
+                    'type' => 'article',
+                ],
             ],
         ],
     ],

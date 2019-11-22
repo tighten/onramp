@@ -12,12 +12,35 @@ class SuggestedResourceAccessTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
+    function users_can_view_any_suggested_resources()
+    {
+        $user = factory(User::class)->create(['role' => 'user']);
+        $this->assertTrue($user->can('viewAny', SuggestedResource::class));
+    }
+
+    /** @test */
+    function users_can_suggest_resources()
+    {
+        $user = factory(User::class)->create(['role' => 'user']);
+        $this->assertTrue($user->can('create', SuggestedResource::class));
+    }
+
+    /** @test */
     function users_can_see_their_own_suggested_resources()
     {
         $user = factory(User::class)->create(['role' => 'user']);
         $suggestedResource = factory(SuggestedResource::class)->create(['user_id' => $user->id]);
 
         $this->assertTrue($user->can('view', $suggestedResource));
+    }
+
+    /** @test */
+    function users_can_edit_their_own_suggested_resources()
+    {
+        $user = factory(User::class)->create(['role' => 'user']);
+        $suggestedResource = factory(SuggestedResource::class)->create(['user_id' => $user->id]);
+
+        $this->assertTrue($user->can('update', $suggestedResource));
     }
 
     /** @test */
@@ -28,6 +51,16 @@ class SuggestedResourceAccessTest extends TestCase
         $suggestedResource = factory(SuggestedResource::class)->create(['user_id' => $otherUser->id]);
 
         $this->assertFalse($user->can('view', $suggestedResource));
+    }
+
+    /** @test */
+    function users_cannot_edit_other_users_suggested_resources()
+    {
+        $user = factory(User::class)->create(['role' => 'user']);
+        $otherUser = factory(User::class)->create(['role' => 'user']);
+        $suggestedResource = factory(SuggestedResource::class)->create(['user_id' => $otherUser->id]);
+
+        $this->assertFalse($user->can('update', $suggestedResource));
     }
 
     /** @test */

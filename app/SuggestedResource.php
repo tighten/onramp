@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class SuggestedResource extends Model
 {
     protected $guarded = ['id'];
+    protected $casts = [
+        'user_id' => 'integer',
+    ];
 
     public function user()
     {

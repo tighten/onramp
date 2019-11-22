@@ -10,6 +10,10 @@
         {
             "type": "composer",
             "url": "https://nova.laravel.com"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/SuggestedResourcesShortcuts"
         }
     ],
     "require": {
@@ -26,7 +30,8 @@
         "mrmonat/nova-translatable": "^2.0",
         "spatie/laravel-translatable": "^4.2",
         "tightenco/tlint": "^3.0",
-        "tightenco/ziggy": "^0.8.1"
+        "tightenco/ziggy": "^0.8.1",
+        "tightenco/suggested-resources-shortcuts": "*"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

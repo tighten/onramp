@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use App\Facades\Localization;
 use Illuminate\Http\Request;
+use Inspheric\Fields\Url;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
@@ -50,10 +51,13 @@ class SuggestedResource extends Resource
                 ->sortable()
                 ->rules('required', 'max:255'),
 
-            Text::make('URL')
-                ->rules('required', 'max:255', 'url'),
+            Url::make('URL')
+                ->rules('required', 'max:255', 'url')
+                ->clickableOnIndex()
+                ->clickable(),
 
-            Select::make('Language')->options(array_merge(['all' => 'All'], Localization::all()))
+            Select::make('Language')
+                ->options(array_merge(['all' => 'All (contains multiple translations)'], Localization::all()))
                 ->rules('required'),
 
             Textarea::make('Notes'),

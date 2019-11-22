@@ -17,6 +17,7 @@
         "bugsnag/bugsnag-laravel": "^2.0",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^6.3",
+        "inspheric/nova-url-field": "^1.4",
         "kg-bot/laravel-localization-to-vue": "^1.6",
         "laravel/framework": "^6.0",
         "laravel/nova": "~2.0",

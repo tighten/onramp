@@ -12,11 +12,13 @@
         "bugsnag/bugsnag-laravel": "^2.0",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^6.3",
+        "kg-bot/laravel-localization-to-vue": "^1.6",
         "laravel/framework": "^6.0",
         "laravel/slack-notification-channel": "^2.0",
         "laravel/tinker": "^1.0",
         "spatie/laravel-translatable": "^4.2",
-        "tightenco/tlint": "^3.0"
+        "tightenco/tlint": "^3.0",
+        "tightenco/ziggy": "^0.8.1"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

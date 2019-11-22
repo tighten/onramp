@@ -9,5 +9,6 @@ $factory->define(Module::class, function (Faker $faker) {
         'slug' => function ($module) {
             return Str::slug($module['name']);
         },
+        'is_bonus' => $faker->boolean(20),
     ];
 });

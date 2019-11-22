@@ -40,5 +40,8 @@
     "Don't have an account?": "¿No tienes una cuenta?",
     "Already have an account?": "¿Ya tienes una cuenta?",
     "From the lovely folks at": "De la gente encantadora en",
-    "Source & Roadmap": "Fuente & Hoja de ruta"
+    "Source & Roadmap": "Fuente & Hoja de ruta",
+    "All resources": "Todo los recursos",
+    ":locale resources": "Recursos en :locale",
+    "English and :locale resources": "Recursos en ingles y :locale"
 }

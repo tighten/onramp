@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use App\Facades\Localization;
+use App\Nova\Filters\SuggestResourceOwner;
 use Illuminate\Http\Request;
 use Inspheric\Fields\Url;
 use Laravel\Nova\Fields\ID;
@@ -83,7 +84,9 @@ class SuggestedResource extends Resource
      */
     public function filters(Request $request)
     {
-        return [];
+        return [
+            new SuggestResourceOwner,
+        ];
     }
 
     /**

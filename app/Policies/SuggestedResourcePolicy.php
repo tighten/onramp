@@ -23,7 +23,7 @@ class SuggestedResourcePolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -46,7 +46,7 @@ class SuggestedResourcePolicy
      */
     public function create(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -58,7 +58,7 @@ class SuggestedResourcePolicy
      */
     public function update(User $user, SuggestedResource $suggestedResource)
     {
-        //
+        return $user->id === $suggestedResource->user_id;
     }
 
     /**

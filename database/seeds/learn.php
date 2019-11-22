@@ -326,6 +326,11 @@ return [
                     'url' => 'https://www.codecademy.com/learn/learn-php/modules/php-loops',
                     'type' => 'article',
                 ],
+                [
+                    'name' => 'Open Source Learning for PHP (course)',
+                    'url' => 'https://www.phpschool.io/',
+                    'type' => 'course',
+                ],
             ],
         ],
     ],
@@ -585,6 +590,11 @@ return [
                     'url' => 'https://www.codecademy.com/learn/learn-javascript',
                     'type' => 'course',
                 ],
+                [
+                    'name' => 'Console cheat sheet for JavaScript developers',
+                    'url' => 'https://levelup.gitconnected.com/console-cheat-sheet-for-javascript-developers-21f0c49604d4',
+                    'type' => 'article',
+                ],
             ],
         ],
     ],
@@ -640,6 +650,22 @@ return [
                 [
                     'name' => 'Start Testing Laravel',
                     'url' => 'https://jasonmccreary.me/articles/start-testing-laravel/',
+                    'type' => 'article',
+                ],
+            ],
+        ],
+    ],
+    [
+        'name' => ['en' => 'Basic Dev-Ops', 'es' => ''],
+        'bonus' => true,
+        'description' => null,
+        'skills' => [],
+        'resources' => [
+            'es' => [],
+            'en' => [
+                [
+                    'name' => 'Getting Your First Site Up and Running With Laravel Forge',
+                    'url' => 'https://mattstauffer.com/blog/getting-your-first-site-up-and-running-in-laravel-forge/',
                     'type' => 'article',
                 ],
             ],

@@ -13,7 +13,8 @@ class Locale
         'sv' => 'Svenska',
         'de' => 'Deutsch',
         'da' => 'Dansk',
-        'cs' => 'Česky',
+        'cs' => 'Čeština',
+        'id' => 'Bahasa'
     ];
 
     public function locales()

@@ -16,6 +16,7 @@ class ExistingContentSeeder extends Seeder
                 'name' => $moduleArray['name'],
                 'description' => $moduleArray['description'],
                 'slug' => Str::slug($moduleArray['name']['en']),
+                'is_bonus' => Arr::get($moduleArray, 'bonus', false),
             ]);
 
             $module->tracks()->save($tracks->random());

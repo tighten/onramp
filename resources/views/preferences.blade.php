@@ -23,6 +23,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                     <label for="{{ $localePreferenceKey }}" id="locale-label">
                         {{ __('Which resources should we show for you?') }}
                     </label>
+
                     <div>
                     @foreach ($resourceLanguagePreferences as $index => $label)
                         <input
@@ -37,10 +38,12 @@ $resourceLanguagePreferenceKey = 'resource-language';
                     @endforeach
                     </div>
                 </div>
+
                 <div class="flex flex-wrap mb-6">
                     <label for="{{ $localePreferenceKey }}" id="locale-label">
                         {{ __('Preferred Language') }}
                     </label>
+
                     <select
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline{{ $errors->has('name') ? ' border-red-500' : '' }}"
                         name="{{ $localePreferenceKey }}"
@@ -64,6 +67,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                     <label id="os-label" for="operating-system">
                         {{ __('Preferred Operating System') }}
                     </label>
+
                     <select
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline{{ $errors->has('operating-system') ? ' border-red-500' : '' }}"
                         name="operating-system"
@@ -72,6 +76,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                             <option value="{{ $key }}" {{ (Preferences::get('operating-system') == $key || old('operating-system') == $key) ? 'selected' : '' }}>@lang('operatingsystems.' . $key)</option>
                         @endforeach
                     </select>
+                    
                     @if ($errors->has('operating-system'))
                         <p class="text-red-500 text-xs italic mt-2">
                             {{ $errors->first('operating-system') }}
@@ -83,6 +88,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                     <label id="track-label" for="track">
                         {{ __('Current Track') }}
                     </label>
+
                     <select
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline{{ $errors->has('track') ? ' border-red-500' : '' }}"
                         name="track"
@@ -91,6 +97,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                             <option value="{{ $track->id }}" {{ (auth()->user()->track_id == $track->id || old('track') == $track->id) ? 'selected' : '' }}>{{ $track->name }}</option>
                         @endforeach
                     </select>
+
                     @if ($errors->has('track'))
                         <p class="text-red-500 text-xs italic mt-2">
                             {{ $errors->first('track') }}

@@ -14,7 +14,6 @@ class PreferenceController extends Controller
             'currentResourceLanguagePreference' => Preferences::get('resource-language'),
             'resourceLanguagePreferences' => (new ResourceLanguagePreference)->options(),
             'preferredLocale' => Preferences::get('locale'),
-            'currentTrack' => Preferences::get('track'),
         ]);
     }
 
@@ -24,9 +23,14 @@ class PreferenceController extends Controller
             'resource-language' => $request->input('resource-language'),
             'locale' => $request->input('locale'),
             'operating-system' => $request->input('operating-system'),
-            'track' => $request->input('track'),
         ]);
 
+        if ($request->filled('track')) {
+            auth()->user()->track_id = $request->input('track');
+
+            auth()->user()->save();
+        }
+        
         if ($request->wantsJson()) {
             return response()->json(['status' => 'success']);
         }

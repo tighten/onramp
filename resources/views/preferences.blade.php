@@ -88,7 +88,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                         name="track"
                         aria-labelledby="track-label">
                         @foreach (App\Track::all() as $track)
-                            <option value="{{ $track->id }}" {{ (Preferences::get('track') == $track->id || old('track') == $track->id) ? 'selected' : '' }}>{{ $track->name }}</option>
+                            <option value="{{ $track->id }}" {{ (auth()->user()->track_id == $track->id || old('track') == $track->id) ? 'selected' : '' }}>{{ $track->name }}</option>
                         @endforeach
                     </select>
                     @if ($errors->has('track'))

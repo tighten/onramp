@@ -9,6 +9,8 @@ class ApiPreferenceController extends Controller
 {
     public function store(Request $request)
     {
+        // @todo Add a keys() method to app/Preferences/Preferences and use that
+        //       to build up the data passed into Preferences::set()
         Preferences::set([
             'resource-language' => $request->get('resource-language', Preferences::get('resource-language')),
             'locale' => $request->get('locale', Preferences::get('locale')),

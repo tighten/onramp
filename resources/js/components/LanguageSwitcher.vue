@@ -65,9 +65,9 @@
             },
 
             toggleLanguage(locale) {
+                // @todo Add appropriate exception handling.
                 axios.post(Ziggy.baseUrl + locale + "/api/preferences", {
                     locale: locale,
-                    'current-path': this.currentPath
                 }).then(response => {
                     window.location.href = Ziggy.baseUrl + locale + this.redirectPath;
                 });

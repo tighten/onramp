@@ -7,13 +7,13 @@
         </button>
         <div class="flex items-center justify-center">
             <label for="language-switcher"
-                    class="flex items-center relative z-50 block h-8 w-32 bg-white hover:bg-blue-100 text-gray-800 rounded focus:outline-none">
+                   class="flex items-center relative z-50 block h-8 w-32 bg-white hover:bg-blue-100 text-gray-800 rounded focus:outline-none">
                 <span class="flex items-center pl-2 w-8 h-8 rounded-l cursor-pointer">🌐</span>
                 <button @click="open()"
                         id="language-switcher"
                         tabindex="1"
                         class="ml-2 focus:outline-none focus:border-white">
-                        {{ language }}
+                    {{ language }}
                 </button>
             </label>
         </div>

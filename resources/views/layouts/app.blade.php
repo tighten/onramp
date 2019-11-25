@@ -44,7 +44,7 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') .  __('Onramp to L
                        class="block pt-6 pb-2 sm:py-6 flex-grow flex justify-left items-center">
                         <img src="/images/onramp_logo.svg" alt="Onramp" class="max-w-xs w-full">
                     </a>
-                    @include('partials.language-switcher')
+                    <language-switcher :locales="{{ $localesForSwitcher }}" language="{{ $language }}" current-path="{{ $path }}"></language-switcher>
                 </div>
             </header>
             <!-- /header -->

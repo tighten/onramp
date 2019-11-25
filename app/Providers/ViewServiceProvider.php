@@ -10,10 +10,13 @@ class ViewServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        View::composer('partials.language-switcher', function ($view) {
+        View::composer('layouts.app', function ($view) {
             $view->with([
-                'localeSlugs' => Localization::slugs(),
                 'language' => Localization::languageForLocale(locale()),
+                'path' => request()->path(),
+                'localesForSwitcher' => collect(Localization::all())->map(function($language, $locale){
+                    return [['locale' => $locale, 'language' => $language]];
+                })->flatten(1)
             ]);
         });
     }

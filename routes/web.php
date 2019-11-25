@@ -23,6 +23,7 @@ Route::group(['prefix' => '{locale}'], function () {
     });
 
     Route::post('preferences', 'PreferenceController@store')->name('user.preferences.store');
+    Route::post('api/preferences', 'ApiPreferenceController@store')->name('api.user.preferences.store');
 
     Auth::routes();
 });

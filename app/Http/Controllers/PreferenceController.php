@@ -25,6 +25,12 @@ class PreferenceController extends Controller
             'operating-system' => $request->input('operating-system'),
         ]);
 
+        if (auth()->user() && $request->filled('track')) {
+            auth()->user()->track_id = $request->input('track');
+
+            auth()->user()->save();
+        }
+        
         if ($request->wantsJson()) {
             return response()->json(['status' => 'success']);
         }

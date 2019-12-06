@@ -24,6 +24,7 @@ window.Vue = require('vue');
 import LanguageSwitcher from './components/LanguageSwitcher.vue';
 import ToggleWhenMobile from './components/ToggleWhenMobile.vue';
 import ResourceLanguagePreferenceSwitcher from './components/ResourceLanguagePreferenceSwitcher.vue';
+import CompletedCheckbox from './components/CompletedCheckbox.vue';
 import Lang from 'lang.js';
 
 Vue.prototype.trans = new Lang({
@@ -42,7 +43,8 @@ const app = new Vue({
     components: {
         'language-switcher': LanguageSwitcher,
         'toggle-when-mobile': ToggleWhenMobile,
-        'resource-language-preference-switcher': ResourceLanguagePreferenceSwitcher
+        'resource-language-preference-switcher': ResourceLanguagePreferenceSwitcher,
+        'completed-checkbox': CompletedCheckbox
     },
     el: '#app',
 });

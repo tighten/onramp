@@ -19,6 +19,12 @@ class PreferenceController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'resource-language' => 'required',
+            'locale' => 'required',
+            'operating-system' => 'required',
+        ]);
+
         Preferences::set([
             'resource-language' => $request->input('resource-language'),
             'locale' => $request->input('locale'),
@@ -30,7 +36,7 @@ class PreferenceController extends Controller
 
             auth()->user()->save();
         }
-        
+
         if ($request->wantsJson()) {
             return response()->json(['status' => 'success']);
         }

@@ -19,7 +19,7 @@ class CompletionsApiTest extends TestCase
         $resource = factory(Resource::class)->create();
 
         $response = $this->post(route_wlocale('user.completions.store'), [
-            'completable_type' => get_class($resource),
+            'completable_type' => $resource->getMorphClass(),
             'completable_id' => $resource->id,
         ]);
 
@@ -33,7 +33,7 @@ class CompletionsApiTest extends TestCase
         $resource = factory(Resource::class)->create();
 
         Completion::create([
-            'completable_type' => get_class($resource),
+            'completable_type' => $resource->getMorphClass(),
             'completable_id' => $resource->id,
             'user_id' => $user->id,
         ]);
@@ -41,7 +41,7 @@ class CompletionsApiTest extends TestCase
         $this->assertEquals(1, Completion::count());
 
         $response = $this->delete(route_wlocale('user.completions.destroy'), [
-            'completable_type' => get_class($resource),
+            'completable_type' => $resource->getMorphClass(),
             'completable_id' => $resource->id,
         ]);
 
@@ -55,13 +55,13 @@ class CompletionsApiTest extends TestCase
         $resource = factory(Resource::class)->create();
 
         Completion::create([
-            'completable_type' => get_class($resource),
+            'completable_type' => $resource->getMorphClass(),
             'completable_id' => $resource->id,
             'user_id' => $user->id,
         ]);
 
         $this->delete(route_wlocale('user.completions.destroy'), [
-            'completable_type' => get_class($resource),
+            'completable_type' => $resource->getMorphClass(),
             'completable_id' => $resource->id,
         ]);
 

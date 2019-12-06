@@ -1,6 +1,10 @@
 <li>
     @auth
-    <!--input type="checkbox" value="on"{{ $completedResources->contains($resource->id) ? ' checked="checked"' : '' }}-->
+    <completed-checkbox
+        :initial-is-completed="{{ $completedResources->contains($resource->id) ? 'true' : 'false' }}"
+        type="{{ get_class($resource) }}"
+        id="{{ $resource->id }}"
+        ></completed-checkbox>
     @endauth
-    &bull; <a href="{{ $resource->url }}">{{ $resource->name }}</a>
+    <a href="{{ $resource->url }}">{{ $resource->name }}</a>
 </li>

@@ -20,10 +20,10 @@
         <div v-if="isOpen"
              class="absolute border border-blue-700 right-0 mt-2 w-32 bg-white rounded shadow-xl">
             <a v-for="locale in locales"
-                @click.prevent="toggleLanguage(locale.locale)"
-                class="block px-4 py-2 text-blue-700 hover:bg-blue-700 hover:text-white cursor-pointer"
-                style="text-decoration: none">
-                    {{ locale.language }}
+               @click.prevent="toggleLanguage(locale.locale)"
+               class="block px-4 py-2 text-blue-700 hover:bg-blue-700 hover:text-white cursor-pointer"
+               style="text-decoration: none">
+                {{ locale.language }}
             </a>
         </div>
     </div>
@@ -45,31 +45,28 @@
                 required: true
             }
         },
-
         data() {
             return {
                 isOpen: false,
-                redirectPath: '/' + this.currentPath.substring(this.currentPath.indexOf('/') + 1),
             }
         },
-
         methods: {
             open() {
                 this.isOpen = true;
                 document.addEventListener('keydown', this.handleEscape);
             },
-
             close() {
                 this.isOpen = false;
                 document.removeEventListener('keydown', this.handleEscape);
             },
-
             toggleLanguage(locale) {
+
                 // @todo Add appropriate exception handling.
                 axios.post(Ziggy.baseUrl + locale + "/api/preferences", {
                     locale: locale,
+                    currentPath: this.currentPath,
                 }).then(response => {
-                    window.location.href = Ziggy.baseUrl + locale + this.redirectPath;
+                    window.location.href = response.data.redirectTo;
                 });
                 this.close()
             },

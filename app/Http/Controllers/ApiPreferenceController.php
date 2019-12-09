@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Facades\Preferences;
+use Facades\App\Localization\Locale;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class ApiPreferenceController extends Controller
 {
@@ -24,7 +26,7 @@ class ApiPreferenceController extends Controller
                 'locale' => Preferences::get('locale'),
                 'operating-system' => Preferences::get('operating-system'),
             ],
+            'redirectTo' => '/' . $request->get('locale') . $request->get('currentPath')
         ]);
-
     }
 }

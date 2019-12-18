@@ -17,7 +17,7 @@ class ResolveLocaleTest extends TestCase
             ->withNoArgs()
             ->andReturn(['es', 'learn']); // Mock onramp.dev/es/learn
 
-        $resolver = new ResolveLocale($requestMock);
+        $resolver = new ResolveLocale($requestMock, $this->app);
 
         $this->assertEquals('es', $resolver());
     }
@@ -33,7 +33,7 @@ class ResolveLocaleTest extends TestCase
             ->withNoArgs()
             ->andReturn(['notalocale', 'learn']); // Mock onramp.dev/notalocale/learn
 
-        $resolver = new ResolveLocale($requestMock);
+        $resolver = new ResolveLocale($requestMock, $this->app);
         $resolver();
     }
 }

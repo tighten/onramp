@@ -17,10 +17,15 @@ class OperatingSystemScopeTest extends TestCase
     /** @test */
     function users_preferring_windows_only_see_windows_and_ANY_resources()
     {
-        $courseType = Arr::random([Resource::VIDEO_TYPE, Resource::COURSE_TYPE]);
-        $windowsResource = factory(Resource::class)->create(['os' => OperatingSystem::WINDOWS, 'type' => $courseType]);
-        $macResource = factory(Resource::class)->create(['os' => OperatingSystem::MACOS, 'type' => $courseType]);
-        $anyResource = factory(Resource::class)->create(['os' => OperatingSystem::ANY, 'type' => $courseType]);
+        $commonAttributes = [
+            'type' => Resource::VIDEO_TYPE,
+            'is_free' => true,
+            'is_bonus' => false,
+            'language' => 'en'
+        ];
+        $windowsResource = factory(Resource::class)->create(array_merge(['os' => OperatingSystem::WINDOWS], $commonAttributes));
+        $macResource = factory(Resource::class)->create(array_merge(['os' => OperatingSystem::MACOS], $commonAttributes));
+        $anyResource = factory(Resource::class)->create(array_merge(['os' => OperatingSystem::ANY], $commonAttributes));
 
         $module = factory(Module::class)->create();
         $module->resources()->saveMany([$windowsResource, $macResource, $anyResource]);

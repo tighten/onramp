@@ -17,12 +17,10 @@ class OperatingSystemScopeTest extends TestCase
     /** @test */
     function users_preferring_windows_only_see_windows_and_ANY_resources()
     {
-        $this->markTestIncomplete('Functionality works but test fails. WTF.');
-
-
-        $windowsResource = factory(Resource::class)->create(['os' => OperatingSystem::WINDOWS]);
-        $macResource = factory(Resource::class)->create(['os' => OperatingSystem::MACOS]);
-        $anyResource = factory(Resource::class)->create(['os' => OperatingSystem::ANY]);
+        $courseType = Arr::random([Resource::VIDEO_TYPE, Resource::COURSE_TYPE]);
+        $windowsResource = factory(Resource::class)->create(['os' => OperatingSystem::WINDOWS, 'type' => $courseType]);
+        $macResource = factory(Resource::class)->create(['os' => OperatingSystem::MACOS, 'type' => $courseType]);
+        $anyResource = factory(Resource::class)->create(['os' => OperatingSystem::ANY, 'type' => $courseType]);
 
         $module = factory(Module::class)->create();
         $module->resources()->saveMany([$windowsResource, $macResource, $anyResource]);

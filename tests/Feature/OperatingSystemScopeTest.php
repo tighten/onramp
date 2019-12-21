@@ -31,6 +31,6 @@ class OperatingSystemScopeTest extends TestCase
         $response = $this->get('/en/modules/' . $module->slug);
         $response->assertSee($windowsResource->name);
         $response->assertSee($anyResource->name);
-        $response->assertNotSee($macResource->name);
+        $response->assertDontSee($macResource->name);
     }
 }

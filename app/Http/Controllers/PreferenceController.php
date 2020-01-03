@@ -17,7 +17,7 @@ class PreferenceController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function update(Request $request)
     {
         $request->validate([
             'resource-language' => 'required',

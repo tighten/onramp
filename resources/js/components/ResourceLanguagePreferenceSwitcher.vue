@@ -42,7 +42,7 @@
         methods: {
             choose(value) {
                 this.choice = value;
-                axios.post(route('user.preferences.store', {'locale': 'en'}), {
+                axios.patch(route('user.preferences.update', {'locale': 'en'}), {
                     'resource-language': value,
                 })
                 .then(function () {

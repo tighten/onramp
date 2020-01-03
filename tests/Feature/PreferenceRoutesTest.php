@@ -15,7 +15,7 @@ class PreferenceRoutesTest extends TestCase
     function resource_language_can_be_changed()
     {
         $this->be(factory(User::class)->create());
-        $response = $this->post(route_wlocale('user.preferences.store'), [
+        $response = $this->patch(route_wlocale('user.preferences.update'), [
             'resource-language' => 'local-and-english',
             'locale' => 'en',
             'operating-system' => 'macos',
@@ -28,7 +28,7 @@ class PreferenceRoutesTest extends TestCase
     function locale_can_be_changed()
     {
         $this->be(factory(User::class)->create());
-        $response = $this->post(route_wlocale('user.preferences.store'), [
+        $response = $this->patch(route_wlocale('user.preferences.update'), [
             'locale' => 'es',
             'resource-language' => 'local-and-english',
             'operating-system' => 'macos',
@@ -41,7 +41,7 @@ class PreferenceRoutesTest extends TestCase
     function operating_system_can_be_changed()
     {
         $this->be(factory(User::class)->create());
-        $response = $this->post(route_wlocale('user.preferences.store'), [
+        $response = $this->patch(route_wlocale('user.preferences.update'), [
             'operating-system' => 'linux',
             'locale' => 'es',
             'resource-language' => 'local-and-english',

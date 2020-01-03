@@ -71,4 +71,9 @@ class Preferences
     {
         return 'PREFERENCES::' . $key;
     }
+
+    public function getValidKeys()
+    {
+        return array_keys($this->preferences);
+    }
 }

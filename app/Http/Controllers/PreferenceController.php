@@ -19,17 +19,13 @@ class PreferenceController extends Controller
 
     public function update(Request $request)
     {
-        $request->validate([
-            'resource-language' => 'required',
-            'locale' => 'required',
-            'operating-system' => 'required',
-        ]);
+        $validKeys = $request->only(Preferences::getValidKeys());
 
-        Preferences::set([
-            'resource-language' => $request->input('resource-language'),
-            'locale' => $request->input('locale'),
-            'operating-system' => $request->input('operating-system'),
-        ]);
+        $filtered = array_filter($validKeys, function($val){
+            return $val !== null;
+        });
+
+        Preferences::set($filtered);
 
         if (auth()->user() && $request->filled('track')) {
             auth()->user()->track_id = $request->input('track');

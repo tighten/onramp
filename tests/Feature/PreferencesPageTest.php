@@ -48,8 +48,6 @@ class PreferencesPageTest extends TestCase
     function on_failed_validation_it_persists_old_submitted_values()
     {
         $this->markTestIncomplete();
-        $this->be(factory(User::class)->create());
-
 
     }
 

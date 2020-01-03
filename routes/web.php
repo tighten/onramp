@@ -22,7 +22,7 @@ Route::group(['prefix' => '{locale}'], function () {
         Route::get('preferences', 'PreferenceController@index')->name('user.preferences.index');
     });
 
-    Route::post('preferences', 'PreferenceController@store')->name('user.preferences.store');
+    Route::patch('preferences', 'PreferenceController@store')->name('user.preferences.update');
 
     Auth::routes();
 });

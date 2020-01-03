@@ -27,7 +27,7 @@ class PreferencesPageTest extends TestCase
         $this->be(factory(User::class)->create());
 
         $this->get('/en'); // Set locale
-        $this->post(route_wlocale('user.preferences.store'), [
+        $this->patch(route_wlocale('user.preferences.update'), [
             'locale' => 'en',
             'operating-system' => 'macos',
             'resource-language' => 'english',
@@ -35,7 +35,7 @@ class PreferencesPageTest extends TestCase
 
         $this->assertEquals('macos', Preferences::get('operating-system'));
 
-        $response = $this->post(route_wlocale('user.preferences.store'), [
+        $response = $this->patch(route_wlocale('user.preferences.update'), [
             'locale' => 'en',
             'operating-system' => 'windows',
             'resource-language' => 'english',

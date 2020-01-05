@@ -4,6 +4,7 @@ namespace App\Preferences;
 
 use App\User;
 use Exception;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cookie;
 
 class Preferences
@@ -21,15 +22,19 @@ class Preferences
         $this->user = $user;
     }
 
-    public function set(array $array)
+    public function set($preferences)
     {
-        foreach ($array as $key => $value) {
+        if ($preferences instanceof Collection) {
+            $preferences = $preferences->toArray();
+        }
+
+        foreach ($preferences as $key => $value) {
             $this->preferenceForKey($key)->validate($value);
             Cookie::queue($this->cookieNameForKey($key), $value, $this->cookieLength);
         }
 
         if ($this->user) {
-            $this->user->preferences = array_merge((array) $this->user->preferences, $array);
+            $this->user->preferences = array_merge((array) $this->user->preferences, $preferences);
             $this->user->save();
         }
     }

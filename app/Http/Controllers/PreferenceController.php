@@ -19,13 +19,9 @@ class PreferenceController extends Controller
 
     public function update(Request $request)
     {
-        $validKeys = $request->only(Preferences::getValidKeys());
-
-        $filtered = array_filter($validKeys, function($val){
-            return $val !== null;
-        });
-
-        Preferences::set($filtered);
+        Preferences::set(
+            collect($request->only(Preferences::getValidKeys()))->filter()
+        );
 
         if (auth()->user() && $request->filled('track')) {
             auth()->user()->track_id = $request->input('track');

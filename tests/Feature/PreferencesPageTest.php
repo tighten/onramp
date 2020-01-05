@@ -26,7 +26,8 @@ class PreferencesPageTest extends TestCase
         $this->withoutExceptionHandling();
         $this->be(factory(User::class)->create());
 
-        $response = $this->post(route_wlocale('user.preferences.store'), [
+        $this->get('/en'); // Set locale
+        $this->post(route_wlocale('user.preferences.store'), [
             'locale' => 'en',
             'operating-system' => 'macos',
             'resource-language' => 'english',
@@ -46,8 +47,7 @@ class PreferencesPageTest extends TestCase
     /** @test */
     function on_failed_validation_it_persists_old_submitted_values()
     {
-        $this->be(factory(User::class)->create());
-
+        $this->markTestIncomplete();
 
     }
 

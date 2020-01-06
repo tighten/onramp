@@ -17,7 +17,8 @@ $resourceLanguagePreferenceKey = 'resource-language';
                 {{ __('Account Preferences') }}
             </h2>
 
-            <form method="post" action="{{ route_wlocale('user.preferences.store') }}">
+            <form method="post" action="{{ route_wlocale('user.preferences.update') }}">
+                @method('PATCH')
                 @csrf
                 <div class="mb-6">
                     <label for="{{ $localePreferenceKey }}" id="locale-label">
@@ -76,7 +77,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                             <option value="{{ $key }}" {{ (Preferences::get('operating-system') == $key || old('operating-system') == $key) ? 'selected' : '' }}>@lang('operatingsystems.' . $key)</option>
                         @endforeach
                     </select>
-                    
+
                     @if ($errors->has('operating-system'))
                         <p class="text-red-500 text-xs italic mt-2">
                             {{ $errors->first('operating-system') }}

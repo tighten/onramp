@@ -63,7 +63,7 @@ class ModulesPageTest extends TestCase
         });
 
         $response->assertViewHas('standardModules', function ($standardModules) use ($bonusModule) {
-            return !$standardModules->contains($bonusModule);
+            return ! $standardModules->contains($bonusModule);
         });
     }
 

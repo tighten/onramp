@@ -63,7 +63,7 @@ class ModulesPageTest extends TestCase
         });
 
         $response->assertViewHas('standardModules', function ($standardModules) use ($bonusModule) {
-            return ! $standardModules->contains($bonusModule);
+            return !$standardModules->contains($bonusModule);
         });
     }
 
@@ -82,7 +82,7 @@ class ModulesPageTest extends TestCase
 
         $response = $this->get(route('modules.index', ['locale' => 'en']));
 
-        $response->assertViewHas('standardModules', function ($bonusModules) {
+        $response->assertViewHas('bonusModules', function ($bonusModules) {
             return $bonusModules->count() == 1;
         });
 

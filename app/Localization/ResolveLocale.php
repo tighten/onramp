@@ -27,7 +27,7 @@ class ResolveLocale
 
         if (! Localization::isValid($locale)) {
             // Allow Nova passthrough
-            if ($locale === 'nova' || $locale === 'nova-api') {
+            if ($locale === 'nova' || $locale === 'nova-api' || $locale === 'nova-vendor') {
                 return 'nova';
             }
 

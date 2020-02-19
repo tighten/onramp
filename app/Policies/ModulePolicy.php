@@ -12,7 +12,7 @@ class ModulePolicy
 
     public function before($user)
     {
-        return ($user->isAtLeastEditor() ?: null);
+        return ($user->isAdmin() ?: null);
     }
 
     /**
@@ -23,7 +23,7 @@ class ModulePolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return $user->isAtLeastEditor();
     }
 
     /**
@@ -35,7 +35,7 @@ class ModulePolicy
      */
     public function view(User $user, Module $module)
     {
-        //
+        return $user->isAtLeastEditor();
     }
 
     /**

@@ -11,7 +11,7 @@ class UserPolicy
 
     public function before($user)
     {
-        return ($user->isAtLeastEditor() ?: null);
+        return ($user->isAdmin() ?: null);
     }
 
     /**

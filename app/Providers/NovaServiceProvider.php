@@ -43,9 +43,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function gate()
     {
         Gate::define('viewNova', function ($user) {
-            return in_array($user->email, [
-                'matt@tighten.co',
-            ]);
+            return true;
         });
     }
 
@@ -58,6 +56,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         return [
             new SuggestedResourcesShortcuts,
+            new \Tightenco\NovaReleases\LatestRelease,
         ];
     }
 

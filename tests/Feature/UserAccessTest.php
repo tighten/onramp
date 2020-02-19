@@ -19,11 +19,11 @@ class UserAccessTest extends TestCase
     }
 
     /** @test */
-    function users_with_editor_role_can_update_users()
+    function users_with_editor_role_cannot_update_users()
     {
         $user = factory(User::class)->create(['role' => 'editor']);
 
-        $this->assertTrue($user->can('update', new User));
+        $this->assertFalse($user->can('update', new User));
     }
 
     /** @test */

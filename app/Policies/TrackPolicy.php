@@ -12,7 +12,7 @@ class TrackPolicy
 
     public function before($user)
     {
-        return ($user->isAtLeastEditor() ?: null);
+        return ($user->isAdmin() ?: null);
     }
 
     /**
@@ -23,7 +23,7 @@ class TrackPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return $user->isAtLeastEditor();
     }
 
     /**
@@ -35,7 +35,7 @@ class TrackPolicy
      */
     public function view(User $user, Track $track)
     {
-        //
+        return $user->isAtLeastEditor();
     }
 
     /**

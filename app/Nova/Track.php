@@ -8,7 +8,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Track extends Resource
+class Track extends BaseResource
 {
     /**
      * The model the resource corresponds to.

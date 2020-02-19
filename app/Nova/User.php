@@ -9,7 +9,7 @@ use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 
-class User extends Resource
+class User extends BaseResource
 {
     public static $model = \App\User::class;
 

@@ -9,7 +9,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use MrMonat\Translatable\Translatable;
 
-class Module extends Resource
+class Module extends BaseResource
 {
     /**
      * The model the resource corresponds to.

@@ -70,6 +70,11 @@ class User extends Authenticatable
         return in_array($this->role, ['editor', 'admin']);
     }
 
+    public function isAdmin()
+    {
+        return in_array($this->role, ['admin']);
+    }
+
     public function suggestedResources()
     {
         return $this->hasMany(SuggestedResource::class);

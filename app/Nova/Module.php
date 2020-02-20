@@ -4,12 +4,13 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use MrMonat\Translatable\Translatable;
 
-class Module extends Resource
+class Module extends BaseResource
 {
     /**
      * The model the resource corresponds to.
@@ -54,7 +55,11 @@ class Module extends Resource
                 ->sortable()
                 ->rules('required', 'max:255'),
 
-            BelongsToMany::make('Tracks'),
+            // @todo Replace this with correct permissions after chatting with David
+            BelongsToMany::make('Tracks')
+                ->hideFromDetail($request->user()->role !== 'admin'),
+
+            HasMany::make('Resources')
         ];
     }
 

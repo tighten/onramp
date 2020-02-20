@@ -29,9 +29,10 @@
         "laravel/tinker": "^1.0",
         "mrmonat/nova-translatable": "^2.0",
         "spatie/laravel-translatable": "^4.2",
+        "tightenco/nova-releases": "^0.2.5",
+        "tightenco/suggested-resources-shortcuts": "*",
         "tightenco/tlint": "^3.0",
-        "tightenco/ziggy": "^0.8.1",
-        "tightenco/suggested-resources-shortcuts": "*"
+        "tightenco/ziggy": "^0.8.1"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

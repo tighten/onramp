@@ -35,7 +35,7 @@ class SuggestedResourcePolicy
      */
     public function view(User $user, SuggestedResource $suggestedResource)
     {
-        return $suggestedResource->user_id === $user->id;
+        return true;
     }
 
     /**
@@ -70,7 +70,7 @@ class SuggestedResourcePolicy
      */
     public function delete(User $user, SuggestedResource $suggestedResource)
     {
-        //
+        return $user->id === $suggestedResource->user_id;
     }
 
     /**

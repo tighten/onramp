@@ -17,13 +17,17 @@ class PreferenceController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function update(Request $request)
     {
-        Preferences::set([
-            'resource-language' => $request->input('resource-language'),
-            'locale' => $request->input('locale'),
-            'operating-system' => $request->input('operating-system'),
-        ]);
+        Preferences::set(
+            collect($request->only(Preferences::getValidKeys()))->filter()
+        );
+
+        if (auth()->user() && $request->filled('track')) {
+            auth()->user()->track_id = $request->input('track');
+
+            auth()->user()->save();
+        }
 
         if ($request->wantsJson()) {
             return response()->json(['status' => 'success']);

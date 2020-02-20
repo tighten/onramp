@@ -48,7 +48,9 @@ class Track extends BaseResource
                 ->sortable()
                 ->rules('required', 'max:255'),
 
-            BelongsToMany::make('Modules'),
+            // @todo Replace this with correct permissions after chatting with David
+            BelongsToMany::make('Modules')
+                ->hideFromDetail($request->user()->role !== 'admin'),
         ];
     }
 

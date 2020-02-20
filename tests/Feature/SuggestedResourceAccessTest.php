@@ -44,13 +44,13 @@ class SuggestedResourceAccessTest extends TestCase
     }
 
     /** @test */
-    function users_cannot_see_other_users_suggested_resources()
+    function users_can_see_other_users_suggested_resources()
     {
         $user = factory(User::class)->create(['role' => 'user']);
         $otherUser = factory(User::class)->create(['role' => 'user']);
         $suggestedResource = factory(SuggestedResource::class)->create(['user_id' => $otherUser->id]);
 
-        $this->assertFalse($user->can('view', $suggestedResource));
+        $this->assertTrue($user->can('view', $suggestedResource));
     }
 
     /** @test */
@@ -61,6 +61,25 @@ class SuggestedResourceAccessTest extends TestCase
         $suggestedResource = factory(SuggestedResource::class)->create(['user_id' => $otherUser->id]);
 
         $this->assertFalse($user->can('update', $suggestedResource));
+    }
+
+    /** @test */
+    function users_cannot_delete_other_users_suggested_resources()
+    {
+        $user = factory(User::class)->create(['role' => 'user']);
+        $otherUser = factory(User::class)->create(['role' => 'user']);
+        $suggestedResource = factory(SuggestedResource::class)->create(['user_id' => $otherUser->id]);
+
+        $this->assertFalse($user->can('delete', $suggestedResource));
+    }
+
+    /** @test */
+    function users_can_delete_their_own_suggested_resources()
+    {
+        $user = factory(User::class)->create(['role' => 'user']);
+        $suggestedResource = factory(SuggestedResource::class)->create(['user_id' => $user->id]);
+
+        $this->assertTrue($user->can('delete', $suggestedResource));
     }
 
     /** @test */

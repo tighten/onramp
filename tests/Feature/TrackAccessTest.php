@@ -20,7 +20,7 @@ class TrackAccessTest extends TestCase
     }
 
     /** @test */
-    function users_with_editor_role_can_only_view_modules()
+    function users_with_editor_role_can_only_view_tracks()
     {
         $user = factory(User::class)->create(['role' => 'editor']);
 

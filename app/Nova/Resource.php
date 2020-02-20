@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use App\Facades\Localization;
+use App\Resource as EloquentResource;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
@@ -36,6 +37,13 @@ class Resource extends BaseResource
         'id', 'name'
     ];
 
+    public function typeFields()
+    {
+        return collect(EloquentResource::TYPES)->mapWithKeys(function ($value) {
+            return [$value => ucwords($value)];
+        })->toArray();
+    }
+
     /**
      * Get the fields displayed by the resource.
      *
@@ -56,16 +64,8 @@ class Resource extends BaseResource
                 ->clickableOnIndex()
                 ->clickable(),
 
-            // TAMMY TODO: Is there a way to make use of the TYPES array
-            // here from the Resource model?
             Select::make('Type')
-                ->options([
-                    'article' => 'Article',
-                    'audio' => 'Audio',
-                    'book' => 'Book',
-                    'course' => 'Course',
-                    'video' => 'Video'
-                ])
+                ->options($this->typeFields())
                 ->displayUsingLabels()
                 ->rules('required'),
 

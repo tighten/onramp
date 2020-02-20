@@ -64,4 +64,19 @@ class User extends Authenticatable
     {
         return $this->completions()->skills();
     }
+
+    public function isAtLeastEditor()
+    {
+        return in_array($this->role, ['editor', 'admin']);
+    }
+
+    public function isAdmin()
+    {
+        return in_array($this->role, ['admin']);
+    }
+
+    public function suggestedResources()
+    {
+        return $this->hasMany(SuggestedResource::class);
+    }
 }

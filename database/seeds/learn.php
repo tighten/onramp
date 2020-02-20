@@ -343,7 +343,7 @@ return [
             'en' => [
                 [
                     'name' => 'Laracasts Video',
-                    'url' => 'https://laracasts.com/series/object-oriented-bootcamp-in-php',
+                    'url' => 'https://laracasts.com/series/object-oriented-principles-in-php',
                     'type' => 'video',
                 ],
             ],

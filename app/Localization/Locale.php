@@ -18,7 +18,7 @@ class Locale
         'fr' => 'French'
     ];
 
-    public function locales()
+    public function all()
     {
         return $this->locales;
     }

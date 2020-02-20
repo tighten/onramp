@@ -1,17 +1,19 @@
 language: php
-
 php:
-  - 7.3
-
+- 7.3
 env:
   matrix:
-    - COMPOSER_FLAGS="--prefer-lowest"
-    - COMPOSER_FLAGS=""
-
+  - COMPOSER_FLAGS="--prefer-lowest"
+  - COMPOSER_FLAGS=""
+  global:
+  - secure: CpXN+Gtnrx25YuRbl6mZH2PQ6dX+W1mJ/GQvEydb3hrMJE7bvXtd8F/xwBzUhetgg9wIOmYmqjryc3HjJvcith7wTwVmWAMX+/7zVXbk5UPBhSN99Uncr68KgBdrjpmrJ8M1t2QgoFYNy144FKb8q26tPhHRQjk7rKOZJE222cLloByqLrknqz7jFxGUhjfZah8yoN5gdBlouqnO6dm7WFJa35u4UX4FbTEZWcqYFFlPg7+kPt0ecIi0mW/V3vazckjB85q5brSkPsjROmvdPaImg4qrlFsRlVbItsl/C5AfU+8Aum7xXGv/Ly7aVDTEN9mwDFTURNGV8nBx4o8ED3QN9NmiFac8Zo9dqXAUaaiHHLRsQhk8uvcklTzMCjhOnbkRf4Z5nH9OGO+L213Zrr4FxJvbkalPY+KVyoQwh8RtzrETj5PH1WZjBRz4hlXo0FKSd+Zzfb3Yf39bP/zWXweUHeL2UYqPROlorOZ6GNdlzC1mPNjRE5slHtXCuZzWu0Jczc4ylHYQ4PuyNoGvVybABZCh3BdDhGKXQqX20rmaSH1K19eLvnZlzViJMB7m+J1OfX+wNcxqFbHtkTFU7HosdLPIaaZoTkXwzWM5pj7qUgU0p93T4fh5cQCQhlS7xGn61AZCTJ/RJH8k6Dsy8zgvXC/4CnyZ+E+pJFlrtsg=
+  - secure: BHQq5gK/tjEcNIc6I0gmhpzlRZckk3cbH2AD2KFF3x3t95ltCq8wodoAVNqW68fxxDi1usm7hCJHQR1LYK5FCSxvAMZ9S0WDO8nooYYQVi/EmRLi6UMJOjcitytB9TNtq08tbGdxB7b7wLViQwFh5fqcxVyCHS1zxpHuedyc3lwoZfNwbixzGd/3l/+hNSi/7u65NPzELm8ZBUXPXQfYn1EbtoRvNtfy6RMc3a0OlEqZei3kqTcOK7KOp9ngYOQYfbNTgfhZNWRFDHGgFaTDhjd67mLa6RM1nmNU1DDdXt9hMwCVVRm50jbPdW8tIaH4R7VqSjmnAw/hXhNbv3o5nMdMDIy0TdczXXL0i8cdbDqZk38fLmZEWY2pcUoqgDlr9MMQg2VFUxG10Bg3jszjniMgNo0ThWVsipzgeQ9IoXoFYjz7Y2HpIWzXnYMkLLxqJLjN2en/Zcjee0AfflIRULVPW3rycAP+s8uA1VEC98iexc0yYqhhAPgBTC2NomRNZwKaNZ9C07VGKcDpQKLEG5miYHnSLGURb48oLD0NlmjScQ3aczwS9+NGsedL17sSsTIEWohJQBOVSeRa5KOpKXeX4+x20x4ypQFxNNeTKHLx8XZ7z0QTpFNfy7kyJGXhC6qVMT//vefiVEyrseKmNtRDcBw2t2ssxPniqLmjb3I=
+install:
+- echo "{\"http-basic\":{\"nova.laravel.com\":{\"username\":\"${NOVA_USERNAME}\",\"password\":\"${NOVA_PASSWORD}\"}}}"
+  > auth.json
 before_script:
-  - cp .env.example .env
-  - composer self-update
-  - composer install --prefer-source --no-interaction
-  - php artisan key:generate
-
+- cp .env.example .env
+- composer self-update
+- composer install --prefer-source --no-interaction
+- php artisan key:generate
 script: vendor/bin/phpunit

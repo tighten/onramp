@@ -12,7 +12,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class SuggestedResource extends Resource
+class SuggestedResource extends BaseResource
 {
     /**
      * The model the resource corresponds to.

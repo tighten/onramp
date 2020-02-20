@@ -8,7 +8,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Track extends Resource
+class Track extends BaseResource
 {
     /**
      * The model the resource corresponds to.
@@ -48,7 +48,9 @@ class Track extends Resource
                 ->sortable()
                 ->rules('required', 'max:255'),
 
-            BelongsToMany::make('Modules'),
+            // @todo Replace this with correct permissions after chatting with David
+            BelongsToMany::make('Modules')
+                ->hideFromDetail($request->user()->role !== 'admin'),
         ];
     }
 

@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Module;
+use App\Resource;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -12,7 +13,7 @@ class ModulePolicy
 
     public function before($user)
     {
-        return ($user->isAtLeastEditor() ?: null);
+        return ($user->isAdmin() ?: null);
     }
 
     /**
@@ -23,7 +24,7 @@ class ModulePolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return $user->isAtLeastEditor();
     }
 
     /**
@@ -35,7 +36,7 @@ class ModulePolicy
      */
     public function view(User $user, Module $module)
     {
-        //
+        return $user->isAtLeastEditor();
     }
 
     /**
@@ -95,5 +96,15 @@ class ModulePolicy
     public function forceDelete(User $user, Module $module)
     {
         //
+    }
+
+    public function attachResource(User $user, Module $module, Resource $resource)
+    {
+        return $user->isAtLeastEditor();
+    }
+
+    public function detachResource(User $user, Module $module, Resource $resource)
+    {
+        return $user->isAtLeastEditor();
     }
 }

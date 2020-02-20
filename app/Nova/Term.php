@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use MrMonat\Translatable\Translatable;
 
-class Term extends Resource
+class Term extends BaseResource
 {
     public static $model = \App\Term::class;
 

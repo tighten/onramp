@@ -1849,6 +1849,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     initialIsCompleted: {
@@ -38082,12 +38090,33 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "inline-block" }, [
-    _c("div", {
-      staticClass: "border border-gray-600 inline-block cursor-pointer w-4 h-4",
-      class: { "bg-gray-500": _vm.isCompleted },
-      on: { click: _vm.toggle }
-    })
+  return _c("div", { staticClass: "inline-block mr-1" }, [
+    _c(
+      "div",
+      {
+        staticClass:
+          "border border-gray-600 inline-flex justify-center items-center cursor-pointer w-4 h-4",
+        class: { "bg-gray-600": _vm.isCompleted },
+        on: { click: _vm.toggle }
+      },
+      [
+        _c(
+          "svg",
+          {
+            staticClass: "w-3 h-3 fill-current text-white",
+            attrs: { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24" }
+          },
+          [
+            _c("path", {
+              attrs: {
+                d:
+                  "M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+              }
+            })
+          ]
+        )
+      ]
+    )
   ])
 }
 var staticRenderFns = []
@@ -50861,8 +50890,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/mattstauffer/Sites/onramp/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/mattstauffer/Sites/onramp/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/tammyrobinson/Code/tighten/onramp/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/tammyrobinson/Code/tighten/onramp/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

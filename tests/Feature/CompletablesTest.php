@@ -39,6 +39,52 @@ class CompletablesTest extends TestCase
     }
 
     /** @test */
+    function user_can_complete_a_module()
+    {
+        $user = factory(User::class)->create();
+        $module = factory(Module::class)->create();
+
+        $user->complete($module);
+
+        $this->assertEquals(1, Completion::count());
+    }
+
+    /** @test */
+    function user_can_undo_a_module_completion()
+    {
+        $user = factory(User::class)->create();
+        $module = factory(Module::class)->create();
+
+        $user->complete($module);
+        $user->undoComplete($module);
+
+        $this->assertEquals(0, Completion::count());
+    }
+
+    /** @test */
+    function user_can_complete_a_skill()
+    {
+        $user = factory(User::class)->create();
+        $skill = factory(Skill::class)->create();
+
+        $user->complete($skill);
+
+        $this->assertEquals(1, Completion::count());
+    }
+
+    /** @test */
+    function user_can_undo_a_skill_completion()
+    {
+        $user = factory(User::class)->create();
+        $skill = factory(Skill::class)->create();
+
+        $user->complete($skill);
+        $user->undoComplete($skill);
+
+        $this->assertEquals(0, Completion::count());
+    }
+
+    /** @test */
     function user_cannot_complete_another_user()
     {
         $this->expectException(TypeError::class);

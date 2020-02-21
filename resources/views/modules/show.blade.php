@@ -27,16 +27,20 @@ use App\Resource;
             </resource-language-preference-switcher>
             <div class="flex">
                 <div class="flex-1 w-auto p-4 border rounded mr-2">
-                    <h3 class="font-bold text-lg border-b mb">
+                    <h3 class="font-bold text-lg border-b mb-3">
                         Skills
                     </h3>
                     <ul>
                         @forelse ($skills as $skill)
                             <li>
                                 @auth
-                                <!--input type="checkbox"{{ $completedSkills->contains($skill->id) ? ' checked="checked"' : '' }}-->
+                                <completed-checkbox
+                                        :initial-is-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
+                                        type="{{ $skill->getMorphClass() }}"
+                                        id="{{ $skill->id }}"
+                                        ></completed-checkbox>
                                 @endauth
-                                &bull; {{ $skill->name }}
+                                {{ $skill->name }}
                             </li>
                         @empty
                             <li>No skills</li>
@@ -47,9 +51,13 @@ use App\Resource;
                             @foreach ($bonusSkills as $skill)
                                 <li>
                                     @auth
-                                    <!--input type="checkbox"{{ $completedSkills->contains($skill->id) ? ' checked="checked"' : '' }}-->
+                                    <completed-checkbox
+                                        :initial-is-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
+                                        type="{{ $skill->getMorphClass() }}"
+                                        id="{{ $skill->id }}"
+                                        ></completed-checkbox>
                                     @endauth
-                                    &bull; {{ $skill->name }}
+                                    {{ $skill->name }}
                                 </li>
                             @endforeach
                         @endif

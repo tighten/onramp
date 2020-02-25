@@ -1952,7 +1952,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     choose: function choose(value) {
       this.choice = value;
-      axios.post(route('user.preferences.store', {
+      axios.patch(route('user.preferences.update', {
         'locale': 'en'
       }), {
         'resource-language': value
@@ -50688,8 +50688,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/tammyrobinson/Tighten Dev/onramp/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/tammyrobinson/Tighten Dev/onramp/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/tammyrobinson/Code/tighten/onramp/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/tammyrobinson/Code/tighten/onramp/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

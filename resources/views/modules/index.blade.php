@@ -15,7 +15,7 @@
         <div class="w-full md:pr-12 mb-6">
             <p class="mb-2 font-bold text-lg">Recommended modules</p>
 
-            <ul>
+            <ul class="@guest list-disc @endguest">
                 @foreach ($standardModules as $module)
                 <li>
                     @auth
@@ -33,7 +33,7 @@
             @if ($bonusModules->isNotEmpty())
             <p class="mb-2 font-bold text-lg mt-8">Bonus modules</p>
 
-            <ul>
+            <ul class="@guest list-disc @endguest">
                 @foreach ($bonusModules as $module)
                 <li>
                     @auth

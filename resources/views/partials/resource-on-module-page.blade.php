@@ -6,5 +6,9 @@
         id="{{ $resource->id }}"
         ></completed-checkbox>
     @endauth
+
+    @guest
+    &bull;
+    @endguest
     <a href="{{ $resource->url }}">{{ $resource->name }}</a>
 </li>

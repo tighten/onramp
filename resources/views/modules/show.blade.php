@@ -40,6 +40,10 @@ use App\Resource;
                                         id="{{ $skill->id }}"
                                         ></completed-checkbox>
                                 @endauth
+
+                                @guest
+                                &bull;
+                                @endguest
                                 {{ $skill->name }}
                             </li>
                         @empty

@@ -31,6 +31,11 @@ class ResolveLocale
                 return 'nova';
             }
 
+            // Allow debugbar
+            if ($locale === '_debugbar') {
+                return 'debugbar';
+            }
+
             throw new InvalidLocale("Invalid locale: {$locale}");
         }
 

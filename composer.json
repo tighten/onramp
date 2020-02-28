@@ -35,6 +35,7 @@
         "tightenco/ziggy": "^0.8.1"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.2",
         "beyondcode/laravel-dump-server": "^1.0",
         "facade/ignition": "^1.11",
         "filp/whoops": "^2.0",

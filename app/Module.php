@@ -27,6 +27,11 @@ class Module extends Model implements Completable
         return $this->hasMany(Resource::class);
     }
 
+    public function suggestedResources()
+    {
+        return $this->hasMany(SuggestedResource::class);
+    }
+
     public function skills()
     {
         return $this->hasMany(Skill::class);

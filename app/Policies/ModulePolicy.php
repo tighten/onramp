@@ -24,7 +24,7 @@ class ModulePolicy
      */
     public function viewAny(User $user)
     {
-        return $user->isAtLeastEditor();
+        return true;
     }
 
     /**
@@ -36,7 +36,7 @@ class ModulePolicy
      */
     public function view(User $user, Module $module)
     {
-        return $user->isAtLeastEditor();
+        return true;
     }
 
     /**

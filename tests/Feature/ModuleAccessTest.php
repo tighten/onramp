@@ -13,11 +13,15 @@ class ModuleAccessTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function users_with_user_role_cannot_view_modules()
+    function users_with_user_role_can_only_view_modules()
     {
         $user = factory(User::class)->create(['role' => 'user']);
 
-        $this->assertFalse($user->can('view', new Module));
+        $this->assertTrue($user->can('view', new Module));
+        $this->assertTrue($user->can('viewAny', new Module));
+        $this->assertFalse($user->can('update', new Module));
+        $this->assertFalse($user->can('create', new Module));
+        $this->assertFalse($user->can('delete', new Module));
     }
 
     /** @test */

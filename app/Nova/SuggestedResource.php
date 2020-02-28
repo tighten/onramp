@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use App\Facades\Localization;
+use App\Nova\Filters\SuggestedResourceStatus;
 use App\Nova\Filters\SuggestResourceOwner;
 use Illuminate\Http\Request;
 use Inspheric\Fields\Url;
@@ -58,9 +59,13 @@ class SuggestedResource extends BaseResource
                 ->clickableOnIndex()
                 ->clickable(),
 
+            Text::make('Status')
+                ->sortable(),
+
             Select::make('Language')
                 ->options(array_merge(['all' => 'All (contains multiple translations)'], Localization::all()))
-                ->rules('required'),
+                ->rules('required')
+                ->hideFromIndex(),
 
             BelongsTo::make('Module')
                 ->hideFromIndex(),
@@ -90,6 +95,7 @@ class SuggestedResource extends BaseResource
     {
         return [
             new SuggestResourceOwner,
+            new SuggestedResourceStatus,
         ];
     }
 

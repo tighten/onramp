@@ -17,6 +17,11 @@ class SuggestedResource extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function module()
+    {
+        return $this->belongsTo(Module::class);
+    }
+
     public static function boot()
     {
         parent::boot();

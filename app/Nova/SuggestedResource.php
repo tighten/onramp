@@ -3,9 +3,11 @@
 namespace App\Nova;
 
 use App\Facades\Localization;
+use App\Module;
 use App\Nova\Filters\SuggestResourceOwner;
 use Illuminate\Http\Request;
 use Inspheric\Fields\Url;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
@@ -60,6 +62,9 @@ class SuggestedResource extends BaseResource
             Select::make('Language')
                 ->options(array_merge(['all' => 'All (contains multiple translations)'], Localization::all()))
                 ->rules('required'),
+
+            BelongsTo::make('Module')
+                ->hideFromIndex(),
 
             Textarea::make('Notes'),
         ];

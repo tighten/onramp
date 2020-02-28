@@ -15,11 +15,15 @@
         <div class="w-full md:pr-12 mb-6">
             <p class="mb-2 font-bold text-lg">Recommended modules</p>
 
-            <ul class="list-disc pl-6">
+            <ul class="@guest list-disc @endguest">
                 @foreach ($standardModules as $module)
                 <li>
                     @auth
-                    <!--input type="checkbox" disabled {{ $completedModules->contains($module->id) ? ' checked="checked"' : '' }}-->
+                    <completed-checkbox
+                        :initial-is-completed="{{ $completedModules->contains($module->id) ? 'true' : 'false' }}"
+                        type="{{ $module->getMorphClass() }}"
+                        id="{{ $module->id }}"
+                        ></completed-checkbox>
                     @endauth
                     <a href="{{ route_wlocale('modules.show', $module) }}">{{ $module->name }}</a>
                 </li>
@@ -29,11 +33,15 @@
             @if ($bonusModules->isNotEmpty())
             <p class="mb-2 font-bold text-lg mt-8">Bonus modules</p>
 
-            <ul class="list-disc pl-6">
+            <ul class="@guest list-disc @endguest">
                 @foreach ($bonusModules as $module)
                 <li>
                     @auth
-                    <!--input type="checkbox" disabled {{ $completedModules->contains($module->id) ? ' checked="checked"' : '' }}-->
+                    <completed-checkbox
+                        :initial-is-completed="{{ $completedModules->contains($module->id) ? 'true' : 'false' }}"
+                        type="{{ $module->getMorphClass() }}"
+                        id="{{ $module->id }}"
+                        ></completed-checkbox>
                     @endauth
                     <a href="{{ route_wlocale('modules.show', $module) }}">{{ $module->name }}</a>
                 </li>

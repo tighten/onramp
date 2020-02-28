@@ -17,7 +17,7 @@ class AddModuleIdToSuggestedResourcesTable extends Migration
     public function down()
     {
         Schema::table('suggested_resources', function (Blueprint $table) {
-            $table->dropForeign('module_id');
+            $table->dropForeign('suggested_resources_module_id_foreign');
             $table->dropColumn('module_id');
         });
     }

@@ -51,21 +51,18 @@ class ModulesPageTest extends TestCase
             ])->toArray()
         );
 
-        $otherTrack = factory(Track::class)
-            ->create()
-            ->modules()
-            ->createMany(
-                factory(Module::class, 2)->make([
-                    'is_bonus' => 0
-                ])->toArray()
-            );
+        $otherTrack = factory(Track::class)->create();
+        $otherTrack->modules()->createMany(
+            factory(Module::class, 2)->make([
+                'is_bonus' => 0
+            ])->toArray()
+        );
 
         $user = factory(User::class)->create([
             'track_id' => 1
         ]);
 
         $this->actingAs($user);
-        $this->assertAuthenticatedAs($user);
 
         $response = $this->get(route('modules.index', ['locale' => 'en']));
 

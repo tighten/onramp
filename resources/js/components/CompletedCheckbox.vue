@@ -1,10 +1,18 @@
 <template>
-    <div class="inline-block">
+    <div class="inline-block mr-1">
         <div
             @click="toggle"
-            class="border border-gray-600 inline-block cursor-pointer w-4 h-4"
-            :class="{'bg-gray-500': isCompleted}"
+            class="border border-gray-600 inline-flex justify-center items-center cursor-pointer w-4 h-4"
+            :class="{'bg-gray-600': isCompleted}"
             >
+            <svg
+                class="w-3 h-3 fill-current text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24">
+                <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                ></path>
+            </svg>
         </div>
     </div>
 </template>

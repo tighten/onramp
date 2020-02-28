@@ -3,7 +3,6 @@
 namespace App\Nova;
 
 use App\Facades\Localization;
-use App\Module;
 use App\Nova\Filters\SuggestResourceOwner;
 use Illuminate\Http\Request;
 use Inspheric\Fields\Url;

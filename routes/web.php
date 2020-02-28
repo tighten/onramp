@@ -24,7 +24,7 @@ Route::group(['prefix' => '{locale}'], function () {
         Route::delete('completions', 'CompletionsController@destroy')->name('user.completions.destroy');
     });
 
-    Route::post('preferences', 'PreferenceController@store')->name('user.preferences.store');
+    Route::patch('preferences', 'PreferenceController@update')->name('user.preferences.update');
 
     Auth::routes();
 });

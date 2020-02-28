@@ -343,7 +343,7 @@ return [
             'en' => [
                 [
                     'name' => 'Laracasts Video',
-                    'url' => 'https://laracasts.com/series/object-oriented-bootcamp-in-php',
+                    'url' => 'https://laracasts.com/series/object-oriented-principles-in-php',
                     'type' => 'video',
                 ],
             ],
@@ -466,7 +466,7 @@ return [
                 ],
                 [
                     'name' => 'Laracasts Video - installation',
-                    'url' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/2',
+                    'url' => 'https://laracasts.com/series/laravel-6-from-scratch/episodes/3',
                     'type' => 'video',
                 ],
                 [
@@ -476,7 +476,7 @@ return [
                 ],
                 [
                     'name' => 'Laracasts Video - Routing',
-                    'url' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/3',
+                    'url' => 'https://laracasts.com/series/laravel-6-from-scratch/episodes/5',
                     'type' => 'video',
                 ],
                 [
@@ -486,12 +486,12 @@ return [
                 ],
                 [
                     'name' => 'Laracasts Laravel From Scratch #4 - Blade',
-                    'url' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/4',
+                    'url' => 'https://laracasts.com/series/laravel-6-from-scratch/episodes/14',
                     'type' => 'video',
                 ],
                 [
                     'name' => 'Laracasts Laravel From Scratch #5 - Blade',
-                    'url' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/5',
+                    'url' => 'https://laracasts.com/series/laravel-6-from-scratch/episodes/15',
                     'type' => 'video',
                 ],
                 [
@@ -511,52 +511,52 @@ return [
                 ],
                 [
                     'name' => 'Laravel Docs (Migrations)',
-                    'url' => 'https://laravel.com/docs/5.8/migrations',
+                    'url' => 'https://laravel.com/docs/6.x/migrations',
                     'type' => 'article',
                 ],
                 [
-                    'name' => 'Laracasts Video - Migratiomns',
-                    'url' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/7',
+                    'name' => 'Laracasts Video - Migrations',
+                    'url' => 'https://laracasts.com/series/laravel-6-from-scratch/episodes/11',
                     'type' => 'video',
                 ],
                 [
                     'name' => 'Laravel Docs (Eloquent)',
-                    'url' => 'https://laravel.com/docs/5.8/eloquent',
+                    'url' => 'https://laravel.com/docs/6.x/eloquent',
                     'type' => 'article',
                 ],
                 [
                     'name' => 'Laracasts Video - Eloquent',
-                    'url' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/8',
+                    'url' => 'https://laracasts.com/series/laravel-6-from-scratch/episodes/29',
                     'type' => 'video',
                 ],
                 [
                     'name' => 'Laravel Docs (CSRF)',
-                    'url' => 'https://laravel.com/docs/5.8/csrf',
+                    'url' => 'https://laravel.com/docs/6.x/csrf',
                     'type' => 'article',
                 ],
                 [
                     'name' => 'Laracasts Video - CSRF',
-                    'url' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/10',
+                    'url' => 'https://laracasts.com/series/laravel-6-from-scratch/episodes/37',
                     'type' => 'video',
                 ],
                 [
                     'name' => 'Laravel Docs (Validation)',
-                    'url' => 'https://laravel.com/docs/5.8/validation',
+                    'url' => 'https://laravel.com/docs/6.x/validation',
                     'type' => 'article',
                 ],
                 [
                     'name' => 'Laravel Docs (Mail)',
-                    'url' => 'https://laravel.com/docs/5.8/mail',
+                    'url' => 'https://laravel.com/docs/6.x/mail',
                     'type' => 'article',
                 ],
                 [
                     'name' => 'Laravel Docs (Notifications)',
-                    'url' => 'https://laravel.com/docs/5.8/notifications',
+                    'url' => 'https://laravel.com/docs/6.x/notifications',
                     'type' => 'article',
                 ],
                 [
                     'name' => 'Laravel Docs (Container)',
-                    'url' => 'https://laravel.com/docs/5.8/container',
+                    'url' => 'https://laravel.com/docs/6.x/container',
                     'type' => 'article',
                 ],
             ],

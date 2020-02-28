@@ -34,6 +34,16 @@ class ResolveLocale
         $locale = reset($segments);
 
         if (! Localization::isValid($locale)) {
+            // Allow Nova passthrough
+            if ($locale === 'nova' || $locale === 'nova-api' || $locale === 'nova-vendor') {
+                return 'nova';
+            }
+
+            // Allow debugbar
+            if ($locale === '_debugbar') {
+                return 'debugbar';
+            }
+
             throw new InvalidLocale("Invalid locale: {$locale}");
         }
 

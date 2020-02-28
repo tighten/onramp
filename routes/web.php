@@ -20,6 +20,8 @@ Route::group(['prefix' => '{locale}'], function () {
         Route::post('wizard', 'Auth\\WizardController@store')->name('wizard.store');
         Route::view('home', 'home')->name('home');
         Route::get('preferences', 'PreferenceController@index')->name('user.preferences.index');
+        Route::post('completions', 'CompletionsController@store')->name('user.completions.store');
+        Route::delete('completions', 'CompletionsController@destroy')->name('user.completions.destroy');
     });
 
     Route::patch('preferences', 'PreferenceController@update')->name('user.preferences.update');

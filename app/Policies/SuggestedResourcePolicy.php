@@ -58,7 +58,7 @@ class SuggestedResourcePolicy
      */
     public function update(User $user, SuggestedResource $suggestedResource)
     {
-        return $user->id === $suggestedResource->user_id;
+        return $user->id === $suggestedResource->user_id || $user->isAtLeastEditor();
     }
 
     /**

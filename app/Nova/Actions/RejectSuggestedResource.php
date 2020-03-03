@@ -2,12 +2,15 @@
 
 namespace App\Nova\Actions;
 
+use App\Mail\SuggestedResourceRejectionEmail;
+use App\User;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Mail;
 use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
+use Laravel\Nova\Fields\Textarea;
 
 class RejectSuggestedResource extends Action
 {
@@ -22,7 +25,16 @@ class RejectSuggestedResource extends Action
      */
     public function handle(ActionFields $fields, Collection $models)
     {
-        //
+        foreach($models as $model) {
+            $model->update([
+                'status' => 'rejected',
+                'rejected_reason' => $fields->reason_for_rejection,
+            ]);
+
+            $user = User::firstWhere('id', $model->user_id);
+
+            Mail::to($user->email)->queue(new SuggestedResourceRejectionEmail($model, $user));
+        }
     }
 
     /**
@@ -32,6 +44,9 @@ class RejectSuggestedResource extends Action
      */
     public function fields()
     {
-        return [];
+        return [
+            Textarea::make('Reason For Rejection')
+                ->rules('required'),
+        ];
     }
 }

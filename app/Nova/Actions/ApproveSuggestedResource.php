@@ -2,6 +2,7 @@
 
 namespace App\Nova\Actions;
 
+use App\Resource;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -22,16 +23,18 @@ class ApproveSuggestedResource extends Action
      */
     public function handle(ActionFields $fields, Collection $models)
     {
-        //
-    }
+        foreach($models as $model) {
+            $model->update([
+                'status' => 'approved',
+            ]);
 
-    /**
-     * Get the fields available on the action.
-     *
-     * @return array
-     */
-    public function fields()
-    {
-        return [];
+            Resource::firstOrCreate([
+                'name' => $model->name,
+                'url' => $model->url,
+                'type' => $model->type,
+                'module_id' => $model->module_id,
+                'language' => $model->language,
+            ]);
+        }
     }
 }

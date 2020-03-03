@@ -3,41 +3,36 @@
 namespace App\Nova;
 
 use App\Facades\Localization;
+use App\Nova\Actions\ApproveSuggestedResource;
+use App\Nova\Actions\RejectSuggestedResource;
 use App\Nova\Filters\SuggestedResourceStatus;
 use App\Nova\Filters\SuggestResourceOwner;
+use App\SuggestedResource as EloquentSuggestedResource;
 use Illuminate\Http\Request;
 use Inspheric\Fields\Url;
+use Laravel\Nova\Fields\Badge;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Http\Requests\NovaRequest;
 
 class SuggestedResource extends BaseResource
 {
-    /**
-     * The model the resource corresponds to.
-     *
-     * @var string
-     */
     public static $model = \App\SuggestedResource::class;
 
-    /**
-     * The single value that should be used to represent the resource when being displayed.
-     *
-     * @var string
-     */
     public static $title = 'name';
 
-    /**
-     * The columns that should be searched.
-     *
-     * @var array
-     */
     public static $search = [
         'id', 'name',
     ];
+
+    public function typeFields()
+    {
+        return collect(EloquentSuggestedResource::TYPES)->mapWithKeys(function ($value) {
+            return [$value => ucwords($value)];
+        })->toArray();
+    }
 
     /**
      * Get the fields displayed by the resource.
@@ -59,8 +54,19 @@ class SuggestedResource extends BaseResource
                 ->clickableOnIndex()
                 ->clickable(),
 
-            Text::make('Status')
+            Badge::make('Status')
+                ->map([
+                    'suggested' => 'info',
+                    'approved' => 'success',
+                    'rejected' => 'danger',
+                ])
                 ->sortable(),
+
+            Text::make('Rejected Reason')
+                ->showOnDetail(function() {
+                    return $this->rejected_reason === 'rejected';
+                })
+                ->onlyOnDetail(),
 
             Select::make('Language')
                 ->options(array_merge(['all' => 'All (contains multiple translations)'], Localization::all()))
@@ -69,6 +75,11 @@ class SuggestedResource extends BaseResource
 
             BelongsTo::make('Module')
                 ->hideFromIndex(),
+
+            Select::make('Type')
+                ->options($this->typeFields())
+                ->displayUsingLabels()
+                ->rules('required'),
 
             Textarea::make('Notes'),
         ];
@@ -118,6 +129,18 @@ class SuggestedResource extends BaseResource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            (new ApproveSuggestedResource)
+                ->canSee(function($request) {
+                    return $request->user()->isAtLeastEditor();
+                })
+                ->onlyOnDetail(),
+
+            (new RejectSuggestedResource)
+                ->canSee(function($request) {
+                    return $request->user()->isAtLeastEditor();
+                })
+                ->onlyOnDetail(),
+        ];
     }
 }

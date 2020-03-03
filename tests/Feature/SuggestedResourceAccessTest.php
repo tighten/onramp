@@ -83,12 +83,24 @@ class SuggestedResourceAccessTest extends TestCase
     }
 
     /** @test */
-    function admins_can_see_all_suggested_resources()
+    function admins_can_see_and_edit_all_suggested_resources()
     {
         $user = factory(User::class)->create(['role' => 'user']);
         $adminUser = factory(User::class)->create(['role' => 'admin']);
         $suggestedResource = factory(SuggestedResource::class)->create(['user_id' => $user->id]);
 
         $this->assertTrue($adminUser->can('view', $suggestedResource));
+        $this->assertTrue($adminUser->can('update', $suggestedResource));
+    }
+
+    /** @test */
+    function editors_can_see_and_edit_all_suggested_resources()
+    {
+        $user = factory(User::class)->create(['role' => 'user']);
+        $editorUser = factory(User::class)->create(['role' => 'editor']);
+        $suggestedResource = factory(SuggestedResource::class)->create(['user_id' => $user->id]);
+
+        $this->assertTrue($editorUser->can('view', $suggestedResource));
+        $this->assertTrue($editorUser->can('update', $suggestedResource));
     }
 }

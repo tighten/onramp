@@ -29,8 +29,14 @@ class PreferenceController extends Controller
             auth()->user()->save();
         }
 
+        session()->flash('toast', 'Your preferences were succesfully updated!');
+
         if ($request->wantsJson()) {
-            return response()->json(['status' => 'success']);
+            return response()->json([
+                'status' => 'success',
+                'url' => switch_locale_link($request->input('locale')),
+                // 'url' => str_replace('/' . locale() . '/', '/' . $request->input('locale') . '/', back()->getTargetUrl()),
+            ]);
         }
 
         if ($request->input('locale') !== locale()) {

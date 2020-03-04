@@ -25,13 +25,17 @@ import LanguageSwitcher from './components/LanguageSwitcher.vue';
 import ToggleWhenMobile from './components/ToggleWhenMobile.vue';
 import ResourceLanguagePreferenceSwitcher from './components/ResourceLanguagePreferenceSwitcher.vue';
 import CompletedCheckbox from './components/CompletedCheckbox.vue';
+import Toast from './components/Toast.vue';
 import Lang from 'lang.js';
+import Notifications from 'vue-notification';
 
 Vue.prototype.trans = new Lang({
     messages: window.jsonTranslations,
     locale: window.locale,
     fallback: window.fallback_locale
 });
+
+Vue.use(Notifications);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -44,7 +48,8 @@ const app = new Vue({
         'language-switcher': LanguageSwitcher,
         'toggle-when-mobile': ToggleWhenMobile,
         'resource-language-preference-switcher': ResourceLanguagePreferenceSwitcher,
-        'completed-checkbox': CompletedCheckbox
+        'completed-checkbox': CompletedCheckbox,
+        'toast': Toast,
     },
     el: '#app',
 });

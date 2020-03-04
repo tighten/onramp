@@ -104,6 +104,11 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') .  __('Onramp to L
                 </div>
             </footer>
             <!-- /footer -->
+
+            <!-- toast notifications -->
+            @if (session('toast'))
+                <toast message="{{ session('toast') }}"></toast>
+            @endif
         </div>
         @routes
         <script src="{{ mix('js/app.js') }}"></script>

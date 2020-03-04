@@ -25,6 +25,10 @@ class SuggestedResource extends Model
         self::ARTICLE_TYPE,
     ];
 
+    const SUGGESTED_STATUS = 'suggested';
+    const APPROVED_STATUS = 'approved';
+    const REJECTED_STATUS = 'rejected';
+
     protected $guarded = ['id'];
     protected $casts = [
         'user_id' => 'integer',
@@ -53,5 +57,10 @@ class SuggestedResource extends Model
     public function module()
     {
         return $this->belongsTo(Module::class);
+    }
+
+    public function isPendingReview()
+    {
+        return $this->status === self::SUGGESTED_STATUS;
     }
 }

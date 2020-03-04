@@ -2,6 +2,7 @@
 
 namespace App\Nova\Filters;
 
+use App\SuggestedResource;
 use Illuminate\Http\Request;
 use Laravel\Nova\Filters\Filter;
 
@@ -36,9 +37,9 @@ class SuggestedResourceStatus extends Filter
     public function options(Request $request)
     {
         return [
-            'Approved' => 'approved',
-            'Rejected' => 'rejected',
-            'Suggested' => 'suggested',
+            'Approved' => SuggestedResource::APPROVED_STATUS,
+            'Rejected' => SuggestedResource::REJECTED_STATUS,
+            'Suggested' => SuggestedResource::SUGGESTED_STATUS,
         ];
     }
 }

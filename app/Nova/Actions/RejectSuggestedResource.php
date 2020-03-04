@@ -3,6 +3,7 @@
 namespace App\Nova\Actions;
 
 use App\Mail\SuggestedResourceRejectionEmail;
+use App\SuggestedResource;
 use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\InteractsWithQueue;
@@ -27,7 +28,7 @@ class RejectSuggestedResource extends Action
     {
         foreach($models as $model) {
             $model->update([
-                'status' => 'rejected',
+                'status' => SuggestedResource::REJECTED_STATUS,
                 'rejected_reason' => $fields->reason_for_rejection,
             ]);
 

@@ -2,10 +2,13 @@
 
 namespace Tests\Feature;
 
+use App\Module;
+use App\Nova\Actions\ApproveSuggestedResource;
 use App\SuggestedResource;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Laravel\Nova\Fields\ActionFields;
 use Tests\TestCase;
 
 class SuggestedResourcesTest extends TestCase
@@ -53,6 +56,28 @@ class SuggestedResourcesTest extends TestCase
 
         $response->assertJsonMissing([
             'attribute' => 'rejected_reason',
+        ]);
+    }
+
+    /** @test */
+    function a_new_resource_is_created_after_a_suggested_resource_is_approved()
+    {
+        $module = factory(Module::class)->create();
+
+        $suggestedResource = factory(SuggestedResource::class)->create([
+            'user_id' => $this->faker->randomDigit,
+            'type' => 'article',
+            'module_id' => $module->id,
+        ]);
+
+        $this->assertDatabaseMissing('resources', [
+            'name' => $suggestedResource->name,
+        ]);
+
+        (new ApproveSuggestedResource)->handle(new ActionFields(collect([]), collect([])), collect([$suggestedResource]));
+
+        $this->assertDatabaseHas('resources', [
+            'name' => $suggestedResource->name,
         ]);
     }
 }

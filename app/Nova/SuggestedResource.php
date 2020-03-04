@@ -56,17 +56,17 @@ class SuggestedResource extends BaseResource
 
             Badge::make('Status')
                 ->map([
-                    'suggested' => 'info',
-                    'approved' => 'success',
-                    'rejected' => 'danger',
+                    EloquentSuggestedResource::SUGGESTED_STATUS => 'info',
+                    EloquentSuggestedResource::APPROVED_STATUS => 'success',
+                    EloquentSuggestedResource::REJECTED_STATUS => 'danger',
                 ])
                 ->sortable(),
 
             Text::make('Rejected Reason')
                 ->showOnDetail(function() {
-                    return $this->rejected_reason === 'rejected';
+                    return $this->status === EloquentSuggestedResource::REJECTED_STATUS;
                 })
-                ->onlyOnDetail(),
+                ->hideFromIndex(),
 
             Select::make('Language')
                 ->options(array_merge(['all' => 'All (contains multiple translations)'], Localization::all()))
@@ -132,12 +132,20 @@ class SuggestedResource extends BaseResource
         return [
             (new ApproveSuggestedResource)
                 ->canSee(function($request) {
+                    if($request->has('resourceId')) {
+                        return optional($request->findModelQuery()->first())->isPendingReview();
+                    }
+
                     return $request->user()->isAtLeastEditor();
                 })
                 ->onlyOnDetail(),
 
             (new RejectSuggestedResource)
                 ->canSee(function($request) {
+                    if($request->has('resourceId')) {
+                        return optional($request->findModelQuery()->first())->isPendingReview();
+                    }
+
                     return $request->user()->isAtLeastEditor();
                 })
                 ->onlyOnDetail(),

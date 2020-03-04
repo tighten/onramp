@@ -3,6 +3,7 @@
 namespace App\Nova\Actions;
 
 use App\Resource;
+use App\SuggestedResource;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -25,7 +26,7 @@ class ApproveSuggestedResource extends Action
     {
         foreach($models as $model) {
             $model->update([
-                'status' => 'approved',
+                'status' => SuggestedResource::APPROVED_STATUS,
             ]);
 
             Resource::firstOrCreate([

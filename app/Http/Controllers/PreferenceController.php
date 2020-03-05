@@ -29,12 +29,11 @@ class PreferenceController extends Controller
             auth()->user()->save();
         }
 
-        session()->flash('toast', 'Your preferences were succesfully updated!');
+        session()->flash('toast', 'Your preferences were succesfully updated');
 
         if ($request->wantsJson()) {
             return response()->json([
                 'status' => 'success',
-                'url' => str_replace('/' . locale() . '/', '/' . $request->input('locale') . '/', back()->getTargetUrl()),
             ]);
         }
 

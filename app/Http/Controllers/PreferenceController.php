@@ -34,8 +34,7 @@ class PreferenceController extends Controller
         if ($request->wantsJson()) {
             return response()->json([
                 'status' => 'success',
-                'url' => switch_locale_link($request->input('locale')),
-                // 'url' => str_replace('/' . locale() . '/', '/' . $request->input('locale') . '/', back()->getTargetUrl()),
+                'url' => str_replace('/' . locale() . '/', '/' . $request->input('locale') . '/', back()->getTargetUrl()),
             ]);
         }
 

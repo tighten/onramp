@@ -1947,7 +1947,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     language: {
@@ -1960,17 +1959,19 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      isOpen: false
+      isOpen: false,
+      url: window.location.href
     };
   },
   methods: {
     choose: function choose(value) {
+      var that = this;
       axios.patch(route('user.preferences.update', {
-        'locale': 'en'
+        'locale': this.trans.locale
       }), {
         'locale': value
-      }).then(function (res) {
-        window.location = res.data.url;
+      }).then(function () {
+        window.location = that.url.replace(that.trans.locale, value);
       })["catch"](function (error) {
         alert('Error!');
       });
@@ -2092,6 +2093,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     'message': {
@@ -2100,7 +2106,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.$notify({
-      'text': this.message
+      'text': this.message,
+      'width': '350'
     });
   }
 });
@@ -38251,13 +38258,12 @@ var render = function() {
           },
           _vm._l(_vm.otherLanguages, function(lang, slug) {
             return _c(
-              "a",
+              "button",
               {
                 key: slug,
                 staticClass:
-                  "block px-4 py-2 text-blue-700 hover:bg-blue-700 hover:text-white",
+                  "block w-full text-left px-4 py-2 text-blue-700 hover:bg-blue-700 hover:text-white",
                 staticStyle: { "text-decoration": "none" },
-                attrs: { href: "#" },
                 on: {
                   click: function($event) {
                     return _vm.choose(slug)
@@ -38382,8 +38388,28 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("notifications", {
-    staticClass: "z-50",
-    attrs: { position: "bottom right" }
+    attrs: { position: "bottom right" },
+    scopedSlots: _vm._u([
+      {
+        key: "body",
+        fn: function(props) {
+          return [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "bg-blue-500 text-white text-xs font-medium py-2 px-3 m-3 mt-0 rounded-sm"
+              },
+              [
+                _c("a", [_vm._v(_vm._s(props.item.title))]),
+                _vm._v(" "),
+                _c("div", { domProps: { innerHTML: _vm._s(props.item.text) } })
+              ]
+            )
+          ]
+        }
+      }
+    ])
   })
 }
 var staticRenderFns = []
@@ -52075,15 +52101,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*******************************************!*\
   !*** ./resources/js/components/Toast.vue ***!
   \*******************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Toast_vue_vue_type_template_id_3c00b968___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Toast.vue?vue&type=template&id=3c00b968& */ "./resources/js/components/Toast.vue?vue&type=template&id=3c00b968&");
 /* harmony import */ var _Toast_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Toast.vue?vue&type=script&lang=js& */ "./resources/js/components/Toast.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Toast_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Toast_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -52113,7 +52138,7 @@ component.options.__file = "resources/js/components/Toast.vue"
 /*!********************************************************************!*\
   !*** ./resources/js/components/Toast.vue?vue&type=script&lang=js& ***!
   \********************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

@@ -22,7 +22,7 @@
             <button v-for="(lang, slug) in otherLanguages"
                 :key="slug"
                 @click="choose(slug)"
-                class="block px-4 py-2 text-blue-700 hover:bg-blue-700 hover:text-white"
+                class="block w-full text-left px-4 py-2 text-blue-700 hover:bg-blue-700 hover:text-white"
                 style="text-decoration: none">{{ lang }}</button>
         </div>
     </div>
@@ -43,17 +43,20 @@
 
         data() {
             return {
-                isOpen: false
+                isOpen: false,
+                url: window.location.href,
             }
         },
 
         methods: {
             choose(value) {
+                let that = this;
+
                 axios.patch(route('user.preferences.update', { 'locale': this.trans.locale }), {
                     'locale': value,
                 })
-                .then(function (res) {
-                    window.location = res.data.url;
+                .then(function () {
+                    window.location = that.url.replace(that.trans.locale, value);
                 })
                 .catch(function (error) {
                     alert('Error!');
@@ -83,6 +86,6 @@
                     this.close();
                 }
             }
-        }
+        },
     }
 </script>

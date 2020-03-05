@@ -19,12 +19,11 @@
         </div>
         <div v-if="isOpen"
              class="absolute border border-blue-700 right-0 mt-2 w-32 bg-white rounded shadow-xl">
-            <a v-for="(lang, slug) in otherLanguages"
+            <button v-for="(lang, slug) in otherLanguages"
                 :key="slug"
                 @click="choose(slug)"
-                href="#"
                 class="block px-4 py-2 text-blue-700 hover:bg-blue-700 hover:text-white"
-                style="text-decoration: none">{{ lang }}</a>
+                style="text-decoration: none">{{ lang }}</button>
         </div>
     </div>
 </template>
@@ -50,7 +49,7 @@
 
         methods: {
             choose(value) {
-                axios.patch(route('user.preferences.update', {'locale': 'en'}), {
+                axios.patch(route('user.preferences.update', { 'locale': this.trans.locale }), {
                     'locale': value,
                 })
                 .then(function (res) {

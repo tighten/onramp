@@ -44,7 +44,7 @@
         data() {
             return {
                 isOpen: false,
-                url: window.location.href,
+                domLocation: window.location,
             }
         },
 
@@ -52,11 +52,14 @@
             choose(value) {
                 let that = this;
 
-                axios.patch(route('user.preferences.update', { 'locale': this.trans.locale }), {
+                axios.patch(route('user.preferences.update', { 'locale': 'en' }), {
                     'locale': value,
                 })
                 .then(function () {
-                    window.location = that.url.replace(that.trans.locale, value);
+                    let segments = that.domLocation.pathname.split('/');
+                    segments[1] = value;
+
+                    window.location = `${that.domLocation.origin}${segments.join('/')}`;
                 })
                 .catch(function (error) {
                     alert('Error!');

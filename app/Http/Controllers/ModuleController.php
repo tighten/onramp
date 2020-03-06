@@ -11,8 +11,8 @@ class ModuleController extends Controller
     {
         return view('modules.index', [
             'pageTitle' => 'Modules',
-            'standardModules' => Module::standard()->get(),
-            'bonusModules' => Module::bonus()->get(),
+            'standardModules' => auth()->check() && auth()->user()->track ? auth()->user()->track->modules()->standard()->get() : Module::standard()->get(),
+            'bonusModules' => auth()->check() && auth()->user()->track ? auth()->user()->track->modules()->bonus()->get() : Module::bonus()->get(),
             'completedModules' => auth()->check() ? auth()->user()->moduleCompletions()->pluck('completable_id') : collect([]),
         ]);
     }

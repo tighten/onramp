@@ -58,7 +58,7 @@
                     segments[1] = value;
                     window.location = `${this.domLocation.origin}${segments.join('/')}`;
                 })
-                .catch(function (error) {
+                .catch((error) => {
                     alert('Error!');
                 });
             },

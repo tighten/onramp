@@ -37,7 +37,7 @@ class SuggestedResourceRejectionEmail extends Mailable
             ->from(config('mail.from.address'))
             ->markdown('emails.rejected-resource')
             ->with([
-                'resource'  => $this->suggestedResource,
+                'resource' => $this->suggestedResource,
                 'user' => $this->user,
             ]);
     }

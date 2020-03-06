@@ -132,7 +132,7 @@ class SuggestedResource extends BaseResource
         return [
             (new ApproveSuggestedResource)
                 ->canSee(function($request) {
-                    if($request->has('resourceId')) {
+                    if ($request->has('resourceId')) {
                         return optional($request->findModelQuery()->first())->isPendingReview();
                     }
 
@@ -142,7 +142,7 @@ class SuggestedResource extends BaseResource
 
             (new RejectSuggestedResource)
                 ->canSee(function($request) {
-                    if($request->has('resourceId')) {
+                    if ($request->has('resourceId')) {
                         return optional($request->findModelQuery()->first())->isPendingReview();
                     }
 

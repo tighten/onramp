@@ -4712,8 +4712,7 @@
             "dist": {
                 "type": "path",
                 "url": "./nova-components/SuggestedResourcesShortcuts",
-                "reference": "68a7ca6264da0fe138569dacb5a2dca120025adb",
-                "shasum": null
+                "reference": "68a7ca6264da0fe138569dacb5a2dca120025adb"
             },
             "require": {
                 "php": ">=7.1.0"
@@ -4742,16 +4741,16 @@
         },
         {
             "name": "tightenco/tlint",
-            "version": "3.0.11",
+            "version": "3.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tightenco/tlint.git",
-                "reference": "76585b9025909e872b58443bce5ee90cb8687b47"
+                "reference": "065d43b3b9f847eeaab8656e05d6373df4e1f2d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tightenco/tlint/zipball/76585b9025909e872b58443bce5ee90cb8687b47",
-                "reference": "76585b9025909e872b58443bce5ee90cb8687b47",
+                "url": "https://api.github.com/repos/tightenco/tlint/zipball/065d43b3b9f847eeaab8656e05d6373df4e1f2d0",
+                "reference": "065d43b3b9f847eeaab8656e05d6373df4e1f2d0",
                 "shasum": ""
             },
             "require": {
@@ -4780,7 +4779,7 @@
                 "MIT"
             ],
             "description": "Tighten linter for Laravel conventions",
-            "time": "2020-02-06T14:42:21+00:00"
+            "time": "2020-02-24T21:14:50+00:00"
         },
         {
             "name": "tightenco/ziggy",

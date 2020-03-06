@@ -44,7 +44,7 @@ class SuggestedResource extends Model
             }
         });
 
-        static::created(function($suggestedResource) {
+        static::created(function ($suggestedResource) {
             Event::dispatch('new-suggested-resource', [$suggestedResource]);
         });
     }

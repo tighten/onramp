@@ -32,9 +32,7 @@ class PreferenceController extends Controller
         session()->flash('toast', 'Your preferences were succesfully updated');
 
         if ($request->wantsJson()) {
-            return response()->json([
-                'status' => 'success',
-            ]);
+            return response()->json(['status' => 'success']);
         }
 
         if ($request->input('locale') !== locale()) {

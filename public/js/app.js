@@ -1960,18 +1960,20 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       isOpen: false,
-      url: window.location.href
+      domLocation: window.location
     };
   },
   methods: {
     choose: function choose(value) {
       var that = this;
       axios.patch(route('user.preferences.update', {
-        'locale': this.trans.locale
+        'locale': 'en'
       }), {
         'locale': value
       }).then(function () {
-        window.location = that.url.replace(that.trans.locale, value);
+        var segments = that.domLocation.pathname.split('/');
+        segments[1] = value;
+        window.location = "".concat(that.domLocation.origin).concat(segments.join('/'));
       })["catch"](function (error) {
         alert('Error!');
       });

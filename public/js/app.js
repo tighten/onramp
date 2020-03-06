@@ -2108,8 +2108,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.$notify({
-      'text': this.message,
-      'width': '350'
+      'text': this.message
     });
   }
 });

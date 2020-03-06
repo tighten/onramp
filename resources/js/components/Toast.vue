@@ -20,7 +20,6 @@
         mounted() {
             this.$notify({
                 'text': this.message,
-                'width': '350',
             });
         }
     }

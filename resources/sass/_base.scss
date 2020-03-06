@@ -1,0 +1,20 @@
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+    @apply font-bold text-3xl leading-none max-w-2xl tracking-tighter;
+
+    @screen lg {
+        @apply text-6xl;
+    }
+}
+
+h2 {
+    @apply font-bold text-2xl leading-none;
+
+    @screen lg {
+        @apply text-5xl;
+    }
+}

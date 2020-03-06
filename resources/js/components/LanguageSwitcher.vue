@@ -50,16 +50,13 @@
 
         methods: {
             choose(value) {
-                let that = this;
-
                 axios.patch(route('user.preferences.update', { 'locale': 'en' }), {
                     'locale': value,
                 })
-                .then(function () {
-                    let segments = that.domLocation.pathname.split('/');
+                .then(() => {
+                    let segments = this.domLocation.pathname.split('/');
                     segments[1] = value;
-
-                    window.location = `${that.domLocation.origin}${segments.join('/')}`;
+                    window.location = `${this.domLocation.origin}${segments.join('/')}`;
                 })
                 .catch(function (error) {
                     alert('Error!');

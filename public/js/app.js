@@ -1965,15 +1965,17 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     choose: function choose(value) {
-      var that = this;
+      var _this = this;
+
       axios.patch(route('user.preferences.update', {
         'locale': 'en'
       }), {
         'locale': value
       }).then(function () {
-        var segments = that.domLocation.pathname.split('/');
+        var segments = _this.domLocation.pathname.split('/');
+
         segments[1] = value;
-        window.location = "".concat(that.domLocation.origin).concat(segments.join('/'));
+        window.location = "".concat(_this.domLocation.origin).concat(segments.join('/'));
       })["catch"](function (error) {
         alert('Error!');
       });

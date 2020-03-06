@@ -26,7 +26,7 @@ class RejectSuggestedResource extends Action
      */
     public function handle(ActionFields $fields, Collection $suggestedResources)
     {
-        foreach($suggestedResources as $model) {
+        foreach ($suggestedResources as $model) {
             $model->update([
                 'status' => SuggestedResource::REJECTED_STATUS,
                 'rejected_reason' => $fields->reason_for_rejection,

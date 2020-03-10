@@ -1953,7 +1953,7 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       required: true
     },
-    otherLanguages: {
+    languages: {
       type: Object
     }
   },
@@ -38259,7 +38259,7 @@ var render = function() {
             staticClass:
               "absolute border border-blue-700 right-0 mt-2 w-32 bg-white rounded shadow-xl"
           },
-          _vm._l(_vm.otherLanguages, function(lang, slug) {
+          _vm._l(_vm.languages, function(lang, slug) {
             return _c(
               "button",
               {

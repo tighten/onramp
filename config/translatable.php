@@ -1,5 +1,7 @@
 <?php
 
+use App\Localization\Locale;
+
 return [
 
     /*
@@ -7,7 +9,5 @@ return [
      */
     'fallback_locale' => 'en',
 
-    'locales' => (new App\Localization\Locale)->all(),
+    'locales' => (new Locale)->all(),
 ];
-
-

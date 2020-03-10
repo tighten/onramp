@@ -5,33 +5,30 @@ namespace App\Nova;
 use App\Facades\Localization;
 use App\Resource as EloquentResource;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Text;
 use Inspheric\Fields\Url;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\Text;
 
 class Resource extends BaseResource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var string
      */
     public static $model = \App\Resource::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
-     * @var string
      */
     public static $title = 'name';
 
     /**
      * The columns that should be searched.
      *
-     * @var array
      */
     public static $search = [
         'id', 'name'
@@ -77,7 +74,7 @@ class Resource extends BaseResource
 
             Boolean::make('Is Bonus'),
 
-            BelongsTo::make('Module')
+            BelongsTo::make('Module'),
         ];
     }
 

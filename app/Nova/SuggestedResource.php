@@ -63,7 +63,7 @@ class SuggestedResource extends BaseResource
                 ->sortable(),
 
             Text::make('Rejected Reason')
-                ->showOnDetail(function() {
+                ->showOnDetail(function () {
                     return $this->status === EloquentSuggestedResource::REJECTED_STATUS;
                 })
                 ->hideFromIndex(),
@@ -131,7 +131,7 @@ class SuggestedResource extends BaseResource
     {
         return [
             (new ApproveSuggestedResource)
-                ->canSee(function($request) {
+                ->canSee(function ($request) {
                     if ($request->has('resourceId')) {
                         return optional($request->findModelQuery()->first())->isPendingReview();
                     }
@@ -141,7 +141,7 @@ class SuggestedResource extends BaseResource
                 ->onlyOnDetail(),
 
             (new RejectSuggestedResource)
-                ->canSee(function($request) {
+                ->canSee(function ($request) {
                     if ($request->has('resourceId')) {
                         return optional($request->findModelQuery()->first())->isPendingReview();
                     }

@@ -2,10 +2,10 @@
 
 namespace Tightenco\SuggestedResourcesShortcuts;
 
-use Laravel\Nova\Nova;
-use Laravel\Nova\Events\ServingNova;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Nova\Events\ServingNova;
+use Laravel\Nova\Nova;
 
 class CardServiceProvider extends ServiceProvider
 {
@@ -21,8 +21,8 @@ class CardServiceProvider extends ServiceProvider
         });
 
         Nova::serving(function (ServingNova $event) {
-            Nova::script('suggested-resources-shortcuts', __DIR__.'/../dist/js/card.js');
-            Nova::style('suggested-resources-shortcuts', __DIR__.'/../dist/css/card.css');
+            Nova::script('suggested-resources-shortcuts', __DIR__ . '/../dist/js/card.js');
+            Nova::style('suggested-resources-shortcuts', __DIR__ . '/../dist/css/card.css');
         });
     }
 
@@ -39,7 +39,7 @@ class CardServiceProvider extends ServiceProvider
 
         Route::middleware(['nova'])
                 ->prefix('nova-vendor/suggested-resources-shortcuts')
-                ->group(__DIR__.'/../routes/api.php');
+                ->group(__DIR__ . '/../routes/api.php');
     }
 
     /**

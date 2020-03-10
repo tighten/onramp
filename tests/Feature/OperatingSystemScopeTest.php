@@ -8,7 +8,6 @@ use App\OperatingSystem;
 use App\Resource;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class OperatingSystemScopeTest extends TestCase

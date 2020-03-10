@@ -7,7 +7,6 @@ use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Http\Requests\NovaRequest;
 use MrMonat\Translatable\Translatable;
 
 class Module extends BaseResource
@@ -15,21 +14,18 @@ class Module extends BaseResource
     /**
      * The model the resource corresponds to.
      *
-     * @var string
      */
     public static $model = \App\Module::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
-     * @var string
      */
     public static $title = 'name';
 
     /**
      * The columns that should be searched.
      *
-     * @var array
      */
     public static $search = [
         'id', 'name', 'slug',
@@ -59,7 +55,7 @@ class Module extends BaseResource
             BelongsToMany::make('Tracks')
                 ->hideFromDetail($request->user()->role !== 'admin'),
 
-            HasMany::make('Resources')
+            HasMany::make('Resources'),
         ];
     }
 

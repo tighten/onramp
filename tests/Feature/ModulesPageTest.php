@@ -5,8 +5,8 @@ namespace Tests\Feature;
 use App\Module;
 use App\Track;
 use App\User;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class ModulesPageTest extends TestCase
 {
@@ -47,19 +47,19 @@ class ModulesPageTest extends TestCase
         $track = factory(Track::class)->create();
         $track->modules()->createMany(
             factory(Module::class, 3)->make([
-                'is_bonus' => 0
+                'is_bonus' => 0,
             ])->toArray()
         );
 
         $otherTrack = factory(Track::class)->create();
         $otherTrack->modules()->createMany(
             factory(Module::class, 2)->make([
-                'is_bonus' => 0
+                'is_bonus' => 0,
             ])->toArray()
         );
 
         $user = factory(User::class)->create([
-            'track_id' => 1
+            'track_id' => 1,
         ]);
 
         $this->actingAs($user);
@@ -85,7 +85,7 @@ class ModulesPageTest extends TestCase
             'is_bonus' => 1,
         ]);
 
-        $response = $this->get("/en/modules");
+        $response = $this->get('/en/modules');
 
         $response->assertViewHas('standardModules', function ($standardModules) {
             return $standardModules->count() == 1;
@@ -124,7 +124,7 @@ class ModulesPageTest extends TestCase
         });
 
         $response->assertViewHas('bonusModules', function ($bonusModules) use ($standardModule) {
-            return !$bonusModules->contains($standardModule);
+            return ! $bonusModules->contains($standardModule);
         });
     }
 }

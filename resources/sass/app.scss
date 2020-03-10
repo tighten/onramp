@@ -1,15 +1,14 @@
 @tailwind base;
-
 @tailwind components;
-
 @tailwind utilities;
 
 a {
     @apply text-blue-700 no-underline;
 }
-    a:hover {
-        @apply underline;
-    }
+
+a:hover {
+    @apply underline;
+}
 
 .temp-learn-list {
     @apply .list-disc;
@@ -39,6 +38,6 @@ a {
     @apply .block .border .border-gray-500 .mt-4 .px-3 .py-1 .rounded;
 }
 
-    .simple-form-button:hover {
-        @apply .border-gray-300 .bg-blue-500 .text-white;
-    }
+.simple-form-button:hover {
+    @apply .border-gray-300 .bg-blue-500 .text-white;
+}

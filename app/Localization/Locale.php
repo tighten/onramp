@@ -15,7 +15,7 @@ class Locale
         'da' => 'Dansk',
         'cs' => 'Čeština',
         'id' => 'Bahasa',
-        'fr' => 'French'
+        'fr' => 'French',
     ];
 
     public function all()

@@ -5,7 +5,6 @@ namespace Tests\Feature;
 use App\Resource;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class ResourceAccessTest extends TestCase
@@ -17,7 +16,7 @@ class ResourceAccessTest extends TestCase
     {
         $user = factory(User::class)->create(['role' => 'user']);
 
-        $this->assertFalse($user->can('update', new Resource()));
+        $this->assertFalse($user->can('update', new Resource));
     }
 
     /** @test */
@@ -25,7 +24,7 @@ class ResourceAccessTest extends TestCase
     {
         $user = factory(User::class)->create(['role' => 'editor']);
 
-        $this->assertTrue($user->can('update', new Resource()));
+        $this->assertTrue($user->can('update', new Resource));
     }
 
     /** @test */
@@ -33,6 +32,6 @@ class ResourceAccessTest extends TestCase
     {
         $user = factory(User::class)->create(['role' => 'admin']);
 
-        $this->assertTrue($user->can('update', new Resource()));
+        $this->assertTrue($user->can('update', new Resource));
     }
 }

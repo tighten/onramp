@@ -233,7 +233,7 @@ return [
         'Localization' => App\Facades\Localization::class,
         'Preferences' => App\Facades\Preferences::class,
 
-        'ExportLocalization' => 'KgBot\\LaravelLocalization\\Facades\\ExportLocalization'
+        'ExportLocalization' => 'KgBot\\LaravelLocalization\\Facades\\ExportLocalization',
     ],
 
 ];

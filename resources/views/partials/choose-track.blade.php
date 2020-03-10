@@ -1,4 +1,4 @@
-@if(auth()->check() && is_null(auth()->user()->track_id))
+@if (auth()->check() && is_null(auth()->user()->track_id))
 <div class="bg-orange-200 border-t-4 border-orange-600 rounded-b text-orange-700 p-5 md:pb-6 shadow-md" role="alert">
     <div class="flex container mx-auto max-w-4xl">
         <div class="pt-1 md:px-4">

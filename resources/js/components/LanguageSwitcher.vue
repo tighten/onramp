@@ -19,7 +19,11 @@
         </div>
         <div v-if="isOpen"
              class="absolute border border-blue-700 right-0 mt-2 w-32 bg-white rounded shadow-xl">
-            <slot></slot>
+            <button v-for="(lang, slug) in languages"
+                :key="slug"
+                @click="choose(slug)"
+                class="block w-full text-left px-4 py-2 text-blue-700 hover:bg-blue-700 hover:text-white"
+                style="text-decoration: none">{{ lang }}</button>
         </div>
     </div>
 </template>
@@ -30,16 +34,35 @@
             language: {
                 type: String,
                 required: true
-            }
+            },
+
+            languages: {
+                type: Object,
+            },
         },
 
         data() {
             return {
-                isOpen: false
+                isOpen: false,
+                domLocation: window.location,
             }
         },
 
         methods: {
+            choose(value) {
+                axios.patch(route('user.preferences.update', { 'locale': 'en' }), {
+                    'locale': value,
+                })
+                .then(() => {
+                    let segments = this.domLocation.pathname.split('/');
+                    segments[1] = value;
+                    window.location = `${this.domLocation.origin}${segments.join('/')}`;
+                })
+                .catch((error) => {
+                    alert('Error!');
+                });
+            },
+
             open() {
                 this.isOpen = true;
                 document.addEventListener('keydown', this.handleEscape);
@@ -63,6 +86,6 @@
                     this.close();
                 }
             }
-        }
+        },
     }
 </script>

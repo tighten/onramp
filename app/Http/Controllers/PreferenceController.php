@@ -29,6 +29,8 @@ class PreferenceController extends Controller
             auth()->user()->save();
         }
 
+        session()->flash('toast', 'Your preferences were successfully updated');
+
         if ($request->wantsJson()) {
             return response()->json(['status' => 'success']);
         }

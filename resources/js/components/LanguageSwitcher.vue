@@ -19,7 +19,7 @@
         </div>
         <div v-if="isOpen"
              class="absolute border border-blue-700 right-0 mt-2 w-32 bg-white rounded shadow-xl">
-            <button v-for="(lang, slug) in otherLanguages"
+            <button v-for="(lang, slug) in languages"
                 :key="slug"
                 @click="choose(slug)"
                 class="block w-full text-left px-4 py-2 text-blue-700 hover:bg-blue-700 hover:text-white"
@@ -36,7 +36,7 @@
                 required: true
             },
 
-            otherLanguages: {
+            languages: {
                 type: Object,
             },
         },

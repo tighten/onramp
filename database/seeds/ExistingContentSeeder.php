@@ -25,7 +25,7 @@ class ExistingContentSeeder extends Seeder
             $this->createResources($moduleArray, $module);
         });
 
-        collect(require('glossary.php'))->each(function ($term){
+        collect(require('glossary.php'))->each(function ($term) {
             Term::create($term);
         });
     }
@@ -41,7 +41,7 @@ class ExistingContentSeeder extends Seeder
 
     protected function createResources($moduleArray, $module)
     {
-		collect($moduleArray['resources'])->each(function ($resources, $language) use ($module) {
+        collect($moduleArray['resources'])->each(function ($resources, $language) use ($module) {
             foreach ($resources as $resource) {
                 $module->resources()->create([
                     'name' => $resource['name'],

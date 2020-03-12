@@ -635,9 +635,9 @@ return [
         ],
     ],
     [
-        'name' => ['en' => 'Basic session-backed internal APIs', 'es' => ''],
+        'name' => ['en' => 'Easy session-backed internal APIs', 'es' => ''],
         'description' => [
-            'en' => '',
+            'en' => 'Learn to build simple APIs with Laravel that will power your app\'s JavaScript with almost no code.',
             'es' => '',
         ],
         'skills' => [],
@@ -649,7 +649,7 @@ return [
     [
         'name' => ['en' => 'Deployments', 'es' => ''],
         'description' => [
-            'en' => 'Want to ship valuable features out faster? Add continuous integration and deployment techniques into your workflow.',
+            'en' => 'Learn how to use powerful tools like Laravel Forge to spin up your own servers and automatically deploy your code to it from GitHub.',
             'es' => '',
         ],
         'skills' => [],
@@ -661,7 +661,7 @@ return [
     [
         'name' => ['en' => 'Monitoring (e.g. Bugsnag)', 'es' => ''],
         'description' => [
-            'en' => 'Stay on top of your applications performance even during development to provide your application\'s users with a greater experience.',
+            'en' => 'Stay on top of your applications performance even during development to learn when the app broke for your users.',
             'es' => '',
         ],
         'skills' => [],
@@ -673,7 +673,7 @@ return [
     [
         'name' => ['en' => 'Basic Testing', 'es' => ''],
         'description' => [
-            'en' => 'Detect problems and areas of improvement in your code faster with test driven development.',
+            'en' => 'Write code that asserts its own behavior to help you start and stay confident it does what it should.',
             'es' => '',
         ],
         'skills' => [],
@@ -692,7 +692,7 @@ return [
         'name' => ['en' => 'Basic Dev-Ops', 'es' => ''],
         'bonus' => true,
         'description' => [
-            'en' => 'Seamlessly move your applications from development and into production.',
+            'en' => 'Manage your servers and the rest of your deployment infrastructure yourself.',
             'es' => '',
         ],
         'skills' => [],

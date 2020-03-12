@@ -104,7 +104,10 @@ return [
     ],
     [
         'name' => ['en' => 'Basic Terminal & Git', 'es' => ''],
-        'description' => null,
+        'description' => [
+            'en' => 'Master navigating the command line and code versioning concepts to increase your productivity as a developer.',
+            'es' => '',
+        ],
         'skills' => [
             ['es' => '', 'en' => 'Navigate the terminal'],
             ['es' => '', 'en' => 'Use Git for basic tasks'],
@@ -168,7 +171,10 @@ return [
     ],
     [
         'name' => ['en' => 'Local PHP Environment', 'es' => ''],
-        'description' => null,
+        'description' => [
+            'en' => 'Prepare your local development environment before you install and configure your first Laravel application.',
+            'es' => '',
+        ],
         'skills' => [
             ['es' => '', 'en' => 'Set up a Laravel dev environment'],
             ['es' => '', 'en' => 'Install Composer'],
@@ -230,7 +236,10 @@ return [
     ],
     [
         'name' => ['en' => 'Beginning PHP', 'es' => ''],
-        'description' => null,
+        'description' => [
+            'en' => 'Start building dynamic, interactive web applications by learning one of the most widely used languages on the web.',
+            'es' => '',
+        ],
         'skills' => [
             ['es' => 'Variables', 'en' => 'Work with variables'],
             ['es' => 'Arreglos', 'en' => 'Work with arrays'],
@@ -336,7 +345,10 @@ return [
     ],
     [
         'name' => ['en' => 'Object-Oriented Programming', 'es' => ''],
-        'description' => null,
+        'description' => [
+            'en' => 'Gain foundational knowledge of writing a clean, modular computer program by learning key concepts including Inheritance, Polymorphism, Abstraction and Encapsulation.',
+            'es' => '',
+        ],
         'skills' => [],
         'resources' => [
             'es' => [],
@@ -351,7 +363,10 @@ return [
     ],
     [
         'name' => ['en' => 'Laravel Basics', 'es' => ''],
-        'description' => null,
+        'description' => [
+            'en' => 'A great starting point for developers that are new to the Laravel framework and its features.',
+            'es' => '',
+        ],
         // These aren't quite skills 😬
         'skills' => [
             ['es' => 'Creando y ejecutando un nuevo proyecto de Laravel', 'en' => 'Creating and serving a new Laravel project'],
@@ -564,7 +579,10 @@ return [
     ],
     [
         'name' => ['en' => 'Basic JavaScript', 'es' => ''],
-        'description' => null,
+        'description' => [
+            'en' => 'Use this to turn your basic website into a dynamic web experience and start thinking like a programmer.',
+            'es' => '',
+        ],
         'skills' => [],
         'resources' => [
             'es' => [
@@ -600,7 +618,10 @@ return [
     ],
     [
         'name' => ['en' => 'Laravel Mix', 'es' => ''],
-        'description' => null,
+        'description' => [
+            'en' => 'Ease into module-bundler configuration with a Webpack wrapper that\'s completely optimized for use with Laravel.',
+            'es' => '',
+        ],
         'skills' => [],
         'resources' => [
             'es' => [],
@@ -614,8 +635,11 @@ return [
         ],
     ],
     [
-        'name' => ['en' => 'Basic session-backed internal APIs', 'es' => ''],
-        'description' => null,
+        'name' => ['en' => 'Easy session-backed internal APIs', 'es' => ''],
+        'description' => [
+            'en' => 'Learn to build simple APIs with Laravel that will power your app\'s JavaScript with almost no code.',
+            'es' => '',
+        ],
         'skills' => [],
         'resources' => [
             'es' => [],
@@ -624,7 +648,10 @@ return [
     ],
     [
         'name' => ['en' => 'Deployments', 'es' => ''],
-        'description' => null,
+        'description' => [
+            'en' => 'Learn how to use powerful tools like Laravel Forge to spin up your own servers and automatically deploy your code to it from GitHub.',
+            'es' => '',
+        ],
         'skills' => [],
         'resources' => [
             'es' => [],
@@ -633,7 +660,10 @@ return [
     ],
     [
         'name' => ['en' => 'Monitoring (e.g. Bugsnag)', 'es' => ''],
-        'description' => null,
+        'description' => [
+            'en' => 'Stay on top of your applications performance even during development to learn when the app broke for your users.',
+            'es' => '',
+        ],
         'skills' => [],
         'resources' => [
             'es' => [],
@@ -642,7 +672,10 @@ return [
     ],
     [
         'name' => ['en' => 'Basic Testing', 'es' => ''],
-        'description' => null,
+        'description' => [
+            'en' => 'Write code that asserts its own behavior to help you start and stay confident it does what it should.',
+            'es' => '',
+        ],
         'skills' => [],
         'resources' => [
             'es' => [],
@@ -658,7 +691,10 @@ return [
     [
         'name' => ['en' => 'Basic Dev-Ops', 'es' => ''],
         'bonus' => true,
-        'description' => null,
+        'description' => [
+            'en' => 'Manage your servers and the rest of your deployment infrastructure yourself.',
+            'es' => '',
+        ],
         'skills' => [],
         'resources' => [
             'es' => [],

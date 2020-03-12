@@ -51,6 +51,9 @@ class Module extends BaseResource
                 ->sortable()
                 ->rules('required', 'max:255'),
 
+            Translatable::make('Description')
+                ->hideFromIndex(),
+
             // @todo Replace this with correct permissions after chatting with David
             BelongsToMany::make('Tracks')
                 ->hideFromDetail($request->user()->role !== 'admin'),

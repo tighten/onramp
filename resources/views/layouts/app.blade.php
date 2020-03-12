@@ -96,7 +96,9 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') .  __('Onramp to L
                     class="container mx-auto max-w-4xl py-6 flex flex-wrap md:flex-no-wrap justify-between items-end text-sm">
                     <p>{{ __('From the lovely folks at') }} <a href="https://tighten.co/">Tighten.</a></p>
                     <div class="text-center md:text-right text-xs">
-                        <a href="https://github.com/tightenco/onramp">{{ __('Source & Roadmap') }}</a>
+                        <a href="{{ route_wlocale('use-of-data') }}">{{ __('Use of Data') }}</a>
+                        <a class="ml-4"
+                            href="https://github.com/tightenco/onramp">{{ __('Source & Roadmap') }}</a>
                         {{--
                         <a href="#" class="text-black ml-4">Terms &amp; Conditions</a>
                         <a href="#" class="text-black ml-4">Contact Us</a>

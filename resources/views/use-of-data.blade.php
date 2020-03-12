@@ -15,7 +15,7 @@
             <h2 class="mb-2 mt-8 text-black text-xl md:text-2xl">Registration</h2>
 
             <p class="text-gray-700 leading-normal mb-4">
-                We collect your first name, last name, email address, and password when you register for an account on Onramp. The email address you provide will be used as your login. We also collect content and information you provide when suggesting a resource to add to Onramp. In this case, your email address may be used to notify you in cases where your suggested resources are declined.
+                We collect your first name, last name, email address, and password when you register for an account on Onramp. The email address you provide will be used as your login. We also collect content and information you provide when suggesting a resource to add to Onramp. In this case, your email address may be used to notify you in cases where your suggested resources are declined. We store any preferences you set (e.g. preferred language, operating system) and whether you mark any content as "completed".
             </p>
 
             <p class="text-gray-700 leading-normal mb-4">Registering for an account is not a requirement for using the site unless you would like to track your progress as you complete modules, resources, and skills.</p>

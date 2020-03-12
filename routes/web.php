@@ -6,6 +6,7 @@ Route::group(['prefix' => '{locale}'], function () {
 
     Route::view('/', 'welcome')->name('welcome');
 
+    Route::view('use-of-data', 'use-of-data')->name('use-of-data');
     Route::view('chat', 'chat', ['pageTitle' => 'Chat Guidelines'])->name('chat');
     Route::view('dev', 'dev')->name('dev');
     Route::get('glossary', 'GlossaryController@index')->name('glossary');

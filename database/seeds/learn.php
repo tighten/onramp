@@ -716,13 +716,7 @@ return [
         'skills' => [],
         'resources' => [
             'es' => [],
-            'en' => [
-                [
-                    'name' => 'Start Testing Laravel',
-                    'url' => 'https://jasonmccreary.me/articles/start-testing-laravel/',
-                    'type' => 'article',
-                ],
-            ],
+            'en' => [],
         ],
     ],
     [
@@ -734,13 +728,7 @@ return [
         'skills' => [],
         'resources' => [
             'es' => [],
-            'en' => [
-                [
-                    'name' => 'Start Testing Laravel',
-                    'url' => 'https://jasonmccreary.me/articles/start-testing-laravel/',
-                    'type' => 'article',
-                ],
-            ],
+            'en' => [],
         ],
     ],
     [

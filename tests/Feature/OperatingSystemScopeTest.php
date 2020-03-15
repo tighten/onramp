@@ -21,7 +21,7 @@ class OperatingSystemScopeTest extends TestCase
             'type' => Resource::VIDEO_TYPE,
             'is_free' => true,
             'is_bonus' => false,
-            'language' => 'en'
+            'language' => 'en',
         ];
         $windowsResource = factory(Resource::class)->create(array_merge(['os' => OperatingSystem::WINDOWS], $commonAttributes));
         $macResource = factory(Resource::class)->create(array_merge(['os' => OperatingSystem::MACOS], $commonAttributes));

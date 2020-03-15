@@ -17,12 +17,15 @@ class OperatingSystemScopeTest extends TestCase
     /** @test */
     function users_preferring_windows_only_see_windows_and_ANY_resources()
     {
-        $this->markTestIncomplete('Functionality works but test fails. WTF.');
-
-
-        $windowsResource = factory(Resource::class)->create(['os' => OperatingSystem::WINDOWS]);
-        $macResource = factory(Resource::class)->create(['os' => OperatingSystem::MACOS]);
-        $anyResource = factory(Resource::class)->create(['os' => OperatingSystem::ANY]);
+        $commonAttributes = [
+            'type' => Resource::VIDEO_TYPE,
+            'is_free' => true,
+            'is_bonus' => false,
+            'language' => 'en',
+        ];
+        $windowsResource = factory(Resource::class)->create(array_merge(['os' => OperatingSystem::WINDOWS], $commonAttributes));
+        $macResource = factory(Resource::class)->create(array_merge(['os' => OperatingSystem::MACOS], $commonAttributes));
+        $anyResource = factory(Resource::class)->create(array_merge(['os' => OperatingSystem::ANY], $commonAttributes));
 
         $module = factory(Module::class)->create();
         $module->resources()->saveMany([$windowsResource, $macResource, $anyResource]);
@@ -33,6 +36,6 @@ class OperatingSystemScopeTest extends TestCase
         $response = $this->get('/en/modules/' . $module->slug);
         $response->assertSee($windowsResource->name);
         $response->assertSee($anyResource->name);
-        $response->assertNotSee($macResource->name);
+        $response->assertDontSee($macResource->name);
     }
 }

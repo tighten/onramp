@@ -32,7 +32,7 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') .  __('Onramp to L
 
         <title>{{ $fullPageTitle }}</title>
     </head>
-    <body class="font-normal font-work-sans text-grey-darkest lg:text-xl">
+    <body class=" min-w-xs font-normal font-work-sans text-grey-900 lg:text-xl">
         <!-- header -->
         <div id="app">
             {{-- <div class="text-center px-6 py-2 bg-blue-200 border-blue-900 border-b">
@@ -49,7 +49,7 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') .  __('Onramp to L
                     @include('partials.language-switcher')
                 </div>
             </header> --}}
-            <header class="w-full bg-white border-indigo-darker border-t-4 p-5">
+            <header class="w-full bg-white border-blue-violet border-t-4 p-5">
                 <p>Onramp</p>
             </header>
             <!-- /header -->
@@ -96,22 +96,11 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') .  __('Onramp to L
             <!-- /body -->
 
             <!-- footer -->
-<<<<<<< HEAD
-            <footer class="w-full bg-white px-6 border-t">
-                <div
-                    class="container mx-auto max-w-4xl py-6 flex flex-wrap md:flex-no-wrap justify-between items-end text-sm">
-                    <p>{{ __('From the lovely folks at') }} <a href="https://tighten.co/">Tighten.</a></p>
-                    <div class="text-center md:text-right text-xs">
-                        <a href="{{ route_wlocale('use-of-data') }}">{{ __('Use of Data') }}</a>
-                        <a class="ml-4"
-                            href="https://github.com/tightenco/onramp">{{ __('Source & Roadmap') }}</a>
-=======
-            <footer class="w-full bg-grey-darker text-white py-10">
+            <footer class="w-full bg-oxford-blue text-white py-10">
                 <div class="container mx-auto px-5 lg:px-12 md:text-xl">
                     <p>{{ __('From the lovely folks at') }} <a class="font-semibold" href="https://tighten.co/">Tighten.</a></p>
                     {{-- <div class="text-center md:text-right text-xs">
                         <a href="https://github.com/tightenco/onramp">{{ __('Source & Roadmap') }}</a>
->>>>>>> welcome page and footer
                         {{--
                         <a href="#" class="text-black ml-4">Terms &amp; Conditions</a>
                         <a href="#" class="text-black ml-4">Contact Us</a>
@@ -127,6 +116,7 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') .  __('Onramp to L
             @endif
         </div>
         @routes
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.js" defer></script>
         <script src="{{ mix('js/app.js') }}"></script>
     </body>
 </html>

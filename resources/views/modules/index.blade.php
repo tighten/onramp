@@ -2,18 +2,29 @@
 
 @section('content')
 <div class="w-full bg-white">
-    <div class="bg-indigo-100 pt-16 pb-16">
-        <div class="container mx-auto px-5 lg:px-12">
-            <h1>{{ __('Modules') }}</h1>
-            <p class="leading-normal mt-4">
+    <div class="bg-indigo-100 overflow-hidden py-16 lg:py-24">
+        <div class="container mx-auto px-5 relative lg:px-12">
+            <h1 class="max-w-lg">{{ __('Modules') }}</h1>
+
+            <p class="leading-normal mt-4 max-w-md text-comet lg:mt-5">
                 {{ __('The tech concepts you should know in order to get a job as a Laravel developer.') }}
             </p>
+
+            <picture>
+                <source media="(min-width: 1024px)"
+                    srcset="/images/shapes/double-curve-dark-large.svg">
+
+                <img
+                    class="absolute h-670-px -mr-32 opacity-10 pointer-events-none right-0 top-1/2 transform -translate-y-1/2 lg:h-1340-px lg:-mr-48 lg:opacity-100"
+                    src="/images/shapes/single-curve-dark-small.svg"
+                    alt="Onramp">
+            </picture>
         </div>
     </div>
 
     @include('partials.you-should-log-in')
 
-    <div class="container mx-auto pt-12 pb-48">
+    <div class="container mx-auto pt-12 pb-48 lg:pt-20">
         <div class="w-full"
             x-data="{ tab: 'beginner' }"
             x-on:load.window="tab = window.innerWidth >= 1024 ? 'all' : 'beginner'"
@@ -32,36 +43,39 @@
                 </div>
             </div>
 
-            <div class="px-2" x-show="tab === 'beginner' || tab === 'all'">
+            <div class="px-2 lg:px-10" x-show="tab === 'beginner' || tab === 'all'">
                 <div class="flex flex-wrap w-full">
-                    <p class="hidden mb-10 px-3 w-full font-semibold leading-tight tracking-tight text-4xl text-gray-900 lg:block">Beginner</p>
+                    <h2 class="hidden mb-10 px-3 w-full font-semibold leading-tight tracking-tight text-4xl text-gray-900 lg:block">Beginner</h2>
 
                     @forelse ($standardModules as $module)
-                        <div class="flex-initial pb-5 px-3 w-full sm:max-w-xs sm:w-1/2 xl:w-1/4">
-                            <a class="flex flex-col h-full shadow-md hover:no-underline {{ $loop->even ? 'bg-teal-600' : 'bg-teal-400' }}"
+                        <div class="flex-initial pb-5 px-3 w-full sm:max-w-xs sm:w-1/2 lg:w-1/3 xl:w-1/4">
+                            <a class="flex flex-col h-full shadow-md duration-300 transform transition-transform hover:no-underline hover:scale-95 {{ $loop->even ? 'bg-teal-600' : 'bg-teal-400' }}"
                                 href="{{ route_wlocale('modules.show', $module) }}">
-                                <span class="pb-8/12 block xl:pb-3/5"></span>
+                                <span class="pb-8/12 block relative xl:pb-3/5">
+                                    <img class="absolute bottom-0 left-1/2 transform -translate-x-1/2 will-change-transform w-3/4"
+                                        src="/images/temp/img_basicwebsite.svg" alt="Image for the {{ $module->name }} module.">
+                                </span>
                                 <span class="block flex-1 p-5 pb-8 bg-white xl:px-8 xl:pb-10">
-                                    <p class="font-semibold tracking-tight text-east-bay">{{ $module->name }}</p>
+                                    <h4 class="font-semibold tracking-tight text-east-bay">{{ $module->name }}</h4>
                                 </span>
                             </a>
                         </div>
                     @empty
-                        <p class="px-3 text-gray-500 italic">There are currently no modules here. Check back soon.</p>
+                        <p class="px-3 text-gray-700 italic">There are currently no modules here. Check back soon.</p>
                     @endforelse
                 </div>
 
                 @if ($bonusModules->isNotEmpty())
                     <div class="flex flex-wrap w-full mt-8">
-                        <p class="hidden mb-6 px-3 w-full font-semibold leading-tight tracking-tight text-2xl text-east-bay lg:block">Bonus</p>
+                        <h3 class="mb-6 px-3 w-full font-semibold leading-tight tracking-tight text-xl text-east-bay lg:block lg:text-2xl">Bonus</h3>
 
                         @foreach ($bonusModules as $module)
-                            <div class="flex-initial pb-5 px-3 w-full sm:max-w-xs sm:w-1/2 xl:w-1/4"><!-- w-80 sm:w-auto sm:max-w-xs-->
-                                <a class="flex flex-col h-full shadow-md hover:no-underline {{ $loop->even ? 'bg-teal-600' : 'bg-teal-400' }}"
+                            <div class="flex-initial pb-5 px-3 w-full sm:max-w-xs sm:w-1/2 lg:w-1/3 xl:w-1/4">
+                                <a class="flex flex-col h-full shadow-md duration-300 transform transition-transform hover:no-underline hover:scale-95 {{ $loop->even ? 'bg-teal-600' : 'bg-teal-400' }}"
                                     href="{{ route_wlocale('modules.show', $module) }}">
                                     <span class="pb-8/12 block xl:pb-3/5"></span>
                                     <span class="block flex-1 p-5 pb-8 bg-white xl:px-8 xl:pb-10">
-                                        <p class="font-semibold tracking-tight text-east-bay">{{ $module->name }}</p>
+                                        <h4 class="font-semibold tracking-tight text-east-bay">{{ $module->name }}</h4>
                                     </span>
                                 </a>
                             </div>
@@ -70,16 +84,16 @@
                 @endif
             </div>
 
-            <div class="px-2 lg:mt-32"
+            <div class="px-2 lg:px-10 lg:mt-32"
                 x-show="tab === 'intermediate' || tab === 'all'">
                 <div class="flex flex-wrap w-full">
-                    <p class="hidden mb-10 px-3 w-full font-semibold leading-tight tracking-tight text-4xl text-gray-900 lg:block">Intermediate</p>
+                    <h2 class="hidden mb-10 px-3 w-full font-semibold leading-tight tracking-tight text-4xl text-gray-900 lg:block">Intermediate</h2>
 
-                    <p class="px-3 text-gray-500 italic">There are currently no modules here. Check back soon.</p>
+                    <p class="px-3 text-gray-700 italic">There are currently no modules here. Check back soon.</p>
 
                     {{-- @forelse ($intermediateModules as $module)
-                        <div class="flex-initial pb-5 px-3 w-full sm:max-w-xs sm:w-1/2 xl:w-1/4"><!-- w-80 sm:w-auto sm:max-w-xs-->
-                            <a class="flex flex-col h-full shadow-md hover:no-underline {{ $loop->even ? 'bg-teal-600' : 'bg-teal-400' }}"
+                        <div class="flex-initial pb-5 px-3 w-full sm:max-w-xs sm:w-1/2 lg:w-1/3 xl:w-1/4">
+                            <a class="flex flex-col h-full shadow-md duration-300 transform transition-transform hover:no-underline hover:scale-95 {{ $loop->even ? 'bg-teal-600' : 'bg-teal-400' }}"
                                 href="{{ route_wlocale('modules.show', $module) }}">
                                 <span class="pb-8/12 block xl:pb-3/5"></span>
                                 <span class="block flex-1 p-5 pb-8 bg-white xl:px-8 xl:pb-10">
@@ -88,21 +102,21 @@
                             </a>
                         </div>
                     @empty
-                        <p class="px-3 text-gray-500 italic">There are currently no modules here. Check back soon.</p>
+                        <p class="px-3 text-gray-700 italic">There are currently no modules here. Check back soon.</p>
                     @endforelse --}}
                 </div>
             </div>
 
-            <div class="px-2 lg:mt-32"
+            <div class="px-2 lg:px-10 lg:mt-32"
                 x-show="tab === 'advanced' || tab === 'all'">
                 <div class="flex flex-wrap w-full">
-                    <p class="hidden mb-10 px-3 w-full font-semibold leading-tight tracking-tight text-4xl text-gray-900 lg:block">Advanced</p>
+                    <h2 class="hidden mb-10 px-3 w-full font-semibold leading-tight tracking-tight text-4xl text-gray-900 lg:block">Advanced</h2>
 
-                    <p class="px-3 text-gray-500 italic">There are currently no modules here. Check back soon.</p>
+                    <p class="px-3 text-gray-700 italic">There are currently no modules here. Check back soon.</p>
 
                     {{-- @forelse ($advancedModules as $module)
-                        <div class="flex-initial pb-5 px-3 w-full sm:max-w-xs sm:w-1/2 xl:w-1/4"><!-- w-80 sm:w-auto sm:max-w-xs-->
-                            <a class="flex flex-col h-full shadow-md hover:no-underline {{ $loop->even ? 'bg-teal-600' : 'bg-teal-400' }}"
+                        <div class="flex-initial pb-5 px-3 w-full sm:max-w-xs sm:w-1/2 lg:w-1/3 xl:w-1/4">
+                            <a class="flex flex-col h-full shadow-md duration-300 transform transition-transform hover:no-underline hover:scale-95 {{ $loop->even ? 'bg-teal-600' : 'bg-teal-400' }}"
                                 href="{{ route_wlocale('modules.show', $module) }}">
                                 <span class="pb-8/12 block xl:pb-3/5"></span>
                                 <span class="block flex-1 p-5 pb-8 bg-white xl:px-8 xl:pb-10">
@@ -111,38 +125,10 @@
                             </a>
                         </div>
                     @empty
-                        <p class="px-3 text-gray-500 italic">There are currently no modules here. Check back soon.</p>
+                        <p class="px-3 text-gray-700 italic">There are currently no modules here. Check back soon.</p>
                     @endforelse --}}
                 </div>
             </div>
-
-            {{-- <p class="font-semibold leading-tight text-xl mb-10">All modules</p>
-
-            <div class="flex flex-wrap w-full px-2">
-                @foreach ($standardModules as $module)
-                    <div class="px-2 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4">
-                        <a class="mb-5 bg-white shadow-md block" href="{{ route_wlocale('modules.show', $module) }}">
-                            <span class="bg-teal-600 pb-8/12 block"></span>
-                            <span class="p-5 pb-6 block">
-                                <p class="font-semibold">{{ $module->name }}</p>
-                            </span>
-                        </a>
-                    </div>
-                @endforeach
-            </div>
-
-            @if ($bonusModules->isNotEmpty())
-                <p class="font-semibold leading-tight text-xl mb-10">Bonus modules</p>
-
-                @foreach ($bonusModules as $module)
-                    <a class="mb-5 bg-white shadow-md block" href="{{ route_wlocale('modules.show', $module) }}">
-                        <span class="bg-teal-600 pb-8/12 block"></span>
-                        <span class="p-5 pb-6 block">
-                            <p class="font-semibold">{{ $module->name }}</p>
-                        </span>
-                    </a>
-                @endforeach
-            @endif --}}
 
             {{-- <p class="mb-2 font-bold text-lg">Recommended modules</p>
 

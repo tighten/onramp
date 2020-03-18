@@ -2,12 +2,13 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                'oxford-blue': '#2e3748',
                 'blue-violet': '#4c50bf',
-                'havelock-blue': '#5967d8',
                 'cornflower-blue': '#657eea',
                 'east-bay': '#4a5569',
+                'havelock-blue': '#5967d8',
+                'oxford-blue': '#2e3748',
 
+                'comet': '#535f76',
                 'regent-grey': '#7b8ba2',
 
                 // 'grey-darkest': '#1a202c', gray-900
@@ -32,9 +33,23 @@ module.exports = {
                 '6xl': '3.5rem',
             },
 
+            inset: {
+                '1/2': '50%',
+            },
+
             minWidth: {
                 'xs': '20rem',
             },
+
+            opacity: {
+                '10': '0.10',
+                '20': '0.20',
+                '30': '0.30',
+            },
+
+            scale: {
+                '-100': '-1',
+              },
 
             spacing: {
                 '80': '20rem',

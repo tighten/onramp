@@ -26,6 +26,7 @@ import ToggleWhenMobile from './components/ToggleWhenMobile.vue';
 import ResourceLanguagePreferenceSwitcher from './components/ResourceLanguagePreferenceSwitcher.vue';
 import CompletedCheckbox from './components/CompletedCheckbox.vue';
 import Toast from './components/Toast.vue';
+import ModalMobileMenu from './components/ModalMobileMenu.vue';
 import Lang from 'lang.js';
 import Notifications from 'vue-notification';
 
@@ -44,12 +45,42 @@ Vue.use(Notifications);
  */
 
 const app = new Vue({
+    el: '#app',
+
     components: {
         'language-switcher': LanguageSwitcher,
         'toggle-when-mobile': ToggleWhenMobile,
         'resource-language-preference-switcher': ResourceLanguagePreferenceSwitcher,
         'completed-checkbox': CompletedCheckbox,
         'toast': Toast,
+        'modal-mobile-menu': ModalMobileMenu,
     },
-    el: '#app',
+
+    data: {
+        modals: {
+            mobileMenu: false,
+        },
+    },
+
+    methods: {
+        openModal(modalName) {
+            this.modals[modalName] = true;
+
+            document.documentElement.style.overflow = 'hidden';
+        },
+
+        closeModal() {
+            for (var modal in this.modals) {
+                this.modals[modal] = false;
+            }
+
+            document.documentElement.style.overflow = 'auto';
+        }
+    },
+
+    created() {
+        this.$on('closeModal', () => {
+            this.closeModal();
+        });
+    },
 });

@@ -2,23 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './base';
+@import './defaults/index';
+@import './mixins/index';
+@import './utilities';
 @import './temp';
-
-.will-change-transform {
-    will-change: transform;
-}
-
-@mixin exact-size {
-    @for $i from 10 through ceil(5000 / 20) {
-        $value: $i * 10;
-
-        .h-#{$value}-px {
-            height: #{$value}px;
-        }
-    }
-}
-
-@responsive {
-    @include exact-size();
-}

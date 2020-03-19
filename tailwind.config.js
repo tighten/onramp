@@ -20,6 +20,10 @@ module.exports = {
                 // 'pink-dark': '#702459', pink-900
             },
 
+            flex: {
+                'even': '1 1 100%',
+            },
+
             fontFamily: {
                 'work-sans': ['Work\\ Sans', 'sans-serif'],
             },
@@ -37,6 +41,17 @@ module.exports = {
                 '1/2': '50%',
             },
 
+            lineHeight: {
+                '0': '0',
+                'inherit': 'inherit',
+            },
+
+            maxHeight: {
+                '0': '0',
+                '1000': '1000px',
+                'none': 'none',
+            },
+
             minWidth: {
                 'xs': '20rem',
             },
@@ -49,7 +64,16 @@ module.exports = {
 
             scale: {
                 '-100': '-1',
-              },
+            },
+
+            // screens: {
+            //     'xs': '320px',
+            //     'sm': '640px',
+            //     'md': '768px',
+            //     'lg': '992px',
+            //     'xl': '1200px',
+            //     'xxl': '1440px',
+            // },
 
             spacing: {
                 '80': '20rem',
@@ -80,6 +104,10 @@ module.exports = {
                 '10/12': '83.333333%',
                 '11/12': '91.666667%',
             },
+
+            transitionProperty: {
+                'height': 'height, max-height',
+            }
         },
     },
     variants: {},

@@ -79,4 +79,9 @@ class Resource extends Model implements Completable
 
         $query->whereIn('os', [OperatingSystem::ANY, Preferences::get('operating-system')]);
     }
+
+    public function isAssignedToAModule()
+    {
+        return collect($this->modules)->isNotEmpty();
+    }
 }

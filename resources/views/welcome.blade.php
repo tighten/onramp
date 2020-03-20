@@ -3,14 +3,16 @@
 @section('content')
 <div class="w-full bg-white">
     <div class="bg-indigo-100 overflow-hidden pt-16 pb-20 text-left lg:pt-48 lg:pb-64">
-        <div class="container mx-auto px-5 relative lg:px-12">
-            <h1 class="w-11/12 lg:w-7/12 xl:w-5/12">
+        <div class="fluid-container relative">
+            <h1 class="w-11/12 md:w-7/12 xl:w-5/12">
                 {{ __('Providing an easy entrance to Laravel for new developers') }}
             </h1>
 
             <a
-                class="inline-block rounded mt-4 px-6 py-3 font-semibold leading-tight bg-blue-violet text-white duration-150 transition ease-in-out hover:bg-indigo-600 hover:no-underline lg:mt-10 lg:px-10 lg:text-xl"
-                href="#">Learn more</a>
+                class="button button-purple mt-6 lg:mt-10"
+                href="#">
+                <span>{{ __('Learn more') }}</span>
+            </a>
 
             <picture>
                 <source media="(min-width: 1024px)"
@@ -25,7 +27,7 @@
     </div>
 
     <div class="overflow-hidden">
-        <div class="container mx-auto pt-12 pb-16 px-5 relative lg:px-12 lg:pt-40 lg:pb-32">
+        <div class="fluid-container pt-12 pb-16 relative lg:pt-40 lg:pb-32">
             <picture>
                 <source srcset="/images/shapes/single-curve-light-wide.svg"
                     media="(min-width: 1024px)">
@@ -113,7 +115,7 @@
     </div>
 
     <div class="bg-blue-violet text-white overflow-hidden pb-20 pt-10 lg:pt-24 lg:pb-40">
-        <div class="container mx-auto px-5 relative lg:px-12">
+        <div class="fluid-container relative">
             <picture>
                 <source media="(min-width: 1024px)"
                     srcset="/images/shapes/single-curve-medium-large.svg">
@@ -135,7 +137,7 @@
 
                 <h2 class="mt-10 lg:mt-20">Let's do it!</h2>
 
-                <a class="inline-block rounded mt-6 px-6 py-3 font-semibold leading-tight bg-white text-blue-violet hover:text-indigo-600 hover:no-underline lg:text-xl"
+                <a class="button button-white mt-6 lg:mt-10"
                     href="{{ route_wlocale('modules.index') }}">
                     OK, let's learn
                 </a>

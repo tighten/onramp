@@ -52,9 +52,10 @@ module.exports = {
                 'none': 'none',
             },
 
-            minWidth: {
+            minWidth: (theme, { breakpoints }) => ({
                 'xs': '20rem',
-            },
+                ...breakpoints(theme('screens')),
+            }),
 
             opacity: {
                 '10': '0.10',
@@ -66,14 +67,14 @@ module.exports = {
                 '-100': '-1',
             },
 
-            // screens: {
-            //     'xs': '320px',
-            //     'sm': '640px',
-            //     'md': '768px',
-            //     'lg': '992px',
-            //     'xl': '1200px',
-            //     'xxl': '1440px',
-            // },
+            screens: {
+                'xs': '320px',
+                'sm': '640px',
+                'md': '768px',
+                'lg': '992px',
+                'xl': '1200px',
+                'xxl': '1440px',
+            },
 
             spacing: {
                 '80': '20rem',

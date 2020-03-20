@@ -32,7 +32,7 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') .  __('Onramp to L
 
         <title>{{ $fullPageTitle }}</title>
     </head>
-    <body class=" min-w-xs font-normal font-work-sans text-grey-900 lg:text-xl">
+    <body>
         <div id="app">
             <!-- header -->
             @include('partials.navigation.header')

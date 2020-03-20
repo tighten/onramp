@@ -6,6 +6,7 @@ use App\Facades\Localization;
 use App\Resource as EloquentResource;
 use Illuminate\Http\Request;
 use Inspheric\Fields\Url;
+use Laravel\Nova\Fields\Badge;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Boolean;
@@ -71,9 +72,15 @@ class Resource extends BaseResource
                 ->options(array_merge(['all' => 'All (contains multiple translations)'], Localization::all()))
                 ->rules('required'),
 
-            Boolean::make('Is Free'),
+            Boolean::make('Is Free')
+                ->hideFromIndex(),
 
-            Boolean::make('Is Bonus'),
+            Boolean::make('Is Bonus')
+                ->hideFromIndex(),
+
+            Boolean::make('Is Assigned To Module', function () {
+                return $this->isAssignedToAModule();
+            }),
 
             BelongsToMany::make('Modules'),
         ];

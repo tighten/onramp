@@ -13,7 +13,7 @@ use Tests\TestCase;
 
 class SuggestedResourcesTest extends TestCase
 {
-   use RefreshDatabase, WithFaker;
+    use RefreshDatabase, WithFaker;
 
     /** @test */
     function rejected_reason_field_shows_when_a_resource_has_been_rejected()

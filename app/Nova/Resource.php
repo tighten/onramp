@@ -7,6 +7,7 @@ use App\Resource as EloquentResource;
 use Illuminate\Http\Request;
 use Inspheric\Fields\Url;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
@@ -74,7 +75,7 @@ class Resource extends BaseResource
 
             Boolean::make('Is Bonus'),
 
-            BelongsTo::make('Module'),
+            BelongsToMany::make('Modules'),
         ];
     }
 

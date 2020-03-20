@@ -2,12 +2,24 @@
 
 @section('content')
 <div class="w-full bg-white">
-    <div class="text-center px-6 py-12 bg-gray-100 border-b">
-        <h1 class=" text-xl md:text-4xl">{{ __('Use of Data') }}</h1>
+    <div class="bg-indigo-100 overflow-hidden py-16 lg:py-24">
+        <div class="fluid-container relative">
+            <h1 class="max-w-lg">{{ __('Use of Data') }}</h1>
+
+            <picture>
+                <source media="(min-width: 1024px)"
+                    srcset="/images/shapes/double-curve-dark-large.svg">
+
+                <img
+                    class="absolute h-670-px -mr-32 opacity-10 pointer-events-none right-0 top-1/2 transform -translate-y-1/2 lg:h-1340-px lg:-mr-48 lg:opacity-100"
+                    src="/images/shapes/single-curve-dark-small.svg"
+                    alt="Onramp">
+            </picture>
+        </div>
     </div>
 
-    <div class="container max-w-4xl mx-auto md:flex items-start py-8 px-6">
-        <div class="w-full md:pr-12 mb-6">
+    <div class="fluid-container py-8">
+        <div class="max-w-screen-md w-full mb-6">
             <p class="leading-normal text-gray-700">
                The following is meant to describe how we obtain and use information collected from you, which may be considered personal data when maintained in an identifiable manner.
             </p>

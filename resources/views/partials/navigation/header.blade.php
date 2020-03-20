@@ -19,7 +19,7 @@
     <!-- nav -->
     {{-- <nav class="w-full bg-white md:pt-0 px-6 relative z-20 border-t border-b border-gray-light">
         <div
-            class="container mx-auto py-2 max-w-4xl md:flex justify-between items-center text-sm md:text-md md:justify-start">
+            class="container mx-auto py-2 max-w-4xl md:flex justify-between items-center text-sm md:text-base md:justify-start">
             <div
                 class="w-full md:w-1/2 text-center md:text-left flex flex-wrap justify-center items-stretch md:justify-start md:items-start">
                 <a href="{{ url_wlocale('/') }}"
@@ -53,8 +53,8 @@
 --}}
 <!-- /nav -->
 
-<header class="w-full bg-white border-blue-violet border-t-4 p-5 lg:border-t-8">
-    <div class="container flex items-center mx-auto w-full">
+<header class="w-full bg-white border-blue-violet border-t-4 py-5 lg:border-t-8">
+    <div class="fluid-container flex items-center md:px-12 xl:px-20 xxl:px-32">
         <div class="flex-1 inline-flex items-center justify-between lg:flex-initial">
             <a class="" href="{{ url_wlocale('/') }}">
                 <img class="h-5 w-auto md:h-8" src="/images/logo/onramp.svg" alt="Onramp">
@@ -143,7 +143,7 @@
 
         <template slot="subnavigation-links">
             @auth
-                <a class="block font-semibold px-6 py-3 text-blue-violet text-md hover:no-underline" href="{{ url_wlocale('preferences') }}">
+                <a class="block font-semibold px-6 py-3 text-blue-violet text-base hover:no-underline" href="{{ url_wlocale('preferences') }}">
                     <span>{{ __('Preferences') }}</span>
                 </a>
             @endauth

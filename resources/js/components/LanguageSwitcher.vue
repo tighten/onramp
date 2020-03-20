@@ -13,7 +13,7 @@
                 <button @click="toggle()"
                         id="language-switcher"
                         tabindex="1"
-                        class="font-semibold mr-3 text-md focus:outline-none focus:border-white">
+                        class="font-semibold mr-3 text-base focus:outline-none focus:border-white">
                     {{ language }}
                 </button>
 
@@ -38,7 +38,7 @@
                 <button v-for="(lang, slug) in languages"
                     :key="slug"
                     @click="choose(slug)"
-                    class="block font-normal w-full text-left px-6 py-2 text-blue-violet focus:outline-none hover:bg-indigo-100">{{ lang }}</button>
+                    class="block font-normal w-full text-base text-left px-6 py-2 text-blue-violet focus:outline-none hover:bg-indigo-100">{{ lang }}</button>
             </div>
         </transition>
     </div>

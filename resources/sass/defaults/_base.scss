@@ -3,8 +3,23 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+    @apply font-normal;
+    @apply font-work-sans;
+    @apply min-w-screen-xs;
+    @apply text-gray-900;
+
+    @screen md {
+        @apply text-xl;
+    }
+}
+
 h1 {
     @apply font-bold text-3xl leading-none max-w-2xl tracking-tighter;
+
+    @screen md {
+        @apply text-5xl;
+    }
 
     @screen lg {
         @apply text-6xl;
@@ -14,7 +29,15 @@ h1 {
 h2 {
     @apply font-bold text-2xl leading-none;
 
+    @screen md {
+        @apply text-4xl;
+    }
+
     @screen lg {
         @apply text-5xl;
     }
+}
+
+[x-cloak] {
+    display: none;
 }

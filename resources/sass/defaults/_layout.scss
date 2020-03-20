@@ -1,1 +1,20 @@
+@responsive {
+    .fluid-container {
+        @apply max-w-screen-xxl;
+        @apply mx-auto;
+        @apply px-5;
+        @apply w-full;
 
+        @screen md {
+            @apply px-12;
+        }
+
+        @screen lg {
+            @apply px-20;
+        }
+
+        @screen xxl {
+            @apply px-32;
+        }
+    }
+}

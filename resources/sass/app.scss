@@ -1,8 +1,11 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
 
+@import './variables/index';
 @import './defaults/index';
 @import './mixins/index';
-@import './utilities';
+@import './components/index';
+@import './utilities/index';
 @import './temp';
+
+@tailwind utilities;

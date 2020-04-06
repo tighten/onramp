@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="w-full bg-white">
+<div class="w-full bg-off-white">
     <div class="bg-indigo-100 overflow-hidden py-16 lg:py-24">
         <div class="fluid-container relative">
             <h1 class="max-w-lg">{{ __('Modules') }}</h1>

@@ -5,7 +5,23 @@ use App\Resource;
 @endphp
 
 @section('content')
-<div class="w-full bg-white">
+<div class="w-full bg-off-white">
+    <div class="bg-teal-600 pb-24 pt-16 lg:py-24">
+        <div class="fluid-container relative">
+            <h1 class="text-white">{{ $module->name }}</h1>
+
+            <button class="block font-semibold leading-none text-center text-white">
+                <span class="bg-white h-5 inline-block rounded-full w-5">
+                    <svg class="h-auto w-3" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 52 50">
+                        <path d="m9.94-.06l2.12 2.12l4.5 9.622.44 5.561l2.12-2.122l4.5 5.38z" fill="#319795" fill-rule="nonzero"/>
+                    </svg>
+                </span>
+                <span class="inline-block">Mark as Completed</span>
+            </button>
+        </div>
+    </div>
+</div>
+{{-- <div class="w-full bg-white">
     <div class="text-center px-6 py-12 bg-gray-100 border-b">
         <div class="mx-auto max-w-2xl">
             <h1 class=" text-xl md:text-4xl">{{ $module->name }}</h1>
@@ -208,5 +224,5 @@ use App\Resource;
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 @endsection

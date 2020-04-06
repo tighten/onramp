@@ -7,6 +7,7 @@ module.exports = {
                 'east-bay': '#4a5569',
                 'havelock-blue': '#5967d8',
                 'oxford-blue': '#2e3748',
+                'persian-green': '#00acad',
 
                 'comet': '#535f76',
                 'regent-grey': '#7b8ba2',
@@ -112,6 +113,8 @@ module.exports = {
             }
         },
     },
-    variants: {},
+    variants: {
+        margin: ['responsive', 'last', 'first'],
+    },
     plugins: [],
 };

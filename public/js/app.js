@@ -1852,11 +1852,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     initialIsCompleted: {
@@ -2133,6 +2128,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -38918,22 +38921,23 @@ var render = function() {
       "div",
       {
         staticClass:
-          "border border-gray-600 inline-flex justify-center items-center cursor-pointer w-4 h-4",
-        class: { "bg-gray-600": _vm.isCompleted },
+          "cursor-pointer text-gray-500 duration-150 transition ease-in-out hover:text-gray-600",
+        class: { "text-teal-600 hover:text-teal-700": _vm.isCompleted },
         on: { click: _vm.toggle }
       },
       [
         _c(
           "svg",
           {
-            staticClass: "w-3 h-3 fill-current text-white",
-            attrs: { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24" }
+            staticClass: "fill-current h-8 w-8",
+            attrs: { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 30 30" }
           },
           [
             _c("path", {
               attrs: {
                 d:
-                  "M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  "M15 0c8.284 0 15 6.716 15 15 0 8.284-6.716 15-15 15-8.284 0-15-6.716-15-15C0 6.716 6.716 0 15 0zm6.44 9.44l-8.69 8.689-3.44-3.44-2.12 2.122 5.56 5.56 10.81-10.81-2.12-2.122z",
+                "fill-rule": "evenodd"
               }
             })
           ]
@@ -39242,12 +39246,38 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("p", { staticClass: "mb-8 text-right text-sm" }, [
+  return _c("p", { staticClass: "mb-8" }, [
     _c(
-      "a",
+      "button",
       {
-        staticClass: "cursor-pointer",
-        class: { "font-bold": _vm.choiceIsSelected("local") },
+        staticClass:
+          "mr-2 cursor-pointer font-semibold text-gray-600 duration-150 transition ease-in-out hover:text-gray-700",
+        class: {
+          "text-gray-900 hover:text-gray-900": _vm.choiceIsSelected("all")
+        },
+        on: {
+          click: function($event) {
+            return _vm.showAll()
+          }
+        }
+      },
+      [
+        _vm._v(
+          "\n        " +
+            _vm._s(_vm.trans.get("__JSON__.All resources")) +
+            "\n    "
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass:
+          "mr-2 cursor-pointer font-semibold text-gray-600 duration-150 transition ease-in-out hover:text-gray-700 ",
+        class: {
+          "text-gray-900 hover:text-gray-900": _vm.choiceIsSelected("local")
+        },
         on: {
           click: function($event) {
             return _vm.showOnlyLocalLanguage()
@@ -39256,22 +39286,29 @@ var render = function() {
       },
       [
         _vm._v(
-          _vm._s(
-            _vm.trans.get("__JSON__.:locale resources", {
-              locale: _vm.language
-            })
-          )
+          "\n        " +
+            _vm._s(
+              _vm.trans.get("__JSON__.:locale resources", {
+                locale: _vm.language
+              })
+            ) +
+            "\n    "
         )
       ]
     ),
-    _vm._v(" |\n    "),
+    _vm._v(" "),
     _vm.language !== "English"
       ? _c("span", [
           _c(
-            "a",
+            "button",
             {
-              staticClass: "cursor-pointer",
-              class: { "font-bold": _vm.choiceIsSelected("local-and-english") },
+              staticClass:
+                "cursor-pointer font-semibold text-gray-600 duration-150 transition ease-in-out hover:text-gray-700",
+              class: {
+                "text-gray-900 hover:text-gray-900": _vm.choiceIsSelected(
+                  "local-and-english"
+                )
+              },
               on: {
                 click: function($event) {
                   return _vm.showEnglishAndLocalLanguage()
@@ -39280,31 +39317,18 @@ var render = function() {
             },
             [
               _vm._v(
-                _vm._s(
-                  _vm.trans.get("__JSON__.English and :locale resources", {
-                    locale: _vm.language
-                  })
-                )
+                "\n            " +
+                  _vm._s(
+                    _vm.trans.get("__JSON__.English and :locale resources", {
+                      locale: _vm.language
+                    })
+                  ) +
+                  "\n        "
               )
             ]
-          ),
-          _vm._v(" |\n    ")
+          )
         ])
-      : _vm._e(),
-    _vm._v(" "),
-    _c(
-      "a",
-      {
-        staticClass: "cursor-pointer",
-        class: { "font-bold": _vm.choiceIsSelected("all") },
-        on: {
-          click: function($event) {
-            return _vm.showAll()
-          }
-        }
-      },
-      [_vm._v(_vm._s(_vm.trans.get("__JSON__.All resources")))]
-    )
+      : _vm._e()
   ])
 }
 var staticRenderFns = []

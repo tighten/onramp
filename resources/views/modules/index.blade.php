@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="w-full bg-off-white">
+    @include('partials.you-should-log-in')
+
     <div class="bg-indigo-100 overflow-hidden py-16 lg:py-24">
         <div class="fluid-container relative">
             <h1 class="max-w-lg">{{ __('Modules') }}</h1>
@@ -21,8 +23,6 @@
             </picture>
         </div>
     </div>
-
-    @include('partials.you-should-log-in')
 
     <div class="pt-12 pb-48 lg:pt-20">
         <div class="w-full"

@@ -5,19 +5,166 @@ use App\Resource;
 @endphp
 
 @section('content')
-<div class="w-full bg-off-white">
+<div class="pb-48 w-full bg-off-white">
+    @include('partials.you-should-log-in')
+
     <div class="bg-teal-600 pb-24 pt-16 lg:py-24">
         <div class="fluid-container relative">
             <h1 class="text-white">{{ $module->name }}</h1>
 
-            <button class="block font-semibold leading-none text-center text-white">
-                <span class="bg-white h-5 inline-block rounded-full w-5">
-                    <svg class="h-auto w-3" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 52 50">
-                        <path d="m9.94-.06l2.12 2.12l4.5 9.622.44 5.561l2.12-2.122l4.5 5.38z" fill="#319795" fill-rule="nonzero"/>
+            @auth
+                <button class="flex items-center justify-center mt-8 py-2 px-5 font-semibold leading-none text-white border-2 border-white rounded-md w-full">
+                    <svg class="fill-current mr-4 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M10 0c5.523 0 10 4.477 10 10s-4.477 10-10 10S0 15.523 0 10 4.477 0 10 0zm3.94 5.94L8.5 11.378l-1.94-1.94-2.12 2.122 4.06 4.06 7.56-7.56-2.12-2.122z" fill-rule="evenodd"/>
                     </svg>
-                </span>
-                <span class="inline-block">Mark as Completed</span>
-            </button>
+                    <span class="inline-block">Mark as Completed</span>
+                </button>
+            @endauth
+        </div>
+    </div>
+
+    <div class="fluid-container pb-16">
+        <div class="bg-white -mt-16 pt-6 px-4 pb-8 shadow-md">
+            @if ($module->description)
+                <p class="mb-3 font-semibold text-xl">Overview</p>
+
+                <p class="text-east-bay pr-2 mb-6">
+                    {{ $module->description }}
+                </p>
+            @endif
+
+            <p class="mb-3 font-semibold text-xl">Skills</p>
+            <ul class="flex flex-wrap -m-1">
+                @forelse ($skills as $skill)
+                    <li class="relative block py-2 px-4 m-1">
+                        {{-- @todo Is this still a completable? --}}
+                        {{-- @auth
+                        <completed-checkbox
+                            :initial-is-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
+                            type="{{ $skill->getMorphClass() }}"
+                            id="{{ $skill->id }}"
+                            ></completed-checkbox>
+                        @endauth --}}
+                        <span class="absolute inset-0 bg-teal-400 opacity-10 w-full h-full rounded-md"></span>
+                        <span class="font-bold text-teal-600">{{ $skill->name }}</span>
+                    </li>
+                @empty
+                    <li class="relative block"><span class="text-east-bay">No skills</span></li>
+                @endforelse
+
+                @if ($bonusSkills->isNotEmpty())
+                    <li class="font-bold mt-4 list-none">BONUS:</li>
+                    @foreach ($bonusSkills as $skill)
+                        <li class="relative block py-2 px-4 m-1">
+                            {{-- @auth
+                            <completed-checkbox
+                                :initial-is-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
+                                type="{{ $skill->getMorphClass() }}"
+                                id="{{ $skill->id }}"
+                                ></completed-checkbox>
+                            @endauth --}}
+                            <span class="absolute inset-0 bg-teal-400 opacity-10 w-full h-full rounded-md"></span>
+                            <span class="font-bold text-teal-600">{{ $skill->name }}</span>
+                        </li>
+                    @endforeach
+                @endif
+            </ul>
+        </div>
+    </div>
+
+    <div class="fluid-container">
+        <p>The nav</p>
+
+        <resource-language-preference-switcher
+            language="{{ Localization::languageForLocale(locale()) }}"
+            initial-choice="{{ $currentResourceLanguagePreference }}"
+            >
+        </resource-language-preference-switcher>
+
+        <div>
+            @php
+            $freeResources = $resources->where('is_free', true);
+            $paidResources = $resources->where('is_free', false);
+            @endphp
+
+            <p>The resource dropdown</p>
+
+            <!-- The Video Resources -->
+            <div class="bg-white border-t-4 border-teal-600 shadow-md">
+                <div class="pt-8 pr-5 pb-6 pl-6">
+                    <p class="font-bold text-xl">Videos &amp; Courses</p>
+
+                    <ul class="@guest list-disc @endguest mt-6">
+                        @forelse ($freeResources->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])->where('is_bonus', false)->all() as $resource)
+                            @include('partials.resource-on-module-page')
+                        @empty
+                            <li class="list-none">No resources</li>
+                        @endforelse
+                    </ul>
+                </div>
+
+                <button class="block py-4 px-8 w-full text-left border-t-2 border-gray-300">
+                    <span class="font-semibold text-persian-green">View more</span>
+                </button>
+            </div>
+
+            @if ($freeResources->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])->where('is_bonus', true)->isNotEmpty())
+                <div class="bg-white border-t-4 border-teal-600 shadow-md mt-6">
+                    <div class="pt-8 pr-5 pb-6 pl-6">
+                        <p class="font-bold text-xl">Bonus</p>
+
+                        <ul class="@guest list-disc @endguest mt-6">
+                            @foreach ($freeResources->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])->where('is_bonus', true) as $resource)
+                                @include('partials.resource-on-module-page')
+                            @endforeach
+                        </ul>
+                    </div>
+
+                    <button class="block py-4 px-8 w-full text-left border-t-2 border-gray-300">
+                        <span class="font-semibold text-persian-green">View more</span>
+                    </button>
+                </div>
+            @endif
+            <!-- End The Video Resources -->
+
+            <!-- The Article Resources -->
+            <div class="bg-white border-t-4 border-teal-600 shadow-md">
+                <div class="pt-8 pr-5 pb-6 pl-6">
+                    <p class="font-bold text-xl">Articles &amp; Audio</p>
+
+                    <ul class="@guest list-disc @endguest mt-6">
+                        @forelse ($freeResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE])->where('is_bonus', false)->all() as $resource)
+                            @include('partials.resource-on-module-page')
+                        @empty
+                            <li class="list-none">No resources</li>
+                        @endforelse
+                    </ul>
+                </div>
+
+                <button class="block py-4 px-8 w-full text-left border-t-2 border-gray-300">
+                    <span class="font-semibold text-persian-green">View more</span>
+                </button>
+            </div>
+
+            @if ($freeResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE])->where('is_bonus', true)->isNotEmpty())
+                <div class="bg-white border-t-4 border-teal-600 shadow-md mt-6">
+                    <div class="pt-8 pr-5 pb-6 pl-6">
+                        <p class="font-bold text-xl">Bonus</p>
+
+                        <ul class="@guest list-disc @endguest mt-6">
+                            @foreach ($freeResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE])->where('is_bonus', true) as $resource)
+                                @include('partials.resource-on-module-page')
+                            @endforeach
+                        </ul>
+                    </div>
+
+                    <button class="block py-4 px-8 w-full text-left border-t-2 border-gray-300">
+                        <span class="font-semibold text-persian-green">View more</span>
+                    </button>
+                </div>
+            @endif
+
+            <!-- End The Article Resources -->
         </div>
     </div>
 </div>

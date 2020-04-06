@@ -1,22 +1,30 @@
 <template>
-    <p class="mb-8 text-right text-sm">
-        <a
-            @click="showOnlyLocalLanguage()"
-            class="cursor-pointer"
-            v-bind:class="{'font-bold' : choiceIsSelected('local')}"
-            >{{ trans.get('__JSON__.:locale resources', {'locale': language}) }}</a> |
-        <span v-if="language !== 'English'">
-            <a
-                @click="showEnglishAndLocalLanguage()"
-                class="cursor-pointer"
-                v-bind:class="{'font-bold' : choiceIsSelected('local-and-english')}"
-                >{{ trans.get('__JSON__.English and :locale resources', {'locale': language}) }}</a> |
-        </span>
-        <a
+    <p class="mb-8">
+        <button
             @click="showAll()"
-            class="cursor-pointer"
-            v-bind:class="{'font-bold' : choiceIsSelected('all')}"
-            >{{ trans.get('__JSON__.All resources') }}</a>
+            class="mr-2 cursor-pointer font-semibold text-gray-600 duration-150 transition ease-in-out hover:text-gray-700"
+            v-bind:class="{'text-gray-900 hover:text-gray-900' : choiceIsSelected('all')}"
+            >
+            {{ trans.get('__JSON__.All resources') }}
+        </button>
+
+        <button
+            @click="showOnlyLocalLanguage()"
+            class="mr-2 cursor-pointer font-semibold text-gray-600 duration-150 transition ease-in-out hover:text-gray-700 "
+            v-bind:class="{'text-gray-900 hover:text-gray-900' : choiceIsSelected('local')}"
+            >
+            {{ trans.get('__JSON__.:locale resources', {'locale': language}) }}
+        </button>
+
+        <span v-if="language !== 'English'">
+            <button
+                @click="showEnglishAndLocalLanguage()"
+                class="cursor-pointer font-semibold text-gray-600 duration-150 transition ease-in-out hover:text-gray-700"
+                v-bind:class="{'text-gray-900 hover:text-gray-900' : choiceIsSelected('local-and-english')}"
+                >
+                {{ trans.get('__JSON__.English and :locale resources', {'locale': language}) }}
+            </button>
+        </span>
     </p>
 </template>
 

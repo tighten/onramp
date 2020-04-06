@@ -10,6 +10,7 @@ module.exports = {
 
                 'comet': '#535f76',
                 'regent-grey': '#7b8ba2',
+                'off-white': '#f8fbfd',
 
                 // 'grey-darkest': '#1a202c', gray-900
                 // 'grey': '#a0aec0', gray-500

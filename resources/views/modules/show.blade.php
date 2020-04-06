@@ -87,7 +87,17 @@ use App\Resource;
             $paidResources = $resources->where('is_free', false);
             @endphp
 
-            <p>The resource dropdown</p>
+            <tabbed-content-with-select
+                :select-options="['Videos &amp; Course kjsdkasdkhjsajkhekh', 'Articles &amp; Audio']"
+            >
+
+            </tabbed-content-with-select>
+
+            {{-- <select-dropdown
+                class="mb-8"
+                :options="['Videos &amp; Course kjsdkasdkhjsajkhekh', 'Articles &amp; Audio']"
+            >
+            </select-dropdown> --}}
 
             <!-- The Video Resources -->
             <div class="bg-white border-t-4 border-teal-600 shadow-md">

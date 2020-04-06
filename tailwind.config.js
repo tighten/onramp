@@ -114,6 +114,7 @@ module.exports = {
         },
     },
     variants: {
+        borderWidth: ['responsive', 'last', 'first'],
         margin: ['responsive', 'last', 'first'],
     },
     plugins: [],

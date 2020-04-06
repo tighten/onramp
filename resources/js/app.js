@@ -27,6 +27,8 @@ import ResourceLanguagePreferenceSwitcher from './components/ResourceLanguagePre
 import CompletedCheckbox from './components/CompletedCheckbox.vue';
 import Toast from './components/Toast.vue';
 import ModalMobileMenu from './components/ModalMobileMenu.vue';
+import SelectDropdown from './components/SelectDropdown.vue';
+import TabbedContentWithSelect from './components/TabbedContentWithSelect.vue';
 import Lang from 'lang.js';
 import Notifications from 'vue-notification';
 
@@ -54,6 +56,8 @@ const app = new Vue({
         'completed-checkbox': CompletedCheckbox,
         'toast': Toast,
         'modal-mobile-menu': ModalMobileMenu,
+        'select-dropdown': SelectDropdown,
+        'tabbed-content-with-select': TabbedContentWithSelect,
     },
 
     data: {

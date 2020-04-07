@@ -28,7 +28,9 @@ import CompletedCheckbox from './components/CompletedCheckbox.vue';
 import Toast from './components/Toast.vue';
 import ModalMobileMenu from './components/ModalMobileMenu.vue';
 import SelectDropdown from './components/SelectDropdown.vue';
-import TabbedContentWithSelect from './components/TabbedContentWithSelect.vue';
+import TabsWithSelect from './components/TabsWithSelect.vue';
+import Tabs from './components/Tabs.vue';
+import Tab from './components/Tab.vue';
 import Lang from 'lang.js';
 import Notifications from 'vue-notification';
 
@@ -57,7 +59,9 @@ const app = new Vue({
         'toast': Toast,
         'modal-mobile-menu': ModalMobileMenu,
         'select-dropdown': SelectDropdown,
-        'tabbed-content-with-select': TabbedContentWithSelect,
+        'tabs-with-select': TabsWithSelect,
+        'tabs': Tabs,
+        'tab': Tab,
     },
 
     data: {

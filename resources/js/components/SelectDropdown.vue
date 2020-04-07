@@ -69,12 +69,12 @@ export default {
         setSelected(option) {
             this.selected = option;
             this.isOpen = false;
-            this.$emit('input', option);
-        }
+            this.$emit('selectChanged', option);
+        },
     },
 
     mounted(){
-        this.$emit('input', this.selected);
+        this.$emit('selectChanged', this.selected);
     }
 }
 </script>

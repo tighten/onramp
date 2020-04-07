@@ -78,103 +78,96 @@ use App\Resource;
         <resource-language-preference-switcher
             language="{{ Localization::languageForLocale(locale()) }}"
             initial-choice="{{ $currentResourceLanguagePreference }}"
-            >
+        >
         </resource-language-preference-switcher>
 
         <div>
             @php
             $freeResources = $resources->where('is_free', true);
-            $paidResources = $resources->where('is_free', false);
+            // $paidResources = $resources->where('is_free', false);
             @endphp
 
-            <tabbed-content-with-select
-                :select-options="['Videos &amp; Course kjsdkasdkhjsajkhekh', 'Articles &amp; Audio']"
+            <tabs-with-select :select-options="[
+                    'Videos &amp; Courses',
+                    'Articles &amp; Audio',
+                ]"
             >
+                <tab name="Videos &amp; Courses" :selected="true">
+                    <div class="bg-white border-t-4 border-teal-600 shadow-md">
+                        <div class="pt-8 pr-5 pb-6 pl-6">
+                            <p class="font-bold text-xl">Videos &amp; Courses</p>
 
-            </tabbed-content-with-select>
+                            <ul class="@guest list-disc @endguest mt-6">
+                                @forelse ($freeResources->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])->where('is_bonus', false)->all() as $resource)
+                                    @include('partials.resource-on-module-page')
+                                @empty
+                                    <li class="list-none">No resources</li>
+                                @endforelse
+                            </ul>
+                        </div>
 
-            {{-- <select-dropdown
-                class="mb-8"
-                :options="['Videos &amp; Course kjsdkasdkhjsajkhekh', 'Articles &amp; Audio']"
-            >
-            </select-dropdown> --}}
-
-            <!-- The Video Resources -->
-            <div class="bg-white border-t-4 border-teal-600 shadow-md">
-                <div class="pt-8 pr-5 pb-6 pl-6">
-                    <p class="font-bold text-xl">Videos &amp; Courses</p>
-
-                    <ul class="@guest list-disc @endguest mt-6">
-                        @forelse ($freeResources->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])->where('is_bonus', false)->all() as $resource)
-                            @include('partials.resource-on-module-page')
-                        @empty
-                            <li class="list-none">No resources</li>
-                        @endforelse
-                    </ul>
-                </div>
-
-                <button class="block py-4 px-8 w-full text-left border-t-2 border-gray-300">
-                    <span class="font-semibold text-persian-green">View more</span>
-                </button>
-            </div>
-
-            @if ($freeResources->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])->where('is_bonus', true)->isNotEmpty())
-                <div class="bg-white border-t-4 border-teal-600 shadow-md mt-6">
-                    <div class="pt-8 pr-5 pb-6 pl-6">
-                        <p class="font-bold text-xl">Bonus</p>
-
-                        <ul class="@guest list-disc @endguest mt-6">
-                            @foreach ($freeResources->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])->where('is_bonus', true) as $resource)
-                                @include('partials.resource-on-module-page')
-                            @endforeach
-                        </ul>
+                        <button class="block py-4 px-8 w-full text-left border-t-2 border-gray-300">
+                            <span class="font-semibold text-persian-green">View more</span>
+                        </button>
                     </div>
 
-                    <button class="block py-4 px-8 w-full text-left border-t-2 border-gray-300">
-                        <span class="font-semibold text-persian-green">View more</span>
-                    </button>
-                </div>
-            @endif
-            <!-- End The Video Resources -->
+                    @if ($freeResources->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])->where('is_bonus', true)->isNotEmpty())
+                        <div class="bg-white border-t-4 border-teal-600 shadow-md mt-6">
+                            <div class="pt-8 pr-5 pb-6 pl-6">
+                                <p class="font-bold text-xl">Bonus</p>
 
-            <!-- The Article Resources -->
-            <div class="bg-white border-t-4 border-teal-600 shadow-md">
-                <div class="pt-8 pr-5 pb-6 pl-6">
-                    <p class="font-bold text-xl">Articles &amp; Audio</p>
+                                <ul class="@guest list-disc @endguest mt-6">
+                                    @foreach ($freeResources->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])->where('is_bonus', true) as $resource)
+                                        @include('partials.resource-on-module-page')
+                                    @endforeach
+                                </ul>
+                            </div>
 
-                    <ul class="@guest list-disc @endguest mt-6">
-                        @forelse ($freeResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE])->where('is_bonus', false)->all() as $resource)
-                            @include('partials.resource-on-module-page')
-                        @empty
-                            <li class="list-none">No resources</li>
-                        @endforelse
-                    </ul>
-                </div>
+                            <button class="block py-4 px-8 w-full text-left border-t-2 border-gray-300">
+                                <span class="font-semibold text-persian-green">View more</span>
+                            </button>
+                        </div>
+                    @endif
+                </tab>
 
-                <button class="block py-4 px-8 w-full text-left border-t-2 border-gray-300">
-                    <span class="font-semibold text-persian-green">View more</span>
-                </button>
-            </div>
+                <tab name="Articles &amp; Audio">
+                    <div class="bg-white border-t-4 border-teal-600 shadow-md">
+                        <div class="pt-8 pr-5 pb-6 pl-6">
+                            <p class="font-bold text-xl">Articles &amp; Audio</p>
 
-            @if ($freeResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE])->where('is_bonus', true)->isNotEmpty())
-                <div class="bg-white border-t-4 border-teal-600 shadow-md mt-6">
-                    <div class="pt-8 pr-5 pb-6 pl-6">
-                        <p class="font-bold text-xl">Bonus</p>
+                            <ul class="@guest list-disc @endguest mt-6">
+                                @forelse ($freeResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE])->where('is_bonus', false)->all() as $resource)
+                                    @include('partials.resource-on-module-page')
+                                @empty
+                                    <li class="list-none">No resources</li>
+                                @endforelse
+                            </ul>
+                        </div>
 
-                        <ul class="@guest list-disc @endguest mt-6">
-                            @foreach ($freeResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE])->where('is_bonus', true) as $resource)
-                                @include('partials.resource-on-module-page')
-                            @endforeach
-                        </ul>
+                        <button class="block py-4 px-8 w-full text-left border-t-2 border-gray-300">
+                            <span class="font-semibold text-persian-green">View more</span>
+                        </button>
                     </div>
 
-                    <button class="block py-4 px-8 w-full text-left border-t-2 border-gray-300">
-                        <span class="font-semibold text-persian-green">View more</span>
-                    </button>
-                </div>
-            @endif
+                    @if ($freeResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE])->where('is_bonus', true)->isNotEmpty())
+                        <div class="bg-white border-t-4 border-teal-600 shadow-md mt-6">
+                            <div class="pt-8 pr-5 pb-6 pl-6">
+                                <p class="font-bold text-xl">Bonus</p>
 
-            <!-- End The Article Resources -->
+                                <ul class="@guest list-disc @endguest mt-6">
+                                    @foreach ($freeResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE])->where('is_bonus', true) as $resource)
+                                        @include('partials.resource-on-module-page')
+                                    @endforeach
+                                </ul>
+                            </div>
+
+                            <button class="block py-4 px-8 w-full text-left border-t-2 border-gray-300">
+                                <span class="font-semibold text-persian-green">View more</span>
+                            </button>
+                        </div>
+                    @endif
+                </tab>
+            </tabs-with-select>
         </div>
     </div>
 </div>

@@ -1,4 +1,4 @@
-<li class="inline-flex mb-8 last:mb-0">
+<li class="inline-flex mt-8 w-full first:mt-0">
     @auth
     <completed-checkbox
         class="mr-5"

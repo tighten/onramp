@@ -30,8 +30,6 @@ export default {
         setActiveTabUsingOption(option) {
             let href = `#${option.toLowerCase().replace(/ /g, '-')}`;
             this.$refs.tabs.setActiveTab(href);
-
-            console.log(href);
         }
     },
 }

@@ -2426,7 +2426,6 @@ __webpack_require__.r(__webpack_exports__);
     setActiveTabUsingOption: function setActiveTabUsingOption(option) {
       var href = "#".concat(option.toLowerCase().replace(/ /g, '-'));
       this.$refs.tabs.setActiveTab(href);
-      console.log(href);
     }
   }
 });
@@ -39598,7 +39597,7 @@ var render = function() {
         "button",
         {
           staticClass:
-            "relative block px-5 py-4 pr-12 h-12 w-full bg-gray-200 font-semibold\n        text-left leading-none truncate rounded-md focus:outline-none",
+            "relative block px-5 py-4 pr-12 h-12 w-full bg-gray-200 font-semibold\n        text-left text-base leading-none truncate rounded-md focus:outline-none",
           class: { "rounded-bl-none rounded-br-none": _vm.isOpen },
           on: {
             click: function($event) {
@@ -39651,7 +39650,7 @@ var render = function() {
                 "button",
                 {
                   staticClass:
-                    "relative block px-5 py-4 pr-12 w-full font-semibold text-left truncate focus:outline-none hover:bg-gray-300",
+                    "relative block px-5 py-4 pr-12 w-full font-semibold text-left text-base truncate focus:outline-none hover:bg-gray-300",
                   class: { "": _vm.selected === option },
                   on: {
                     click: function($event) {
@@ -53245,7 +53244,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Toast_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Toast.vue */ "./resources/js/components/Toast.vue");
 /* harmony import */ var _components_ModalMobileMenu_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/ModalMobileMenu.vue */ "./resources/js/components/ModalMobileMenu.vue");
 /* harmony import */ var _components_SelectDropdown_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/SelectDropdown.vue */ "./resources/js/components/SelectDropdown.vue");
-/* harmony import */ var _components_TabsWithSelect_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/TabsWithSelect.vue */ "./resources/js/components/TabsWithSelect.vue");
+/* harmony import */ var _components_TabsWithSelect_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/TabsWithSelect.vue */ "./resources/js/components/TabsWithSelect.vue");
 /* harmony import */ var _components_Tabs_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/Tabs.vue */ "./resources/js/components/Tabs.vue");
 /* harmony import */ var _components_Tab_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/Tab.vue */ "./resources/js/components/Tab.vue");
 /* harmony import */ var lang_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! lang.js */ "./node_modules/lang.js/src/lang.js");
@@ -53305,7 +53304,7 @@ var app = new Vue({
     'toast': _components_Toast_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
     'modal-mobile-menu': _components_ModalMobileMenu_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
     'select-dropdown': _components_SelectDropdown_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
-    'tabs-with-select': _components_TabsWithSelect_vue__WEBPACK_IMPORTED_MODULE_12__["default"],
+    'tabs-with-select': _components_TabsWithSelect_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
     'tabs': _components_Tabs_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
     'tab': _components_Tab_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
   },

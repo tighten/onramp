@@ -5,7 +5,7 @@
         @blur="open = false">
         <button
             class="relative block px-5 py-4 pr-12 h-12 w-full bg-gray-200 font-semibold
-            text-left leading-none truncate rounded-md focus:outline-none"
+            text-left text-base leading-none truncate rounded-md focus:outline-none"
             :class="{'rounded-bl-none rounded-br-none': isOpen}"
             @click="isOpen = !isOpen">
             <span>{{ selected }}</span>
@@ -27,7 +27,7 @@
                 v-for="(option, i) of options"
                 :key="i">
                 <button
-                    class="relative block px-5 py-4 pr-12 w-full font-semibold text-left truncate focus:outline-none hover:bg-gray-300"
+                    class="relative block px-5 py-4 pr-12 w-full font-semibold text-left text-base truncate focus:outline-none hover:bg-gray-300"
                     :class="{'': selected === option}"
                     @click="setSelected(option)">
                     <span>{{ option }}</span>

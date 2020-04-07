@@ -53,5 +53,6 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') .  __('Onramp to L
         @routes
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.js" defer></script>
         <script src="{{ mix('js/app.js') }}"></script>
+        <script src="{{ mix('js/scripts.js') }}"></script>
     </body>
 </html>

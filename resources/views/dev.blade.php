@@ -9,8 +9,8 @@
     <div class="container max-w-4xl mx-auto md:flex items-start py-8 px-12 md:px-0">
         <div class="w-full md:pr-12 mb-12">
             <h2 class="mb-6 mt-8 text-black text-xl md:text-2xl">
-                <p class="mb-4">This site is currently being built. You may notice it changing as you use it, or feeling incomplete--don't worry!</p>
-                <p>You can <a class="text-blue-700 hover:underline" href="https://github.com/tightenco/onramp">view its source</a>, <a class="text-blue-700 hover:underline" href="https://t.me/onramp">join a chat of people talking about how best to build it</a>, watch <a class="text-blue-700 hover:underline" href="https://www.youtube.com/playlist?list=PLgJIx0-UaB9TtEjorHmkp71C_becHkpJO">old live streams</a> or <a class="text-blue-700 hover:underline" href="https://mattstauffer.com/stream">follow along with new live streams</a> of it being built, or <a class="text-blue-700 hover:underline" href="https://github.com/tightenco/onramp/blob/master/contributing.md">contribute to it yourself</a>.
+                <p class="mb-4">This site is currently being built. You may notice it changing as you use it, or feeling incomplete&mdash;don't worry!</p>
+                <p>You can <a class="text-blue-700 hover:underline" href="https://github.com/tightenco/onramp">view its source</a>, <a class="text-blue-700 hover:underline" href="https://discord.gg/NQQcjCZ">join a chat of people talking about how best to build it</a>, watch <a class="text-blue-700 hover:underline" href="https://www.youtube.com/playlist?list=PLgJIx0-UaB9TtEjorHmkp71C_becHkpJO">old live streams</a> or <a class="text-blue-700 hover:underline" href="https://mattstauffer.com/stream">follow along with new live streams</a> of it being built, or <a class="text-blue-700 hover:underline" href="https://github.com/tightenco/onramp/blob/master/contributing.md">contribute to it yourself</a>.
             </h2>
         </div>
     </div>

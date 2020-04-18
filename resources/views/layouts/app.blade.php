@@ -86,7 +86,6 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') .  __('Onramp to L
             <!-- /nav -->
 
             <!-- body -->
-            @include('partials.choose-track')
             @yield('content')
             <!-- /body -->
 

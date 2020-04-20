@@ -707,4 +707,52 @@ return [
             ],
         ],
     ],
+    [
+        'name' => ['en' => 'Laravel Vs WordPress', 'es' => ''],
+        'description' => [
+            'en' => 'Learn the differences between Laravel and WordPress and why you might choose to use Laravel for a project.',
+            'es' => '',
+        ],
+        'skills' => [],
+        'resources' => [
+            'es' => [],
+            'en' => [],
+        ],
+    ],
+    [
+        'name' => ['en' => 'Mapping the WordPress Concepts', 'es' => ''],
+        'description' => [
+            'en' => 'Taking concepts you\'re already familiar with like themes and hooks, and seeing how they might be accomplished using Laravel.',
+            'es' => '',
+        ],
+        'skills' => [],
+        'resources' => [
+            'es' => [],
+            'en' => [],
+        ],
+    ],
+    [
+        'name' => ['en' => 'Local PHP Environment for WordPress Developers', 'es' => ''],
+        'description' => [
+            'en' => 'Configuring your local environment for development outside of WordPress.',
+            'es' => '',
+        ],
+        'skills' => [],
+        'resources' => [
+            'es' => [],
+            'en' => [],
+        ],
+    ],
+    [
+        'name' => ['en' => 'Laravel Basics for WordPress Developers', 'es' => ''],
+        'description' => [
+            'en' => 'A great starting point for developers that are new to the Laravel framework and its features.',
+            'es' => '',
+        ],
+        'skills' => [],
+        'resources' => [
+            'es' => [],
+            'en' => [],
+        ],
+    ],
 ];

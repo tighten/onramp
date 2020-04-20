@@ -38401,7 +38401,7 @@ var render = function() {
               "div",
               {
                 staticClass:
-                  "bg-blue-500 text-white text-xs font-medium py-2 px-3 m-3 mt-0 rounded-sm"
+                  "bg-blue-500 text-white text-xs font-medium py-2 px-3 m-6 mt-0 rounded-sm"
               },
               [
                 _c("a", [_vm._v(_vm._s(props.item.title))]),

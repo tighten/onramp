@@ -27,9 +27,7 @@
                             <span class="text-gray-800">Related resources:</span>
                             @foreach ($term->resourcesForCurrentSession()->get() as $resource)
                                 <span>
-                                    {{-- @todo update this to either show first module, all modules, or none if resource unassigned --}}
-
-                                    {{-- <a href="{{ route_wlocale('modules.show', $resource->module()->first()) }}">{{ $resource->module()->first()->name }}</a> --}}
+                                    <a href="{{ route_wlocale('modules.show', $resource->module()->first()) }}">{{ $resource->module()->first()->name }}</a>
                                     &gt;
                                     <a href="{{ $resource->url }}">{{ $resource->name }} <img src="/images/outbound_link_icon.svg" alt="Outbound link" class="w-4 inline align-text-top"></a>
                                 </span>

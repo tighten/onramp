@@ -24,7 +24,7 @@ class Module extends Model implements Completable
 
     public function resources()
     {
-        return $this->belongsToMany(Resource::class)->withTimestamps();
+        return $this->hasMany(Resource::class);
     }
 
     public function suggestedResources()

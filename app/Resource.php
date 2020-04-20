@@ -30,9 +30,9 @@ class Resource extends Model implements Completable
         'is_free' => 'boolean',
     ];
 
-    public function modules()
+    public function module()
     {
-        return $this->belongsToMany(Module::class)->withTimestamps();
+        return $this->belongsTo(Module::class);
     }
 
     public function completions()
@@ -78,10 +78,5 @@ class Resource extends Model implements Completable
         );
 
         $query->whereIn('os', [OperatingSystem::ANY, Preferences::get('operating-system')]);
-    }
-
-    public function isAssignedToAModule()
-    {
-        return collect($this->modules)->isNotEmpty();
     }
 }

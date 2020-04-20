@@ -3,39 +3,26 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Text;
 use MrMonat\Translatable\Translatable;
 
-class Module extends BaseResource
+class Skill extends Resource
 {
-    /**
-     * The model the resource corresponds to.
-     *
-     */
-    public static $model = \App\Module::class;
+    public static $model = 'App\Skill';
 
-    /**
-     * The single value that should be used to represent the resource when being displayed.
-     *
-     */
-    public static $title = 'name';
+    public static $title = 'id';
 
-    /**
-     * The columns that should be searched.
-     *
-     */
     public static $search = [
-        'id', 'name', 'slug',
+        'name',
     ];
 
     /**
      * Get the fields displayed by the resource.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return $arrayName = array('' => , );
+     * @return array
      */
     public function fields(Request $request)
     {
@@ -43,24 +30,11 @@ class Module extends BaseResource
             ID::make()->sortable(),
 
             Translatable::make('Name')
-                ->singleLine()
-                // @todo Figure out why this is necessary
                 ->indexLocale('en'),
 
-            Text::make('Slug')
-                ->sortable()
-                ->rules('required', 'max:255'),
+            Boolean::make('Is Bonus'),
 
-            Translatable::make('Description')
-                ->hideFromIndex(),
-
-            // @todo Replace this with correct permissions after chatting with David
-            BelongsToMany::make('Tracks')
-                ->hideFromDetail($request->user()->role !== 'admin'),
-
-            HasMany::make('Resources'),
-
-            HasMany::make('Skills'),
+            BelongsTo::make('Module'),
         ];
     }
 

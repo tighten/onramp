@@ -4,20 +4,18 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use MrMonat\Translatable\Translatable;
 
 class Skill extends Resource
 {
-
     public static $model = 'App\Skill';
 
     public static $title = 'id';
 
     public static $search = [
-        'id', 'name'
+        'name',
     ];
 
     /**

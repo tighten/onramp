@@ -66,7 +66,13 @@ class SuggestedResource extends BaseResource
                 ->showOnDetail(function () {
                     return $this->status === EloquentSuggestedResource::REJECTED_STATUS;
                 })
-                ->hideFromIndex(),
+                ->hideFromIndex(function ($request) {
+                    return ! $request->user()->isAdmin();
+                })
+                ->readonly(function ($request) {
+                    return ! $request->user()->isAdmin();
+                })
+                ->hideWhenCreating(),
 
             Select::make('Language')
                 ->options(array_merge(['all' => 'All (contains multiple translations)'], Localization::all()))

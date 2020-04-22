@@ -13,7 +13,9 @@ Route::group(['prefix' => '{locale}'], function () {
 
     Route::group(['prefix' => 'modules', 'as' => 'modules.'], function () {
         Route::get('/', 'ModuleController@index')->name('index');
-        Route::get('{module}', 'ModuleController@show')->name('show');
+        Route::get('{module}/{resourceType}', 'ModuleController@show')
+            ->name('show')
+            ->where('resourceType', 'free-resources|paid-resources|quizzes|exercises');
     });
 
     Route::group(['middleware' => 'auth'], function () {

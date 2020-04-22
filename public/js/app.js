@@ -2308,6 +2308,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
+    url: {
+      type: String
+    },
     name: {
       type: String,
       required: true
@@ -2324,6 +2327,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     href: function href() {
+      if (this.url && this.url !== '') {
+        return this.url;
+      }
+
       return "#".concat(this.name.toLowerCase().replace(/ /g, '-'));
     }
   },
@@ -2343,6 +2350,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -39479,7 +39493,7 @@ var render = function() {
       "button",
       {
         staticClass:
-          "mr-2 cursor-pointer font-semibold text-gray-600 duration-150 transition ease-in-out hover:text-gray-700",
+          "mr-2 cursor-pointer font-semibold text-gray-600 duration-150 transition ease-in-out hover:text-gray-700 lg:mr-4",
         class: {
           "text-gray-900 hover:text-gray-900": _vm.choiceIsSelected("all")
         },
@@ -39502,7 +39516,7 @@ var render = function() {
       "button",
       {
         staticClass:
-          "mr-2 cursor-pointer font-semibold text-gray-600 duration-150 transition ease-in-out hover:text-gray-700 ",
+          "mr-2 cursor-pointer font-semibold text-gray-600 duration-150 transition ease-in-out hover:text-gray-700 lg:mr-4",
         class: {
           "text-gray-900 hover:text-gray-900": _vm.choiceIsSelected("local")
         },
@@ -39760,24 +39774,48 @@ var render = function() {
     [
       _vm._t("tabs-navigation", [
         _c(
-          "ul",
-          _vm._l(_vm.tabs, function(tab, i) {
-            return _c("li", { key: i, class: { "is-active": tab.isActive } }, [
+          "div",
+          { staticClass: "h-16 w-full mb-8 overflow-hidden md:mb-10 lg:mb-12" },
+          [
+            _c("div", { staticClass: "fluid-container overflow-scroll pb-8" }, [
               _c(
-                "a",
+                "ul",
                 {
-                  attrs: { href: tab.href },
-                  on: {
-                    click: function($event) {
-                      return _vm.setActiveTab(tab.href)
-                    }
-                  }
+                  staticClass:
+                    "inline-flex flex-no-wrap min-w-full text-none border-b-4 text-regent-grey"
                 },
-                [_c("span", [_vm._v(_vm._s(tab.name))])]
+                _vm._l(_vm.tabs, function(tab, i) {
+                  return _c(
+                    "li",
+                    {
+                      key: i,
+                      staticClass:
+                        "inline-block pr-5 last:pr-0 font-semibold leading-tight tracking-tight whitespace-no-wrap text-xl duration-150 transition ease-in-out sm:pr-10 lg:pr-20 md:text-2xl xl:text-4xl focus:outline-none hover:text-gray-700",
+                      class: { "text-gray-700": tab.isActive }
+                    },
+                    [
+                      _c(
+                        "a",
+                        {
+                          staticClass:
+                            "inline-block -mb-1 pb-5 border-b-4 hover:no-underline",
+                          class: { "border-b-4 border-teal-600": tab.isActive },
+                          attrs: { href: tab.href },
+                          on: {
+                            click: function($event) {
+                              return _vm.setActiveTab(tab.href)
+                            }
+                          }
+                        },
+                        [_c("span", [_vm._v(_vm._s(tab.name))])]
+                      )
+                    ]
+                  )
+                }),
+                0
               )
             ])
-          }),
-          0
+          ]
         )
       ]),
       _vm._v(" "),
@@ -54190,8 +54228,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/tammyrobinson/Code/tighten/onramp/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/tammyrobinson/Code/tighten/onramp/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/tammyrobinson/Code/Tighten/onramp/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/tammyrobinson/Code/Tighten/onramp/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

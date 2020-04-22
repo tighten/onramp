@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Facades\Preferences;
 use App\Module;
+use Illuminate\Http\Request;
 
 class ModuleController extends Controller
 {
@@ -17,7 +18,7 @@ class ModuleController extends Controller
         ]);
     }
 
-    public function show($locale, Module $module)
+    public function show($locale, Module $module, $resourceType)
     {
         return view('modules.show', [
             'pageTitle' => $module->name,
@@ -28,6 +29,7 @@ class ModuleController extends Controller
             'completedResources' => auth()->check() ? auth()->user()->resourceCompletions()->pluck('completable_id') : collect([]),
             'completedSkills' => auth()->check() ? auth()->user()->skillCompletions()->pluck('completable_id') : collect([]),
             'currentResourceLanguagePreference' => Preferences::get('resource-language'),
+            'resourceType' => $resourceType,
         ]);
     }
 }

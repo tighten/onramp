@@ -16,7 +16,11 @@ class ModulesPageTest extends TestCase
     function module_show_loads()
     {
         $module = factory(Module::class)->create();
-        $response = $this->get(route('modules.show', ['locale' => 'en', 'module' => $module]));
+        $response = $this->get(route('modules.show', [
+            'locale' => 'en',
+            'module' => $module,
+            'resourceType' => 'free-resources'
+        ]));
         $response->assertOk();
     }
 

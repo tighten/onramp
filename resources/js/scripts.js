@@ -9,15 +9,13 @@
 
             $.each(component, function(index, c) {
                 let component = $(c)
-                    , defaultLimit = 3
+                    , defaultLimit = getDefaultLimit()
                     , items = component.find('.js-show-more-less-items').children()
                     , button = component.find('.js-show-more-less-button')
                     , initialButtonText = button.text()
                     , showLessText = 'Show less';
 
-                console.log(items.length)
-
-                if(! items.length > defaultLimit || items.length === defaultLimit) {
+                if(items.length <= defaultLimit) {
                     button.hide();
                     return;
                 }
@@ -39,6 +37,31 @@
                         button.text(initialButtonText);
                     }
                 });
+
+                $(window).on('resize', function () {
+                    setTimeout(function () {
+                        let cachedLimit = defaultLimit;
+
+                        defaultLimit = getDefaultLimit();
+
+                        if(cachedLimit === defaultLimit) {
+                            return;
+                        }
+
+                        items.show();
+
+                        if(items.length <= defaultLimit) {
+                            button.hide();
+                            return;
+                        }
+
+                        truncateItems(items, defaultLimit);
+
+                        button.show();
+
+                        button.text(initialButtonText);
+                    });
+                });
             });
         };
 
@@ -46,6 +69,14 @@
             items.each(function(i) {
                 if(i > (limit - 1)) $(items[i]).hide();
             });
+        };
+
+        const getDefaultLimit = function() {
+            if ($(window).width() < 992) {
+                return 3;
+            } else {
+                return 7;
+            }
         };
 
         return {

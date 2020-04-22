@@ -51,7 +51,7 @@
                     @forelse ($standardModules as $module)
                         <div class="flex-initial pb-5 px-3 w-full sm:max-w-xs sm:w-1/2 lg:w-1/3 xl:w-1/4">
                             <a class="flex flex-col h-full shadow-md duration-300 transform transition-transform hover:no-underline hover:scale-95 {{ $loop->even ? 'bg-teal-600' : 'bg-teal-400' }}"
-                                href="{{ route_wlocale('modules.show', $module) }}">
+                                href="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'free-resources']) }}">
                                 <span class="pb-8/12 block relative xl:pb-3/5">
                                     <img class="absolute bottom-0 left-1/2 transform -translate-x-1/2 will-change-transform w-3/4"
                                         src="/images/temp/img_basicwebsite.svg" alt="Image for the {{ $module->name }} module.">
@@ -73,7 +73,7 @@
                         @foreach ($bonusModules as $module)
                             <div class="flex-initial pb-5 px-3 w-full sm:max-w-xs sm:w-1/2 lg:w-1/3 xl:w-1/4">
                                 <a class="flex flex-col h-full shadow-md duration-300 transform transition-transform hover:no-underline hover:scale-95 {{ $loop->even ? 'bg-teal-600' : 'bg-teal-400' }}"
-                                    href="{{ route_wlocale('modules.show', $module) }}">
+                                    href="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'free-resources']) }}">
                                     <span class="pb-8/12 block xl:pb-3/5"></span>
                                     <span class="block flex-1 p-5 pb-8 bg-white xl:px-8 xl:pb-10">
                                         <h4 class="font-semibold tracking-tight text-east-bay">{{ $module->name }}</h4>

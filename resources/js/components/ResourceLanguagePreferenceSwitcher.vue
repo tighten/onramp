@@ -2,7 +2,7 @@
     <p class="mb-8">
         <button
             @click="showAll()"
-            class="mr-2 cursor-pointer font-semibold text-gray-600 duration-150 transition ease-in-out hover:text-gray-700"
+            class="mr-2 cursor-pointer font-semibold text-gray-600 duration-150 transition ease-in-out hover:text-gray-700 lg:mr-4"
             v-bind:class="{'text-gray-900 hover:text-gray-900' : choiceIsSelected('all')}"
             >
             {{ trans.get('__JSON__.All resources') }}
@@ -10,7 +10,7 @@
 
         <button
             @click="showOnlyLocalLanguage()"
-            class="mr-2 cursor-pointer font-semibold text-gray-600 duration-150 transition ease-in-out hover:text-gray-700 "
+            class="mr-2 cursor-pointer font-semibold text-gray-600 duration-150 transition ease-in-out hover:text-gray-700 lg:mr-4"
             v-bind:class="{'text-gray-900 hover:text-gray-900' : choiceIsSelected('local')}"
             >
             {{ trans.get('__JSON__.:locale resources', {'locale': language}) }}

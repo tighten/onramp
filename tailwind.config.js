@@ -116,6 +116,7 @@ module.exports = {
     variants: {
         borderWidth: ['responsive', 'last', 'first'],
         margin: ['responsive', 'last', 'first'],
+        padding: ['responsive', 'last', 'first'],
     },
     plugins: [],
 };

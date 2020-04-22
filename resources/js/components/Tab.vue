@@ -7,6 +7,9 @@
 <script>
 export default {
     props: {
+        url: {
+            type: String,
+        },
         name: {
             type: String,
             required: true,
@@ -25,6 +28,10 @@ export default {
 
     computed: {
         href() {
+            if (this.url && this.url !== '') {
+                return this.url;
+            }
+
             return `#${this.name.toLowerCase().replace(/ /g, '-')}`;
         }
     },

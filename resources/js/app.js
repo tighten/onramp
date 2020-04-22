@@ -24,7 +24,10 @@ window.Vue = require('vue');
 import LanguageSwitcher from './components/LanguageSwitcher.vue';
 import ToggleWhenMobile from './components/ToggleWhenMobile.vue';
 import ResourceLanguagePreferenceSwitcher from './components/ResourceLanguagePreferenceSwitcher.vue';
-import CompletedCheckbox from './components/CompletedCheckbox.vue';
+import Completable from './components/Completables/Completable.vue';
+import CompletedBadge from './components/Completables/CompletedBadge.vue';
+import CompletableButton from './components/Completables/CompletedButton.vue';
+import CompletedCheckbox from './components/Completables/CompletedCheckbox.vue';
 import Toast from './components/Toast.vue';
 import ModalMobileMenu from './components/ModalMobileMenu.vue';
 import SelectDropdown from './components/SelectDropdown.vue';
@@ -55,6 +58,9 @@ const app = new Vue({
         'language-switcher': LanguageSwitcher,
         'toggle-when-mobile': ToggleWhenMobile,
         'resource-language-preference-switcher': ResourceLanguagePreferenceSwitcher,
+        'completable': Completable,
+        'completed-badge': CompletedBadge,
+        'completed-button': CompletableButton,
         'completed-checkbox': CompletedCheckbox,
         'toast': Toast,
         'modal-mobile-menu': ModalMobileMenu,

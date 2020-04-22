@@ -13,12 +13,11 @@ use App\Resource;
             <h1 class="text-white">{{ $module->name }}</h1>
 
             @auth
-                <button class="flex items-center justify-center mt-8 py-2 px-5 font-semibold leading-none text-white border-2 border-white rounded-md w-full duration-150 ease-in-out transition-colors hover:bg-white hover:text-teal-600 md:max-w-xs md:py-3 lg:mt-0">
-                    <svg class="fill-current mr-4 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                        <path d="M10 0c5.523 0 10 4.477 10 10s-4.477 10-10 10S0 15.523 0 10 4.477 0 10 0zm3.94 5.94L8.5 11.378l-1.94-1.94-2.12 2.122 4.06 4.06 7.56-7.56-2.12-2.122z" fill-rule="evenodd"/>
-                    </svg>
-                    <span class="inline-block">Mark as Completed</span>
-                </button>
+                <completed-button
+                    :initial-is-completed="{{ $completedModules->contains($module->id) ? 'true' : 'false' }}"
+                    type="{{ $module->getMorphClass() }}"
+                    id="{{ $module->id }}">
+                </completed-button>
             @endauth
         </div>
     </div>
@@ -39,18 +38,21 @@ use App\Resource;
                 <p class="mb-3 font-semibold text-xl md:mb-8 md:text-2xl lg:text-4xl">Skills</p>
                 <ul class="flex flex-wrap -m-1 md:-m-2">
                     @forelse ($skills as $skill)
-                        <li class="relative block py-2 px-4 m-1 md:m-2">
-                            {{-- @todo Is this still a completable? --}}
-                            {{-- @auth
-                            <completed-checkbox
-                                :initial-is-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
-                                type="{{ $skill->getMorphClass() }}"
-                                id="{{ $skill->id }}"
-                                ></completed-checkbox>
-                            @endauth --}}
-                            <span class="absolute inset-0 bg-teal-400 opacity-10 w-full h-full rounded-md"></span>
-                            <span class="font-bold text-teal-600">{{ $skill->name }}</span>
-                        </li>
+                        @if (Auth::check())
+                            <li class="block m-1 md:m-2">
+                                <completed-badge
+                                    badge-text="{{ $skill->name }}"
+                                    :initial-is-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
+                                    type="{{ $skill->getMorphClass() }}"
+                                    id="{{ $skill->id }}"
+                                ></completed-badge>
+                            </li>
+                        @else
+                            <li class="relative block py-2 px-4 m-1">
+                                <span class="absolute inset-0 bg-teal-400 opacity-10 w-full h-full rounded-md"></span>
+                                <span class="font-bold text-teal-600">{{ $skill->name }}</span>
+                            </li>
+                        @endif
                     @empty
                         <li class="relative block m-1">No skills</li>
                     @endforelse
@@ -58,17 +60,21 @@ use App\Resource;
                     @if ($bonusSkills->isNotEmpty())
                         <li class="font-bold mt-4 list-none">BONUS:</li>
                         @foreach ($bonusSkills as $skill)
-                            <li class="relative block py-2 px-4 m-1">
-                                {{-- @auth
-                                <completed-checkbox
-                                    :initial-is-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
-                                    type="{{ $skill->getMorphClass() }}"
-                                    id="{{ $skill->id }}"
-                                    ></completed-checkbox>
-                                @endauth --}}
-                                <span class="absolute inset-0 bg-teal-400 opacity-10 w-full h-full rounded-md"></span>
-                                <span class="font-bold text-teal-600">{{ $skill->name }}</span>
-                            </li>
+                            @if (Auth::check())
+                                <li class="block m-1 md:m-2">
+                                    <completed-badge
+                                        badge-text="{{ $skill->name }}"
+                                        :initial-is-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
+                                        type="{{ $skill->getMorphClass() }}"
+                                        id="{{ $skill->id }}"
+                                    ></completed-badge>
+                                </li>
+                            @else
+                                <li class="relative block py-2 px-4 m-1">
+                                    <span class="absolute inset-0 bg-teal-400 opacity-10 w-full h-full rounded-md"></span>
+                                    <span class="font-bold text-teal-600">{{ $skill->name }}</span>
+                                </li>
+                            @endif
                         @endforeach
                     @endif
                 </ul>

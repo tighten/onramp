@@ -10,7 +10,7 @@ use App\Resource;
             <ul class="mt-6 lg:mt-10 js-show-more-less-items">
                 {{-- @todo update this to be quizzes --}}
 
-                {{-- @forelse ($freeResources->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])->where('is_bonus', false)->all() as $resource)
+                {{-- @forelse ($freeResources as $resource)
                     @include('partials.resource-on-module-page-with-border')
                 @empty --}}
                     <li class="list-none pb-4 px-6 lg:px-12">No resources</li>

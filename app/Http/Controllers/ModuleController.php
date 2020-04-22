@@ -14,7 +14,6 @@ class ModuleController extends Controller
             'pageTitle' => 'Modules',
             'standardModules' => auth()->check() && auth()->user()->track ? auth()->user()->track->modules()->standard()->get() : Module::standard()->get(),
             'bonusModules' => auth()->check() && auth()->user()->track ? auth()->user()->track->modules()->bonus()->get() : Module::bonus()->get(),
-            'completedModules' => auth()->check() ? auth()->user()->moduleCompletions()->pluck('completable_id') : collect([]),
         ]);
     }
 
@@ -26,6 +25,7 @@ class ModuleController extends Controller
             'resources' => $module->resourcesForCurrentSession,
             'skills' => $module->skills->where('is_bonus', false),
             'bonusSkills' => $module->skills->where('is_bonus', true),
+            'completedModules' => auth()->check() ? auth()->user()->moduleCompletions()->pluck('completable_id') : collect([]),
             'completedResources' => auth()->check() ? auth()->user()->resourceCompletions()->pluck('completable_id') : collect([]),
             'completedSkills' => auth()->check() ? auth()->user()->skillCompletions()->pluck('completable_id') : collect([]),
             'currentResourceLanguagePreference' => Preferences::get('resource-language'),

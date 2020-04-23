@@ -2,10 +2,13 @@
 
 namespace App\Nova;
 
+use App\Module as EloquentModule;
+use App\Nova\Filters\ModuleSkillLevel;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use MrMonat\Translatable\Translatable;
 
@@ -31,6 +34,13 @@ class Module extends BaseResource
         'id', 'name', 'slug',
     ];
 
+    public function skillLevelFields()
+    {
+        return collect(EloquentModule::SKILL_LEVELS)->mapWithKeys(function ($value) {
+            return [$value => ucwords($value)];
+        })->toArray();
+    }
+
     /**
      * Get the fields displayed by the resource.
      *
@@ -53,6 +63,11 @@ class Module extends BaseResource
 
             Translatable::make('Description')
                 ->hideFromIndex(),
+
+            Select::make('Skill Level')
+                ->options($this->skillLevelFields())
+                ->displayUsingLabels()
+                ->rules('required'),
 
             // @todo Replace this with correct permissions after chatting with David
             BelongsToMany::make('Tracks')
@@ -83,7 +98,9 @@ class Module extends BaseResource
      */
     public function filters(Request $request)
     {
-        return [];
+        return [
+            new ModuleSkillLevel,
+        ];
     }
 
     /**

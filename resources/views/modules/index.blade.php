@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@php
+$beginnerModules = $standardModules->where('skill_level', 'beginner');
+$intermediateModules = $standardModules->where('skill_level', 'intermediate');
+$advancedModules = $standardModules->where('skill_level', 'advanced');
+@endphp
+
 @section('content')
 <div class="w-full bg-off-white">
     @include('partials.you-should-log-in')
@@ -25,134 +31,138 @@
     </div>
 
     <div class="pt-12 pb-48 lg:pt-20">
-        <div class="w-full"
-            x-data="{ tab: 'beginner' }"
-            x-on:load.window="tab = window.innerWidth >= 992 ? 'all' : 'beginner'"
-            x-on:resize.window="tab = window.innerWidth >= 992 ? 'all' : 'beginner'"
-            >
-            <div class="h-8 overflow-hidden mb-8 lg:hidden">
-                <div class="overflow-scroll pb-8 px-5 text-none whitespace-no-wrap text-regent-grey md:px-12">
-                    <button class="inline-block mr-5 font-semibold leading-tight tracking-tight text-xl duration-150 transition ease-in-out focus:outline-none hover:text-gray-700"
-                        x-bind:class="{ 'text-gray-900': tab === 'beginner' }" x-on:click="tab='beginner'"><span>Beginner</span></button>
+        <tabs :hide-tabs-on-desktop="true">
+            <tab name="Beginner" :selected="true">
+                <div class="fluid-container px-2 md:px-8 lg:px-20 xxl:px-32">
+                    <h2 class="hidden mb-10 w-full font-semibold leading-tight tracking-tight text-4xl text-gray-900 lg:block">Beginner</h2>
 
-                    <button class="inline-block mr-5 font-semibold leading-tight tracking-tight text-xl duration-150 transition ease-in-out focus:outline-none hover:text-gray-700"
-                        x-bind:class="{ 'text-gray-900': tab === 'intermediate' }" x-on:click="tab='intermediate'"><span>Intermediate</span></button>
-
-                    <button class="inline-block font-semibold leading-tight tracking-tight text-xl duration-150 transition ease-in-out focus:outline-none hover:text-gray-700"
-                        x-bind:class="{ 'text-gray-900': tab === 'advanced' }" x-on:click="tab='advanced'"><span>Advanced</span></button>
-                </div>
-            </div>
-
-            <div
-                class="fluid-container px-2 md:px-8 lg:px-20 xxl:px-32" x-show="tab === 'beginner' || tab === 'all'">
-                <h2 class="hidden mb-10 w-full font-semibold leading-tight tracking-tight text-4xl text-gray-900 lg:block">Beginner</h2>
-
-                <div class="flex flex-wrap w-full md:px-1 lg:px-0 lg:-mx-3">
-                    @forelse ($standardModules as $module)
-                        <div class="flex-initial pb-5 px-3 w-full sm:max-w-xs sm:w-1/2 lg:w-1/3 xl:w-1/4">
-                            <a class="flex flex-col h-full shadow-md duration-300 transform transition-transform hover:no-underline hover:scale-95 {{ $loop->even ? 'bg-teal-600' : 'bg-teal-400' }}"
-                                href="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'free-resources']) }}">
-                                <span class="pb-8/12 block relative xl:pb-3/5">
-                                    <img class="absolute bottom-0 left-1/2 transform -translate-x-1/2 will-change-transform w-3/4"
-                                        src="/images/temp/img_basicwebsite.svg" alt="Image for the {{ $module->name }} module.">
-                                </span>
-                                <span class="block flex-1 p-5 pb-8 bg-white xl:px-8 xl:pb-10">
-                                    <h4 class="font-semibold tracking-tight text-east-bay">{{ $module->name }}</h4>
-                                </span>
-                            </a>
-                        </div>
-                    @empty
-                        <p class="px-3 text-gray-700 italic">There are currently no modules here. Check back soon.</p>
-                    @endforelse
-                </div>
-
-                @if ($bonusModules->isNotEmpty())
-                    <div class="flex flex-wrap w-full mt-8 md:px-1 lg:px-0 lg:-mx-3">
-                        <h3 class="mb-6 px-3 w-full font-semibold leading-tight tracking-tight text-xl text-east-bay lg:block lg:text-2xl">Bonus</h3>
-
-                        @foreach ($bonusModules as $module)
+                    <div class="flex flex-wrap w-full md:px-1 lg:px-0 lg:-mx-3">
+                        @forelse ($beginnerModules as $module)
                             <div class="flex-initial pb-5 px-3 w-full sm:max-w-xs sm:w-1/2 lg:w-1/3 xl:w-1/4">
                                 <a class="flex flex-col h-full shadow-md duration-300 transform transition-transform hover:no-underline hover:scale-95 {{ $loop->even ? 'bg-teal-600' : 'bg-teal-400' }}"
                                     href="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'free-resources']) }}">
-                                    <span class="pb-8/12 block xl:pb-3/5"></span>
+                                    <span class="pb-8/12 block relative xl:pb-3/5">
+                                        <img class="absolute bottom-0 left-1/2 transform -translate-x-1/2 will-change-transform w-3/4"
+                                            src="/images/temp/img_basicwebsite.svg" alt="Image for the {{ $module->name }} module.">
+                                    </span>
                                     <span class="block flex-1 p-5 pb-8 bg-white xl:px-8 xl:pb-10">
                                         <h4 class="font-semibold tracking-tight text-east-bay">{{ $module->name }}</h4>
                                     </span>
                                 </a>
                             </div>
-                        @endforeach
+                        @empty
+                            <p class="px-3 text-gray-700 italic">There are currently no modules here. Check back soon.</p>
+                        @endforelse
                     </div>
-                @endif
-            </div>
 
-            <div
-                class="fluid-container px-2 md:px-8 lg:px-20 lg:mt-32 xxl:px-32"
-                x-show="tab === 'intermediate' || tab === 'all'"
-                x-cloak>
-                <h2 class="hidden mb-10 w-full font-semibold leading-tight tracking-tight text-4xl text-gray-900 lg:block">
-                    Intermediate
-                </h2>
+                    @if ($bonusModules->where('skill_level', 'beginner')->isNotEmpty())
+                        <div class="flex flex-wrap w-full mt-8 md:px-1 lg:px-0 lg:-mx-3">
+                            <h3 class="mb-6 px-3 w-full font-semibold leading-tight tracking-tight text-xl text-east-bay lg:block lg:text-2xl">Bonus</h3>
 
-                <div class="flex flex-wrap w-full md:px-1 lg:px-0 lg:-mx-3">
-                    <p class="text-gray-700 italic px-3">There are currently no modules here. Check back soon.</p>
-
-                    {{-- @todo include intermediate modules --}}
+                            @foreach ($bonusModules->where('skill_level', 'beginner') as $module)
+                                <div class="flex-initial pb-5 px-3 w-full sm:max-w-xs sm:w-1/2 lg:w-1/3 xl:w-1/4">
+                                    <a class="flex flex-col h-full shadow-md duration-300 transform transition-transform hover:no-underline hover:scale-95 {{ $loop->even ? 'bg-teal-600' : 'bg-teal-400' }}"
+                                        href="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'free-resources']) }}">
+                                        <span class="pb-8/12 block xl:pb-3/5"></span>
+                                        <span class="block flex-1 p-5 pb-8 bg-white xl:px-8 xl:pb-10">
+                                            <h4 class="font-semibold tracking-tight text-east-bay">{{ $module->name }}</h4>
+                                        </span>
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+                    @endif
                 </div>
-            </div>
+            </tab>
 
-            <div
-                class="fluid-container px-2 md:px-8 lg:px-20 lg:mt-32 xxl:px-32"
-                x-show="tab === 'advanced' || tab === 'all'"
-                x-cloak>
-                <h2 class="hidden mb-10 w-full font-semibold leading-tight tracking-tight text-4xl text-gray-900 lg:block">
-                    Advanced
-                </h2>
+            <tab name="Intermediate">
+                <div class="fluid-container px-2 md:px-8 lg:px-20 lg:mt-32 xxl:px-32">
+                    <h2 class="hidden mb-10 w-full font-semibold leading-tight tracking-tight text-4xl text-gray-900 lg:block">Intermediate</h2>
 
-                <div class="flex flex-wrap w-full md:px-1 lg:px-0 lg:-mx-3">
-                    <p class="text-gray-700 italic px-3">There are currently no modules here. Check back soon.</p>
+                    <div class="flex flex-wrap w-full md:px-1 lg:px-0 lg:-mx-3">
+                        @forelse ($intermediateModules as $module)
+                            <div class="flex-initial pb-5 px-3 w-full sm:max-w-xs sm:w-1/2 lg:w-1/3 xl:w-1/4">
+                                <a class="flex flex-col h-full shadow-md duration-300 transform transition-transform hover:no-underline hover:scale-95 {{ $loop->even ? 'bg-cornflower-blue' : 'bg-blue-violet' }}"
+                                    href="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'free-resources']) }}">
+                                    <span class="pb-8/12 block relative xl:pb-3/5">
+                                        {{-- <img
+                                            class="absolute bottom-0 left-1/2 transform -translate-x-1/2 will-change-transform w-3/4"
+                                            src="/images/temp/img_basicwebsite.svg" alt="Image for the {{ $module->name }} module."> --}}
+                                    </span>
+                                    <span class="block flex-1 p-5 pb-8 bg-white xl:px-8 xl:pb-10">
+                                        <h4 class="font-semibold tracking-tight text-east-bay">{{ $module->name }}</h4>
+                                    </span>
+                                </a>
+                            </div>
+                        @empty
+                            <p class="px-3 text-gray-700 italic">There are currently no modules here. Check back soon.</p>
+                        @endforelse
+                    </div>
 
-                    {{-- @todo include advanced modules --}}
+                    @if ($bonusModules->where('skill_level', 'intermediate')->isNotEmpty())
+                        <div class="flex flex-wrap w-full mt-8 md:px-1 lg:px-0 lg:-mx-3">
+                            <h3 class="mb-6 px-3 w-full font-semibold leading-tight tracking-tight text-xl text-east-bay lg:block lg:text-2xl">Bonus</h3>
+
+                            @foreach ($bonusModules->where('skill_level', 'intermediate') as $module)
+                                <div class="flex-initial pb-5 px-3 w-full sm:max-w-xs sm:w-1/2 lg:w-1/3 xl:w-1/4">
+                                    <a class="flex flex-col h-full shadow-md duration-300 transform transition-transform hover:no-underline hover:scale-95 {{ $loop->even ? 'bg-cornflower-blue' : 'bg-blue-violet' }}"
+                                        href="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'free-resources']) }}">
+                                        <span class="pb-8/12 block xl:pb-3/5"></span>
+                                        <span class="block flex-1 p-5 pb-8 bg-white xl:px-8 xl:pb-10">
+                                            <h4 class="font-semibold tracking-tight text-east-bay">{{ $module->name }}</h4>
+                                        </span>
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+                    @endif
                 </div>
-            </div>
+            </tab>
 
-            {{--
-                <p class="mb-2 font-bold text-lg">Recommended modules</p>
+            <tab name="Advanced">
+                <div class="fluid-container px-2 md:px-8 lg:px-20 lg:mt-32 xxl:px-32">
+                    <h2 class="hidden mb-10 w-full font-semibold leading-tight tracking-tight text-4xl text-gray-900 lg:block">Advanced</h2>
 
-                <ul class="@guest list-disc @endguest">
-                    @foreach ($standardModules as $module)
-                    <li>
-                        @auth
-                        <completed-checkbox
-                            :initial-is-completed="{{ $completedModules->contains($module->id) ? 'true' : 'false' }}"
-                            type="{{ $module->getMorphClass() }}"
-                            id="{{ $module->id }}"
-                            ></completed-checkbox>
-                        @endauth
-                        <a href="{{ route_wlocale('modules.show', $module) }}">{{ $module->name }}</a>
-                    </li>
-                    @endforeach
-                </ul>
+                    <div class="flex flex-wrap w-full md:px-1 lg:px-0 lg:-mx-3">
+                        @forelse ($advancedModules as $module)
+                            <div class="flex-initial pb-5 px-3 w-full sm:max-w-xs sm:w-1/2 lg:w-1/3 xl:w-1/4">
+                                <a class="flex flex-col h-full shadow-md duration-300 transform transition-transform hover:no-underline hover:scale-95 {{ $loop->even ? 'bg-pink-900' : 'bg-pink-800' }}"
+                                    href="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'free-resources']) }}">
+                                    <span class="pb-8/12 block relative xl:pb-3/5">
+                                        {{-- <img
+                                            class="absolute bottom-0 left-1/2 transform -translate-x-1/2 will-change-transform w-3/4"
+                                            src="/images/temp/img_basicwebsite.svg" alt="Image for the {{ $module->name }} module."> --}}
+                                    </span>
+                                    <span class="block flex-1 p-5 pb-8 bg-white xl:px-8 xl:pb-10">
+                                        <h4 class="font-semibold tracking-tight text-east-bay">{{ $module->name }}</h4>
+                                    </span>
+                                </a>
+                            </div>
+                        @empty
+                            <p class="px-3 text-gray-700 italic">There are currently no modules here. Check back soon.</p>
+                        @endforelse
+                    </div>
 
-                @if ($bonusModules->isNotEmpty())
-                <p class="mb-2 font-bold text-lg mt-8">Bonus modules</p>
+                    @if ($bonusModules->where('skill_level', 'advanced')->isNotEmpty())
+                        <div class="flex flex-wrap w-full mt-8 md:px-1 lg:px-0 lg:-mx-3">
+                            <h3 class="mb-6 px-3 w-full font-semibold leading-tight tracking-tight text-xl text-east-bay lg:block lg:text-2xl">Bonus</h3>
 
-                <ul class="@guest list-disc @endguest">
-                    @foreach ($bonusModules as $module)
-                    <li>
-                        @auth
-                        <completed-checkbox
-                            :initial-is-completed="{{ $completedModules->contains($module->id) ? 'true' : 'false' }}"
-                            type="{{ $module->getMorphClass() }}"
-                            id="{{ $module->id }}"
-                            ></completed-checkbox>
-                        @endauth
-                        <a href="{{ route_wlocale('modules.show', $module) }}">{{ $module->name }}</a>
-                    </li>
-                    @endforeach
-                </ul>
-                @endif
-            --}}
-        </div>
+                            @foreach ($bonusModules->where('skill_level', 'advanced') as $module)
+                                <div class="flex-initial pb-5 px-3 w-full sm:max-w-xs sm:w-1/2 lg:w-1/3 xl:w-1/4">
+                                    <a class="flex flex-col h-full shadow-md duration-300 transform transition-transform hover:no-underline hover:scale-95 {{ $loop->even ? 'bg-pink-900' : 'bg-pink-800' }}"
+                                        href="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'free-resources']) }}">
+                                        <span class="pb-8/12 block xl:pb-3/5"></span>
+                                        <span class="block flex-1 p-5 pb-8 bg-white xl:px-8 xl:pb-10">
+                                            <h4 class="font-semibold tracking-tight text-east-bay">{{ $module->name }}</h4>
+                                        </span>
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+                    @endif
+                </div>
+            </tab>
+        </tabs>
     </div>
 </div>
 @endsection

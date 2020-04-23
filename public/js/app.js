@@ -2532,7 +2532,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    hideTabsOnDesktop: {
+      type: Boolean,
+      "default": false
+    }
+  },
   data: function data() {
     return {
       tabs: []
@@ -2541,11 +2549,36 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.tabs = this.$children;
   },
+  mounted: function mounted() {
+    var _this = this;
+
+    this.$nextTick(function () {
+      _this.checkShowAllTabContent();
+
+      $(window).on('resize', _this.checkShowAllTabContent);
+    });
+  },
   methods: {
     setActiveTab: function setActiveTab(selectedTabHref) {
       this.tabs.forEach(function (tab) {
         tab.isActive = tab.href == selectedTabHref;
       });
+    },
+    showAllTabs: function showAllTabs() {
+      this.tabs.forEach(function (tab) {
+        tab.isActive = true;
+      });
+    },
+    checkShowAllTabContent: function checkShowAllTabContent() {
+      if (!this.hideTabsOnDesktop) {
+        return;
+      }
+
+      if ($(window).width() >= 992) {
+        this.showAllTabs();
+      } else {
+        this.setActiveTab(this.tabs[0].href);
+      }
     }
   }
 });
@@ -39729,7 +39762,8 @@ var render = function() {
       ? _c(
           "div",
           {
-            staticClass: "bg-white fixed h-screen inset-0 overflow-scroll z-50"
+            staticClass:
+              "bg-white fixed h-screen inset-0 overflow-scroll z-50 min-w-xs"
           },
           [
             _c(
@@ -39792,56 +39826,49 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("modal", {
-    attrs: { show: _vm.show },
-    scopedSlots: _vm._u(
+  return _c(
+    "modal",
+    { attrs: { show: _vm.show } },
+    [
       [
-        {
-          key: "default",
-          fn: function(modal) {
-            return [
+        _c(
+          "div",
+          {
+            staticClass:
+              "border-blue-violet border-t-4 flex flex-col h-auto justify-between min-h-screen overflow-scroll pt-12"
+          },
+          [
+            _c("nav", { staticClass: "mt-2" }, [
               _c(
                 "div",
-                {
-                  staticClass:
-                    "border-blue-violet border-t-4 flex flex-col h-auto justify-between min-h-screen overflow-scroll pt-12"
-                },
-                [
-                  _c("nav", { staticClass: "mt-2" }, [
-                    _c(
-                      "div",
-                      { staticClass: "border-b border-gray-300" },
-                      [_vm._t("navigation-links")],
-                      2
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "py-4" },
-                      [_vm._t("subnavigation-links")],
-                      2
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "border-t border-gray-300 flex items-center justify-between mt-4 px-4 py-10"
-                    },
-                    [_vm._t("navigation-buttons")],
-                    2
-                  )
-                ]
+                { staticClass: "border-b border-gray-300" },
+                [_vm._t("navigation-links")],
+                2
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "py-4" },
+                [_vm._t("subnavigation-links")],
+                2
               )
-            ]
-          }
-        }
-      ],
-      null,
-      true
-    )
-  })
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "border-t border-gray-300 flex items-center justify-between mt-4 px-4 py-10"
+              },
+              [_vm._t("navigation-buttons")],
+              2
+            )
+          ]
+        )
+      ]
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -40152,7 +40179,10 @@ var render = function() {
       _vm._t("tabs-navigation", [
         _c(
           "div",
-          { staticClass: "h-16 w-full mb-8 overflow-hidden md:mb-10 lg:mb-12" },
+          {
+            staticClass: "h-16 w-full mb-8 overflow-hidden md:mb-10 lg:mb-12",
+            class: { "lg:hidden": _vm.hideTabsOnDesktop }
+          },
           [
             _c("div", { staticClass: "fluid-container overflow-scroll pb-8" }, [
               _c(

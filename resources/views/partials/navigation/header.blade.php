@@ -153,22 +153,22 @@
 
         <template slot="navigation-buttons">
             @guest
-                <a class="border-2 border-teal-600 flex-1 font-semibold inline-block leading-none mx-2 px-8 py-3 text-center text-teal-600 text-lg whitespace-no-wrap hover:no-underline" href="{{ route_wlocale('login') }}">
+                <a class="border-2 border-teal-600 flex-1 w-1/2 font-semibold inline-block leading-none mx-2 py-3 text-center text-teal-600 text-lg whitespace-no-wrap hover:no-underline" href="{{ route_wlocale('login') }}">
                     <span>{{ __('Log in') }}</span>
                 </a>
 
                 @if (Route::has('register'))
-                <a class="bg-teal-600 border-2 border-teal-600 flex-1 font-semibold inline-block leading-none mx-2 px-8 py-3 text-center text-white text-lg whitespace-no-wrap hover:no-underline" href="{{ route_wlocale('register') }}">
+                <a class="bg-teal-600 border-2 border-teal-600 flex-1 w-1/2 font-semibold inline-block leading-none mx-2 py-3 text-center text-white text-lg whitespace-no-wrap hover:no-underline" href="{{ route_wlocale('register') }}">
                     <span>{{ __('Register') }}</span>
                 </a>
                 @endif
             @else
-                <a class="border-2 border-teal-600 flex-1 font-semibold inline-block leading-none mx-2 px-8 py-3 text-center text-teal-600 text-lg whitespace-no-wrap hover:no-underline" href="{{ route_wlocale('home') }}">
+                <a class="border-2 border-teal-600 flex-1 w-1/2 font-semibold inline-block leading-none mx-2 py-3 text-center text-teal-600 text-lg whitespace-no-wrap hover:no-underline" href="{{ route_wlocale('home') }}">
                     <span>{{ __('My Modules') }}</span>
                 </a>
 
                 <a href="{{ route_wlocale('logout') }}"
-                    class="bg-teal-600 border-2 border-teal-600 flex-1 font-semibold inline-block leading-none mx-2 px-8 py-3 text-center text-white text-lg whitespace-no-wrap hover:no-underline"
+                    class="bg-teal-600 border-2 border-teal-600 flex-1 w-1/2 font-semibold inline-block leading-none mx-2 py-3 text-center text-white text-lg whitespace-no-wrap hover:no-underline"
                     onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
                     <span>{{ __('Logout') }}</span>

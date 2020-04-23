@@ -695,10 +695,6 @@ h2 {
   }
 }
 
-[x-cloak] {
-  display: none;
-}
-
 .fluid-container {
   max-width: 1440px;
   margin-left: auto;

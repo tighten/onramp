@@ -1,6 +1,6 @@
 <template>
     <modal :show="show">
-        <template slot-scope="modal">
+        <template>
             <div class="border-blue-violet border-t-4 flex flex-col h-auto justify-between min-h-screen overflow-scroll pt-12">
                 <nav class="mt-2">
                     <div class="border-b border-gray-300">

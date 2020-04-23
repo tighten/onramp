@@ -1,6 +1,6 @@
 <template>
     <transition name="fade">
-        <div class="bg-white fixed h-screen inset-0 overflow-scroll z-50" v-if="show">
+        <div class="bg-white fixed h-screen inset-0 overflow-scroll z-50 min-w-xs" v-if="show">
             <button @click="close"
                 class="absolute leading-0 mr-5 mt-5 top-0 right-0 text-oxford-blue text-5xl"
                 aria-label="close">

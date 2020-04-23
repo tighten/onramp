@@ -2,15 +2,28 @@
 
 @php
 use App\Resource;
+
+$bgColor = 'bg-teal-600';
+
+switch($module->skill_level) {
+    case 'intermediate':
+        $bgColor = 'bg-blue-violet';
+        break;
+    case 'advanced':
+        $bgColor = 'bg-pink-800';
+        break;
+    default:
+        break;
+}
 @endphp
 
 @section('content')
 <div class="pb-48 w-full bg-off-white lg:pb-32">
     @include('partials.you-should-log-in')
 
-    <div class="bg-teal-600 pb-24 pt-16 md:pb-40 lg:pt-24 lg:pb-48">
+    <div class="{{ $bgColor }} pb-24 pt-16 md:pb-40 lg:pt-24 lg:pb-48">
         <div class="fluid-container relative lg:flex lg:items-center lg:justify-between">
-            <h1 class="text-white">{{ $module->name }}</h1>
+            <h1 class="text-white max-w-3xl">{{ $module->name }}</h1>
 
             @auth
                 <completed-button

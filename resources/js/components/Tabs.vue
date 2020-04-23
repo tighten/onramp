@@ -1,7 +1,9 @@
 <template>
     <div>
         <slot name="tabs-navigation">
-            <div class="h-16 w-full mb-8 overflow-hidden md:mb-10 lg:mb-12">
+            <div class="h-16 w-full mb-8 overflow-hidden md:mb-10 lg:mb-12"
+                :class="{'lg:hidden': hideTabsOnDesktop}"
+            >
                 <div class="fluid-container overflow-scroll pb-8">
                     <ul class="inline-flex flex-no-wrap min-w-full text-none border-b-4 text-regent-grey">
                         <li
@@ -31,6 +33,13 @@
 
 <script>
 export default {
+    props: {
+        hideTabsOnDesktop: {
+            type: Boolean,
+            default: false,
+        }
+    },
+
     data() {
         return {
             tabs: [],
@@ -41,11 +50,36 @@ export default {
         this.tabs = this.$children;
     },
 
+    mounted() {
+        this.$nextTick(() => {
+            this.checkShowAllTabContent();
+            $(window).on('resize', this.checkShowAllTabContent);
+        });
+    },
+
     methods: {
         setActiveTab(selectedTabHref) {
             this.tabs.forEach(tab => {
                 tab.isActive = (tab.href == selectedTabHref);
             });
+        },
+
+        showAllTabs() {
+            this.tabs.forEach(tab => {
+                tab.isActive = true;
+            });
+        },
+
+        checkShowAllTabContent() {
+            if (! this.hideTabsOnDesktop) {
+                return;
+            }
+
+            if($(window).width() >= 992) {
+                this.showAllTabs();
+            }else {
+                this.setActiveTab(this.tabs[0].href);
+            }
         },
     }
 }

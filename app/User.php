@@ -81,7 +81,7 @@ class User extends Authenticatable
         return $this->hasMany(SuggestedResource::class);
     }
 
-    public function initials()
+    public function getInitialsAttribute()
     {
         $words = explode(' ', $this->name);
         $initials = null;
@@ -91,6 +91,11 @@ class User extends Authenticatable
         }
 
         return strtoupper($initials);
+    }
+
+    public function getFirstNameAttribute()
+    {
+        return explode(' ', $this->name)[0];
     }
 
     public function sendPasswordResetNotification($token)

@@ -18,60 +18,73 @@ switch($module->skill_level) {
 @endphp
 
 @section('content')
-<div class="pb-48 w-full bg-off-white lg:pb-32">
+<div class="w-full pb-48 bg-off-white lg:pb-32">
     @include('partials.you-should-log-in')
 
     <div class="{{ $bgColor }} pb-24 pt-16 md:pb-40 lg:pt-24 lg:pb-48">
-        <div class="fluid-container relative lg:flex lg:items-center lg:justify-between">
-            <h1 class="text-white max-w-3xl">{{ $module->name }}</h1>
+        <div class="relative fluid-container lg:flex lg:items-center lg:justify-between">
+            <h1 class="max-w-3xl text-white">{{ $module->name }}</h1>
 
             @auth
-                <completed-button
-                    :initial-is-completed="{{ $completedModules->contains($module->id) ? 'true' : 'false' }}"
-                    type="{{ $module->getMorphClass() }}"
-                    id="{{ $module->id }}">
-                </completed-button>
+                @if (! is_null(Auth::user()->track_id) && Auth::user()->track->modules->contains($module->id))
+                    <completed-button
+                        :initial-is-completed="{{ $completedModules->contains($module->id) ? 'true' : 'false' }}"
+                        type="{{ $module->getMorphClass() }}"
+                        id="{{ $module->id }}">
+                    </completed-button>
+                @else
+                    <form action="{{ route_wlocale('user.track.update', ['module_id' => $module->id]) }}" method="POST">
+                        @method("PATCH")
+                        @csrf
+                        <button type="submit" class="block w-full px-5 py-2 mt-8 font-semibold leading-none text-center text-white border-2 border-white transition-colors duration-150 ease-in-out rounded-md hover:bg-white hover:no-underline hover:text-teal-600 focus:outline-none md:max-w-xs md:py-3 lg:mt-0">
+                            <span class="inline-block">Add to My Modules</span>
+                        </button>
+                    </form>
+                @endif
             @endauth
         </div>
     </div>
 
-    <div class="fluid-container pb-16">
-        <div class="bg-white -mt-16 pt-6 px-4 pb-8 shadow-md md:p-10 md:pb-16 md:-mt-32 lg:px-16 lg:pb-20 lg:pt-16">
+    <div class="pb-16 fluid-container">
+        <div class="px-4 pt-6 pb-8 -mt-16 bg-white shadow-md md:p-10 md:pb-16 md:-mt-32 lg:px-16 lg:pb-20 lg:pt-16">
             @if ($module->description)
                 <div>
-                    <p class="mb-3 font-semibold text-xl md:mb-8 md:text-2xl lg:text-4xl">Overview</p>
+                    <p class="mb-3 text-xl font-semibold md:mb-8 md:text-2xl lg:text-4xl">Overview</p>
 
-                    <p class="text-east-bay pr-2 mb-6 md:mb-10 lg:max-w-3xl xl:leading-loose">
+                    <p class="pr-2 mb-6 text-east-bay md:mb-10 lg:max-w-3xl xl:leading-loose">
                         {{ $module->description }}
                     </p>
                 </div>
             @endif
 
             <div>
-                <p class="mb-3 font-semibold text-xl md:mb-8 md:text-2xl lg:text-4xl">Skills</p>
+                <p class="mb-3 text-xl font-semibold md:mb-8 md:text-2xl lg:text-4xl">Skills</p>
                 <ul class="flex flex-wrap -m-1 md:-m-2">
                     @forelse ($skills as $skill)
-                        @if (Auth::check())
-                            <li class="block m-1 md:m-2">
-                                <completed-badge
-                                    badge-text="{{ $skill->name }}"
-                                    :initial-is-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
-                                    type="{{ $skill->getMorphClass() }}"
-                                    id="{{ $skill->id }}"
-                                ></completed-badge>
-                            </li>
-                        @else
-                            <li class="relative block py-2 px-4 m-1">
-                                <span class="absolute inset-0 bg-teal-400 opacity-10 w-full h-full rounded-md"></span>
+                        @auth
+                            @if (! is_null(Auth::user()->track_id) && Auth::user()->track->modules->contains($module->id))
+                                <li class="block m-1 md:m-2">
+                                    <completed-badge
+                                        badge-text="{{ $skill->name }}"
+                                        :initial-is-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
+                                        type="{{ $skill->getMorphClass() }}"
+                                        id="{{ $skill->id }}"
+                                    ></completed-badge>
+                                </li>
+                            @endif
+                        @endauth
+                        @guest
+                            <li class="relative block px-4 py-2 m-1">
+                                <span class="absolute inset-0 w-full h-full bg-teal-400 rounded-md opacity-10"></span>
                                 <span class="font-bold text-teal-600">{{ $skill->name }}</span>
                             </li>
-                        @endif
+                        @endguest
                     @empty
                         <li class="relative block m-1">No skills</li>
                     @endforelse
 
                     @if ($bonusSkills->isNotEmpty())
-                        <li class="font-bold mt-4 list-none">BONUS:</li>
+                        <li class="mt-4 font-bold list-none">BONUS:</li>
                         @foreach ($bonusSkills as $skill)
                             @if (Auth::check())
                                 <li class="block m-1 md:m-2">
@@ -83,8 +96,8 @@ switch($module->skill_level) {
                                     ></completed-badge>
                                 </li>
                             @else
-                                <li class="relative block py-2 px-4 m-1">
-                                    <span class="absolute inset-0 bg-teal-400 opacity-10 w-full h-full rounded-md"></span>
+                                <li class="relative block px-4 py-2 m-1">
+                                    <span class="absolute inset-0 w-full h-full bg-teal-400 rounded-md opacity-10"></span>
                                     <span class="font-bold text-teal-600">{{ $skill->name }}</span>
                                 </li>
                             @endif

@@ -21,21 +21,21 @@ window.Vue = require('vue');
 
 // Vue.component('language-switcher', require('./components/LanguageSwitcher.vue').default);
 
-import LanguageSwitcher from './components/LanguageSwitcher.vue';
-import ToggleWhenMobile from './components/ToggleWhenMobile.vue';
-import ResourceLanguagePreferenceSwitcher from './components/ResourceLanguagePreferenceSwitcher.vue';
 import Completable from './components/Completables/Completable.vue';
-import CompletedBadge from './components/Completables/CompletedBadge.vue';
 import CompletableButton from './components/Completables/CompletedButton.vue';
+import CompletedBadge from './components/Completables/CompletedBadge.vue';
 import CompletedCheckbox from './components/Completables/CompletedCheckbox.vue';
-import Toast from './components/Toast.vue';
-import ModalMobileMenu from './components/ModalMobileMenu.vue';
-import SelectDropdown from './components/SelectDropdown.vue';
-import TabsWithSelect from './components/TabsWithSelect.vue';
-import Tabs from './components/Tabs.vue';
-import Tab from './components/Tab.vue';
 import Lang from 'lang.js';
+import LanguageSwitcher from './components/LanguageSwitcher.vue';
+import ModalMobileMenu from './components/ModalMobileMenu.vue';
 import Notifications from 'vue-notification';
+import ResourceLanguagePreferenceSwitcher from './components/ResourceLanguagePreferenceSwitcher.vue';
+import SelectDropdown from './components/SelectDropdown.vue';
+import Tab from './components/Tabs/Tab.vue';
+import Tabs from './components/Tabs/Tabs.vue';
+import TabsWithSelect from './components/Tabs/TabsWithSelect.vue';
+import Toast from './components/Toast.vue';
+import ToggleWhenMobile from './components/ToggleWhenMobile.vue';
 
 Vue.prototype.trans = new Lang({
     messages: window.jsonTranslations,

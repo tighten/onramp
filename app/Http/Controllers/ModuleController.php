@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Facades\Preferences;
 use App\Module;
-use Illuminate\Http\Request;
 
 class ModuleController extends Controller
 {
@@ -12,12 +11,10 @@ class ModuleController extends Controller
     {
         return view('modules.index', [
             'pageTitle' => 'Modules',
-            'standardModules' => Module::standard()->get(),
+            'standardBeginnerModules' => Module::standard()->beginner()->get(),
+            'standardIntermediateModules' => Module::standard()->intermediate()->get(),
+            'standardAdvancedModules' => Module::standard()->advanced()->get(),
             'bonusModules' => Module::bonus()->get(),
-
-            // @todo use this for the My Modules page
-            // 'standardModules' => auth()->check() && auth()->user()->track ? auth()->user()->track->modules()->standard()->get() : Module::standard()->get(),
-            // 'bonusModules' => auth()->check() && auth()->user()->track ? auth()->user()->track->modules()->bonus()->get() : Module::bonus()->get(),
         ]);
     }
 

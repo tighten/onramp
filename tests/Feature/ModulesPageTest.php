@@ -3,8 +3,6 @@
 namespace Tests\Feature;
 
 use App\Module;
-use App\Track;
-use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -19,7 +17,7 @@ class ModulesPageTest extends TestCase
         $response = $this->get(route('modules.show', [
             'locale' => 'en',
             'module' => $module,
-            'resourceType' => 'free-resources'
+            'resourceType' => 'free-resources',
         ]));
         $response->assertOk();
     }
@@ -40,47 +38,16 @@ class ModulesPageTest extends TestCase
         $response = $this->get(route('modules.index', ['locale' => 'en']));
 
         $response->assertSeeInOrder([
-            $standardModule->name,
             $bonusModule->name,
+            $standardModule->name,
         ]);
     }
 
     /** @test */
-    function modules_index_page_only_lists_modules_in_users_track()
+    function list_of_beginner_modules_only_contains_beginner_modules()
     {
-        $track = factory(Track::class)->create();
-        $track->modules()->createMany(
-            factory(Module::class, 3)->make([
-                'is_bonus' => 0,
-            ])->toArray()
-        );
-
-        $otherTrack = factory(Track::class)->create();
-        $otherTrack->modules()->createMany(
-            factory(Module::class, 2)->make([
-                'is_bonus' => 0,
-            ])->toArray()
-        );
-
-        $user = factory(User::class)->create([
-            'track_id' => 1,
-        ]);
-
-        $this->actingAs($user);
-
-        $response = $this->get(route('modules.index', ['locale' => 'en']));
-
-        $response->assertViewHas('standardModules', function ($standardModules) {
-            return $standardModules->count() == 3;
-        });
-    }
-
-
-    /** @test */
-    function list_of_standard_modules_only_contains_standard_modules()
-    {
-        $standardModule = factory(Module::class)->create([
-            'name' => 'Standard module',
+        $beginnerModule = factory(Module::class)->create([
+            'name' => 'Beginner module',
             'is_bonus' => 0,
         ]);
 
@@ -91,16 +58,74 @@ class ModulesPageTest extends TestCase
 
         $response = $this->get('/en/modules');
 
-        $response->assertViewHas('standardModules', function ($standardModules) {
-            return $standardModules->count() == 1;
+        $response->assertViewHas('standardBeginnerModules', function ($beginnerModules) {
+            return $beginnerModules->count() == 1;
         });
 
-        $response->assertViewHas('standardModules', function ($standardModules) use ($standardModule) {
-            return $standardModules->contains($standardModule);
+        $response->assertViewHas('standardBeginnerModules', function ($beginnerModules) use ($beginnerModule) {
+            return $beginnerModules->contains($beginnerModule);
         });
 
-        $response->assertViewHas('standardModules', function ($standardModules) use ($bonusModule) {
-            return ! $standardModules->contains($bonusModule);
+        $response->assertViewHas('standardBeginnerModules', function ($beginnerModules) use ($bonusModule) {
+            return ! $beginnerModules->contains($bonusModule);
+        });
+    }
+
+    /** @test */
+    function list_of_intermediate_modules_only_contains_intermediate_modules()
+    {
+        $intermediateModule = factory(Module::class)->create([
+            'name' => 'Intermediate module',
+            'is_bonus' => 0,
+            'skill_level' => 'intermediate',
+        ]);
+
+        $bonusModule = factory(Module::class)->create([
+            'name' => 'Bonus module',
+            'is_bonus' => 1,
+        ]);
+
+        $response = $this->get('/en/modules');
+
+        $response->assertViewHas('standardIntermediateModules', function ($intermediateModules) {
+            return $intermediateModules->count() == 1;
+        });
+
+        $response->assertViewHas('standardIntermediateModules', function ($intermediateModules) use ($intermediateModule) {
+            return $intermediateModules->contains($intermediateModule);
+        });
+
+        $response->assertViewHas('standardIntermediateModules', function ($intermediateModules) use ($bonusModule) {
+            return ! $intermediateModules->contains($bonusModule);
+        });
+    }
+
+    /** @test */
+    function list_of_advanced_modules_only_contains_advanced_modules()
+    {
+        $advancedModule = factory(Module::class)->create([
+            'name' => 'Advanced module',
+            'is_bonus' => 0,
+            'skill_level' => 'advanced',
+        ]);
+
+        $bonusModule = factory(Module::class)->create([
+            'name' => 'Bonus module',
+            'is_bonus' => 1,
+        ]);
+
+        $response = $this->get('/en/modules');
+
+        $response->assertViewHas('standardAdvancedModules', function ($advancedModules) {
+            return $advancedModules->count() == 1;
+        });
+
+        $response->assertViewHas('standardAdvancedModules', function ($advancedModules) use ($advancedModule) {
+            return $advancedModules->contains($advancedModule);
+        });
+
+        $response->assertViewHas('standardAdvancedModules', function ($advancedModules) use ($bonusModule) {
+            return ! $advancedModules->contains($bonusModule);
         });
     }
 

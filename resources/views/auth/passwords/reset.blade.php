@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mx-auto mb-8 mt-8">
+    <div class="container mx-auto mt-8 mb-8">
         <div class="flex flex-wrap justify-center">
             <div class="w-full max-w-sm">
                 <div class="flex flex-col break-words bg-white border border-2 rounded shadow-md">
 
-                    <div class="font-semibold bg-gray-200 text-gray-700 py-3 px-6 mb-0">
+                    <div class="px-6 py-3 mb-0 font-semibold text-gray-700 bg-gray-200">
                         {{ __('Reset Password') }}
                     </div>
 
@@ -16,43 +16,43 @@
                         <input type="hidden" name="token" value="{{ $token }}">
 
                         <div class="flex flex-wrap mb-6">
-                            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">
+                            <label for="email" class="block mb-2 text-sm font-bold text-gray-700">
                                 {{ __('E-Mail Address') }}:
                             </label>
 
                             <input id="email" type="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline{{ $errors->has('email') ? ' border-red' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
                             @if ($errors->has('email'))
-                                <p class="text-red-500 text-xs italic mt-2">
+                                <p class="mt-2 text-xs italic text-red-500">
                                     {{ $errors->first('email') }}
                                 </p>
                             @endif
                         </div>
 
                         <div class="flex flex-wrap mb-6">
-                            <label for="password" class="block text-gray-700 text-sm font-bold mb-2">
+                            <label for="password" class="block mb-2 text-sm font-bold text-gray-700">
                                 {{ __('Password') }}:
                             </label>
 
                             <input id="password" type="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline{{ $errors->has('password') ? ' border-red' : '' }}" name="password" required>
 
                             @if ($errors->has('password'))
-                                <p class="text-red-500 text-xs italic mt-2">
+                                <p class="mt-2 text-xs italic text-red-500">
                                     {{ $errors->first('password') }}
                                 </p>
                             @endif
                         </div>
 
                         <div class="flex flex-wrap mb-6">
-                            <label for="password-confirm" class="block text-gray-700 text-sm font-bold mb-2">
+                            <label for="password-confirm" class="block mb-2 text-sm font-bold text-gray-700">
                                 {{ __('Confirm Password') }}:
                             </label>
 
-                            <input id="password-confirm" type="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="password_confirmation" required>
+                            <input id="password-confirm" type="password" class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" name="password_confirmation" required>
                         </div>
 
                         <div class="flex flex-wrap">
-                            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-gray-100 font-bold  py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                            <button type="submit" class="px-4 py-2 font-bold text-gray-100 bg-blue-500 rounded hover:bg-blue-700  focus:outline-none focus:shadow-outline">
                                 {{ __('Reset Password') }}
                             </button>
                         </div>

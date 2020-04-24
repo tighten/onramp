@@ -2,23 +2,23 @@
 
 @section('content')
 <div class="w-full bg-white">
-    <div class="text-center px-6 py-12 mb-6 bg-gray-100 border-b">
-        <h1 class=" text-xl md:text-4xl pb-4">{{ __('Onramp Planning Chat') }}</h1>
+    <div class="px-6 py-12 mb-6 text-center bg-gray-100 border-b">
+        <h1 class="pb-4 text-xl  md:text-4xl">{{ __('Onramp Planning Chat') }}</h1>
     </div>
 
-    <div class="container max-w-4xl mx-auto md:flex items-start py-8 px-6 md:px-0">
-        <div class="w-full md:pr-12 mb-6 mt-8 text-black text-lg md:text-xl">
+    <div class="container items-start max-w-4xl px-6 py-8 mx-auto md:flex md:px-0">
+        <div class="w-full mt-8 mb-6 text-lg text-black md:pr-12 md:text-xl">
             <p class="mb-8">The planning and development of Onramp happens primarily on GitHub and in a Discord chat. If you're reaching this page, you're likely already in the chat, so here are a few notes you might want to know about the chat and the planning of the project.</p>
-            <ul class="list-disc pl-8">
+            <ul class="pl-8 list-disc">
                 <li class="mb-4"><strong>Development and streaming</strong>
-                    <ul class="list-disc pl-8">
+                    <ul class="pl-8 list-disc">
                         <li>Much of the development of the app happens on Matt Stauffer's <a href="https://mattstauffer.com/stream">programming live streams</a>.</li>
                         <li>Announcements are made in Eastern time; the most common time you'll see referenced is 11am eastern, which you can compare to your time zone <a href="https://time.is/compare/1100_4_Oct_2019_in_ET/">here</a>.</li>
                         <li>If you're new to open source, check out our <a href="https://github.com/tightenco/onramp/blob/master/contributing.md">contributing.md</a> to learn more about contributing.</li>
                     </ul>
                 </li>
                 <li class="mb-4"><strong>Chat guidelines</strong>
-                    <ul class="list-disc pl-8">
+                    <ul class="pl-8 list-disc">
                         <li>Be kind to each other.</li>
                         <li>Follow the <a href="https://github.com/tightenco/onramp/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a>.</li>
                         <li>This chat is for planning Onramp. Off-topic conversations are allowed within reason, but try to keep the focus mainly on planning Onramp.</li>

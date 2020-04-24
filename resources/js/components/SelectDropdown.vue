@@ -4,13 +4,13 @@
         :tabindex="tabindex"
         @blur="open = false">
         <button
-            class="relative block px-5 py-4 pr-12 h-12 w-full bg-gray-200 font-semibold
-            text-left text-base leading-none truncate rounded-md focus:outline-none"
+            class="relative block w-full h-12 px-5 py-4 pr-12 text-base leading-none text-left truncate bg-gray-200 font-semibold
+  rounded-md focus:outline-none"
             :class="{'rounded-bl-none rounded-br-none': isOpen}"
             @click="isOpen = !isOpen">
             <span>{{ selected }}</span>
 
-            <svg class="absolute h-full w-4 mr-5 stroke-current right-0 top-0"
+            <svg class="absolute top-0 right-0 w-4 h-full mr-5 stroke-current"
                 :class="{'mt-0 transform -scale-y-100': isOpen}"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 11">
@@ -19,22 +19,22 @@
         </button>
 
         <ul
-            class="absolute h-0 w-full overflow-hidden mt-12 left-0 top-0
-            bg-gray-200"
+            class="absolute left-0 w-full h-0 mt-12 overflow-hidden bg-gray-200 top-0
+ "
             :class="{'h-auto border-t border-gray-400': isOpen}">
             <li
                 class="border-t first:border-t-0"
                 v-for="(option, i) of options"
                 :key="i">
                 <button
-                    class="relative block px-5 py-4 pr-12 w-full font-semibold text-left text-base truncate focus:outline-none hover:bg-gray-300"
+                    class="relative block w-full px-5 py-4 pr-12 text-base font-semibold text-left truncate focus:outline-none hover:bg-gray-300"
                     :class="{'': selected === option}"
                     @click="setSelected(option)">
                     <span>{{ option }}</span>
 
                     <template v-if="selected === option">
                         <svg
-                            class="absolute mr-5 w-3 h-3 fill-current text-teal-600 transform right-0 top-1/2 -translate-y-1/2"
+                            class="absolute right-0 w-3 h-3 mr-5 text-teal-600 fill-current transform top-1/2 -translate-y-1/2"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24">
                             <path

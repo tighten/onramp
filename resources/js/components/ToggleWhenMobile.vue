@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button @click="toggle" class="border rounded py-1 px-4 md:hidden">{{ buttonLabel }}</button>
+        <button @click="toggle" class="px-4 py-1 border rounded md:hidden">{{ buttonLabel }}</button>
 
         <div class="md:block" v-bind:class="{ hidden: !isOpen }">
             <slot></slot>

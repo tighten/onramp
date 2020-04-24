@@ -2,15 +2,15 @@
 
 @section('content')
 <div class="w-full bg-white">
-    <div class="text-center px-6 py-12 mb-6 bg-gray-100 border-b">
-        <h1 class=" text-xl md:text-4xl pb-4">{{ __('Learn Laravel') }}</h1>
+    <div class="px-6 py-12 mb-6 text-center bg-gray-100 border-b">
+        <h1 class="pb-4 text-xl  md:text-4xl">{{ __('Learn Laravel') }}</h1>
         <p class="leading-loose text-gray-dark">
             {{ __('The tech concepts you should know in order to get a job as a Laravel developer.') }}
         </p>
     </div>
 
-    <div class="container max-w-4xl mx-auto md:flex items-start py-8 px-6 md:px-0">
-        <div class="w-full md:pr-12 mb-6">
+    <div class="container items-start max-w-4xl px-6 py-8 mx-auto md:flex md:px-0">
+        <div class="w-full mb-6 md:pr-12">
             <ul class="temp-learn-list">
                 @foreach ($learn as $item)
                 <li>
@@ -43,7 +43,7 @@
                 @endforeach
             </ul>
 
-            <hr class="border-b border-gray-500 mt-12">
+            <hr class="mt-12 border-b border-gray-500">
 
             <p class="mt-12">{{ __("That's all, for now.") }}<br><br>{{ __("Soon: more and better organized links to places to learn each of these technologies/tools, a more robust list of technologies, etc., and then later maybe exercises to test them and prove out your learning.") }}</p>
         </div>

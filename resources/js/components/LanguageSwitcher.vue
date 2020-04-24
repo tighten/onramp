@@ -3,7 +3,7 @@
         <button v-if="isOpen"
                 @click="close()"
                 tabindex="-1"
-                class="fixed w-full h-full inset-0 cursor-default hidden">
+                class="fixed inset-0 hidden w-full h-full cursor-default">
         </button>
 
         <div class="px-6 py-3 lg:p-0">
@@ -13,11 +13,11 @@
                 <button @click="toggle()"
                         id="language-switcher"
                         tabindex="1"
-                        class="font-semibold mr-3 text-base focus:outline-none focus:border-white">
+                        class="mr-3 text-base font-semibold focus:outline-none focus:border-white">
                     {{ language }}
                 </button>
 
-                <svg class="h-auto stroke-current text-blue-violet w-3"
+                <svg class="w-3 h-auto stroke-current text-blue-violet"
                     :class="{ 'transform -scale-y-100': isOpen }"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 11">
@@ -33,12 +33,12 @@
             enter-to-class="max-h-1000"
             leave-class="max-h-1000"
             leave-to-class="max-h-0">
-            <div v-if="isOpen" class="bg-white overflow-hidden lg:absolute lg:mt-12 lg:shadow-xl lg:left-0 lg:top-0">
+            <div v-if="isOpen" class="overflow-hidden bg-white lg:absolute lg:mt-12 lg:shadow-xl lg:left-0 lg:top-0">
                  <!-- border border-blue-700 right-0 mt-2 w-32 bg-white rounded shadow-xl lg:absolute -->
                 <button v-for="(lang, slug) in languages"
                     :key="slug"
                     @click="choose(slug)"
-                    class="block font-normal w-full text-base text-left px-6 py-2 text-blue-violet focus:outline-none hover:bg-indigo-100">{{ lang }}</button>
+                    class="block w-full px-6 py-2 text-base font-normal text-left text-blue-violet focus:outline-none hover:bg-indigo-100">{{ lang }}</button>
             </div>
         </transition>
     </div>

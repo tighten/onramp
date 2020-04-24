@@ -2,13 +2,13 @@
     <completable :type="type" :id="id" :initial-is-completed="initialIsCompleted">
         <template slot-scope="{toggle, isCompleted}">
             <button
-                class="flex items-center justify-center mt-8 py-2 px-5 font-semibold leading-none text-white border-2 border-white rounded-md w-full duration-150 ease-in-out transition-colors hover:bg-white hover:text-teal-600 focus:outline-none md:max-w-xs md:py-3 lg:mt-0"
+                class="flex items-center justify-center w-full px-5 py-2 mt-8 font-semibold leading-none text-white border-2 border-white rounded-md duration-150 ease-in-out transition-colors hover:bg-white hover:text-teal-600 focus:outline-none md:max-w-xs md:py-3 lg:mt-0"
                 :class="{'bg-white text-teal-600 hover:bg-gray-100': isCompleted}"
                 @click="toggle"
                 >
                 <template v-if="! isCompleted">
                     <svg
-                        class="fill-current mr-4 h-5 w-5"
+                        class="w-5 h-5 mr-4 fill-current"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                     >
@@ -18,7 +18,7 @@
 
                 <template v-else>
                     <svg
-                        class="fill-current mr-4 h-5 w-5"
+                        class="w-5 h-5 mr-4 fill-current"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                     >

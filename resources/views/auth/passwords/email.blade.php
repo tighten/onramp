@@ -1,19 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mx-auto mb-8 mt-8">
+    <div class="container mx-auto mt-8 mb-8">
         <div class="flex flex-wrap justify-center">
             <div class="w-full max-w-sm">
 
                 @if (session('status'))
-                    <div class="text-sm border border-t-8 rounded text-green-700 border-green-600 bg-green-100 px-3 py-4 mb-4" role="alert">
+                    <div class="px-3 py-4 mb-4 text-sm text-green-700 bg-green-100 border border-t-8 border-green-600 rounded" role="alert">
                         {{ session('status') }}
                     </div>
                 @endif
 
                 <div class="flex flex-col break-words bg-white border border-2 rounded shadow-md">
 
-                    <div class="font-semibold bg-gray-200 text-gray-700 py-3 px-6 mb-0">
+                    <div class="px-6 py-3 mb-0 font-semibold text-gray-700 bg-gray-200">
                         {{ __('Reset Password') }}
                     </div>
 
@@ -21,26 +21,26 @@
                         @csrf
 
                         <div class="flex flex-wrap mb-6">
-                            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">
+                            <label for="email" class="block mb-2 text-sm font-bold text-gray-700">
                                 {{ __('E-Mail Address') }}:
                             </label>
 
                             <input id="email" type="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline{{ $errors->has('email') ? ' border-red' : '' }}" name="email" value="{{ old('email') }}" required>
 
                             @if ($errors->has('email'))
-                                <p class="text-red-500 text-xs italic mt-2">
+                                <p class="mt-2 text-xs italic text-red-500">
                                     {{ $errors->first('email') }}
                                 </p>
                             @endif
                         </div>
 
                         <div class="flex flex-wrap">
-                            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                            <button type="submit" class="px-4 py-2 font-bold text-gray-100 bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline">
                                 {{ __('Send Password Reset Link') }}
                             </button>
 
-                            <p class="w-full text-xs text-center text-grey-dark mt-8 -mb-4">
-                                <a class="text-blue-500 hover:text-blue-700 no-underline" href="{{ route_wlocale('login') }}">
+                            <p class="w-full mt-8 -mb-4 text-xs text-center text-grey-dark">
+                                <a class="text-blue-500 no-underline hover:text-blue-700" href="{{ route_wlocale('login') }}">
                                     {{ __("Back to login") }}
                                 </a>
                             </p>

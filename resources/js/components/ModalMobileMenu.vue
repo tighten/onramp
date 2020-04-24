@@ -1,7 +1,7 @@
 <template>
     <modal :show="show">
         <template>
-            <div class="border-blue-violet border-t-4 flex flex-col h-auto justify-between min-h-screen overflow-scroll pt-12">
+            <div class="flex flex-col justify-between h-auto min-h-screen pt-12 overflow-scroll border-t-4 border-blue-violet">
                 <nav class="mt-2">
                     <div class="border-b border-gray-300">
                         <slot name="navigation-links"></slot>
@@ -12,7 +12,7 @@
                     </div>
                 </nav>
 
-                <div class="border-t border-gray-300 flex items-center justify-between mt-4 px-4 py-10">
+                <div class="flex items-center justify-between px-4 py-10 mt-4 border-t border-gray-300">
                     <slot name="navigation-buttons"></slot>
                 </div>
             </div>

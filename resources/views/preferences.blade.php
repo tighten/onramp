@@ -7,13 +7,13 @@ $resourceLanguagePreferenceKey = 'resource-language';
 
 @section('content')
 <div class="w-full bg-white">
-    <div class="text-center px-6 py-12 mb-6 bg-gray-100 border-b">
-        <h1 class=" text-xl md:text-4xl pb-4">{{ __('My preferences') }}</h1>
+    <div class="px-6 py-12 mb-6 text-center bg-gray-100 border-b">
+        <h1 class="pb-4 text-xl  md:text-4xl">{{ __('My preferences') }}</h1>
     </div>
 
-    <div class="container max-w-4xl mx-auto md:flex items-start py-8 px-6 md:px-0">
-        <div class="w-full md:pr-12 mb-6">
-            <h2 class="mb-6 mt-8 text-black text-xl md:text-2xl">
+    <div class="container items-start max-w-4xl px-6 py-8 mx-auto md:flex md:px-0">
+        <div class="w-full mb-6 md:pr-12">
+            <h2 class="mt-8 mb-6 text-xl text-black md:text-2xl">
                 {{ __('Account Preferences') }}
             </h2>
 
@@ -58,7 +58,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                     </select>
 
                     @if ($errors->has($localePreferenceKey))
-                        <p class="text-red-500 text-xs italic mt-2">
+                        <p class="mt-2 text-xs italic text-red-500">
                             {{ $errors->first($localePreferenceKey) }}
                         </p>
                     @endif
@@ -79,7 +79,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                     </select>
 
                     @if ($errors->has('operating-system'))
-                        <p class="text-red-500 text-xs italic mt-2">
+                        <p class="mt-2 text-xs italic text-red-500">
                             {{ $errors->first('operating-system') }}
                         </p>
                     @endif
@@ -100,13 +100,13 @@ $resourceLanguagePreferenceKey = 'resource-language';
                     </select>
 
                     @if ($errors->has('track'))
-                        <p class="text-red-500 text-xs italic mt-2">
+                        <p class="mt-2 text-xs italic text-red-500">
                             {{ $errors->first('track') }}
                         </p>
                     @endif
                 </div>
 
-                <button class="inline-block align-middle text-center select-none border font-bold whitespace-no-wrap py-2 px-4 rounded text-base leading-normal no-underline text-gray-100 bg-blue-500 hover:bg-blue-700">{{ ucfirst(__('save')) }}</button>
+                <button class="inline-block px-4 py-2 text-base font-bold leading-normal text-center text-gray-100 no-underline whitespace-no-wrap align-middle bg-blue-500 border rounded select-none hover:bg-blue-700">{{ ucfirst(__('save')) }}</button>
             </form>
         </div>
     </div>

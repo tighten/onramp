@@ -7,15 +7,15 @@ $localePreferenceKey = 'locale';
 @endphp
 <div class="w-full bg-white">
     <!-- title -->
-    <div class="text-center px-6 py-12 mb-6 bg-gray-100 border-b">
-        <h1 class="text-xl md:text-4xl pb-4">{{ __('A bit about yourself') }}</h1>
+    <div class="px-6 py-12 mb-6 text-center bg-gray-100 border-b">
+        <h1 class="pb-4 text-xl md:text-4xl">{{ __('A bit about yourself') }}</h1>
         <p class="leading-loose text-gray-dark">
             {{ __('Help us get to know your environment and knowledge, so we can show you the right information.') }}
         </p>
     </div>
     <!-- /title -->
 
-    <div class="container mx-auto mb-8 mt-8">
+    <div class="container mx-auto mt-8 mb-8">
         <div class="flex flex-wrap justify-center">
             <div class="w-full max-w-lg">
                 <div class="flex flex-col break-words bg-white border border-2 rounded shadow-md">
@@ -34,7 +34,7 @@ $localePreferenceKey = 'locale';
                                 @endforeach
                             </select>
                             @if ($errors->has('os'))
-                                <p class="text-red-500 text-xs italic mt-2">
+                                <p class="mt-2 text-xs italic text-red-500">
                                     {{ $errors->first('os') }}
                                 </p>
                             @endif
@@ -52,7 +52,7 @@ $localePreferenceKey = 'locale';
                                 @endforeach
                             </select>
                             @if ($errors->has('track'))
-                                <p class="text-red-500 text-xs italic mt-2">
+                                <p class="mt-2 text-xs italic text-red-500">
                                     {{ $errors->first('track') }}
                                 </p>
                             @endif
@@ -70,13 +70,13 @@ $localePreferenceKey = 'locale';
                                 @endforeach
                             </select>
                             @if ($errors->has($localePreferenceKey))
-                                <p class="text-red-500 text-xs italic mt-2">
+                                <p class="mt-2 text-xs italic text-red-500">
                                     {{ $errors->first($localePreferenceKey) }}
                                 </p>
                             @endif
                         </div>
                         <div class="flex flex-wrap justify-center">
-                            <button type="submit" class="inline-block align-middle text-center select-none border font-bold whitespace-no-wrap py-2 px-4 rounded text-base leading-normal no-underline text-gray-100 bg-blue-500 hover:bg-blue-700">
+                            <button type="submit" class="inline-block px-4 py-2 text-base font-bold leading-normal text-center text-gray-100 no-underline whitespace-no-wrap align-middle bg-blue-500 border rounded select-none hover:bg-blue-700">
                                 {{ __('Complete') }}
                             </button>
                         </div>

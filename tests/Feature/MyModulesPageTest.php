@@ -13,7 +13,19 @@ class MyModulesPageTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function my_modules_page_only_lists_modules_in_users_track()
+    function it_works_if_the_user_has_not_selected_a_track()
+    {
+        $user = factory(User::class)->create();
+
+        $this->actingAs($user);
+
+        $response = $this->get(route('home', ['locale' => 'en']));
+
+        $response->assertSuccessful();
+    }
+
+    /** @test */
+    function it_only_lists_modules_in_users_track()
     {
         $track = factory(Track::class)->create();
         $track->modules()->createMany(

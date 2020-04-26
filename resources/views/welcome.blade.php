@@ -19,7 +19,7 @@
                     srcset="/images/shapes/double-curve-dark-large.svg">
 
                 <img
-                    class="absolute right-0 -mr-32 pointer-events-none h-670-px opacity-10 top-1/2 transform -translate-y-1/2 lg:h-1340-px lg:-mr-48 lg:opacity-100"
+                    class="absolute right-0 -mr-32 transform -translate-y-1/2 pointer-events-none h-670-px opacity-10 top-1/2 lg:h-1340-px lg:-mr-48 lg:opacity-100"
                     src="/images/shapes/single-curve-dark-small.svg"
                     alt="Onramp">
             </picture>
@@ -33,7 +33,7 @@
                     media="(min-width: 1024px)">
 
                 <img
-                    class="absolute left-0 z-0 -ml-48 opacity-50 pointer-events-none h-760-px top-1/2 transform -translate-y-1/2 -scale-x-100 lg:scale-x-100 lg:h-1630-px lg:-ml-4/12"
+                    class="absolute left-0 z-0 -ml-48 transform -translate-y-1/2 opacity-50 pointer-events-none h-760-px top-1/2 -scale-x-100 lg:scale-x-100 lg:h-1630-px lg:-ml-4/12"
                     src="/images/shapes/single-curve-light-small.svg"
                     alt="Onramp">
             </picture>
@@ -121,7 +121,7 @@
                     srcset="/images/shapes/single-curve-medium-large.svg">
 
                 <img
-                    class="absolute right-0 z-0 -mr-32 pointer-events-none h-670-px top-1/2 transform -translate-y-1/2 lg:h-1340-px lg:-mr-80"
+                    class="absolute right-0 z-0 -mr-32 transform -translate-y-1/2 pointer-events-none h-670-px top-1/2 lg:h-1340-px lg:-mr-80"
                     src="/images/shapes/single-curve-medium-small.svg"
                     alt="Onramp">
             </picture>
@@ -139,7 +139,7 @@
 
                 <a class="mt-6 button button-white lg:mt-10"
                     href="{{ route_wlocale('modules.index') }}">
-                    OK, let's learn
+                    Ok, let's learn
                 </a>
             </div>
         </div>

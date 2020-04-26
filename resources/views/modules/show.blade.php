@@ -25,23 +25,24 @@ switch($module->skill_level) {
         <div class="relative fluid-container lg:flex lg:items-center lg:justify-between">
             <h1 class="max-w-3xl text-white">{{ $module->name }}</h1>
 
-            @auth
-                @if (! is_null(Auth::user()->track_id) && Auth::user()->track->modules->contains($module->id))
+            @if (Auth::check() && Auth::user()->hasTrack())
+                @if (Auth::user()->track->modules->contains($module->id))
                     <completed-button
                         :initial-is-completed="{{ $completedModules->contains($module->id) ? 'true' : 'false' }}"
                         type="{{ $module->getMorphClass() }}"
                         id="{{ $module->id }}">
                     </completed-button>
                 @else
+                    {{-- @todo Not sure that this is necessary? Ask Matt if users should see all modules when logged in? --}}
                     <form action="{{ route_wlocale('user.track.update', ['module_id' => $module->id]) }}" method="POST">
                         @method("PATCH")
                         @csrf
-                        <button type="submit" class="block w-full px-5 py-2 mt-8 font-semibold leading-none text-center text-white border-2 border-white transition-colors duration-150 ease-in-out rounded-md hover:bg-white hover:no-underline hover:text-teal-600 focus:outline-none md:max-w-xs md:py-3 lg:mt-0">
+                        <button type="submit" class="block w-full px-5 py-2 mt-8 font-semibold leading-none text-center text-white transition-colors duration-150 ease-in-out border-2 border-white rounded-md hover:bg-white hover:no-underline hover:text-teal-600 focus:outline-none md:max-w-xs md:py-3 lg:mt-0">
                             <span class="inline-block">Add to My Modules</span>
                         </button>
                     </form>
                 @endif
-            @endauth
+            @endif
         </div>
     </div>
 

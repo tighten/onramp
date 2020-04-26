@@ -11,10 +11,12 @@ class ModuleController extends Controller
     {
         return view('modules.index', [
             'pageTitle' => 'Modules',
-            'standardBeginnerModules' => Module::standard()->beginner()->get(),
-            'standardIntermediateModules' => Module::standard()->intermediate()->get(),
-            'standardAdvancedModules' => Module::standard()->advanced()->get(),
-            'bonusModules' => Module::bonus()->get(),
+            'standardModules' => auth()->check() && auth()->user()->hasTrack()
+                ? auth()->user()->track->modules()->standard()->get()
+                : Module::standard()->get(),
+            'bonusModules' => auth()->check() && auth()->user()->hasTrack()
+                ? auth()->user()->track->modules()->bonus()->get()
+                : Module::bonus()->get(),
         ]);
     }
 

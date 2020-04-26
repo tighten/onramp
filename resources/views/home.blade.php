@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@php
+use App\Module;
+@endphp
+
 @section('content')
 <div class="w-full bg-white">
     <div class="py-16 overflow-hidden bg-indigo-100 lg:py-24">
@@ -17,7 +21,7 @@
         <tab name="In Progress" :selected="true">
             <div class="px-2 pb-48 fluid-container md:px-8 lg:px-20 xxl:px-32">
                 <div class="flex flex-wrap lg:-mx-3">
-                    @forelse ($modules as $module)
+                    @forelse ($modules->whereNotIn('id', $completedModules)->all() as $module)
                         @php
                         $buttonText = 'Finish module';
                         $bgColor = 'bg-teal-400';
@@ -36,7 +40,7 @@
 
                         @include('partials.card-on-my-module-page')
                     @empty
-                        <p class="px-3">No modules yet</p>
+                        <p class="px-3 text-gray-500">Modules you in your chosen track will show here.</p>
                     @endforelse
                 </div>
             </div>
@@ -45,7 +49,7 @@
         <tab name="Completed">
             <div class="px-2 pb-48 fluid-container md:px-8 lg:px-20 xxl:px-32">
                 <div class="flex flex-wrap lg:-mx-3">
-                    @forelse ($completedModules as $module)
+                    @forelse (Module::whereIn('id', $completedModules)->get() as $module)
                         @php
                         $buttonText = 'View module';
                         $bgColor = 'bg-teal-400';
@@ -64,7 +68,7 @@
 
                         @include('partials.card-on-my-module-page')
                     @empty
-                        <p class="px-3">No modules yet</p>
+                        <p class="px-3 text-gray-500">Modules you have completed will show here.</p>
                     @endforelse
                 </div>
             </div>

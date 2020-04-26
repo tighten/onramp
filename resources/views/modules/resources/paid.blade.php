@@ -5,7 +5,7 @@ use App\Resource;
 <div class="lg:hidden">
     <tabs-with-select :select-options="[
             'Videos &amp; Courses',
-            'Articles &amp; Audio',
+            'Books, Articles &amp; Audio',
         ]"
     >
         <tab name="Videos &amp; Courses" :selected="true">
@@ -49,10 +49,10 @@ use App\Resource;
         <tab name="Articles &amp; Audio">
             <div class="bg-white border-t-4 border-teal-600 shadow-md js-show-more-less">
                 <div class="pt-8 pb-6 pl-6 pr-5">
-                    <p class="text-xl font-bold md:text-2xl">Articles &amp; Audio</p>
+                    <p class="text-xl font-bold md:text-2xl">Books, Articles &amp; Audio</p>
 
                     <ul class="mt-6 js-show-more-less-items">
-                        @forelse ($paidResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE])->where('is_bonus', false)->all() as $resource)
+                        @forelse ($paidResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE, Resource::BOOK_TYPE])->where('is_bonus', false)->all() as $resource)
                             @include('partials.resource-on-module-page')
                         @empty
                             <li class="list-none">No resources</li>
@@ -65,13 +65,13 @@ use App\Resource;
                 </button>
             </div>
 
-            @if ($paidResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE])->where('is_bonus', true)->isNotEmpty())
+            @if ($paidResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE, Resource::BOOK_TYPE])->where('is_bonus', true)->isNotEmpty())
                 <div class="mt-6 bg-white border-t-4 border-teal-600 shadow-md js-show-more-less">
                     <div class="pt-8 pb-6 pl-6 pr-5">
                         <p class="text-xl font-bold">Bonus</p>
 
                         <ul class="mt-6 js-show-more-less-items">
-                            @foreach ($paidResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE])->where('is_bonus', true) as $resource)
+                            @foreach ($paidResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE, Resource::BOOK_TYPE])->where('is_bonus', true) as $resource)
                                 @include('partials.resource-on-module-page')
                             @endforeach
                         </ul>
@@ -130,20 +130,20 @@ use App\Resource;
                     </g>
                 </svg>
 
-                <span>Articles &amp; Audio</span>
+                <span>Books, Articles &amp; Audio</span>
             </p>
 
             <ul class="mt-6">
-                @forelse ($paidResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE])->where('is_bonus', false)->all() as $resource)
+                @forelse ($paidResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE, Resource::BOOK_TYPE])->where('is_bonus', false)->all() as $resource)
                     @include('partials.resource-on-module-page')
                 @empty
                     <li class="list-none">No resources</li>
                 @endforelse
 
-                @if ($paidResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE])->where('is_bonus', true)->isNotEmpty())
+                @if ($paidResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE, Resource::BOOK_TYPE])->where('is_bonus', true)->isNotEmpty())
                     <li class="mt-16 text-xl font-bold">Bonus</li>
 
-                    @foreach ($paidResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE])->where('is_bonus', true) as $resource)
+                    @foreach ($paidResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE, Resource::BOOK_TYPE])->where('is_bonus', true) as $resource)
                         @include('partials.resource-on-module-page')
                     @endforeach
                 @endif

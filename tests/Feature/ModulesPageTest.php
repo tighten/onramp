@@ -3,6 +3,8 @@
 namespace Tests\Feature;
 
 use App\Module;
+use App\Track;
+use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -44,88 +46,32 @@ class ModulesPageTest extends TestCase
     }
 
     /** @test */
-    function list_of_beginner_modules_only_contains_beginner_modules()
+    function modules_index_page_only_lists_modules_in_users_track()
     {
-        $beginnerModule = factory(Module::class)->create([
-            'name' => 'Beginner module',
-            'is_bonus' => 0,
+        $track = factory(Track::class)->create();
+        $track->modules()->createMany(
+            factory(Module::class, 3)->make([
+                'is_bonus' => 0,
+            ])->toArray()
+        );
+
+        $otherTrack = factory(Track::class)->create();
+        $otherTrack->modules()->createMany(
+            factory(Module::class, 2)->make([
+                'is_bonus' => 0,
+            ])->toArray()
+        );
+
+        $user = factory(User::class)->create([
+            'track_id' => 1,
         ]);
 
-        $bonusModule = factory(Module::class)->create([
-            'name' => 'Bonus module',
-            'is_bonus' => 1,
-        ]);
+        $this->actingAs($user);
 
-        $response = $this->get('/en/modules');
+        $response = $this->get(route('home', ['locale' => 'en']));
 
-        $response->assertViewHas('standardBeginnerModules', function ($beginnerModules) {
-            return $beginnerModules->count() == 1;
-        });
-
-        $response->assertViewHas('standardBeginnerModules', function ($beginnerModules) use ($beginnerModule) {
-            return $beginnerModules->contains($beginnerModule);
-        });
-
-        $response->assertViewHas('standardBeginnerModules', function ($beginnerModules) use ($bonusModule) {
-            return ! $beginnerModules->contains($bonusModule);
-        });
-    }
-
-    /** @test */
-    function list_of_intermediate_modules_only_contains_intermediate_modules()
-    {
-        $intermediateModule = factory(Module::class)->create([
-            'name' => 'Intermediate module',
-            'is_bonus' => 0,
-            'skill_level' => 'intermediate',
-        ]);
-
-        $bonusModule = factory(Module::class)->create([
-            'name' => 'Bonus module',
-            'is_bonus' => 1,
-        ]);
-
-        $response = $this->get('/en/modules');
-
-        $response->assertViewHas('standardIntermediateModules', function ($intermediateModules) {
-            return $intermediateModules->count() == 1;
-        });
-
-        $response->assertViewHas('standardIntermediateModules', function ($intermediateModules) use ($intermediateModule) {
-            return $intermediateModules->contains($intermediateModule);
-        });
-
-        $response->assertViewHas('standardIntermediateModules', function ($intermediateModules) use ($bonusModule) {
-            return ! $intermediateModules->contains($bonusModule);
-        });
-    }
-
-    /** @test */
-    function list_of_advanced_modules_only_contains_advanced_modules()
-    {
-        $advancedModule = factory(Module::class)->create([
-            'name' => 'Advanced module',
-            'is_bonus' => 0,
-            'skill_level' => 'advanced',
-        ]);
-
-        $bonusModule = factory(Module::class)->create([
-            'name' => 'Bonus module',
-            'is_bonus' => 1,
-        ]);
-
-        $response = $this->get('/en/modules');
-
-        $response->assertViewHas('standardAdvancedModules', function ($advancedModules) {
-            return $advancedModules->count() == 1;
-        });
-
-        $response->assertViewHas('standardAdvancedModules', function ($advancedModules) use ($advancedModule) {
-            return $advancedModules->contains($advancedModule);
-        });
-
-        $response->assertViewHas('standardAdvancedModules', function ($advancedModules) use ($bonusModule) {
-            return ! $advancedModules->contains($bonusModule);
+        $response->assertViewHas('modules', function ($modules) {
+            return $modules->count() == 3;
         });
     }
 

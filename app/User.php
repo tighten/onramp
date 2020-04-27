@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Completable;
+use App\Notifications\ResetPassword;
 use App\Track;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -78,5 +79,10 @@ class User extends Authenticatable
     public function suggestedResources()
     {
         return $this->hasMany(SuggestedResource::class);
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPassword($token));
     }
 }

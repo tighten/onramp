@@ -8,8 +8,7 @@
 
 <div class="w-full p-3 sm:w-1/2 lg:w-1/3">
     <div class="flex flex-col w-full h-full bg-white shadow-md hover:no-underline">
-        <p class="flex-initial block {{ $bgColor }} pb-7/12 lg:pb-3/5">
-        </p>
+        <div class="flex-initial block {{ $bgColor }} pb-7/12 lg:pb-3/5"></div>
 
         <div class="relative flex-1 block px-6 pt-8 pb-24 text-base xl:pt-12 xl:text-xl">
             <span class="text-xl font-semibold md:tracking-tighter xl:text-3xl">

@@ -25,24 +25,15 @@ switch($module->skill_level) {
         <div class="relative fluid-container lg:flex lg:items-center lg:justify-between">
             <h1 class="max-w-3xl text-white">{{ $module->name }}</h1>
 
-            @if (Auth::check() && Auth::user()->hasTrack())
-                @if (Auth::user()->track->modules->contains($module->id))
+            @auth
+                @if (Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id))
                     <completed-button
                         :initial-is-completed="{{ $completedModules->contains($module->id) ? 'true' : 'false' }}"
                         type="{{ $module->getMorphClass() }}"
                         id="{{ $module->id }}">
                     </completed-button>
-                @else
-                    {{-- @todo Not sure that this is necessary? Ask Matt if users should see all modules when logged in? --}}
-                    <form action="{{ route_wlocale('user.track.update', ['module_id' => $module->id]) }}" method="POST">
-                        @method("PATCH")
-                        @csrf
-                        <button type="submit" class="block w-full px-5 py-2 mt-8 font-semibold leading-none text-center text-white transition-colors duration-150 ease-in-out border-2 border-white rounded-md hover:bg-white hover:no-underline hover:text-teal-600 focus:outline-none md:max-w-xs md:py-3 lg:mt-0">
-                            <span class="inline-block">Add to My Modules</span>
-                        </button>
-                    </form>
                 @endif
-            @endif
+            @endauth
         </div>
     </div>
 
@@ -63,7 +54,7 @@ switch($module->skill_level) {
                 <ul class="flex flex-wrap -m-1 md:-m-2">
                     @forelse ($skills as $skill)
                         @auth
-                            @if (! is_null(Auth::user()->track_id) && Auth::user()->track->modules->contains($module->id))
+                            @if (Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id))
                                 <li class="block m-1 md:m-2">
                                     <completed-badge
                                         badge-text="{{ $skill->name }}"
@@ -71,6 +62,11 @@ switch($module->skill_level) {
                                         type="{{ $skill->getMorphClass() }}"
                                         id="{{ $skill->id }}"
                                     ></completed-badge>
+                                </li>
+                            @else
+                                <li class="relative block px-4 py-2 m-1">
+                                    <span class="absolute inset-0 w-full h-full bg-teal-400 rounded-md opacity-10"></span>
+                                    <span class="font-bold text-teal-600">{{ $skill->name }}</span>
                                 </li>
                             @endif
                         @endauth

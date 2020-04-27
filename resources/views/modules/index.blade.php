@@ -47,9 +47,9 @@
                         @endphp
 
                         <div class="flex-initial w-full px-3 pb-5 sm:max-w-xs sm:w-1/2 lg:w-1/3 xl:w-1/4">
-                            <a class="flex flex-col h-full shadow-md duration-300 transform transition-transform hover:no-underline hover:scale-95 {{ $bgColor }}"
+                            <a class="flex flex-col h-full transition-transform duration-300 transform shadow-md hover:no-underline hover:scale-95"
                                 href="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'free-resources']) }}">
-                                <span class="block pb-8/12 xl:pb-3/5"></span>
+                                <span class="block pb-8/12 xl:pb-3/5 {{ $bgColor }}"></span>
                                 <span class="flex-1 block p-5 pb-8 bg-white xl:px-8 xl:pb-10">
                                     <h4 class="font-semibold tracking-tighter text-east-bay">{{ $module->name }}</h4>
                                 </span>

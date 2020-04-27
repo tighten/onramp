@@ -12,10 +12,13 @@ class ModuleController extends Controller
         return view('modules.index', [
             'pageTitle' => 'Modules',
             'standardModules' => auth()->check() && auth()->user()->hasTrack()
-                ? auth()->user()->track->modules()->standard()->get()
+                ? Module::standard()
+                    ->whereNotIn('id', auth()->user()->track->modules()->standard()->get()->pluck('id'))->get()
                 : Module::standard()->get(),
             'bonusModules' => auth()->check() && auth()->user()->hasTrack()
-                ? auth()->user()->track->modules()->bonus()->get()
+                ? Module::bonus()
+                    ->whereNotIn('id', auth()->user()->track->modules()->bonus()->get()->pluck('id'))
+                    ->get()
                 : Module::bonus()->get(),
         ]);
     }

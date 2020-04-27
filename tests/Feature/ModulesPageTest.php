@@ -46,7 +46,7 @@ class ModulesPageTest extends TestCase
     }
 
     /** @test */
-    function modules_index_page_only_lists_modules_in_users_track()
+    function modules_index_page_only_lists_modules_not_in_users_track()
     {
         $track = factory(Track::class)->create();
         $track->modules()->createMany(
@@ -68,10 +68,10 @@ class ModulesPageTest extends TestCase
 
         $this->actingAs($user);
 
-        $response = $this->get(route('home', ['locale' => 'en']));
+        $response = $this->get(route('modules.index', ['locale' => 'en']));
 
-        $response->assertViewHas('modules', function ($modules) {
-            return $modules->count() == 3;
+        $response->assertViewHas('standardModules', function ($modules) {
+            return $modules->count() == 2;
         });
     }
 

@@ -19,7 +19,7 @@
                 <li class="inline-flex items-center justify-between w-full">
                     <span class="text-east-bay">Resources</span>
                     <span class="font-semibold text-gray-900">
-                        {{ $resourcesForSessionCount > 0 ? ($completedResourcesForCurrentSessionCount / $resourcesForSessionCount) * 100 : 0 }}%
+                        {{ $resourcesForSessionCount > 0 ? round(($completedResourcesForCurrentSessionCount / $resourcesForSessionCount) * 100) : 0 }}%
                     </span>
                 </li>
 

@@ -1,107 +1,123 @@
 <template>
-    <div class="relative z-50">
-        <button v-if="isOpen"
-                @click="close()"
-                tabindex="-1"
-                class="fixed inset-0 hidden w-full h-full cursor-default">
-        </button>
+    <div>
+        <menu-dropdown :toggle-text="language" class="hidden lg:block">
+            <menu-dropdown-item
+                v-for="(lang, slug) in languages"
+                :key="slug"
+                :text="lang"
+                @clicked="choose(slug)"
+            >
+            </menu-dropdown-item>
+        </menu-dropdown>
 
-        <div class="px-6 py-3 lg:p-0">
-            <label for="language-switcher"
-                   class="flex items-center text-blue-violet focus:outline-none">
+        <div class="relative z-50 lg:hidden">
+            <button v-if="isOpen"
+                    @click="close()"
+                    tabindex="-1"
+                    class="fixed inset-0 hidden w-full h-full cursor-default">
+            </button>
 
-                <button @click="toggle()"
-                        id="language-switcher"
-                        tabindex="1"
-                        class="mr-3 text-base font-semibold focus:outline-none focus:border-white">
-                    {{ language }}
-                </button>
+            <div class="px-6 py-3 lg:p-0">
+                <label for="language-switcher"
+                    class="flex items-center text-blue-violet focus:outline-none">
 
-                <svg class="w-3 h-auto stroke-current text-blue-violet"
-                    :class="{ 'transform -scale-y-100': isOpen }"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 16 11">
-                    <path d="M2 2l6 6 6-6" stroke-width="3" fill="none" fill-rule="evenodd" stroke-linecap="round"/>
-                </svg>
-            </label>
-        </div>
+                    <button @click="toggle()"
+                            id="language-switcher"
+                            tabindex="1"
+                            class="mr-3 text-base font-semibold focus:outline-none focus:border-white">
+                        {{ language }}
+                    </button>
 
-        <transition
-            enter-active-class="transition-height duration-500 ease-in-out"
-            leave-active-class="transition-height duration-500 ease-in-out"
-            enter-class="max-h-0"
-            enter-to-class="max-h-1000"
-            leave-class="max-h-1000"
-            leave-to-class="max-h-0">
-            <div v-if="isOpen" class="overflow-hidden bg-white lg:absolute lg:mt-12 lg:shadow-xl lg:left-0 lg:top-0">
-                 <!-- border border-blue-700 right-0 mt-2 w-32 bg-white rounded shadow-xl lg:absolute -->
-                <button v-for="(lang, slug) in languages"
-                    :key="slug"
-                    @click="choose(slug)"
-                    class="block w-full px-6 py-2 text-base font-normal text-left text-blue-violet focus:outline-none hover:bg-indigo-100">{{ lang }}</button>
+                    <svg class="w-3 h-auto stroke-current text-blue-violet"
+                        :class="{ 'transform -scale-y-100': isOpen }"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 16 11">
+                        <path d="M2 2l6 6 6-6" stroke-width="3" fill="none" fill-rule="evenodd" stroke-linecap="round"/>
+                    </svg>
+                </label>
             </div>
-        </transition>
+
+            <transition
+                enter-active-class="duration-500 ease-in-out transition-height"
+                leave-active-class="duration-500 ease-in-out transition-height"
+                enter-class="max-h-0"
+                enter-to-class="max-h-1000"
+                leave-class="max-h-1000"
+                leave-to-class="max-h-0">
+                <div v-if="isOpen" class="overflow-hidden bg-white lg:absolute lg:mt-12 lg:shadow-xl lg:left-0 lg:top-0">
+                    <!-- border border-blue-700 right-0 mt-2 w-32 bg-white rounded shadow-xl lg:absolute -->
+                    <button v-for="(lang, slug) in languages"
+                        :key="slug"
+                        @click="choose(slug)"
+                        class="block w-full px-6 py-2 text-base font-normal text-left text-blue-violet focus:outline-none hover:bg-indigo-100">{{ lang }}</button>
+                </div>
+            </transition>
+        </div>
     </div>
 </template>
 
 <script>
-    export default {
-        props: {
-            language: {
-                type: String,
-                required: true
-            },
+import MenuDropdown from './Menu/MenuDropdown.vue';
+import MenuDropdownItem from './Menu/MenuDropdownItem.vue';
 
-            languages: {
-                type: Object,
-            },
+export default {
+    components: {
+        'menu-dropdown': MenuDropdown,
+        'menu-dropdown-item': MenuDropdownItem,
+    },
+
+    props: {
+        language: {
+            type: String,
+            required: true
         },
 
-        data() {
-            return {
-                isOpen: false,
-                domLocation: window.location,
+        languages: {
+            type: Object,
+        },
+    },
+
+    data() {
+        return {
+            isOpen: false,
+            domLocation: window.location,
+        }
+    },
+
+    methods: {
+        choose(value) {
+            axios.patch(route('user.preferences.update', { 'locale': 'en' }), {
+                'locale': value,
+            })
+            .then(() => {
+                let segments = this.domLocation.pathname.split('/');
+                segments[1] = value;
+                window.location = `${this.domLocation.origin}${segments.join('/')}`;
+            })
+            .catch((error) => {
+                alert('Error!');
+            });
+        },
+
+        open() {
+            this.isOpen = true;
+            document.addEventListener('keydown', this.handleEscape);
+        },
+
+        close() {
+            this.isOpen = false;
+            document.removeEventListener('keydown', this.handleEscape);
+        },
+
+        toggle() {
+            this.isOpen ? this.close() : this.open();
+        },
+
+        handleEscape(e) {
+            if (e.key === 'Esc' || e.key === 'Escape') {
+                this.close();
             }
-        },
-
-        methods: {
-            choose(value) {
-                axios.patch(route('user.preferences.update', { 'locale': 'en' }), {
-                    'locale': value,
-                })
-                .then(() => {
-                    let segments = this.domLocation.pathname.split('/');
-                    segments[1] = value;
-                    window.location = `${this.domLocation.origin}${segments.join('/')}`;
-                })
-                .catch((error) => {
-                    alert('Error!');
-                });
-            },
-
-            open() {
-                this.isOpen = true;
-                document.addEventListener('keydown', this.handleEscape);
-            },
-
-            close() {
-                this.isOpen = false;
-                document.removeEventListener('keydown', this.handleEscape);
-            },
-
-            toggle() {
-                if (this.isOpen) {
-                    this.close();
-                } else {
-                    this.open();
-                }
-            },
-
-            handleEscape(e) {
-                if (e.key === 'Esc' || e.key === 'Escape') {
-                    this.close();
-                }
-            }
-        },
-    }
+        }
+    },
+}
 </script>

@@ -27,6 +27,8 @@ import CompletedBadge from './components/Completables/CompletedBadge.vue';
 import CompletedCheckbox from './components/Completables/CompletedCheckbox.vue';
 import Lang from 'lang.js';
 import LanguageSwitcher from './components/LanguageSwitcher.vue';
+import MenuDropdownItem from './components/Menu/MenuDropdownItem.vue';
+import MenuDropdown from './components/Menu/MenuDropdown.vue';
 import ModalMobileMenu from './components/ModalMobileMenu.vue';
 import Notifications from 'vue-notification';
 import ResourceLanguagePreferenceSwitcher from './components/ResourceLanguagePreferenceSwitcher.vue';
@@ -63,6 +65,8 @@ const app = new Vue({
         'completed-button': CompletableButton,
         'completed-checkbox': CompletedCheckbox,
         'toast': Toast,
+        'menu-dropdown-item': MenuDropdownItem,
+        'menu-dropdown': MenuDropdown,
         'modal-mobile-menu': ModalMobileMenu,
         'select-dropdown': SelectDropdown,
         'tabs-with-select': TabsWithSelect,
@@ -89,12 +93,22 @@ const app = new Vue({
             }
 
             document.documentElement.style.overflow = 'auto';
+        },
+
+        logout(e) {
+            e.preventDefault();
+
+            document.getElementById('logout-form').submit();
         }
     },
 
     created() {
         this.$on('closeModal', () => {
             this.closeModal();
+        });
+
+        this.$on('logout', (e) => {
+            this.logout(e);
         });
     },
 });

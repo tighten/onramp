@@ -62,7 +62,7 @@
 
             <button class="focus:outline-none lg:hidden"
                 @click="openModal('mobileMenu')">
-                <svg class="w-auto h-5 text-teal-600 fill-current duration-150 transition-colors hover:text-teal-700 md:h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 20">
+                <svg class="w-auto h-5 text-teal-600 transition-colors duration-150 fill-current hover:text-teal-700 md:h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 20">
                     <g fill-rule="evenodd">
                         <rect width="25" height="3" rx="1.5"/>
                         <rect y="8" width="25" height="3" rx="1.5"/>
@@ -106,18 +106,41 @@
                             </a>
                         @endif
                     @else
-                        <a class="flex items-center justify-center block w-12 h-12 bg-teal-600 rounded-full hover:no-underline"
-                            href="{{ url_wlocale('home') }}">
-                            <span class="font-semibold leading-none text-white">
-                                {{ Auth::user()->initials }}
-                            </span>
-                        </a>
-                        {{-- @todo Remove this --}}
-                        <a href="{{ route_wlocale('logout') }}"
-                        class="p-3 text-sm"
-                        onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                        <form id="logout-form" action="{{ route_wlocale('logout') }}" method="POST" class="hidden">
+                        <menu-dropdown>
+                            <template v-slot:toggle="props">
+                                <button
+                                    class="flex items-center justify-center block w-12 h-12 bg-teal-600 rounded-full hover:no-underline focus:outline-none"
+                                    @click="props.toggle"
+                                >
+                                    <span class="font-semibold leading-none text-white">
+                                        {{ Auth::user()->initials }}
+                                    </span>
+                                </button>
+                            </template>
+
+                            <menu-dropdown-item
+                                text="{{ __('My Modules') }}"
+                                href="{{ route_wlocale('home') }}">
+                            </menu-dropdown-item>
+
+                            <menu-dropdown-item
+                                text="{{ __('Preferences') }}"
+                                href="{{ route_wlocale('user.preferences.index') }}">
+                            </menu-dropdown-item>
+
+                            <menu-dropdown-item
+                                text="{{ __('Logout') }}"
+                                href="{{ route_wlocale('logout') }}"
+                                :logout="true">
+                            </menu-dropdown-item>
+                        </menu-dropdown>
+
+                        <form
+                            id="logout-form"
+                            action="{{ route_wlocale('logout') }}"
+                            method="POST"
+                            class="hidden"
+                        >
                             {{ csrf_field() }}
                         </form>
                     @endguest

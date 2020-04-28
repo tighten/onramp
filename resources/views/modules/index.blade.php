@@ -51,7 +51,7 @@
                                 href="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'free-resources']) }}">
                                 <span class="block pb-8/12 xl:pb-3/5 {{ $bgColor }}"></span>
                                 <span class="flex-1 block p-5 pb-8 bg-white xl:px-8 xl:pb-10">
-                                    <h4 class="font-semibold tracking-tighter text-east-bay">{{ $module->name }}</h4>
+                                    <h4 class="font-semibold tracking-tighter text-east-bay lg:text-lg">{{ $module->name }}</h4>
                                 </span>
                             </a>
                         </div>

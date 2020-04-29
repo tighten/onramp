@@ -2063,8 +2063,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Menu_MenuDropdown_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Menu/MenuDropdown.vue */ "./resources/js/components/Menu/MenuDropdown.vue");
-/* harmony import */ var _Menu_MenuDropdownItem_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Menu/MenuDropdownItem.vue */ "./resources/js/components/Menu/MenuDropdownItem.vue");
+/* harmony import */ var _mixins_toggle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/toggle */ "./resources/js/mixins/toggle.js");
 //
 //
 //
@@ -2122,14 +2121,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    'menu-dropdown': _Menu_MenuDropdown_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    'menu-dropdown-item': _Menu_MenuDropdownItem_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
-  },
+  mixins: [_mixins_toggle__WEBPACK_IMPORTED_MODULE_0__["default"]],
   props: {
     language: {
       type: String,
@@ -2141,7 +2135,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      isOpen: false,
       domLocation: window.location
     };
   },
@@ -2161,22 +2154,6 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         alert('Error!');
       });
-    },
-    open: function open() {
-      this.isOpen = true;
-      document.addEventListener('keydown', this.handleEscape);
-    },
-    close: function close() {
-      this.isOpen = false;
-      document.removeEventListener('keydown', this.handleEscape);
-    },
-    toggle: function toggle() {
-      this.isOpen ? this.close() : this.open();
-    },
-    handleEscape: function handleEscape(e) {
-      if (e.key === 'Esc' || e.key === 'Escape') {
-        this.close();
-      }
     }
   }
 });
@@ -2192,6 +2169,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_toggle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/toggle */ "./resources/js/mixins/toggle.js");
 //
 //
 //
@@ -2232,22 +2210,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  mixins: [_mixins_toggle__WEBPACK_IMPORTED_MODULE_0__["default"]],
   props: {
     toggleText: {
       type: String,
@@ -2256,15 +2221,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      items: [],
-      isOpen: false
+      items: []
     };
-  },
-  created: function created() {
-    this.items = this.$children;
-  },
-  mounted: function mounted() {
-    this.items = this.$children;
   },
   methods: {
     checkForLogout: function checkForLogout(doLogout, event) {
@@ -2273,22 +2231,6 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       this.$root.$emit('logout', event);
-    },
-    open: function open() {
-      this.isOpen = true;
-      document.addEventListener('keydown', this.handleEscape);
-    },
-    close: function close() {
-      this.isOpen = false;
-      document.removeEventListener('keydown', this.handleEscape);
-    },
-    toggle: function toggle() {
-      this.isOpen ? this.close() : this.open();
-    },
-    handleEscape: function handleEscape(e) {
-      if (e.key === 'Esc' || e.key === 'Escape') {
-        this.close();
-      }
     }
   }
 });
@@ -2410,7 +2352,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Modal */ "./resources/js/components/Modal.vue");
 //
 //
 //
@@ -2433,11 +2374,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    Modal: _Modal__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
   props: {
     show: {}
   }
@@ -2539,8 +2476,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -2769,8 +2704,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _SelectDropdown_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../SelectDropdown.vue */ "./resources/js/components/SelectDropdown.vue");
-/* harmony import */ var _Tabs_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Tabs.vue */ "./resources/js/components/Tabs/Tabs.vue");
 //
 //
 //
@@ -2785,15 +2718,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
-
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     selectOptions: Array
-  },
-  components: {
-    'select-dropdown': _SelectDropdown_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    'tabs': _Tabs_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   methods: {
     setActiveTabUsingOption: function setActiveTabUsingOption(option) {
@@ -2874,6 +2801,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_toggle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/toggle */ "./resources/js/mixins/toggle.js");
 //
 //
 //
@@ -2884,17 +2812,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      isOpen: false
-    };
-  },
-  methods: {
-    toggle: function toggle() {
-      this.isOpen = !this.isOpen;
-    }
-  },
+  mixins: [_mixins_toggle__WEBPACK_IMPORTED_MODULE_0__["default"]],
   computed: {
     buttonLabel: function buttonLabel() {
       return this.isOpen ? 'Hide' : 'Show';
@@ -40003,7 +39923,7 @@ var render = function() {
                   "button",
                   {
                     staticClass:
-                      "inline-flex items-center justify-center w-full text-base font-semibold transition duration-150 ease-in-out focus:outline-none focus:border-white",
+                      "inline-flex items-center justify-center w-full h-12 text-base font-semibold transition duration-150 ease-in-out focus:outline-none focus:border-white",
                     attrs: { type: "button" },
                     on: { click: _vm.toggle }
                   },
@@ -40011,9 +39931,8 @@ var render = function() {
                     _vm._v(
                       "\n                    " +
                         _vm._s(_vm.toggleText) +
-                        "\n                    "
+                        "\n\n                    "
                     ),
-                    _vm._v(" "),
                     _c(
                       "svg",
                       {
@@ -40069,7 +39988,10 @@ var render = function() {
                 [
                   _c(
                     "div",
-                    { staticClass: "bg-white rounded-md shadow-xs" },
+                    {
+                      staticClass:
+                        "overflow-hidden bg-white rounded-md shadow-xs"
+                    },
                     [_vm._t("default")],
                     2
                   )
@@ -40104,7 +40026,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "py-1" }, [
+  return _c("div", [
     _c("div", {
       directives: [
         {
@@ -40121,7 +40043,7 @@ var render = function() {
       "a",
       {
         staticClass:
-          "block px-4 py-2 text-sm font-medium leading-5 cursor-pointer hover:no-underline hover:bg-gray-100 hover:text-gray-800 focus:outline-none focus:bg-gray-100 focus:text-gray-800",
+          "block px-4 py-3 text-sm font-medium leading-5 cursor-pointer hover:no-underline hover:bg-gray-100 hover:text-gray-800 focus:outline-none focus:bg-gray-100 focus:text-gray-800",
         attrs: { href: _vm.href },
         on: { click: _vm.handleClick }
       },
@@ -40291,7 +40213,7 @@ var render = function() {
       "button",
       {
         staticClass:
-          "mr-2 font-semibold text-gray-600 cursor-pointer duration-150 transition ease-in-out hover:text-gray-700 lg:mr-4",
+          "mr-2 font-semibold text-gray-600 transition duration-150 ease-in-out cursor-pointer hover:text-gray-700 lg:mr-4",
         class: {
           "text-gray-900 hover:text-gray-900": _vm.choiceIsSelected("all")
         },
@@ -40314,7 +40236,7 @@ var render = function() {
       "button",
       {
         staticClass:
-          "mr-2 font-semibold text-gray-600 cursor-pointer duration-150 transition ease-in-out hover:text-gray-700 lg:mr-4",
+          "mr-2 font-semibold text-gray-600 transition duration-150 ease-in-out cursor-pointer hover:text-gray-700 lg:mr-4",
         class: {
           "text-gray-900 hover:text-gray-900": _vm.choiceIsSelected("local")
         },
@@ -40343,7 +40265,7 @@ var render = function() {
             "button",
             {
               staticClass:
-                "font-semibold text-gray-600 cursor-pointer duration-150 transition ease-in-out hover:text-gray-700",
+                "font-semibold text-gray-600 transition duration-150 ease-in-out cursor-pointer hover:text-gray-700",
               class: {
                 "text-gray-900 hover:text-gray-900": _vm.choiceIsSelected(
                   "local-and-english"
@@ -40409,7 +40331,7 @@ var render = function() {
         "button",
         {
           staticClass:
-            "relative block w-full h-12 px-5 py-4 pr-12 text-base leading-none text-left truncate bg-gray-200 font-semibold\n rounded-md focus:outline-none",
+            "relative block w-full h-12 px-5 py-4 pr-12 text-base font-semibold leading-none text-left truncate bg-gray-200 rounded-md focus:outline-none",
           class: { "rounded-bl-none rounded-br-none": _vm.isOpen },
           on: {
             click: function($event) {
@@ -40450,7 +40372,7 @@ var render = function() {
         "ul",
         {
           staticClass:
-            "absolute left-0 w-full h-0 mt-12 overflow-hidden bg-gray-200 top-0\n",
+            "absolute top-0 left-0 w-full h-0 mt-12 overflow-hidden bg-gray-200 ",
           class: { "h-auto border-t border-gray-400": _vm.isOpen }
         },
         _vm._l(_vm.options, function(option, i) {
@@ -40479,7 +40401,7 @@ var render = function() {
                           "svg",
                           {
                             staticClass:
-                              "absolute right-0 w-3 h-3 mr-5 text-teal-600 fill-current transform top-1/2 -translate-y-1/2",
+                              "absolute right-0 w-3 h-3 mr-5 text-teal-600 transform -translate-y-1/2 fill-current top-1/2",
                             attrs: {
                               xmlns: "http://www.w3.org/2000/svg",
                               viewBox: "0 0 24 24"
@@ -54152,25 +54074,11 @@ module.exports = function(module) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_Completables_Completable_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Completables/Completable.vue */ "./resources/js/components/Completables/Completable.vue");
-/* harmony import */ var _components_Completables_CompletedButton_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Completables/CompletedButton.vue */ "./resources/js/components/Completables/CompletedButton.vue");
-/* harmony import */ var _components_Completables_CompletedBadge_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Completables/CompletedBadge.vue */ "./resources/js/components/Completables/CompletedBadge.vue");
-/* harmony import */ var _components_Completables_CompletedCheckbox_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Completables/CompletedCheckbox.vue */ "./resources/js/components/Completables/CompletedCheckbox.vue");
-/* harmony import */ var lang_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lang.js */ "./node_modules/lang.js/src/lang.js");
-/* harmony import */ var lang_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lang_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _components_LanguageSwitcher_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/LanguageSwitcher.vue */ "./resources/js/components/LanguageSwitcher.vue");
-/* harmony import */ var _components_Menu_MenuDropdownItem_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Menu/MenuDropdownItem.vue */ "./resources/js/components/Menu/MenuDropdownItem.vue");
-/* harmony import */ var _components_Menu_MenuDropdown_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Menu/MenuDropdown.vue */ "./resources/js/components/Menu/MenuDropdown.vue");
-/* harmony import */ var _components_ModalMobileMenu_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/ModalMobileMenu.vue */ "./resources/js/components/ModalMobileMenu.vue");
-/* harmony import */ var vue_notification__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vue-notification */ "./node_modules/vue-notification/dist/index.js");
-/* harmony import */ var vue_notification__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(vue_notification__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _components_ResourceLanguagePreferenceSwitcher_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/ResourceLanguagePreferenceSwitcher.vue */ "./resources/js/components/ResourceLanguagePreferenceSwitcher.vue");
-/* harmony import */ var _components_SelectDropdown_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/SelectDropdown.vue */ "./resources/js/components/SelectDropdown.vue");
-/* harmony import */ var _components_Tabs_Tab_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/Tabs/Tab.vue */ "./resources/js/components/Tabs/Tab.vue");
-/* harmony import */ var _components_Tabs_Tabs_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/Tabs/Tabs.vue */ "./resources/js/components/Tabs/Tabs.vue");
-/* harmony import */ var _components_Tabs_TabsWithSelect_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/Tabs/TabsWithSelect.vue */ "./resources/js/components/Tabs/TabsWithSelect.vue");
-/* harmony import */ var _components_Toast_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/Toast.vue */ "./resources/js/components/Toast.vue");
-/* harmony import */ var _components_ToggleWhenMobile_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/ToggleWhenMobile.vue */ "./resources/js/components/ToggleWhenMobile.vue");
+/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components */ "./resources/js/components/index.js");
+/* harmony import */ var lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lang.js */ "./node_modules/lang.js/src/lang.js");
+/* harmony import */ var lang_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lang_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_notification__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-notification */ "./node_modules/vue-notification/dist/index.js");
+/* harmony import */ var vue_notification__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_notification__WEBPACK_IMPORTED_MODULE_2__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -54193,26 +54101,12 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Vue.prototype.trans = new lang_js__WEBPACK_IMPORTED_MODULE_4___default.a({
+Vue.prototype.trans = new lang_js__WEBPACK_IMPORTED_MODULE_1___default.a({
   messages: window.jsonTranslations,
   locale: window.locale,
   fallback: window.fallback_locale
 });
-Vue.use(vue_notification__WEBPACK_IMPORTED_MODULE_9___default.a);
+Vue.use(vue_notification__WEBPACK_IMPORTED_MODULE_2___default.a);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -54221,23 +54115,6 @@ Vue.use(vue_notification__WEBPACK_IMPORTED_MODULE_9___default.a);
 
 var app = new Vue({
   el: '#app',
-  components: {
-    'language-switcher': _components_LanguageSwitcher_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
-    'toggle-when-mobile': _components_ToggleWhenMobile_vue__WEBPACK_IMPORTED_MODULE_16__["default"],
-    'resource-language-preference-switcher': _components_ResourceLanguagePreferenceSwitcher_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
-    'completable': _components_Completables_Completable_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    'completed-badge': _components_Completables_CompletedBadge_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    'completed-button': _components_Completables_CompletedButton_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    'completed-checkbox': _components_Completables_CompletedCheckbox_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    'toast': _components_Toast_vue__WEBPACK_IMPORTED_MODULE_15__["default"],
-    'menu-dropdown-item': _components_Menu_MenuDropdownItem_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
-    'menu-dropdown': _components_Menu_MenuDropdown_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
-    'modal-mobile-menu': _components_ModalMobileMenu_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
-    'select-dropdown': _components_SelectDropdown_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
-    'tabs-with-select': _components_Tabs_TabsWithSelect_vue__WEBPACK_IMPORTED_MODULE_14__["default"],
-    'tabs': _components_Tabs_Tabs_vue__WEBPACK_IMPORTED_MODULE_13__["default"],
-    'tab': _components_Tabs_Tab_vue__WEBPACK_IMPORTED_MODULE_12__["default"]
-  },
   data: {
     modals: {
       mobileMenu: false
@@ -55451,6 +55328,103 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ToggleWhenMobile_vue_vue_type_template_id_2ecb6d5b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/components/index.js":
+/*!******************************************!*\
+  !*** ./resources/js/components/index.js ***!
+  \******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Completables_CompletedButton_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Completables/CompletedButton.vue */ "./resources/js/components/Completables/CompletedButton.vue");
+/* harmony import */ var _Completables_CompletedBadge_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Completables/CompletedBadge.vue */ "./resources/js/components/Completables/CompletedBadge.vue");
+/* harmony import */ var _Completables_CompletedCheckbox_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Completables/CompletedCheckbox.vue */ "./resources/js/components/Completables/CompletedCheckbox.vue");
+/* harmony import */ var _LanguageSwitcher_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./LanguageSwitcher.vue */ "./resources/js/components/LanguageSwitcher.vue");
+/* harmony import */ var _Menu_MenuDropdownItem_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Menu/MenuDropdownItem.vue */ "./resources/js/components/Menu/MenuDropdownItem.vue");
+/* harmony import */ var _Menu_MenuDropdown_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Menu/MenuDropdown.vue */ "./resources/js/components/Menu/MenuDropdown.vue");
+/* harmony import */ var _Modal_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Modal.vue */ "./resources/js/components/Modal.vue");
+/* harmony import */ var _ModalMobileMenu_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ModalMobileMenu.vue */ "./resources/js/components/ModalMobileMenu.vue");
+/* harmony import */ var _ResourceLanguagePreferenceSwitcher_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./ResourceLanguagePreferenceSwitcher.vue */ "./resources/js/components/ResourceLanguagePreferenceSwitcher.vue");
+/* harmony import */ var _SelectDropdown_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./SelectDropdown.vue */ "./resources/js/components/SelectDropdown.vue");
+/* harmony import */ var _Tabs_Tab_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Tabs/Tab.vue */ "./resources/js/components/Tabs/Tab.vue");
+/* harmony import */ var _Tabs_Tabs_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Tabs/Tabs.vue */ "./resources/js/components/Tabs/Tabs.vue");
+/* harmony import */ var _Tabs_TabsWithSelect_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Tabs/TabsWithSelect.vue */ "./resources/js/components/Tabs/TabsWithSelect.vue");
+/* harmony import */ var _Toast_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Toast.vue */ "./resources/js/components/Toast.vue");
+/* harmony import */ var _ToggleWhenMobile_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./ToggleWhenMobile.vue */ "./resources/js/components/ToggleWhenMobile.vue");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('language-switcher', _LanguageSwitcher_vue__WEBPACK_IMPORTED_MODULE_4__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('toggle-when-mobile', _ToggleWhenMobile_vue__WEBPACK_IMPORTED_MODULE_15__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('resource-language-preference-switcher', _ResourceLanguagePreferenceSwitcher_vue__WEBPACK_IMPORTED_MODULE_9__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('completed-badge', _Completables_CompletedBadge_vue__WEBPACK_IMPORTED_MODULE_2__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('completed-button', _Completables_CompletedButton_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('completed-checkbox', _Completables_CompletedCheckbox_vue__WEBPACK_IMPORTED_MODULE_3__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('toast', _Toast_vue__WEBPACK_IMPORTED_MODULE_14__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('menu-dropdown-item', _Menu_MenuDropdownItem_vue__WEBPACK_IMPORTED_MODULE_5__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('menu-dropdown', _Menu_MenuDropdown_vue__WEBPACK_IMPORTED_MODULE_6__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('modal', _Modal_vue__WEBPACK_IMPORTED_MODULE_7__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('modal-mobile-menu', _ModalMobileMenu_vue__WEBPACK_IMPORTED_MODULE_8__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('select-dropdown', _SelectDropdown_vue__WEBPACK_IMPORTED_MODULE_10__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('tabs-with-select', _Tabs_TabsWithSelect_vue__WEBPACK_IMPORTED_MODULE_13__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('tabs', _Tabs_Tabs_vue__WEBPACK_IMPORTED_MODULE_12__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('tab', _Tabs_Tab_vue__WEBPACK_IMPORTED_MODULE_11__["default"]);
+
+/***/ }),
+
+/***/ "./resources/js/mixins/toggle.js":
+/*!***************************************!*\
+  !*** ./resources/js/mixins/toggle.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      isOpen: false
+    };
+  },
+  methods: {
+    open: function open() {
+      this.isOpen = true;
+      document.addEventListener('keydown', this.handleEscape);
+    },
+    close: function close() {
+      this.isOpen = false;
+      document.removeEventListener('keydown', this.handleEscape);
+    },
+    toggle: function toggle() {
+      this.isOpen ? this.close() : this.open();
+    },
+    handleEscape: function handleEscape(e) {
+      if (e.key === 'Esc' || e.key === 'Escape') {
+        this.close();
+      }
+    }
+  }
+});
 
 /***/ }),
 

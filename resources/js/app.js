@@ -21,23 +21,9 @@ window.Vue = require('vue');
 
 // Vue.component('language-switcher', require('./components/LanguageSwitcher.vue').default);
 
-import Completable from './components/Completables/Completable.vue';
-import CompletableButton from './components/Completables/CompletedButton.vue';
-import CompletedBadge from './components/Completables/CompletedBadge.vue';
-import CompletedCheckbox from './components/Completables/CompletedCheckbox.vue';
+import './components';
 import Lang from 'lang.js';
-import LanguageSwitcher from './components/LanguageSwitcher.vue';
-import MenuDropdownItem from './components/Menu/MenuDropdownItem.vue';
-import MenuDropdown from './components/Menu/MenuDropdown.vue';
-import ModalMobileMenu from './components/ModalMobileMenu.vue';
 import Notifications from 'vue-notification';
-import ResourceLanguagePreferenceSwitcher from './components/ResourceLanguagePreferenceSwitcher.vue';
-import SelectDropdown from './components/SelectDropdown.vue';
-import Tab from './components/Tabs/Tab.vue';
-import Tabs from './components/Tabs/Tabs.vue';
-import TabsWithSelect from './components/Tabs/TabsWithSelect.vue';
-import Toast from './components/Toast.vue';
-import ToggleWhenMobile from './components/ToggleWhenMobile.vue';
 
 Vue.prototype.trans = new Lang({
     messages: window.jsonTranslations,
@@ -55,24 +41,6 @@ Vue.use(Notifications);
 
 const app = new Vue({
     el: '#app',
-
-    components: {
-        'language-switcher': LanguageSwitcher,
-        'toggle-when-mobile': ToggleWhenMobile,
-        'resource-language-preference-switcher': ResourceLanguagePreferenceSwitcher,
-        'completable': Completable,
-        'completed-badge': CompletedBadge,
-        'completed-button': CompletableButton,
-        'completed-checkbox': CompletedCheckbox,
-        'toast': Toast,
-        'menu-dropdown-item': MenuDropdownItem,
-        'menu-dropdown': MenuDropdown,
-        'modal-mobile-menu': ModalMobileMenu,
-        'select-dropdown': SelectDropdown,
-        'tabs-with-select': TabsWithSelect,
-        'tabs': Tabs,
-        'tab': Tab,
-    },
 
     data: {
         modals: {

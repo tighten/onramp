@@ -21,13 +21,9 @@
 </template>
 
 <script>
-import Modal from "./Modal";
-
 export default {
-    components: { Modal },
-
     props: {
         show: {}
     },
-};
+}
 </script>

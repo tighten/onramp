@@ -12,14 +12,6 @@ module.exports = {
                 'comet': '#535f76',
                 'regent-grey': '#7b8ba2',
                 'off-white': '#f8fbfd',
-
-                // 'grey-darkest': '#1a202c', gray-900
-                // 'grey': '#a0aec0', gray-500
-                // 'teal-darker': '#319795', teal-600
-                // 'teal': '#4fd1c5', teal-400
-                // 'indigo-lightest': '#ebf4ff', indigo-100
-                // 'pink': '#97266d', pink-800
-                // 'pink-dark': '#702459', pink-900
             },
 
             flex: {

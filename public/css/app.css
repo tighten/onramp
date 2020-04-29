@@ -1703,6 +1703,11 @@ h2 {
   transition-property: background-color, border-color, color, fill, stroke;
 }
 
+.button:focus {
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+
 @media (min-width: 768px) {
   .button {
     font-size: 1.125rem;
@@ -1722,8 +1727,11 @@ h2 {
 
 .button-purple:active, .button-purple:focus, .button-purple:hover {
   text-decoration: none;
-  background-color: #3e42ae;
   color: #fff;
+}
+
+.button-purple:hover {
+  background-color: #3e42ae;
 }
 
 .button-teal {
@@ -1733,8 +1741,11 @@ h2 {
 
 .button-teal:active, .button-teal:focus, .button-teal:hover {
   text-decoration: none;
-  background-color: #2a807e;
   color: #fff;
+}
+
+.button-teal:hover {
+  background-color: #2a807e;
 }
 
 .button-white {
@@ -1744,8 +1755,11 @@ h2 {
 
 .button-white:active, .button-white:focus, .button-white:hover {
   text-decoration: none;
-  background-color: #f0f0f0;
   color: #4c50bf;
+}
+
+.button-white:hover {
+  background-color: #f0f0f0;
 }
 
 .will-change-transform {

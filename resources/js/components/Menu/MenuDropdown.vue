@@ -21,14 +21,7 @@
             </slot>
         </div>
 
-        <transition
-            enter-active-class="transition duration-100 ease-out"
-            enter-class="transform scale-95 opacity-0"
-            enter-to-class="transform scale-100 opacity-100"
-            leave-active-class="transition duration-75 ease-in"
-            leave-class="transform scale-100 opacity-100"
-            leave-to-class="transform scale-95 opacity-0"
-        >
+        <transition name="grow">
             <div v-if="isOpen" class="absolute right-0 z-50 w-56 mt-2 origin-top-right rounded-md shadow-lg">
                 <div class="overflow-hidden bg-white rounded-md shadow-xs">
                     <slot></slot>
@@ -68,3 +61,23 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+.grow-enter-active {
+    transition: 100ms ease-out;
+}
+
+.grow-leave-active {
+    transition: 75ms ease-in;
+}
+
+.grow-enter-to, .grow-leave {
+   opacity: 1;
+   transform: scale(1);
+}
+
+.grow-enter, .grow-leave-to {
+   opacity: 0;
+   transform: scale(0.95);
+}
+</style>

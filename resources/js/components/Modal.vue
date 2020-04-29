@@ -53,11 +53,11 @@ export default {
 </script>
 
 <style>
-.fade-enter-active,
-.fade-leave-active {
-    transition: all 0.5s ease-in-out;
+.fade-enter-active, .fade-leave-active {
+    transition: all 0.25s ease-in-out;
 }
 
+.fade-leave-active,
 .fade-enter,
 .fade-leave-to {
     opacity: 0;

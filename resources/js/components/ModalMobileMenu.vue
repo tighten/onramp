@@ -1,5 +1,5 @@
 <template>
-    <modal :show="show">
+    <modal :show="show" ref="modal">
         <template>
             <div class="flex flex-col justify-between h-auto min-h-screen pt-12 overflow-scroll border-t-4 border-blue-violet">
                 <nav class="mt-2">
@@ -25,5 +25,19 @@ export default {
     props: {
         show: {}
     },
+
+    methods: {
+        closeModal() {
+            if ($(window).width() >= 992) {
+                this.$refs.modal.close();
+            }
+        }
+    },
+
+    mounted() {
+        this.$nextTick(() => {
+            $(window).on('resize', this.closeModal);
+        });
+    }
 }
 </script>

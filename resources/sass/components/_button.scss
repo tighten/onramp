@@ -3,9 +3,11 @@
     &:focus,
     &:hover {
         @apply no-underline;
-
-        background-color: darken($background, 6%);
         color: $text;
+    }
+
+    &:hover {
+        background-color: darken($background, 6%);
     }
 }
 
@@ -19,6 +21,11 @@
     @apply py-3;
     @apply rounded-md;
     @apply transition-colors;
+
+    &:focus {
+        @apply outline-none;
+        @apply shadow-outline;
+    }
 
     @screen md {
         @apply text-lg;

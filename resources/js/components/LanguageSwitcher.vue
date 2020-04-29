@@ -37,13 +37,7 @@
                 </label>
             </div>
 
-            <transition
-                enter-active-class="duration-500 ease-in-out transition-height"
-                leave-active-class="duration-500 ease-in-out transition-height"
-                enter-class="max-h-0"
-                enter-to-class="max-h-1000"
-                leave-class="max-h-1000"
-                leave-to-class="max-h-0">
+            <transition name="slide">
                 <div v-if="isOpen" class="overflow-hidden bg-white lg:absolute lg:mt-12 lg:shadow-xl lg:left-0 lg:top-0">
                     <button v-for="(lang, slug) in languages"
                         :key="slug"
@@ -95,3 +89,19 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+.slide-enter-active, .slide-leave-active {
+    transition: all 500ms ease-in-out;
+}
+
+.slide-enter-to, .slide-leave {
+    max-height: 1000px;
+    overflow: hidden;
+}
+
+.slide-enter, .slide-leave-to {
+    overflow: hidden;
+    max-height: 0;
+}
+</style>

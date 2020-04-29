@@ -10,7 +10,7 @@
 
             <a
                 class="mt-6 button button-purple lg:mt-10"
-                href="#">
+                href="#overview">
                 <span>{{ __('Learn more') }}</span>
             </a>
 
@@ -26,7 +26,7 @@
         </div>
     </div>
 
-    <div class="overflow-hidden">
+    <div class="overflow-hidden" id="overview">
         <div class="relative pt-12 pb-16 fluid-container lg:pt-40 lg:pb-32">
             <picture>
                 <source srcset="/images/shapes/single-curve-light-wide.svg"

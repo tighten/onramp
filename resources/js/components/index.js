@@ -15,6 +15,7 @@ import Tabs from './Tabs/Tabs.vue';
 import TabsWithSelect from './Tabs/TabsWithSelect.vue';
 import Toast from './Toast.vue';
 import ToggleWhenMobile from './ToggleWhenMobile.vue';
+import SitewideBanner from './SitewideBanner.vue';
 
 Vue.component('language-switcher', LanguageSwitcher);
 Vue.component('toggle-when-mobile', ToggleWhenMobile);
@@ -31,3 +32,4 @@ Vue.component('select-dropdown', SelectDropdown);
 Vue.component('tabs-with-select', TabsWithSelect);
 Vue.component('tabs', Tabs);
 Vue.component('tab', Tab);
+Vue.component('sitewide-banner', SitewideBanner);

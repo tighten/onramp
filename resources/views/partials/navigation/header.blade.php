@@ -1,57 +1,6 @@
-<!-- header -->
-{{--
-    <div class="px-6 py-2 text-center bg-blue-200 border-b border-blue-900">
-        <p class="text-gray-dark">
-            <span class="font-bold uppercase">NOTE:</span> This site is under active development, so it's not complete right now. Check out the <a href="{{ route_wlocale('dev') }}" class="font-bold hover:underline">dev page</a> to learn more.
-        </p>
-    </div>
-    <header class="w-full px-6 text-white" style="background: #3f51d8">
-        <div class="container items-center justify-between max-w-4xl mx-auto sm:flex">
-            <a href="{{ url_wlocale('/') }}"
-                class="flex items-center flex-grow block pt-6 pb-2 sm:py-6 justify-left">
-                <img src="/images/onramp_logo.svg" alt="Onramp" class="w-full max-w-xs">
-            </a>
-            @include('partials.language-switcher')
-        </div>
-    </header> --}}
-    <!-- /header -->
-
-    <!-- nav -->
-    {{-- <nav class="relative z-20 w-full px-6 bg-white border-t border-b md:pt-0 border-gray-light">
-        <div
-            class="container items-center justify-between max-w-4xl py-2 mx-auto text-sm md:flex md:text-base md:justify-start">
-            <div
-                class="flex flex-wrap items-stretch justify-center w-full text-center md:w-1/2 md:text-left md:justify-start md:items-start">
-                <a href="{{ url_wlocale('/') }}"
-                    class="p-2 md:px-4 md:border-r border-gray-light">{{ __('Home') }}</a>
-                <a href="{{ route_wlocale('modules.index') }}"
-                    class="p-2 md:px-4 md:border-r border-gray-light">{{ __('Learn') }}</a>
-                <a href="{{ route_wlocale('glossary') }}"
-                    class="p-2 md:px-4">{{ __('Glossary') }}</a>
-            </div>
-            <div class="w-full mb-2 text-center md:mb-0 md:w-1/2 md:text-right">
-                @guest
-                    <a class="p-3 text-sm" href="{{ route_wlocale('login') }}">{{ __('Log in') }}</a>
-                    @if (Route::has('register'))
-                        <a class="p-3 text-sm" href="{{ route_wlocale('register') }}">{{ __('Register') }}</a>
-                    @endif
-                @else
-                    <a href="{{ url_wlocale('home') }}" class="pr-4 text-sm">{{ Auth::user()->name }}</a>
-                    <a href="{{ url_wlocale('preferences') }}" class="pr-4 text-sm">{{ __('Preferences') }}</a>
-
-                    <a href="{{ route_wlocale('logout') }}"
-                        class="p-3 text-sm"
-                        onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                    <form id="logout-form" action="{{ route_wlocale('logout') }}" method="POST" class="hidden">
-                        {{ csrf_field() }}
-                    </form>
-                @endguest
-            </div>
-        </div>
-    </nav>
---}}
-<!-- /nav -->
+<sitewide-banner>
+    <span class="font-semibold uppercase">NOTE:</span> This site is under active development, so it's not complete right now. Check out the <a href="{{ route_wlocale('dev') }}" class="font-semibold hover:underline">dev page</a> to learn more.
+</sitewide-banner>
 
 <header class="w-full py-5 bg-white border-t-4 border-blue-violet lg:border-t-8">
     <div class="flex items-center fluid-container md:px-12 xl:px-20 xxl:px-32">

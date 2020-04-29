@@ -9,23 +9,15 @@
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                isOpen: false,
-            }
-        },
+import toggle from '../mixins/toggle';
 
-        methods: {
-            toggle() {
-                this.isOpen = ! this.isOpen;
-            },
-        },
+export default {
+    mixins: [toggle],
 
-        computed: {
-            buttonLabel() {
-                return this.isOpen ? 'Hide' : 'Show';
-            },
+    computed: {
+        buttonLabel() {
+            return this.isOpen ? 'Hide' : 'Show';
         },
-    }
+    },
+}
 </script>

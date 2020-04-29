@@ -89,8 +89,8 @@ use App\Resource;
 <div class="hidden lg:flex lg:-mx-2">
     <div class="w-1/2 px-2">
         <div class="w-full h-full px-8 py-12 bg-white border-t-4 border-teal-600 shadow-md">
-            <p class="flex items-center text-4xl font-bold">
-                <svg class="w-8 h-8 mr-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+            <p class="flex items-start text-4xl font-bold">
+                <svg class="flex-none w-8 h-8 mt-2 mr-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
                     <g fill="none" fill-rule="evenodd">
                         <circle fill="#1a202c" cx="15" cy="15" r="15"/>
                         <path fill="#e2e8f0" d="M12 9v13l8-7z"/>
@@ -120,8 +120,8 @@ use App\Resource;
 
     <div class="w-1/2 px-2">
         <div class="w-full h-full px-8 py-12 bg-white border-t-4 border-teal-600 shadow-md">
-            <p class="flex items-center text-4xl font-bold">
-                <svg class="w-8 h-8 mr-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+            <p class="flex items-start text-4xl font-bold">
+                <svg class="flex-none w-8 h-8 mt-2 mr-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
                     <g fill="none" fill-rule="evenodd">
                         <circle fill="#1a202c" cx="15" cy="15" r="15"/>
                         <rect stroke="#e2e8f0" stroke-width="2" x="9" y="8" width="12" height="15" rx="1"/>

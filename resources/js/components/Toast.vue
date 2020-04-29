@@ -31,21 +31,21 @@
 </template>
 
 <script>
-    export default {
-        props: {
-            'message': {
-                type: String,
-            },
-            'title': {
-                type: String,
-            }
+export default {
+    props: {
+        'message': {
+            type: String,
         },
-
-        mounted() {
-            this.$notify({
-                'title': this.title ? this.title : 'Successfully updated!',
-                'text': this.message,
-            });
+        'title': {
+            type: String,
         }
+    },
+
+    mounted() {
+        this.$notify({
+            'title': this.title ? this.title : 'Successfully updated!',
+            'text': this.message,
+        });
     }
+}
 </script>

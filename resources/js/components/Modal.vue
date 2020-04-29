@@ -49,7 +49,7 @@ export default {
             immediate: true,
         },
     },
-};
+}
 </script>
 
 <style>

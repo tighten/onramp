@@ -13,17 +13,9 @@
 </template>
 
 <script>
-import SelectDropdown from '../SelectDropdown.vue';
-import Tabs from './Tabs.vue';
-
 export default {
     props: {
         selectOptions: Array,
-    },
-
-    components: {
-        'select-dropdown': SelectDropdown,
-        'tabs': Tabs,
     },
 
     methods: {

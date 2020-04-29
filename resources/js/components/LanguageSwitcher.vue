@@ -45,7 +45,6 @@
                 leave-class="max-h-1000"
                 leave-to-class="max-h-0">
                 <div v-if="isOpen" class="overflow-hidden bg-white lg:absolute lg:mt-12 lg:shadow-xl lg:left-0 lg:top-0">
-                    <!-- border border-blue-700 right-0 mt-2 w-32 bg-white rounded shadow-xl lg:absolute -->
                     <button v-for="(lang, slug) in languages"
                         :key="slug"
                         @click="choose(slug)"
@@ -57,14 +56,10 @@
 </template>
 
 <script>
-import MenuDropdown from './Menu/MenuDropdown.vue';
-import MenuDropdownItem from './Menu/MenuDropdownItem.vue';
+import toggle from '../mixins/toggle';
 
 export default {
-    components: {
-        'menu-dropdown': MenuDropdown,
-        'menu-dropdown-item': MenuDropdownItem,
-    },
+    mixins: [toggle],
 
     props: {
         language: {
@@ -79,7 +74,6 @@ export default {
 
     data() {
         return {
-            isOpen: false,
             domLocation: window.location,
         }
     },
@@ -98,26 +92,6 @@ export default {
                 alert('Error!');
             });
         },
-
-        open() {
-            this.isOpen = true;
-            document.addEventListener('keydown', this.handleEscape);
-        },
-
-        close() {
-            this.isOpen = false;
-            document.removeEventListener('keydown', this.handleEscape);
-        },
-
-        toggle() {
-            this.isOpen ? this.close() : this.open();
-        },
-
-        handleEscape(e) {
-            if (e.key === 'Esc' || e.key === 'Escape') {
-                this.close();
-            }
-        }
     },
 }
 </script>

@@ -40657,7 +40657,7 @@ var render = function() {
               _c(
                 "p",
                 { staticClass: "text-base text-white" },
-                [_vm._t("default")],
+                [_vm._t("message")],
                 2
               ),
               _vm._v(" "),

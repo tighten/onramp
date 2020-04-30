@@ -1,5 +1,7 @@
 <sitewide-banner>
-    <span class="font-semibold uppercase">NOTE:</span> This site is under active development, so it's not complete right now. Check out the <a href="{{ route_wlocale('dev') }}" class="font-semibold hover:underline">dev page</a> to learn more.
+    <template v-slot:message>
+        <span class="font-semibold uppercase">NOTE:</span> This site is under active development, so it's not complete right now. Check out the <a href="{{ route_wlocale('dev') }}" class="font-semibold hover:underline">dev page</a> to learn more.
+    </template>
 </sitewide-banner>
 
 <header class="w-full py-5 bg-white border-t-4 border-blue-violet lg:border-t-8">

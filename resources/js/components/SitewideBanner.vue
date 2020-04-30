@@ -6,7 +6,7 @@
             role="alert">
             <div class="relative py-4 fluid-container">
                 <p class="text-base text-white">
-                    <slot></slot>
+                    <slot name="message"></slot>
                 </p>
 
                 <div class="absolute right-0 transform -translate-y-1/2 top-1/2">

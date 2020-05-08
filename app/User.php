@@ -88,14 +88,10 @@ class User extends Authenticatable
 
     public function getInitialsAttribute()
     {
-        $words = explode(' ', $this->name);
-        $initials = null;
-
-        foreach ($words as $w) {
-            $initials .= $w[0];
-        }
-
-        return strtoupper($initials);
+        return collect(explode(' ', $this->name))
+            ->reduce(function ($initials, $word) {
+                return $initials .= strtoupper($word[0]);
+            });
     }
 
     public function getFirstNameAttribute()

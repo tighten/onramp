@@ -51,7 +51,6 @@ const app = new Vue({
     methods: {
         openModal(modalName) {
             this.modals[modalName] = true;
-
             document.documentElement.style.overflow = 'hidden';
         },
 
@@ -65,7 +64,6 @@ const app = new Vue({
 
         logout(e) {
             e.preventDefault();
-
             document.getElementById('logout-form').submit();
         }
     },

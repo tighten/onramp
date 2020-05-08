@@ -54,11 +54,11 @@ $localePreferenceKey = 'locale';
                                 </div>
                             </div>
 
-                            @if ($errors->has($localePreferenceKey))
+                            @error($localePreferenceKey)
                                 <p class="mt-2 text-xs italic text-red-500">
                                     {{ $errors->first($localePreferenceKey) }}
                                 </p>
-                            @endif
+                            @enderror
                         </div>
 
                         <div class="flex-auto w-full my-5 lg:flex-even md:my-8">
@@ -88,11 +88,11 @@ $localePreferenceKey = 'locale';
                                 </div>
                             </div>
 
-                            @if ($errors->has('os'))
+                            @error('os')
                                 <p class="mt-2 text-xs italic text-red-500">
                                     {{ $errors->first('os') }}
                                 </p>
-                            @endif
+                            @enderror
                         </div>
 
                         <div class="flex-auto w-full my-5 lg:flex-even md:my-8">
@@ -122,11 +122,11 @@ $localePreferenceKey = 'locale';
                                 </div>
                             </div>
 
-                            @if ($errors->has('track'))
+                            @error('track')
                                 <p class="mt-2 text-xs italic text-red-500">
                                     {{ $errors->first('track') }}
                                 </p>
-                            @endif
+                            @enderror
                         </div>
                     </div>
                 </div>

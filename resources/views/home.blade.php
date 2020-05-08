@@ -24,7 +24,6 @@ use App\Module;
                     @forelse ($modules->whereNotIn('id', $completedModules)->all() as $module)
                         @php
                         $buttonText = 'Finish module';
-                        $bgColor = 'bg-teal-400';
 
                         switch($module->skill_level) {
                             case 'intermediate':
@@ -34,6 +33,7 @@ use App\Module;
                                 $bgColor = 'bg-pink-800';
                                 break;
                             default:
+                                $bgColor = 'bg-teal-400';
                                 break;
                         }
                         @endphp
@@ -52,7 +52,6 @@ use App\Module;
                     @forelse (Module::whereIn('id', $completedModules)->get() as $module)
                         @php
                         $buttonText = 'View module';
-                        $bgColor = 'bg-teal-400';
 
                         switch($module->skill_level) {
                             case 'intermediate':
@@ -62,6 +61,7 @@ use App\Module;
                                 $bgColor = 'bg-pink-800';
                                 break;
                             default:
+                                $bgColor = 'bg-teal-400';
                                 break;
                         }
                         @endphp

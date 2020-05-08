@@ -1,27 +1,27 @@
 <template>
     <p class="mb-8">
         <button
-            @click="showAll()"
+            @click="showAll"
             class="mr-2 font-semibold text-gray-600 transition duration-150 ease-in-out cursor-pointer hover:text-gray-700 lg:mr-4"
-            v-bind:class="{'text-gray-900 hover:text-gray-900' : choiceIsSelected('all')}"
-            >
+            :class="{'text-gray-900 hover:text-gray-900' : choiceIsSelected('all')}"
+        >
             {{ trans.get('__JSON__.All resources') }}
         </button>
 
         <button
-            @click="showOnlyLocalLanguage()"
+            @click="showOnlyLocalLanguage"
             class="mr-2 font-semibold text-gray-600 transition duration-150 ease-in-out cursor-pointer hover:text-gray-700 lg:mr-4"
-            v-bind:class="{'text-gray-900 hover:text-gray-900' : choiceIsSelected('local')}"
-            >
+            :class="{'text-gray-900 hover:text-gray-900' : choiceIsSelected('local')}"
+        >
             {{ trans.get('__JSON__.:locale resources', {'locale': language}) }}
         </button>
 
         <span v-if="language !== 'English'">
             <button
-                @click="showEnglishAndLocalLanguage()"
+                @click="showEnglishAndLocalLanguage"
                 class="font-semibold text-gray-600 transition duration-150 ease-in-out cursor-pointer hover:text-gray-700"
-                v-bind:class="{'text-gray-900 hover:text-gray-900' : choiceIsSelected('local-and-english')}"
-                >
+                :class="{'text-gray-900 hover:text-gray-900' : choiceIsSelected('local-and-english')}"
+            >
                 {{ trans.get('__JSON__.English and :locale resources', {'locale': language}) }}
             </button>
         </span>

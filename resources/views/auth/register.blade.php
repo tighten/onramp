@@ -29,12 +29,13 @@
                             value="{{ old('name') }}"
                             required
                             autofocus
-                            class="block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-gray-300 rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5{{ $errors->has('name') ? ' border-red-500' : '' }}" />
+                            class="block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-gray-300 rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5{{ $errors->has('name') ? ' border-red-500' : '' }}"
+                        />
                     </div>
 
-                    @if ($errors->has('name'))
+                    @error('name')
                         <p class="mt-2 text-xs italic text-red-500">{{ $errors->first('name') }}</p>
-                    @endif
+                    @enderror
                 </div>
 
                 <div class="mt-6">
@@ -49,12 +50,13 @@
                             type="email"
                             value="{{ old('email') }}"
                             required
-                            class="block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-gray-300 rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5{{ $errors->has('email') ? ' border-red-500' : '' }}" />
+                            class="block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-gray-300 rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5{{ $errors->has('email') ? ' border-red-500' : '' }}"
+                        />
                     </div>
 
-                    @if ($errors->has('email'))
+                    @error('email')
                         <p class="mt-2 text-xs italic text-red-500">{{ $errors->first('email') }}</p>
-                    @endif
+                    @enderror
                 </div>
 
                 <div class="mt-6">
@@ -68,12 +70,13 @@
                             name="password"
                             type="password"
                             required
-                            class="block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-gray-300 rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5{{ $errors->has('password') ? ' border-red-500' : '' }}" />
+                            class="block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-gray-300 rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5{{ $errors->has('password') ? ' border-red-500' : '' }}"
+                        />
                     </div>
 
-                    @if ($errors->has('password'))
+                    @error('password')
                         <p class="mt-2 text-xs italic text-red-500">{{ $errors->first('password') }}</p>
-                    @endif
+                    @enderror
                 </div>
 
                 <div class="mt-6">
@@ -87,7 +90,8 @@
                             name="password_confirmation"
                             type="password"
                             required
-                            class="block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-gray-300 rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
+                            class="block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-gray-300 rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
+                        />
                     </div>
                 </div>
 
@@ -95,7 +99,8 @@
                     <span class="block w-full rounded-md shadow-sm">
                         <button
                             type="submit"
-                            class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white transition duration-150 ease-in-out bg-teal-600 border border-transparent rounded-md hover:bg-teal-500 focus:outline-none focus:border-teal-700 focus:shadow-outline-teal active:bg-teal-700">
+                            class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white transition duration-150 ease-in-out bg-teal-600 border border-transparent rounded-md hover:bg-teal-500 focus:outline-none focus:border-teal-700 focus:shadow-outline-teal active:bg-teal-700"
+                        >
                             {{ __('Register') }}
                         </button>
                     </span>
@@ -116,7 +121,8 @@
                 <div class="mt-6">
                     <a
                         href="{{ route_wlocale('login') }}"
-                        class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white no-underline transition duration-150 ease-in-out bg-teal-600 border border-transparent rounded-md hover:bg-teal-500 hover:no-underline focus:outline-none focus:border-teal-700 focus:shadow-outline-teal active:bg-teal-700">
+                        class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white no-underline transition duration-150 ease-in-out bg-teal-600 border border-transparent rounded-md hover:bg-teal-500 hover:no-underline focus:outline-none focus:border-teal-700 focus:shadow-outline-teal active:bg-teal-700"
+                    >
                         {{ __('Log in') }}
                     </a>
                 </div>

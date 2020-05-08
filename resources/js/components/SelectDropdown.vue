@@ -2,11 +2,13 @@
     <div
         class="relative"
         :tabindex="tabindex"
-        @blur="open = false">
+        @blur="open = false"
+    >
         <button
             class="relative block w-full h-12 px-5 py-4 pr-12 text-base font-semibold leading-none text-left truncate bg-gray-200 rounded-md focus:outline-none"
             :class="{'rounded-bl-none rounded-br-none': isOpen}"
-            @click="isOpen = !isOpen">
+            @click="isOpen = ! isOpen"
+        >
             <span>{{ selected }}</span>
 
             <svg class="absolute top-0 right-0 w-4 h-full mr-5 stroke-current"
@@ -19,22 +21,26 @@
 
         <ul
             class="absolute top-0 left-0 w-full h-0 mt-12 overflow-hidden bg-gray-200 "
-            :class="{'h-auto border-t border-gray-400': isOpen}">
+            :class="{'h-auto border-t border-gray-400': isOpen}"
+        >
             <li
                 class="border-t first:border-t-0"
                 v-for="(option, i) of options"
-                :key="i">
+                :key="i"
+            >
                 <button
                     class="relative block w-full px-5 py-4 pr-12 text-base font-semibold text-left truncate focus:outline-none hover:bg-gray-300"
                     :class="{'': selected === option}"
-                    @click="setSelected(option)">
+                    @click="setSelected(option)"
+                >
                     <span>{{ option }}</span>
 
                     <template v-if="selected === option">
                         <svg
                             class="absolute right-0 w-3 h-3 mr-5 text-teal-600 transform -translate-y-1/2 fill-current top-1/2"
                             xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24">
+                            viewBox="0 0 24 24"
+                        >
                             <path
                                 d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
                             ></path>

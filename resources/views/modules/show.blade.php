@@ -1,10 +1,6 @@
 @extends('layouts.app')
 
 @php
-use App\Resource;
-
-$bgColor = 'bg-teal-600';
-
 switch($module->skill_level) {
     case 'intermediate':
         $bgColor = 'bg-blue-violet';
@@ -13,6 +9,7 @@ switch($module->skill_level) {
         $bgColor = 'bg-pink-800';
         break;
     default:
+        $bgColor = 'bg-teal-600';
         break;
 }
 @endphp

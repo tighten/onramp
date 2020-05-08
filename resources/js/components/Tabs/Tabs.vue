@@ -7,16 +7,16 @@
                 <div class="pb-8 overflow-scroll fluid-container">
                     <ul class="inline-flex flex-no-wrap min-w-full border-b-4 text-none text-regent-grey">
                         <li
-                            v-for="(tab, i) in tabs"
-                            :key="i"
+                            v-for="tab in tabs"
+                            :key="tab.name"
                             :class="{'text-gray-700': tab.isActive}"
                             class="inline-block pr-5 text-xl font-semibold leading-tight tracking-tight whitespace-no-wrap transition duration-150 ease-in-out last:pr-0 sm:pr-10 lg:pr-20 md:text-2xl xl:text-4xl focus:outline-none hover:text-gray-700"
                         >
                             <a
                                 :href="tab.href"
-                                @click="setActiveTab(tab.href)"
                                 :class="{'border-b-4 border-teal-600': tab.isActive}"
                                 class="inline-block pb-5 -mb-1 border-b-4 hover:no-underline"
+                                @click="setActiveTab(tab.href)"
                             >
                                 <span>{{ tab.name }}</span>
                             </a>
@@ -26,7 +26,6 @@
             </div>
         </slot>
 
-        <!-- for tab content to show up -->
         <slot></slot>
     </div>
 </template>
@@ -53,8 +52,12 @@ export default {
     mounted() {
         this.$nextTick(() => {
             this.checkShowAllTabContent();
-            $(window).on('resize', this.checkShowAllTabContent);
+            window.addEventListener('resize', this.checkShowAllTabContent);
         });
+    },
+
+    destroyed() {
+        window.removeEventListener('resize', this.checkShowAllTabContent);
     },
 
     methods: {
@@ -75,12 +78,12 @@ export default {
                 return;
             }
 
-            if($(window).width() >= 992) {
+            if(window.innerWidth >= 992) {
                 this.showAllTabs();
-            }else {
+            } else {
                 this.setActiveTab(this.tabs[0].href);
             }
         },
-    }
+    },
 }
 </script>

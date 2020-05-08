@@ -7,19 +7,22 @@ a:hover {
 }
 
 .temp-learn-list {
-    @apply .list-disc;
+    @apply list-disc;
 }
 
 .temp-learn-list ul {
-    @apply .list-disc .mb-6 .ml-8 .mt-4;
+    @apply list-disc;
+    @apply mb-6;
+    @apply ml-8;
+    @apply mt-4;
 }
 
 .temp-learn-list li {
-    @apply .mb-3;
+    @apply mb-3;
 }
 
 .temp-learn-list a {
-    @apply .text-indigo-600;
+    @apply text-indigo-600;
 }
 
 .temp-learn-list a:hover {
@@ -27,13 +30,22 @@ a:hover {
 }
 
 .temp-learn-list .list-title {
-    @apply .font-bold .text-lg;
+    @apply font-bold;
+    @apply text-lg;
 }
 
 .simple-form-button {
-    @apply .block .border .border-gray-500 .mt-4 .px-3 .py-1 .rounded;
+    @apply block;
+    @apply border;
+    @apply border-gray-500;
+    @apply mt-4;
+    @apply px-3;
+    @apply py-1;
+    @apply rounded;
 }
 
 .simple-form-button:hover {
-    @apply .border-gray-300 .bg-blue-500 .text-white;
+    @apply border-gray-300;
+    @apply bg-blue-500;
+    @apply text-white;
 }

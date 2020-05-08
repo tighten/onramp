@@ -4,8 +4,8 @@
             <select-dropdown
                 class="mb-8"
                 :options="selectOptions"
-                @selectChanged="setActiveTabUsingOption">
-            </select-dropdown>
+                @selectChanged="setActiveTabUsingOption"
+            />
         </div>
 
         <slot></slot>

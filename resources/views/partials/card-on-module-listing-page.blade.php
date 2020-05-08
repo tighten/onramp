@@ -1,7 +1,4 @@
 @php
-    $evenCardColor = 'bg-teal-600';
-    $oddCardColor = 'bg-teal-400';
-
     switch($module->skill_level) {
         case 'intermediate':
             $evenCardColor = 'bg-cornflower-blue';
@@ -12,6 +9,8 @@
             $oddCardColor = 'bg-pink-800';
             break;
         default:
+            $evenCardColor = 'bg-teal-600';
+            $oddCardColor = 'bg-teal-400';
             break;
     }
 @endphp

@@ -3,7 +3,8 @@
         <div
             v-if="isVisible"
             class="px-6 text-center bg-oxford-blue"
-            role="alert">
+            role="alert"
+        >
             <div class="relative py-4 fluid-container">
                 <p class="text-base text-white">
                     <slot name="message"></slot>
@@ -41,12 +42,11 @@ export default {
     },
 
     mounted() {
-
         document.addEventListener('DOMContentLoaded', () => {
             if (localStorage.showSiteBanner) {
                 this.isVisible = JSON.parse(localStorage.showSiteBanner)
 
-                if(! this.isVisible) {
+                if (! this.isVisible) {
                     return;
                 }
             } else {
@@ -60,7 +60,7 @@ export default {
     watch: {
         isVisible(value) {
             localStorage.showSiteBanner = value;
-        }
+        },
     }
 }
 </script>

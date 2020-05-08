@@ -5,7 +5,10 @@
         <a
             :href="href"
             class="block px-4 py-3 text-sm font-medium leading-5 cursor-pointer hover:no-underline hover:bg-gray-100 hover:text-gray-800 focus:outline-none focus:bg-gray-100 focus:text-gray-800"
-            @click="handleClick">{{ text }}</a>
+            @click="handleClick"
+        >
+            {{ text }}
+        </a>
     </div>
 </template>
 

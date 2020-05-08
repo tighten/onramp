@@ -12,7 +12,7 @@
 
         <div class="relative z-50 lg:hidden">
             <button v-if="isOpen"
-                    @click="close()"
+                    @click="close"
                     tabindex="-1"
                     class="fixed inset-0 hidden w-full h-full cursor-default">
             </button>
@@ -21,7 +21,7 @@
                 <label for="language-switcher"
                     class="flex items-center text-blue-violet focus:outline-none">
 
-                    <button @click="toggle()"
+                    <button @click="toggle"
                             id="language-switcher"
                             tabindex="1"
                             class="mr-3 text-base font-semibold focus:outline-none focus:border-white">

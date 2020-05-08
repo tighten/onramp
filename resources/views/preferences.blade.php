@@ -92,11 +92,11 @@ $resourceLanguagePreferenceKey = 'resource-language';
                                 </div>
                             </div>
 
-                            @if ($errors->has($localePreferenceKey))
+                            @error($localePreferenceKey))
                                 <p class="mt-2 text-xs italic text-red-500">
                                     {{ $errors->first($localePreferenceKey) }}
                                 </p>
-                            @endif
+                            @enderror
                         </div>
 
                         <div class="flex-auto w-full my-5 lg:flex-even md:my-8">
@@ -126,11 +126,11 @@ $resourceLanguagePreferenceKey = 'resource-language';
                                 </div>
                             </div>
 
-                            @if ($errors->has('operating-system'))
+                            @error('operating-system')
                                 <p class="mt-2 text-xs italic text-red-500">
                                     {{ $errors->first('operating-system') }}
                                 </p>
-                            @endif
+                            @enderror
                         </div>
                     </div>
                 </div>
@@ -172,11 +172,11 @@ $resourceLanguagePreferenceKey = 'resource-language';
                                 </div>
                             </div>
 
-                            @if ($errors->has('track'))
+                            @error('track')
                                 <p class="mt-2 text-xs italic text-red-500">
                                     {{ $errors->first('track') }}
                                 </p>
-                            @endif
+                            @enderror
                         </div>
                     </div>
                 </div>

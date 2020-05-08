@@ -28,16 +28,20 @@ export default {
 
     methods: {
         closeModal() {
-            if ($(window).width() >= 992) {
+            if (window.innerWidth >= 992) {
                 this.$refs.modal.close();
             }
         }
     },
 
-    mounted() {
-        this.$nextTick(() => {
-            $(window).on('resize', this.closeModal);
-        });
-    }
+    watch: {
+        show(value) {
+            if (value) {
+                window.addEventListener('resize', this.closeModal);
+            } else {
+                window.removeEventListener('resize', this.closeModal);
+            }
+        },
+    },
 }
 </script>

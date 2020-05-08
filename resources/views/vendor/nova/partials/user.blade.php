@@ -1,8 +1,8 @@
-<dropdown-trigger class="flex items-center h-9">
+<dropdown-trigger class="h-9 flex items-center">
     @isset($user->email)
         <img
             src="https://secure.gravatar.com/avatar/{{ md5($user->email) }}?size=512"
-            class="w-8 h-8 mr-3 rounded-full"
+            class="rounded-full w-8 h-8 mr-3"
         />
     @endisset
 
@@ -14,7 +14,7 @@
 <dropdown-menu slot="menu" width="200" direction="rtl">
     <ul class="list-reset">
         <li>
-            <a href="{{ route('nova.logout') }}" class="block p-3 no-underline text-90 hover:bg-30">
+            <a href="{{ route('nova.logout') }}" class="block no-underline text-90 hover:bg-30 p-3">
                 {{ __('Logout') }}
             </a>
         </li>

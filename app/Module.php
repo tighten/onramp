@@ -18,9 +18,9 @@ class Module extends Model implements Completable
     const ADVANCED_SKILL_LEVEL = 'advanced';
 
     const SKILL_LEVELS = [
-        self::BEGINNER_SKILL_LEVEL,
-        self::INTERMEDIATE_SKILL_LEVEL,
-        self::ADVANCED_SKILL_LEVEL,
+        self::BEGINNER_SKILL_LEVEL => 'Beginner',
+        self::INTERMEDIATE_SKILL_LEVEL => 'Intermediate',
+        self::ADVANCED_SKILL_LEVEL => 'Advanced',
     ];
 
     public $translatable = ['name', 'description'];

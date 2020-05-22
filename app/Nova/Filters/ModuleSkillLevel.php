@@ -34,10 +34,6 @@ class ModuleSkillLevel extends Filter
      */
     public function options(Request $request)
     {
-        return [
-            'Beginner' => Module::BEGINNER_SKILL_LEVEL,
-            'Intermediate' => Module::INTERMEDIATE_SKILL_LEVEL,
-            'Advanced' => Module::ADVANCED_SKILL_LEVEL,
-        ];
+        return array_flip(Module::SKILL_LEVELS);
     }
 }

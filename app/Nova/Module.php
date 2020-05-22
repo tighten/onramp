@@ -34,13 +34,6 @@ class Module extends BaseResource
         'id', 'name', 'slug',
     ];
 
-    public function skillLevelFields()
-    {
-        return collect(EloquentModule::SKILL_LEVELS)->mapWithKeys(function ($value) {
-            return [$value => ucwords($value)];
-        })->toArray();
-    }
-
     /**
      * Get the fields displayed by the resource.
      *
@@ -65,7 +58,7 @@ class Module extends BaseResource
                 ->hideFromIndex(),
 
             Select::make('Skill Level')
-                ->options($this->skillLevelFields())
+                ->options(EloquentModule::SKILL_LEVELS)
                 ->displayUsingLabels()
                 ->rules('required'),
 

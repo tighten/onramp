@@ -32,11 +32,5 @@ class AppServiceProvider extends ServiceProvider
         }
 
         $this->app->setLocale(locale());
-
-        View::composer('layouts.app', function ($view) {
-            return $view->with([
-                'jsonTranslations' => ExportLocalizations::export()->toFlat(),
-            ]);
-        });
     }
 }

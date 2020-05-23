@@ -63,12 +63,12 @@ return [
         /*
          * root location to where JavaScript file will be exported
          */
-        'filepath' => resource_path('assets/js'),
+        'filepath' => resource_path('js'),
 
         /*
          * File name for JavaScript file with exported messages
          */
-        'filename' => 'll_messages.js',
+        'filename' => 'translations.js',
     ],
     'paths'  => [
         /*

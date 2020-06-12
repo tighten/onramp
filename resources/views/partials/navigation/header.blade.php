@@ -70,11 +70,6 @@
                             </template>
 
                             <menu-dropdown-item
-                                text="{{ __('My Modules') }}"
-                                href="{{ route_wlocale('home') }}">
-                            </menu-dropdown-item>
-
-                            <menu-dropdown-item
                                 text="{{ __('Preferences') }}"
                                 href="{{ route_wlocale('user.preferences.index') }}">
                             </menu-dropdown-item>
@@ -137,10 +132,6 @@
                 </a>
                 @endif
             @else
-                <a class="flex-1 inline-block w-1/2 py-3 mx-2 text-lg font-semibold leading-none text-center text-teal-600 whitespace-no-wrap border-2 border-teal-600 hover:no-underline" href="{{ route_wlocale('home') }}">
-                    <span>{{ __('My Modules') }}</span>
-                </a>
-
                 <a href="{{ route_wlocale('logout') }}"
                     class="flex-1 inline-block w-1/2 py-3 mx-2 text-lg font-semibold leading-none text-center text-white whitespace-no-wrap bg-teal-600 border-2 border-teal-600 hover:no-underline"
                     onclick="event.preventDefault();

@@ -21,7 +21,6 @@ Route::group(['prefix' => '{locale}'], function () {
     Route::group(['middleware' => 'auth'], function () {
         Route::get('wizard', 'Auth\\WizardController@index')->name('wizard.index');
         Route::post('wizard', 'Auth\\WizardController@store')->name('wizard.store');
-        Route::get('home', 'HomeController@index')->name('home');
         Route::get('preferences', 'PreferenceController@index')->name('user.preferences.index');
         Route::post('completions', 'CompletionsController@store')->name('user.completions.store');
         Route::delete('completions', 'CompletionsController@destroy')->name('user.completions.destroy');

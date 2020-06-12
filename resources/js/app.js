@@ -33,6 +33,15 @@ Vue.prototype.trans = new Lang({
 
 Vue.use(Notifications);
 
+Vue.filter('capitalize', function (string) {
+    if (! string) {
+        return '';
+    }
+
+    string = string.toString().toLowerCase();
+    return string.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+});
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

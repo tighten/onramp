@@ -6,7 +6,7 @@
                 :initial-is-completed="{{ $completedResources->contains($resource->id) ? 'true' : 'false' }}"
                 type="{{ $resource->getMorphClass() }}"
                 id="{{ $resource->id }}"
-            />
+            ></completed-checkbox>
         @endif
     @endauth
 

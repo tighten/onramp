@@ -12,14 +12,20 @@ class ModuleController extends Controller
         return view('modules.index', [
             'pageTitle' => 'Modules',
             'standardModules' => auth()->check() && auth()->user()->hasTrack()
-                ? Module::standard()
-                    ->whereNotIn('id', auth()->user()->track->modules()->standard()->get()->pluck('id'))->get()
+                ? Module::with('resourcesForCurrentSession')->standard()->get()
                 : Module::standard()->get(),
-            'bonusModules' => auth()->check() && auth()->user()->hasTrack()
-                ? Module::bonus()
-                    ->whereNotIn('id', auth()->user()->track->modules()->bonus()->get()->pluck('id'))
-                    ->get()
+            'bonusModules' =>  auth()->check() && auth()->user()->hasTrack()
+                ? Module::with('resourcesForCurrentSession')->bonus()->get()
                 : Module::bonus()->get(),
+            'userModules' => auth()->check() && auth()->user()->hasTrack()
+                ? auth()->user()->track->modules()->get()->pluck('id')
+                : collect([]),
+            'completedModules' => auth()->check()
+                ? auth()->user()->moduleCompletions()->pluck('completable_id')
+                : collect([]),
+            'userResourceCompletions' =>  auth()->check() && auth()->user()->hasTrack()
+                ? auth()->user()->resourceCompletions()->get()->pluck('completable_id')
+                : collect([]),
         ]);
     }
 

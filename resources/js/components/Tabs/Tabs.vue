@@ -60,6 +60,12 @@ export default {
         window.removeEventListener('resize', this.checkShowAllTabContent);
     },
 
+    watch: {
+        tabs(value) {
+            this.checkShowAllTabContent();
+        },
+    },
+
     methods: {
         setActiveTab(selectedTabHref) {
             this.tabs.forEach(tab => {

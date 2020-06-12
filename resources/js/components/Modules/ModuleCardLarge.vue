@@ -113,7 +113,7 @@ export default {
 
         completedResourcesPercentage() {
             return this.resourcesForSessionCount > 0
-                ? (this.completedResourcesCount / this.resourcesForSessionCount) * 100
+                ? Math.round((this.completedResourcesCount / this.resourcesForSessionCount) * 100)
                 : 0;
         }
     },

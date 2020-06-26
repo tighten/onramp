@@ -1,43 +1,11 @@
 @tailwind base;
 @tailwind components;
+
+@import './variables/index';
+@import './defaults/index';
+@import './mixins/index';
+@import './components/index';
+@import './utilities/index';
+@import './temp';
+
 @tailwind utilities;
-
-a {
-    @apply text-blue-700 no-underline;
-}
-
-a:hover {
-    @apply underline;
-}
-
-.temp-learn-list {
-    @apply .list-disc;
-}
-
-.temp-learn-list ul {
-    @apply .list-disc .mb-6 .ml-8 .mt-4;
-}
-
-.temp-learn-list li {
-    @apply .mb-3;
-}
-
-.temp-learn-list a {
-    @apply .text-indigo-600;
-}
-
-.temp-learn-list a:hover {
-    text-decoration: underline;
-}
-
-.temp-learn-list .list-title {
-    @apply .font-bold .text-lg;
-}
-
-.simple-form-button {
-    @apply .block .border .border-gray-500 .mt-4 .px-3 .py-1 .rounded;
-}
-
-.simple-form-button:hover {
-    @apply .border-gray-300 .bg-blue-500 .text-white;
-}

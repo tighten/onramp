@@ -32,8 +32,7 @@ class OperatingSystemScopeTest extends TestCase
 
         $this->be($user = factory(User::class)->create());
         Preferences::set(['operating-system' => OperatingSystem::WINDOWS, 'resource-language' => 'all']);
-
-        $response = $this->get('/en/modules/' . $module->slug);
+        $response = $this->get('/en/modules/' . $module->slug . '/free-resources');
         $response->assertSee($windowsResource->name);
         $response->assertSee($anyResource->name);
         $response->assertDontSee($macResource->name);

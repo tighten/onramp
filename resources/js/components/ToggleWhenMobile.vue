@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button @click="toggle" class="border rounded py-1 px-4 md:hidden">{{ buttonLabel }}</button>
+        <button @click="toggle" class="px-6 border rounded button button-white md:hidden">{{ buttonLabel }}</button>
 
         <div class="md:block" v-bind:class="{ hidden: !isOpen }">
             <slot></slot>
@@ -9,23 +9,15 @@
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                isOpen: false,
-            }
-        },
+import toggle from '../mixins/toggle';
 
-        methods: {
-            toggle() {
-                this.isOpen = ! this.isOpen;
-            },
-        },
+export default {
+    mixins: [toggle],
 
-        computed: {
-            buttonLabel() {
-                return this.isOpen ? 'Hide' : 'Show';
-            },
+    computed: {
+        buttonLabel() {
+            return this.isOpen ? 'Hide' : 'Show';
         },
-    }
+    },
+}
 </script>

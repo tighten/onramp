@@ -20,6 +20,6 @@ class AuthTest extends TestCase
             'password' => $user->password,
         ]);
 
-        $response->assertRedirect('/en/modules');
+        $response->assertRedirect('/en/home');
     }
 }

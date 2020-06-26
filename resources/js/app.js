@@ -7,7 +7,12 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
-import './components';
+
+import LanguageSwitcher from './components/LanguageSwitcher.vue';
+import ToggleWhenMobile from './components/ToggleWhenMobile.vue';
+import ResourceLanguagePreferenceSwitcher from './components/ResourceLanguagePreferenceSwitcher.vue';
+import CompletedCheckbox from './components/CompletedCheckbox.vue';
+import Toast from './components/Toast.vue';
 import Lang from 'lang.js';
 import Notifications from 'vue-notification';
 import Translations from './translations';
@@ -20,50 +25,13 @@ Vue.prototype.trans = new Lang({
 
 Vue.use(Notifications);
 
-Vue.filter('capitalize', function (string) {
-    if (! string) {
-        return '';
-    }
-
-    string = string.toString().toLowerCase();
-    return string.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
-});
 const app = new Vue({
+    components: {
+        'language-switcher': LanguageSwitcher,
+        'toggle-when-mobile': ToggleWhenMobile,
+        'resource-language-preference-switcher': ResourceLanguagePreferenceSwitcher,
+        'completed-checkbox': CompletedCheckbox,
+        'toast': Toast,
+    },
     el: '#app',
-
-    data: {
-        modals: {
-            mobileMenu: false,
-        },
-    },
-
-    methods: {
-        openModal(modalName) {
-            this.modals[modalName] = true;
-            document.documentElement.style.overflow = 'hidden';
-        },
-
-        closeModal() {
-            for (var modal in this.modals) {
-                this.modals[modal] = false;
-            }
-
-            document.documentElement.style.overflow = 'auto';
-        },
-
-        logout(e) {
-            e.preventDefault();
-            document.getElementById('logout-form').submit();
-        }
-    },
-
-    created() {
-        this.$on('closeModal', () => {
-            this.closeModal();
-        });
-
-        this.$on('logout', (e) => {
-            this.logout(e);
-        });
-    },
 });

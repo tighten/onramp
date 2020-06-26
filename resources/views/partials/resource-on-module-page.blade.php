@@ -1,14 +1,11 @@
-<li class="inline-flex w-full mt-8 first:mt-0">
+<li>
     @auth
-        @if (Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id))
-        <completed-checkbox
-            class="mr-5"
-            :initial-is-completed="{{ $completedResources->contains($resource->id) ? 'true' : 'false' }}"
-            type="{{ $resource->getMorphClass() }}"
-            id="{{ $resource->id }}"
+    <completed-checkbox
+        :initial-is-completed="{{ $completedResources->contains($resource->id) ? 'true' : 'false' }}"
+        type="{{ $resource->getMorphClass() }}"
+        id="{{ $resource->id }}"
         ></completed-checkbox>
-        @endif
     @endauth
 
-    <a class="text-comet" href="{{ $resource->url }}" target="_blank">{{ $resource->name }}</a>
+    <a href="{{ $resource->url }}">{{ $resource->name }}</a>
 </li>

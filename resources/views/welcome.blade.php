@@ -128,11 +128,7 @@
 
             <div class="relative">
                 <p class="max-w-2xl my-6 leading-normal lg:text-xl lg:leading-loose lg:my-12">
-                    It's iterative and opinionated. It's open source and contributions are welcome, but in the end Tighten will keep it focused on the way we think folks are best prepared for a career as a Laravel dev.
-                </p>
-
-                <p class="max-w-2xl my-6 leading-normal lg:text-xl lg:leading-loose lg:my-12">
-                    Right now we're keeping it just a bullet point list so we can gather great content from the community, but shortly we'll turn it into a more fully-fledge site with user accounts and deeper context for every item.
+                    It's iterative and opinionated. It's open source and contributions are welcome, but in the end Tighten will keep it focused on the way we think folks are best prepared for a career as a Laravel developer.
                 </p>
 
                 <h2 class="mt-10 lg:mt-20">Let's do it!</h2>

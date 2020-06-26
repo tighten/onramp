@@ -84,7 +84,7 @@ export default {
                 return;
             }
 
-            if(window.innerWidth >= 992) {
+            if (window.innerWidth >= 992) {
                 this.showAllTabs();
             } else {
                 this.setActiveTab(this.tabs[0].href);

@@ -21,7 +21,11 @@
             </span>
         </div>
 
-        <tabs v-if="! userLoggedIn" class="mt-12 lg:mt-32" :hide-tabs-on-desktop="true">
+        <tabs 
+            v-if="! userLoggedIn"
+            class="mt-12 lg:mt-32"
+            :hide-tabs-on-desktop="true"
+        >
             <tab
                 v-for="(tab, index) in filteredTabs"
                 :key="tab.name"
@@ -99,7 +103,10 @@
             </tab>
         </tabs>
 
-        <tabs v-else class="mt-12" :hide-tabs-on-desktop="true">
+        <tabs 
+            v-else class="mt-12"
+            :hide-tabs-on-desktop="true"
+        >
             <tab
                 v-for="(tab, index) in filteredTabs"
                 :key="tab.name"

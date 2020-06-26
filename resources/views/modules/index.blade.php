@@ -1,54 +1,38 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="w-full bg-white">
-    <div class="text-center px-6 py-12 bg-gray-100 border-b">
-        <h1 class="text-xl md:text-4xl pb-4">{{ __('Modules') }}</h1>
-        <p class="leading-loose text-gray-dark">
-            {{ __('The tech concepts you should know in order to get a job as a Laravel developer.') }}
-        </p>
-    </div>
-
+<div class="w-full bg-off-white">
     @include('partials.you-should-log-in')
 
-    <div class="container max-w-4xl mx-auto md:flex items-start mt-6 py-8 px-12 md:px-0">
-        <div class="w-full md:pr-12 mb-6">
-            <p class="mb-2 font-bold text-lg">Recommended modules</p>
+    <div class="py-16 overflow-hidden bg-indigo-100 lg:py-24">
+        <div class="relative fluid-container">
+            <h1 class="max-w-lg">{{ __('Modules') }}</h1>
 
-            <ul class="@guest list-disc @endguest">
-                @foreach ($standardModules as $module)
-                <li>
-                    @auth
-                    <completed-checkbox
-                        :initial-is-completed="{{ $completedModules->contains($module->id) ? 'true' : 'false' }}"
-                        type="{{ $module->getMorphClass() }}"
-                        id="{{ $module->id }}"
-                        ></completed-checkbox>
-                    @endauth
-                    <a href="{{ route_wlocale('modules.show', $module) }}">{{ $module->name }}</a>
-                </li>
-                @endforeach
-            </ul>
+            <p class="max-w-md mt-4 leading-normal text-comet lg:mt-5">
+                {{ __('The tech concepts you should know in order to get a job as a Laravel developer.') }}
+            </p>
 
-            @if ($bonusModules->isNotEmpty())
-            <p class="mb-2 font-bold text-lg mt-8">Bonus modules</p>
+            <picture>
+                <source media="(min-width: 1024px)"
+                    srcset="/images/shapes/double-curve-dark-large.svg">
 
-            <ul class="@guest list-disc @endguest">
-                @foreach ($bonusModules as $module)
-                <li>
-                    @auth
-                    <completed-checkbox
-                        :initial-is-completed="{{ $completedModules->contains($module->id) ? 'true' : 'false' }}"
-                        type="{{ $module->getMorphClass() }}"
-                        id="{{ $module->id }}"
-                        ></completed-checkbox>
-                    @endauth
-                    <a href="{{ route_wlocale('modules.show', $module) }}">{{ $module->name }}</a>
-                </li>
-                @endforeach
-            </ul>
-            @endif
+                <img
+                    class="absolute right-0 -mr-32 transform -translate-y-1/2 pointer-events-none h-670-px opacity-10 top-1/2 lg:h-1340-px lg:-mr-48 lg:opacity-100"
+                    src="/images/shapes/single-curve-dark-small.svg"
+                    alt="Onramp">
+            </picture>
         </div>
+    </div>
+
+    <div class="pb-48">
+        <module-listing
+            :standard-modules="{{ $standardModules }}"
+            :bonus-modules="{{ $bonusModules }}"
+            :user-modules="{{ $userModules }}"
+            :completed-modules="{{ $completedModules }}"
+            :user-resource-completions="{{ $userResourceCompletions }}"
+            :user-logged-in="{{ auth()->check() ? 'true' : 'false' }}"
+        ></module-listing>
     </div>
 </div>
 @endsection

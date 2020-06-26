@@ -35,6 +35,11 @@ class User extends Authenticatable
         return $this->hasMany(Completion::class);
     }
 
+    public function suggestedResources()
+    {
+        return $this->hasMany(SuggestedResource::class);
+    }
+
     public function complete(Completable $completable)
     {
         return $this->completions()->create([
@@ -76,9 +81,22 @@ class User extends Authenticatable
         return in_array($this->role, ['admin']);
     }
 
-    public function suggestedResources()
+    public function hasTrack()
     {
-        return $this->hasMany(SuggestedResource::class);
+        return ! is_null($this->track_id);
+    }
+
+    public function getInitialsAttribute()
+    {
+        return collect(explode(' ', $this->name))
+            ->reduce(function ($initials, $word) {
+                return $initials .= strtoupper($word[0]);
+            });
+    }
+
+    public function getFirstNameAttribute()
+    {
+        return explode(' ', $this->name)[0];
     }
 
     public function sendPasswordResetNotification($token)

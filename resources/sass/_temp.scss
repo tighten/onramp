@@ -1,0 +1,51 @@
+a {
+    @apply no-underline;
+}
+
+a:hover {
+    @apply underline;
+}
+
+.temp-learn-list {
+    @apply list-disc;
+}
+
+.temp-learn-list ul {
+    @apply list-disc;
+    @apply mb-6;
+    @apply ml-8;
+    @apply mt-4;
+}
+
+.temp-learn-list li {
+    @apply mb-3;
+}
+
+.temp-learn-list a {
+    @apply text-indigo-600;
+}
+
+.temp-learn-list a:hover {
+    text-decoration: underline;
+}
+
+.temp-learn-list .list-title {
+    @apply font-bold;
+    @apply text-lg;
+}
+
+.simple-form-button {
+    @apply block;
+    @apply border;
+    @apply border-gray-500;
+    @apply mt-4;
+    @apply px-3;
+    @apply py-1;
+    @apply rounded;
+}
+
+.simple-form-button:hover {
+    @apply border-gray-300;
+    @apply bg-blue-500;
+    @apply text-white;
+}

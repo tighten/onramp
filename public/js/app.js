@@ -2793,6 +2793,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     standardModules: {
@@ -3008,7 +3015,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -41703,53 +41709,49 @@ var render = function() {
           class: { "h-auto border-t border-gray-400": _vm.isOpen }
         },
         _vm._l(_vm.options, function(option, i) {
-          return _c(
-            "li",
-            { key: i, staticClass: "border-t first:border-t-0" },
-            [
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "relative block w-full px-5 py-4 pr-12 text-base font-semibold text-left truncate focus:outline-none hover:bg-gray-300",
-                  class: { "": _vm.selected === option },
-                  on: {
-                    click: function($event) {
-                      return _vm.setSelected(option)
-                    }
+          return _c("li", { staticClass: "border-t first:border-t-0" }, [
+            _c(
+              "button",
+              {
+                staticClass:
+                  "relative block w-full px-5 py-4 pr-12 text-base font-semibold text-left truncate focus:outline-none hover:bg-gray-300",
+                class: { "": _vm.selected === option },
+                on: {
+                  click: function($event) {
+                    return _vm.setSelected(option)
                   }
-                },
-                [
-                  _c("span", [_vm._v(_vm._s(option))]),
-                  _vm._v(" "),
-                  _vm.selected === option
-                    ? [
-                        _c(
-                          "svg",
-                          {
-                            staticClass:
-                              "absolute right-0 w-3 h-3 mr-5 text-teal-600 transform -translate-y-1/2 fill-current top-1/2",
+                }
+              },
+              [
+                _c("span", [_vm._v(_vm._s(option))]),
+                _vm._v(" "),
+                _vm.selected === option
+                  ? [
+                      _c(
+                        "svg",
+                        {
+                          staticClass:
+                            "absolute right-0 w-3 h-3 mr-5 text-teal-600 transform -translate-y-1/2 fill-current top-1/2",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            viewBox: "0 0 24 24"
+                          }
+                        },
+                        [
+                          _c("path", {
                             attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              viewBox: "0 0 24 24"
+                              d:
+                                "M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
                             }
-                          },
-                          [
-                            _c("path", {
-                              attrs: {
-                                d:
-                                  "M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
-                              }
-                            })
-                          ]
-                        )
-                      ]
-                    : _vm._e()
-                ],
-                2
-              )
-            ]
-          )
+                          })
+                        ]
+                      )
+                    ]
+                  : _vm._e()
+              ],
+              2
+            )
+          ])
         }),
         0
       )

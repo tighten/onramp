@@ -26,7 +26,6 @@
             <li
                 class="border-t first:border-t-0"
                 v-for="(option, i) of options"
-                :key="i"
             >
                 <button
                     class="relative block w-full px-5 py-4 pr-12 text-base font-semibold text-left truncate focus:outline-none hover:bg-gray-300"

@@ -30,14 +30,14 @@
             <div class="flex-1">
                 <nav class="flex items-center">
                     <a
-                        class="block mx-4 text-xl font-semibold text-blue-violet hover:no-underline"
+                        class="block mx-4 text-xl font-semibold transition-colors duration-300 ease-in-out text-blue-violet hover:text-indigo-800 hover:no-underline"
                         href="{{ route_wlocale('modules.index') }}">
                         <span>Learn</span>
                     </a>
 
                     <a
-                        class="block mx-4 text-xl font-semibold text-blue-violet hover:no-underline"
-                        href="{{ route_wlocale('glossary')}} ">
+                        class="block mx-4 text-xl font-semibold transition-colors duration-300 ease-in-out text-blue-violet hover:text-indigo-800 hover:no-underline"
+                        href="{{ route_wlocale('glossary')}}">
                         <span>Glossary</span>
                     </a>
                 </nav>
@@ -63,7 +63,7 @@
                         <menu-dropdown>
                             <template v-slot:toggle="props">
                                 <button
-                                    class="flex items-center justify-center block w-12 h-12 bg-teal-700 rounded-full hover:no-underline focus:outline-none"
+                                    class="flex items-center justify-center block w-12 h-12 transition-colors duration-300 ease-in-out bg-teal-700 rounded-full hover:bg-teal-600 hover:no-underline focus:outline-none"
                                     @click="props.toggle"
                                 >
                                     <span class="font-semibold leading-none text-white">

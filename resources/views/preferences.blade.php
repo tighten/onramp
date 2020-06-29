@@ -27,7 +27,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                     <label
                         for="{{ $localePreferenceKey }}"
                         id="locale-label"
-                        class="block text-sm leading-5 text-gray-600 md:text-base"
+                        class="block text-sm leading-5 text-gray-700 md:text-base"
                     >
                         Which resources should we show for you?
                     </label>
@@ -56,7 +56,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                 </div>
 
                 <div class="mt-5">
-                    <p class="text-sm leading-5 text-gray-600 md:text-base">
+                    <p class="text-sm leading-5 text-gray-700 md:text-base">
                         Filter resources based on your operating system and language preference.
                     </p>
 
@@ -140,7 +140,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                 </div>
 
                 <div class="mt-5">
-                    <p class="text-sm leading-5 text-gray-600 md:text-base">
+                    <p class="text-sm leading-5 text-gray-700 md:text-base">
                         Track your progress in modules based on your current background experience.
                     </p>
 

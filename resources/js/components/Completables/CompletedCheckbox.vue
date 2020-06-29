@@ -4,7 +4,7 @@
             <div class="inline-block mr-1">
                 <div
                     @click="toggle"
-                    class="text-gray-500 cursor-pointer duration-150 transition ease-in-out hover:text-gray-600"
+                    class="text-gray-500 transition duration-150 ease-in-out cursor-pointer hover:text-gray-600"
                     :class="{'text-teal-600 hover:text-teal-700': isCompleted}"
                     >
                     <svg class="w-8 h-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">

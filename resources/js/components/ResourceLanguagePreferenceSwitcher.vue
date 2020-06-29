@@ -2,7 +2,7 @@
     <p class="mb-8">
         <button
             @click="showAll"
-            class="mr-2 font-semibold text-gray-600 transition duration-150 ease-in-out cursor-pointer hover:text-gray-700 lg:mr-4"
+            class="mr-2 font-semibold text-gray-700 transition duration-150 ease-in-out cursor-pointer hover:text-gray-800 lg:mr-4"
             :class="{'text-gray-900 hover:text-gray-900' : choiceIsSelected('all')}"
         >
             {{ trans.get('__JSON__.All resources') }}
@@ -10,7 +10,7 @@
 
         <button
             @click="showOnlyLocalLanguage"
-            class="mr-2 font-semibold text-gray-600 transition duration-150 ease-in-out cursor-pointer hover:text-gray-700 lg:mr-4"
+            class="mr-2 font-semibold text-gray-700 transition duration-150 ease-in-out cursor-pointer hover:text-gray-800 lg:mr-4"
             :class="{'text-gray-900 hover:text-gray-900' : choiceIsSelected('local')}"
         >
             {{ trans.get('__JSON__.:locale resources', {'locale': language}) }}
@@ -19,7 +19,7 @@
         <span v-if="language !== 'English'">
             <button
                 @click="showEnglishAndLocalLanguage"
-                class="font-semibold text-gray-600 transition duration-150 ease-in-out cursor-pointer hover:text-gray-700"
+                class="font-semibold text-gray-700 transition duration-150 ease-in-out cursor-pointer hover:text-gray-800"
                 :class="{'text-gray-900 hover:text-gray-900' : choiceIsSelected('local-and-english')}"
             >
                 {{ trans.get('__JSON__.English and :locale resources', {'locale': language}) }}

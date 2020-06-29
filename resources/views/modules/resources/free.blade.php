@@ -9,7 +9,7 @@ use App\Resource;
         ]"
     >
         <tab name="Videos &amp; Courses" :selected="true">
-            <div class="bg-white border-t-4 border-teal-600 shadow-md js-show-more-less">
+            <div class="bg-white border-t-4 border-teal-700 shadow-md js-show-more-less">
                 <div class="pt-8 pb-6 pl-6 pr-5">
                     <p class="text-xl font-bold md:text-2xl">Videos &amp; Courses</p>
 
@@ -28,7 +28,7 @@ use App\Resource;
             </div>
 
             @if ($freeResources->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])->where('is_bonus', true)->isNotEmpty())
-                <div class="mt-6 bg-white border-t-4 border-teal-600 shadow-md js-show-more-less">
+                <div class="mt-6 bg-white border-t-4 border-teal-700 shadow-md js-show-more-less">
                     <div class="pt-8 pb-6 pl-6 pr-5">
                         <p class="text-xl font-bold">Bonus</p>
 
@@ -47,7 +47,7 @@ use App\Resource;
         </tab>
 
         <tab name="Books, Articles &amp; Audio">
-            <div class="bg-white border-t-4 border-teal-600 shadow-md js-show-more-less">
+            <div class="bg-white border-t-4 border-teal-700 shadow-md js-show-more-less">
                 <div class="pt-8 pb-6 pl-6 pr-5">
                     <p class="text-xl font-bold md:text-2xl">Books, Articles &amp; Audio</p>
 
@@ -66,7 +66,7 @@ use App\Resource;
             </div>
 
             @if ($freeResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE, Resource::BOOK_TYPE])->where('is_bonus', true)->isNotEmpty())
-                <div class="mt-6 bg-white border-t-4 border-teal-600 shadow-md js-show-more-less">
+                <div class="mt-6 bg-white border-t-4 border-teal-700 shadow-md js-show-more-less">
                     <div class="pt-8 pb-6 pl-6 pr-5">
                         <p class="text-xl font-bold">Bonus</p>
 
@@ -88,7 +88,7 @@ use App\Resource;
 
 <div class="hidden lg:flex lg:-mx-2">
     <div class="w-1/2 px-2">
-        <div class="w-full h-full px-8 py-12 bg-white border-t-4 border-teal-600 shadow-md">
+        <div class="w-full h-full px-8 py-12 bg-white border-t-4 border-teal-700 shadow-md">
             <p class="flex items-start text-4xl font-bold">
                 <svg class="flex-none w-8 h-8 mt-2 mr-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
                     <g fill="none" fill-rule="evenodd">
@@ -119,7 +119,7 @@ use App\Resource;
     </div>
 
     <div class="w-1/2 px-2">
-        <div class="w-full h-full px-8 py-12 bg-white border-t-4 border-teal-600 shadow-md">
+        <div class="w-full h-full px-8 py-12 bg-white border-t-4 border-teal-700 shadow-md">
             <p class="flex items-start text-4xl font-bold">
                 <svg class="flex-none w-8 h-8 mt-2 mr-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
                     <g fill="none" fill-rule="evenodd">

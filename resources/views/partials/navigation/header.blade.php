@@ -13,7 +13,7 @@
 
             <button 
                 class="focus:outline-none lg:hidden"
-                aria-label="Open Menu"
+                aria-label="open menu"
                 @click="openModal('mobileMenu')"
             >
                 <svg class="w-auto h-5 text-teal-700 transition-colors duration-150 fill-current hover:text-teal-700 md:h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 20">

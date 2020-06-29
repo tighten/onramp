@@ -7,14 +7,14 @@
             <span class="relative z-0 inline-flex rounded-md shadow-sm">
                 <button
                     type="button"
-                    class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-700 bg-white border border-gray-300 rounded-l-md hover:text-gray-500 focus:z-10 focus:outline-none focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700"
+                    class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-700 bg-white border border-gray-300 rounded-l-md hover:text-gray-600 focus:z-10 focus:outline-none focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700"
                     :class="{'pointer-events-none bg-gray-200 shadow-inner transition-none': showAllModules === true}"
                     @click="toggleShowAllModules"
                 >All Modules</button>
 
                 <button
                     type="button"
-                    class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-700 bg-white border border-gray-300 rounded-r-md hover:text-gray-500 focus:z-10 focus:outline-none focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700"
+                    class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-700 bg-white border border-gray-300 rounded-r-md hover:text-gray-600 focus:z-10 focus:outline-none focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700"
                     :class="{'pointer-events-none bg-gray-200 shadow-inner transition-none': showAllModules === false}"
                     @click="toggleShowAllModules"
                 >My Modules</button>
@@ -44,7 +44,7 @@
                         <template v-if="tab.name === 'beginner'">
                             <p
                                 v-if="! beginnerModules.length"
-                                class="px-3 text-gray-500"
+                                class="px-3 text-gray-700"
                             >There are currently no modules here. Check back soon.</p>
 
                             <module-card
@@ -60,7 +60,7 @@
                         <template v-else-if="tab.name === 'intermediate'">
                             <p
                                 v-if="! intermediateModules.length"
-                                class="px-3 text-gray-500"
+                                class="px-3 text-gray-700"
                             >There are currently no modules here. Check back soon.</p>
 
                             <module-card
@@ -76,7 +76,7 @@
                         <template v-else-if="tab.name === 'advanced'">
                             <p
                                 v-if="! advancedModules.length"
-                                class="px-3 text-gray-500"
+                                class="px-3 text-gray-700"
                             >There are currently no modules here. Check back soon.</p>
 
                             <module-card
@@ -125,7 +125,7 @@
                         <template v-if="tab.name === 'beginner'">
                             <p
                                 v-if="! beginnerModules.length"
-                                class="px-3 text-gray-500"
+                                class="px-3 text-gray-700"
                             >There are currently no modules here. Check back soon.</p>
 
                             <module-card-large
@@ -144,7 +144,7 @@
                         <template v-else-if="tab.name === 'intermediate'">
                             <p
                                 v-if="! intermediateModules.length"
-                                class="px-3 text-gray-500"
+                                class="px-3 text-gray-700"
                             >There are currently no modules here. Check back soon.</p>
 
                             <module-card-large
@@ -163,7 +163,7 @@
                         <template v-else-if="tab.name === 'advanced'">
                             <p
                                 v-if="! advancedModules.length"
-                                class="px-3 text-gray-500"
+                                class="px-3 text-gray-700"
                             >There are currently no modules here. Check back soon.</p>
 
                             <module-card-large

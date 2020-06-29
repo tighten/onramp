@@ -11,9 +11,12 @@
                 <img class="w-auto h-5 md:h-8" src="/images/logo/onramp.svg" alt="Onramp">
             </a>
 
-            <button class="focus:outline-none lg:hidden"
-                @click="openModal('mobileMenu')">
-                <svg class="w-auto h-5 text-teal-600 transition-colors duration-150 fill-current hover:text-teal-700 md:h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 20">
+            <button 
+                class="focus:outline-none lg:hidden"
+                aria-label="open menu"
+                @click="openModal('mobileMenu')"
+            >
+                <svg class="w-auto h-5 text-teal-700 transition-colors duration-150 fill-current hover:text-teal-700 md:h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 20">
                     <g fill-rule="evenodd">
                         <rect width="25" height="3" rx="1.5"/>
                         <rect y="8" width="25" height="3" rx="1.5"/>
@@ -27,14 +30,14 @@
             <div class="flex-1">
                 <nav class="flex items-center">
                     <a
-                        class="block mx-4 text-xl font-semibold text-blue-violet hover:no-underline"
+                        class="block mx-4 text-xl font-semibold transition-colors duration-300 ease-in-out text-blue-violet hover:text-indigo-800 hover:no-underline"
                         href="{{ route_wlocale('modules.index') }}">
                         <span>Learn</span>
                     </a>
 
                     <a
-                        class="block mx-4 text-xl font-semibold text-blue-violet hover:no-underline"
-                        href="{{ route_wlocale('glossary')}} ">
+                        class="block mx-4 text-xl font-semibold transition-colors duration-300 ease-in-out text-blue-violet hover:text-indigo-800 hover:no-underline"
+                        href="{{ route_wlocale('glossary')}}">
                         <span>Glossary</span>
                     </a>
                 </nav>
@@ -45,13 +48,13 @@
 
                 <div class="flex items-center ml-12">
                     @guest
-                        <a class="flex-1 inline-block px-8 py-3 mx-2 text-lg font-semibold leading-none text-center text-teal-600 whitespace-no-wrap border-2 border-teal-600 rounded-md hover:no-underline" href="{{ route_wlocale('login') }}">
+                        <a class="flex-1 inline-block px-8 py-3 mx-2 text-lg font-semibold leading-none text-center text-teal-700 whitespace-no-wrap border-2 border-teal-700 rounded-md hover:no-underline" href="{{ route_wlocale('login') }}">
                             <span>{{ __('Log in') }}</span>
                         </a>
 
                         @if (Route::has('register'))
                             <a
-                                class="flex-1 inline-block px-8 py-3 mx-2 text-lg font-semibold leading-none text-center text-white whitespace-no-wrap bg-teal-600 border-2 border-teal-600 rounded-md hover:no-underline"
+                                class="flex-1 inline-block px-8 py-3 mx-2 text-lg font-semibold leading-none text-center text-white whitespace-no-wrap bg-teal-700 border-2 border-teal-700 rounded-md hover:no-underline"
                                 href="{{ route_wlocale('register') }}">
                                 <span>{{ __('Register') }}</span>
                             </a>
@@ -60,7 +63,7 @@
                         <menu-dropdown>
                             <template v-slot:toggle="props">
                                 <button
-                                    class="flex items-center justify-center block w-12 h-12 bg-teal-600 rounded-full hover:no-underline focus:outline-none"
+                                    class="flex items-center justify-center block w-12 h-12 transition-colors duration-300 ease-in-out bg-teal-700 rounded-full hover:bg-teal-600 hover:no-underline focus:outline-none"
                                     @click="props.toggle"
                                 >
                                     <span class="font-semibold leading-none text-white">
@@ -122,18 +125,18 @@
 
         <template slot="navigation-buttons">
             @guest
-                <a class="flex-1 inline-block w-1/2 py-3 mx-2 text-lg font-semibold leading-none text-center text-teal-600 whitespace-no-wrap border-2 border-teal-600 hover:no-underline" href="{{ route_wlocale('login') }}">
+                <a class="flex-1 inline-block w-1/2 py-3 mx-2 text-lg font-semibold leading-none text-center text-teal-700 whitespace-no-wrap border-2 border-teal-700 hover:no-underline" href="{{ route_wlocale('login') }}">
                     <span>{{ __('Log in') }}</span>
                 </a>
 
                 @if (Route::has('register'))
-                <a class="flex-1 inline-block w-1/2 py-3 mx-2 text-lg font-semibold leading-none text-center text-white whitespace-no-wrap bg-teal-600 border-2 border-teal-600 hover:no-underline" href="{{ route_wlocale('register') }}">
+                <a class="flex-1 inline-block w-1/2 py-3 mx-2 text-lg font-semibold leading-none text-center text-white whitespace-no-wrap bg-teal-700 border-2 border-teal-700 hover:no-underline" href="{{ route_wlocale('register') }}">
                     <span>{{ __('Register') }}</span>
                 </a>
                 @endif
             @else
                 <a href="{{ route_wlocale('logout') }}"
-                    class="flex-1 inline-block w-1/2 py-3 mx-2 text-lg font-semibold leading-none text-center text-white whitespace-no-wrap bg-teal-600 border-2 border-teal-600 hover:no-underline"
+                    class="flex-1 inline-block w-1/2 py-3 mx-2 text-lg font-semibold leading-none text-center text-white whitespace-no-wrap bg-teal-700 border-2 border-teal-700 hover:no-underline"
                     onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
                     <span>{{ __('Logout') }}</span>

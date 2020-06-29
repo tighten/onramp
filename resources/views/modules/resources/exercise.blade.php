@@ -1,5 +1,5 @@
 <div>
-    <div class="bg-white border-t-4 border-teal-600 shadow-md js-show-more-less">
+    <div class="bg-white border-t-4 border-teal-700 shadow-md js-show-more-less">
         <div class="pt-8 pb-6 lg:pt-12">
             <p class="pl-6 pr-5 text-xl font-bold lg:px-12">Basic</p>
 
@@ -22,7 +22,7 @@
     {{-- @todo update this to be exercises --}}
 
     {{-- @if ($freeResources->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])->where('is_bonus', true)->isNotEmpty())
-        <div class="mt-6 bg-white border-t-4 border-teal-600 shadow-md js-show-more-less">
+        <div class="mt-6 bg-white border-t-4 border-teal-700 shadow-md js-show-more-less">
             <div class="pt-8 pb-6 lg:pt-12">
                 <p class="pl-6 pr-5 text-xl font-bold lg:px-12">Bonus</p>
 

@@ -9,7 +9,7 @@ switch($module->skill_level) {
         $bgColor = 'bg-pink-800';
         break;
     default:
-        $bgColor = 'bg-teal-600';
+        $bgColor = 'bg-teal-700';
         break;
 }
 @endphp
@@ -63,14 +63,14 @@ switch($module->skill_level) {
                             @else
                                 <li class="relative block px-4 py-2 m-1">
                                     <span class="absolute inset-0 w-full h-full bg-teal-400 rounded-md opacity-10"></span>
-                                    <span class="font-bold text-teal-600">{{ $skill->name }}</span>
+                                    <span class="font-bold text-teal-700">{{ $skill->name }}</span>
                                 </li>
                             @endif
                         @endauth
                         @guest
                             <li class="relative block px-4 py-2 m-1">
                                 <span class="absolute inset-0 w-full h-full bg-teal-400 rounded-md opacity-10"></span>
-                                <span class="font-bold text-teal-600">{{ $skill->name }}</span>
+                                <span class="font-bold text-teal-700">{{ $skill->name }}</span>
                             </li>
                         @endguest
                     @empty
@@ -92,7 +92,7 @@ switch($module->skill_level) {
                             @else
                                 <li class="relative block px-4 py-2 m-1">
                                     <span class="absolute inset-0 w-full h-full bg-teal-400 rounded-md opacity-10"></span>
-                                    <span class="font-bold text-teal-600">{{ $skill->name }}</span>
+                                    <span class="font-bold text-teal-700">{{ $skill->name }}</span>
                                 </li>
                             @endif
                         @endforeach

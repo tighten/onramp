@@ -2,7 +2,7 @@
     <completable :type="type" :id="id" :initial-is-completed="initialIsCompleted">
         <template slot-scope="{toggle, isCompleted}">
             <button
-                class="relative px-4 py-2 font-bold text-teal-600 cursor-pointer hover:text-teal-600 focus:outline-none"
+                class="relative px-4 py-2 font-bold text-teal-700 cursor-pointer hover:text-teal-700 focus:outline-none"
                 :class="{'text-teal-800': isCompleted}"
                 @click="toggle"
             >

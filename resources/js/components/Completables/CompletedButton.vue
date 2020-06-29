@@ -2,8 +2,8 @@
     <completable :type="type" :id="id" :initial-is-completed="initialIsCompleted">
         <template slot-scope="{toggle, isCompleted}">
             <button
-                class="flex items-center justify-center w-full px-5 py-2 mt-8 font-semibold leading-none text-white transition-colors duration-150 ease-in-out border-2 border-white rounded-md hover:bg-white hover:text-teal-600 focus:outline-none md:max-w-xs md:py-3 lg:mt-0"
-                :class="{'bg-white text-teal-600 hover:bg-gray-100': isCompleted}"
+                class="flex items-center justify-center w-full px-5 py-2 mt-8 font-semibold leading-none text-white transition-colors duration-150 ease-in-out border-2 border-white rounded-md hover:bg-white hover:text-teal-700 focus:outline-none md:max-w-xs md:py-3 lg:mt-0"
+                :class="{'bg-white text-teal-700 hover:bg-gray-100': isCompleted}"
                 @click="toggle"
             >
                 <svg

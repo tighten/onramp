@@ -14,7 +14,7 @@
                         >
                             <a
                                 :href="tab.href"
-                                :class="{'border-b-4 border-teal-600': tab.isActive}"
+                                :class="{'border-b-4 border-teal-700': tab.isActive}"
                                 class="inline-block pb-5 -mb-1 border-b-4 hover:no-underline"
                                 @click="setActiveTab(tab.href)"
                             >

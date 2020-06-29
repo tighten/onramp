@@ -64,7 +64,7 @@
                     <span class="block w-full rounded-md shadow-sm">
                         <button
                             type="submit"
-                            class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white transition duration-150 ease-in-out bg-teal-600 border border-transparent rounded-md hover:bg-teal-500 focus:outline-none focus:border-teal-700 focus:shadow-outline-teal active:bg-teal-700"
+                            class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white transition duration-150 ease-in-out bg-teal-700 border border-transparent rounded-md hover:bg-teal-500 focus:outline-none focus:border-teal-700 focus:shadow-outline-teal active:bg-teal-700"
                         >
                             {{ __('Send Password Reset Link') }}
                         </button>
@@ -75,7 +75,7 @@
                     <div class="text-sm leading-5">
                         <a
                             href="{{ route_wlocale('login') }}"
-                            class="font-medium text-teal-600 transition duration-150 ease-in-out hover:text-teal-500 focus:outline-none focus:underline"
+                            class="font-medium text-teal-700 transition duration-150 ease-in-out hover:text-teal-500 focus:outline-none focus:underline"
                         >
                             {{ __('Back to login') }}
                         </a>

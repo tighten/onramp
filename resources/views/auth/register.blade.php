@@ -99,7 +99,7 @@
                     <span class="block w-full rounded-md shadow-sm">
                         <button
                             type="submit"
-                            class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white transition duration-150 ease-in-out bg-teal-600 border border-transparent rounded-md hover:bg-teal-500 focus:outline-none focus:border-teal-700 focus:shadow-outline-teal active:bg-teal-700"
+                            class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white transition duration-150 ease-in-out bg-teal-700 border border-transparent rounded-md hover:bg-teal-500 focus:outline-none focus:border-teal-700 focus:shadow-outline-teal active:bg-teal-700"
                         >
                             {{ __('Register') }}
                         </button>
@@ -114,14 +114,14 @@
                     </div>
 
                     <div class="relative flex justify-center text-sm leading-5">
-                        <span class="px-2 text-gray-500 bg-white">{{ __('Already have an account?') }}</span>
+                        <span class="px-2 text-gray-700 bg-white">{{ __('Already have an account?') }}</span>
                     </div>
                 </div>
 
                 <div class="mt-6">
                     <a
                         href="{{ route_wlocale('login') }}"
-                        class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white no-underline transition duration-150 ease-in-out bg-teal-600 border border-transparent rounded-md hover:bg-teal-500 hover:no-underline focus:outline-none focus:border-teal-700 focus:shadow-outline-teal active:bg-teal-700"
+                        class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white no-underline transition duration-150 ease-in-out bg-teal-700 border border-transparent rounded-md hover:bg-teal-500 hover:no-underline focus:outline-none focus:border-teal-700 focus:shadow-outline-teal active:bg-teal-700"
                     >
                         {{ __('Log in') }}
                     </a>

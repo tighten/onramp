@@ -44,10 +44,10 @@
 }
 
 .button-teal {
-    @apply bg-teal-600;
+    @apply bg-teal-700;
     @apply text-white;
 
-    @include button-hover($teal-600);
+    @include button-hover($teal-700);
 }
 
 .button-white {

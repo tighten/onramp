@@ -17,7 +17,7 @@
                                         {{ props.item.title }}
                                     </p>
 
-                                    <p class="text-sm font-medium leading-4 text-gray-600">
+                                    <p class="text-sm font-medium leading-4 text-gray-700">
                                         {{ props.item.text }}
                                     </p>
                                 </div>

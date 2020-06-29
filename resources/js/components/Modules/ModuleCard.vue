@@ -39,7 +39,7 @@ export default {
         return {
             moduleCardColors: {
                 beginner: {
-                    even: 'bg-teal-600',
+                    even: 'bg-teal-700',
                     odd: 'bg-teal-400',
                 },
                 intermediate: {

@@ -65,7 +65,7 @@
                             name="remember"
                             type="checkbox"
                             {{ old('remember') ? 'checked' : '' }}
-                            class="w-4 h-4 text-teal-600 transition duration-150 ease-in-out form-checkbox"
+                            class="w-4 h-4 text-teal-700 transition duration-150 ease-in-out form-checkbox"
                         />
 
                         <label
@@ -79,7 +79,7 @@
                     <div class="text-sm leading-5">
                         <a
                             href="{{ route_wlocale('password.request') }}"
-                            class="font-medium text-teal-600 transition duration-150 ease-in-out hover:text-teal-500 focus:outline-none focus:underline"
+                            class="font-medium text-teal-700 transition duration-150 ease-in-out hover:text-teal-500 focus:outline-none focus:underline"
                         >
                             {{ __('Forgot your Password?') }}
                         </a>
@@ -90,7 +90,7 @@
                     <span class="block w-full rounded-md shadow-sm">
                         <button
                             type="submit"
-                            class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white transition duration-150 ease-in-out bg-teal-600 border border-transparent rounded-md hover:bg-teal-500 focus:outline-none focus:border-teal-700 focus:shadow-outline-teal active:bg-teal-700"
+                            class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white transition duration-150 ease-in-out bg-teal-700 border border-transparent rounded-md hover:bg-teal-500 focus:outline-none focus:border-teal-700 focus:shadow-outline-teal active:bg-teal-700"
                         >
                             {{ __('Log in') }}
                         </button>
@@ -105,14 +105,14 @@
                     </div>
 
                     <div class="relative flex justify-center text-sm leading-5">
-                        <span class="px-2 text-gray-500 bg-white">{{ __('Don\'t have an account?') }}</span>
+                        <span class="px-2 text-gray-700 bg-white">{{ __('Don\'t have an account?') }}</span>
                     </div>
                 </div>
 
                 <div class="mt-6">
                     <a
                         href="{{ route_wlocale('register') }}"
-                        class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white no-underline transition duration-150 ease-in-out bg-teal-600 border border-transparent rounded-md hover:bg-teal-500 hover:no-underline focus:outline-none focus:border-teal-700 focus:shadow-outline-teal active:bg-teal-700"
+                        class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white no-underline transition duration-150 ease-in-out bg-teal-700 border border-transparent rounded-md hover:bg-teal-500 hover:no-underline focus:outline-none focus:border-teal-700 focus:shadow-outline-teal active:bg-teal-700"
                     >
                         {{ __('Register') }}
                     </a>

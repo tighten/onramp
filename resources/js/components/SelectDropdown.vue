@@ -11,10 +11,12 @@
         >
             <span>{{ selected }}</span>
 
-            <svg class="absolute top-0 right-0 w-4 h-full mr-5 stroke-current"
+            <svg 
+                class="absolute top-0 right-0 w-4 h-full mr-5 stroke-current"
                 :class="{'mt-0 transform -scale-y-100': isOpen}"
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 16 11">
+                viewBox="0 0 16 11"
+            >
                 <path d="M2 2l6 6 6-6" stroke-width="3" fill="none" fill-rule="evenodd" stroke-linecap="round"/>
             </svg>
         </button>

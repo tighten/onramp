@@ -131,7 +131,7 @@
                     It's iterative and opinionated. It's open source and contributions are welcome, but in the end Tighten will keep it focused on the way we think folks are best prepared for a career as a Laravel developer.
                 </p>
 
-                <h2 class="mt-10 lg:mt-20">Let's do it!</h2>
+                <h2 class="mt-10 lg:mt-16">Let's do it!</h2>
 
                 <a class="mt-6 button button-white lg:mt-10"
                     href="{{ route_wlocale('modules.index') }}">

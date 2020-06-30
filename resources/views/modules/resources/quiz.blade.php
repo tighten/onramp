@@ -13,7 +13,7 @@ use App\Resource;
                 {{-- @forelse ($freeResources as $resource)
                     @include('partials.resource-on-module-page-with-border')
                 @empty --}}
-                    <li class="px-6 pb-4 list-none lg:px-12">No resources</li>
+                    <li class="px-6 pb-4 list-none lg:px-12">No quizzes</li>
                 {{-- @endforelse --}}
             </ul>
         </div>

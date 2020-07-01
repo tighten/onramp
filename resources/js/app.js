@@ -7,42 +7,71 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
-
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/LanguageSwitcher.vue -> <example-component></example-component>
- */
-
-// const files = require.context('./', true, /\.vue$/i);
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
-
-// Vue.component('language-switcher', require('./components/LanguageSwitcher.vue').default);
-
-import LanguageSwitcher from './components/LanguageSwitcher.vue';
-import ToggleWhenMobile from './components/ToggleWhenMobile.vue';
-import ResourceLanguagePreferenceSwitcher from './components/ResourceLanguagePreferenceSwitcher.vue';
+import './components';
 import Lang from 'lang.js';
+import Notifications from 'vue-notification';
+import Translations from './translations';
 
 Vue.prototype.trans = new Lang({
-    messages: window.jsonTranslations,
+    messages: Translations,
     locale: window.locale,
     fallback: window.fallback_locale
 });
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+Vue.use(Notifications);
+
+Vue.filter('capitalize', function (string) {
+    if (! string) {
+        return '';
+    }
+
+    string = string.toString().toLowerCase();
+    return string.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+});
+
+Vue.filter('slug', function (string) {
+    return string.toLowerCase()
+        .replace(/[^a-z0-9 -]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-');
+});
 
 const app = new Vue({
-    components: {
-        'language-switcher': LanguageSwitcher,
-        'toggle-when-mobile': ToggleWhenMobile,
-        'resource-language-preference-switcher': ResourceLanguagePreferenceSwitcher
-    },
     el: '#app',
+
+    data: {
+        modals: {
+            mobileMenu: false,
+        },
+    },
+
+    methods: {
+        openModal(modalName) {
+            this.modals[modalName] = true;
+            document.documentElement.style.overflow = 'hidden';
+        },
+
+        closeModal() {
+            for (var modal in this.modals) {
+                this.modals[modal] = false;
+            }
+
+            document.documentElement.style.overflow = 'auto';
+        },
+
+        logout(e) {
+            e.preventDefault();
+            document.getElementById('logout-form').submit();
+        }
+    },
+
+    created() {
+        this.$on('closeModal', () => {
+            this.closeModal();
+        });
+
+        this.$on('logout', (e) => {
+            this.logout(e);
+        });
+    },
 });

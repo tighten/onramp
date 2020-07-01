@@ -31,12 +31,6 @@ class AppServiceProvider extends ServiceProvider
             Event::subscribe(SlackSubscriber::class);
         }
 
-        $this->app->setLocale($this->app->runningInConsole() ? 'en' : locale());
-
-        View::composer('layouts.app', function ($view) {
-            return $view->with([
-                'jsonTranslations' => ExportLocalizations::export()->toFlat(),
-            ]);
-        });
+        $this->app->setLocale(locale());
     }
 }

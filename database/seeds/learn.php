@@ -104,7 +104,10 @@ return [
     ],
     [
         'name' => ['en' => 'Basic Terminal & Git', 'es' => ''],
-        'description' => null,
+        'description' => [
+            'en' => 'Master navigating the command line and code versioning concepts to increase your productivity as a developer.',
+            'es' => '',
+        ],
         'skills' => [
             ['es' => '', 'en' => 'Navigate the terminal'],
             ['es' => '', 'en' => 'Use Git for basic tasks'],
@@ -168,7 +171,10 @@ return [
     ],
     [
         'name' => ['en' => 'Local PHP Environment', 'es' => ''],
-        'description' => null,
+        'description' => [
+            'en' => 'Prepare your local development environment before you install and configure your first Laravel application.',
+            'es' => '',
+        ],
         'skills' => [
             ['es' => '', 'en' => 'Set up a Laravel dev environment'],
             ['es' => '', 'en' => 'Install Composer'],
@@ -230,7 +236,10 @@ return [
     ],
     [
         'name' => ['en' => 'Beginning PHP', 'es' => ''],
-        'description' => null,
+        'description' => [
+            'en' => 'Start building dynamic, interactive web applications by learning one of the most widely used languages on the web.',
+            'es' => '',
+        ],
         'skills' => [
             ['es' => 'Variables', 'en' => 'Work with variables'],
             ['es' => 'Arreglos', 'en' => 'Work with arrays'],
@@ -336,14 +345,17 @@ return [
     ],
     [
         'name' => ['en' => 'Object-Oriented Programming', 'es' => ''],
-        'description' => null,
+        'description' => [
+            'en' => 'Gain foundational knowledge of writing a clean, modular computer program by learning key concepts including Inheritance, Polymorphism, Abstraction and Encapsulation.',
+            'es' => '',
+        ],
         'skills' => [],
         'resources' => [
             'es' => [],
             'en' => [
                 [
                     'name' => 'Laracasts Video',
-                    'url' => 'https://laracasts.com/series/object-oriented-bootcamp-in-php',
+                    'url' => 'https://laracasts.com/series/object-oriented-principles-in-php',
                     'type' => 'video',
                 ],
             ],
@@ -351,7 +363,10 @@ return [
     ],
     [
         'name' => ['en' => 'Laravel Basics', 'es' => ''],
-        'description' => null,
+        'description' => [
+            'en' => 'A great starting point for developers that are new to the Laravel framework and its features.',
+            'es' => '',
+        ],
         // These aren't quite skills 😬
         'skills' => [
             ['es' => 'Creando y ejecutando un nuevo proyecto de Laravel', 'en' => 'Creating and serving a new Laravel project'],
@@ -466,7 +481,7 @@ return [
                 ],
                 [
                     'name' => 'Laracasts Video - installation',
-                    'url' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/2',
+                    'url' => 'https://laracasts.com/series/laravel-6-from-scratch/episodes/3',
                     'type' => 'video',
                 ],
                 [
@@ -476,7 +491,7 @@ return [
                 ],
                 [
                     'name' => 'Laracasts Video - Routing',
-                    'url' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/3',
+                    'url' => 'https://laracasts.com/series/laravel-6-from-scratch/episodes/5',
                     'type' => 'video',
                 ],
                 [
@@ -486,12 +501,12 @@ return [
                 ],
                 [
                     'name' => 'Laracasts Laravel From Scratch #4 - Blade',
-                    'url' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/4',
+                    'url' => 'https://laracasts.com/series/laravel-6-from-scratch/episodes/14',
                     'type' => 'video',
                 ],
                 [
                     'name' => 'Laracasts Laravel From Scratch #5 - Blade',
-                    'url' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/5',
+                    'url' => 'https://laracasts.com/series/laravel-6-from-scratch/episodes/15',
                     'type' => 'video',
                 ],
                 [
@@ -511,52 +526,52 @@ return [
                 ],
                 [
                     'name' => 'Laravel Docs (Migrations)',
-                    'url' => 'https://laravel.com/docs/5.8/migrations',
+                    'url' => 'https://laravel.com/docs/6.x/migrations',
                     'type' => 'article',
                 ],
                 [
-                    'name' => 'Laracasts Video - Migratiomns',
-                    'url' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/7',
+                    'name' => 'Laracasts Video - Migrations',
+                    'url' => 'https://laracasts.com/series/laravel-6-from-scratch/episodes/11',
                     'type' => 'video',
                 ],
                 [
                     'name' => 'Laravel Docs (Eloquent)',
-                    'url' => 'https://laravel.com/docs/5.8/eloquent',
+                    'url' => 'https://laravel.com/docs/6.x/eloquent',
                     'type' => 'article',
                 ],
                 [
                     'name' => 'Laracasts Video - Eloquent',
-                    'url' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/8',
+                    'url' => 'https://laracasts.com/series/laravel-6-from-scratch/episodes/29',
                     'type' => 'video',
                 ],
                 [
                     'name' => 'Laravel Docs (CSRF)',
-                    'url' => 'https://laravel.com/docs/5.8/csrf',
+                    'url' => 'https://laravel.com/docs/6.x/csrf',
                     'type' => 'article',
                 ],
                 [
                     'name' => 'Laracasts Video - CSRF',
-                    'url' => 'https://laracasts.com/series/laravel-from-scratch-2018/episodes/10',
+                    'url' => 'https://laracasts.com/series/laravel-6-from-scratch/episodes/37',
                     'type' => 'video',
                 ],
                 [
                     'name' => 'Laravel Docs (Validation)',
-                    'url' => 'https://laravel.com/docs/5.8/validation',
+                    'url' => 'https://laravel.com/docs/6.x/validation',
                     'type' => 'article',
                 ],
                 [
                     'name' => 'Laravel Docs (Mail)',
-                    'url' => 'https://laravel.com/docs/5.8/mail',
+                    'url' => 'https://laravel.com/docs/6.x/mail',
                     'type' => 'article',
                 ],
                 [
                     'name' => 'Laravel Docs (Notifications)',
-                    'url' => 'https://laravel.com/docs/5.8/notifications',
+                    'url' => 'https://laravel.com/docs/6.x/notifications',
                     'type' => 'article',
                 ],
                 [
                     'name' => 'Laravel Docs (Container)',
-                    'url' => 'https://laravel.com/docs/5.8/container',
+                    'url' => 'https://laravel.com/docs/6.x/container',
                     'type' => 'article',
                 ],
             ],
@@ -564,7 +579,10 @@ return [
     ],
     [
         'name' => ['en' => 'Basic JavaScript', 'es' => ''],
-        'description' => null,
+        'description' => [
+            'en' => 'Use this to turn your basic website into a dynamic web experience and start thinking like a programmer.',
+            'es' => '',
+        ],
         'skills' => [],
         'resources' => [
             'es' => [
@@ -600,7 +618,10 @@ return [
     ],
     [
         'name' => ['en' => 'Laravel Mix', 'es' => ''],
-        'description' => null,
+        'description' => [
+            'en' => 'Ease into module-bundler configuration with a Webpack wrapper that\'s completely optimized for use with Laravel.',
+            'es' => '',
+        ],
         'skills' => [],
         'resources' => [
             'es' => [],
@@ -614,8 +635,11 @@ return [
         ],
     ],
     [
-        'name' => ['en' => 'Basic session-backed internal APIs', 'es' => ''],
-        'description' => null,
+        'name' => ['en' => 'Easy session-backed internal APIs', 'es' => ''],
+        'description' => [
+            'en' => 'Learn to build simple APIs with Laravel that will power your app\'s JavaScript with almost no code.',
+            'es' => '',
+        ],
         'skills' => [],
         'resources' => [
             'es' => [],
@@ -624,7 +648,10 @@ return [
     ],
     [
         'name' => ['en' => 'Deployments', 'es' => ''],
-        'description' => null,
+        'description' => [
+            'en' => 'Learn how to use powerful tools like Laravel Forge to spin up your own servers and automatically deploy your code to it from GitHub.',
+            'es' => '',
+        ],
         'skills' => [],
         'resources' => [
             'es' => [],
@@ -633,7 +660,10 @@ return [
     ],
     [
         'name' => ['en' => 'Monitoring (e.g. Bugsnag)', 'es' => ''],
-        'description' => null,
+        'description' => [
+            'en' => 'Stay on top of your applications performance even during development to learn when the app broke for your users.',
+            'es' => '',
+        ],
         'skills' => [],
         'resources' => [
             'es' => [],
@@ -642,7 +672,10 @@ return [
     ],
     [
         'name' => ['en' => 'Basic Testing', 'es' => ''],
-        'description' => null,
+        'description' => [
+            'en' => 'Write code that asserts its own behavior to help you start and stay confident it does what it should.',
+            'es' => '',
+        ],
         'skills' => [],
         'resources' => [
             'es' => [],
@@ -658,7 +691,10 @@ return [
     [
         'name' => ['en' => 'Basic Dev-Ops', 'es' => ''],
         'bonus' => true,
-        'description' => null,
+        'description' => [
+            'en' => 'Manage your servers and the rest of your deployment infrastructure yourself.',
+            'es' => '',
+        ],
         'skills' => [],
         'resources' => [
             'es' => [],
@@ -669,6 +705,54 @@ return [
                     'type' => 'article',
                 ],
             ],
+        ],
+    ],
+    [
+        'name' => ['en' => 'Laravel Vs WordPress', 'es' => ''],
+        'description' => [
+            'en' => 'Learn the differences between Laravel and WordPress and why you might choose to use Laravel for a project.',
+            'es' => '',
+        ],
+        'skills' => [],
+        'resources' => [
+            'es' => [],
+            'en' => [],
+        ],
+    ],
+    [
+        'name' => ['en' => 'Mapping the WordPress Concepts', 'es' => ''],
+        'description' => [
+            'en' => 'Taking concepts you\'re already familiar with like themes and hooks, and seeing how they might be accomplished using Laravel.',
+            'es' => '',
+        ],
+        'skills' => [],
+        'resources' => [
+            'es' => [],
+            'en' => [],
+        ],
+    ],
+    [
+        'name' => ['en' => 'Local PHP Environment for WordPress Developers', 'es' => ''],
+        'description' => [
+            'en' => 'Configuring your local environment for development outside of WordPress.',
+            'es' => '',
+        ],
+        'skills' => [],
+        'resources' => [
+            'es' => [],
+            'en' => [],
+        ],
+    ],
+    [
+        'name' => ['en' => 'Laravel Basics for WordPress Developers', 'es' => ''],
+        'description' => [
+            'en' => 'A great starting point for developers that are new to the Laravel framework and its features.',
+            'es' => '',
+        ],
+        'skills' => [],
+        'resources' => [
+            'es' => [],
+            'en' => [],
         ],
     ],
 ];

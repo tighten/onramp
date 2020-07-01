@@ -1,0 +1,58 @@
+@mixin button-hover($background, $text: $white) {
+    &:active,
+    &:focus,
+    &:hover {
+        @apply no-underline;
+        color: $text;
+    }
+
+    &:hover {
+        background-color: darken($background, 6%);
+    }
+}
+
+.button {
+    @apply duration-300;
+    @apply ease-in-out;
+    @apply font-semibold;
+    @apply inline-block;
+    @apply leading-tight;
+    @apply px-6;
+    @apply py-3;
+    @apply rounded-md;
+    @apply transition-colors;
+
+    &:focus {
+        @apply outline-none;
+        @apply shadow-outline;
+    }
+
+    @screen md {
+        @apply text-lg;
+    }
+
+    @screen lg {
+        @apply text-xl;
+    }
+}
+
+.button-purple {
+    @apply bg-blue-violet;
+    @apply text-white;
+
+    @include button-hover($blue-violet);
+}
+
+.button-teal {
+    @apply bg-teal-700;
+    @apply text-white;
+
+    @include button-hover($teal-700);
+}
+
+.button-white {
+    @apply bg-white;
+    @apply text-blue-violet;
+
+    @include button-hover($white, $blue-violet);
+}

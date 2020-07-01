@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class AuthTest extends TestCase
@@ -21,6 +20,6 @@ class AuthTest extends TestCase
             'password' => $user->password,
         ]);
 
-        $response->assertRedirect('/en/home');
+        $response->assertRedirect('/en/modules');
     }
 }

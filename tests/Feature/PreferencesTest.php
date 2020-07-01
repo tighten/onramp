@@ -17,7 +17,7 @@ class PreferencesTest extends TestCase
     function guests_can_use_pages_with_preferences_without_errors()
     {
         $module = factory(Module::class)->create();
-        $response = $this->get('/en/modules/' . $module->slug);
+        $response = $this->get('/en/modules/' . $module->slug . '/free-resources');
         $response->assertOk();
     }
 

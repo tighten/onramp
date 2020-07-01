@@ -39,5 +39,17 @@
   "Don't have an account?": "Har du ikke en konto?",
   "Already have an account?": "Har du allerede en konto?",
   "From the lovely folks at": "Fra de herlige folk hos",
-  "Source & Roadmap": "Kildekode & roadmap"
+  "Source & Roadmap": "Kildekode & roadmap",
+  "Table of contents": "Indholdsfortegnelse",
+  "All resources": "Alle ressourcer",
+  ":locale resources": ":locale ressourcer",
+  "English and :locale resources": "Engelsk og :locale ressourcer",
+  "Preferences": "Indstillinger",
+  "My preferences": "Mine indstillinger",
+  "Account Preferences": "Konto indstillinger",
+  "Which resources should we show for you?": "Hvilke ressourcer skal vi vise dig?",
+  "Only resources for my language": "Kun ressourcer for mit sprog",
+  "Only resources for my language and English": "Kun ressourcer for mit sprog og engelsk",
+  "Preferred Language": "Foretrukne sprog",
+  "Preferred Operating System": "Foretrukket operativsystem"
 }

@@ -8,7 +8,6 @@ use App\OperatingSystem;
 use App\Resource;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class OperatingSystemScopeTest extends TestCase
@@ -18,22 +17,24 @@ class OperatingSystemScopeTest extends TestCase
     /** @test */
     function users_preferring_windows_only_see_windows_and_ANY_resources()
     {
-        $this->markTestIncomplete('Functionality works but test fails. WTF.');
-
-
-        $windowsResource = factory(Resource::class)->create(['os' => OperatingSystem::WINDOWS]);
-        $macResource = factory(Resource::class)->create(['os' => OperatingSystem::MACOS]);
-        $anyResource = factory(Resource::class)->create(['os' => OperatingSystem::ANY]);
+        $commonAttributes = [
+            'type' => Resource::VIDEO_TYPE,
+            'is_free' => true,
+            'is_bonus' => false,
+            'language' => 'en',
+        ];
+        $windowsResource = factory(Resource::class)->create(array_merge(['os' => OperatingSystem::WINDOWS], $commonAttributes));
+        $macResource = factory(Resource::class)->create(array_merge(['os' => OperatingSystem::MACOS], $commonAttributes));
+        $anyResource = factory(Resource::class)->create(array_merge(['os' => OperatingSystem::ANY], $commonAttributes));
 
         $module = factory(Module::class)->create();
         $module->resources()->saveMany([$windowsResource, $macResource, $anyResource]);
 
         $this->be($user = factory(User::class)->create());
         Preferences::set(['operating-system' => OperatingSystem::WINDOWS, 'resource-language' => 'all']);
-
-        $response = $this->get('/en/modules/' . $module->slug);
+        $response = $this->get('/en/modules/' . $module->slug . '/free-resources');
         $response->assertSee($windowsResource->name);
         $response->assertSee($anyResource->name);
-        $response->assertNotSee($macResource->name);
+        $response->assertDontSee($macResource->name);
     }
 }

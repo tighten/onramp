@@ -11,6 +11,7 @@ class FreshInstallSeeder extends Seeder
         factory(User::class)->create([
             'email' => 'matt@tighten.co',
             'password' => bcrypt('password'),
+            'role' => 'admin',
         ]);
 
         $tracks = [

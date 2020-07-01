@@ -13,6 +13,16 @@ class Module extends Model implements Completable
 {
     use HasTranslations;
 
+    const BEGINNER_SKILL_LEVEL = 'beginner';
+    const INTERMEDIATE_SKILL_LEVEL = 'intermediate';
+    const ADVANCED_SKILL_LEVEL = 'advanced';
+
+    const SKILL_LEVELS = [
+        self::BEGINNER_SKILL_LEVEL => 'Beginner',
+        self::INTERMEDIATE_SKILL_LEVEL => 'Intermediate',
+        self::ADVANCED_SKILL_LEVEL => 'Advanced',
+    ];
+
     public $translatable = ['name', 'description'];
 
     protected $guarded = ['id'];
@@ -24,7 +34,12 @@ class Module extends Model implements Completable
 
     public function resources()
     {
-        return $this->hasMany(Resource::class);
+        return $this->belongsToMany(Resource::class)->withTimestamps();
+    }
+
+    public function suggestedResources()
+    {
+        return $this->hasMany(SuggestedResource::class);
     }
 
     public function skills()
@@ -55,5 +70,20 @@ class Module extends Model implements Completable
     public function scopeBonus($query)
     {
         return $query->where('is_bonus', 1);
+    }
+
+    public function scopeBeginner($query)
+    {
+        return $query->where('skill_level', self::BEGINNER_SKILL_LEVEL);
+    }
+
+    public function scopeIntermediate($query)
+    {
+        return $query->where('skill_level', self::INTERMEDIATE_SKILL_LEVEL);
+    }
+
+    public function scopeAdvanced($query)
+    {
+        return $query->where('skill_level', self::ADVANCED_SKILL_LEVEL);
     }
 }

@@ -20,3 +20,11 @@ They can click into a module and see the possible free (or paid) online sources 
 They could also, eventually, take small quizzes about that module (self-testing, not for certification or external validation) and try out some code exercises about that module.
 
 See more plans in the chat and in the issues.
+
+## Language translations
+
+To make language translation strings available to the Vue.js frontend, a `translations.js` file is generated from the Laravel language files found in the `resources/lang` directory. To regenerate this `translations.js` file after translations have been changed or added, run:
+
+```php
+php artisan export:messages-flat
+```

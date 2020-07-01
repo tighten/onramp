@@ -28,6 +28,14 @@ Vue.filter('capitalize', function (string) {
     string = string.toString().toLowerCase();
     return string.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
 });
+
+Vue.filter('slug', function (string) {
+    return string.toLowerCase()
+        .replace(/[^a-z0-9 -]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-');
+});
+
 const app = new Vue({
     el: '#app',
 

@@ -3,7 +3,7 @@
         <div class="relative flex flex-col w-full h-full bg-white shadow-md hover:no-underline">
             <span
                 v-show="isCompleted"
-                class="absolute top-0 right-0 inline-flex items-center px-3 py-1 mt-4 mr-4 text-sm font-semibold bg-white rounded-full shadow-md text-east-bay">
+                class="absolute top-0 right-0 z-10 inline-flex items-center px-3 py-1 mt-4 mr-4 text-sm font-semibold bg-white rounded-full shadow-md text-east-bay">
                 Completed
                 <svg class="w-4 h-4 ml-2 text-teal-700 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
                     <path d="M15 0c8.284 0 15 6.716 15 15 0 8.284-6.716 15-15 15-8.284 0-15-6.716-15-15C0 6.716 6.716 0 15 0zm6.44 9.44l-8.69 8.689-3.44-3.44-2.12 2.122 5.56 5.56 10.81-10.81-2.12-2.122z" fill-rule="evenodd"/>
@@ -11,9 +11,17 @@
             </span>
 
             <div
-                class="flex-initial block pb-7/12 lg:pb-3/5"
+                class="relative flex-initial block overflow-hidden pb-7/12 lg:pb-3/5"
                 :class="cardColorClass"
-            ></div>
+            >
+                <img
+                    v-show="imageExists"
+                    class="absolute bottom-0 w-full h-auto max-h-full transform -translate-x-1/2 left-1/2 will-change-transform"
+                    :alt="item.name[trans.locale]"
+                    :src="`/images/modules/${ imageName }.svg`"
+                    @load="handleImageLoaded"
+                />
+            </div>
 
             <div class="relative flex-1 block px-6 pt-8 pb-24 text-base xl:pt-12 xl:text-xl">
                 <span class="text-xl font-semibold md:tracking-tighter xl:text-3xl">
@@ -101,6 +109,7 @@ export default {
             moduleUrl: `/${this.trans.locale}/modules/${this.item.slug}/free-resources`,
             resourcesForSessionCount: this.item.resources_for_current_session.length,
             buttonText: this.getButtonText(),
+            imageExists: false,
         }
     },
 
@@ -115,7 +124,11 @@ export default {
             return this.resourcesForSessionCount > 0
                 ? Math.round((this.completedResourcesCount / this.resourcesForSessionCount) * 100)
                 : 0;
-        }
+        },
+
+        imageName() {
+            return this.$options.filters.slug(this.item.name[this.trans.locale]);
+        },
     },
 
     methods: {
@@ -125,7 +138,11 @@ export default {
             }
 
             return 'Finish Module';
-        }
+        },
+
+        handleImageLoaded() {
+            this.imageExists = true;
+        },
     },
 }
 </script>

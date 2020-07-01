@@ -9,7 +9,7 @@
                 {{-- @forelse ($freeResources->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])->where('is_bonus', false)->all() as $resource)
                     @include('partials.resource-on-module-page-with-border')
                 @empty --}}
-                    <li class="px-6 pb-4 list-none lg:px-12">No resources</li>
+                    <li class="px-6 pb-4 list-none lg:px-12">No exercises</li>
                 {{-- @endforelse --}}
             </ul>
         </div>

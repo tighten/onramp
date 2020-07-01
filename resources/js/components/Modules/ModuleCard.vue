@@ -5,11 +5,14 @@
             :href="moduleUrl"
         >
             <span :class="`relative block pb-8/12 xl:pb-3/5 ${cardColorClass}`">
-                <!--
-                    @todo add this in once graphics are provided for each module
-                    <img class="absolute bottom-0 w-3/4 transform -translate-x-1/2 left-1/2 will-change-transform"
-                    src="/images/temp/img_basicwebsite.svg" alt="Image for the {{ mod.name[trans.locale] }} module.">
-                -->
+                <img
+                    v-show="imageExists"
+                    class="absolute bottom-0 w-full h-auto transform -translate-x-1/2 left-1/2 will-change-transform"
+                    :alt="item.name[trans.locale]"
+                    :src="`/images/modules/${ imageName }.svg`"
+                    @load="handleImageLoaded"
+                />
+               
             </span>
             <span class="flex-1 block p-5 pb-8 bg-white xl:px-8 xl:pb-10">
                 <h4 class="font-semibold tracking-tighter text-east-bay lg:text-lg">
@@ -51,7 +54,8 @@ export default {
                     odd: 'bg-pink-800',
                 }
             },
-            moduleUrl: `/${this.trans.locale}/modules/${this.item.slug}/free-resources`
+            moduleUrl: `/${this.trans.locale}/modules/${this.item.slug}/free-resources`,
+            imageExists: false,
         }
     },
 
@@ -60,6 +64,16 @@ export default {
             return this.cardIsEven
                 ? this.moduleCardColors[this.level].even
                 : this.moduleCardColors[this.level].odd;
+        },
+
+        imageName() {
+            return this.$options.filters.slug(this.item.name[this.trans.locale]);
+        },
+    },
+
+    methods: {
+        handleImageLoaded() {
+            this.imageExists = true;
         },
     },
 }

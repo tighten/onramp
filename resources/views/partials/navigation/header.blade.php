@@ -78,7 +78,7 @@
                             </menu-dropdown-item>
 
                             <menu-dropdown-item
-                                text="{{ __('Logout') }}"
+                                text="{{ __('Log out') }}"
                                 href="{{ route_wlocale('logout') }}"
                                 :logout="true">
                             </menu-dropdown-item>
@@ -139,7 +139,7 @@
                     class="flex-1 inline-block w-1/2 py-3 mx-2 text-lg font-semibold leading-none text-center text-white whitespace-no-wrap bg-teal-700 border-2 border-teal-700 hover:no-underline"
                     onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
-                    <span>{{ __('Logout') }}</span>
+                    <span>{{ __('Log out') }}</span>
                 </a>
                 <form id="logout-form"
                     action="{{ route_wlocale('logout') }}" method="POST" class="hidden">

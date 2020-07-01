@@ -2,7 +2,7 @@
     <div>
         <div
             v-if="userLoggedIn"
-            class="px-4 mt-12 text-center md:text-left lg:mt-32 fluid-container md:px-12 lg:px-20 xxl:px-32"
+            class="px-4 mt-12 text-center sm:text-right lg:mt-18 fluid-container md:px-12 xl:px-20 xxl:px-32"
         >
             <span class="relative z-0 inline-flex rounded-md shadow-sm">
                 <button
@@ -22,8 +22,7 @@
         </div>
 
         <tabs 
-            v-if="! userLoggedIn"
-            class="mt-12 lg:mt-32"
+            class="mt-12 lg:mt-18"
             :hide-tabs-on-desktop="true"
         >
             <tab
@@ -54,87 +53,6 @@
                                 :item="mod"
                                 :card-is-even="index % 2 === 0"
                                 :level="mod.skill_level"
-                            />
-                        </template>
-
-                        <template v-else-if="tab.name === 'intermediate'">
-                            <p
-                                v-if="! intermediateModules.length"
-                                class="px-3 text-gray-700"
-                            >There are currently no modules here. Check back soon.</p>
-
-                            <module-card
-                                v-else
-                                v-for="(mod, index) in intermediateModules"
-                                :key="mod.id"
-                                :item="mod"
-                                :card-is-even="index % 2 === 0"
-                                :level="mod.skill_level"
-                            />
-                        </template>
-
-                        <template v-else-if="tab.name === 'advanced'">
-                            <p
-                                v-if="! advancedModules.length"
-                                class="px-3 text-gray-700"
-                            >There are currently no modules here. Check back soon.</p>
-
-                            <module-card
-                                v-else
-                                v-for="(mod, index) in advancedModules"
-                                :key="mod.id"
-                                :item="mod"
-                                :card-is-even="index % 2 === 0"
-                                :level="mod.skill_level"
-                            />
-                        </template>
-
-                        <template v-else-if="tab.name === 'bonus'">
-                            <module-card
-                                v-for="(mod, index) in currentBonusModules"
-                                :key="mod.id"
-                                :item="mod"
-                                :card-is-even="index % 2 === 0"
-                                :level="mod.skill_level"
-                            />
-                        </template>
-                    </div>
-                </div>
-            </tab>
-        </tabs>
-
-        <tabs 
-            v-else class="mt-12"
-            :hide-tabs-on-desktop="true"
-        >
-            <tab
-                v-for="(tab, index) in filteredTabs"
-                :key="tab.name"
-                :name="tab.name | capitalize"
-                :selected="tab.selected"
-            >
-                <div
-                    class="px-2 fluid-container md:px-8 lg:px-20 xxl:px-32"
-                    :class="{'lg:mt-32': index > 0}"
-                >
-                    <h2
-                        class="hidden w-full mb-10 text-4xl font-semibold leading-tight tracking-tight text-gray-900 lg:block"
-                    >{{ tab.name | capitalize }}</h2>
-
-                    <div class="flex flex-wrap w-full md:px-1 lg:px-0 lg:-mx-3">
-                        <template v-if="tab.name === 'beginner'">
-                            <p
-                                v-if="! beginnerModules.length"
-                                class="px-3 text-gray-700"
-                            >There are currently no modules here. Check back soon.</p>
-
-                            <module-card-large
-                                v-else
-                                v-for="(mod, index) in beginnerModules"
-                                :key="mod.id"
-                                :item="mod"
-                                :card-is-even="index % 2 === 0"
-                                :level="mod.skill_level"
                                 :completed-resources-count="getModuleCompletedResources(mod)"
                                 :is-user-module="userModules.includes(mod.id)"
                                 :is-completed="getModuleIsCompleted(mod)"
@@ -147,7 +65,7 @@
                                 class="px-3 text-gray-700"
                             >There are currently no modules here. Check back soon.</p>
 
-                            <module-card-large
+                            <module-card
                                 v-else
                                 v-for="(mod, index) in intermediateModules"
                                 :key="mod.id"
@@ -166,7 +84,7 @@
                                 class="px-3 text-gray-700"
                             >There are currently no modules here. Check back soon.</p>
 
-                            <module-card-large
+                            <module-card
                                 v-else
                                 v-for="(mod, index) in advancedModules"
                                 :key="mod.id"
@@ -180,7 +98,7 @@
                         </template>
 
                         <template v-else-if="tab.name === 'bonus'">
-                            <module-card-large
+                            <module-card
                                 v-for="(mod, index) in currentBonusModules"
                                 :key="mod.id"
                                 :item="mod"
@@ -276,10 +194,28 @@ export default {
 
     methods: {
         filterStandardModules(skillLevel) {
-            if (! this.userLoggedIn || this.showAllModules) {
+            if (! this.userLoggedIn) {
                 return this.standardModules.filter(
                     x => x.skill_level === skillLevel
                 );
+            }
+
+            if (this.userLoggedIn && this.showAllModules) {
+                let modules = this.standardModules.filter(
+                    x => x.skill_level === skillLevel
+                );
+
+                let userModules = modules.filter(x =>
+                    this.userModules.includes(x.id)
+                );
+
+                modules = modules.filter(x =>
+                    ! this.userModules.includes(x.id)
+                );
+
+                modules.unshift(...userModules);
+
+                return modules;
             }
 
             return this.standardModules.filter(x => {
@@ -291,8 +227,22 @@ export default {
         },
 
         filterBonusModules() {
-            if (! this.userLoggedIn || this.showAllModules) {
+            if (! this.userLoggedIn) {
                 return this.bonusModules;
+            }
+
+            if (this.userLoggedIn && this.showAllModules) {
+                let userModules = this.bonusModules.filter(({ id }) =>
+                    this.userModules.includes(id)
+                );
+
+                let modules = this.bonusModules.filter(({ id }) =>
+                    ! this.userModules.includes(id)
+                );
+
+                modules.unshift(...userModules);
+
+                return modules;
             }
 
             return this.bonusModules.filter(({ id }) =>
@@ -309,6 +259,10 @@ export default {
         },
 
         getModuleCompletedResources({ resources_for_current_session }) {
+            if (! this.userLoggedIn) {
+                return 0;
+            }
+
             let userResourceCompletions = this.userResourceCompletions.map(x => parseInt(x));
 
             return resources_for_current_session.filter(({ id }) => {

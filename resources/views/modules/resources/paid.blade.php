@@ -100,7 +100,7 @@ use App\Resource;
                 <span>Videos &amp; Courses</span>
             </p>
 
-            <ul class="mt-6">
+            <ul class="pl-1 mt-6">
                 @forelse ($paidResources->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])->where('is_bonus', false)->all() as $resource)
                     @include('partials.resource-on-module-page')
                 @empty
@@ -133,7 +133,7 @@ use App\Resource;
                 <span>Books, Articles &amp; Audio</span>
             </p>
 
-            <ul class="mt-6">
+            <ul class="pl-1 mt-6">
                 @forelse ($paidResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE, Resource::BOOK_TYPE])->where('is_bonus', false)->all() as $resource)
                     @include('partials.resource-on-module-page')
                 @empty

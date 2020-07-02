@@ -115,7 +115,8 @@ switch($module->skill_level) {
             url="{{route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'paid-resources'])}}">
         </tab>
 
-        <tab
+        {{-- @todo Show this once we add in quizzes and exercises --}}
+        {{-- <tab
             @if ($resourceType === 'quizzes') :selected="true" @endif
             name="Quizzes"
             url="{{route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'quizzes'])}}">
@@ -125,7 +126,7 @@ switch($module->skill_level) {
             @if ($resourceType === 'exercises') :selected="true" @endif
             name="Exercises"
             url="{{route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'exercises'])}}">
-        </tab>
+        </tab> --}}
     </tabs>
 
     <div class="fluid-container">

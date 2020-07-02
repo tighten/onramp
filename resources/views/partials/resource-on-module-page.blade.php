@@ -2,7 +2,7 @@
     @auth
         @if (Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id))
         <completed-checkbox
-            class="mr-5"
+            class="mr-3 md:mt-1"
             :initial-is-completed="{{ $completedResources->contains($resource->id) ? 'true' : 'false' }}"
             type="{{ $resource->getMorphClass() }}"
             id="{{ $resource->id }}"

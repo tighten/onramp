@@ -35,12 +35,12 @@ switch($module->skill_level) {
     </div>
 
     <div class="pb-16 fluid-container">
-        <div class="px-4 pt-6 pb-8 -mt-16 bg-white shadow-md md:p-10 md:pb-16 md:-mt-32 lg:px-16 lg:pb-20 lg:pt-16">
+        <div class="px-4 pt-6 pb-8 -mt-16 bg-white shadow-md md:p-10 md:pb-16 md:-mt-32">
             @if ($module->description)
                 <div>
                     <p class="mb-3 text-xl font-semibold md:mb-8 md:text-2xl lg:text-4xl">Overview</p>
 
-                    <p class="pr-2 mb-6 text-east-bay md:mb-10 lg:max-w-3xl xl:leading-loose">
+                    <p class="pr-2 mb-6 text-east-bay md:mb-10 lg:max-w-3xl xl:leading-normal">
                         {{ $module->description }}
                     </p>
                 </div>
@@ -115,7 +115,8 @@ switch($module->skill_level) {
             url="{{route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'paid-resources'])}}">
         </tab>
 
-        <tab
+        {{-- @todo Show this once we add in quizzes and exercises --}}
+        {{-- <tab
             @if ($resourceType === 'quizzes') :selected="true" @endif
             name="Quizzes"
             url="{{route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'quizzes'])}}">
@@ -125,12 +126,13 @@ switch($module->skill_level) {
             @if ($resourceType === 'exercises') :selected="true" @endif
             name="Exercises"
             url="{{route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'exercises'])}}">
-        </tab>
+        </tab> --}}
     </tabs>
 
     <div class="fluid-container">
 
         <resource-language-preference-switcher
+            class="md:-mt-5 lg:-mt-8 xl:-mt-6"
             language="{{ Localization::languageForLocale(locale()) }}"
             initial-choice="{{ $currentResourceLanguagePreference }}"
         >

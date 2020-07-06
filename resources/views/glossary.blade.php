@@ -84,7 +84,7 @@
                         <ul class="mt-6">
                             @forelse ($terms as $term)
                                 <li class="block leading-relaxed list-none border-b border-gray-200 last:border-0 md:text-base">
-                                    <a class="block py-3 capitalize transition-colors duration-150 ease-in-out hover:no-underline hover:bg-gray-100" href="#{{ $term->getEnglishName() }}">{{ $term->name }}</a>
+                                    <a class="block py-3 px-3 capitalize transition-colors duration-150 ease-in-out hover:no-underline hover:bg-gray-100" href="#{{ $term->getEnglishName() }}">{{ $term->name }}</a>
                                 </li>
                             @empty
                                 {{ __('No terms') }}

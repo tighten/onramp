@@ -10,7 +10,7 @@ use Illuminate\Validation\Rule;
 
 class WizardController extends Controller
 {
-    protected $redirectTo = 'home';
+    protected $redirectTo = 'modules';
 
     public function index()
     {

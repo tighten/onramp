@@ -96,6 +96,10 @@ export default {
                 advanced: {
                     even: 'bg-pink-900',
                     odd: 'bg-pink-800',
+                },
+                bonus: {
+                    even: 'bg-oxford-blue',
+                    odd: 'bg-east-bay',
                 }
             },
             moduleUrl: `/${this.trans.locale}/modules/${this.item.slug}/free-resources`,

@@ -8,7 +8,6 @@ module.exports = {
                 'havelock-blue': '#5967d8',
                 'oxford-blue': '#2e3748',
                 'persian-green': '#00acad',
-
                 'comet': '#535f76',
                 'regent-grey': '#7b8ba2',
                 'off-white': '#f8fbfd',

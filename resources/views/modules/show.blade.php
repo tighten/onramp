@@ -1,12 +1,17 @@
 @extends('layouts.app')
 
 @php
-switch($module->skill_level) {
+$level = ! $module->is_bonus ? $module->skill_level : 'bonus';
+
+switch($level) {
     case 'intermediate':
         $bgColor = 'bg-blue-violet';
         break;
     case 'advanced':
         $bgColor = 'bg-pink-800';
+        break;
+    case 'bonus':
+        $bgColor = 'bg-oxford-blue';
         break;
     default:
         $bgColor = 'bg-teal-700';

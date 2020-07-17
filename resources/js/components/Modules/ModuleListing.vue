@@ -103,7 +103,7 @@
                                 :key="mod.id"
                                 :item="mod"
                                 :card-is-even="index % 2 === 0"
-                                :level="mod.skill_level"
+                                level="bonus"
                                 :completed-resources-count="getModuleCompletedResources(mod)"
                                 :is-user-module="userModules.includes(mod.id)"
                                 :is-completed="getModuleIsCompleted(mod)"

@@ -30,7 +30,9 @@
                 </h4>
 
                 <template v-if="(! isCompleted) && isUserModule">
-                    <ul class="block mt-4 text-base">
+                    <p class="pt-5 mt-5 text-sm font-semibold tracking-wider text-gray-700 uppercase border-t border-gray-300">My progress:</p>
+                    
+                    <ul class="block mt-2 text-base">
                         <li class="inline-flex items-center justify-between w-full">
                             <span class="text-east-bay">Resources</span>
                             <span class="font-semibold text-gray-900">
@@ -118,15 +120,15 @@ export default {
             return this.$options.filters.slug(this.item.name[this.trans.locale]);
         },
 
-        resourcesForSessionCount() 
+        freeResourcesForSessionCount() 
         {
-            let resourcesForSession = this.item.resources_for_current_session.length;
-            return resourcesForSession ? resourcesForSession : 0;
+            let freeResourcesForSession = this.item.resources_for_current_session.filter(resrc => resrc.is_free).length;
+            return freeResourcesForSession ? freeResourcesForSession : 0;
         },
 
         completedResourcesPercentage() {
-            return this.resourcesForSessionCount > 0
-                ? Math.round((this.completedResourcesCount / this.resourcesForSessionCount) * 100)
+            return this.freeResourcesForSessionCount > 0
+                ? Math.round((this.completedResourcesCount / this.freeResourcesForSessionCount) * 100)
                 : 0;
         },
     },

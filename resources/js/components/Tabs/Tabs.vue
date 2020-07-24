@@ -73,7 +73,7 @@ export default {
                 tab.isActive = (tab.href == selectedTabHref);
             });
 
-            this.$emit('activeTabUpdated', this.tabs.filter(tab => tab.isActive === true)[0]);
+            this.$emit('activeTabUpdated', this.tabs.filter(tab => tab.isActive)[0]);
         },
 
         showAllTabs() {

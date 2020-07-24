@@ -72,6 +72,8 @@ export default {
             this.tabs.forEach(tab => {
                 tab.isActive = (tab.href == selectedTabHref);
             });
+
+            this.$emit('activeTabUpdated', this.tabs.filter(tab => tab.isActive === true)[0]);
         },
 
         showAllTabs() {

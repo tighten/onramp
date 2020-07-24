@@ -260,7 +260,7 @@ export default {
             this.filterStandardModules("intermediate");
             this.filterStandardModules("advanced");
 
-            let activeTab = this.tabs.filter(x => x.selected)[0];
+            let activeTab = this.tabs.filter(tab => tab.selected)[0];
 
             if(! this.filteredTabs.includes(activeTab)) {
                 this.$refs.tabs.setActiveTab(

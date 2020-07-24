@@ -26,7 +26,7 @@
             
             <span class="flex-1 block p-5 pb-8 bg-white xl:px-8 xl:pb-10">
                 <h4 class="text-base font-semibold leading-5 tracking-normal text-east-bay sm:text-lg">
-                    {{ item.name[trans.locale] }}
+                    {{ item.name[trans.locale] ? item.name[trans.locale] : item.name['en'] }}
                 </h4>
 
                 <template v-if="(! isCompleted) && isUserModule">
@@ -117,7 +117,7 @@ export default {
         },
 
         imageName() {
-            return this.$options.filters.slug(this.item.name[this.trans.locale]);
+            return this.$options.filters.slug(this.item.name['en']);
         },
 
         freeResourcesForSessionCount() 

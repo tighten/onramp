@@ -72,6 +72,8 @@ export default {
             this.tabs.forEach(tab => {
                 tab.isActive = (tab.href == selectedTabHref);
             });
+
+            this.$emit('activeTabUpdated', this.tabs.filter(tab => tab.isActive)[0]);
         },
 
         showAllTabs() {
@@ -85,17 +87,19 @@ export default {
                 return;
             }
 
-            if(this.windowWidth === window.innerWidth) {
-                return;
-            }
-
             if (window.innerWidth >= 992) {
                 this.showAllTabs();
-            } else {
-                this.setActiveTab(this.tabs[0].href);
+                return;
             }
+            
+            if (window.innerWidth < 992) {
+                if(this.windowWidth === window.innerWidth) {
+                    return;
+                }
 
-            this.windowWidth = window.innerWidth;
+                this.setActiveTab(this.tabs[0].href);
+                this.windowWidth = window.innerWidth;
+            }
         },
     },
 }

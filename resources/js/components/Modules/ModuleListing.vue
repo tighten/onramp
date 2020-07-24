@@ -23,10 +23,13 @@
 
         <tabs 
             class="mt-12 lg:mt-18"
+            ref="tabs"
             :hide-tabs-on-desktop="true"
+            @activeTabUpdated="updateSelectedTab"
         >
             <tab
                 v-for="(tab, index) in filteredTabs"
+                :ref="`tab-${tab.name.toLowerCase()}`"
                 :key="tab.name"
                 :name="tab.name | capitalize"
                 :selected="tab.selected"
@@ -256,6 +259,14 @@ export default {
             this.filterStandardModules("beginner");
             this.filterStandardModules("intermediate");
             this.filterStandardModules("advanced");
+
+            let activeTab = this.tabs.filter(tab => tab.selected)[0];
+
+            if(! this.filteredTabs.includes(activeTab)) {
+                this.$refs.tabs.setActiveTab(
+                    this.$refs[`tab-${this.tabs[0].name.toLowerCase()}`][0].href
+                );
+            }
         },
 
         getModuleCompletedResources({ resources_for_current_session }) {
@@ -273,6 +284,12 @@ export default {
         getModuleIsCompleted({ id }) {
             let completedModules = this.completedModules.map(x => parseInt(x));
             return completedModules.includes(id);
+        },
+
+        updateSelectedTab(newTab) {
+            this.tabs.map(tab => {
+                tab.name === newTab.name.toLowerCase() ? tab.selected = true : tab.selected = false;
+            });
         },
     },
 };

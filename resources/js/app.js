@@ -8,6 +8,7 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 import './components';
+import ClickOutside from './directives/ClickOutside';
 import Lang from 'lang.js';
 import Notifications from 'vue-notification';
 import Translations from './translations';
@@ -35,6 +36,8 @@ Vue.filter('slug', function (string) {
         .replace(/\s+/g, '-')
         .replace(/-+/g, '-');
 });
+
+Vue.directive('click-outside', ClickOutside);
 
 const app = new Vue({
     el: '#app',

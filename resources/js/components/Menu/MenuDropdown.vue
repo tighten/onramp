@@ -1,5 +1,5 @@
 <template>
-    <div class="relative inline-block text-left">
+    <div class="relative inline-block text-left" v-click-outside="close">
         <div>
             <slot name="toggle" :toggle="toggle">
                 <span class="text-blue-violet">

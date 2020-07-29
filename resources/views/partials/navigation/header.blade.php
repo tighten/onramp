@@ -63,12 +63,10 @@
                         <menu-dropdown>
                             <template v-slot:toggle="props">
                                 <button
-                                    class="flex items-center justify-center block w-12 h-12 transition-colors duration-300 ease-in-out bg-teal-700 rounded-full hover:bg-teal-600 hover:no-underline focus:outline-none"
+                                    class="flex items-center justify-center block w-12 h-12 hover:no-underline focus:outline-none"
                                     @click="props.toggle"
                                 >
-                                    <span class="font-semibold leading-none text-white">
-                                        {{ Auth::user()->initials }}
-                                    </span>
+                                    <img class="rounded-full" src="{{ auth()->user()->profile_picture }}" alt="{{ auth()->user()->name }}">
                                 </button>
                             </template>
 

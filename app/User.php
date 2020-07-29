@@ -99,6 +99,11 @@ class User extends Authenticatable
         return explode(' ', $this->name)[0];
     }
 
+    public function getProfilePictureAttribute()
+    {
+        return 'https://www.gravatar.com/avatar/' . md5(strtolower($this->email)) . '?d=mp';
+    }
+
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPassword($token));

@@ -11,7 +11,7 @@
                 <img class="w-auto h-5 md:h-8" src="/images/logo/onramp.svg" alt="Onramp">
             </a>
 
-            <button 
+            <button
                 class="focus:outline-none lg:hidden"
                 aria-label="open menu"
                 @click="openModal('mobileMenu')"
@@ -71,6 +71,11 @@
                                     </span>
                                 </button>
                             </template>
+
+                            <menu-dropdown-item
+                                text="{{ __('Profile') }}"
+                                href="{{ route_wlocale('user.profile.show') }}">
+                            </menu-dropdown-item>
 
                             <menu-dropdown-item
                                 text="{{ __('Preferences') }}"

@@ -28,13 +28,15 @@ class ApproveSuggestedResource extends Action
                 'status' => SuggestedResource::APPROVED_STATUS,
             ]);
 
-            Resource::firstOrCreate([
+            $resource = Resource::firstOrCreate([
                 'name' => $model->name,
                 'url' => $model->url,
                 'type' => $model->type,
                 'module_id' => $model->module_id,
                 'language' => $model->language,
             ]);
+
+            $resource->modules()->attach($model->module_id);
         }
     }
 }

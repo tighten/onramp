@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Inspheric\Fields\Url;
 use Laravel\Nova\Fields\Badge;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
@@ -86,6 +87,9 @@ class SuggestedResource extends BaseResource
                 ->options($this->typeFields())
                 ->displayUsingLabels()
                 ->rules('required'),
+
+            Boolean::make('Is Free')
+                ->hideFromIndex(),
 
             Textarea::make('Notes'),
         ];

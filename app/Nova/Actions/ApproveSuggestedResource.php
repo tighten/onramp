@@ -34,6 +34,7 @@ class ApproveSuggestedResource extends Action
                 'type' => $model->type,
                 'module_id' => $model->module_id,
                 'language' => $model->language,
+                'is_free' => $model->is_free,
             ]);
 
             $resource->modules()->attach($model->module_id);

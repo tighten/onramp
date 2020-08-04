@@ -15,5 +15,7 @@ before_script:
 - cp .env.example .env
 - composer self-update
 - composer install --prefer-source --no-interaction
+- npm ci
+- npm run prod
 - php artisan key:generate
 script: vendor/bin/phpunit

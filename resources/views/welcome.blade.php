@@ -42,11 +42,11 @@
                 <h2>What is this?</h2>
 
                 <p class="mt-8 leading-normal lg:text-xl lg:mt-10">
-                    Onramp aims to be a collection of resources presented in a way that makes it possible for folks to become Laravel programmers as easily and effectively as possible.
+                    Onramp gathers educational resources, organized for you to become a Laravel programmer as easily and effectively as possible.
                 </p>
 
                 <p class="mt-5 leading-normal lg:text-xl lg:mt-16">
-                    The goal is to make it as easy as possible for three groups of people to become capable professional Laravel developers.
+                    Anyone can use Onramp, but we're focusing mainly on making it easy for these three groups to become professional Laravel programmers:
                 </p>
             </div>
 

@@ -33,7 +33,7 @@
 
                             <p class="mt-4 text-base text-gray-700 lg:text-lg">{{ $term->getTranslation('description', locale()) }}</p>
 
-                            @if ($term->resourcesForCurrentSession()->count() > 0)
+                            @if ($term->resourcesForCurrentSession->count() > 0)
                                 <div class="flex flex-col mt-4">
                                     <span class="text-gray-800">Related resources:</span>
                                     @foreach ($term->resourcesForCurrentSession()->get() as $resource)

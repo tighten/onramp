@@ -2,10 +2,7 @@
 
 namespace App;
 
-use App\Completable;
-use App\Completion;
 use App\Facades\Preferences;
-use App\Module;
 use Illuminate\Database\Eloquent\Model;
 
 class Resource extends Model implements Completable
@@ -40,44 +37,30 @@ class Resource extends Model implements Completable
         return $this->morphMany(Completion::class, 'completable');
     }
 
-    public function scopeForLocalePreferences($query, $locale, $resourceLanguagePreference)
+    public function scopeForCurrentSession($query)
     {
-        switch ($resourceLanguagePreference) {
+        $this->scopeForLocalePreferences($query);
+
+        if (auth()->check()) {
+            $query->whereIn('os', [OperatingSystem::ANY, Preferences::get('operating-system')]);
+        }
+    }
+
+    protected function scopeForLocalePreferences($query)
+    {
+        switch (Preferences::get('resource-language')) {
             case 'local':
-                $query->where(['language' => $locale]);
+                $query->where(['language' => locale()]);
                 break;
             case 'local-and-english':
-                $query->where(function ($query) use ($locale) {
-                    $query->where(['language' => $locale])
+                $query->where(function ($query) {
+                    $query->where(['language' => locale()])
                         ->orWhere('language', 'en');
                 });
+                break;
             case 'all':
                 break;
         }
-    }
-
-    public function scopeForCurrentSession($query)
-    {
-        if (auth()->check()) {
-            return $this->scopeForLoggedInUser($query);
-        }
-
-        $this->scopeForLocalePreferences(
-            $query,
-            locale(),
-            Preferences::get('resource-language')
-        );
-    }
-
-    public function scopeForLoggedInUser($query)
-    {
-        $this->scopeForLocalePreferences(
-            $query,
-            locale(),
-            Preferences::get('resource-language')
-        );
-
-        $query->whereIn('os', [OperatingSystem::ANY, Preferences::get('operating-system')]);
     }
 
     public function isAssignedToAModule()

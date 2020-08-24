@@ -3,10 +3,10 @@
 return [
     [
         'name' => [
-            'en' => 'collections',
+            'en' => 'Collections',
         ],
         'description' => [
-            'en' => 'A Laravel Collection is a convenient wrapper around arrays providing methods for manipulating the array data in useful ways.',
+            'en' => 'A Laravel Collection is a convenient wrapper around arrays, providing methods for manipulating the array data in useful ways.',
         ],
     ],
     [
@@ -14,7 +14,7 @@ return [
             'en' => 'HTML',
         ],
         'description' => [
-            'en' => 'HTML (Hypertext Markup Language) is the primary language used to represent content on web pages. For example, it allows the the web browser to determine which parts of the content are headings, which parts are paragraph text and which parts should be formatted as tables.',
+            'en' => 'HTML (Hypertext Markup Language) is the primary language used to represent content on web pages. For example, it allows the the web browser to determine which parts of the content are headings, which parts are paragraph text, and which parts should be formatted as tables.',
         ],
     ],
     [
@@ -30,7 +30,7 @@ return [
             'en' => 'Vagrant',
         ],
         'description' => [
-            'en' => 'Vagrant is a software program used to manage and standardize development environments. It\s a Ruby-based configuration layer that makes it easy to provision and control hypervisors (VMWare, Parallels, HyperV, etc.) with simple configuration scripts.',
+            'en' => 'Vagrant is a software program used to manage and standardize development environments. It\'s a Ruby-based configuration layer that makes it easy to provision and control hypervisors (VMWare, Parallels, HyperV, etc.) with simple configuration scripts.',
         ],
     ],
     [
@@ -51,10 +51,10 @@ return [
     ],
     [
         'name' => [
-            'en' => 'Request Lifecycle',
+            'en' => 'Request lifecycle',
         ],
         'description' => [
-            'en' => 'The request lifecycle describes what happens as a request (whether via HTTP or the console) comes into the Laravel application and generates a response, which is returned to the user. Every user request enters your Laravel application via the `public/index.php` file. This file loads Composer\'s `autoload.php`, importing packages and any other PHP files necessary, without having to call `include()` or `require()` manually. The `index.php` file also bootstraps an instance of the Laravel framework and generates an instance of a Request object that represents the incoming user request. This incoming request object is sent through the Laravel\'s HTTP kernel or console kernel, depending on the type of the request. This kernel is the heart of a Laravel application; all of the application\'s middlewares are registered there. The kernel is responsible for taking the user request, bootstrapping the full application, loading configuration files and environment variables, handling exceptions, registering facades, and registering all of the application\'s service providers. Once it finishes its work, the kernel passes the request to the router for dispatching. The router dispatches the request to a particular route or controller and runs it through any required middleware, such as the `auth` middleware. Finally, after the route or controller generates a response, the response is is sent back to the user (via HTTP or the console output).',
+            'en' => "The request lifecycle describes what happens as a request (whether via HTTP or the console) comes into the Laravel application and generates a response, which is returned to the user.\n\nEach request enters the application through `public/index.php`, where Laravel is bootstrapped and the request is converted to a `Request` object. This object is passed to the kernel, and then the router, which passes it to the application's matching route closure or controller. These routes will act on the request, and then return a response, which is sent to the end user.",
         ],
     ],
     [
@@ -62,7 +62,7 @@ return [
             'en' => 'Service Provider',
         ],
         'description' => [
-            'en' => 'Service providers are the heart of every Laravel application. It is where all the relevant code bootstraps itself, where all bindings, event listeners, middleware, configurations, databases, routes and validations are registered. Service providers run at the beginning when the app is bootstrapping as Laravel goes through all service providers registered in `app/config/app.php`. Every new Laravel application already comes with a list of providers that run with every request, but we can create our own service providers either manually or by using `php artisan tinker` and running `php artisan make:provider CustomProvider` where `CustomProvider` is the name of our provider.',
+            'en' => 'Service providers are the heart of every Laravel application. These PHP classes contain and organize the relevant code in which the framework (and dependencies) bootstrap themselves. This includes binding classes, defining event listeners, and registering everything Laravel uses across multiple systems like middleware and routes. Service providers run at the beginning of each request; as the app boostraps Laravel runs through each service provider listend in `app/config/app.php`. Laravel comes with core service providers, but programmers can also build our own.',
         ],
     ],
     [
@@ -78,7 +78,7 @@ return [
             'en' => 'Helper methods',
         ],
         'description' => [
-            'en' => 'Laravel provides a large number of helper methods that make some common tasks easier to perform. The list includes methods for working with strings, arrays, objects, URLs and other miscellaneous methods. For example, the helper method `Str::studly()` converts a given string to the StudlyCase.',
+            'en' => 'Laravel provides a large number of global functions called helpers that make some common tasks easier to perform. The list includes methods for working with strings, arrays, objects, URLs and other miscellaneous methods.',
         ],
     ],
     [
@@ -86,7 +86,7 @@ return [
             'en' => 'CSRF Protection',
         ],
         'description' => [
-            'en' => 'To protect your application from cross-site request forgery, which is a type of malicious exploit of a website, Laravel generates a CSRF token to verify the authenticated user. Simply add `@csrf` inside your `\<form\>` and Laravel will take care of the rest.',
+            'en' => 'To protect your application from cross-site request forgery, which is a type of malicious exploit of a website, Laravel generates (and validates) a CSRF token for each upcoming POST request to verify the authenticated user. Simply add `@csrf` inside your `\<form\>` and Laravel will take care of the rest.',
         ],
     ],
     [
@@ -94,7 +94,7 @@ return [
             'en' => 'Blade',
         ],
         'description' => [
-            'en' => 'Blade is a templating engine provided with Laravel. While we could use plain `PHP` inside `HTML` files, the markup up would quickly become messy and hard to read. With Blade we can still loop through data in our views using `@for`, `@foreach`, `@forelse` or `@while`, echo data by using the moustache syntax `{{}}` or display data conditionally by using clear syntax such as `@if`, `@elseif`, `@else` and `@unless`. Blade offers many more directives that make Blade a very powerful, yet easy to understand, templating language.',
+            'en' => 'Blade is a templating engine provided with Laravel. While we could use plain `PHP` inside `HTML` files, the markup up would quickly become messy and hard to read. With Blade we can still loop through data in our views using `@for`, `@foreach`, `@forelse` or `@while`, echo data by using the mustache syntax `{{}}`, or display data conditionally by using clear syntax such as `@if`, `@elseif`, `@else` and `@unless`. Blade also offers many more directives and the ability to build your own, and a robust inheritance system, which make Blade a very powerful, yet easy to understand, templating language.',
         ],
     ],
     [
@@ -115,10 +115,18 @@ return [
     ],
     [
         'name' => [
+            'en' => 'Artisan',
+        ],
+        'description' => [
+            'en' => 'Laravel\'s Artisan is a command-line tool that comes part of every Laravel application, and can be accessed by running `php artisan` from the root of any Laravel app. Artisan comes with a large list of commands that make it easy to do anything from creating models, controllers, migrating database tables or interacting with a database using the command line interface. In addition to the commands that are already provided, programmers can alsocreate custom commands to simplify the process of interacting with each app from the command line.',
+        ],
+    ],
+    [
+        'name' => [
             'en' => 'Tinker',
         ],
         'description' => [
-            'en' => 'Artisan Tinker is a REPL (Read, Evaluate, Print, Loop) interactive tool that is included with every Laravel installation. It can also be installed manually via Composer, if required. Tinker comes with a large list of commands that make it easy to do anything from creating models, controllers, migrating database tables or interacting with a database using the command line interface by using the `php artisan` command. In addition to the commands that are already provided, it is also possible to create custom commands by running `php artisan make:command MyCommand` where `MyCommand` is the name of the custom command.',
+            'en' => 'Tinker is a REPL (Read, Evaluate, Print, Loop) interactive tool that is included with every Laravel installation. Like Ruby\'s IRB, Tinker allows programmers to interact with their Laravel application and see the output of their actions.',
         ],
     ],
     [
@@ -241,4 +249,8 @@ return [
             'en' => 'Spark is a software as a service (SaaS) application scaffolding. Using Spark in your application makes it easy to set up many common features of web applications such as subscriptions, invoices, team billing, user impersonation and many others.',
         ],
     ],
+    // @todo React
+    // @todo Envoyer
+    // @todo Sanctum
+    // @todo Anything else missing from the Laravel ecosystem?
 ];

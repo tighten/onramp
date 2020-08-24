@@ -10,7 +10,7 @@ class GlossaryController extends Controller
     {
         return view('glossary', [
             'pageTitle' => 'Glossary',
-            'terms' => Term::with(['resourcesForCurrentSession', 'relatedTerms'])->orderBy('name')->get(),
+            'terms' => Term::with(['resourcesForCurrentSession', 'relatedTerms'])->get(),
         ]);
     }
 }

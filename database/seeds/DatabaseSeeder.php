@@ -6,7 +6,6 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-
         if (app()->environment() === 'production') {
             $this->command->comment('**************************************');
             $this->command->comment('*   Confirm Seeding In Production!   *');

@@ -31,7 +31,7 @@
                                 @endif
                             </div>
 
-                            <p class="mt-4 text-base text-gray-700 lg:text-lg">{{ $term->getTranslation('description', locale()) }}</p>
+                            <div class="glossary-description mt-4 text-base text-gray-700 lg:text-lg">{!! (new Parsedown)->text($term->getTranslation('description', locale())) !!}</div>
 
                             @if ($term->resourcesForCurrentSession->count() > 0)
                                 <div class="flex flex-col mt-4">
@@ -97,3 +97,11 @@
     </div>
 </div>
 @endsection
+
+@push('styles')
+<style>
+    .glossary-description p {
+        margin-bottom: 2em;
+    }
+</style>
+@endpush

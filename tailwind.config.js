@@ -1,4 +1,10 @@
 module.exports = {
+    purge: [
+        './**/*.html',
+        './**/*.vue',
+        './**/*.js',
+        './**/*.blade.php',
+    ],
     theme: {
         extend: {
             colors: {

@@ -31,7 +31,7 @@ Use the files in the [resources/lang/en](/resources/lang/en) folder as a guide t
 
 Make sure the new language shows in the dropdown menu of your local copy of the website and that you can select it. Once selected, various UI elements should be translated to the new language.
 
-When you are happy with your work and you made sure it is working locally, submit a pull request (PR) to [Onramp](https://github.com/tightenco/onramp). Please follow the instructions in `contributing.md` to make sure your PR follows the required conventions.
+When you are happy with your work and you made sure it is working locally, submit a pull request (PR) to [Onramp](https://github.com/tighten/onramp). Please follow the instructions in `contributing.md` to make sure your PR follows the required conventions.
 
 Thank you for your contribution! :heart:
 

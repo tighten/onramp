@@ -14,7 +14,7 @@ In this document we'll try to outline how to get started contributing to Onramp,
 
 In order to contribute you'll want to make a "fork" of this repository.
 
-Click the `fork` button at https://github.com/tightenco/onramp and wait for it to complete.
+Click the `fork` button at https://github.com/tighten/onramp and wait for it to complete.
 
 Once the fork is done, clone your fork to your computer by navigating to a folder you'd like to put the site in, and then replacing `[username]` in this snippet with your GitHub username and running it from the terminal:
 
@@ -29,7 +29,7 @@ Your fork will already be connected to your local repo as the remote named `orig
 Let's add your link to the original Tighten repo by running the following command after navigating to the `onramp` folder in your local repo:
 
 ```bash
-git remote add upstream git@github.com:tightenco/onramp
+git remote add upstream git@github.com:tighten/onramp
 ```
 
 This added a remote named `upstream` that points to Tighten's repo.

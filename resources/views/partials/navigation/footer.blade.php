@@ -5,7 +5,7 @@
         <div class="text-xs text-center md:text-right md:text-sm">
             <a class="mr-4" href="{{ route_wlocale('use-of-data') }}">{{ __('Use of Data') }}</a>
 
-            <a href="https://github.com/tightenco/onramp" target="_blank">{{ __('Source & Roadmap') }}</a>
+            <a href="https://github.com/tighten/onramp" target="_blank">{{ __('Source & Roadmap') }}</a>
             {{--
             <a href="#" class="ml-4 text-black">Terms &amp; Conditions</a>
             <a href="#" class="ml-4 text-black">Contact Us</a>

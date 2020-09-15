@@ -16,9 +16,17 @@
 
             <x-form.heading>{{ __('Account Settings') }}</x-form.heading>
 
-            <x-form.info>
-                Profile images imported from <a href="http://gravatar.com" class="underline ml-1">Gravatar</a>.
-            </x-form.info>
+            <x-form.picture>
+                <div class="flex-auto w-full my-5 lg:flex-even md:mt-8 md:mb-4 text-base">Profile</div>
+                <div class="flex flex-wrap w-full pb-2 text-base justify-center sm:justify-start">
+                    <div class="md:flex-shrink-0">
+                        <img class="p-3 mx-auto rounded-full w-48" src="{{ auth()->user()->profile_picture }}" alt="{{ auth()->user()->name }}">
+                    </div>
+                    <div class="mt-4 sm:ml-6 sm:my-0 md:mt-0 md:ml-12 self-center">
+                        <a href="http://gravatar.com" class="py-2 self-center lg:text-lg button button-white border border-gray-300 font-normal">Update Profile Picture</a>
+                    </div>
+                </div>
+            </x-form.picture>
 
             <x-form.section>
                 <x-input.text

@@ -83,16 +83,16 @@ Using the git remote we set up earlier, we first need to fetch changes that were
 git fetch upstream --prune
 ```
 
-Next, change to your local master branch:
+Next, change to your local main branch:
 
 ```bash
-git checkout master
+git checkout main
 ```
 
 And merge the changes that were made upstream into your local branch.
 
 ```bash
-git merge upstream/master --no-ff
+git merge upstream/main --no-ff
 ```
 
 ## Prepare your pull request

@@ -19,14 +19,14 @@
             <ul class="list-disc">
                 <li class="mb-3 md:mb-4">Much of the development of the app happens on Matt Stauffer's <a href="https://mattstauffer.com/stream">programming live streams</a>.</li>
                 <li class="mb-3 md:mb-4">Announcements are made in Eastern time; the most common time you'll see referenced is 11am eastern, which you can compare to your time zone <a href="https://time.is/compare/1100_4_Oct_2019_in_ET/">here</a>.</li>
-                <li class="mb-3 md:mb-4">If you're new to open source, check out our <a href="https://github.com/tighten/onramp/blob/master/contributing.md">contributing.md</a> to learn more about contributing.</li>
+                <li class="mb-3 md:mb-4">If you're new to open source, check out our <a href="https://github.com/tighten/onramp/blob/main/contributing.md">contributing.md</a> to learn more about contributing.</li>
             </ul>
 
             <h2 class="mt-8 mb-5 text-xl font-semibold lg:mt-12 md:text-2xl">Chat guidelines</h2>
 
             <ul class="list-disc">
                 <li class="mb-3 md:mb-4">Be kind to each other.</li>
-                <li class="mb-3 md:mb-4">Follow the <a href="https://github.com/tighten/onramp/blob/master/code_of_conduct.md">Code of Conduct</a>.</li>
+                <li class="mb-3 md:mb-4">Follow the <a href="https://github.com/tighten/onramp/blob/main/code_of_conduct.md">Code of Conduct</a>.</li>
                 <li class="mb-3 md:mb-4">This chat is for planning Onramp. Off-topic conversations are allowed within reason, but try to keep the focus mainly on planning Onramp.</li>
                 <li class="mb-3 md:mb-4">Coding questions are fine in this chat if they relate to your work on Onramp, but this isn't an intro-to-Laravel forum; try the <a href="https://discord.gg/mPZNm7A">Laravel Discord</a> for that.</li>
                 <li class="mb-3 md:mb-4">We're talking a lot about our learning process in this chat, and we have a diversity of backgrounds (and hopefully we'll grow in diversity). It's easy to see someone ask a question and assume you know more than them and, even in your attempt to help, suffocate them with help and advice. <strong>Assume every person in this chat knows things you don't</strong> and avoid developing a patronizing attitude toward anyone&mdash;even if it's out of kindness!</li>

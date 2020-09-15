@@ -1,6 +1,6 @@
 # Onramp
 
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](code_of_conduct.md)
 [![Build Status](https://travis-ci.org/tightenco/onramp.svg?branch=main)](https://travis-ci.org/tightenco/onramp)
 
 Onramp aims to be a collection of resources presented in a way that makes it possible for folks to become Laravel programmers as easily and effectively as possible.

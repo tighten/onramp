@@ -16,6 +16,10 @@
 
             <x-form.heading>{{ __('Account Settings') }}</x-form.heading>
 
+            <x-form.info>
+                Profile images imported from <a href="http://gravatar.com" class="underline ml-1">Gravatar</a>.
+            </x-form.info>
+
             <x-form.section>
                 <x-input.text
                     name="name"

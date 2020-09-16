@@ -126,13 +126,13 @@ switch($level) {
         {{-- <tab
             @if ($resourceType === 'quizzes') :selected="true" @endif
             name="Quizzes"
-            url="{{  route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'quizzes']) }}">
+            url="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'quizzes']) }}">
         </tab>
 
         <tab
             @if ($resourceType === 'exercises') :selected="true" @endif
             name="Exercises"
-            url="{{  route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'exercises']) }}">
+            url="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'exercises']) }}">
         </tab> --}}
     </tabs>
 

@@ -24,6 +24,8 @@
         </div>
     </div>
 
+    @include('partials.display-current-track')
+
     <div class="pb-48">
         <module-listing
             :standard-modules="{{ $standardModules }}"

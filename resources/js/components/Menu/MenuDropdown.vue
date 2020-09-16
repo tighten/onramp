@@ -22,7 +22,7 @@
         </div>
 
         <transition name="grow">
-            <div v-if="isOpen" class="absolute right-0 z-50 w-56 mt-2 origin-top-right rounded-md shadow-lg">
+            <div v-if="isOpen" class="absolute right-0 z-50 w-32 mt-2 origin-top-right rounded-md shadow-lg">
                 <div class="overflow-hidden bg-white rounded-md shadow-xs">
                     <slot></slot>
                 </div>

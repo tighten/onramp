@@ -4,6 +4,8 @@
 <div class="w-full bg-off-white">
     @include('partials.you-should-log-in')
 
+    @include('partials.display-current-track')
+
     <div class="py-16 overflow-hidden bg-indigo-100 lg:py-24">
         <div class="relative fluid-container">
             <h1 class="max-w-lg">{{ __('Modules') }}</h1>
@@ -23,8 +25,6 @@
             </picture>
         </div>
     </div>
-
-    @include('partials.display-current-track')
 
     <div class="pb-48">
         <module-listing

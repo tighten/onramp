@@ -3,6 +3,7 @@ import Vue from 'vue';
 import CompletableButton from './Completables/CompletedButton.vue';
 import CompletedBadge from './Completables/CompletedBadge.vue';
 import CompletedCheckbox from './Completables/CompletedCheckbox.vue';
+import DisplayCurrentTrack from './DisplayCurrentTrack';
 import LanguageSwitcher from './LanguageSwitcher.vue';
 import MenuDropdownItem from './Menu/MenuDropdownItem.vue';
 import MenuDropdown from './Menu/MenuDropdown.vue';
@@ -22,6 +23,7 @@ import ToggleWhenMobile from './ToggleWhenMobile.vue';
 Vue.component('language-switcher', LanguageSwitcher);
 Vue.component('toggle-when-mobile', ToggleWhenMobile);
 Vue.component('resource-language-preference-switcher', ResourceLanguagePreferenceSwitcher);
+Vue.component('display-current-track', DisplayCurrentTrack)
 Vue.component('completed-badge', CompletedBadge);
 Vue.component('completed-button', CompletableButton);
 Vue.component('completed-checkbox', CompletedCheckbox);

@@ -20,10 +20,8 @@
                 <div class="flex-auto w-full my-5 lg:flex-even md:mt-8 md:mb-4 text-base">Profile</div>
                 <div class="flex flex-wrap w-full pb-2 text-base justify-center sm:justify-start">
                     <div class="md:flex-shrink-0">
-                        <img class="p-3 mx-auto rounded-full w-48" src="{{ auth()->user()->profile_picture }}" alt="{{ auth()->user()->name }}">
-                    </div>
-                    <div class="mt-4 sm:ml-6 sm:my-0 md:mt-0 md:ml-12 self-center">
-                        <a href="http://gravatar.com" class="py-2 self-center lg:text-lg button button-white border border-gray-300 font-normal">Update Profile Picture</a>
+                        <img class="p-3 mx-auto md:ml-3 rounded-full w-48" src="{{ auth()->user()->profile_picture }}" alt="{{ auth()->user()->name }}">
+                        <p class="py-2 self-center font-normal text-sm">Your current public profile picture is sourced from Gravatar. <a href="http://gravatar.com" class="py-2 underline">Change</a></p>
                     </div>
                 </div>
             </x-form.picture>

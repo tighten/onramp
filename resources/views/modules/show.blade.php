@@ -23,8 +23,6 @@ switch($level) {
 <div class="w-full pb-48 bg-off-white lg:pb-32">
     @include('partials.you-should-log-in')
 
-    @include('partials.display-current-track')
-
     <div class="{{ $bgColor }} pb-24 pt-16 md:pb-40 lg:pt-24 lg:pb-48">
         <div class="relative fluid-container lg:flex lg:items-center lg:justify-between">
             <h1 class="max-w-3xl text-white">{{ $module->name }}</h1>

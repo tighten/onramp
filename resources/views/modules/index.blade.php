@@ -4,8 +4,6 @@
 <div class="w-full bg-off-white">
     @include('partials.you-should-log-in')
 
-    @include('partials.display-current-track')
-
     <div class="py-16 overflow-hidden bg-indigo-100 lg:py-24">
         <div class="relative fluid-container">
             <h1 class="max-w-lg">{{ __('Modules') }}</h1>
@@ -13,6 +11,12 @@
             <p class="max-w-md mt-4 leading-normal text-comet lg:mt-5">
                 {{ __('The tech concepts you should know in order to get a job as a Laravel developer.') }}
             </p>
+
+
+            <div class="mt-6 text-sm text-comet">You are on the <span class="font-semibold">{{ auth()->user()->track->name }}</span> track.
+                <a class="mr-4 ml-2 font-semibold text-indigo-700" href="{{ url_wlocale('preferences') }}">Change settings</a>
+            </div>
+
 
             <picture>
                 <source media="(min-width: 1024px)"

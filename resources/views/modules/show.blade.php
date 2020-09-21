@@ -111,26 +111,26 @@ switch($level) {
         <tab
             @if ($resourceType === 'free-resources') :selected="true" @endif
             name="Free resources"
-            url="{{route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'free-resources'])}}">
+            url="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'free-resources']) }}">
         </tab>
 
         <tab
             @if ($resourceType === 'paid-resources') :selected="true" @endif
             name="Paid resources"
-            url="{{route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'paid-resources'])}}">
+            url="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'paid-resources']) }}">
         </tab>
 
         {{-- @todo Show this once we add in quizzes and exercises --}}
         {{-- <tab
             @if ($resourceType === 'quizzes') :selected="true" @endif
             name="Quizzes"
-            url="{{route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'quizzes'])}}">
+            url="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'quizzes']) }}">
         </tab>
 
         <tab
             @if ($resourceType === 'exercises') :selected="true" @endif
             name="Exercises"
-            url="{{route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'exercises'])}}">
+            url="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'exercises']) }}">
         </tab> --}}
     </tabs>
 

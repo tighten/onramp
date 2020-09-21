@@ -24,7 +24,7 @@
         "inspheric/nova-url-field": "^1.4",
         "kg-bot/laravel-localization-to-vue": "^1.6",
         "laravel/framework": "^7.0",
-        "laravel/nova": "~3.0",
+        "laravel/nova": "^3.10",
         "laravel/slack-notification-channel": "^2.0",
         "laravel/tinker": "^2.0",
         "mrmonat/nova-translatable": "^2.0",

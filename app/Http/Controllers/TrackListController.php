@@ -9,7 +9,7 @@ class TrackListController extends Controller
 {
     public function index()
     {
-        $tracks = Track::all();
+        $tracks = Track::has('modules')->get();
         $modulesWithTracks = Module::with('tracks')->get();
 
         $modules = $modulesWithTracks->reduce(function ($carry, $row) use ($tracks) {

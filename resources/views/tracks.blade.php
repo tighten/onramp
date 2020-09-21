@@ -15,13 +15,31 @@
             </picture>
         </div>
     </div>
-    <div class="py-16 fluid-container">
-        <table class="table-auto">
+    <div class="py-6 sm:py-16 fluid-container">
+
+        <div class="sm:hidden">
+            @foreach ($tracks as $track)
+                <div class="my-2 pb-8">
+                    <div class="bg-gray-100 px-4 py-2 border-b-2 font-semibold">
+                        {{ __($track->name) }}
+                    </div>
+                    <div>
+                        <div class="px-6 py-2 font-semibold">Modules:</div>
+                        @foreach ($track->modules as $module)
+                            <div class="px-6 py-2">{{ $module->name }}</div>
+                        @endforeach
+                    </div>
+                </div>
+            @endforeach
+        </div>
+
+
+        <table class="table-auto hidden sm:block">
             <thead>
                 <tr class="bg-gray-100">
                     <th class="border px-4 py-2">Module Name</th>
 
-                    @foreach ($tracks as $track)
+                    @foreach ($trackNames as $track)
                         <th class="border px-4 py-2">{{ __($track) }}</th>
                     @endforeach
 

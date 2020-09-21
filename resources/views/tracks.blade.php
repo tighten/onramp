@@ -39,10 +39,9 @@
                 <tr class="bg-gray-100">
                     <th class="border px-4 py-2">Module Name</th>
 
-                    @foreach ($trackNames as $track)
-                        <th class="border px-4 py-2">{{ __($track) }}</th>
+                    @foreach ($tracks as $track)
+                        <th class="border px-4 py-2">{{ __($track->name) }}</th>
                     @endforeach
-
                 </tr>
             </thead>
 

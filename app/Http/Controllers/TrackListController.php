@@ -9,10 +9,10 @@ class TrackListController extends Controller
 {
     public function index()
     {
-        $tracks = Track::has('modules')->get();
+        $tracks = Track::has('modules')->with('modules')->get();
         $modulesWithTracks = Module::with('tracks')->get();
 
-        $modules = $modulesWithTracks->reduce(function ($carry, $row) use ($tracks) {
+        $modules = $modulesWithTracks->sortBy('name')->reduce(function ($carry, $row) use ($tracks) {
             $hasTracks = $tracks->reduce(function ($carry, $track) use ($row) {
                 $carry[$track->name] = $row->tracks->pluck('name')->contains($track->name);
                 return $carry;
@@ -28,7 +28,8 @@ class TrackListController extends Controller
 
         return view('tracks', [
             'modules' => $modules,
-            'tracks' => $tracks->pluck('name'),
+            'tracks' => $tracks,
+            'trackNames' => $tracks->pluck('name'),
         ]);
     }
 }

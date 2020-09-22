@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Track;
 
-class TrackListController extends Controller
+class TrackController extends Controller
 {
     public function index()
     {

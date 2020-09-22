@@ -10,6 +10,7 @@ Route::group(['prefix' => '{locale}'], function () {
     Route::view('chat', 'chat', ['pageTitle' => 'Chat Guidelines'])->name('chat');
     Route::view('dev', 'dev')->name('dev');
     Route::get('glossary', 'GlossaryController@index')->name('glossary');
+    Route::get('tracks', 'TrackController@index')->name('tracks');
 
     Route::group(['prefix' => 'modules', 'as' => 'modules.'], function () {
         Route::get('/', 'ModuleController@index')->name('index');

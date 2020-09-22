@@ -30,15 +30,20 @@
             <div class="flex-1">
                 <nav class="flex items-center">
                     <a
-                        class="block mx-1 text-xl font-semibold transition-colors duration-300 ease-in-out text-blue-violet hover:text-white hover:bg-indigo-700 hover:no-underline px-3 py-1 rounded @if(Route::currentRouteName() === 'modules.index') bg-indigo-100 @endif"
+                        class="block mx-1 text-xl font-semibold transition-colors duration-300 ease-in-out text-blue-violet hover:text-white hover:bg-indigo-700 hover:no-underline px-3 py-1 rounded @if (Route::currentRouteName() === 'modules.index') bg-indigo-100 @endif"
                         href="{{ route_wlocale('modules.index') }}">
                         <span>Learn</span>
                     </a>
 
                     <a
-                        class="block mx-1 text-xl font-semibold transition-colors duration-300 ease-in-out text-blue-violet hover:text-white hover:bg-indigo-700 hover:no-underline px-3 py-1 rounded @if(Route::currentRouteName() === 'glossary') bg-indigo-100 @endif"
-                        href="{{ route_wlocale('glossary')}}">
+                        class="block mx-1 text-xl font-semibold transition-colors duration-300 ease-in-out text-blue-violet hover:text-white hover:bg-indigo-700 hover:no-underline px-3 py-1 rounded @if (Route::currentRouteName() === 'glossary') bg-indigo-100 @endif"
+                        href="{{ route_wlocale('glossary') }}">
                         <span>Glossary</span>
+                    </a>
+                    <a
+                        class="block mx-1 text-xl font-semibold transition-colors duration-300 ease-in-out text-blue-violet hover:text-white hover:bg-indigo-700 hover:no-underline px-3 py-1 rounded @if (Route::currentRouteName() === 'tracks') bg-indigo-100 @endif"
+                        href="{{ route_wlocale('tracks') }}">
+                        <span>Tracks</span>
                     </a>
                 </nav>
             </div>
@@ -111,8 +116,14 @@
 
             <a
                 class="block p-6 text-xl font-semibold border-t border-gray-300 text-blue-violet hover:no-underline"
-                href="{{ route_wlocale('glossary')}} ">
+                href="{{ route_wlocale('glossary') }} ">
                 <span>Glossary</span>
+            </a>
+
+            <a
+                class="block p-6 text-xl font-semibold border-t border-gray-300 text-blue-violet hover:no-underline"
+                href="{{ route_wlocale('tracks') }} ">
+                <span>Tracks</span>
             </a>
         </template>
 

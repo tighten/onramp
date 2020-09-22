@@ -27,7 +27,7 @@ class TrackListTest extends TestCase
     }
 
     /** @test */
-    function doesnt_show_tracks_with_no_modules()
+    function it_doesnt_show_tracks_with_no_modules()
     {
         $track = factory(Track::class)->create();
         $response = $this->get(route('tracks', ['locale' => 'en']));

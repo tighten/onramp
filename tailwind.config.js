@@ -1,9 +1,9 @@
 module.exports = {
     purge: [
-        './**/*.html',
-        './**/*.vue',
-        './**/*.js',
-        './**/*.blade.php',
+        './resources/**/*.html',
+        './resources/**/*.vue',
+        './resources/**/*.js',
+        './resources/**/*.blade.php',
     ],
     theme: {
         extend: {

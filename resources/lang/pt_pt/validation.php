@@ -11,6 +11,8 @@ return [
     | the validator class. Some of these rules have multiple versions such
     | as the size rules. Feel free to tweak each of these messages here.
     |
+    | 2020-10-01 José Borges
+    |
     */
 
     'accepted' => 'O campo :attribute deverá ser aceite.',

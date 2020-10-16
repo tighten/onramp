@@ -10,7 +10,7 @@ class ModuleController extends Controller
     public function index()
     {
         return view('modules.index', [
-            'pageTitle' => 'Modules',
+            'pageTitle' => __('Modules'),
             'standardModules' => auth()->check() && auth()->user()->hasTrack()
                 ? Module::with('resourcesForCurrentSession')->standard()->get()
                 : Module::standard()->get(),

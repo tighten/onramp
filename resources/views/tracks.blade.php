@@ -24,7 +24,7 @@
                         {{ __($track->name) }}
                     </div>
                     <div>
-                        <div class="px-6 py-2 font-semibold">Modules:</div>
+                        <div class="px-6 py-2 font-semibold">{{ __('Modules') }}:</div>
                         @foreach ($track->modules as $module)
                             <div class="px-6 py-2">{{ $module->name }}</div>
                         @endforeach
@@ -37,7 +37,7 @@
         <table class="table-auto hidden sm:block">
             <thead>
                 <tr class="bg-gray-100">
-                    <th class="border px-4 py-2">Module Name</th>
+                    <th class="border px-4 py-2">{{ __('Module Name') }}</th>
 
                     @foreach ($tracks as $track)
                         <th class="border px-4 py-2">{{ __($track->name) }}</th>

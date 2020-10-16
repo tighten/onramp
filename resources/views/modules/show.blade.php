@@ -43,7 +43,7 @@ switch($level) {
         <div class="px-4 pt-6 pb-8 -mt-16 bg-white shadow-md md:p-10 md:pb-16 md:-mt-32">
             @if ($module->description)
                 <div>
-                    <p class="mb-3 text-xl font-semibold md:mb-8 md:text-2xl lg:text-4xl">Overview</p>
+                    <p class="mb-3 text-xl font-semibold md:mb-8 md:text-2xl lg:text-4xl">{{ __('Overview') }}</p>
 
                     <p class="pr-2 mb-6 text-east-bay md:mb-10 lg:max-w-3xl xl:leading-normal">
                         {{ $module->description }}
@@ -52,7 +52,7 @@ switch($level) {
             @endif
 
             <div>
-                <p class="mb-3 text-xl font-semibold md:mb-8 md:text-2xl lg:text-4xl">Skills</p>
+                <p class="mb-3 text-xl font-semibold md:mb-8 md:text-2xl lg:text-4xl">{{ __('Skills') }}</p>
                 <ul class="flex flex-wrap -m-1 md:-m-2">
                     @forelse ($skills as $skill)
                         @auth
@@ -79,7 +79,7 @@ switch($level) {
                             </li>
                         @endguest
                     @empty
-                        <li class="relative block m-1">No skills</li>
+                        <li class="relative block m-1">{{ __('No skills') }}</li>
                     @endforelse
 
                     @if ($bonusSkills->isNotEmpty())
@@ -110,13 +110,13 @@ switch($level) {
     <tabs>
         <tab
             @if ($resourceType === 'free-resources') :selected="true" @endif
-            name="Free resources"
+            name="{{ __('Free resources') }}"
             url="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'free-resources']) }}">
         </tab>
 
         <tab
             @if ($resourceType === 'paid-resources') :selected="true" @endif
-            name="Paid resources"
+            name="{{ __('Paid resources') }}"
             url="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'paid-resources']) }}">
         </tab>
 

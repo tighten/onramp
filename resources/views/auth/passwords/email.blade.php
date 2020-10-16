@@ -19,7 +19,7 @@
 
                 <div class="ml-3">
                     <h3 class="text-sm font-semibold leading-5 text-green-900">
-                        Password Reset Link Sent
+                        {{ __('Password reset link sent') }}
                     </h3>
 
                     <div class="mt-2 text-sm leading-5 text-green-700">

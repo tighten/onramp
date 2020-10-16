@@ -1,6 +1,6 @@
 <sitewide-banner>
     <template v-slot:message>
-        <span class="font-semibold uppercase">NOTE:</span> This site is under active development, so it's not complete right now. Check out the <a href="{{ route_wlocale('dev') }}" class="font-semibold hover:underline">dev page</a> to learn more.
+        <span class="font-semibold uppercase">{{ __('NOTE:') }}</span> {{ __("This site is under active development, so it's not complete right now. Check out the") }} <a href="{{ route_wlocale('dev') }}" class="font-semibold hover:underline">{{ __('dev page') }}</a> {{ __('to learn more.')}}
     </template>
 </sitewide-banner>
 
@@ -32,18 +32,18 @@
                     <a
                         class="block mx-1 text-xl font-semibold transition-colors duration-300 ease-in-out text-blue-violet hover:text-white hover:bg-indigo-700 hover:no-underline px-3 py-1 rounded @if (Route::currentRouteName() === 'modules.index') bg-indigo-100 @endif"
                         href="{{ route_wlocale('modules.index') }}">
-                        <span>Learn</span>
+                        <span>{{ __('Learn') }}</span>
                     </a>
 
                     <a
                         class="block mx-1 text-xl font-semibold transition-colors duration-300 ease-in-out text-blue-violet hover:text-white hover:bg-indigo-700 hover:no-underline px-3 py-1 rounded @if (Route::currentRouteName() === 'glossary') bg-indigo-100 @endif"
                         href="{{ route_wlocale('glossary') }}">
-                        <span>Glossary</span>
+                        <span>{{ __('Glossary') }}</span>
                     </a>
                     <a
                         class="block mx-1 text-xl font-semibold transition-colors duration-300 ease-in-out text-blue-violet hover:text-white hover:bg-indigo-700 hover:no-underline px-3 py-1 rounded @if (Route::currentRouteName() === 'tracks') bg-indigo-100 @endif"
                         href="{{ route_wlocale('tracks') }}">
-                        <span>Tracks</span>
+                        <span>{{ __('Tracks') }}</span>
                     </a>
                 </nav>
             </div>
@@ -111,19 +111,19 @@
             <a
                 class="block p-6 text-xl font-semibold border-t border-gray-300 text-blue-violet hover:no-underline"
                 href="{{ route_wlocale('modules.index') }}">
-                <span>Learn</span>
+                <span>{{ __('Learn') }}</span>
             </a>
 
             <a
                 class="block p-6 text-xl font-semibold border-t border-gray-300 text-blue-violet hover:no-underline"
                 href="{{ route_wlocale('glossary') }} ">
-                <span>Glossary</span>
+                <span>{{ __('Glossary') }}</span>
             </a>
 
             <a
                 class="block p-6 text-xl font-semibold border-t border-gray-300 text-blue-violet hover:no-underline"
                 href="{{ route_wlocale('tracks') }} ">
-                <span>Tracks</span>
+                <span>{{ __('Tracks') }}</span>
             </a>
         </template>
 

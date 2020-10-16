@@ -29,7 +29,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                         id="locale-label"
                         class="block text-sm leading-5 text-gray-700 md:text-base"
                     >
-                        Which resources should we show for you?
+                        {{ __('Which resources should we show for you?') }}
                     </label>
 
                     <div class="p-5 mt-6 border border-gray-300 md:p-8">
@@ -57,7 +57,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
 
                 <div class="mt-5">
                     <p class="text-sm leading-5 text-gray-700 md:text-base">
-                        Filter resources based on your operating system and language preference.
+                        {{ __('Filter resources based on your operating system and language preference.') }}
                     </p>
 
                     <div class="flex flex-wrap px-5 pb-2 mt-6 border border-gray-300 lg:flex-no-wrap md:px-8">
@@ -141,7 +141,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
 
                 <div class="mt-5">
                     <p class="text-sm leading-5 text-gray-700 md:text-base">
-                        Track your progress in modules based on your current background experience.
+                        {{ __('Track your progress in modules based on your current background experience.') }}
                     </p>
 
                     <div class="flex flex-wrap px-5 pb-2 mt-6 border border-gray-300 lg:flex-no-wrap md:px-8">

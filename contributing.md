@@ -44,7 +44,8 @@ Now you have this set up, run the following commands to install the dependencies
 
 ```bash
 composer install
-npm install
+npm install 
+npm run dev
 ```
 
 Check that the `.env` file exists; if not, copy the `.env.example` to `.env`:

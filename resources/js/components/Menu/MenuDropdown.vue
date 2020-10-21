@@ -5,7 +5,7 @@
                 <span class="text-blue-violet">
                     <button
                         type="button"
-                        class="inline-flex items-center justify-center w-full h-12 text-base font-semibold transition duration-150 ease-in-out focus:outline-none focus:border-white"
+                        class="inline-flex items-center justify-center w-full h-12 text-base font-semibold transition duration-150 ease-in-out focus:outline-none focus:border-white hover:opacity-75 transition ease-in-out duration-150"
                         @click="toggle"
                     >
                         {{ toggleText }}

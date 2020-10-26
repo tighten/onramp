@@ -53,13 +53,15 @@
 
                 <div class="flex items-center ml-12">
                     @guest
-                        <a class="flex-1 inline-block px-8 py-3 mx-2 text-lg font-semibold leading-none text-center text-teal-700 whitespace-no-wrap border-2 border-teal-700 rounded-md hover:no-underline" href="{{ route_wlocale('login') }}">
+                        <a
+                            class="flex-1 inline-block px-8 py-3 mx-2 text-lg font-semibold leading-none text-center text-teal-700 whitespace-no-wrap border-2 border-teal-700 rounded-md hover:no-underline hover:bg-teal-700 hover:text-white focus:outline-none focus:shadow-outline active:bg-teal-800 active:border-teal-800 active:text-white transition ease-in-out duration-150"
+                            href="{{ route_wlocale('login') }}">
                             <span>{{ __('Log in') }}</span>
                         </a>
 
                         @if (Route::has('register'))
                             <a
-                                class="flex-1 inline-block px-8 py-3 mx-2 text-lg font-semibold leading-none text-center text-white whitespace-no-wrap bg-teal-700 border-2 border-teal-700 rounded-md hover:no-underline"
+                                class="flex-1 inline-block px-8 py-3 mx-2 text-lg font-semibold leading-none text-center text-white whitespace-no-wrap bg-teal-700 border-2 border-teal-700 rounded-md hover:no-underline hover:bg-teal-600 hover:border-teal-600 focus:outline-none focus:shadow-outline active:bg-teal-800 active:border-teal-800 transition ease-in-out duration-150"
                                 href="{{ route_wlocale('register') }}">
                                 <span>{{ __('Register') }}</span>
                             </a>

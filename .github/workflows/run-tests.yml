@@ -2,6 +2,9 @@ name: Run tests
 
 on:
   pull_request:
+  push:
+    branches:
+      - main
 jobs:
   test:
     name: PHP 7.3, Laravel 8.*

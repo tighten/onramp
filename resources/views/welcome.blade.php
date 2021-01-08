@@ -128,7 +128,7 @@
 
             <div class="relative">
                 <p class="max-w-2xl my-6 leading-normal lg:text-xl lg:leading-loose lg:my-12">
-                    {{ __("It's iterative and opinionated. It's open source and contributions are welcome, but in the end Tighten will keep it focused on the way we think folks are best prepared for a career as a Laravel developer.") }}
+                    {{ __("Join Onramp for free today to see the technologies and processes the team at Tighten thinks are best for you to learn, and our favorite resources for learning them.") }}
                 </p>
 
                 <h2 class="mt-10 lg:mt-16">{{ __("Let's do it!") }}</h2>

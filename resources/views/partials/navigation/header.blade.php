@@ -1,8 +1,8 @@
-<sitewide-banner>
+<!--sitewide-banner>
     <template v-slot:message>
         <span class="font-semibold uppercase">{{ __('NOTE:') }}</span> {{ __("This site is under active development, so it's not complete right now. Check out the") }} <a href="{{ route_wlocale('dev') }}" class="font-semibold hover:underline">{{ __('dev page') }}</a> {{ __('to learn more.')}}
     </template>
-</sitewide-banner>
+</sitewide-banner-->
 
 <header class="w-full py-5 bg-white border-t-4 border-blue-violet lg:border-t-8">
     <div class="flex items-center fluid-container md:px-12 xl:px-20 xxl:px-32">
@@ -54,14 +54,14 @@
                 <div class="flex items-center ml-12">
                     @guest
                         <a
-                            class="flex-1 inline-block px-8 py-3 mx-2 text-lg font-semibold leading-none text-center text-teal-700 whitespace-no-wrap border-2 border-teal-700 rounded-md hover:no-underline hover:bg-teal-700 hover:text-white focus:outline-none focus:shadow-outline active:bg-teal-800 active:border-teal-800 active:text-white transition ease-in-out duration-150"
+                            class="flex-1 inline-block px-8 py-3 mx-2 text-lg font-semibold leading-none text-center text-teal-700 whitespace-no-wrap transition duration-150 ease-in-out border-2 border-teal-700 rounded-md hover:no-underline hover:bg-teal-700 hover:text-white focus:outline-none focus:shadow-outline active:bg-teal-800 active:border-teal-800 active:text-white"
                             href="{{ route_wlocale('login') }}">
                             <span>{{ __('Log in') }}</span>
                         </a>
 
                         @if (Route::has('register'))
                             <a
-                                class="flex-1 inline-block px-8 py-3 mx-2 text-lg font-semibold leading-none text-center text-white whitespace-no-wrap bg-teal-700 border-2 border-teal-700 rounded-md hover:no-underline hover:bg-teal-600 hover:border-teal-600 focus:outline-none focus:shadow-outline active:bg-teal-800 active:border-teal-800 transition ease-in-out duration-150"
+                                class="flex-1 inline-block px-8 py-3 mx-2 text-lg font-semibold leading-none text-center text-white whitespace-no-wrap transition duration-150 ease-in-out bg-teal-700 border-2 border-teal-700 rounded-md hover:no-underline hover:bg-teal-600 hover:border-teal-600 focus:outline-none focus:shadow-outline active:bg-teal-800 active:border-teal-800"
                                 href="{{ route_wlocale('register') }}">
                                 <span>{{ __('Register') }}</span>
                             </a>

@@ -5,7 +5,7 @@
     <div class="pt-16 pb-20 overflow-hidden text-left bg-indigo-100 lg:pt-48 lg:pb-64">
         <div class="relative fluid-container">
             <h1 class="w-11/12 md:w-7/12 xl:w-5/12">
-                {{ __('An easy entrance to Laravel for new developers') }}
+                {{ __('Learn Laravel quickly, no matter your background.') }}
             </h1>
 
             <a

@@ -51,12 +51,14 @@ class Resource extends Model implements Completable
         switch (Preferences::get('resource-language')) {
             case 'local':
                 $query->where(['language' => locale()]);
+
                 break;
             case 'local-and-english':
                 $query->where(function ($query) {
                     $query->where(['language' => locale()])
                         ->orWhere('language', 'en');
                 });
+
                 break;
             case 'all':
                 break;

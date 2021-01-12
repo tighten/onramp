@@ -54,7 +54,7 @@ return [
          */
         'timeout' => 60,
     ],
-    'js'     => [
+    'js' => [
         /*
          * Default locale for export
          */
@@ -70,7 +70,7 @@ return [
          */
         'filename' => 'translations.js',
     ],
-    'paths'  => [
+    'paths' => [
         /*
          * You can export more lang files then just files in resources/lang, for example
          *
@@ -82,7 +82,7 @@ return [
     /*
      * You can customize the regexp for lang files to be able to exclude certain files.
      */
-    'file_regexp'  => [
+    'file_regexp' => [
         'php' => '/^.+\.php$/i',
         'json' => '/^.+\.json$/i',
     ],

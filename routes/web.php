@@ -3,7 +3,6 @@
 Route::get('/', 'RootRedirectController');
 
 Route::group(['prefix' => '{locale}'], function () {
-
     Route::view('/', 'welcome')->name('welcome');
 
     Route::view('use-of-data', 'use-of-data')->name('use-of-data');

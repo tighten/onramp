@@ -2,10 +2,6 @@
 
 namespace App;
 
-use App\Completion;
-use App\Resource;
-use App\Skill;
-use App\Track;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 

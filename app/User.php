@@ -2,9 +2,7 @@
 
 namespace App;
 
-use App\Completable;
 use App\Notifications\ResetPassword;
-use App\Track;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 

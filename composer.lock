@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4369868d5bf2df362e4a26456f0ccf42",
+    "content-hash": "5673ea458e43b2f6f320f511e78f7ba7",
     "packages": [
         {
             "name": "brick/math",
@@ -6269,26 +6269,26 @@
         },
         {
             "name": "tightenco/tlint",
-            "version": "3.0.12",
+            "version": "v5.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tighten/tlint.git",
-                "reference": "065d43b3b9f847eeaab8656e05d6373df4e1f2d0"
+                "reference": "f85dc227d30bcd7f2c36c25266eb1edd75789fe5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tighten/tlint/zipball/065d43b3b9f847eeaab8656e05d6373df4e1f2d0",
-                "reference": "065d43b3b9f847eeaab8656e05d6373df4e1f2d0",
+                "url": "https://api.github.com/repos/tighten/tlint/zipball/f85dc227d30bcd7f2c36c25266eb1edd75789fe5",
+                "reference": "f85dc227d30bcd7f2c36c25266eb1edd75789fe5",
                 "shasum": ""
             },
             "require": {
-                "nikic/php-parser": "^4.2",
-                "php": ">=7.2",
-                "symfony/console": "^4.3|^5.0",
-                "symfony/process": "^4.3|^5.0"
+                "nikic/php-parser": "^4.5",
+                "php": ">=7.3",
+                "symfony/console": "^4.3 || ^5.0",
+                "symfony/process": "^4.3 || ^5.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^7.4"
+                "phpunit/phpunit": "^9.3"
             },
             "bin": [
                 "bin/tlint"
@@ -6306,12 +6306,20 @@
             "license": [
                 "MIT"
             ],
+            "authors": [
+                {
+                    "name": "Logan Henson",
+                    "email": "logan@loganhenson.com",
+                    "role": "Developer"
+                }
+            ],
             "description": "Tighten linter for Laravel conventions",
+            "homepage": "https://github.com/tighten/tlint",
             "support": {
                 "issues": "https://github.com/tighten/tlint/issues",
-                "source": "https://github.com/tighten/tlint/tree/v3.0.12"
+                "source": "https://github.com/tighten/tlint/tree/v5.0.8"
             },
-            "time": "2020-02-24T21:14:50+00:00"
+            "time": "2020-11-25T17:11:32+00:00"
         },
         {
             "name": "tightenco/ziggy",

@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Nova\User;
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Event;
 use Laravel\Nova\Actions\Actionable;

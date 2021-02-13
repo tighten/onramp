@@ -15,9 +15,9 @@ class FreshInstallSeeder extends Seeder
         ]);
 
         $tracks = [
-            'Iniciante na Programação',
-            'Programador Frontend',
-            'Programador WordPress',
+            'New to Programming',
+            'Frontend Developers',
+            'WordPress Developers',
         ];
 
         foreach ($tracks as $track) {

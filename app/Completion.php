@@ -2,10 +2,6 @@
 
 namespace App;
 
-use App\Module;
-use App\Resource;
-use App\Skill;
-use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Completion extends Model

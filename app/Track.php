@@ -2,8 +2,6 @@
 
 namespace App;
 
-use App\Module;
-use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Track extends Model

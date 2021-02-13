@@ -22,9 +22,9 @@ class WizardController extends Controller
         $valid = $this->validate(request(), [
             'os' => ['required', 'string', Rule::in(OperatingSystem::ALL)],
             'track' => ['required', 'int', 'exists:tracks,id'],
-            'locale' => ['required', 'string', Rule::in((new Locale)->slugs())]
+            'locale' => ['required', 'string', Rule::in((new Locale)->slugs())],
         ], [], [
-            'os' => 'OS'
+            'os' => 'OS',
         ]);
 
         auth()->user()->update(['track_id' => $valid['track']]);

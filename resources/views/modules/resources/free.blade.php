@@ -11,26 +11,26 @@ use App\Resource;
         <tab name="Videos &amp; Courses" :selected="true">
             <div class="bg-white border-t-4 border-teal-700 shadow-md js-show-more-less">
                 <div class="pt-8 pb-6 pl-6 pr-5">
-                    <p class="text-xl font-bold md:text-2xl">Videos &amp; Courses</p>
+                    <p class="text-xl font-bold md:text-2xl">{{ __('Videos & Courses') }}</p>
 
                     <ul class="mt-6 js-show-more-less-items">
                         @forelse ($freeResources->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])->where('is_bonus', false)->all() as $resource)
                             @include('partials.resource-on-module-page')
                         @empty
-                            <li class="list-none">No resources</li>
+                            <li class="list-none">{{ __('No resources') }}</li>
                         @endforelse
                     </ul>
                 </div>
 
                 <button class="hidden block w-full px-8 py-4 font-semibold text-left border-t-2 border-gray-300 text-persian-green js-show-more-less-button">
-                    View more
+                    {{ __('View more') }}
                 </button>
             </div>
 
             @if ($freeResources->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])->where('is_bonus', true)->isNotEmpty())
                 <div class="mt-6 bg-white border-t-4 border-teal-700 shadow-md js-show-more-less">
                     <div class="pt-8 pb-6 pl-6 pr-5">
-                        <p class="text-xl font-bold">Bonus</p>
+                        <p class="text-xl font-bold">{{ __('Bonus') }}</p>
 
                         <ul class="mt-6 js-show-more-less-items">
                             @foreach ($freeResources->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])->where('is_bonus', true) as $resource)
@@ -40,7 +40,7 @@ use App\Resource;
                     </div>
 
                     <button class="hidden block w-full px-8 py-4 font-semibold text-left border-t-2 border-gray-300 text-persian-green js-show-more-less-button">
-                        View more
+                        {{ __('View more') }}
                     </button>
                 </div>
             @endif
@@ -49,26 +49,26 @@ use App\Resource;
         <tab name="Books, Articles &amp; Audio">
             <div class="bg-white border-t-4 border-teal-700 shadow-md js-show-more-less">
                 <div class="pt-8 pb-6 pl-6 pr-5">
-                    <p class="text-xl font-bold md:text-2xl">Books, Articles &amp; Audio</p>
+                    <p class="text-xl font-bold md:text-2xl">{{ __('Books, Articles & Audio') }}</p>
 
                     <ul class="mt-6 js-show-more-less-items">
                         @forelse ($freeResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE, Resource::BOOK_TYPE])->where('is_bonus', false)->all() as $resource)
                             @include('partials.resource-on-module-page')
                         @empty
-                            <li class="list-none">No resources</li>
+                            <li class="list-none">{{ __('No resources')}}</li>
                         @endforelse
                     </ul>
                 </div>
 
                 <button class="hidden block w-full px-8 py-4 font-semibold text-left border-t-2 border-gray-300 text-persian-green js-show-more-less-button">
-                    View more
+                    {{ __('View more') }}
                 </button>
             </div>
 
             @if ($freeResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE, Resource::BOOK_TYPE])->where('is_bonus', true)->isNotEmpty())
                 <div class="mt-6 bg-white border-t-4 border-teal-700 shadow-md js-show-more-less">
                     <div class="pt-8 pb-6 pl-6 pr-5">
-                        <p class="text-xl font-bold">Bonus</p>
+                        <p class="text-xl font-bold">{{ __('Bonus') }}</p>
 
                         <ul class="mt-6 js-show-more-less-items">
                             @foreach ($freeResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE, Resource::BOOK_TYPE])->where('is_bonus', true) as $resource)
@@ -78,7 +78,7 @@ use App\Resource;
                     </div>
 
                     <button class="hidden block w-full px-8 py-4 font-semibold text-left border-t-2 border-gray-300 text-persian-green js-show-more-less-button">
-                        View more
+                        {{ __('View more') }}
                     </button>
                 </div>
             @endif
@@ -97,18 +97,18 @@ use App\Resource;
                     </g>
                 </svg>
 
-                <span>Videos &amp; Courses</span>
+                <span>{{ __('Videos & Courses') }}</span>
             </p>
 
             <ul class="pl-1 mt-6">
                 @forelse ($freeResources->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])->where('is_bonus', false)->all() as $resource)
                     @include('partials.resource-on-module-page')
                 @empty
-                    <li class="list-none">No resources</li>
+                    <li class="list-none">{{ __('No resources')}}</li>
                 @endforelse
 
                 @if ($freeResources->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])->where('is_bonus', true)->isNotEmpty())
-                    <li class="mt-16 text-xl font-bold">Bonus</li>
+                    <li class="mt-16 text-xl font-bold">{{ __('Bonus') }}</li>
 
                     @foreach ($freeResources->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])->where('is_bonus', true) as $resource)
                         @include('partials.resource-on-module-page')
@@ -130,18 +130,18 @@ use App\Resource;
                     </g>
                 </svg>
 
-                <span>Books, Articles &amp; Audio</span>
+                <span>{{ __('Books, Articles & Audio') }}</span>
             </p>
 
             <ul class="pl-1 mt-6">
                 @forelse ($freeResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE, Resource::BOOK_TYPE])->where('is_bonus', false)->all() as $resource)
                     @include('partials.resource-on-module-page')
                 @empty
-                    <li class="list-none">No resources</li>
+                    <li class="list-none">{{ __('No resources')}}</li>
                 @endforelse
 
                 @if ($freeResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE, Resource::BOOK_TYPE])->where('is_bonus', true)->isNotEmpty())
-                    <li class="mt-16 text-xl font-bold">Bonus</li>
+                    <li class="mt-16 text-xl font-bold">{{ __('Bonus') }}</li>
 
                     @foreach ($freeResources->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE, Resource::BOOK_TYPE])->where('is_bonus', true) as $resource)
                         @include('partials.resource-on-module-page')

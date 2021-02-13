@@ -48,7 +48,6 @@ class PreferencesPageTest extends TestCase
     function on_failed_validation_it_persists_old_submitted_values()
     {
         $this->markTestIncomplete();
-
     }
 
     // @todo test every preference to make sure that it can be changed via the page

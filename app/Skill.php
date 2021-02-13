@@ -2,9 +2,6 @@
 
 namespace App;
 
-use App\Completable;
-use App\Completion;
-use App\Module;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 

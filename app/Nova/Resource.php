@@ -31,7 +31,7 @@ class Resource extends BaseResource
      *
      */
     public static $search = [
-        'id', 'name'
+        'id', 'name',
     ];
 
     public function typeFields()

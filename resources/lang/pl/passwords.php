@@ -1,10 +1,9 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
-    | Password Reset Language Lines
+    | Password Reminder Language Lines
     |--------------------------------------------------------------------------
     |
     | The following language lines are the default lines which match reasons
@@ -13,10 +12,9 @@ return [
     |
     */
 
-    'password' => 'Lösenord måste vara minst 8 tecken och måste matcha bekräftelse-fältet',
-    'reset' => 'Ditt lösenord har blivit återställt!',
-    'sent' => 'Vi har mailat dig en länk för att återställa lösenordet!',
-    'token' => 'Din återställnings-token är felaktig.',
-    'user' => 'Vi kan inte hitta användaren med den e-posten.',
-
+    'reset'     => 'Hasło zostało zresetowane!',
+    'sent'      => 'Przypomnienie hasła zostało wysłane!',
+    'throttled' => 'Proszę zaczekać zanim spróbujesz ponownie.',
+    'token'     => 'Token resetowania hasła jest nieprawidłowy.',
+    'user'      => 'Nie znaleziono użytkownika z takim adresem e-mail.',
 ];

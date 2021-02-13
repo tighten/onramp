@@ -13,7 +13,7 @@ class Term extends BaseResource
     public static $title = 'name';
 
     public static $search = [
-        'id', 'name', 'description'
+        'id', 'name', 'description',
     ];
 
     /**

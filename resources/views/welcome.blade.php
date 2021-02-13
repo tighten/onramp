@@ -5,7 +5,7 @@
     <div class="pt-16 pb-20 overflow-hidden text-left bg-indigo-100 lg:pt-48 lg:pb-64">
         <div class="relative fluid-container">
             <h1 class="w-11/12 md:w-7/12 xl:w-5/12">
-                {{ __('An easy entrance to Laravel for new developers') }}
+                {{ __('Learn Laravel quickly, no matter your background.') }}
             </h1>
 
             <a
@@ -39,14 +39,14 @@
             </picture>
 
             <div class="relative w-full mx-auto lg:text-center lg:max-w-3xl">
-                <h2>What is this?</h2>
+                <h2>{{ __('What is this?') }}</h2>
 
                 <p class="mt-8 leading-normal lg:text-xl lg:mt-10">
-                    Onramp gathers educational resources, organized for you to become a Laravel programmer as easily and effectively as possible.
+                    {{ __('Onramp gathers educational resources, organized for you to become a Laravel programmer as easily and effectively as possible.')}}
                 </p>
 
                 <p class="mt-5 leading-normal lg:text-xl lg:mt-16">
-                    Anyone can use Onramp, but we're focusing mainly on making it easy for these three groups to become professional Laravel programmers:
+                    {{ __("Anyone can use Onramp, but we're focusing mainly on making it easy for these three groups to become professional Laravel programmers:") }}
                 </p>
             </div>
 
@@ -57,7 +57,7 @@
                             <path fill="none" fill-rule="evenodd" stroke-width="3" d="M21.644 2.705l4.728 9.495c.187.374.546.632.962.692l10.572 1.523c1.047.151 1.464 1.425.707 2.157l-7.65 7.392c-.301.29-.438.708-.367 1.118l1.806 10.437c.178 1.033-.915 1.82-1.852 1.333l-9.456-4.928a1.287 1.287 0 00-1.188 0l-9.456 4.928c-.936.488-2.03-.3-1.852-1.333l1.806-10.437a1.255 1.255 0 00-.367-1.118l-7.65-7.392c-.758-.732-.34-2.006.707-2.157l10.573-1.523c.416-.06.775-.318.96-.692l4.728-9.495c.469-.94 1.82-.94 2.29 0z"/>
                         </svg>
                     </div>
-                    <h3 class="ml-4 font-semibold lg:w-full lg:ml-0 lg:mt-5">Brand-new developers</h3>
+                    <h3 class="ml-4 font-semibold lg:w-full lg:ml-0 lg:mt-5">{{ __('Brand-new developers') }}</h3>
                 </div>
 
                 <div class="flex items-center w-full my-5 lg:w-2/6 lg:flex-wrap lg:justify-center">
@@ -66,7 +66,7 @@
                             <path fill="none" fill-rule="evenodd" stroke-width="3" d="M20.714 26.372L27.931 1M16.389 21.867l-13.36-6.04c-1.322-.599-1.384-2.453-.105-3.139l12.92-6.929M32.256 21.867l13.359-6.04c1.323-.599 1.386-2.453.107-3.139L32.801 5.76"/>
                         </svg>
                     </div>
-                    <h3 class="ml-4 font-semibold lg:w-full lg:ml-0 lg:mt-5">Frontend developers</h3>
+                    <h3 class="ml-4 font-semibold lg:w-full lg:ml-0 lg:mt-5">{{ __('Frontend developers') }}</h3>
                 </div>
 
                 <div class="flex items-center w-full my-5 lg:w-2/6 lg:flex-wrap lg:justify-center">
@@ -75,7 +75,7 @@
                             <path fill="none" fill-rule="evenodd" stroke-width="3" d="M4 1.5l6.22 21.354c.616 1.322 2.527 1.385 3.234.106L18 9M16 1.5l6.268 21.354c.62 1.322 2.546 1.385 3.258.106L33 1.537M13 1.5h7.5M28.5 1.5h8M0 1.5h8"/>
                         </svg>
                     </div>
-                    <h3 class="ml-4 font-semibold lg:w-full lg:ml-0 lg:mt-5">WordPress developers</h3>
+                    <h3 class="ml-4 font-semibold lg:w-full lg:ml-0 lg:mt-5">{{ __('WordPress developers') }}</h3>
                 </div>
             </div>
 
@@ -128,14 +128,14 @@
 
             <div class="relative">
                 <p class="max-w-2xl my-6 leading-normal lg:text-xl lg:leading-loose lg:my-12">
-                    It's iterative and opinionated. It's open source and contributions are welcome, but in the end Tighten will keep it focused on the way we think folks are best prepared for a career as a Laravel developer.
+                    {{ __("Join Onramp for free today to see the technologies and processes the team at Tighten thinks are best for you to learn, and our favorite resources for learning them.") }}
                 </p>
 
-                <h2 class="mt-10 lg:mt-16">Let's do it!</h2>
+                <h2 class="mt-10 lg:mt-16">{{ __("Let's do it!") }}</h2>
 
                 <a class="mt-6 button button-white lg:mt-10"
                     href="{{ route_wlocale('modules.index') }}">
-                    Ok, let's learn
+                    {{ __("Ok, let's learn") }}
                 </a>
             </div>
         </div>

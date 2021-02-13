@@ -13,9 +13,9 @@
                 </svg>
 
                 <p class="ml-3 text-base font-medium text-orange-600 lg:ml-5">
-                    <span class="font-bold">Recommended updates to your preferences</span><br>
+                    <span class="font-bold">{{ __('Recommended updates to your preferences') }}</span><br>
 
-                    <span class="text-sm">If you'd like to track your progress based on your current track, we recommend updating this setting in your <a class="underline" href="{{ url_wlocale('preferences') }}">user preferences</a>.</span>
+                    <span class="text-sm">{{ __("If you'd like to track your progress based on your current track, we recommend updating this setting in your") }} <a class="underline" href="{{ url_wlocale('preferences') }}">{{ __('user preferences') }}</a>.</span>
                 </p>
             </div>
         </div>

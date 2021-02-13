@@ -9,7 +9,7 @@ class GlossaryController extends Controller
     public function index()
     {
         return view('glossary', [
-            'pageTitle' => 'Glossary',
+            'pageTitle' => __('Glossary'),
             'terms' => Term::with(['resourcesForCurrentSession', 'relatedTerms'])->get(),
         ]);
     }

@@ -17,6 +17,6 @@ return [
     'reset' => 'Kata sandi anda telah direset!',
     'sent' => 'Kami telah mengirimkan email yang berisi link reset kata sandi!',
     'token' => 'Token reset kata sandi ini tidak valid.',
-    'user' => "Kami tidak menemukan pengguna dengan alamat email seperti itu.",
+    'user' => 'Kami tidak menemukan pengguna dengan alamat email seperti itu.',
 
 ];

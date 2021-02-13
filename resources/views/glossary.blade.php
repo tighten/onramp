@@ -35,7 +35,7 @@
 
                             @if ($term->resourcesForCurrentSession->count() > 0)
                                 <div class="flex flex-col mt-4">
-                                    <span class="text-gray-800">Related resources:</span>
+                                    <span class="text-gray-800">{{ __('Related resources:') }}</span>
                                     @foreach ($term->resourcesForCurrentSession()->get() as $resource)
                                     <span>
                                         {{-- @todo update this to either show first module, all modules, or none if resource unassigned --}}
@@ -53,7 +53,7 @@
 
                             @if ($term->relatedTerms->count() > 0)
                                 <div class="flex items-center mt-4">
-                                    <span class="text-gray-800">Related Terms:</span>
+                                    <span class="text-gray-800">{{ __('Related Terms:') }}</span>
                                     @foreach ($term->relatedTerms as $relatedTerm)
                                     <a class="px-3 ml-2 text-sm font-semibold text-gray-700 bg-gray-400 rounded-full"
                                         href="#{{ $relatedTerm->name }}">#{{ $relatedTerm->name }}</a>
@@ -63,7 +63,7 @@
 
                             @if ($term->relatedTerms->count() > 0)
                                 <div class="flex items-center mt-4">
-                                    <span class="text-gray-800">Related Terms:</span>
+                                    <span class="text-gray-800">{{ __('Related Terms:') }}</span>
                                     @foreach ($term->relatedTerms as $relatedTerm)
                                     <a class="px-3 ml-2 text-sm font-semibold text-gray-700 bg-gray-400 rounded-full"
                                         href="#{{ $relatedTerm->name }}">#{{ $relatedTerm->name }}</a>

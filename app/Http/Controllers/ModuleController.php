@@ -10,11 +10,11 @@ class ModuleController extends Controller
     public function index()
     {
         return view('modules.index', [
-            'pageTitle' => 'Modules',
+            'pageTitle' => __('Modules'),
             'standardModules' => auth()->check() && auth()->user()->hasTrack()
                 ? Module::with('resourcesForCurrentSession')->standard()->get()
                 : Module::standard()->get(),
-            'bonusModules' =>  auth()->check() && auth()->user()->hasTrack()
+            'bonusModules' => auth()->check() && auth()->user()->hasTrack()
                 ? Module::with('resourcesForCurrentSession')->bonus()->get()
                 : Module::bonus()->get(),
             'userModules' => auth()->check() && auth()->user()->hasTrack()
@@ -23,7 +23,7 @@ class ModuleController extends Controller
             'completedModules' => auth()->check()
                 ? auth()->user()->moduleCompletions()->pluck('completable_id')
                 : collect([]),
-            'userResourceCompletions' =>  auth()->check() && auth()->user()->hasTrack()
+            'userResourceCompletions' => auth()->check() && auth()->user()->hasTrack()
                 ? auth()->user()->resourceCompletions()->get()->pluck('completable_id')
                 : collect([]),
         ]);

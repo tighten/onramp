@@ -11,6 +11,8 @@ return [
     | that are given by the password broker for a password update attempt
     | has failed, such as for an invalid token or invalid new password.
     |
+    | 2020-10-01 José Borges
+    |
     */
 
     'password' => 'A palavra-passe deverá conter pelo menos seis carateres e ser igual à confirmação.',

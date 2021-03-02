@@ -11,9 +11,10 @@ return [
     | the simple pagination links. You are free to change them to anything
     | you want to customize your views to better match your application.
     |
+    | 2020-10-01 José Borges
+    |
     */
 
     'previous' => '&laquo; Anterior',
     'next' => 'Seguinte &raquo;',
-
 ];

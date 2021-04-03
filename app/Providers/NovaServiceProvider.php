@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use Astrotromic\NovaOptional\NovaOptionalServiceProvider;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
+use Tightenco\NovaReleases\LatestRelease;
 use Tightenco\SuggestedResourcesShortcuts\SuggestedResourcesShortcuts;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
@@ -54,8 +56,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function cards()
     {
         return [
-            new SuggestedResourcesShortcuts,
-            new \Tightenco\NovaReleases\LatestRelease,
+            new SuggestedResourcesShortcuts(),
+            new LatestRelease(),
         ];
     }
 
@@ -86,6 +88,11 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     public function register()
     {
-        //
+        if (NovaOptionalServiceProvider::hasNovaInstalled()) {
+            $this->app->register(\Tightenco\SuggestedResourcesShortcuts\CardServiceProvider::class);
+            $this->app->register(\Inspheric\Fields\UrlFieldServiceProvider::class);
+            $this->app->register(\MrMonat\Translatable\FieldServiceProvider::class);
+            $this->app->register(\Tightenco\NovaReleases\CardServiceProvider::class);
+        }
     }
 }

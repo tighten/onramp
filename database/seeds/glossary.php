@@ -288,8 +288,8 @@ return [
         ],
         'description' => [
             'en' => 'Laravel Nova is an administration dashboard that is known for its great design and the ability to administer the app\'s database records using Eloquent, the Laravel ORM (Object-Relational Mapping).',
-        ],
             'pt' => 'O Laravel Nova é um painel de administração conhecido por seu excelente design e capacidade de administrar os registros da base de dados da aplicação, utilizando o Eloquent, o Laravel ORM (Object-Relational Mapping).',
+        ],
     ],
     [
         'name' => [

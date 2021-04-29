@@ -2,7 +2,9 @@
 
 namespace Tests\Unit;
 
-use FreshInstallSeeder;
+use Database\Seeders\FreshInstallSeeder;
+use Database\Seeders\DatabaseSeeder;
+
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use ReplaceOnlyContentFromSeedersSeeder;
 use Tests\TestCase;

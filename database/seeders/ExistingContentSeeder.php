@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use App\Module;
 use App\Term;
 use App\Track;

@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use Database\Seeders\learn;
 use App\Localization\ResolveLocale;
 use Exception;
 use Illuminate\Http\Request;

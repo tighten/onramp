@@ -1,5 +1,8 @@
 <?php
 
+namespace Database\Seeders;
+
+use Database\Seeders\ExistingContentSeeder;
 use App\Track;
 use App\User;
 use Illuminate\Database\Seeder;

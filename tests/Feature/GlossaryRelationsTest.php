@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use Database\Seeders\glossary;
 use App\Resource;
 use App\Term;
 use Illuminate\Foundation\Testing\RefreshDatabase;

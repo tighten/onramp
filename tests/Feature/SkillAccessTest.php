@@ -14,7 +14,7 @@ class SkillAccessTest extends TestCase
     /** @test */
     function users_with_user_role_cannot_view_skills()
     {
-        $user = factory(User::class)->create(['role' => 'user']);
+        $user = User::factory()->create(['role' => 'user']);
 
         $this->assertFalse($user->can('view', new Skill));
     }
@@ -22,7 +22,7 @@ class SkillAccessTest extends TestCase
     /** @test */
     function users_with_editor_role_can_only_view_skills()
     {
-        $user = factory(User::class)->create(['role' => 'editor']);
+        $user = User::factory()->create(['role' => 'editor']);
 
         $this->assertTrue($user->can('view', new Skill));
         $this->assertTrue($user->can('viewAny', new Skill));

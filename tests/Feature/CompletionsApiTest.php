@@ -15,8 +15,8 @@ class CompletionsApiTest extends TestCase
     /** @test */
     function it_completes_a_passed_in_resource()
     {
-        $this->be(factory(User::class)->create());
-        $resource = factory(Resource::class)->create();
+        $this->be(User::factory()->create());
+        $resource = Resource::factory()->create();
 
         $response = $this->post(route_wlocale('user.completions.store'), [
             'completable_type' => $resource->getMorphClass(),
@@ -29,8 +29,8 @@ class CompletionsApiTest extends TestCase
     /** @test */
     function it_deletes_a_passed_in_resources_completion()
     {
-        $this->be($user = factory(User::class)->create());
-        $resource = factory(Resource::class)->create();
+        $this->be($user = User::factory()->create());
+        $resource = Resource::factory()->create();
 
         Completion::create([
             'completable_type' => $resource->getMorphClass(),
@@ -51,8 +51,8 @@ class CompletionsApiTest extends TestCase
     /** @test */
     function non_authenticated_users_cannot_delete_completions()
     {
-        $user = factory(User::class)->create();
-        $resource = factory(Resource::class)->create();
+        $user = User::factory()->create();
+        $resource = Resource::factory()->create();
 
         Completion::create([
             'completable_type' => $resource->getMorphClass(),

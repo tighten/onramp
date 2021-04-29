@@ -13,7 +13,7 @@ class ProfileTest extends TestCase
     /** @test */
     function users_can_access_their_profile_page()
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
 
         $this->be($user)->get(route_wlocale('user.profile.show'))
             ->assertStatus(200);
@@ -22,7 +22,7 @@ class ProfileTest extends TestCase
     /** @test */
     function users_can_update_their_profile_settings()
     {
-        $user = factory(User::class)->create([
+        $user = User::factory()->create([
             'name' => 'Caleb Dume',
             'email' => 'test@example.com',
         ]);
@@ -51,7 +51,7 @@ class ProfileTest extends TestCase
     /** @test */
     function updating_user_profile_requires_a_name_and_email()
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
 
         $response = $this->be($user)->put(route_wlocale('user.profile.update'));
 
@@ -62,7 +62,7 @@ class ProfileTest extends TestCase
     /** @test */
     function updating_user_profile_requires_a_valid_email()
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
 
         $response = $this->be($user)->put(route_wlocale('user.profile.update'), [
             'email' => 'invalid',

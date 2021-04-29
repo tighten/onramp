@@ -2,10 +2,10 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Module;
 use App\OperatingSystem;
 use App\Resource;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ResourceFactory extends Factory
 {

@@ -2,10 +2,9 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Term;
 use Faker\Factory;
-use Faker\Generator;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class TermFactory extends Factory
 {

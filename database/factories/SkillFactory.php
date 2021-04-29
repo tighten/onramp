@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Module;
 use App\Skill;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class SkillFactory extends Factory
 {

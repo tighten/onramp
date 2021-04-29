@@ -10,7 +10,7 @@ use MrMonat\Translatable\Translatable;
 
 class Skill extends Resource
 {
-    public static $model = 'App\Skill';
+    public static $model = \App\Skill::class;
 
     public static $title = 'id';
 

@@ -14,7 +14,7 @@ class PreferencesPageTest extends TestCase
     /** @test */
     function it_loads()
     {
-        $this->be(factory(User::class)->create());
+        $this->be(User::factory()->create());
         $response = $this->get(route('user.preferences.index', ['locale' => 'en']));
 
         $response->assertStatus(200);
@@ -24,7 +24,7 @@ class PreferencesPageTest extends TestCase
     function it_modifies_operating_system_when_changed()
     {
         $this->withoutExceptionHandling();
-        $this->be(factory(User::class)->create());
+        $this->be(User::factory()->create());
 
         $this->get('/en'); // Set locale
         $this->patch(route_wlocale('user.preferences.update'), [

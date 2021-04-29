@@ -18,8 +18,8 @@ class CompletablesTest extends TestCase
     /** @test */
     function user_can_complete_a_resource()
     {
-        $user = factory(User::class)->create();
-        $resource = factory(Resource::class)->create();
+        $user = User::factory()->create();
+        $resource = Resource::factory()->create();
 
         $user->complete($resource);
 
@@ -29,8 +29,8 @@ class CompletablesTest extends TestCase
     /** @test */
     function user_can_undo_a_resource_completion()
     {
-        $user = factory(User::class)->create();
-        $resource = factory(Resource::class)->create();
+        $user = User::factory()->create();
+        $resource = Resource::factory()->create();
 
         $user->complete($resource);
         $user->undoComplete($resource);
@@ -41,8 +41,8 @@ class CompletablesTest extends TestCase
     /** @test */
     function user_can_complete_a_module()
     {
-        $user = factory(User::class)->create();
-        $module = factory(Module::class)->create();
+        $user = User::factory()->create();
+        $module = Module::factory()->create();
 
         $user->complete($module);
 
@@ -52,8 +52,8 @@ class CompletablesTest extends TestCase
     /** @test */
     function user_can_undo_a_module_completion()
     {
-        $user = factory(User::class)->create();
-        $module = factory(Module::class)->create();
+        $user = User::factory()->create();
+        $module = Module::factory()->create();
 
         $user->complete($module);
         $user->undoComplete($module);
@@ -64,8 +64,8 @@ class CompletablesTest extends TestCase
     /** @test */
     function user_can_complete_a_skill()
     {
-        $user = factory(User::class)->create();
-        $skill = factory(Skill::class)->create();
+        $user = User::factory()->create();
+        $skill = Skill::factory()->create();
 
         $user->complete($skill);
 
@@ -75,8 +75,8 @@ class CompletablesTest extends TestCase
     /** @test */
     function user_can_undo_a_skill_completion()
     {
-        $user = factory(User::class)->create();
-        $skill = factory(Skill::class)->create();
+        $user = User::factory()->create();
+        $skill = Skill::factory()->create();
 
         $user->complete($skill);
         $user->undoComplete($skill);
@@ -89,8 +89,8 @@ class CompletablesTest extends TestCase
     {
         $this->expectException(TypeError::class);
 
-        $user = factory(User::class)->create();
-        $otherUser = factory(User::class)->create();
+        $user = User::factory()->create();
+        $otherUser = User::factory()->create();
 
         $user->complete($otherUser);
 
@@ -100,9 +100,9 @@ class CompletablesTest extends TestCase
     /** @test */
     function user_can_list_module_completions()
     {
-        $user = factory(User::class)->create();
-        $module = factory(Module::class)->create();
-        $otherModule = factory(Module::class)->create();
+        $user = User::factory()->create();
+        $module = Module::factory()->create();
+        $otherModule = Module::factory()->create();
         $user->complete($otherModule);
 
         $this->assertContains($otherModule->id, $user->moduleCompletions->pluck('completable_id'));
@@ -112,9 +112,9 @@ class CompletablesTest extends TestCase
     /** @test */
     function user_can_list_resource_completions()
     {
-        $user = factory(User::class)->create();
-        $resource = factory(Resource::class)->create();
-        $otherResource = factory(Resource::class)->create();
+        $user = User::factory()->create();
+        $resource = Resource::factory()->create();
+        $otherResource = Resource::factory()->create();
         $user->complete($otherResource);
 
         $this->assertContains($otherResource->id, $user->resourceCompletions->pluck('completable_id'));
@@ -124,9 +124,9 @@ class CompletablesTest extends TestCase
     /** @test */
     function user_can_list_skill_completions()
     {
-        $user = factory(User::class)->create();
-        $skill = factory(Skill::class)->create();
-        $otherSkill = factory(Skill::class)->create();
+        $user = User::factory()->create();
+        $skill = Skill::factory()->create();
+        $otherSkill = Skill::factory()->create();
         $user->complete($otherSkill);
 
         $this->assertContains($otherSkill->id, $user->skillCompletions->pluck('completable_id'));

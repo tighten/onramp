@@ -14,7 +14,7 @@ class TrackAccessTest extends TestCase
     /** @test */
     function users_with_user_role_cannot_update_tracks()
     {
-        $user = factory(User::class)->create(['role' => 'user']);
+        $user = User::factory()->create(['role' => 'user']);
 
         $this->assertFalse($user->can('update', new Track));
     }
@@ -22,7 +22,7 @@ class TrackAccessTest extends TestCase
     /** @test */
     function users_with_editor_role_can_only_view_tracks()
     {
-        $user = factory(User::class)->create(['role' => 'editor']);
+        $user = User::factory()->create(['role' => 'editor']);
 
         $this->assertTrue($user->can('view', new Track));
         $this->assertTrue($user->can('viewAny', new Track));
@@ -34,7 +34,7 @@ class TrackAccessTest extends TestCase
     /** @test */
     function users_with_editor_role_cannot_attach_module_to_track()
     {
-        $user = factory(User::class)->create(['role' => 'editor']);
+        $user = User::factory()->create(['role' => 'editor']);
 
         $this->assertFalse($user->can('attachModule', new Track));
     }
@@ -42,7 +42,7 @@ class TrackAccessTest extends TestCase
     /** @test */
     function users_with_admin_role_can_update_tracks()
     {
-        $user = factory(User::class)->create(['role' => 'admin']);
+        $user = User::factory()->create(['role' => 'admin']);
 
         $this->assertTrue($user->can('update', new Track));
     }

@@ -1,13 +1,31 @@
 <?php
 
-use App\SuggestedResource;
-use Faker\Generator as Faker;
+namespace Database\Factories;
 
-$factory->define(SuggestedResource::class, function (Faker $faker) {
-    return [
-        'name' => $faker->sentence,
-        'url' => $faker->url,
-        'language' => $faker->randomElement(array_merge(['all'], Localization::slugs())),
-        'is_free' => $faker->boolean,
-    ];
-});
+use Illuminate\Database\Eloquent\Factories\Factory;
+use App\SuggestedResource;
+
+class SuggestedResourceFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = SuggestedResource::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'name' => $this->faker->sentence,
+            'url' => $this->faker->url,
+            'language' => $this->faker->randomElement(array_merge(['all'], Localization::slugs())),
+            'is_free' => $this->faker->boolean,
+        ];
+    }
+}

@@ -13,7 +13,7 @@ class TermsTest extends TestCase
     /** @test */
     function glossary_page_loads()
     {
-        $term = factory(Term::class)->create();
+        $term = Term::factory()->create();
 
         $response = $this->get('/en/glossary')
             ->assertSuccessful();
@@ -22,7 +22,7 @@ class TermsTest extends TestCase
     /** @test */
     function glossary_terms_can_be_multi_lingual()
     {
-        $term = factory(Term::class)->create();
+        $term = Term::factory()->create();
 
         $response = $this->get('/en/glossary')
             ->assertSee($term->name);
@@ -35,7 +35,7 @@ class TermsTest extends TestCase
     /** @test */
     function a_term_that_only_exists_in_english_shows_it_in_english_on_other_locales()
     {
-        $term = factory(Term::class)->create([
+        $term = Term::factory()->create([
             'name' => ['en' => 'Routes'],
             'description' => ['en' => 'This should be some information about the routes'],
         ]);

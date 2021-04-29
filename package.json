@@ -20,14 +20,15 @@
         "laravel-mix": "^6.0.12",
         "lodash": "^4.17.20",
         "popper.js": "^1.16.1",
+        "postcss": "^8.2.8",
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.26.10",
         "sass-loader": "^7.3.1",
         "stylelint": "^13.6.1",
         "stylelint-config-standard": "^20.0.0",
         "vue": "^2.6.12",
-        "vue-template-compiler": "^2.6.12",
-        "postcss": "^8.2.8"
+        "vue-loader": "^15.9.5",
+        "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
         "lang.js": "^1.1.14",

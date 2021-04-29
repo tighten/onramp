@@ -1,5 +1,3 @@
-use Database\Seeders\learn;
-use Database\Seeders\glossary;
 <!--sitewide-banner>
     <template v-slot:message>
         <span class="font-semibold uppercase">{{ __('NOTE:') }}</span> {{ __("This site is under active development, so it's not complete right now. Check out the") }} <a href="{{ route_wlocale('dev') }}" class="font-semibold hover:underline">{{ __('dev page') }}</a> {{ __('to learn more.')}}

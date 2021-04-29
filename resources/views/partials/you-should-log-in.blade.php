@@ -1,4 +1,3 @@
-use Database\Seeders\learn;
 @if ($checkboxesWork = true)
 @guest
     <div class="px-6 py-2 text-xs text-center text-white bg-gray-600 border-b">

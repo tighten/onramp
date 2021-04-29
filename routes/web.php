@@ -1,4 +1,5 @@
 <?php
+use Database\Seeders\glossary;
 
 Route::get('/', 'RootRedirectController');
 

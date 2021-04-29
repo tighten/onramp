@@ -1,4 +1,6 @@
 <?php
+namespace Database\Seeders;
+
 
 // Each entry is a module, which can have resources and skills
 return [

@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use App\SuggestedResource;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class SuggestedResourceFactory extends Factory
 {

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Database\Seeders\glossary;
 use App\Term;
 
 class GlossaryController extends Controller

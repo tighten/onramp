@@ -3,7 +3,6 @@
 namespace Tests\Unit;
 
 use Database\Seeders\FreshInstallSeeder;
-use Database\Seeders\DatabaseSeeder;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use ReplaceOnlyContentFromSeedersSeeder;

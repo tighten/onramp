@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Track;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class TrackFactory extends Factory
 {

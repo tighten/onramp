@@ -6,6 +6,8 @@ use App\Module;
 use App\Term;
 use App\Track;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 
 class ExistingContentSeeder extends Seeder
 {

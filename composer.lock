@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fcfae8c5b491833f43470f7ba13de4ef",
+    "content-hash": "6106cace3705d2a4c7a3ca1a9a9c9dbe",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7613,16 +7613,16 @@
         },
         {
             "name": "facade/flare-client-php",
-            "version": "1.7.0",
+            "version": "1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/flare-client-php.git",
-                "reference": "6bf380035890cb0a09b9628c491ae3866b858522"
+                "reference": "69742118c037f34ee1ef86dc605be4a105d9e984"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/flare-client-php/zipball/6bf380035890cb0a09b9628c491ae3866b858522",
-                "reference": "6bf380035890cb0a09b9628c491ae3866b858522",
+                "url": "https://api.github.com/repos/facade/flare-client-php/zipball/69742118c037f34ee1ef86dc605be4a105d9e984",
+                "reference": "69742118c037f34ee1ef86dc605be4a105d9e984",
                 "shasum": ""
             },
             "require": {
@@ -7666,7 +7666,7 @@
             ],
             "support": {
                 "issues": "https://github.com/facade/flare-client-php/issues",
-                "source": "https://github.com/facade/flare-client-php/tree/1.7.0"
+                "source": "https://github.com/facade/flare-client-php/tree/1.8.0"
             },
             "funding": [
                 {
@@ -7674,20 +7674,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-04-12T09:30:36+00:00"
+            "time": "2021-04-30T11:11:50+00:00"
         },
         {
             "name": "facade/ignition",
-            "version": "2.8.3",
+            "version": "2.8.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "a8201d51aae83addceaef9344592a3b068b5d64d"
+                "reference": "87fb348dab0ae1a7c206c3e902a5a44ba541742f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/a8201d51aae83addceaef9344592a3b068b5d64d",
-                "reference": "a8201d51aae83addceaef9344592a3b068b5d64d",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/87fb348dab0ae1a7c206c3e902a5a44ba541742f",
+                "reference": "87fb348dab0ae1a7c206c3e902a5a44ba541742f",
                 "shasum": ""
             },
             "require": {
@@ -7751,7 +7751,7 @@
                 "issues": "https://github.com/facade/ignition/issues",
                 "source": "https://github.com/facade/ignition"
             },
-            "time": "2021-04-09T20:45:59+00:00"
+            "time": "2021-04-29T13:55:26+00:00"
         },
         {
             "name": "facade/ignition-contracts",
@@ -10829,16 +10829,16 @@
         },
         {
             "name": "tightenco/tlint",
-            "version": "v5.0.16",
+            "version": "v6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tighten/tlint.git",
-                "reference": "5f406e888725ba93a8452826321b5f01f7d7e7b2"
+                "reference": "f9a8335b4bfa53d7b7118c028fc9507b8d39b386"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tighten/tlint/zipball/5f406e888725ba93a8452826321b5f01f7d7e7b2",
-                "reference": "5f406e888725ba93a8452826321b5f01f7d7e7b2",
+                "url": "https://api.github.com/repos/tighten/tlint/zipball/f9a8335b4bfa53d7b7118c028fc9507b8d39b386",
+                "reference": "f9a8335b4bfa53d7b7118c028fc9507b8d39b386",
                 "shasum": ""
             },
             "require": {
@@ -10857,11 +10857,8 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Tighten\\": "src/"
-                },
-                "files": [
-                    "src/helpers.php"
-                ]
+                    "Tighten\\TLint\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -10878,27 +10875,27 @@
             "homepage": "https://github.com/tighten/tlint",
             "support": {
                 "issues": "https://github.com/tighten/tlint/issues",
-                "source": "https://github.com/tighten/tlint/tree/v5.0.16"
+                "source": "https://github.com/tighten/tlint/tree/v6.0.0"
             },
-            "time": "2021-03-26T14:39:01+00:00"
+            "time": "2021-04-23T16:03:55+00:00"
         },
         {
             "name": "wulfheart/pretty_routes",
-            "version": "0.1.2",
+            "version": "0.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Wulfheart/pretty-routes.git",
-                "reference": "92b3d320a0db16c5a687097f912086962830ae1c"
+                "reference": "8aa0e3e8af82929765edeadad4d04eeffa7cfc08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Wulfheart/pretty-routes/zipball/92b3d320a0db16c5a687097f912086962830ae1c",
-                "reference": "92b3d320a0db16c5a687097f912086962830ae1c",
+                "url": "https://api.github.com/repos/Wulfheart/pretty-routes/zipball/8aa0e3e8af82929765edeadad4d04eeffa7cfc08",
+                "reference": "8aa0e3e8af82929765edeadad4d04eeffa7cfc08",
                 "shasum": ""
             },
             "require": {
                 "illuminate/contracts": "^8.0",
-                "php": "^8.0",
+                "php": "^7.4|^8.0",
                 "spatie/laravel-package-tools": "^1.4.3"
             },
             "require-dev": {
@@ -10907,6 +10904,7 @@
                 "orchestra/testbench": "^6.15",
                 "phpunit/phpunit": "^9.3",
                 "spatie/laravel-ray": "^1.9",
+                "spatie/phpunit-snapshot-assertions": "^4.2",
                 "vimeo/psalm": "^4.4"
             },
             "type": "library",
@@ -10937,7 +10935,7 @@
                     "role": "Developer"
                 }
             ],
-            "description": "This is my package PrettyRoutes",
+            "description": "Display your Laravel routes in the console, but make it pretty. 😎",
             "homepage": "https://github.com/wulfheart/pretty_routes",
             "keywords": [
                 "laravel",
@@ -10946,9 +10944,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Wulfheart/pretty-routes/issues",
-                "source": "https://github.com/Wulfheart/pretty-routes/tree/0.1.2"
+                "source": "https://github.com/Wulfheart/pretty-routes/tree/0.1.3"
             },
-            "time": "2021-04-28T17:43:18+00:00"
+            "time": "2021-04-29T19:24:03+00:00"
         }
     ],
     "aliases": [],

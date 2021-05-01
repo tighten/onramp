@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use App\Term;
-use Faker\Factory;
+use Faker\Factory as Faker;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class TermFactory extends Factory
@@ -22,7 +22,7 @@ class TermFactory extends Factory
      */
     public function definition()
     {
-        $spanishFaker = Factory::create('es_ES');
+        $spanishFaker = Faker::create('es_ES');
 
         return [
             'name' => [

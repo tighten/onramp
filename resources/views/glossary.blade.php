@@ -1,4 +1,3 @@
-use Database\Seeders\glossary;
 @extends('layouts.app')
 
 @section('content')

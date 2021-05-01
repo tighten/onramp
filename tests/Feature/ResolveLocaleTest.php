@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use App\Localization\ResolveLocale;
-use Database\Seeders\learn;
 use Exception;
 use Illuminate\Http\Request;
 use Mockery;

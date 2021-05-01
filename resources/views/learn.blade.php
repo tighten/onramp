@@ -1,4 +1,3 @@
-use Database\Seeders\learn;
 @extends('layouts.app')
 
 @section('content')

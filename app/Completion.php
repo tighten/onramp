@@ -8,6 +8,11 @@ class Completion extends Model
 {
     protected $guarded = ['id'];
 
+    protected $casts = [
+        'user_id' => 'int',
+        'completable_id' => 'int',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

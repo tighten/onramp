@@ -6,20 +6,11 @@
         "laravel"
     ],
     "license": "MIT",
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://nova.laravel.com"
-        },
-        {
-            "type": "path",
-            "url": "./nova-components/SuggestedResourcesShortcuts"
-        }
-    ],
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^8.0",
         "bugsnag/bugsnag-laravel": "^2.22",
         "fideloper/proxy": "^4.4",
+        "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "inspheric/nova-url-field": "^1.4",
         "kg-bot/laravel-localization-to-vue": "^1.6",
@@ -28,24 +19,24 @@
         "laravel/slack-notification-channel": "^2.3",
         "laravel/tinker": "^2.5",
         "mrmonat/nova-translatable": "^2.0",
-        "spatie/laravel-translatable": "^5.0",
-        "tightenco/nova-releases": "^0.2.5",
+        "spatie/laravel-translatable": "^4.0",
+        "tightenco/nova-releases": "^1.0",
         "tightenco/suggested-resources-shortcuts": "*",
-        "tightenco/tlint": "^5.0",
-        "tightenco/ziggy": "^1.1",
-        "fruitcake/laravel-cors": "^2.0"
+        "tightenco/ziggy": "^1.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",
         "barryvdh/laravel-ide-helper": "^2.10",
         "beyondcode/laravel-dump-server": "^1.7",
         "facade/ignition": "^2.5",
+        "fakerphp/faker": "^1.9.1",
         "filp/whoops": "^2.12",
         "friendsofphp/php-cs-fixer": "^2.18",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
         "phpunit/phpunit": "^9.3.3",
-        "fakerphp/faker": "^1.9.1"
+        "tightenco/tlint": "^6.0",
+        "wulfheart/pretty_routes": "^0.1.2"
     },
     "config": {
         "optimize-autoloader": true,
@@ -72,6 +63,16 @@
             "Tests\\": "tests/"
         }
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/SuggestedResourcesShortcuts"
+        }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {

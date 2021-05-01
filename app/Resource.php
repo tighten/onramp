@@ -26,6 +26,7 @@ class Resource extends Model implements Completable
 
     protected $guarded = ['id'];
     protected $casts = [
+        'id' => 'int',
         'is_bonus' => 'boolean',
         'is_free' => 'boolean',
     ];

@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Term;
+use App\Models\Term;
 use Faker\Factory as Faker;
 use Illuminate\Database\Eloquent\Factories\Factory;
 

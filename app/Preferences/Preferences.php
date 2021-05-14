@@ -2,7 +2,7 @@
 
 namespace App\Preferences;
 
-use App\User;
+use App\Models\User;
 use Exception;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cookie;

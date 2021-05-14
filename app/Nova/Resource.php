@@ -3,7 +3,7 @@
 namespace App\Nova;
 
 use App\Facades\Localization;
-use App\Resource as EloquentResource;
+use App\Models\Resource as EloquentResource;
 use Illuminate\Http\Request;
 use Inspheric\Fields\Url;
 use Laravel\Nova\Fields\BelongsToMany;
@@ -18,7 +18,7 @@ class Resource extends BaseResource
      * The model the resource corresponds to.
      *
      */
-    public static $model = \App\Resource::class;
+    public static $model = \App\Models\Resource::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.

@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\SuggestedResource;
-use App\User;
+use App\Models\SuggestedResource;
+use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class SuggestedResourcePolicy
@@ -18,7 +18,7 @@ class SuggestedResourcePolicy
     /**
      * Determine whether the user can view any Suggested resources.
      *
-     * @param  \App\User  $user
+     * @param  \App\Models\User  $user
      * @return mixed
      */
     public function viewAny(User $user)
@@ -29,8 +29,8 @@ class SuggestedResourcePolicy
     /**
      * Determine whether the user can view the Suggested resource.
      *
-     * @param  \App\User  $user
-     * @param  \App\SuggestedResource  $suggestedResource
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\SuggestedResource  $suggestedResource
      * @return mixed
      */
     public function view(User $user, SuggestedResource $suggestedResource)
@@ -41,7 +41,7 @@ class SuggestedResourcePolicy
     /**
      * Determine whether the user can create Suggested resources.
      *
-     * @param  \App\User  $user
+     * @param  \App\Models\User  $user
      * @return mixed
      */
     public function create(User $user)
@@ -52,8 +52,8 @@ class SuggestedResourcePolicy
     /**
      * Determine whether the user can update the Suggested resource.
      *
-     * @param  \App\User  $user
-     * @param  \App\SuggestedResource  $suggestedResource
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\SuggestedResource  $suggestedResource
      * @return mixed
      */
     public function update(User $user, SuggestedResource $suggestedResource)
@@ -64,8 +64,8 @@ class SuggestedResourcePolicy
     /**
      * Determine whether the user can delete the Suggested resource.
      *
-     * @param  \App\User  $user
-     * @param  \App\SuggestedResource  $suggestedResource
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\SuggestedResource  $suggestedResource
      * @return mixed
      */
     public function delete(User $user, SuggestedResource $suggestedResource)
@@ -76,8 +76,8 @@ class SuggestedResourcePolicy
     /**
      * Determine whether the user can restore the Suggested resource.
      *
-     * @param  \App\User  $user
-     * @param  \App\SuggestedResource  $suggestedResource
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\SuggestedResource  $suggestedResource
      * @return mixed
      */
     public function restore(User $user, SuggestedResource $suggestedResource)
@@ -88,8 +88,8 @@ class SuggestedResourcePolicy
     /**
      * Determine whether the user can permanently delete the Suggested resource.
      *
-     * @param  \App\User  $user
-     * @param  \App\SuggestedResource  $suggestedResource
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\SuggestedResource  $suggestedResource
      * @return mixed
      */
     public function forceDelete(User $user, SuggestedResource $suggestedResource)

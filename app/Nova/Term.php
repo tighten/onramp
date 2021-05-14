@@ -8,7 +8,7 @@ use MrMonat\Translatable\Translatable;
 
 class Term extends BaseResource
 {
-    public static $model = \App\Term::class;
+    public static $model = \App\Models\Term::class;
 
     public static $title = 'name';
 

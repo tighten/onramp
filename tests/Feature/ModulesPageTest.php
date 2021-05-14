@@ -2,9 +2,9 @@
 
 namespace Tests\Feature;
 
-use App\Module;
-use App\Track;
-use App\User;
+use App\Models\Module;
+use App\Models\Track;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 

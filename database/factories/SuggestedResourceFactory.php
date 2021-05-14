@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Facades\Localization;
 use App\SuggestedResource;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Facades\Localization;
 
 class SuggestedResourceFactory extends Factory
 {

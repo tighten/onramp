@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use App\Facades\Localization;
-use App\SuggestedResource;
+use App\Models\SuggestedResource;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class SuggestedResourceFactory extends Factory

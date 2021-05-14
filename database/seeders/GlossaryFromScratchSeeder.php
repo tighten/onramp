@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Term;
+use App\Models\Term;
 use Illuminate\Database\Seeder;
 
 class GlossaryFromScratchSeeder extends Seeder

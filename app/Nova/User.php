@@ -11,7 +11,7 @@ use Laravel\Nova\Fields\Text;
 
 class User extends BaseResource
 {
-    public static $model = \App\User::class;
+    public static $model = \App\Models\User::class;
 
     public static $title = 'name';
 

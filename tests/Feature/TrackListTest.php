@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\Module;
-use App\Track;
+use App\Models\Module;
+use App\Models\Track;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 

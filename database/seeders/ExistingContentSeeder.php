@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Module;
-use App\Term;
-use App\Track;
+use App\Models\Module;
+use App\Models\Term;
+use App\Models\Track;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;

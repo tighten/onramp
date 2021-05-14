@@ -2,10 +2,10 @@
 
 namespace Tests\Feature;
 
-use App\Module;
+use App\Models\Module;
 use App\Nova\Actions\ApproveSuggestedResource;
-use App\SuggestedResource;
-use App\User;
+use App\Models\SuggestedResource;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Laravel\Nova\Fields\ActionFields;

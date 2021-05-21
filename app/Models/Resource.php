@@ -1,8 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
+use App\Completable;
 use App\Facades\Preferences;
+use App\OperatingSystem;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 

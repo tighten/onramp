@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Track;
-use App\User;
+use App\Models\Track;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class FreshInstallSeeder extends Seeder

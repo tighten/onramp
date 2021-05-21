@@ -1,5 +1,5 @@
 @php
-use App\Resource;
+use App\Models\Resource;
 @endphp
 
 <div class="lg:hidden">

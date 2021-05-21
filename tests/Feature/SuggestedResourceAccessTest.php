@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\SuggestedResource;
-use App\User;
+use App\Models\SuggestedResource;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Completion;
+use App\Models\Completion;
 use Illuminate\Http\Request;
 
 class CompletionsController extends Controller

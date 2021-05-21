@@ -2,8 +2,8 @@
 
 namespace App\Nova\Actions;
 
-use App\Resource;
-use App\SuggestedResource;
+use App\Models\Resource;
+use App\Models\SuggestedResource;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Collection;

@@ -1,12 +1,17 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
+use App\Completable;
 use App\Facades\Preferences;
+use App\OperatingSystem;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Resource extends Model implements Completable
 {
+    use HasFactory;
+
     const VIDEO_TYPE = 'video';
     const COURSE_TYPE = 'course';
     const AUDIO_TYPE = 'audio';
@@ -23,6 +28,7 @@ class Resource extends Model implements Completable
 
     protected $guarded = ['id'];
     protected $casts = [
+        'id' => 'int',
         'is_bonus' => 'boolean',
         'is_free' => 'boolean',
     ];

@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -14,7 +14,7 @@ class WizardTest extends TestCase
     function it_loads()
     {
         $this->withoutExceptionHandling();
-        $this->be(factory(User::class)->create());
+        $this->be(User::factory()->create());
         $response = $this->get(route('wizard.index', ['locale' => 'en']));
 
         $response->assertStatus(200);

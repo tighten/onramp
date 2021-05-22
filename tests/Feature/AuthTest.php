@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -13,7 +13,7 @@ class AuthTest extends TestCase
     /** @test */
     function user_can_log_in()
     {
-        $this->be($user = factory(User::class)->create());
+        $this->be($user = User::factory()->create());
 
         $response = $this->post('/en/login', [
             'email' => $user->email,

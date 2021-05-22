@@ -2,9 +2,9 @@
 
 namespace Tests\Feature;
 
-use App\Module;
-use App\Track;
-use App\User;
+use App\Models\Module;
+use App\Models\Track;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -15,7 +15,7 @@ class ModulesPageTest extends TestCase
     /** @test */
     function module_show_loads()
     {
-        $module = factory(Module::class)->create();
+        $module = Module::factory()->create();
         $response = $this->get(route('modules.show', [
             'locale' => 'en',
             'module' => $module,
@@ -27,12 +27,12 @@ class ModulesPageTest extends TestCase
     /** @test */
     function modules_index_page_lists_modules()
     {
-        $standardModule = factory(Module::class)->create([
+        $standardModule = Module::factory()->create([
             'name' => 'Standard module',
             'is_bonus' => 0,
         ]);
 
-        $bonusModule = factory(Module::class)->create([
+        $bonusModule = Module::factory()->create([
             'name' => 'Bonus module',
             'is_bonus' => 1,
         ]);
@@ -48,7 +48,7 @@ class ModulesPageTest extends TestCase
     /** @test */
     function modules_index_page_loads_if_the_user_has_not_selected_a_track()
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
 
         if ($user->track) {
             $user->track()->dissociate();
@@ -62,12 +62,12 @@ class ModulesPageTest extends TestCase
     /** @test */
     function list_of_bonus_modules_only_contains_bonus_modules()
     {
-        $standardModule = factory(Module::class)->create([
+        $standardModule = Module::factory()->create([
             'name' => 'Standard module',
             'is_bonus' => 0,
         ]);
 
-        $bonusModule = factory(Module::class)->create([
+        $bonusModule = Module::factory()->create([
             'name' => 'Bonus module',
             'is_bonus' => 1,
         ]);
@@ -90,19 +90,19 @@ class ModulesPageTest extends TestCase
     /** @test */
     function list_of_user_modules_only_contains_modules_in_users_track()
     {
-        $track = factory(Track::class)->create();
-        $otherTrack = factory(Track::class)->create();
+        $track = Track::factory()->create();
+        $otherTrack = Track::factory()->create();
         $track->modules()->createMany(
-            factory(Module::class, 3)->make([
+            Module::factory()->count(3)->make([
                 'is_bonus' => 0,
             ])->toArray()
         );
         $otherTrack->modules()->createMany(
-            factory(Module::class, 2)->make([
+            Module::factory()->count(2)->make([
                 'is_bonus' => 0,
             ])->toArray()
         );
-        $user = factory(User::class)->create([
+        $user = User::factory()->create([
             'track_id' => 1,
         ]);
 
@@ -116,11 +116,11 @@ class ModulesPageTest extends TestCase
     /** @test */
     function list_of_completed_modules_only_contains_modules_completed_by_user()
     {
-        $user = factory(User::class)->create();
-        $anotherUser = factory(User::class)->create();
-        $moduleA = factory(Module::class)->create();
-        $moduleB = factory(Module::class)->create();
-        $moduleC = factory(Module::class)->create();
+        $user = User::factory()->create();
+        $anotherUser = User::factory()->create();
+        $moduleA = Module::factory()->create();
+        $moduleB = Module::factory()->create();
+        $moduleC = Module::factory()->create();
         $user->complete($moduleA);
         $user->complete($moduleB);
         $anotherUser->complete($moduleC);

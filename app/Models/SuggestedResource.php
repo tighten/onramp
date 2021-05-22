@@ -1,14 +1,16 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use App\User;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Event;
 use Laravel\Nova\Actions\Actionable;
 
 class SuggestedResource extends Model
 {
+    use HasFactory;
+
     use Actionable;
 
     const VIDEO_TYPE = 'video';

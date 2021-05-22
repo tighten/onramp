@@ -2,7 +2,7 @@
 
 namespace App\Nova\Filters;
 
-use App\SuggestedResource;
+use App\Models\SuggestedResource;
 use Illuminate\Http\Request;
 use Laravel\Nova\Filters\Filter;
 

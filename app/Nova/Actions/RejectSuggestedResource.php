@@ -3,8 +3,8 @@
 namespace App\Nova\Actions;
 
 use App\Mail\SuggestedResourceRejectionEmail;
-use App\SuggestedResource;
-use App\User;
+use App\Models\SuggestedResource;
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Collection;

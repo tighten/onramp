@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\Module;
-use App\Track;
+use App\Models\Module;
+use App\Models\Track;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -14,8 +14,8 @@ class TrackListTest extends TestCase
     /** @test */
     function anyone_can_access_the_tracks_page()
     {
-        $track = factory(Track::class)->create();
-        $module = factory(Module::class)->create();
+        $track = Track::factory()->create();
+        $module = Module::factory()->create();
         $track->modules()->save($module);
 
         $response = $this->get(route('tracks', ['locale' => 'en']));
@@ -29,7 +29,7 @@ class TrackListTest extends TestCase
     /** @test */
     function it_doesnt_show_tracks_with_no_modules()
     {
-        $track = factory(Track::class)->create();
+        $track = Track::factory()->create();
         $response = $this->get(route('tracks', ['locale' => 'en']));
 
         $response->assertOk()

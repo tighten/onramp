@@ -3,7 +3,7 @@
 namespace Tests\Feature;
 
 use App\Facades\Preferences;
-use App\User;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -14,7 +14,7 @@ class PreferenceRoutesTest extends TestCase
     /** @test */
     function resource_language_can_be_changed()
     {
-        $this->be(factory(User::class)->create());
+        $this->be(User::factory()->create());
 
         Preferences::set(['resource-language' => 'all']);
 
@@ -31,7 +31,7 @@ class PreferenceRoutesTest extends TestCase
     /** @test */
     function locale_can_be_changed()
     {
-        $this->be(factory(User::class)->create());
+        $this->be(User::factory()->create());
 
         $this->get('/en'); // Set locale
         $response = $this->patch(route_wlocale('user.preferences.update'), [
@@ -46,7 +46,7 @@ class PreferenceRoutesTest extends TestCase
     /** @test */
     function operating_system_can_be_changed()
     {
-        $this->be(factory(User::class)->create());
+        $this->be(User::factory()->create());
 
         Preferences::set(['operating-system' => 'windows']);
 

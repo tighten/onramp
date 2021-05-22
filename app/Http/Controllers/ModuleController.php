@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Facades\Preferences;
-use App\Module;
+use App\Models\Module;
 
 class ModuleController extends Controller
 {

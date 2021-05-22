@@ -7,7 +7,7 @@ use App\Nova\Actions\ApproveSuggestedResource;
 use App\Nova\Actions\RejectSuggestedResource;
 use App\Nova\Filters\SuggestedResourceStatus;
 use App\Nova\Filters\SuggestResourceOwner;
-use App\SuggestedResource as EloquentSuggestedResource;
+use App\Models\SuggestedResource as EloquentSuggestedResource;
 use Illuminate\Http\Request;
 use Inspheric\Fields\Url;
 use Laravel\Nova\Fields\Badge;
@@ -20,7 +20,7 @@ use Laravel\Nova\Fields\Textarea;
 
 class SuggestedResource extends BaseResource
 {
-    public static $model = \App\SuggestedResource::class;
+    public static $model = \App\Models\SuggestedResource::class;
 
     public static $title = 'name';
 

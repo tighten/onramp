@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 return [
     [
         'name' => [

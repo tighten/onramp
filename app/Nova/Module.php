@@ -2,7 +2,7 @@
 
 namespace App\Nova;
 
-use App\Module as EloquentModule;
+use App\Models\Module as EloquentModule;
 use App\Nova\Filters\ModuleSkillLevel;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsToMany;
@@ -18,7 +18,7 @@ class Module extends BaseResource
      * The model the resource corresponds to.
      *
      */
-    public static $model = \App\Module::class;
+    public static $model = \App\Models\Module::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.

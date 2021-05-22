@@ -1,9 +1,13 @@
 <?php
 
-use App\Module;
-use App\Term;
-use App\Track;
+namespace Database\Seeders;
+
+use App\Models\Module;
+use App\Models\Term;
+use App\Models\Track;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 
 class ExistingContentSeeder extends Seeder
 {

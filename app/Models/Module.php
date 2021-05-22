@@ -1,12 +1,16 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
+use App\Completable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
 class Module extends Model implements Completable
 {
+    use HasFactory;
+
     use HasTranslations;
 
     const BEGINNER_SKILL_LEVEL = 'beginner';

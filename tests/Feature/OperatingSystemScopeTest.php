@@ -3,10 +3,10 @@
 namespace Tests\Feature;
 
 use App\Facades\Preferences;
-use App\Module;
+use App\Models\Module;
 use App\OperatingSystem;
-use App\Resource;
-use App\User;
+use App\Models\Resource;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -23,14 +23,14 @@ class OperatingSystemScopeTest extends TestCase
             'is_bonus' => false,
             'language' => 'en',
         ];
-        $windowsResource = factory(Resource::class)->create(array_merge(['os' => OperatingSystem::WINDOWS], $commonAttributes));
-        $macResource = factory(Resource::class)->create(array_merge(['os' => OperatingSystem::MACOS], $commonAttributes));
-        $anyResource = factory(Resource::class)->create(array_merge(['os' => OperatingSystem::ANY], $commonAttributes));
+        $windowsResource = Resource::factory()->create(array_merge(['os' => OperatingSystem::WINDOWS], $commonAttributes));
+        $macResource = Resource::factory()->create(array_merge(['os' => OperatingSystem::MACOS], $commonAttributes));
+        $anyResource = Resource::factory()->create(array_merge(['os' => OperatingSystem::ANY], $commonAttributes));
 
-        $module = factory(Module::class)->create();
+        $module = Module::factory()->create();
         $module->resources()->saveMany([$windowsResource, $macResource, $anyResource]);
 
-        $this->be($user = factory(User::class)->create());
+        $this->be($user = User::factory()->create());
         Preferences::set(['operating-system' => OperatingSystem::WINDOWS, 'resource-language' => 'all']);
         $response = $this->get('/en/modules/' . $module->slug . '/free-resources');
         $response->assertSee($windowsResource->name);

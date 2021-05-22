@@ -2,10 +2,10 @@
 
 namespace Tests\Feature;
 
-use App\Module;
+use App\Models\Module;
 use App\Nova\Actions\ApproveSuggestedResource;
-use App\SuggestedResource;
-use App\User;
+use App\Models\SuggestedResource;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Laravel\Nova\Fields\ActionFields;
@@ -18,11 +18,11 @@ class SuggestedResourcesTest extends TestCase
     /** @test */
     function rejected_reason_field_shows_when_a_resource_has_been_rejected()
     {
-        $user = factory(User::class)->create([
+        $user = User::factory()->create([
             'track_id' => $this->faker->randomDigit,
         ]);
 
-        $suggestedResource = factory(SuggestedResource::class)->create([
+        $suggestedResource = SuggestedResource::factory()->create([
             'user_id' => $user->id,
             'status' => 'rejected',
             'rejected_reason' => $this->faker->sentence(),
@@ -40,11 +40,11 @@ class SuggestedResourcesTest extends TestCase
     /** @test */
     function rejected_reason_field_does_not_show_when_a_resource_has_not_been_rejected()
     {
-        $user = factory(User::class)->create([
+        $user = User::factory()->create([
             'track_id' => $this->faker->randomDigit,
         ]);
 
-        $suggestedResource = factory(SuggestedResource::class)->create([
+        $suggestedResource = SuggestedResource::factory()->create([
             'user_id' => $user->id,
             'status' => 'approved',
             'rejected_reason' => $this->faker->sentence(),
@@ -62,9 +62,9 @@ class SuggestedResourcesTest extends TestCase
     /** @test */
     function a_new_resource_is_created_after_a_suggested_resource_is_approved()
     {
-        $module = factory(Module::class)->create();
+        $module = Module::factory()->create();
 
-        $suggestedResource = factory(SuggestedResource::class)->create([
+        $suggestedResource = SuggestedResource::factory()->create([
             'user_id' => $this->faker->randomDigit,
             'type' => 'article',
             'module_id' => $module->id,

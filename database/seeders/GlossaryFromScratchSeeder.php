@@ -1,6 +1,8 @@
 <?php
 
-use App\Term;
+namespace Database\Seeders;
+
+use App\Models\Term;
 use Illuminate\Database\Seeder;
 
 class GlossaryFromScratchSeeder extends Seeder

@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\Resource;
-use App\Term;
+use App\Models\Resource;
+use App\Models\Term;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -15,13 +15,13 @@ class GlossaryRelationsTest extends TestCase
     function glossary_page_shows_related_resources()
     {
         $currentLocale = 'en';
-        $resource = factory(Resource::class)->create(['language' => $currentLocale]);
-        $otherResource = factory(Resource::class)->create(['language' => $currentLocale]);
-        $term = factory(Term::class)->create();
+        $resource = Resource::factory()->create(['language' => $currentLocale]);
+        $otherResource = Resource::factory()->create(['language' => $currentLocale]);
+        $term = Term::factory()->create();
 
         $term->resources()->save($resource);
 
-        $this->assertContains($resource->id, $term->fresh()->resources()->pluck('resources.id'));
+        $this->assertContains($resource->id, $term->fresh()->resources->pluck('id'));
 
         $response = $this->get("/{$currentLocale}/glossary");
         $response->assertSee($resource->name);
@@ -32,14 +32,14 @@ class GlossaryRelationsTest extends TestCase
     function glossary_page_hides_related_resources_not_in_the_current_locale()
     {
         $currentLocale = 'en';
-        $englishResource = factory(Resource::class)->create(['language' => $currentLocale]);
-        $spanishResource = factory(Resource::class)->create(['language' => 'es']);
-        $term = factory(Term::class)->create();
+        $englishResource = Resource::factory()->create(['language' => $currentLocale]);
+        $spanishResource = Resource::factory()->create(['language' => 'es']);
+        $term = Term::factory()->create();
 
         $term->resources()->saveMany([$englishResource, $spanishResource]);
 
-        $this->assertContains($englishResource->id, $term->fresh()->resources()->pluck('resources.id'));
-        $this->assertContains($spanishResource->id, $term->fresh()->resources()->pluck('resources.id'));
+        $this->assertContains($englishResource->id, $term->fresh()->resources->pluck('id'));
+        $this->assertContains($spanishResource->id, $term->fresh()->resources->pluck('id'));
         $this->assertNotContains($spanishResource->id, $term->fresh()->resourcesForCurrentSession()->pluck('resources.id'));
 
         $response = $this->get("/{$currentLocale}/glossary");

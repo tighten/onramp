@@ -6,7 +6,7 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');
+import Vue from 'vue';
 import './components';
 import ClickOutside from './directives/ClickOutside';
 import Lang from 'lang.js';

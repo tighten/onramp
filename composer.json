@@ -14,7 +14,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "inspheric/nova-url-field": "^1.4",
         "kg-bot/laravel-localization-to-vue": "^1.6",
-        "laravel/framework": "^8.43",
+        "laravel/framework": "^8.48",
         "laravel/nova": "^3.22",
         "laravel/slack-notification-channel": "^2.3",
         "laravel/tinker": "^2.5",

@@ -19,7 +19,7 @@
         "laravel/slack-notification-channel": "^2.3",
         "laravel/tinker": "^2.5",
         "mrmonat/nova-translatable": "^2.0",
-        "spatie/laravel-translatable": "^4.0",
+        "spatie/laravel-translatable": "^5.0",
         "tightenco/nova-releases": "^1.0",
         "tightenco/suggested-resources-shortcuts": "*",
         "tightenco/ziggy": "^1.4"

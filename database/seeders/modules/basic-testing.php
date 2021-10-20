@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Resource;
+
 return [
     'name' => ['en' => 'Basic Testing', 'es' => ''],
     'description' => [
@@ -13,7 +15,7 @@ return [
             [
                 'name' => 'Start Testing Laravel',
                 'url' => 'https://jasonmccreary.me/articles/start-testing-laravel/',
-                'type' => 'article',
+                'type' => Resource::ARTICLE_TYPE,
             ],
         ],
     ],

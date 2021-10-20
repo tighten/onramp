@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Resource;
+
 return [
     'name' => ['en' => 'Object-Oriented Programming', 'es' => ''],
     'description' => [
@@ -13,7 +15,7 @@ return [
             [
                 'name' => 'Laracasts Video',
                 'url' => 'https://laracasts.com/series/object-oriented-principles-in-php',
-                'type' => 'video',
+                'type' => Resource::VIDEO_TYPE,
             ],
         ],
     ],

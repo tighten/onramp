@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Resource;
+
 return [
     'name' => ['en' => 'Local PHP Environment', 'es' => ''],
     'description' => [
@@ -17,13 +19,13 @@ return [
             [
                 'name' => 'Documentación de Laravel',
                 'url' => 'https://docs.laraveles.com/docs/5.5/valet',
-                'type' => 'article',
+                'type' => Resource::ARTICLE_TYPE,
                 'os' => 'macos',
             ],
             [
                 'name' => 'Artículo de Styde',
                 'url' => 'https://styde.net/instalacion-de-composer-y-laravel-en-windows/',
-                'type' => 'article',
+                'type' => Resource::ARTICLE_TYPE,
                 'os' => 'windows',
             ],
         ],
@@ -31,36 +33,36 @@ return [
             [
                 'name' => 'Laravel Docs (Valet)',
                 'url' => 'https://laravel.com/docs/valet',
-                'type' => 'article',
+                'type' => Resource::ARTICLE_TYPE,
                 'os' => 'macos',
             ],
             [
                 'name' => 'Laracasts Video (Valet)',
                 'url' => 'https://laracasts.com/series/setup-a-mac-dev-machine-from-scratch/episodes/10',
-                'type' => 'video',
+                'type' => Resource::VIDEO_TYPE,
                 'os' => 'macos',
             ],
             [
                 'name' => 'Valet Linux',
                 'url' => 'https://cpriego.github.io/valet-linux/',
-                'type' => 'article',
+                'type' => Resource::ARTICLE_TYPE,
                 'os' => 'linux',
             ],
             [
                 'name' => 'Laragon (for Windows)',
                 'url' => 'https://laragon.org/',
-                'type' => 'article',
+                'type' => Resource::ARTICLE_TYPE,
                 'os' => 'windows',
             ],
             [
                 'name' => 'Vessel Docs (if you prefer Docker)',
                 'url' => 'https://vessel.shippingdocker.com/',
-                'type' => 'article',
+                'type' => Resource::ARTICLE_TYPE,
             ],
             [
                 'name' => 'Laracasts Video - Composer',
                 'url' => 'https://laracasts.com/series/setup-a-mac-dev-machine-from-scratch/episodes/6',
-                'type' => 'video',
+                'type' => Resource::VIDEO_TYPE,
             ],
         ],
     ],

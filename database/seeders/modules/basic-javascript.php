@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Resource;
+
 return [
     'name' => ['en' => 'Basic JavaScript', 'es' => ''],
     'description' => [
@@ -12,29 +14,29 @@ return [
             [
                 'name' => 'Javascript desde cero de EDteam',
                 'url' => 'https://ed.team/cursos/javascript',
-                'type' => 'article',
+                'type' => Resource::ARTICLE_TYPE,
             ],
         ],
         'en' => [
             [
                 'name' => 'Wes Bos - JavaScript30',
                 'url' => 'https://javascript30.com/',
-                'type' => 'course',
+                'type' => Resource::COURSE_TYPE,
             ],
             [
                 'name' => 'TraversyMedia JavaScript Crash Course',
                 'url' => 'https://www.youtube.com/watch?v=hdI2bqOjy3c',
-                'type' => 'video',
+                'type' => Resource::VIDEO_TYPE,
             ],
             [
                 'name' => 'Codecademy - Learn JavaScript',
                 'url' => 'https://www.codecademy.com/learn/learn-javascript',
-                'type' => 'course',
+                'type' => Resource::COURSE_TYPE,
             ],
             [
                 'name' => 'Console cheat sheet for JavaScript developers',
                 'url' => 'https://levelup.gitconnected.com/console-cheat-sheet-for-javascript-developers-21f0c49604d4',
-                'type' => 'article',
+                'type' => Resource::ARTICLE_TYPE,
             ],
         ],
     ],

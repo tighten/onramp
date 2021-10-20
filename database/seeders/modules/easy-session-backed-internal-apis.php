@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Resource;
+
 return [
     'name' => ['en' => 'Easy session-backed internal APIs', 'es' => ''],
     'description' => [
@@ -9,6 +11,12 @@ return [
     'skills' => [],
     'resources' => [
         'es' => [],
-        'en' => [],
+        'en' => [
+            [
+                'name' => 'The Laravel Podcast - APIs, with Jess Archer',
+                'url' => 'https://laravelpodcast.com/episodes/apis-with-jess-archer',
+                'type' => Resource::AUDIO_TYPE,
+            ],
+        ],
     ],
 ];

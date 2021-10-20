@@ -17,6 +17,11 @@ return [
                 'url' => 'https://jasonmccreary.me/articles/start-testing-laravel/',
                 'type' => Resource::ARTICLE_TYPE,
             ],
+            [
+                'name' => 'The Laravel Podcast - Testing, with Adam Wathan',
+                'url' => 'https://laravelpodcast.com/episodes/testing-with-adam-wathan',
+                'type' => Resource::AUDIO_TYPE,
+            ],
         ],
     ],
 ];

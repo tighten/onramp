@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Resource;
+
 return [
     'name' => ['en' => 'Deployments', 'es' => ''],
     'description' => [
@@ -9,6 +11,12 @@ return [
     'skills' => [],
     'resources' => [
         'es' => [],
-        'en' => [],
+        'en' => [
+            [
+                'name' => 'The Laravel Podcast - Deploying & Servers, with Chris Fidao',
+                'url' => 'https://laravelpodcast.com/episodes/deploying-servers-with-chris-fidao',
+                'type' => Resource::AUDIO_TYPE,
+            ],
+        ],
     ],
 ];

@@ -64,6 +64,11 @@ return [
                 'url' => 'https://laracasts.com/series/setup-a-mac-dev-machine-from-scratch/episodes/6',
                 'type' => Resource::VIDEO_TYPE,
             ],
+            [
+                'name' => 'The Laravel Podcast - Local Environment with Valet, Homestead, and Docker, with Chris Brown, Jose Soto, Joe Ferguson',
+                'url' => 'https://laravelpodcast.com/episodes/local-environment-with-valet-homestead-and-docker-with-chris-brown-jose-soto-joe-ferguson',
+                'type' => Resource::AUDIO_TYPE,
+            ],
         ],
     ],
 ];

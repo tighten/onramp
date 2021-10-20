@@ -17,6 +17,11 @@ return [
                 'url' => 'https://laracasts.com/series/learn-laravel-mix',
                 'type' => Resource::COURSE_TYPE,
             ],
+            [
+                'name' => 'The Laravel Podcast - Mix, with Jordan Pittman',
+                'url' => 'https://laravelpodcast.com/episodes/mix-with-jordan-pittman',
+                'type' => Resource::AUDIO_TYPE,
+            ],
         ],
     ],
 ];

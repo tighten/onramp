@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Resource;
+
 return [
     'name' => ['en' => 'Beginning PHP', 'es' => ''],
     'description' => [
@@ -22,89 +24,89 @@ return [
             [
                 'name' => 'Manual PHP - Variables',
                 'url' => 'https://www.php.net/manual/es/language.variables.php',
-                'type' => 'article',
+                'type' => Resource::ARTICLE_TYPE,
             ],
             [
                 'name' => 'Manual PHP - Arreglos',
                 'url' => 'https://www.php.net/manual/es/language.types.array.php',
-                'type' => 'article',
+                'type' => Resource::ARTICLE_TYPE,
             ],
             [
                 'name' => 'Manual PHP - Funciones',
                 'url' => 'https://www.php.net/manual/es/language.functions.php',
-                'type' => 'article',
+                'type' => Resource::ARTICLE_TYPE,
             ],
             [
                 'name' => 'Manual PHP - Clases',
                 'url' => 'https://www.php.net/manual/es/language.oop5.basic.php',
-                'type' => 'article',
+                'type' => Resource::ARTICLE_TYPE,
             ],
             [
                 'name' => 'Video de Styde - Clases y Objetos',
                 'url' => 'https://styde.net/por-que-necesitamos-clases-y-objetos-php/',
-                'type' => 'article',
+                'type' => Resource::ARTICLE_TYPE,
             ],
             [
                 'name' => 'Video de Styde - Constructores',
                 'url' => 'https://styde.net/encapsulamiento-y-uso-de-getters-y-setters-en-php/',
-                'type' => 'article',
+                'type' => Resource::ARTICLE_TYPE,
             ],
             [
                 'name' => 'Video de Styde - Herencia Básica',
                 'url' => 'https://styde.net/herencia-y-abstraccion-con-php/',
-                'type' => 'article',
+                'type' => Resource::ARTICLE_TYPE,
             ],
         ],
         'en' => [
             [
                 'name' => 'Laracasts Video (Variables)',
                 'url' => 'https://laracasts.com/series/php-for-beginners/episodes/3',
-                'type' => 'article',
+                'type' => Resource::ARTICLE_TYPE,
             ],
             [
                 'name' => 'Codecademy - Variables',
                 'url' => 'https://www.codecademy.com/learn/learn-php/modules/learn-php-variables',
-                'type' => 'article',
+                'type' => Resource::ARTICLE_TYPE,
             ],
             [
                 'name' => 'Laracasts Video (Arrays)',
                 'url' => 'https://laracasts.com/series/php-for-beginners/episodes/6',
-                'type' => 'video',
+                'type' => Resource::VIDEO_TYPE,
             ],
             [
                 'name' => 'Codecademy - Arrays',
                 'url' => 'https://www.codecademy.com/learn/learn-php/modules/learn-php-arrays',
-                'type' => 'article',
+                'type' => Resource::ARTICLE_TYPE,
             ],
             [
                 'name' => 'Laracasts Video - Functions',
                 'url' => 'https://laracasts.com/series/php-for-beginners/episodes/10',
-                'type' => 'video',
+                'type' => Resource::VIDEO_TYPE,
             ],
             [
                 'name' => 'Codecademy - Functions',
                 'url' => 'https://www.codecademy.com/learn/learn-php/modules/introduction-to-functions-in-php',
-                'type' => 'article',
+                'type' => Resource::ARTICLE_TYPE,
             ],
             [
                 'name' => 'Laracasts Video (Classes)',
                 'url' => 'https://laracasts.com/series/php-for-beginners/episodes/12',
-                'type' => 'video',
+                'type' => Resource::VIDEO_TYPE,
             ],
             [
                 'name' => 'Codecademy - Conditionals',
                 'url' => 'https://www.codecademy.com/learn/learn-php/modules/conditionals-logic-php',
-                'type' => 'article',
+                'type' => Resource::ARTICLE_TYPE,
             ],
             [
                 'name' => 'Codecademy - Loops',
                 'url' => 'https://www.codecademy.com/learn/learn-php/modules/php-loops',
-                'type' => 'article',
+                'type' => Resource::ARTICLE_TYPE,
             ],
             [
                 'name' => 'Open Source Learning for PHP (course)',
                 'url' => 'https://www.phpschool.io/',
-                'type' => 'course',
+                'type' => Resource::COURSE_TYPE,
             ],
         ],
     ],

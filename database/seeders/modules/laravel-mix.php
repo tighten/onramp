@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Resource;
+
 return [
     'name' => ['en' => 'Laravel Mix', 'es' => ''],
     'description' => [
@@ -13,7 +15,7 @@ return [
             [
                 'name' => 'Laracasts Series',
                 'url' => 'https://laracasts.com/series/learn-laravel-mix',
-                'type' => 'course',
+                'type' => Resource::COURSE_TYPE,
             ],
         ],
     ],

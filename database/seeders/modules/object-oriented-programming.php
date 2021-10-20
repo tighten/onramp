@@ -17,6 +17,11 @@ return [
                 'url' => 'https://laracasts.com/series/object-oriented-principles-in-php',
                 'type' => Resource::VIDEO_TYPE,
             ],
+            [
+                'name' => 'The Laravel Podcast - Object Oriented Programming, with Alena Holligan',
+                'url' => 'https://laravelpodcast.com/episodes/oop-with-alena-holligan',
+                'type' => Resource::AUDIO_TYPE,
+            ],
         ],
     ],
 ];

@@ -108,6 +108,16 @@ return [
                 'url' => 'https://www.phpschool.io/',
                 'type' => Resource::COURSE_TYPE,
             ],
+            [
+                'name' => 'The Laravel Podcast - Intro to Composer, with Jordi Boggiano',
+                'url' => 'https://laravelpodcast.com/episodes/intro-to-composer-with-jordi-boggiano',
+                'type' => Resource::AUDIO_TYPE,
+            ],
+            [
+                'name' => 'The Laravel Podcast - Packages, with Freek Van der Herten & Marcel Pociot',
+                'url' => 'https://laravelpodcast.com/episodes/packages-with-freek-van-der-herten-marcel-pociot',
+                'type' => Resource::AUDIO_TYPE,
+            ],
         ],
     ],
 ];

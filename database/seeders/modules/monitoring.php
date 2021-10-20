@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Resource;
+
 return [
     'name' => ['en' => 'Monitoring (e.g. Bugsnag)', 'es' => ''],
     'description' => [
@@ -9,6 +11,12 @@ return [
     'skills' => [],
     'resources' => [
         'es' => [],
-        'en' => [],
+        'en' => [
+            [
+                'name' => 'The Laravel Podcast - Debugging and Monitoring, with Jonty Behr',
+                'url' => 'https://laravelpodcast.com/episodes/debugging-and-monitoring-with-jonty-behr',
+                'type' => Resource::AUDIO_TYPE,
+            ],
+        ],
     ],
 ];

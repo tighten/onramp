@@ -66,6 +66,16 @@ return [
                 'url' => 'https://commandlinepoweruser.com/',
                 'type' => Resource::COURSE_TYPE,
             ],
+            [
+                'name' => 'The Laravel Podcast - Getting Good with Git, with Gemma Anible',
+                'url' => 'https://laravelpodcast.com/episodes/git-with-gemma-anible',
+                'type' => Resource::AUDIO_TYPE,
+            ],
+            [
+                'name' => 'The Laravel Podcast - Tinker, Artisan, & CLI, with Nuno Maduro',
+                'url' => 'https://laravelpodcast.com/episodes/tinker-artisan-cli-with-nuno-maduro',
+                'type' => Resource::AUDIO_TYPE,
+            ],
         ],
     ],
 ];

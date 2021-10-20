@@ -215,6 +215,81 @@ return [
                 'url' => 'https://laravel.com/docs/6.x/container',
                 'type' => Resource::ARTICLE_TYPE,
             ],
+            [
+                'name' => 'The Laravel Podcast - The Ethos of Laravel, with Taylor Otwell',
+                'url' => 'https://laravelpodcast.com/episodes/the-ethos-of-laravel',
+                'type' => Resource::AUDIO_TYPE,
+            ],
+            [
+                'name' => 'The Laravel Podcast - Learning & Keeping Up To Date, with Eric Barnes',
+                'url' => 'https://laravelpodcast.com/episodes/learning-keeping-up-to-date-with-eric-barnes',
+                'type' => Resource::AUDIO_TYPE,
+            ],
+            [
+                'name' => 'The Laravel Podcast - Routing and Blade, with Caleb Porzio',
+                'url' => 'https://laravelpodcast.com/episodes/routing-and-blade-with-caleb-porzio',
+                'type' => Resource::AUDIO_TYPE,
+            ],
+            [
+                'name' => 'The Laravel Podcast - Eloquent and the Query Builder, with Jonathan Reinink',
+                'url' => 'https://laravelpodcast.com/episodes/eloquent-with-jonathan-reinink',
+                'type' => Resource::AUDIO_TYPE,
+            ],
+            [
+                'name' => 'The Laravel Podcast - Migrations, Factories, and Seeding, with John Bonaccorsi',
+                'url' => 'https://laravelpodcast.com/episodes/migrations-factories-and-seeding-with-john-bonaccorsi',
+                'type' => Resource::AUDIO_TYPE,
+            ],
+            [
+                'name' => 'The Laravel Podcast - Authorization and Authentication, with Joseph Silber',
+                'url' => 'https://laravelpodcast.com/episodes/authorization-and-authentication-with-joseph-silber',
+                'type' => Resource::AUDIO_TYPE,
+            ],
+            [
+                'name' => 'The Laravel Podcast - Presets & Jetstream, with Michael Dyrynda',
+                'url' => 'https://laravelpodcast.com/episodes/presets-jetstream-with-michael-dyrynda',
+                'type' => Resource::AUDIO_TYPE,
+            ],
+            [
+                'name' => 'The Laravel Podcast - The Service Container, with Christoph Rumpel',
+                'url' => 'https://laravelpodcast.com/episodes/the-service-container-with-christoph-rumpel',
+                'type' => Resource::AUDIO_TYPE,
+            ],
+            [
+                'name' => 'The Laravel Podcast - Cache, Session, Middleware, & Request, with Samantha Geitz',
+                'url' => 'https://laravelpodcast.com/episodes/cache-session-middleware-request-with-samantha-geitz',
+                'type' => Resource::AUDIO_TYPE,
+            ],
+            [
+                'name' => 'The Laravel Podcast - Storage, with Frank de Jonge',
+                'url' => 'https://laravelpodcast.com/episodes/storage-with-frank-de-jonge',
+                'type' => Resource::AUDIO_TYPE,
+            ],
+            [
+                'name' => 'The Laravel Podcast - Mail and Notifications, with Wilbur Powery',
+                'url' => 'https://laravelpodcast.com/episodes/mail-and-notifications-with-wilbur-powery',
+                'type' => Resource::AUDIO_TYPE,
+            ],
+            [
+                'name' => 'The Laravel Podcast - Helpers & Collections, with Jacob Baker-Kretzmar',
+                'url' => 'https://laravelpodcast.com/episodes/helpers-collections-with-jacob-baker-kretzmar',
+                'type' => Resource::AUDIO_TYPE,
+            ],
+            [
+                'name' => 'The Laravel Podcast - Security, with Rizqi Djamaluddin',
+                'url' => 'https://laravelpodcast.com/episodes/security-with-rizqi-djamaluddin',
+                'type' => Resource::AUDIO_TYPE,
+            ],
+            [
+                'name' => 'The Laravel Podcast - Queues, with Mohamed Said',
+                'url' => 'https://laravelpodcast.com/episodes/queues-with-mohamed-said',
+                'type' => Resource::AUDIO_TYPE,
+            ],
+            [
+                'name' => 'The Laravel Podcast - Upgrading, with Jason McCreary',
+                'url' => 'https://laravelpodcast.com/episodes/upgrading-with-jason-mccreary',
+                'type' => Resource::AUDIO_TYPE,
+            ],
         ],
     ],
 ];

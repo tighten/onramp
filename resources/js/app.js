@@ -12,6 +12,10 @@ import ClickOutside from './directives/ClickOutside';
 import Lang from 'lang.js';
 import Notifications from 'vue-notification';
 import Translations from './translations';
+import Alpine from 'alpinejs';
+
+window.Alpine = Alpine;
+Alpine.start();
 
 Vue.prototype.trans = new Lang({
     messages: Translations,

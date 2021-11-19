@@ -21,7 +21,7 @@
             <div class="px-6 py-3 lg:p-0">
                 <label
                     for="language-switcher"
-                    class="flex items-center text-violet focus:outline-none"
+                    class="flex items-center text-white focus:outline-none"
                 >
                     <button
                         @click="toggle"
@@ -33,7 +33,7 @@
                     </button>
 
                     <svg
-                        class="w-3 h-auto stroke-current text-violet"
+                        class="w-3 h-auto stroke-current text-mint"
                         :class="{ 'transform -scale-y-100': isOpen }"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 16 11"
@@ -58,7 +58,7 @@
                         v-for="(lang, slug) in languages"
                         :key="slug"
                         @click="choose(slug)"
-                        class="block w-full px-6 py-2 text-base font-normal text-left text-violet focus:outline-none hover:bg-indigo-100"
+                        class="block w-full px-6 py-2 text-base font-normal text-left text-white focus:outline-none hover:bg-indigo-100"
                     >
                         {{ lang }}
                     </button>

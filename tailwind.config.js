@@ -120,7 +120,7 @@ module.exports = {
                     lineHeight: '32'
                 },
                 '.body': {
-                    fontSize: '19px',
+                    fontSize: '21px',
                     lineHeight: '30'
                 }
             };

@@ -1,8 +1,7 @@
 <template>
     <modal :show="show" ref="modal">
         <template>
-            <div
-                class="flex flex-col justify-between h-auto min-h-screen pt-12 overflow-scroll border-t-4 border-violet"
+            <div class="flex flex-col justify-between h-auto min-h-screen pt-12 overflow-scroll border-t-4 border-violet bg-blue-black"
             >
                 <nav class="mt-2">
                     <div class="border-b border-silver">

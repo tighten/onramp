@@ -9,7 +9,7 @@
             ></menu-dropdown-item>
         </menu-dropdown>
 
-        <div class="relative z-50 lg:hidden">
+        <div class="relative z-50 lg:hiddenr">
             <button
                 v-if="isOpen"
                 @click="close"
@@ -21,19 +21,19 @@
             <div class="px-6 py-3 lg:p-0">
                 <label
                     for="language-switcher"
-                    class="flex items-center text-white focus:outline-none"
+                    class="flex items-center text-white focus:outline-none "
                 >
                     <button
                         @click="toggle"
                         id="language-switcher"
                         tabindex="1"
-                        class="mr-3 text-base font-semibold focus:outline-none focus:border-white"
+                        class="mr-3 font-bold text-body focus:outline-none focus:border-white"
                     >
                         {{ language }}
                     </button>
 
                     <svg
-                        class="w-3 h-auto stroke-current"
+                        class="w-3 h-auto transition duration-300 ease-in-out stroke-current"
                         :class="{ 'transform -scale-y-100': isOpen }"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 16 11"
@@ -52,13 +52,13 @@
             <transition name="slide">
                 <div
                     v-if="isOpen"
-                    class="overflow-hidden bg-white lg:absolute lg:mt-12 lg:shadow-xl lg:left-0 lg:top-0"
+                    class="overflow-hidden bg-steel lg:absolute lg:mt-12 lg:shadow-xl lg:left-0 lg:top-0"
                 >
                     <button
                         v-for="(lang, slug) in languages"
                         :key="slug"
                         @click="choose(slug)"
-                        class="block w-full px-6 py-2 text-base font-normal text-left text-white focus:outline-none hover:bg-violet"
+                        class="block w-full px-6 py-2 text-base font-normal text-left text-white transition-colors duration-200 ease-in-out focus:outline-none hover:bg-purple"
                     >
                         {{ lang }}
                     </button>

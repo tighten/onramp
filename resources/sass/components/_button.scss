@@ -24,7 +24,7 @@
 
     &:focus {
         @apply outline-none;
-        @apply shadow-outline;
+        // @apply shadow-outline;
     }
 
     @screen md {

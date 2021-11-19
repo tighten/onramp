@@ -40,16 +40,19 @@
         <div class="items-center justify-between flex-1 hidden pl-12 lg:flex">
             <div class="flex-1">
                 <nav class="flex items-center">
-                    <a class="block mx-1 text-xl font-semibold transition-colors duration-300 ease-in-out text-mint hover:text-white hover:no-underline px-3 py-1 rounded @if (Route::currentRouteName() === 'modules.index') bg-indigo-100 @endif"
+                    <a class="block mx-1 text-body font-semibold transition-colors duration-300 ease-in-out text-mint hover:text-white hover:no-underline px-3 py-1
+                    @if (Route::currentRouteName() === 'modules.index') border-2 border-mint rounded-3xl @endif"
                         href="{{ route_wlocale('modules.index') }}">
                         <span>{{ __('Learn') }}</span>
                     </a>
 
-                    <a class="block mx-1 text-xl font-semibold transition-colors duration-300 ease-in-out text-mint hover:text-white hover:no-underline px-3 py-1 rounded @if (Route::currentRouteName() === 'glossary') bg-indigo-100 @endif"
+                    <a class="block mx-1 text-body font-bold transition-colors duration-300 ease-in-out text-mint hover:text-white hover:no-underline px-3 py-1
+                    @if (Route::currentRouteName() === 'glossary') border-2 border-mint rounded-3xl @endif"
                         href="{{ route_wlocale('glossary') }}">
                         <span>{{ __('Glossary') }}</span>
                     </a>
-                    <a class="block mx-1 text-xl font-semibold transition-colors duration-300 ease-in-out text-mint hover:text-white hover:no-underline px-3 py-1 rounded @if (Route::currentRouteName() === 'tracks') bg-indigo-100 @endif"
+                    <a class="block mx-1 text-body font-bold transition-colors duration-300 ease-in-out text-mint hover:text-white hover:no-underline px-3 py-1
+                    @if (Route::currentRouteName() === 'tracks') border-2 border-mint rounded-3xl @endif"
                         href="{{ route_wlocale('tracks') }}">
                         <span>{{ __('Tracks') }}</span>
                     </a>
@@ -61,13 +64,13 @@
 
                 <div class="flex items-center ml-12">
                     @guest
-                        <a class="flex-1 inline-block px-8 py-3 mx-2 text-lg font-semibold leading-none text-center whitespace-no-wrap transition duration-150 ease-in-out border-2 rounded-md text-teal border-teal hover:no-underline hover:bg-teal hover:text-white focus:outline-none focus:shadow-outline active:bg-teal-800 active:border-teal-800 active:text-white"
+                        <a class="flex-1 inline-block px-4 py-1 mx-2 text-lg font-semibold text-center transition duration-150 ease-in-out bg-transparent border-2 hover:no-underline rounded-3xl text-mint border-mint hover:bg-mint hover:text-blue-black"
                             href="{{ route_wlocale('login') }}">
                             <span>{{ __('Log in') }}</span>
                         </a>
 
                         @if (Route::has('register'))
-                            <a class="flex-1 inline-block px-8 py-3 mx-2 text-lg font-semibold leading-none text-center text-white whitespace-no-wrap transition duration-150 ease-in-out border-2 rounded-md bg-teal border-teal hover:no-underline hover:bg-teal-600 hover:border-teal-600 focus:outline-none focus:shadow-outline active:bg-teal-800 active:border-teal-800"
+                            <a class="flex-1 inline-block px-4 py-1 mx-2 text-lg font-semibold text-center transition duration-150 ease-in-out border-2 under rounded-3xl border-mint bg-mint hover:no-underline hover:bg-transparent hover:text-mint"
                                 href="{{ route_wlocale('register') }}">
                                 <span>{{ __('Register') }}</span>
                             </a>
@@ -76,7 +79,7 @@
                         <menu-dropdown>
                             <template v-slot:toggle="props">
                                 <button
-                                    class="flex items-center justify-center block w-12 h-12 hover:no-underline focus:outline-none"
+                                    class="flex items-center justify-center w-12 h-12 hover:no-underline focus:outline-none"
                                     @click="props.toggle">
                                     <img class="rounded-full"
                                         src="{{ auth()->user()->profile_picture }}"

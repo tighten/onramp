@@ -1,7 +1,7 @@
 <template>
     <div class="relative" :tabindex="tabindex" @blur="open = false">
         <button
-            class="relative block w-full h-12 px-5 py-4 pr-12 text-base font-semibold leading-none text-left truncate bg-gray-200 rounded-md focus:outline-none"
+            class="relative block w-full h-12 px-5 py-4 pr-12 text-base font-semibold leading-none text-left truncate rounded-md bg-silver focus:outline-none"
             :class="{ 'rounded-bl-none rounded-br-none': isOpen }"
             @click="isOpen = !isOpen"
         >
@@ -24,15 +24,15 @@
         </button>
 
         <ul
-            class="absolute top-0 left-0 w-full h-0 mt-12 overflow-hidden bg-gray-200 "
-            :class="{ 'h-auto border-t border-gray-400': isOpen }"
+            class="absolute top-0 left-0 w-full h-0 mt-12 overflow-hidden bg-silver"
+            :class="{ 'h-auto border-t border-gray': isOpen }"
         >
             <li
                 class="border-t first:border-t-0"
                 v-for="(option, i) of options"
             >
                 <button
-                    class="relative block w-full px-5 py-4 pr-12 text-base font-semibold text-left truncate focus:outline-none hover:bg-silver"
+                    class="relative block w-full px-5 py-4 pr-12 text-base font-semibold text-left truncate focus:outline-none hover:bg-gray-300"
                     :class="{ '': selected === option }"
                     @click="setSelected(option)"
                 >
@@ -40,7 +40,7 @@
 
                     <template v-if="selected === option">
                         <svg
-                            class="absolute right-0 w-3 h-3 mr-5 text-teal transform -translate-y-1/2 fill-current top-1/2"
+                            class="absolute right-0 w-3 h-3 mr-5 text-teal-700 transform -translate-y-1/2 fill-current top-1/2"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
                         >

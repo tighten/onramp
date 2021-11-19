@@ -101,27 +101,27 @@ module.exports = {
                 },
                 '.h1': {
                     fontSize: '72px',
-                    lineHeight: '75'
+                    lineHeight: '75px'
                 },
                 '.h2': {
                     fontSize: '55px',
-                    lineHeight: '48'
+                    lineHeight: '48px'
                 },
                 '.h3': {
                     fontSize: '45px',
-                    lineHeight: '40'
+                    lineHeight: '40px'
                 },
                 '.h4': {
                     fontSize: '36px',
-                    lineHeight: '28'
+                    lineHeight: '28px'
                 },
                 '.h5': {
                     fontSize: '27px',
-                    lineHeight: '32'
+                    lineHeight: '32px'
                 },
-                '.body': {
+                '.text-body': {
                     fontSize: '21px',
-                    lineHeight: '30'
+                    lineHeight: '30px'
                 }
             };
             addUtilities(newUtilities);

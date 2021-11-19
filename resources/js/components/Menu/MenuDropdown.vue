@@ -2,18 +2,18 @@
     <div class="relative inline-block text-left" v-click-outside="close">
         <div>
             <slot name="toggle" :toggle="toggle">
-                <span class="text-white">
+                <span>
                     <button
                         type="button"
-                        class="inline-flex items-center justify-center w-full h-12 text-base font-semibold transition duration-150 ease-in-out focus:outline-none focus:border-white hover:text-mint"
+                        class="inline-flex items-center justify-center w-full h-12 text-base font-semibold text-white transition-colors duration-300 ease-in-out focus:outline-none focus:border-white hover:text-mint"
                         @click="toggle"
                     >
                         {{ toggleText }}
 
                         <svg
-                            class="w-3 h-auto ml-2 stroke-current"
+                            class="w-3 h-auto ml-2 duration-300 ease-in-out stroke-current transition-rotate text-mint"
                             :class="{
-                                'transform -scale-y-100 transition-all duration-300 ease-in-out': isOpen
+                                'transform -scale-y-100': isOpen
                             }"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 16 11"

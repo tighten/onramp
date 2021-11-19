@@ -36,7 +36,9 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') .  __('Onramp to L
     <body>
         <div id="app">
             <!-- header -->
-            @include('partials.navigation.header')
+            <header>
+                @include('partials.navigation.header.main-header')
+            </header>
 
             <!-- body -->
             @includeWhen(! request()->routeIs('wizard.index'), 'partials.choose-track')

@@ -9,7 +9,7 @@
             ></menu-dropdown-item>
         </menu-dropdown>
 
-        <div class="relative z-50 lg:hiddenr">
+        <div class="relative z-50 lg:hidden">
             <button
                 v-if="isOpen"
                 @click="close"

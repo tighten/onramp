@@ -15,7 +15,7 @@
 
         <div>
             @auth
-                <a class="block px-6 pb-4 mb-3 font-bold border-b text-body text-mint hover:no-underline border-silver"
+                <a class="block px-3 py-4 mx-1 font-bold transition-colors duration-300 ease-in-out border-t border-silver lg:border-none text-body lg:py-1 text-mint hover:text-white hover:no-underline"
                     href="{{ url_wlocale('preferences') }}">
                     <span>{{ __('Preferences') }}</span>
                 </a>
@@ -24,12 +24,12 @@
             @include('partials.language-switcher')
         </div>
 
-        <div>
+        <div class="px-4">
             @guest
                 @include('partials.navigation.header.guest-menu')
             @else
                 <a href="{{ route_wlocale('logout') }}"
-                    class="flex-1 inline-block w-1/2 py-3 mx-2 text-lg font-bold leading-none text-center text-white whitespace-no-wrap border-2 bg-mint border-mint hover:no-underline"
+                    class="block w-full px-4 py-1 mx-auto text-lg font-semibold text-center transition duration-150 ease-in-out bg-transparent border-2 hover:no-underline rounded-3xl text-blue-black bg-mint"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <span>{{ __('Log out') }}</span>
                 </a>

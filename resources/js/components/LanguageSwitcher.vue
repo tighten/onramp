@@ -33,7 +33,7 @@
                     </button>
 
                     <svg
-                        class="w-3 h-auto stroke-current text-mint"
+                        class="w-3 h-auto stroke-current"
                         :class="{ 'transform -scale-y-100': isOpen }"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 16 11"
@@ -58,7 +58,7 @@
                         v-for="(lang, slug) in languages"
                         :key="slug"
                         @click="choose(slug)"
-                        class="block w-full px-6 py-2 text-base font-normal text-left text-white focus:outline-none hover:bg-indigo-100"
+                        class="block w-full px-6 py-2 text-base font-normal text-left text-white focus:outline-none hover:bg-violet"
                     >
                         {{ lang }}
                     </button>

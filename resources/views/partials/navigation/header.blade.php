@@ -14,27 +14,23 @@
                     alt="Onramp">
             </a>
 
-            <button class="focus:outline-none lg:hidden"
+            <button class="relative mr-4 focus:outline-none lg:hidden"
                 aria-label="open menu"
                 @click="openModal('mobileMenu')">
-                <svg class="w-auto h-5 transition-colors duration-150 fill-current text-teal hover:text-teal md:h-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 25 20">
-                    <g fill-rule="evenodd">
-                        <rect width="25"
-                            height="3"
-                            rx="1.5" />
-                        <rect y="8"
-                            width="25"
-                            height="3"
-                            rx="1.5" />
-                        <rect y="17"
-                            width="25"
-                            height="3"
-                            rx="1.5" />
-                    </g>
-                </svg>
+                <div class="h-[2px] my-3 rounded w-8 bg-mint mobileMenuBtn">
+                </div>
             </button>
+            {{-- <button @click="openModal('mobileMenu')
+                aria-label="
+                open
+                menu"
+                type="button"
+                class="relative mr-4 mobileMenuBtn focus:outline-none lg:hidden"
+                :class="openModal('mobileMenu') ? 'isActive' : ''">
+                <div class="h-[2px] my-3 rounded w-8 bg-mint"
+                    :class="openModal('mobileMenu') ? 'invisible' : 'visible'">
+                </div>
+            </button> --}}
         </div>
 
         <div class="items-center justify-between flex-1 hidden pl-12 lg:flex">
@@ -42,21 +38,18 @@
                 <nav class="flex items-center">
                     <a class="block mx-1 text-body font-semibold transition-colors duration-300 ease-in-out text-mint hover:text-white hover:no-underline px-3 py-1
                         {{ Route::currentRouteName() === 'modules.index' ? 'border-2 border-mint rounded-3xl' : '' }}"
-                        href="{{ route_wlocale('modules.index') }}"
-                    >
+                        href="{{ route_wlocale('modules.index') }}">
                         <span>{{ __('Learn') }}</span>
                     </a>
 
                     <a class="block mx-1 text-body font-bold transition-colors duration-300 ease-in-out text-mint hover:text-white hover:no-underline px-3 py-1
                         {{ Route::currentRouteName() === 'glossary' ? 'border-2 border-mint rounded-3xl' : '' }}"
-                        href="{{ route_wlocale('glossary') }}"
-                    >
+                        href="{{ route_wlocale('glossary') }}">
                         <span>{{ __('Glossary') }}</span>
                     </a>
                     <a class="block mx-1 text-body font-bold transition-colors duration-300 ease-in-out text-mint hover:text-white hover:no-underline px-3 py-1
                         {{ Route::currentRouteName() === 'tracks' ? 'border-2 border-mint rounded-3xl' : '' }}"
-                        href="{{ route_wlocale('tracks') }}"
-                        >
+                        href="{{ route_wlocale('tracks') }}">
                         <span>{{ __('Tracks') }}</span>
                     </a>
                 </nav>

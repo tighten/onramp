@@ -7,7 +7,7 @@ body {
     @apply font-normal;
     @apply font-work-sans;
     @apply min-w-screen-xs;
-    @apply text-gray-900;
+    // @apply text-gray-900;
 
     @screen md {
         @apply text-xl;

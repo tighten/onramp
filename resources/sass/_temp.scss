@@ -37,7 +37,7 @@ a:hover {
 .simple-form-button {
     @apply block;
     @apply border;
-    @apply border-gray-500;
+    @apply border-gray;
     @apply mt-4;
     @apply px-3;
     @apply py-1;
@@ -45,7 +45,7 @@ a:hover {
 }
 
 .simple-form-button:hover {
-    @apply border-gray-300;
+    @apply border-silver;
     @apply bg-blue-500;
     @apply text-white;
 }

@@ -9,7 +9,7 @@
             ></menu-dropdown-item>
         </menu-dropdown>
 
-        <div class="relative z-50 lg:hidden">
+        <div class="relative z-50 mb-6 lg:hidden">
             <button
                 v-if="isOpen"
                 @click="close"
@@ -21,7 +21,7 @@
             <div class="px-6 py-3 lg:p-0">
                 <label
                     for="language-switcher"
-                    class="flex items-center text-white focus:outline-none "
+                    class="flex items-center -ml-2 text-white focus:outline-none "
                 >
                     <button
                         @click="toggle"

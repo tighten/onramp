@@ -1,4 +1,5 @@
-<section x-data="{ open: false }">
+<section x-data="{ open: false }"
+    class="relative z-[999] lg:hidden">
     <button class="relative mr-4 focus:outline-none lg:hidden"
         aria-label="open menu"
         x-on:click="open = true">
@@ -6,7 +7,8 @@
     </button>
 
     <div x-show="open"
-        @click.away="open = false">
+        @click.away="open = false"
+        class="absolute w-full max-h-[97vh] overflow-y-auto bg-blue-black pb-4">
         <div>
             @include('partials.navigation.header.main-nav')
         </div>
@@ -24,23 +26,11 @@
 
         <div>
             @guest
-                <a class="flex-1 inline-block px-4 py-1 mx-2 text-lg font-bold text-center transition duration-150 ease-in-out bg-transparent border-2 hover:no-underline rounded-3xl text-mint border-mint hover:bg-mint hover:text-blue-black"
-                    href="{{ route_wlocale('login') }}">
-                    <span>{{ __('Log in') }}</span>
-                </a>
-
-                @if (Route::has('register'))
-                    <a class="flex-1 inline-block px-4 py-1 mx-2 text-lg font-bold text-center transition duration-150 ease-in-out border-2 under rounded-3xl border-mint bg-mint hover:no-underline hover:bg-transparent hover:text-mint"
-                        href="{{ route_wlocale('register') }}">
-                        <span>{{ __('Register') }}</span>
-                    </a>
-                    </a>
-                @endif
+                @include('partials.navigation.header.guest-menu')
             @else
                 <a href="{{ route_wlocale('logout') }}"
                     class="flex-1 inline-block w-1/2 py-3 mx-2 text-lg font-bold leading-none text-center text-white whitespace-no-wrap border-2 bg-mint border-mint hover:no-underline"
-                    onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <span>{{ __('Log out') }}</span>
                 </a>
                 <form id="logout-form"

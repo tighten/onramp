@@ -1,9 +1,11 @@
 <template>
     <modal :show="show" ref="modal">
         <template>
-            <div class="flex flex-col justify-between h-auto min-h-screen pt-12 overflow-scroll border-t-4 border-blue-violet">
+            <div
+                class="flex flex-col justify-between h-auto min-h-screen pt-12 overflow-scroll border-t-4 border-violet"
+            >
                 <nav class="mt-2">
-                    <div class="border-b border-gray-300">
+                    <div class="border-b border-silver">
                         <slot name="navigation-links"></slot>
                     </div>
 
@@ -12,7 +14,9 @@
                     </div>
                 </nav>
 
-                <div class="flex items-center justify-between px-4 py-10 mt-4 border-t border-gray-300">
+                <div
+                    class="flex items-center justify-between px-4 py-10 mt-4 border-t border-silver"
+                >
                     <slot name="navigation-buttons"></slot>
                 </div>
             </div>
@@ -37,11 +41,11 @@ export default {
     watch: {
         show(value) {
             if (value) {
-                window.addEventListener('resize', this.closeModal);
+                window.addEventListener("resize", this.closeModal);
             } else {
-                window.removeEventListener('resize', this.closeModal);
+                window.removeEventListener("resize", this.closeModal);
             }
-        },
-    },
-}
+        }
+    }
+};
 </script>

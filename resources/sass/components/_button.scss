@@ -37,22 +37,22 @@
 }
 
 .button-purple {
-    @apply bg-blue-violet;
+    // @apply bg-violet;
     @apply text-white;
 
-    @include button-hover($blue-violet);
+    @include button-hover($violet);
 }
 
 .button-teal {
-    @apply bg-teal-700;
+    @apply bg-teal;
     @apply text-white;
 
-    @include button-hover($teal-700);
+    @include button-hover($teal);
 }
 
 .button-white {
     @apply bg-white;
-    @apply text-blue-violet;
+    @apply text-violet;
 
-    @include button-hover($white, $blue-violet);
+    @include button-hover($white, $violet);
 }

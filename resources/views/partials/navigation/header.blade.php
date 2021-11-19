@@ -4,7 +4,7 @@
     </template>
 </sitewide-banner-->
 
-<header class="w-full py-5 bg-white border-t-4 border-violet lg:border-t-8">
+<header class="w-full py-5 border-t-4 bg-blue-black border-violet lg:border-t-8">
     <div class="flex items-center fluid-container md:px-12 xl:px-20 2xl:px-32">
         <div class="inline-flex items-center justify-between flex-1 lg:flex-initial">
             <a class=""

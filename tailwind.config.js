@@ -125,6 +125,6 @@ module.exports = {
                 }
             };
             addUtilities(newUtilities);
-        })
+        }),
     ]
 };

@@ -45,7 +45,7 @@
             <a href="{{ route_wlocale('logout') }}"
                 class="flex-1 inline-block w-1/2 py-3 mx-2 text-lg font-bold leading-none text-center text-white whitespace-no-wrap border-2 bg-mint border-mint hover:no-underline"
                 onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
+                                        document.getElementById('logout-form').submit();">
                 <span>{{ __('Log out') }}</span>
             </a>
             <form id="logout-form"
@@ -57,3 +57,23 @@
         @endguest
     </template>
 </modal-mobile-menu>
+
+
+
+<button class="relative mr-4 focus:outline-none lg:hidden"
+                aria-label="open menu"
+                @click="openModal('mobileMenu')">
+                <div class="h-[2px] my-3 rounded w-8 bg-mint mobileMenuBtn">
+                </div>
+            </button>
+            {{-- <button @click="openModal('mobileMenu')
+                aria-label="
+                open
+                menu"
+                type="button"
+                class="relative mr-4 mobileMenuBtn focus:outline-none lg:hidden"
+                :class="openModal('mobileMenu') ? 'isActive' : ''">
+                <div class="h-[2px] my-3 rounded w-8 bg-mint"
+                    :class="openModal('mobileMenu') ? 'invisible' : 'visible'">
+                </div>
+            </button> --}}

@@ -2,7 +2,27 @@
 
 @section('content')
     <div class="w-full bg-white">
-        
+        <div class="pt-16 pb-20 overflow-hidden text-left bg-indigo-100 lg:pt-48 lg:pb-64">
+            <div class="relative fluid-container">
+                <h1 class="w-11/12 md:w-7/12 xl:w-5/12">
+                    {{ __('Learn Laravel quickly, no matter your background.') }}
+                </h1>
+
+                <a class="mt-6 button button-purple lg:mt-10"
+                    href="#overview">
+                    <span>{{ __('Learn more') }}</span>
+                </a>
+
+                <picture>
+                    <source media="(min-width: 1024px)"
+                        srcset="/images/shapes/double-curve-dark-large.svg">
+
+                    <img class="absolute right-0 -mr-32 transform -translate-y-1/2 pointer-events-none h-670-px opacity-10 top-1/2 lg:h-1340-px lg:-mr-48 lg:opacity-100"
+                        src="/images/shapes/single-curve-dark-small.svg"
+                        alt="Onramp">
+                </picture>
+            </div>
+        </div>
 
         <div class="overflow-hidden"
             id="overview">

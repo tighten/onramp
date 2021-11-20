@@ -57,7 +57,7 @@
                 </form>
             @endguest
         </div>
-        <div class="fixed z-[-2] top-0 left-0 opacity-50 flex items-center justify-center w-full inset-0  bg-black"
+        <div class="fixed z-[-2] top-0 left-0 opacity-70 flex items-center justify-center w-full inset-0  bg-black"
             x-show="isMenuOpen"></div>
     </div>
 

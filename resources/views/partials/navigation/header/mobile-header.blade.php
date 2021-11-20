@@ -1,14 +1,29 @@
-<section x-data="{ open: false }"
-    class="relative z-[999] lg:hidden">
-    <button class="relative mr-4 focus:outline-none lg:hidden"
-        aria-label="open menu"
-        x-on:click="open = true">
-        <div class="h-[2px] my-3 rounded w-8 bg-mint mobileMenuBtn"></div>
-    </button>
+<div x-data="{ isMenuOpen: false, toggle() { this.isMenuOpen = ! this.isMenuOpen}}"
+    class="relative px-4 lg:hidden">
 
-    <div x-show="open"
-        @click.away="open = false"
-        class="absolute w-full max-h-[97vh] overflow-y-auto bg-blue-black pb-4">
+    <div class="flex items-center justify-between w-full">
+        @include('partials.navigation.header.logo')
+        <button x-on:click="toggle()"
+            aria-label="Main Menu"
+            type="button"
+            class="relative transition duration-300 ease-in-out mobileMenuBtn"
+            x-bind:class="isMenuOpen ? 'isActive' : ''">
+            <div class="h-[2px] my-3 rounded w-8 bg-mint"
+                x-bind:class="isMenuOpen ? 'invisible' : 'visible'">
+            </div>
+        </button>
+    </div>
+
+    <div x-show="isMenuOpen"
+        x-cloak
+        x-on:click.away="isMenuOpen = false"
+        class="absolute left-0 top-[45px] w-full min-h-[75vh] overflow-y-auto  bg-blue-black pb-4 z-[-1]"
+        x-transition:enter="transition-all ease-in duration-200 origin-top"
+        x-transition:enter-start="opacity-0 transform scale-y-0"
+        x-transition:enter-end="opacity-100 transform scale-y-100"
+        x-transition:leave="transition-all ease-out duration-200 origin-top"
+        x-transition:leave-start="opacity-100 transform scale-y-100"
+        x-transition:leave-end="opacity-0 transform scale-y-0">
         <div>
             @include('partials.navigation.header.main-nav')
         </div>
@@ -24,7 +39,7 @@
             @include('partials.language-switcher')
         </div>
 
-        <div class="px-4">
+        <div class="absolute w-full px-4 bottom-6 absolute-x-center">
             @guest
                 @include('partials.navigation.header.guest-menu')
             @else
@@ -41,38 +56,8 @@
                 </form>
             @endguest
         </div>
+        <div class="fixed z-[-2] top-0 left-0 opacity-50 flex items-center justify-center w-full inset-0  bg-black"
+            x-show="isMenuOpen"></div>
     </div>
-</section>
 
-{{-- <div x-data="{ open: false }"
-    x-description="Mobile menu, toggle classes based on menu state."
-    class="relative w-full py-4 text-center text-white transition ease-in opacity-0 e duration-400 lg:hidden h-75">
-    <div class="flex items-center justify-between px-4">
-        <div class="flex items-center">
-            <button x-on:click="open = true"
-                aria-label="Main Menu"
-                type="button"
-                class="relative mr-4 text-white mobileMenuBtn"
-                x-bind:class="open ?'isActive' : ''">
-                button!!!!
-            </button>
-
-            <div class="fixed z-[-1] top-0 left-0 flex items-center justify-center w-full  bg-black bg-opacity-50"
-                x-show="open"></div>
-
-
-        </div>
-
-        <div class="flex items-center text-navy">
-            <div class="mr-px">
-            </div>
-
-        </div>
-    </div>
-    <div x-show="open">
-
-        wweeeeyyyooo
-
-
-    </div>
-</div> --}}
+</div>

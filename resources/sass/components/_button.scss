@@ -3,7 +3,7 @@
     &:before,
     &:after {
         @apply bg-mint rounded absolute block w-8 h-0.5 transition ease-in-out duration-200;
-        content: '';
+        content: "";
     }
 
     &:before {
@@ -26,10 +26,6 @@
         }
     }
 }
-
-
-
-
 
 // @mixin button-hover($background, $text: $white) {
 //     &:active,

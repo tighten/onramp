@@ -1,7 +1,7 @@
 {{-- Template from https://templates.digizu.co.uk/ --}}
 <!DOCTYPE html>
 @php
-$fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to Laravel');
+$fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp tovel');
 @endphp
 <html lang="{{ locale() }}">
 

@@ -1,5 +1,6 @@
 <div x-data="{ isMenuOpen: false, toggle() { this.isMenuOpen = ! this.isMenuOpen}}"
-    class="relative px-4 lg:hidden">
+    class="relative px-4 lg:hidden"
+    x-cloak>
 
     <div class="flex items-center justify-between w-full">
         @include('partials.navigation.header.logo')

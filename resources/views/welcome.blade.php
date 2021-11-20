@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('partials.welcome-page.welcome-hero')
     <div class="w-full bg-white">
         <div class="pt-16 pb-20 overflow-hidden text-left bg-indigo-100 lg:pt-48 lg:pb-64">
             <div class="relative fluid-container">

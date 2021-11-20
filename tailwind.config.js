@@ -1,84 +1,84 @@
-const plugin = require('tailwindcss/plugin');
+const plugin = require("tailwindcss/plugin");
 
 module.exports = {
-    mode: 'jit',
+    mode: "jit",
     purge: [
-        './resources/**/*.html',
-        './resources/**/*.vue',
-        './resources/**/*.js',
-        './resources/**/*.blade.php'
+        "./resources/**/*.html",
+        "./resources/**/*.vue",
+        "./resources/**/*.js",
+        "./resources/**/*.blade.php"
     ],
     theme: {
         extend: {
             colors: {
-                'gray-black': '#1A202C',
-                'blue-black': '#050220',
-                'red-black': '#30011F',
-                'true-black': '#000000',
-                white: '#ffffff',
-                transparent: 'transparent',
-                current: 'currentColor',
-                steel: '#4A5569',
-                gray: '#718096',
-                silver: '#A0AEC0',
-                mint: '#4FD1C5',
-                teal: '#319795',
-                emerald: '#096866',
-                violet: '#657EEA',
-                purple: '#5B55CC',
-                cabernet: '#97266D',
-                merlot: '#97266D'
+                "gray-black": "#1A202C",
+                "blue-black": "#050220",
+                "red-black": "#30011F",
+                "true-black": "#000000",
+                white: "#ffffff",
+                transparent: "transparent",
+                current: "currentColor",
+                steel: "#4A5569",
+                gray: "#718096",
+                silver: "#A0AEC0",
+                mint: "#4FD1C5",
+                teal: "#319795",
+                emerald: "#096866",
+                violet: "#657EEA",
+                purple: "#5B55CC",
+                cabernet: "#97266D",
+                merlot: "#97266D"
             },
 
             flex: {
-                even: '1 1 100%'
+                even: "1 1 100%"
             },
 
             fontFamily: {
-                'work-sans': ['Work\\ Sans', 'sans-serif']
+                "work-sans": ["Work\\ Sans", "sans-serif"]
             },
 
             inset: {
-                '1/2': '50%'
+                "1/2": "50%"
             },
 
             lineHeight: {
-                '0': '0',
-                inherit: 'inherit'
+                "0": "0",
+                inherit: "inherit"
             },
 
             maxHeight: {
-                '0': '0',
-                '1000': '1000px',
-                none: 'none'
+                "0": "0",
+                "1000": "1000px",
+                none: "none"
             },
 
             minWidth: (theme, { breakpoints }) => ({
-                xs: '20rem',
-                ...breakpoints(theme('screens'))
+                xs: "20rem",
+                ...breakpoints(theme("screens"))
             }),
 
             opacity: {
-                '10': '0.10',
-                '20': '0.20',
-                '30': '0.30'
+                "10": "0.10",
+                "20": "0.20",
+                "30": "0.30"
             },
 
             scale: {
-                '-100': '-1'
+                "-100": "-1"
             },
 
             screens: {
-                xs: '345px',
-                sm: '640px',
-                md: '768px',
-                lg: '992px',
-                xl: '1200px',
-                '2xl': '1440px'
+                xs: "345px",
+                sm: "640px",
+                md: "768px",
+                lg: "992px",
+                xl: "1200px",
+                "2xl": "1440px"
             },
 
             transitionProperty: {
-                height: 'height, max-height'
+                height: "height, max-height"
             }
         }
     },
@@ -86,45 +86,45 @@ module.exports = {
     plugins: [
         plugin(({ addUtilities }) => {
             const newUtilities = {
-                '.absolute-center': {
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)'
+                ".absolute-center": {
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)"
                 },
-                '.absolute-y-center': {
-                    top: '50%',
-                    transform: 'translateY(-50%)'
+                ".absolute-y-center": {
+                    top: "50%",
+                    transform: "translateY(-50%)"
                 },
-                '.absolute-x-center': {
-                    left: '50%',
-                    transform: 'translatex(-50%)'
+                ".absolute-x-center": {
+                    left: "50%",
+                    transform: "translatex(-50%)"
                 },
-                '.h1': {
-                    fontSize: '72px',
-                    lineHeight: '75px'
+                ".h1": {
+                    fontSize: "72px",
+                    lineHeight: "75px"
                 },
-                '.h2': {
-                    fontSize: '55px',
-                    lineHeight: '48px'
+                ".h2": {
+                    fontSize: "55px",
+                    lineHeight: "52px"
                 },
-                '.h3': {
-                    fontSize: '45px',
-                    lineHeight: '40px'
+                ".h3": {
+                    fontSize: "45px",
+                    lineHeight: "40px"
                 },
-                '.h4': {
-                    fontSize: '36px',
-                    lineHeight: '28px'
+                ".h4": {
+                    fontSize: "36px",
+                    lineHeight: "40px"
                 },
-                '.h5': {
-                    fontSize: '27px',
-                    lineHeight: '32px'
+                ".h5": {
+                    fontSize: "27px",
+                    lineHeight: "32px"
                 },
-                '.text-body': {
-                    fontSize: '21px',
-                    lineHeight: '30px'
+                ".text-body": {
+                    fontSize: "21px",
+                    lineHeight: "30px"
                 }
             };
             addUtilities(newUtilities);
-        }),
+        })
     ]
 };

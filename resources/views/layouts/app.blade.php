@@ -53,7 +53,7 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to La
 <body>
     <div id="app">
         <!-- header -->
-        <header class="fixed top-0 left-0 w-full">
+        <header class="fixed top-0 left-0 w-full z-[9999]">
             @include('partials.navigation.header.main-header')
         </header>
 

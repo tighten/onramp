@@ -1,5 +1,5 @@
-<div class="grid grid-cols-1 px-4 py-12 place-content-center bg-blue-black md:grid-cols-2 md:py-20">
-    <div class="flex items-center justify-center w-full lg:justify-end">
+<div class="grid grid-cols-1 px-4 py-12 mt-12 md:grid-cols-2 md:py-20">
+    <div class="flex items-center justify-center lg:justify-end">
         <div>
             <h1 class="max-w-lg font-bold leading-none text-white h4 sm:h2">
                 {{ __('Providing an easy entrance into Laravel for new developers.') }}
@@ -11,7 +11,7 @@
             </a>
         </div>
     </div>
-    <div class="mt-12">
+    <div>
         @include('partials.svg.logo-gradient')
     </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="pt-10 pb-20 overflow-hidden text-white bg-blue-black lg:pt-24 lg:pb-40">
+<div class="pt-10 pb-20 overflow-hidden text-white lg:mt-16 bg-blue-black lg:pt-24 lg:pb-40">
 	<div class="relative fluid-container">
 		<picture>
 			<source media="(min-width: 1024px)"

@@ -5,7 +5,7 @@
 </sitewide-banner-->
 
 <div class="items-center hidden fluid-container md:px-12 xl:px-20 2xl:px-32 lg:flex">
-    @include('partials.navigation.header.logo')
+    @include('partials.svg.logo-nav')
 
     <div class="items-center justify-between flex-1 hidden pl-12 lg:flex">
         <div class="flex-1">

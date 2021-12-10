@@ -1,7 +1,7 @@
-<div class="grid grid-cols-1 py-12 mt-12 overflow-hidden md:grid-cols-2 md:py-20">
+<div class="grid grid-cols-1 py-12 overflow-hidden md:grid-cols-2">
     <div class="flex items-center w-full">
-        <div>
-            <h1 class="max-w-2xl font-bold leading-none text-white h4 sm:h2">
+        <div class="max-w-2xl px-4 xl:px-0">
+            <h1 class="font-bold leading-none text-white h4 sm:h3 lg:h2">
                 {{ __('Providing an easy entrance into Laravel for new developers.') }}
             </h1>
 

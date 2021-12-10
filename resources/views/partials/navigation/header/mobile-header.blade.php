@@ -3,7 +3,7 @@
     x-cloak>
 
     <div class="flex items-center justify-between w-full">
-        @include('partials.navigation.header.logo')
+        @include('partials.svg.logo-nav')
         <button x-on:click="toggle()"
             aria-label="Main Menu"
             type="button"

@@ -12,6 +12,6 @@
         </div>
     </div>
     <div class="mt-12">
-        @include('partials.welcome-page.logo')
+        @include('partials.svg.logo-gradient')
     </div>
 </div>

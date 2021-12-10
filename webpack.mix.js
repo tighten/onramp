@@ -20,7 +20,7 @@ mix.js("resources/js/app.js", "public/js")
         processCssUrls: false,
         postCss: [tailwindcss("./tailwind.config.js")]
     })
-    .browserSync("https://onramp.test");
+    // .browserSync("https://onramp.test");
 
 if (mix.inProduction()) {
     mix.version();

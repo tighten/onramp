@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="w-full text-white bg-blue-black">
+    <div class="text-white">
         @include('partials.welcome-page.welcome-hero')
 
         @include('partials.welcome-page.overview')

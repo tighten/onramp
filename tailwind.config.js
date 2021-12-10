@@ -30,6 +30,16 @@ module.exports = {
                 merlot: "#97266D"
             },
 
+            container: {
+                center: true,
+                padding: {
+                    DEFAULT: '1rem',
+                    md: '1.5rem',
+                    lg: '2rem',
+                    xl: '2.5rem',
+                },
+            },
+
             flex: {
                 even: "1 1 100%"
             },

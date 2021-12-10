@@ -49,8 +49,8 @@
         <title>{{ $fullPageTitle }}</title>
     </head>
 
-    <body>
-        <div id="app">
+    <body class="bg-blue-black">
+        <div id="app" class="container mx-auto">
             <header class="fixed top-0 left-0 w-full z-[9999]">
                 @include('partials.navigation.header.main-header')
             </header>

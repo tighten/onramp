@@ -1,4 +1,4 @@
-<div class="grid grid-cols-1 py-12 overflow-hidden lg:mt-16 md:grid-cols-2" id="overview">
+<div class="grid grid-cols-1 py-8 overflow-hidden lg:mt-16 md:grid-cols-2" id="overview">
     <div class="flex items-center w-full mb-8 md:mb-0">
         <div class="max-w-lg px-4 xl:px-0">
             <h2 class="font-bold leading-none h4 sm:h3 lg:h2">{{ __('What is this?') }}</h2>

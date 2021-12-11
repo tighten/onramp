@@ -1,4 +1,4 @@
-<div class="grid grid-cols-1 py-8 overflow-hidden lg:mt-16 md:grid-cols-2">
+<div class="grid grid-cols-1 py-8 overflow-hidden lg:mt-20 md:grid-cols-2">
     <div class="flex items-center w-full">
         <div class="max-w-2xl px-4 xl:px-0">
             <h1 class="font-bold leading-none text-white h4 sm:h3 lg:h2">

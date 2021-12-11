@@ -1,25 +1,19 @@
-<div class="pt-10 pb-20 overflow-hidden text-white lg:mt-16 bg-blue-black lg:pt-24 lg:pb-40">
-	<div class="relative fluid-container">
-		<picture>
-			<source media="(min-width: 1024px)"
-				srcset="/images/shapes/single-curve-medium-large.svg">
 
-			<img class="absolute right-0 z-0 -mr-32 transform -translate-y-1/2 pointer-events-none h-670-px top-1/2 lg:h-1340-px lg:-mr-80"
-				src="/images/shapes/single-curve-medium-small.svg"
-				alt="Onramp">
-		</picture>
+<div class="w-full overflow-hidden bg-mint lg:mt-16 xl:to-blue-black text-blue-black md:flex md:justify-between">
+	<div class="relative p-16 md:p-0 md:left-20 md:top-20">
+		<h4 class="font-bold leading-none h4 sm:h3 lg:h2">
+			{{ __('Join Onramp for free.') }}
+		</h4>
 
-		<div class="relative">
-			<p class="max-w-2xl my-6 leading-normal lg:text-xl lg:leading-loose lg:my-12">
-				{{ __('Join Onramp for free today to see the technologies and processes the team at Tighten thinks are best for you to learn, and our favorite resources for learning them.') }}
-			</p>
+		<p class="my-6 text-xl leading-normal md:text-2xl lg:text-3xl lg:mt-10">
+			{{ __('Join for free today to see the technologies and processes the team at Tighten thinks are best for you to learn, and our favorite resources for learning them.') }}
+		</p>
 
-			<h2 class="mt-10 lg:mt-16">{{ __("Let's do it!") }}</h2>
-
-			<a class="mt-6 button button-white lg:mt-10"
-				href="{{ route_wlocale('modules.index') }}">
-				{{ __("Ok, let's learn") }}
-			</a>
-		</div>
+		<a class="inline-block px-4 py-1 text-lg font-semibold text-center transition duration-150 ease-in-out border-2 rounded-full text-mint under border-blue-black bg-blue-black hover:no-underline hover:bg-mint hover:text-blue-black"
+			href="{{ route_wlocale('modules.index') }}">
+			{{ __("Ok, let's learn") }}
+		</a>
 	</div>
+
+	<div class="hidden md:block">@include('partials.svg.logo-outline')</div>
 </div>

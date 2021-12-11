@@ -11,7 +11,8 @@
             </a>
         </div>
     </div>
-    <div class="-ml-8">
+    <div class="relative -ml-12">
         @include('partials.svg.logo-gradient')
+        {{-- <div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-blue-black"></div> --}}
     </div>
 </div>

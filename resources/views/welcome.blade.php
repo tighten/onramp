@@ -6,6 +6,8 @@
 
         @include('partials.welcome-page.overview')
 
+        @include('partials.welcome-page.demographic')
+
         @include('partials.welcome-page.cta')
     </div>
 @endsection

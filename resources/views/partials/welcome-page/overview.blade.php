@@ -8,8 +8,8 @@
             </p>
         </div>
     </div>
-    <div class="md:order-first">
+    <div class="relative md:order-first">
         @include('partials.svg.path')
+        {{-- <div class="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-blue-black"></div> --}}
     </div>
 </div>
-@include('partials.welcome-page.demographic')

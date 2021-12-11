@@ -1,5 +1,5 @@
 
-<div class="w-full overflow-hidden bg-mint lg:mt-16 xl:to-blue-black text-blue-black md:flex md:justify-between">
+<div class="relative w-full overflow-hidden bg-mint lg:mt-16 xl:to-blue-black text-blue-black md:flex md:justify-between">
 	<div class="relative p-16 md:p-0 md:left-20 md:top-20">
 		<h4 class="font-bold leading-none h4 sm:h3 lg:h2">
 			{{ __('Join Onramp for free.') }}
@@ -16,4 +16,6 @@
 	</div>
 
 	<div class="hidden md:block">@include('partials.svg.logo-outline')</div>
+
+	<div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-blue-black"></div>
 </div>

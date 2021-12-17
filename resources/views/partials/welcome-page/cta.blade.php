@@ -9,13 +9,11 @@
 			{{ __('Join for free today to see the technologies and processes the team at Tighten thinks are best for you to learn, and our favorite resources for learning them.') }}
 		</p>
 
-		<a class="inline-block px-4 py-1 text-lg font-semibold text-center transition duration-150 ease-in-out border-2 rounded-full text-teal under border-blue-black bg-blue-black hover:no-underline hover:bg-teal hover:text-blue-black"
+		<a class="inline-block px-4 py-1 text-lg font-semibold text-center transition duration-150 ease-in-out border-2 rounded-full text-mint under border-blue-black bg-blue-black hover:no-underline hover:bg-mint hover:text-blue-black"
 			href="{{ route_wlocale('modules.index') }}">
 			{{ __("Ok, let's learn") }}
 		</a>
 	</div>
 
 	<div class="hidden md:block">@include('partials.svg.logo-outline')</div>
-
-	<div class="absolute inset-0 md:bg-gradient-to-r from-transparent via-transparent to-blue-black"></div>
 </div>

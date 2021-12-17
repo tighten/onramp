@@ -4,7 +4,7 @@
     </template>
 </sitewide-banner-->
 
-<div class="container items-center hidden lg:flex">
+<div class="items-center hidden px-4 lg:flex">
     @include('partials.svg.logo-nav')
 
     <div class="items-center justify-between flex-1 hidden pl-12 lg:flex">

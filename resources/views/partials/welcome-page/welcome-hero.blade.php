@@ -1,6 +1,6 @@
-<div class="grid grid-cols-1 py-8 overflow-hidden lg:mt-20 md:grid-cols-2 bg-blue-black">
+<div class="grid grid-cols-1 py-8 ml-4 overflow-hidden lg:mt-20 md:grid-cols-2 bg-blue-black">
     <div class="flex items-center w-full">
-        <div class="max-w-2xl px-4 xl:px-0">
+        <div class="max-w-2xl">
             <h1 class="font-bold leading-none text-white h4 sm:h3 lg:h2">
                 {{ __('Providing an easy entrance into Laravel for new developers.') }}
             </h1>

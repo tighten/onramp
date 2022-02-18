@@ -6,7 +6,7 @@
 		<p class="max-w-96">{{ __('The tech concepts you should know in order to get a job as a Laravel developer.') }}</p>
     </x-hero>
 
-    <div class="items-start w-full pt-6 pb-24 -mt-px bg-white rounded-b fluid-container md:flex">
+    <x-panel flex>
         <div class="w-full mb-6">
             <div class="flex flex-col-reverse md:flex-row">
                 <ul class="flex-grow sm:pr-8 lg:pr-12 md:w-3/4 xl:pr-24">
@@ -87,7 +87,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </x-panel>
 </div>
 @endsection
 

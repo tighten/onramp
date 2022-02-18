@@ -50,7 +50,7 @@
     </head>
 
     <body class="bg-blue-black">
-        <div id="app" class="mx-auto xl:container">
+        <div id="app" class="container mx-auto">
             <header class="fixed top-0 left-0 w-full z-[9999]">
                 @include('partials.navigation.header.main-header')
             </header>

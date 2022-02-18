@@ -7,7 +7,7 @@
         <h1 class="mb-2 font-bold tracking-wide h2 md:h1">{{ __('My Profile') }}</h1>
     </x-hero>
 
-    <div class="pb-48 -mt-px fluid-container lg:pt-8">
+    <x-panel>
         <form method="post" action="{{ route_wlocale('user.profile.update') }}">
             @method('PUT')
             @csrf
@@ -47,7 +47,7 @@
                 </div>
             </div>
         </form>
-    </div>
+    </x-panel>
 </div>
 
 @endsection

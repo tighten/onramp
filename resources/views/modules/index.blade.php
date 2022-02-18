@@ -16,7 +16,7 @@
     </x-hero>
 
 
-    <div class="items-start w-full py-20 -mt-px bg-white rounded-b fluid-container">
+    <x-panel>
         <module-listing
             :standard-modules="{{ $standardModules }}"
             :bonus-modules="{{ $bonusModules }}"
@@ -25,6 +25,6 @@
             :user-resource-completions="{{ $userResourceCompletions }}"
             :user-logged-in="{{ auth()->check() ? 'true' : 'false' }}"
         ></module-listing>
-    </div>
+    </x-panel>
 </div>
 @endsection

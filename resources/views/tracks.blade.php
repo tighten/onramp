@@ -7,7 +7,7 @@
         <h1 class="mb-2 font-bold tracking-wide h2 md:h1">{{ __('Tracks') }}</h1>
     </x-hero>
 
-    <div class="items-start w-full py-20 -mt-px bg-white rounded-b fluid-container">
+    <x-panel fluid>
         <div class="sm:hidden">
             @foreach ($tracks as $track)
                 <div class="pb-8 my-2">
@@ -53,6 +53,6 @@
             @endforeach
             </tbody>
         </table>
-    </div>
+    </x-panel>
 </div>
 @endsection

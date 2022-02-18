@@ -8,17 +8,17 @@ $resourceLanguagePreferenceKey = 'resource-language';
 @section('content')
     <div class="w-full bg-white">
         <x-hero>
-            <h1 class="mb-2 font-bold tracking-wide h2 md:h1">{{ __('My Profile') }}</h1>
+            <h1 class="mb-2 font-bold tracking-wide h2 md:h1">{{ __('Preferences') }}</h1>
         </x-hero>
 
-        <div class="pb-48 fluid-container lg:pt-8">
+        <x-panel>
             <form method="post"
                 action="{{ route_wlocale('user.preferences.update') }}">
                 @method('PATCH')
                 @csrf
 
                 <div>
-                    <div class="pb-5 mt-12 border-b border-silver">
+                    <div class="pb-5 mt-12">
                         <h2 class="text-xl font-medium md:text-2xl lg:text-3xl">{{ __('Account Preferences') }}</h2>
                     </div>
 
@@ -29,7 +29,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                             {{ __('Which resources should we show for you?') }}
                         </label>
 
-                        <div class="p-5 mt-6 border border-silver md:p-8">
+                        <div class="p-5 mt-6 border rounded-md border-silver md:p-8">
                             @foreach ($resourceLanguagePreferences as $index => $label)
                                 <div class="flex items-center mt-4 first:mt-0">
                                     <input id="lang_pref_{{ $index }}"
@@ -49,7 +49,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                         </div>
                     </div>
 
-                    <div class="pb-5 mt-12 border-b border-silver">
+                    <div class="pb-5 mt-12">
                         <h2 class="text-xl font-medium md:text-2xl lg:text-3xl">{{ __('System Preferences') }}</h2>
                     </div>
 
@@ -58,7 +58,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                             {{ __('Filter resources based on your operating system and language preference.') }}
                         </p>
 
-                        <div class="flex flex-wrap px-5 pb-2 mt-6 border border-silver lg:flex-no-wrap md:px-8">
+                        <div class="flex flex-wrap px-5 pb-2 mt-6 border rounded-md border-silver lg:flex-no-wrap md:px-8">
                             <div class="flex-auto w-full my-5 lg:flex-even md:my-8">
                                 <label for="{{ $localePreferenceKey }}"
                                     id="locale-label"
@@ -68,7 +68,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
 
                                 <div class="relative max-w-xs mt-4">
                                     <select
-                                        class="block w-full px-4 py-2 pr-8 text-sm leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray focus:outline-none focus:shadow-outline{{ $errors->has('name') ? ' border-red-500' : '' }}"
+                                        class="block w-full px-4 py-2 pr-8 text-sm leading-tight bg-white border rounded-md border-gray-400 shadow appearance-none hover:border-gray focus:outline-none focus:shadow-outline{{ $errors->has('name') ? ' border-red-500' : '' }}"
                                         name="{{ $localePreferenceKey }}"
                                         aria-labelledby="locale-label">
                                         @foreach (Facades\App\Localization\Locale::slugs() as $slug)
@@ -106,7 +106,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
 
                                 <div class="relative max-w-xs mt-4">
                                     <select
-                                        class="block w-full text-sm px-4 py-2 pr-8 leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray focus:outline-none focus:shadow-outline{{ $errors->has('operating-system') ? ' border-red-500' : '' }}"
+                                        class="block w-full text-sm px-4 py-2 pr-8 leading-tight bg-white border rounded-md border-gray-400 shadow appearance-none hover:border-gray focus:outline-none focus:shadow-outline{{ $errors->has('operating-system') ? ' border-red-500' : '' }}"
                                         name="operating-system"
                                         aria-labelledby="os-label">
                                         @foreach (App\OperatingSystem::ALL as $key)
@@ -136,7 +136,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                         </div>
                     </div>
 
-                    <div class="pb-5 mt-12 border-b border-silver">
+                    <div class="pb-5 mt-12">
                         <h2 class="text-xl font-medium md:text-2xl lg:text-3xl">{{ __('Background Experience') }}</h2>
                     </div>
 
@@ -145,7 +145,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                             {{ __('Track your progress in modules based on your current background experience.') }}
                         </p>
 
-                        <div class="flex flex-wrap px-5 pb-2 mt-6 border border-silver lg:flex-no-wrap md:px-8">
+                        <div class="flex flex-wrap px-5 pb-2 lg:flex-no-wrap md:px-8">
                             <div class="flex-auto w-full my-5 lg:flex-even md:my-8">
                                 <label for="track"
                                     id="track-label"
@@ -155,7 +155,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
 
                                 <div class="relative max-w-xs mt-4">
                                     <select
-                                        class="block w-full px-4 py-2 text-sm pr-8 leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray focus:outline-none focus:shadow-outline{{ $errors->has('track') ? ' border-red-500' : '' }}"
+                                        class="block w-full px-4 py-2 text-sm pr-8 leading-tight bg-white border rounded-md border-gray-400 shadow appearance-none hover:border-gray focus:outline-none focus:shadow-outline{{ $errors->has('track') ? ' border-red-500' : '' }}"
                                         name="track"
                                         aria-labelledby="track-label">
                                         @foreach (App\Models\Track::all() as $track)
@@ -196,6 +196,6 @@ $resourceLanguagePreferenceKey = 'resource-language';
                     </div>
                 </div>
             </form>
-        </div>
+        </x-panel>
     </div>
 @endsection

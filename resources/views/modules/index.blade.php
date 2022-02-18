@@ -16,7 +16,7 @@
     </x-hero>
 
 
-    <div class="items-start w-full pt-6 pb-24 -mt-px bg-white rounded-b md:flex">
+    <div class="items-start w-full py-20 -mt-px bg-white rounded-b fluid-container">
         <module-listing
             :standard-modules="{{ $standardModules }}"
             :bonus-modules="{{ $bonusModules }}"

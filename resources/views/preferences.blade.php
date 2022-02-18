@@ -7,11 +7,9 @@ $resourceLanguagePreferenceKey = 'resource-language';
 
 @section('content')
     <div class="w-full bg-white">
-        <div class="py-16 overflow-hidden bg-indigo-100 lg:py-24">
-            <div class="fluid-container">
-                <h1 class="max-w-lg">{{ __('My Preferences') }}</h1>
-            </div>
-        </div>
+        <x-hero>
+            <h1 class="mb-2 font-bold tracking-wide h2 md:h1">{{ __('My Profile') }}</h1>
+        </x-hero>
 
         <div class="pb-48 fluid-container lg:pt-8">
             <form method="post"
@@ -190,11 +188,10 @@ $resourceLanguagePreferenceKey = 'resource-language';
 
                 <div class="pt-5 mt-8">
                     <div class="flex justify-start">
-                        <span class="inline-flex rounded-md shadow-sm">
-                            <button type="submit"
-                                class="py-2 lg:text-lg button button-purple">
+                        <span class="inline-flex">
+                            <x-button.primary type="submit">
                                 {{ ucfirst(__('save')) }}
-                            </button>
+                            </x-button.primary>
                         </span>
                     </div>
                 </div>

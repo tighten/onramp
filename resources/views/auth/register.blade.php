@@ -1,4 +1,4 @@
-@extends('layouts.app-without-nav')
+@extends('layouts.app')
 
 @section('content')
     <div class="flex flex-col justify-center min-h-screen py-12 bg-off-white sm:px-6 lg:px-8">
@@ -90,14 +90,14 @@
                                 name="password_confirmation"
                                 type="password"
                                 required
-                                class="block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-silver rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
+                                class="block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border rounded-md appearance-none border-silver focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
                         </div>
                     </div>
 
                     <div class="mt-6">
                         <span class="block w-full rounded-md shadow-sm">
                             <button type="submit"
-                                class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white transition duration-150 ease-in-out bg-teal border border-transparent rounded-md hover:bg-teal-500 focus:outline-none focus:border-teal focus:shadow-outline-teal active:bg-teal">
+                                class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white no-underline transition duration-150 ease-in-out border border-transparent rounded-md focus:bg-white focus:text-purple bg-purple hover:bg-white hover:text-purple hover:no-underline focus:outline-none border-purple active:bg-white active:text-purple">
                                 {{ __('Register') }}
                             </button>
                         </span>
@@ -117,7 +117,7 @@
 
                     <div class="mt-6">
                         <a href="{{ route_wlocale('login') }}"
-                            class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white no-underline transition duration-150 ease-in-out bg-teal border border-transparent rounded-md hover:bg-teal-500 hover:no-underline focus:outline-none focus:border-teal focus:shadow-outline-teal active:bg-teal">
+                            class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white no-underline transition duration-150 ease-in-out border border-transparent rounded-md focus:bg-white focus:text-purple bg-purple hover:bg-white hover:text-purple hover:no-underline focus:outline-none border-purple active:bg-white active:text-purple">
                             {{ __('Log in') }}
                         </a>
                     </div>

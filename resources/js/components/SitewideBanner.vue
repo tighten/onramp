@@ -16,7 +16,7 @@
                     <button
                         @click="dismiss"
                         type="button"
-                        class="flex p-2 transition duration-150 ease-in-out rounded-md hover:bg-violet focus:outline-none focus:bg-violet"
+                        class="flex p-2 transition duration-200 ease-in-out rounded-md hover:bg-violet focus:outline-none focus:bg-violet"
                         aria-label="dismiss"
                     >
                         <svg

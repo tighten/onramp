@@ -39,7 +39,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                                         value="{{ $index }}"
                                         type="radio"
                                         {{ $currentResourceLanguagePreference == $index ? 'checked' : '' }}
-                                        class="flex-none w-4 h-4 text-indigo-600 transition duration-150 ease-in-out" />
+                                        class="flex-none w-4 h-4 text-indigo-600 transition duration-200 ease-in-out" />
 
                                     <label for="lang_pref_{{ $index }}"
                                         class="ml-3">

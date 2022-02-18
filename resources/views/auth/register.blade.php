@@ -32,7 +32,7 @@
                                 value="{{ old('name') }}"
                                 required
                                 autofocus
-                                class="block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-silver rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5{{ $errors->has('name') ? ' border-red-500' : '' }}" />
+                                class="block w-full px-3 py-2 placeholder-gray-400 transition duration-200 ease-in-out border border-silver rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5{{ $errors->has('name') ? ' border-red-500' : '' }}" />
                         </div>
 
                         @error('name')
@@ -52,7 +52,7 @@
                                 type="email"
                                 value="{{ old('email') }}"
                                 required
-                                class="block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-silver rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5{{ $errors->has('email') ? ' border-red-500' : '' }}" />
+                                class="block w-full px-3 py-2 placeholder-gray-400 transition duration-200 ease-in-out border border-silver rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5{{ $errors->has('email') ? ' border-red-500' : '' }}" />
                         </div>
 
                         @error('email')
@@ -71,7 +71,7 @@
                                 name="password"
                                 type="password"
                                 required
-                                class="block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-silver rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5{{ $errors->has('password') ? ' border-red-500' : '' }}" />
+                                class="block w-full px-3 py-2 placeholder-gray-400 transition duration-200 ease-in-out border border-silver rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5{{ $errors->has('password') ? ' border-red-500' : '' }}" />
                         </div>
 
                         @error('password')
@@ -90,14 +90,14 @@
                                 name="password_confirmation"
                                 type="password"
                                 required
-                                class="block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border rounded-md appearance-none border-silver focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
+                                class="block w-full px-3 py-2 placeholder-gray-400 transition duration-200 ease-in-out border rounded-md appearance-none border-silver focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
                         </div>
                     </div>
 
                     <div class="mt-6">
                         <span class="block w-full rounded-md shadow-sm">
                             <button type="submit"
-                                class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white no-underline transition duration-150 ease-in-out border border-transparent rounded-md focus:bg-white focus:text-purple bg-purple hover:bg-white hover:text-purple hover:no-underline focus:outline-none border-purple active:bg-white active:text-purple">
+                                class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white no-underline transition duration-200 ease-in-out border border-transparent rounded-md focus:bg-white focus:text-purple bg-purple hover:bg-white hover:text-purple hover:no-underline focus:outline-none border-purple active:bg-white active:text-purple">
                                 {{ __('Register') }}
                             </button>
                         </span>
@@ -117,7 +117,7 @@
 
                     <div class="mt-6">
                         <a href="{{ route_wlocale('login') }}"
-                            class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white no-underline transition duration-150 ease-in-out border border-transparent rounded-md focus:bg-white focus:text-purple bg-purple hover:bg-white hover:text-purple hover:no-underline focus:outline-none border-purple active:bg-white active:text-purple">
+                            class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white no-underline transition duration-200 ease-in-out border border-transparent rounded-md focus:bg-white focus:text-purple bg-purple hover:bg-white hover:text-purple hover:no-underline focus:outline-none border-purple active:bg-white active:text-purple">
                             {{ __('Log in') }}
                         </a>
                     </div>

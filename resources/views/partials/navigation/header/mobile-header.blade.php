@@ -48,7 +48,7 @@
                 @include('partials.navigation.header.guest-menu')
             @else
                 <a href="{{ route_wlocale('logout') }}"
-                    class="block w-full px-4 py-1 mx-auto text-lg font-semibold text-center transition duration-150 ease-in-out bg-transparent border-2 hover:no-underline rounded-3xl text-blue-black bg-mint"
+                    class="block w-full px-4 py-1 mx-auto text-lg font-semibold text-center transition duration-200 ease-in-out bg-transparent border-2 hover:no-underline rounded-3xl text-blue-black bg-mint"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <span>{{ __('Log out') }}</span>
                 </a>

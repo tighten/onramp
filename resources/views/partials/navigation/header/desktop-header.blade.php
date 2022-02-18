@@ -4,7 +4,7 @@
     </template>
 </sitewide-banner-->
 
-<div class="items-center hidden px-4 lg:flex">
+<div class="items-center hidden mx-auto lg:container lg:flex">
     <a href="{{ route_wlocale('welcome') }}">
         @include('partials.svg.logo-nav')
     </a>

@@ -2,7 +2,7 @@
     <div>
         <div
             v-if="userLoggedIn"
-            class="px-4 mt-12 text-center sm:text-right lg:mt-18 fluid-container md:px-12 xl:px-20 2xl:px-32"
+            class="px-4 text-center sm:text-right lg:mt-18 fluid-container md:px-12 xl:px-20 2xl:px-32"
         >
             <span class="relative z-0 inline-flex rounded-md shadow-sm">
                 <button
@@ -32,7 +32,7 @@
         </div>
 
         <tabs
-            class="mt-12 lg:mt-18"
+            class="mt-10"
             ref="tabs"
             :hide-tabs-on-desktop="true"
             @activeTabUpdated="updateSelectedTab"

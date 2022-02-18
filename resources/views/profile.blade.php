@@ -3,13 +3,11 @@
 @section('content')
 
 <div class="w-full bg-white">
-    <div class="py-16 overflow-hidden bg-indigo-100 lg:py-24">
-        <div class="fluid-container">
-            <h1 class="max-w-lg">{{ __('My Profile') }}</h1>
-        </div>
-    </div>
+    <x-hero>
+        <h1 class="mb-2 font-bold tracking-wide h2 md:h1">{{ __('My Profile') }}</h1>
+    </x-hero>
 
-    <div class="pb-48 fluid-container lg:pt-8">
+    <div class="pb-48 -mt-px fluid-container lg:pt-8">
         <form method="post" action="{{ route_wlocale('user.profile.update') }}">
             @method('PUT')
             @csrf
@@ -17,11 +15,11 @@
             <x-form.heading>{{ __('Account Settings') }}</x-form.heading>
 
             <x-form.picture>
-                <div class="flex-auto w-full my-5 lg:flex-even md:mt-8 md:mb-4 text-base">{{ __('Profile') }}</div>
-                <div class="flex flex-wrap w-full pb-2 text-base justify-center sm:justify-start">
+                <div class="flex-auto w-full my-5 text-base lg:flex-even md:mt-8 md:mb-4">{{ __('Profile') }}</div>
+                <div class="flex flex-wrap justify-center w-full pb-2 text-base sm:justify-start">
                     <div class="md:flex-shrink-0">
-                        <img class="p-3 mx-auto md:ml-3 rounded-full w-48" src="{{ auth()->user()->profile_picture }}" alt="{{ auth()->user()->name }}">
-                        <p class="py-2 self-center font-normal text-sm">{{ __('Your current public profile picture is sourced from Gravatar.') }} <a href="http://gravatar.com" class="py-2 underline">{{ __('Change') }}</a></p>
+                        <img class="w-48 p-3 mx-auto rounded-full md:ml-3" src="{{ auth()->user()->profile_picture }}" alt="{{ auth()->user()->name }}">
+                        <p class="self-center py-2 text-sm font-normal">{{ __('Your current public profile picture is sourced from Gravatar.') }} <a href="http://gravatar.com" class="py-2 underline">{{ __('Change') }}</a></p>
                     </div>
                 </div>
             </x-form.picture>

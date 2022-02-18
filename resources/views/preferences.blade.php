@@ -143,7 +143,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                     </div>
 
                     <div class="mt-5">
-                        <p class="text-sm leading-5 text-gray-700 md:text-base">
+                        <p class="text-sm leading-5 text-silver md:text-base">
                             {{ __('Track your progress in modules based on your current background experience.') }}
                         </p>
 

@@ -1,22 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="grid w-full grid-cols-1 py-8 overflow-x-hidden text-center text-white lg:mt-32 md:px-0 md:pb-0 sm:overflow-visible md:grid-cols-3 bg-blue-black">
-        <div class="mx-auto md:ml-0 md:place-self-start">
-            @include('partials.svg.path-sm')
-        </div>
+    <x-hero>
+        <h1 class="mb-2 font-bold tracking-wide h2 md:h1">{{ __('Glossary') }}</h1>
+		<p class="max-w-96">{{ __('The tech concepts you should know in order to get a job as a Laravel developer.') }}</p>
+    </x-hero>
 
-        <div class="flex flex-col items-center justify-center order-first px-4 md:order-none max-w-96">
-            <h1 class="mb-2 font-bold tracking-normal h2 md:h1">{{ __('Glossary') }}</h1>
-            <p class="mb-8">{{ __('The tech concepts you should know in order to get a job as a Laravel developer.') }}</p>
-        </div>
-
-        <div class="hidden origin-center rotate-180 md:block">
-            @include('partials.svg.path-sm')
-        </div>
-    </section>
-
-    <div class="items-start w-full pt-12 pb-24 -mt-px bg-white rounded-b fluid-container md:flex lg:pt-20">
+    <div class="items-start w-full pt-6 pb-24 -mt-px bg-white rounded-b fluid-container md:flex">
         <div class="w-full mb-6">
             <div class="flex flex-col-reverse md:flex-row">
                 <ul class="flex-grow sm:pr-8 lg:pr-12 md:w-3/4 xl:pr-24">

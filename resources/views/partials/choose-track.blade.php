@@ -12,7 +12,7 @@
                     <circle cx="160.248" cy="234.903" r="16.486" />
                 </svg>
 
-                <p class="ml-3 text-base font-medium text-orange-600 lg:ml-5">
+                <p class="mt-4 ml-3 text-base font-medium text-silver lg:ml-5">
                     <span class="font-bold">{{ __('Recommended updates to your preferences') }}</span><br>
 
                     <span class="text-sm">{{ __("If you'd like to track your progress based on your current track, we recommend updating this setting in your") }} <a class="underline" href="{{ url_wlocale('preferences') }}">{{ __('user preferences') }}</a>.</span>

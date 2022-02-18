@@ -1,9 +1,9 @@
 {{-- Template from https://templates.digizu.co.uk/ --}}
 <!DOCTYPE html>
 @php
-    $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp tovel');
+    $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to laravel');
 @endphp
-<html lang="{{ locale() }}">
+<html lang="{{ locale() }}" style="scroll-behavior:smooth;">
     <head>
         <meta charset="utf-8">
         <meta name="viewport"

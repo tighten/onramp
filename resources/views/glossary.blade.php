@@ -1,21 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="w-full bg-white">
-    <div class="py-16 overflow-hidden bg-indigo-100 lg:py-24">
-        <div class="relative fluid-container">
-            <h1 class="max-w-xl">{{ __('Glossary') }}</h1>
+    <section class="container w-full py-8 text-center text-white bg-blue-black">
+        <h1 class="font-bold tracking-normal h2 md:h1">{{ __('Glossary') }}</h1>
+        <p>{{ __('The tech concepts you should know in order to get a job as a Laravel developer.') }}</p>
+    </section>
 
-            <picture>
-                <source media="(min-width: 1024px)" srcset="/images/shapes/double-curve-dark-large.svg">
-
-                <img class="absolute right-0 -mr-32 transform -translate-y-1/2 pointer-events-none h-670-px opacity-10 top-1/2 lg:h-1340-px lg:-mr-48 lg:opacity-100"
-                    src="/images/shapes/single-curve-dark-small.svg" alt="Onramp">
-            </picture>
-        </div>
-    </div>
-
-    <div class="items-start pt-12 pb-24 fluid-container md:flex lg:pt-20">
+    <div class="items-start pt-12 pb-24 bg-white fluid-container md:flex lg:pt-20">
         <div class="w-full mb-6">
             <div class="flex flex-col-reverse md:flex-row">
                 <ul class="flex-grow sm:pr-8 lg:pr-12 md:w-3/4 xl:pr-24">
@@ -23,7 +14,7 @@
                         <li id="{{ $term->getEnglishName() }}" class="mt-10 list-none">
                             <div class="flex items-baseline justify-start mb-1 md:mb-3">
                                 <a class="text-lg font-bold" href="#{{ $term->getEnglishName() }}">#</a>
-                                <h3 class="ml-2 text-lg font-semibold capitalize ">
+                                <h3 class="ml-2 text-lg font-semibold capitalize">
                                     {{ $term->getTranslation('name', locale()) }}
                                 </h3>
                                 @if ($term->name !== $term->getEnglishName())
@@ -31,7 +22,7 @@
                                 @endif
                             </div>
 
-                            <div class="glossary-description mt-4 text-base text-gray-700 lg:text-lg">{!! (new Parsedown)->text($term->getTranslation('description', locale())) !!}</div>
+                            <div class="mt-4 text-base text-gray-700 glossary-description lg:text-lg">{!! (new Parsedown)->text($term->getTranslation('description', locale())) !!}</div>
 
                             @if ($term->resourcesForCurrentSession->count() > 0)
                                 <div class="flex flex-col mt-4">
@@ -84,7 +75,7 @@
                         <ul class="mt-6">
                             @forelse ($terms as $term)
                                 <li class="block leading-relaxed list-none border-b border-gray-200 last:border-0 md:text-base">
-                                    <a class="block py-3 px-3 capitalize transition-colors duration-150 ease-in-out hover:no-underline hover:bg-gray-100" href="#{{ $term->getEnglishName() }}">{{ $term->name }}</a>
+                                    <a class="block px-3 py-3 capitalize transition-colors duration-150 ease-in-out hover:no-underline hover:bg-gray-100" href="#{{ $term->getEnglishName() }}">{{ $term->name }}</a>
                                 </li>
                             @empty
                                 {{ __('No terms') }}

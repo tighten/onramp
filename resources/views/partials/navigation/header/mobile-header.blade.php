@@ -3,7 +3,10 @@
     x-cloak>
 
     <div class="flex items-center justify-between w-full">
-        @include('partials.svg.logo-nav')
+        <a href="{{ route_wlocale('welcome') }}">
+            @include('partials.svg.logo-nav')
+        </a>
+
         <button x-on:click="toggle()"
             aria-label="Main Menu"
             type="button"

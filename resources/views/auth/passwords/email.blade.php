@@ -59,7 +59,7 @@
                                 value="{{ old('email') }}"
                                 required
                                 autofocus
-                                class="block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-silver rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5{{ $errors->has('email') ? ' border-red-500' : '' }}" />
+                                class="block w-full px-3 py-2 placeholder-gray-400 transition duration-200 ease-in-out border border-silver rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5{{ $errors->has('email') ? ' border-red-500' : '' }}" />
                         </div>
 
                         @error('email')
@@ -70,7 +70,7 @@
                     <div class="mt-6">
                         <span class="block w-full rounded-md shadow-sm">
                             <button type="submit"
-                                class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white transition duration-150 ease-in-out bg-teal border border-transparent rounded-md hover:bg-teal-500 focus:outline-none focus:border-teal focus:shadow-outline-teal active:bg-teal">
+                                class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white transition duration-200 ease-in-out bg-teal border border-transparent rounded-md hover:bg-teal-500 focus:outline-none focus:border-teal focus:shadow-outline-teal active:bg-teal">
                                 {{ __('Send Password Reset Link') }}
                             </button>
                         </span>
@@ -79,7 +79,7 @@
                     <div class="mt-6 text-center">
                         <div class="text-sm leading-5">
                             <a href="{{ route_wlocale('login') }}"
-                                class="font-medium text-teal transition duration-150 ease-in-out hover:text-teal-500 focus:outline-none focus:underline">
+                                class="font-medium text-teal transition duration-200 ease-in-out hover:text-teal-500 focus:outline-none focus:underline">
                                 {{ __('Back to login') }}
                             </a>
                         </div>

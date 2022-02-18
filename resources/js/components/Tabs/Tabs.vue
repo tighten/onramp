@@ -13,7 +13,7 @@
                             v-for="tab in tabs"
                             :key="tab.name"
                             :class="{ 'text-gray-700': tab.isActive }"
-                            class="inline-block pr-5 text-xl font-semibold leading-tight tracking-tight whitespace-no-wrap transition duration-150 ease-in-out last:pr-0 sm:pr-10 lg:pr-20 md:text-2xl xl:text-4xl focus:outline-none hover:text-gray-700"
+                            class="inline-block pr-5 text-xl font-semibold leading-tight tracking-tight whitespace-no-wrap transition duration-200 ease-in-out last:pr-0 sm:pr-10 lg:pr-20 md:text-2xl xl:text-4xl focus:outline-none hover:text-gray-700"
                         >
                             <a
                                 :href="tab.href"

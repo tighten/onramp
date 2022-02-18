@@ -8,7 +8,7 @@
             <div class="inline-block mr-1">
                 <div
                     @click="toggle"
-                    class="text-gray transition duration-150 ease-in-out cursor-pointer hover:text-gray-600"
+                    class="text-gray transition duration-200 ease-in-out cursor-pointer hover:text-gray-600"
                     :class="{ 'text-teal-600 hover:text-teal': isCompleted }"
                 >
                     <svg

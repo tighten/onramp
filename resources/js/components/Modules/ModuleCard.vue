@@ -1,6 +1,6 @@
 <template>
     <div
-        class="flex-initial w-full px-3 pb-5 sm:max-w-xs sm:w-1/2 lg:w-1/3 xl:w-1/4"
+        class="flex-initial w-full p-1.5 sm:max-w-xs sm:w-1/2 lg:w-1/3 xl:w-1/4"
     >
         <a
             class="flex flex-col w-full h-full transition-transform duration-300 transform shadow-md hover:no-underline hover:scale-95"

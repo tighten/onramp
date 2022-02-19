@@ -56,7 +56,6 @@
 
                     <div class="flex flex-wrap w-full md:px-1 lg:px-0 lg:-mx-3">
                         <template v-if="tab.name === 'beginner'">
-                            
                             <p
                                 v-if="!beginnerModules.length"
                                 class="px-3 text-gray-700"

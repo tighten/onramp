@@ -5,15 +5,15 @@
                 class="w-full h-16 mb-8 overflow-hidden md:mb-10 lg:mb-12"
                 :class="{ 'lg:hidden': hideTabsOnDesktop }"
             >
-                <div class="pb-8 overflow-scroll fluid-container">
+                <div class="pb-6">
                     <ul
-                        class="inline-flex flex-no-wrap min-w-full border-b-4 text-none text-regent-grey"
+                        class="inline-flex flex-no-wrap min-w-full text-white border-b-4 text-none"
                     >
                         <li
                             v-for="tab in tabs"
                             :key="tab.name"
-                            :class="{ 'text-gray-700': tab.isActive }"
-                            class="inline-block pr-5 text-xl font-semibold leading-tight tracking-tight whitespace-no-wrap transition duration-200 ease-in-out last:pr-0 sm:pr-10 lg:pr-20 md:text-2xl xl:text-4xl focus:outline-none hover:text-gray-700"
+                            :class="{ 'text-white': tab.isActive }"
+                            class="inline-block pr-5 text-xl font-semibold leading-tight tracking-tight whitespace-no-wrap transition duration-200 ease-in-out last:pr-0 sm:pr-10 lg:pr-20 md:text-2xl xl:text-4xl focus:outline-none"
                         >
                             <a
                                 :href="tab.href"

@@ -35,7 +35,7 @@
 
             <span class="flex-1 block p-4 bg-white">
                 <h4
-                    class="text-base font-semibold leading-5 tracking-normal text-east-bay sm:text-lg"
+                    class="text-base font-semibold leading-5 tracking-normal"
                 >
                     {{
                         item.name[trans.locale]

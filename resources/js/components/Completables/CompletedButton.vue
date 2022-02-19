@@ -6,7 +6,7 @@
     >
         <template slot-scope="{ toggle, isCompleted }">
             <button
-                class="flex items-center justify-center w-full px-5 py-2 mt-8 font-semibold leading-none text-white transition-colors duration-200 ease-in-out border-2 border-white rounded-md hover:bg-white hover:text-teal focus:outline-none md:max-w-xs md:py-3 lg:mt-0"
+                class="flex items-center justify-center w-full px-4 py-2 mt-8 text-sm font-semibold leading-none text-white transition-colors duration-200 ease-in-out border-2 border-white rounded-3xl hover:bg-white hover:text-teal focus:outline-none lg:mt-0"
                 :class="{ 'bg-white text-teal hover:bg-gray-100': isCompleted }"
                 @click="toggle"
                 :aria-label="

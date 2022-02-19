@@ -12,7 +12,7 @@
             >
                 Completed
                 <svg
-                    class="w-4 h-4 ml-2 text-teal fill-current"
+                    class="w-4 h-4 ml-2 fill-current text-teal"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 30 30"
                 >
@@ -23,7 +23,7 @@
                 </svg>
             </span>
 
-            <span :class="`relative block pb-8/12 xl:pb-3/5 ${cardColorClass}`">
+            <span :class="`relative block w-full h-44 ${cardColorClass}`">
                 <img
                     v-show="imageExists"
                     class="absolute bottom-0 w-full h-auto max-h-full transform -translate-x-1/2 left-1/2 will-change-transform"
@@ -33,7 +33,7 @@
                 />
             </span>
 
-            <span class="flex-1 block p-5 pb-8 bg-white xl:px-8 xl:pb-10">
+            <span class="flex-1 block p-4 bg-white">
                 <h4
                     class="text-base font-semibold leading-5 tracking-normal text-east-bay sm:text-lg"
                 >
@@ -44,40 +44,39 @@
                     }}
                 </h4>
 
-                <template v-if="!isCompleted && isUserModule">
-                    <p
-                        class="pt-5 mt-5 text-sm font-semibold tracking-wider text-gray-700 uppercase border-t border-silver"
-                    >
-                        My progress:
-                    </p>
-
-                    <ul class="block mt-2 text-base">
-                        <li
-                            class="inline-flex items-center justify-between w-full"
+                    <template v-if="!isCompleted && isUserModule">
+                        <p
+                            class="pt-5 mt-5 text-sm font-semibold tracking-wider text-gray-700 uppercase border-t border-silver"
                         >
-                            <span class="text-east-bay">Resources</span>
-                            <span class="font-semibold text-gray-900">
-                                {{ completedResourcesPercentage }}%
-                            </span>
-                        </li>
+                            My progress:
+                        </p>
 
-                        <!-- @todo display this once Quizzes and Exercises created -->
-                        <!-- <li class="inline-flex items-center justify-between w-full mt-3">
-                            <span class="text-east-bay">Quizzes</span>
-                            <span class="font-semibold text-gray-900">20%</span>
-                        </li>
+                        <ul class="block mt-2 text-base">
+                            <li
+                                class="inline-flex items-center justify-between w-full"
+                            >
+                                <span class="text-east-bay">Resources</span>
+                                <span class="font-semibold text-gray-900">
+                                    {{ completedResourcesPercentage }}%
+                                </span>
+                            </li>
 
-                        <li class="inline-flex items-center justify-between w-full mt-3">
-                            <span class="text-east-bay">Exercises</span>
-                            <span class="font-semibold text-gray-900">20%</span>
-                        </li> -->
-                    </ul>
-                </template>
-            </span>
-        </a>
-    </div>
-</template>
+                            <!-- @todo display this once Quizzes and Exercises created -->
+                            <!-- <li class="inline-flex items-center justify-between w-full mt-3">
+                                <span class="text-east-bay">Quizzes</span>
+                                <span class="font-semibold text-gray-900">20%</span>
+                            </li>
 
+                            <li class="inline-flex items-center justify-between w-full mt-3">
+                                <span class="text-east-bay">Exercises</span>
+                                <span class="font-semibold text-gray-900">20%</span>
+                            </li> -->
+                        </ul>
+                    </template>
+                </span>
+            </a>
+        </div>
+    </template>
 <script>
 export default {
     props: {
@@ -110,19 +109,19 @@ export default {
             moduleCardColors: {
                 beginner: {
                     even: "bg-teal",
-                    odd: "bg-teal-400"
+                    odd: "bg-emerald"
                 },
                 intermediate: {
-                    even: "bg-cornflower-blue",
-                    odd: "bg-violet"
+                    even: "bg-sea",
+                    odd: "bg-lake"
                 },
                 advanced: {
-                    even: "bg-pink-900",
-                    odd: "bg-pink-800"
+                    even: "bg-cabernet",
+                    odd: "bg-merlot"
                 },
                 bonus: {
-                    even: "bg-oxford-blue",
-                    odd: "bg-east-bay"
+                    even: "bg-steel",
+                    odd: "bg-gray"
                 }
             },
             moduleUrl: `/${this.trans.locale}/modules/${this.item.slug}/free-resources`,

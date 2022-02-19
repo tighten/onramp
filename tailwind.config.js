@@ -27,7 +27,9 @@ module.exports = {
                 violet: "#657EEA",
                 purple: "#5B55CC",
                 cabernet: "#97266D",
-                merlot: "#97266D"
+                merlot: "#702459",
+                sea: "#4C50BF",
+                lake: "#657EEA",
             },
 
             container: {

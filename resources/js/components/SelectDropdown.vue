@@ -1,7 +1,7 @@
 <template>
     <div class="relative" :tabindex="tabindex" @blur="open = false">
         <button
-            class="relative block w-full h-12 px-5 py-4 pr-12 text-base font-semibold leading-none text-left truncate rounded-md bg-silver focus:outline-none"
+            class="relative block w-full h-12 px-5 py-4 pr-12 text-base font-semibold leading-none text-left text-black truncate bg-white border rounded-md focus:outline-none"
             :class="{ 'rounded-bl-none rounded-br-none': isOpen }"
             @click="isOpen = !isOpen"
         >

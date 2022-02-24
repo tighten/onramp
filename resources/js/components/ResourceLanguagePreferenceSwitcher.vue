@@ -1,22 +1,22 @@
 <template>
-    <p class="mb-8 text-right">
+    <p class="text-right">
         <button
             @click="showAll"
-            class="mr-2 text-base font-semibold text-gray-700 transition duration-200 ease-in-out cursor-pointer hover:text-gray-800 last:mr-0 lg:mr-4"
-            :class="{'text-gray-900 hover:text-gray-900' : choiceIsSelected('all')}"
+            class="mr-2 text-base font-semibold text-white transition duration-200 ease-in-out cursor-pointer last:mr-0 lg:mr-4"
+            :class="{'text-white' : choiceIsSelected('all')}"
         >{{ trans.get('__JSON__.All resources') }}</button>
 
         <button
             @click="showOnlyLocalLanguage"
-            class="mr-2 text-base font-semibold text-gray-700 transition duration-200 ease-in-out cursor-pointer hover:text-gray-800 last:mr-0 lg:mr-4"
-            :class="{'text-gray-900 hover:text-gray-900' : choiceIsSelected('local')}"
+            class="mr-2 text-base font-semibold text-white transition duration-200 ease-in-out cursor-pointer last:mr-0 lg:mr-4"
+            :class="{'text-white' : choiceIsSelected('local')}"
         >{{ trans.get('__JSON__.:locale resources', {'locale': language}) }}</button>
 
         <span v-if="language !== 'English'">
             <button
                 @click="showEnglishAndLocalLanguage"
-                class="mr-2 text-base font-semibold text-gray-700 transition duration-200 ease-in-out cursor-pointer hover:text-gray-800 last:mr-0 lg:mr-4"
-                :class="{'text-gray-900 hover:text-gray-900' : choiceIsSelected('local-and-english')}"
+                class="mr-2 text-base font-semibold text-white transition duration-200 ease-in-out cursor-pointer last:mr-0 lg:mr-4"
+                :class="{'text-white' : choiceIsSelected('local-and-english')}"
             >{{ trans.get('__JSON__.English and :locale resources', {'locale': language}) }}</button>
         </span>
     </p>

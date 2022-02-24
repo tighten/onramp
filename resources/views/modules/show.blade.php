@@ -5,16 +5,16 @@ $level = !$module->is_bonus ? $module->skill_level : 'bonus';
 
 switch ($level) {
     case 'intermediate':
-        $bgColor = 'bg-violet';
+        $bgColor = 'bg-sea';
         break;
     case 'advanced':
-        $bgColor = 'bg-pink-800';
+        $bgColor = 'bg-merlot';
         break;
     case 'bonus':
-        $bgColor = 'bg-oxford-blue';
+        $bgColor = 'bg-steel';
         break;
     default:
-        $bgColor = 'bg-teal';
+        $bgColor = 'bg-emerald';
         break;
 }
 @endphp
@@ -25,7 +25,7 @@ switch ($level) {
 
         <div class="{{ $bgColor }} pb-24 pt-16 md:pb-40 lg:pt-24 lg:pb-48">
             <div class="relative fluid-container lg:flex lg:items-center lg:justify-between">
-                <h1 class="max-w-3xl text-white">{{ $module->name }}</h1>
+                <h1 class="max-w-3xl font-bold text-white h2 lg:h1">{{ $module->name }}</h1>
 
                 @auth
                     @if (Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id))
@@ -40,12 +40,12 @@ switch ($level) {
         </div>
 
         <div class="pb-16 fluid-container">
-            <div class="px-4 pt-6 pb-8 -mt-16 bg-white shadow-md md:p-10 md:pb-16 md:-mt-32">
+            <div class="grid gap-6 px-4 pt-6 pb-8 -mt-16 bg-white shadow-md sm:grid-cols-2 md:p-10 md:pb-16 md:-mt-32">
                 @if ($module->description)
                     <div>
                         <p class="mb-3 text-xl font-semibold md:mb-8 md:text-2xl lg:text-4xl">{{ __('Overview') }}</p>
 
-                        <p class="pr-2 mb-6 text-east-bay md:mb-10 lg:max-w-3xl xl:leading-normal">
+                        <p class="max-w-lg md:mb-10 xl:leading-normal">
                             {{ $module->description }}
                         </p>
                     </div>
@@ -64,15 +64,13 @@ switch ($level) {
                                             id="{{ $skill->id }}"></completed-badge>
                                     </li>
                                 @else
-                                    <li class="relative block px-4 py-2 m-1">
-                                        <span class="absolute inset-0 w-full h-full bg-teal-400 rounded-md opacity-10"></span>
+                                    <li class="relative block px-4 py-2 m-1 bg-opacity-25 rounded-md mg-mint">
                                         <span class="font-bold text-teal">{{ $skill->name }}</span>
                                     </li>
                                 @endif
                             @endauth
                             @guest
-                                <li class="relative block px-4 py-2 m-1">
-                                    <span class="absolute inset-0 w-full h-full bg-teal-400 rounded-md opacity-10"></span>
+                                <li class="relative block px-4 py-2 m-1 bg-opacity-25 rounded-md mg-mint">
                                     <span class="font-bold text-teal">{{ $skill->name }}</span>
                                 </li>
                             @endguest
@@ -129,8 +127,7 @@ switch ($level) {
         </tab> --}}
         </tabs>
 
-        <div class="fluid-container">
-
+        <x-panel>
             <resource-language-preference-switcher class="md:-mt-5 lg:-mt-8 xl:-mt-6"
                 language="{{ Localization::languageForLocale(locale()) }}"
                 initial-choice="{{ $currentResourceLanguagePreference }}">
@@ -163,6 +160,6 @@ switch ($level) {
                         @include('modules.resources.free')
                 @endswitch
             </div>
-        </div>
+        </x-panel>
     </div>
 @endsection

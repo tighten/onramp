@@ -5,20 +5,20 @@
     $locale = new App\Localization\Locale();
     $localePreferenceKey = 'locale';
     @endphp
-    <div class="w-full bg-white">
-        <div class="py-16 overflow-hidden bg-indigo-100 lg:py-24">
-            <div class="fluid-container">
-                <h1 class="max-w-lg">{{ __('Getting Started') }}</h1>
+    <div class="w-full">
+        <x-hero>
+            <div class="flex flex-col items-center justify-center order-first px-4 md:order-none max-w-96">
+                <h1 class="mb-2 font-bold tracking-wide h2 md:h1">{{ __('Getting Started') }}</h1>
             </div>
-        </div>
+        </x-hero>
 
-        <div class="pb-48 fluid-container lg:pt-8">
+        <div class="pb-48 -mt-px bg-white fluid-container lg:pt-8">
             <form action="{{ route_wlocale('wizard.store') }}"
                 method="POST">
                 @csrf
 
                 <div>
-                    <div class="pb-5 mt-12 border-b border-silver">
+                    <div class="pb-5 mt-12">
                         <h2 class="text-xl font-medium md:text-2xl lg:text-3xl">{{ __('A bit about yourself') }}</h2>
                     </div>
 
@@ -27,7 +27,7 @@
                             {{ __('Help us get to know your environment and knowledge, so we can show you the right information.') }}
                         </p>
 
-                        <div class="flex flex-wrap px-5 pb-2 mt-6 border border-silver lg:flex-no-wrap md:px-8">
+                        <div class="flex flex-wrap px-5 pb-2 mt-6 border rounded-md border-silver lg:flex-no-wrap md:px-8">
                             <div class="flex-auto w-full my-5 lg:flex-even md:my-8">
                                 <label for="{{ $localePreferenceKey }}"
                                     id="locale-label"
@@ -37,7 +37,7 @@
 
                                 <div class="relative max-w-xs mt-4">
                                     <select
-                                        class="block w-full px-4 py-2 pr-8 text-sm leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray focus:outline-none focus:shadow-outline{{ $errors->has('name') ? ' border-red-500' : '' }}"
+                                        class="cursor-pointer block w-full px-4 py-2 pr-8 text-sm leading-tight bg-white border border-gray rounded-md shadow appearance-none hover:border-silver focus:outline-none focus:shadow-outline{{ $errors->has('name') ? ' border-red-500' : '' }}"
                                         name="{{ $localePreferenceKey }}"
                                         aria-labelledby="locale-label">
                                         @foreach ($locale->slugs() as $slug)
@@ -144,9 +144,9 @@
 
                 <div class="pt-5 mt-8">
                     <div class="flex justify-start">
-                        <span class="inline-flex rounded-md shadow-sm">
+                        <span class="inline-flex">
                             <button type="submit"
-                                class="py-2 lg:text-lg button button-purple">
+                                class="p-2 text-white no-underline transition duration-200 ease-in-out border border-transparent rounded-md focus:bg-white focus:text-purple bg-purple hover:bg-white hover:text-purple hover:no-underline focus:outline-none border-purple active:bg-white active:text-purple">
                                 {{ ucfirst(__('complete')) }}
                             </button>
                         </span>

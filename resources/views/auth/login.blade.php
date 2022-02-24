@@ -1,7 +1,7 @@
-@extends('layouts.app-without-nav')
+@extends('layouts.app')
 
 @section('content')
-    <div class="flex flex-col justify-center min-h-screen py-12 bg-off-white sm:px-6 lg:px-8">
+    <div class="flex flex-col justify-center min-h-screen py-12 bg-off-white sm:px-6 lg:px-8 bg-blue-black">
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
             <a href="{{ route_wlocale('welcome') }}">
                 <img class="w-auto h-20 mx-auto"
@@ -32,7 +32,7 @@
                                 value="{{ old('email') }}"
                                 required
                                 autofocus
-                                class="block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-silver rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5{{ $errors->has('email') ? ' border-red-500' : '' }}" />
+                                class="block w-full px-3 py-2 placeholder-gray-400 transition duration-200 ease-in-out border border-silver rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-purple sm:text-sm sm:leading-5{{ $errors->has('email') ? ' border-red-500' : '' }}" />
                         </div>
 
                         @error('email')
@@ -51,7 +51,7 @@
                                 name="password"
                                 type="password"
                                 required
-                                class="block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-silver rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5{{ $errors->has('password') ? ' border-red-500' : '' }}" />
+                                class="block w-full px-3 py-2 placeholder-gray-400 transition duration-200 ease-in-out border border-silver rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-purple sm:text-sm sm:leading-5{{ $errors->has('password') ? ' border-red-500' : '' }}" />
                         </div>
 
                         @error('password')
@@ -65,7 +65,7 @@
                                 name="remember"
                                 type="checkbox"
                                 {{ old('remember') ? 'checked' : '' }}
-                                class="w-4 h-4 text-teal transition duration-150 ease-in-out form-checkbox" />
+                                class="w-4 h-4 transition duration-200 ease-in-out text-mint form-checkbox" />
 
                             <label for="remember"
                                 class="block ml-2 text-sm leading-5 text-gray-900">
@@ -75,7 +75,7 @@
 
                         <div class="text-sm leading-5">
                             <a href="{{ route_wlocale('password.request') }}"
-                                class="font-medium text-teal transition duration-150 ease-in-out hover:text-teal-500 focus:outline-none focus:underline">
+                                class="font-medium transition duration-200 ease-in-out text-purple hover:text-violet focus:outline-none focus:underline">
                                 {{ __('Forgot your Password?') }}
                             </a>
                         </div>
@@ -84,7 +84,7 @@
                     <div class="mt-6">
                         <span class="block w-full rounded-md shadow-sm">
                             <button type="submit"
-                                class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white transition duration-150 ease-in-out bg-teal border border-transparent rounded-md hover:bg-teal-500 focus:outline-none focus:border-teal focus:shadow-outline-teal active:bg-teal">
+                                class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white no-underline transition duration-200 ease-in-out border border-transparent rounded-md focus:bg-white focus:text-purple bg-purple hover:bg-white hover:text-purple hover:no-underline focus:outline-none border-purple active:bg-white active:text-purple">
                                 {{ __('Log in') }}
                             </button>
                         </span>
@@ -104,7 +104,7 @@
 
                     <div class="mt-6">
                         <a href="{{ route_wlocale('register') }}"
-                            class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white no-underline transition duration-150 ease-in-out bg-teal border border-transparent rounded-md hover:bg-teal-500 hover:no-underline focus:outline-none focus:border-teal focus:shadow-outline-teal active:bg-teal">
+                            class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white no-underline transition duration-200 ease-in-out border border-transparent rounded-md focus:bg-white focus:text-purple bg-purple hover:bg-white hover:text-purple hover:no-underline focus:outline-none border-purple active:bg-white active:text-purple">
                             {{ __('Register') }}
                         </a>
                     </div>

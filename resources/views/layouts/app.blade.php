@@ -1,9 +1,9 @@
 {{-- Template from https://templates.digizu.co.uk/ --}}
 <!DOCTYPE html>
 @php
-    $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp tovel');
+    $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to laravel');
 @endphp
-<html lang="{{ locale() }}">
+<html lang="{{ locale() }}" style="scroll-behavior:smooth;">
     <head>
         <meta charset="utf-8">
         <meta name="viewport"
@@ -50,7 +50,7 @@
     </head>
 
     <body class="bg-blue-black">
-        <div id="app" class="mx-auto xl:container">
+        <div id="app" class="container mx-auto">
             <header class="fixed top-0 left-0 w-full z-[9999]">
                 @include('partials.navigation.header.main-header')
             </header>

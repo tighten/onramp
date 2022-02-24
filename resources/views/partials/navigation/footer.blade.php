@@ -12,8 +12,6 @@
                 <a href="https://github.com/tighten/onramp"
                     class="underline"
                     target="_blank">{{ __('Source & Roadmap') }}</a>
-                {{-- <a href="#" class="ml-4 text-black">Terms &amp; Conditions</a> @screen xx
-            <a href="#" class="ml-4 text-black">Contact Us</a> --}}
             </div>
         </div>
     </div>

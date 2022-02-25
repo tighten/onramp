@@ -49,3 +49,21 @@ a:hover {
     @apply bg-blue-500;
     @apply text-white;
 }
+
+
+/** Imported from Vue Language switcher for use in Alpine language switcher; delete if unused */
+.slide-leave-active {
+    transition: all 500ms ease-in-out;
+}
+
+.slide-enter-to,
+.slide-leave {
+    max-height: 1000px;
+    overflow: hidden;
+}
+
+.slide-enter,
+.slide-leave-to {
+    overflow: hidden;
+    max-height: 0;
+}

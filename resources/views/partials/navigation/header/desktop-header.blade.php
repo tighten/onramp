@@ -17,10 +17,7 @@
         </div>
 
         <div class="flex items-center justify-end flex-1">
-            {{--@include('partials.language-switcher')--}}
-            <div v-pre>
-                @include('partials.alpine-language-switcher')
-            </div>
+            @include('partials.alpine-language-switcher')
 
             <div class="flex items-center ml-12">
                 @guest

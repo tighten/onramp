@@ -1,18 +1,9 @@
-<!-- this should've been a separate alpine component and that's how i originally built it but I didn't know you could do nested components :facepalm: -->
-
-<!-- This is a Vue thing we'll have to replace -->
+<!-- Todo: Re-create this Vue version when we start using the Alpine version on Desktop -->
 <!--menu-dropdown :toggle-text="language" class="hidden lg:block">
     <menu-dropdown-item v-for="(lang, slug) in languages" :key="slug" :text="lang" @clicked="choose(slug)"></menu-dropdown-item>
 </menu-dropdown-->
 
-@php
-// $locales = {'es': 'English'}
-$localesArray = collect($locales)->map(function ($language, $slug) {
-return ['language' => $language, 'slug' => $slug];
-})->values()->toArray();
-@endphp
-
-<div x-data="mobileLanguageDropdown('{{ $language }}', {{ json_encode($localesArray) }})" class="relative z-50 mb-6 lg:hidden">
+<div x-data="mobileLanguageDropdown('{{ $language }}', {{ json_encode($locales) }})" class="relative z-50 mb-6 lg:hidden">
     <button x-show="isLanguageDropdownOpen" x-on:click="isLanguageDropdownOpen = false" tabindex="-1" class="fixed inset-0 hidden w-full h-full cursor-default" aria-label="close language switcher"></button>
 
     <div class="px-6 py-3 lg:p-0">
@@ -27,18 +18,14 @@ return ['language' => $language, 'slug' => $slug];
         </label>
     </div>
 
+    <!-- todo: fix transition after switching to alpine -->
     <!-- <transition name="slide"> -->
     <div x-show="isLanguageDropdownOpen" x-on:click.away="close" class="overflow-hidden bg-steel lg:absolute lg:mt-12 lg:shadow-xl lg:left-0 lg:top-0">
-        <ul>
-            <template x-for="lang in languages" :key="lang.slug">
-                <li>
-                    <span x-text="lang.slug"></span>
-                    yay
-                </li>
-            </template>
-        </ul>
-        <!--button x-for="(lang, slug) in languages" :key="slug" :text="lang" x-on:click="chooseLanguage(slug)" class="block w-full px-6 py-2 text-base font-normal text-left text-white transition-colors duration-200 ease-in-out focus:outline-none hover:bg-purple">
-        </button-->
+        <template x-for="(lang, slug) in languages" :key="slug">
+            <button x-text="lang" x-on:click="chooseLanguage(slug)" class="block w-full px-6 py-2 text-base font-normal text-left text-white transition-colors duration-200 ease-in-out focus:outline-none hover:bg-purple">
+
+            </button>
+        </template>
     </div>
     <!-- </transition> -->
 </div>

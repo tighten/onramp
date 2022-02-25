@@ -17,17 +17,20 @@
         </div>
 
         <div class="flex items-center justify-end flex-1">
-            @include('partials.alpine-language-switcher')
+            @include('partials.language-switcher')
 
             <div class="flex items-center ml-12">
                 @guest
-                @include('partials.navigation.header.guest-menu')
+                    @include('partials.navigation.header.guest-menu')
                 @else
-                @include('partials.navigation.header.auth-menu')
+                    @include('partials.navigation.header.auth-menu')
 
-                <form id="logout-form" action="{{ route_wlocale('logout') }}" method="POST" class="hidden">
-                    {{ csrf_field() }}
-                </form>
+                    <form id="logout-form"
+                        action="{{ route_wlocale('logout') }}"
+                        method="POST"
+                        class="hidden">
+                        {{ csrf_field() }}
+                    </form>
                 @endguest
             </div>
         </div>

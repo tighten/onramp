@@ -17,7 +17,7 @@ class ViewServiceProvider extends ServiceProvider
             ]);
         });
 
-        View::composer('partials.navigation.header.mobile-header', function ($view) {
+        View::composer('partials.alpine-language-switcher', function ($view) {
             $view->with([
                 'locales' => Localization::all(),
                 'language' => Localization::languageForLocale(locale()),

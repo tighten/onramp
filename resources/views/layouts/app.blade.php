@@ -1,7 +1,7 @@
 {{-- Template from https://templates.digizu.co.uk/ --}}
 <!DOCTYPE html>
 @php
-$fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to laravel');
+$fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to Laravel');
 @endphp
 <html lang="{{ locale() }}" style="scroll-behavior:smooth;">
 
@@ -31,6 +31,72 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to la
     <script>
         window.locale = "{{ app()->getLocale() }}";
         window.fallback_locale = "{{ config('app.fallback_locale') }}";
+    </script>
+
+    <style>
+        /* @todo scope these, Don't merge in, just testing */
+        .slide-leave-active {
+            transition: all 500ms ease-in-out;
+        }
+
+        .slide-enter-to,
+        .slide-leave {
+            max-height: 1000px;
+            overflow: hidden;
+        }
+
+        .slide-enter,
+        .slide-leave-to {
+            overflow: hidden;
+            max-height: 0;
+        }
+    </style>
+    <script>
+        // @todo figure out where these belong later
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('mobileHeaderMenu', (language, languages) => ({
+                init() {
+                    // @todo this is nasty, proof of concept, let's clean up
+                    let newLanguages = []
+                    Object.keys(languages).map(function(key, index) {
+                        newLanguages.push({
+                            lang: key,
+                            slug: languages[key],
+                        })
+                    });
+                    this.languages = newLanguages
+                    // console.log(newLanguages)
+                },
+                isMenuOpen: false,
+                language: language,
+                languages: languages,
+                toggle() {
+                    this.isMenuOpen = !this.isMenuOpen
+                },
+                isLanguageDropdownOpen: false,
+                toggleLanguageDropdown() {
+                    this.isLanguageDropdownOpen = !this.isLanguageDropdownOpen
+                },
+                chooseLanguage(value) {
+                    // axios
+                    //     .patch(route("user.preferences.update", {
+                    //         locale: "en"
+                    //     }), {
+                    //         locale: value
+                    //     })
+                    //     .then(() => {
+                    //         let segments = window.location.pathname.split("/");
+                    //         segments[1] = value;
+                    //         window.location = `${
+                    //             domLocation.origin
+                    //         }${segments.join("/")}`;
+                    //     })
+                    //     .catch(error => {
+                    //         alert("Error!");
+                    //     });
+                }
+            }));
+        });
     </script>
 
     <title>{{ $fullPageTitle }}</title>

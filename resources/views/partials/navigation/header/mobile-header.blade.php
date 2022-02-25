@@ -1,7 +1,7 @@
-<div x-data="{ isMenuOpen: false, toggle() { this.isMenuOpen = ! this.isMenuOpen}}"
+<div x-data="{isMenuOpen: false, toggle() { this.isMenuOpen = !this.isMenuOpen}}"
     class="relative px-4 lg:hidden"
-    x-cloak>
-
+    x-cloak
+    v-pre>
     <div class="flex items-center justify-between w-full">
         <a href="{{ route_wlocale('welcome') }}">
             @include('partials.svg.logo-nav')

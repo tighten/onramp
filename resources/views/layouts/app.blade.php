@@ -1,7 +1,7 @@
 {{-- Template from https://templates.digizu.co.uk/ --}}
 <!DOCTYPE html>
 @php
-$fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to laravel');
+$fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to Laravel');
 @endphp
 <html lang="{{ locale() }}" style="scroll-behavior:smooth;">
 
@@ -31,6 +31,28 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to la
     <script>
         window.locale = "{{ app()->getLocale() }}";
         window.fallback_locale = "{{ config('app.fallback_locale') }}";
+        window.locales = {!! json_encode(Localization::all()) !!};
+        window.language = '{{ Localization::languageForLocale(locale()) }}';
+
+        function chooseLanguage(value) {
+            axios
+                .patch(route("user.preferences.update", {
+                    locale: "en"
+                }), {
+                    locale: value
+                })
+                .then(() => {
+                    let segments = window.location.pathname.split("/");
+                    segments[1] = value;
+                    window.location = `${
+                        window.location.origin
+                    }${segments.join("/")}`;
+                })
+                .catch(error => {
+                    alert("Error!");
+                    console.log(error);
+                });
+        }
     </script>
 
     <title>{{ $fullPageTitle }}</title>
@@ -41,16 +63,17 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to la
         <header class="fixed top-0 left-0 w-full z-[9999]">
             @include('partials.navigation.header.main-header')
         </header>
+        <div id="app-body">
+            @includeWhen(! request()->routeIs('wizard.index'), 'partials.choose-track')
+            @yield('content')
 
-        @includeWhen(! request()->routeIs('wizard.index'), 'partials.choose-track')
-        @yield('content')
+            @include('partials.navigation.footer')
 
-        @include('partials.navigation.footer')
-
-        <!-- toast notifications -->
-        @if (session('toast'))
-        <toast message="{{ session('toast') }}"></toast>
-        @endif
+            <!-- toast notifications -->
+            @if (session('toast'))
+            <toast message="{{ session('toast') }}"></toast>
+            @endif
+        </div>
     </div>
     @routes
     <script src="{{ mix('js/app.js') }}"></script>

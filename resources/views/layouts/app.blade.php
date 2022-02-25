@@ -54,25 +54,9 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to La
     <script>
         // @todo figure out where these belong later
         document.addEventListener('alpine:init', () => {
-            Alpine.data('mobileHeaderMenu', (language, languages) => ({
-                init() {
-                    // @todo this is nasty, proof of concept, let's clean up
-                    let newLanguages = []
-                    Object.keys(languages).map(function(key, index) {
-                        newLanguages.push({
-                            lang: key,
-                            slug: languages[key],
-                        })
-                    });
-                    this.languages = newLanguages
-                    // console.log(newLanguages)
-                },
-                isMenuOpen: false,
+            Alpine.data('mobileLanguageDropdown', (language, languages) => ({
                 language: language,
                 languages: languages,
-                toggle() {
-                    this.isMenuOpen = !this.isMenuOpen
-                },
                 isLanguageDropdownOpen: false,
                 toggleLanguageDropdown() {
                     this.isLanguageDropdownOpen = !this.isLanguageDropdownOpen
@@ -95,6 +79,13 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to La
                     //         alert("Error!");
                     //     });
                 }
+            }))
+
+            Alpine.data('mobileHeaderMenu', (language, inputLanguages) => ({
+                isMenuOpen: false,
+                toggle() {
+                    this.isMenuOpen = !this.isMenuOpen
+                },
             }));
         });
     </script>

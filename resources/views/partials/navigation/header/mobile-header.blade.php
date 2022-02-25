@@ -1,4 +1,5 @@
-<div x-data="mobileHeaderMenu('{{ $language }}', {{ json_encode($locales) }})" class="relative px-4 lg:hidden" x-cloak v-pre>
+
+<div x-data="mobileHeaderMenu" class="relative px-4 lg:hidden" x-cloak v-pre>
 
     <div class="flex items-center justify-between w-full">
         <a href="{{ route_wlocale('welcome') }}">
@@ -23,7 +24,7 @@
             </a>
             @endauth
 
-            @include('partials.alpine-language-switcher')
+            {{--@include('partials.alpine-language-switcher')--}}
         </div>
 
         <div class="absolute w-full px-4 bottom-6 absolute-x-center">

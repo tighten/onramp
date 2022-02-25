@@ -5,7 +5,14 @@
     <menu-dropdown-item v-for="(lang, slug) in languages" :key="slug" :text="lang" @clicked="choose(slug)"></menu-dropdown-item>
 </menu-dropdown-->
 
-<div class="relative z-50 mb-6 lg:hidden">
+@php
+// $locales = {'es': 'English'}
+$localesArray = collect($locales)->map(function ($language, $slug) {
+return ['language' => $language, 'slug' => $slug];
+})->values()->toArray();
+@endphp
+
+<div x-data="mobileLanguageDropdown('{{ $language }}', {{ json_encode($localesArray) }})" class="relative z-50 mb-6 lg:hidden">
     <button x-show="isLanguageDropdownOpen" x-on:click="isLanguageDropdownOpen = false" tabindex="-1" class="fixed inset-0 hidden w-full h-full cursor-default" aria-label="close language switcher"></button>
 
     <div class="px-6 py-3 lg:p-0">
@@ -23,10 +30,9 @@
     <!-- <transition name="slide"> -->
     <div x-show="isLanguageDropdownOpen" x-on:click.away="close" class="overflow-hidden bg-steel lg:absolute lg:mt-12 lg:shadow-xl lg:left-0 lg:top-0">
         <ul>
-            <!-- this is triggering this "Cannot set properties of null (setting '_x_dataStack')" and for the life if me i can't figure out why. -->
-            <template x-for="lang in languages">
+            <template x-for="lang in languages" :key="lang.slug">
                 <li>
-                    <span x-text="lang.lang"></span>
+                    <span x-text="lang.slug"></span>
                     yay
                 </li>
             </template>

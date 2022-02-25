@@ -16,5 +16,12 @@ class ViewServiceProvider extends ServiceProvider
                 'language' => Localization::languageForLocale(locale()),
             ]);
         });
+
+        View::composer('partials.navigation.header.mobile-header', function ($view) {
+            $view->with([
+                'locales' => Localization::all(),
+                'language' => Localization::languageForLocale(locale()),
+            ]);
+        });
     }
 }

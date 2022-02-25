@@ -31,39 +31,28 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to La
     <script>
         window.locale = "{{ app()->getLocale() }}";
         window.fallback_locale = "{{ config('app.fallback_locale') }}";
-    </script>
+        window.locales = {!! json_encode(Localization::all()) !!};
+        window.language = '{{ Localization::languageForLocale(locale()) }}';
 
-    <script>
-        // @todo figure out where these belong later
-        document.addEventListener('alpine:init', () => {
-            Alpine.data('mobileLanguageDropdown', (language, languages) => ({
-                language: language,
-                languages: languages,
-                isLanguageDropdownOpen: false,
-                toggleLanguageDropdown() {
-                    this.isLanguageDropdownOpen = !this.isLanguageDropdownOpen
-                },
-                chooseLanguage(value) {
-                    axios
-                        .patch(route("user.preferences.update", {
-                            locale: "en"
-                        }), {
-                            locale: value
-                        })
-                        .then(() => {
-                            let segments = window.location.pathname.split("/");
-                            segments[1] = value;
-                            window.location = `${
-                                window.location.origin
-                            }${segments.join("/")}`;
-                        })
-                        .catch(error => {
-                            alert("Error!");
-                            console.log(error);
-                        });
-                }
-            }))
-        });
+        function chooseLanguage(value) {
+            axios
+                .patch(route("user.preferences.update", {
+                    locale: "en"
+                }), {
+                    locale: value
+                })
+                .then(() => {
+                    let segments = window.location.pathname.split("/");
+                    segments[1] = value;
+                    window.location = `${
+                        window.location.origin
+                    }${segments.join("/")}`;
+                })
+                .catch(error => {
+                    alert("Error!");
+                    console.log(error);
+                });
+        }
     </script>
 
     <title>{{ $fullPageTitle }}</title>

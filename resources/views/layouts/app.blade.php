@@ -33,24 +33,6 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to La
         window.fallback_locale = "{{ config('app.fallback_locale') }}";
     </script>
 
-    <style>
-        /* @todo scope these, Don't merge in, just testing */
-        .slide-leave-active {
-            transition: all 500ms ease-in-out;
-        }
-
-        .slide-enter-to,
-        .slide-leave {
-            max-height: 1000px;
-            overflow: hidden;
-        }
-
-        .slide-enter,
-        .slide-leave-to {
-            overflow: hidden;
-            max-height: 0;
-        }
-    </style>
     <script>
         // @todo figure out where these belong later
         document.addEventListener('alpine:init', () => {
@@ -62,31 +44,25 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to La
                     this.isLanguageDropdownOpen = !this.isLanguageDropdownOpen
                 },
                 chooseLanguage(value) {
-                    // axios
-                    //     .patch(route("user.preferences.update", {
-                    //         locale: "en"
-                    //     }), {
-                    //         locale: value
-                    //     })
-                    //     .then(() => {
-                    //         let segments = window.location.pathname.split("/");
-                    //         segments[1] = value;
-                    //         window.location = `${
-                    //             domLocation.origin
-                    //         }${segments.join("/")}`;
-                    //     })
-                    //     .catch(error => {
-                    //         alert("Error!");
-                    //     });
+                    axios
+                        .patch(route("user.preferences.update", {
+                            locale: "en"
+                        }), {
+                            locale: value
+                        })
+                        .then(() => {
+                            let segments = window.location.pathname.split("/");
+                            segments[1] = value;
+                            window.location = `${
+                                window.location.origin
+                            }${segments.join("/")}`;
+                        })
+                        .catch(error => {
+                            alert("Error!");
+                            console.log(error);
+                        });
                 }
             }))
-
-            Alpine.data('mobileHeaderMenu', (language, inputLanguages) => ({
-                isMenuOpen: false,
-                toggle() {
-                    this.isMenuOpen = !this.isMenuOpen
-                },
-            }));
         });
     </script>
 
@@ -98,16 +74,17 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to La
         <header class="fixed top-0 left-0 w-full z-[9999]">
             @include('partials.navigation.header.main-header')
         </header>
+        <div id="app-body">
+            @includeWhen(! request()->routeIs('wizard.index'), 'partials.choose-track')
+            @yield('content')
 
-        @includeWhen(! request()->routeIs('wizard.index'), 'partials.choose-track')
-        @yield('content')
+            @include('partials.navigation.footer')
 
-        @include('partials.navigation.footer')
-
-        <!-- toast notifications -->
-        @if (session('toast'))
-        <toast message="{{ session('toast') }}"></toast>
-        @endif
+            <!-- toast notifications -->
+            @if (session('toast'))
+            <toast message="{{ session('toast') }}"></toast>
+            @endif
+        </div>
     </div>
     @routes
     <script src="{{ mix('js/app.js') }}"></script>

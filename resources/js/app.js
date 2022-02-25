@@ -44,7 +44,7 @@ Vue.filter('slug', function (string) {
 Vue.directive('click-outside', ClickOutside);
 
 const app = new Vue({
-    el: '#app',
+    el: '#app-body',
 
     data: {
         modals: {

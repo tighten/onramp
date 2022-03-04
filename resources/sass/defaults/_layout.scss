@@ -1,6 +1,6 @@
 @responsive {
     .fluid-container {
-        @apply max-w-screen-xxl;
+        @apply max-w-screen-2xl;
         @apply mx-auto;
         @apply px-5;
         @apply w-full;
@@ -13,7 +13,7 @@
             @apply px-20;
         }
 
-        @screen xxl {
+        @screen 2xl {
             @apply px-32;
         }
     }

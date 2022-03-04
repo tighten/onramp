@@ -109,8 +109,8 @@ return [
             'pt' => 'Proteção CSRF',
         ],
         'description' => [
-            'en' => 'To protect your application from cross-site request forgery, which is a type of malicious exploit of a website, Laravel generates (and validates) a CSRF token for each upcoming POST request to verify the authenticated user. Simply add `@csrf` inside your `\<form\>` and Laravel will take care of the rest.',
-            'pt' => 'Para proteger sua aplicação contra falsificação de pedidos entre sites, que é um tipo de ataque malicioso de um site, o Laravel gera (e valida) um token CSRF para cada pedido POST para verificar o utilizador autenticado. Adicione `@ csrf` dentro da tag do seu `\<form\>` e o Laravel cuidará do resto.',
+            'en' => 'To protect your application from cross-site request forgery, which is a type of malicious exploit of a website, Laravel generates (and validates) a CSRF token for each upcoming POST request to verify the authenticated user. Simply add `@csrf` inside your `<form>` and Laravel will take care of the rest.',
+            'pt' => 'Para proteger sua aplicação contra falsificação de pedidos entre sites, que é um tipo de ataque malicioso de um site, o Laravel gera (e valida) um token CSRF para cada pedido POST para verificar o utilizador autenticado. Adicione `@ csrf` dentro da tag do seu `<form>` e o Laravel cuidará do resto.',
         ],
     ],
     [

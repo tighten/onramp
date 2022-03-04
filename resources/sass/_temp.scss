@@ -37,7 +37,7 @@ a:hover {
 .simple-form-button {
     @apply block;
     @apply border;
-    @apply border-gray-500;
+    @apply border-gray;
     @apply mt-4;
     @apply px-3;
     @apply py-1;
@@ -45,7 +45,47 @@ a:hover {
 }
 
 .simple-form-button:hover {
-    @apply border-gray-300;
+    @apply border-silver;
     @apply bg-blue-500;
     @apply text-white;
 }
+
+
+/** Imported from Vue Language switcher for use in Alpine language switcher; delete if unused */
+/*
+.slide-leave-active {
+    transition: all 500ms ease-in-out;
+}
+
+.slide-enter-to,
+.slide-leave {
+    max-height: 1000px;
+    overflow: hidden;
+}
+
+.slide-enter,
+.slide-leave-to {
+    overflow: hidden;
+    max-height: 0;
+}
+
+.grow-enter-active {
+    transition: 100ms ease-out;
+}
+
+.grow-leave-active {
+    transition: 75ms ease-in;
+}
+
+.grow-enter-to,
+.grow-leave {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.grow-enter,
+.grow-leave-to {
+    opacity: 0;
+    transform: scale(0.95);
+}
+*/

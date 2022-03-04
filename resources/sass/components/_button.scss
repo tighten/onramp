@@ -1,58 +1,87 @@
-@mixin button-hover($background, $text: $white) {
-    &:active,
-    &:focus,
-    &:hover {
-        @apply no-underline;
-        color: $text;
+// tailwind does not play nice with pseudo elements
+.mobileMenuBtn {
+    &:before,
+    &:after {
+        @apply bg-mint rounded absolute block w-8 h-0.5 transition ease-in-out duration-200;
+        content: "";
     }
 
-    &:hover {
-        background-color: darken($background, 6%);
-    }
-}
-
-.button {
-    @apply duration-300;
-    @apply ease-in-out;
-    @apply font-semibold;
-    @apply inline-block;
-    @apply leading-tight;
-    @apply px-6;
-    @apply py-3;
-    @apply rounded-md;
-    @apply transition-colors;
-
-    &:focus {
-        @apply outline-none;
-        @apply shadow-outline;
+    &:before {
+        @apply transform -translate-y-1/2 rotate-0;
+        top: calc(50% - 8px);
     }
 
-    @screen md {
-        @apply text-lg;
+    &:after {
+        @apply transform -translate-y-1/2 rotate-0;
+        bottom: calc(50% - 10px);
     }
 
-    @screen lg {
-        @apply text-xl;
+    &.isActive {
+        &:before {
+            transform: translateY(calc(-50% + 10px)) rotate(45deg);
+        }
+
+        &:after {
+            transform: translateY(calc(-50% - 7px)) rotate(-45deg);
+        }
     }
 }
 
-.button-purple {
-    @apply bg-blue-violet;
-    @apply text-white;
+// @mixin button-hover($background, $text: $white) {
+//     &:active,
+//     &:focus,
+//     &:hover {
+//         @apply no-underline;
+//         color: $text;
+//     }
 
-    @include button-hover($blue-violet);
-}
+//     &:hover {
+//         background-color: darken($background, 6%);
+//     }
+// }
 
-.button-teal {
-    @apply bg-teal-700;
-    @apply text-white;
+// .button {
+//     @apply duration-300;
+//     @apply ease-in-out;
+//     @apply font-semibold;
+//     @apply inline-block;
+//     @apply leading-tight;
+//     @apply px-6;
+//     @apply py-3;
+//     @apply rounded-md;
+//     @apply transition-colors;
 
-    @include button-hover($teal-700);
-}
+//     &:focus {
+//         @apply outline-none;
+//         @apply shadow-outline;
+//     }
 
-.button-white {
-    @apply bg-white;
-    @apply text-blue-violet;
+//     @screen md {
+//         @apply text-lg;
+//     }
 
-    @include button-hover($white, $blue-violet);
-}
+//     @screen lg {
+//         @apply text-xl;
+//     }
+// }
+
+// .button-purple {
+//     @apply bg-blue-violet;
+//     @apply text-white;
+
+//     @include button-hover($blue-violet);
+// }
+
+// .button-teal {
+//     @apply bg-teal-700;
+//     @apply text-white;
+
+//     @include button-hover($teal-700);
+// }
+
+// .button-white {
+//     @apply bg-white;
+//     @apply text-blue-violet;
+
+//     @include button-hover($white, $blue-violet);
+// }

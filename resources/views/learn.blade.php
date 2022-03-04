@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="w-full bg-white">
-        <div class="px-6 py-12 mb-6 text-center bg-gray-100 border-b">
+        <div class="px-6 py-12 mb-6 text-center bg-silver border-b">
             <h1 class="pb-4 text-xl  md:text-4xl">{{ __('Learn Laravel') }}</h1>
             <p class="leading-loose text-gray-dark">
                 {{ __('The tech concepts you should know in order to get a job as a Laravel developer.') }}

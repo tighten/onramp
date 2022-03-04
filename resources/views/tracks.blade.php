@@ -11,7 +11,7 @@
         <div class="sm:hidden">
             @foreach ($tracks as $track)
                 <div class="pb-8 my-2">
-                    <div class="px-4 py-2 font-semibold bg-gray-100 border-b-2">
+                    <div class="px-4 py-2 font-semibold border-b-2 bg-silver">
                         {{ __($track->name) }}
                     </div>
                     <div>
@@ -27,7 +27,7 @@
 
         <table class="hidden table-auto sm:block lg:py-10">
             <thead>
-                <tr class="bg-gray-100">
+                <tr class="bg-opacity-50 bg-silver">
                     <th class="px-4 py-2 border">{{ __('Module Name') }}</th>
 
                     @foreach ($tracks as $track)
@@ -45,7 +45,7 @@
                     @foreach ($tracks as $track)
                         <td class="px-4 py-2 text-center border">
                             @if ($track->modules->pluck('id')->contains($module->id))
-                                <svg class="w-5 mx-auto text-green-700 fill-current" viewBox="0 0 20 20"><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"/></svg>
+                                <svg class="w-5 mx-auto fill-current text-emerald" viewBox="0 0 20 20"><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"/></svg>
                             @endif
                         </td>
                     @endforeach

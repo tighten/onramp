@@ -46,7 +46,7 @@
 
                     <template v-if="!isCompleted && isUserModule">
                         <p
-                            class="pt-5 mt-5 text-sm font-semibold tracking-wider text-gray-700 uppercase border-t border-silver"
+                            class="pt-5 mt-5 text-sm font-semibold tracking-wider text-steel uppercase border-t border-silver"
                         >
                             My progress:
                         </p>
@@ -56,7 +56,7 @@
                                 class="inline-flex items-center justify-between w-full"
                             >
                                 <span class="text-east-bay">Resources</span>
-                                <span class="font-semibold text-gray-900">
+                                <span class="font-semibold text-steel">
                                     {{ completedResourcesPercentage }}%
                                 </span>
                             </li>
@@ -64,12 +64,12 @@
                             <!-- @todo display this once Quizzes and Exercises created -->
                             <!-- <li class="inline-flex items-center justify-between w-full mt-3">
                                 <span class="text-east-bay">Quizzes</span>
-                                <span class="font-semibold text-gray-900">20%</span>
+                                <span class="font-semibold text-steel">20%</span>
                             </li>
 
                             <li class="inline-flex items-center justify-between w-full mt-3">
                                 <span class="text-east-bay">Exercises</span>
-                                <span class="font-semibold text-gray-900">20%</span>
+                                <span class="font-semibold text-steel">20%</span>
                             </li> -->
                         </ul>
                     </template>

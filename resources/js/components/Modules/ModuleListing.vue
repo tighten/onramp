@@ -7,9 +7,9 @@
             <span class="relative z-0 inline-flex rounded-md shadow-sm">
                 <button
                     type="button"
-                    class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 transition duration-100 ease-in-out bg-white border-2 text-silver border-silver rounded-l-md focus:z-10 focus:outline-none focus:shadow-outline-blue"
+                    class="relative inline-flex items-center px-4 py-2 text-sm leading-5 transition duration-100 ease-in-out bg-white border-2 border-silver rounded-l-md focus:z-10 focus:outline-none focus:shadow-outline-teal"
                     :class="{
-                        'pointer-events-none border-teal text-steel':
+                        'pointer-events-none border-emerald text-emerald shadow-md font-semibold':
                             showAllModules === true
                     }"
                     @click="toggleShowAllModules"
@@ -19,9 +19,9 @@
 
                 <button
                     type="button"
-                    class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 transition ease-in-out bg-white border-2 duration-210 text-gray border-silver rounded-r-md focus:z-10 focus:outline-none focus:shadow-outline-blue"
+                    class="relative inline-flex items-center px-4 py-2 -ml-px text-sm leading-5 transition duration-100 ease-in-out bg-white border-2 border-silver rounded-r-md focus:z-10 focus:outline-none focus:shadow-outline-blue"
                     :class="{
-                        'pointer-events-none border-teal border-2 text-steel':
+                        'pointer-events-none border-emerald text-emerald shadow-md font-semibold':
                             showAllModules === false
                     }"
                     @click="toggleShowAllModules"
@@ -49,7 +49,7 @@
                     :class="{ 'lg:mt-32': index > 0 }"
                 >
                     <h2
-                        class="hidden w-full mb-10 text-4xl font-semibold leading-tight tracking-tight text-gray-900 lg:block"
+                        class="hidden w-full mb-10 text-4xl font-semibold leading-tight tracking-tight text-steel lg:block"
                     >
                         {{ tab.name | capitalize }}
                     </h2>
@@ -58,7 +58,7 @@
                         <template v-if="tab.name === 'beginner'">
                             <p
                                 v-if="!beginnerModules.length"
-                                class="px-3 text-gray-700"
+                                class="px-3 text-steel"
                             >
                                 There are currently no modules here. Check back
                                 soon.
@@ -82,7 +82,7 @@
                         <template v-else-if="tab.name === 'intermediate'">
                             <p
                                 v-if="!intermediateModules.length"
-                                class="px-3 text-gray-700"
+                                class="px-3 text-steel"
                             >
                                 There are currently no modules here. Check back
                                 soon.
@@ -106,7 +106,7 @@
                         <template v-else-if="tab.name === 'advanced'">
                             <p
                                 v-if="!advancedModules.length"
-                                class="px-3 text-gray-700"
+                                class="px-3 text-steel"
                             >
                                 There are currently no modules here. Check back
                                 soon.

@@ -1,5 +1,5 @@
 <div>
-    <div x-data="{isOpen: false, language: window.language, languages: window.locales}" class="relative hidden text-left lg:block">
+    <div x-data="{isOpen: false, language: window.language, languages: window.locales}" @click.away="isOpen = false" class="relative hidden text-left lg:block">
         <div>
             <button type="button" class="inline-flex items-center justify-center w-full h-12 text-base font-semibold text-white transition-colors duration-300 ease-in-out focus:outline-none focus:border-white hover:text-mint" @click="isOpen = !isOpen">
                 <span x-text="language"></span>

@@ -87,9 +87,9 @@ use App\Models\Resource;
     </div>
 </div>
 
-<div class="hidden lg:flex lg:-mx-2">
+<div class="hidden pb-4 lg:flex lg:-mx-2">
     <div class="w-1/2 px-2">
-        <div class="w-full h-full px-8 py-12 bg-white border-t-4 shadow-md border-teal">
+        <div class="w-full h-full px-8 py-12 mb-6 bg-white border-t-4 shadow-md border-teal">
             <p class="flex items-start text-4xl font-bold">
                 <svg class="flex-none w-8 h-8 mt-2 mr-5"
                     xmlns="http://www.w3.org/2000/svg"
@@ -127,7 +127,7 @@ use App\Models\Resource;
     </div>
 
     <div class="w-1/2 px-2">
-        <div class="w-full h-full px-8 py-12 bg-white border-t-4 shadow-md border-teal">
+        <div class="w-full h-full px-8 py-12 mb-6 bg-white border-t-4 shadow-md border-teal">
             <p class="flex items-start text-4xl font-bold">
                 <svg class="flex-none w-8 h-8 mt-2 mr-5"
                     xmlns="http://www.w3.org/2000/svg"

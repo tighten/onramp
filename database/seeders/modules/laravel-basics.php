@@ -246,11 +246,6 @@ return [
                 'type' => Resource::AUDIO_TYPE,
             ],
             [
-                'name' => 'The Laravel Podcast - The Service Container, with Christoph Rumpel',
-                'url' => 'https://laravelpodcast.com/episodes/the-service-container-with-christoph-rumpel',
-                'type' => Resource::AUDIO_TYPE,
-            ],
-            [
                 'name' => 'The Laravel Podcast - Cache, Session, Middleware, & Request, with Samantha Geitz',
                 'url' => 'https://laravelpodcast.com/episodes/cache-session-middleware-request-with-samantha-geitz',
                 'type' => Resource::AUDIO_TYPE,

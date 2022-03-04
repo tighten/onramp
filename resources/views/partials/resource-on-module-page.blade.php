@@ -1,4 +1,4 @@
-<li class="inline-flex w-full mt-8 first:mt-0">
+<li class="inline-flex items-center w-full mt-8 first:mt-0">
     @auth
         @if (Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id))
         <completed-checkbox

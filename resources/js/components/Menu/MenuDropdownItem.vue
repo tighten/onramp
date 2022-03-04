@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-show="logout" class="border-t border-gray-200"></div>
+        <div v-show="logout" class="border-t border-silver"></div>
 
         <a
             :href="href"

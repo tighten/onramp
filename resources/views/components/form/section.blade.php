@@ -1,6 +1,6 @@
 <div class="mt-5">
     @isset($description)
-        <p class="text-sm leading-5 text-gray-700 md:text-base">
+        <p class="text-sm leading-5 text-steel md:text-base">
             {{ $description }}
         </p>
     @endisset

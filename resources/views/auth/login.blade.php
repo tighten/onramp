@@ -15,13 +15,13 @@
                 <form method="POST"
                     action="{{ route_wlocale('login') }}">
                     @csrf
-                    <h2 class="mb-6 text-3xl font-extrabold leading-9 text-center text-gray-900">
+                    <h2 class="mb-6 text-3xl font-extrabold leading-9 text-center text-steel">
                         {{ __('Log in') }}
                     </h2>
 
                     <div>
                         <label for="email"
-                            class="block text-sm font-medium leading-5 text-gray-700">
+                            class="block text-sm font-medium leading-5 text-steel">
                             {{ __('Email address') }}
                         </label>
 
@@ -32,17 +32,17 @@
                                 value="{{ old('email') }}"
                                 required
                                 autofocus
-                                class="block w-full px-3 py-2 placeholder-gray-400 transition duration-200 ease-in-out border border-silver rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-purple sm:text-sm sm:leading-5{{ $errors->has('email') ? ' border-red-500' : '' }}" />
+                                class="block w-full px-3 py-2 placeholder-gray transition duration-200 ease-in-out border border-silver rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-purple sm:text-sm sm:leading-5{{ $errors->has('email') ? ' border-cabernet' : '' }}" />
                         </div>
 
                         @error('email')
-                            <p class="mt-2 text-xs italic text-red-500">{{ $errors->first('email') }}</p>
+                            <p class="mt-2 text-xs italic text-cabernet">{{ $errors->first('email') }}</p>
                         @enderror
                     </div>
 
                     <div class="mt-6">
                         <label for="password"
-                            class="block text-sm font-medium leading-5 text-gray-700">
+                            class="block text-sm font-medium leading-5 text-steel">
                             {{ __('Password') }}
                         </label>
 
@@ -51,11 +51,11 @@
                                 name="password"
                                 type="password"
                                 required
-                                class="block w-full px-3 py-2 placeholder-gray-400 transition duration-200 ease-in-out border border-silver rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-purple sm:text-sm sm:leading-5{{ $errors->has('password') ? ' border-red-500' : '' }}" />
+                                class="block w-full px-3 py-2 placeholder-gray transition duration-200 ease-in-out border border-silver rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-purple sm:text-sm sm:leading-5{{ $errors->has('password') ? ' border-cabernet' : '' }}" />
                         </div>
 
                         @error('password')
-                            <p class="mt-2 text-xs italic text-red-500">{{ $errors->first('password') }}</p>
+                            <p class="mt-2 text-xs italic text-cabernet">{{ $errors->first('password') }}</p>
                         @enderror
                     </div>
 
@@ -68,7 +68,7 @@
                                 class="w-4 h-4 transition duration-200 ease-in-out text-mint form-checkbox" />
 
                             <label for="remember"
-                                class="block ml-2 text-sm leading-5 text-gray-900">
+                                class="block ml-2 text-sm leading-5 text-steel">
                                 {{ __('Remember me') }}
                             </label>
                         </div>
@@ -98,7 +98,7 @@
                         </div>
 
                         <div class="relative flex justify-center text-sm leading-5">
-                            <span class="px-2 text-gray-700 bg-white">{{ __('Don\'t have an account?') }}</span>
+                            <span class="px-2 text-steel bg-white">{{ __('Don\'t have an account?') }}</span>
                         </div>
                     </div>
 

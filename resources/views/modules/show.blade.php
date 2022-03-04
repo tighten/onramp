@@ -91,7 +91,7 @@ switch ($level) {
                                 @else
                                     <li class="relative block px-4 py-2 m-1">
                                         <span
-                                            class="absolute inset-0 w-full h-full bg-teal-400 rounded-md opacity-10"></span>
+                                            class="absolute inset-0 w-full h-full bg-teal rounded-md opacity-10"></span>
                                         <span class="font-bold text-teal">{{ $skill->name }}</span>
                                     </li>
                                 @endif

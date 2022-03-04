@@ -25,7 +25,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                     <div class="mt-5">
                         <label for="{{ $localePreferenceKey }}"
                             id="locale-label"
-                            class="block text-sm leading-5 text-gray-700 md:text-base">
+                            class="block text-sm leading-5 text-steel md:text-base">
                             {{ __('Which resources should we show for you?') }}
                         </label>
 
@@ -37,12 +37,12 @@ $resourceLanguagePreferenceKey = 'resource-language';
                                         value="{{ $index }}"
                                         type="radio"
                                         {{ $currentResourceLanguagePreference == $index ? 'checked' : '' }}
-                                        class="flex-none w-4 h-4 text-indigo-600 transition duration-200 ease-in-out" />
+                                        class="flex-none w-4 h-4 text-purple transition duration-200 ease-in-out" />
 
                                     <label for="lang_pref_{{ $index }}"
                                         class="ml-3">
                                         <span
-                                            class="block text-sm font-medium leading-5 text-gray-700 md:text-base">{{ $label }}</span>
+                                            class="block text-sm font-medium leading-5 text-steel md:text-base">{{ $label }}</span>
                                     </label>
                                 </div>
                             @endforeach
@@ -54,7 +54,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                     </div>
 
                     <div class="mt-5">
-                        <p class="text-sm leading-5 text-gray-700 md:text-base">
+                        <p class="text-sm leading-5 text-steel md:text-base">
                             {{ __('Filter resources based on your operating system and language preference.') }}
                         </p>
 
@@ -62,13 +62,13 @@ $resourceLanguagePreferenceKey = 'resource-language';
                             <div class="flex-auto w-full my-5 lg:flex-even md:my-8">
                                 <label for="{{ $localePreferenceKey }}"
                                     id="locale-label"
-                                    class="text-base font-medium text-gray-900">
+                                    class="text-base font-medium text-steel">
                                     {{ __('Preferred Language') }}
                                 </label>
 
                                 <div class="relative max-w-xs mt-4">
                                     <select
-                                        class="block w-full px-4 py-2 pr-8 text-sm leading-tight bg-white border rounded-md border-gray-400 shadow appearance-none hover:border-gray focus:outline-none focus:shadow-outline{{ $errors->has('name') ? ' border-red-500' : '' }}"
+                                        class="block w-full px-4 py-2 pr-8 text-sm leading-tight bg-white border rounded-md border-gray shadow appearance-none hover:border-gray focus:outline-none focus:shadow-outline{{ $errors->has('name') ? ' border-cabernet' : '' }}"
                                         name="{{ $localePreferenceKey }}"
                                         aria-labelledby="locale-label">
                                         @foreach (Facades\App\Localization\Locale::slugs() as $slug)
@@ -80,7 +80,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                                     </select>
 
                                     <div
-                                        class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
+                                        class="absolute inset-y-0 right-0 flex items-center px-2 text-steel pointer-events-none">
                                         <svg class="w-4 h-4 fill-current"
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 20 20">
@@ -91,7 +91,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                                 </div>
 
                                 @error($localePreferenceKey))
-                                    <p class="mt-2 text-xs italic text-red-500">
+                                    <p class="mt-2 text-xs italic text-cabernet">
                                         {{ $errors->first($localePreferenceKey) }}
                                     </p>
                                 @enderror
@@ -100,13 +100,13 @@ $resourceLanguagePreferenceKey = 'resource-language';
                             <div class="flex-auto w-full my-5 lg:flex-even md:my-8">
                                 <label for="operating-system"
                                     id="os-label"
-                                    class="text-base font-medium text-gray-900">
+                                    class="text-base font-medium text-steel">
                                     {{ __('Preferred Operating System') }}
                                 </label>
 
                                 <div class="relative max-w-xs mt-4">
                                     <select
-                                        class="block w-full text-sm px-4 py-2 pr-8 leading-tight bg-white border rounded-md border-gray-400 shadow appearance-none hover:border-gray focus:outline-none focus:shadow-outline{{ $errors->has('operating-system') ? ' border-red-500' : '' }}"
+                                        class="block w-full text-sm px-4 py-2 pr-8 leading-tight bg-white border rounded-md border-gray shadow appearance-none hover:border-gray focus:outline-none focus:shadow-outline{{ $errors->has('operating-system') ? ' border-cabernet' : '' }}"
                                         name="operating-system"
                                         aria-labelledby="os-label">
                                         @foreach (App\OperatingSystem::ALL as $key)
@@ -117,7 +117,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                                     </select>
 
                                     <div
-                                        class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
+                                        class="absolute inset-y-0 right-0 flex items-center px-2 text-steel pointer-events-none">
                                         <svg class="w-4 h-4 fill-current"
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 20 20">
@@ -128,7 +128,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                                 </div>
 
                                 @error('operating-system')
-                                    <p class="mt-2 text-xs italic text-red-500">
+                                    <p class="mt-2 text-xs italic text-cabernet">
                                         {{ $errors->first('operating-system') }}
                                     </p>
                                 @enderror
@@ -149,13 +149,13 @@ $resourceLanguagePreferenceKey = 'resource-language';
                             <div class="flex-auto w-full my-5 lg:flex-even md:my-8">
                                 <label for="track"
                                     id="track-label"
-                                    class="text-base font-medium text-gray-900">
+                                    class="text-base font-medium text-steel">
                                     {{ __('Current Track') }}
                                 </label>
 
                                 <div class="relative max-w-xs mt-4">
                                     <select
-                                        class="block w-full px-4 py-2 text-sm pr-8 leading-tight bg-white border rounded-md border-gray-400 shadow appearance-none hover:border-gray focus:outline-none focus:shadow-outline{{ $errors->has('track') ? ' border-red-500' : '' }}"
+                                        class="block w-full px-4 py-2 text-sm pr-8 leading-tight bg-white border rounded-md border-gray shadow appearance-none hover:border-gray focus:outline-none focus:shadow-outline{{ $errors->has('track') ? ' border-cabernet' : '' }}"
                                         name="track"
                                         aria-labelledby="track-label">
                                         @foreach (App\Models\Track::all() as $track)
@@ -166,7 +166,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                                     </select>
 
                                     <div
-                                        class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
+                                        class="absolute inset-y-0 right-0 flex items-center px-2 text-steel pointer-events-none">
                                         <svg class="w-4 h-4 fill-current"
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 20 20">
@@ -177,7 +177,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                                 </div>
 
                                 @error('track')
-                                    <p class="mt-2 text-xs italic text-red-500">
+                                    <p class="mt-2 text-xs italic text-cabernet">
                                         {{ $errors->first('track') }}
                                     </p>
                                 @enderror

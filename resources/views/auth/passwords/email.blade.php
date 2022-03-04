@@ -9,20 +9,20 @@
     </div>
 
     @if (session('status'))
-    <div class="p-4 mt-8 bg-green-100 rounded-md sm:mx-auto sm:w-full sm:max-w-md" role="alert">
+    <div class="p-4 mt-8 bg-mint rounded-md sm:mx-auto sm:w-full sm:max-w-md" role="alert">
         <div class="flex">
             <div class="flex-shrink-0">
-                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-teal" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
             </div>
 
             <div class="ml-3">
-                <h3 class="text-sm font-semibold leading-5 text-green-900">
+                <h3 class="text-sm font-semibold leading-5 text-emerald">
                     {{ __('Password reset link sent') }}
                 </h3>
 
-                <div class="mt-2 text-sm leading-5 text-green-700">
+                <div class="mt-2 text-sm leading-5 text-emerald">
                     <p>{{ session('status') }}</p>
                 </div>
             </div>
@@ -34,21 +34,21 @@
         <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
             <form method="POST" action="{{ route_wlocale('password.email') }}">
                 @csrf
-                <h2 class="mb-6 text-3xl font-extrabold leading-9 text-center text-gray-900">
+                <h2 class="mb-6 text-3xl font-extrabold leading-9 text-center text-steel">
                     {{ __('Reset Password') }}
                 </h2>
 
                 <div>
-                    <label for="email" class="block text-sm font-medium leading-5 text-gray-700">
+                    <label for="email" class="block text-sm font-medium leading-5 text-steel">
                         {{ __('Email address') }}
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">
-                        <input id="email" name="email" type="email" value="{{ old('email') }}" required autofocus class="block w-full px-3 py-2 placeholder-gray-400 transition duration-200 ease-in-out border border-silver rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5{{ $errors->has('email') ? ' border-red-500' : '' }}" />
+                        <input id="email" name="email" type="email" value="{{ old('email') }}" required autofocus class="block w-full px-3 py-2 placeholder-gray transition duration-200 ease-in-out border border-silver rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-lake sm:text-sm sm:leading-5{{ $errors->has('email') ? ' border-cabernet' : '' }}" />
                     </div>
 
                     @error('email')
-                    <p class="mt-2 text-xs italic text-red-500">{{ $errors->first('email') }}</p>
+                    <p class="mt-2 text-xs italic text-cabernet">{{ $errors->first('email') }}</p>
                     @enderror
                 </div>
 

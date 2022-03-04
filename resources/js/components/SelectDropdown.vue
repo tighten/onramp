@@ -32,7 +32,7 @@
                 v-for="(option, i) of options"
             >
                 <button
-                    class="relative block w-full px-5 py-4 pr-12 text-base font-semibold text-left truncate focus:outline-none hover:bg-gray-300"
+                    class="relative block w-full px-5 py-4 pr-12 text-base font-semibold text-left truncate focus:outline-none hover:bg-silver"
                     :class="{ '': selected === option }"
                     @click="setSelected(option)"
                 >
@@ -40,7 +40,7 @@
 
                     <template v-if="selected === option">
                         <svg
-                            class="absolute right-0 w-3 h-3 mr-5 text-teal-700 transform -translate-y-1/2 fill-current top-1/2"
+                            class="absolute right-0 w-3 h-3 mr-5 text-emerald transform -translate-y-1/2 fill-current top-1/2"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
                         >

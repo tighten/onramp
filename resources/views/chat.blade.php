@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="w-full bg-white">
-    <div class="py-16 overflow-hidden bg-indigo-100 lg:py-24">
+    <div class="py-16 overflow-hidden bg-violet bg-opacity-100 lg:py-24">
         <div class="fluid-container">
             <h1 class="max-w-xl mx-auto text-center">{{ __('Onramp Planning Chat') }}</h1>
         </div>
@@ -10,7 +10,7 @@
 
     <div class="pt-12 pb-48 lg:pt-20 fluid-container">
         <div class="w-full max-w-screen-md mx-auto mb-6 text-base lg:text-lg">
-            <p class="leading-normal text-gray-700">
+            <p class="leading-normal text-steel">
                 The planning and development of Onramp happens primarily on GitHub and in a Discord chat. If you're reaching this page, you're likely already in the chat, so here are a few notes you might want to know about the chat and the planning of the project.
             </p>
 

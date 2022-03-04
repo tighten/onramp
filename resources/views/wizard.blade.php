@@ -23,7 +23,7 @@
                     </div>
 
                     <div class="mt-5">
-                        <p class="text-sm leading-5 text-gray-600 md:text-base">
+                        <p class="text-sm leading-5 text-steel md:text-base">
                             {{ __('Help us get to know your environment and knowledge, so we can show you the right information.') }}
                         </p>
 
@@ -31,13 +31,13 @@
                             <div class="flex-auto w-full my-5 lg:flex-even md:my-8">
                                 <label for="{{ $localePreferenceKey }}"
                                     id="locale-label"
-                                    class="text-base font-medium text-gray-900">
+                                    class="text-base font-medium text-steel">
                                     {{ __('Preferred Language') }}
                                 </label>
 
                                 <div class="relative max-w-xs mt-4">
                                     <select
-                                        class="cursor-pointer block w-full px-4 py-2 pr-8 text-sm leading-tight bg-white border border-gray rounded-md shadow appearance-none hover:border-silver focus:outline-none focus:shadow-outline{{ $errors->has('name') ? ' border-red-500' : '' }}"
+                                        class="cursor-pointer block w-full px-4 py-2 pr-8 text-sm leading-tight bg-white border border-gray rounded-md shadow appearance-none hover:border-silver focus:outline-none focus:shadow-outline{{ $errors->has('name') ? ' border-cabernet' : '' }}"
                                         name="{{ $localePreferenceKey }}"
                                         aria-labelledby="locale-label">
                                         @foreach ($locale->slugs() as $slug)
@@ -48,7 +48,7 @@
                                     </select>
 
                                     <div
-                                        class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
+                                        class="absolute inset-y-0 right-0 flex items-center px-2 text-steel pointer-events-none">
                                         <svg class="w-4 h-4 fill-current"
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 20 20">
@@ -59,7 +59,7 @@
                                 </div>
 
                                 @error($localePreferenceKey)
-                                    <p class="mt-2 text-xs italic text-red-500">
+                                    <p class="mt-2 text-xs italic text-cabernet">
                                         {{ $errors->first($localePreferenceKey) }}
                                     </p>
                                 @enderror
@@ -68,13 +68,13 @@
                             <div class="flex-auto w-full my-5 lg:flex-even md:my-8">
                                 <label for="os"
                                     id="os-label"
-                                    class="text-base font-medium text-gray-900">
+                                    class="text-base font-medium text-steel">
                                     {{ __('Preferred Operating System') }}
                                 </label>
 
                                 <div class="relative max-w-xs mt-4">
                                     <select
-                                        class="block w-full text-sm px-4 py-2 pr-8 leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray focus:outline-none focus:shadow-outline{{ $errors->has('os') ? ' border-red-500' : '' }}"
+                                        class="block w-full text-sm px-4 py-2 pr-8 leading-tight bg-white border border-gray rounded shadow appearance-none hover:border-gray focus:outline-none focus:shadow-outline{{ $errors->has('os') ? ' border-cabernet' : '' }}"
                                         name="os"
                                         aria-labelledby="os-label">
                                         @foreach (App\OperatingSystem::ALL as $key)
@@ -85,7 +85,7 @@
                                     </select>
 
                                     <div
-                                        class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
+                                        class="absolute inset-y-0 right-0 flex items-center px-2 text-steel pointer-events-none">
                                         <svg class="w-4 h-4 fill-current"
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 20 20">
@@ -96,7 +96,7 @@
                                 </div>
 
                                 @error('os')
-                                    <p class="mt-2 text-xs italic text-red-500">
+                                    <p class="mt-2 text-xs italic text-cabernet">
                                         {{ $errors->first('os') }}
                                     </p>
                                 @enderror
@@ -105,13 +105,13 @@
                             <div class="flex-auto w-full my-5 lg:flex-even md:my-8">
                                 <label for="track"
                                     id="track-label"
-                                    class="text-base font-medium text-gray-900">
+                                    class="text-base font-medium text-steel">
                                     {{ __('Background Experience') }}
                                 </label>
 
                                 <div class="relative max-w-xs mt-4">
                                     <select
-                                        class="block w-full px-4 py-2 text-sm pr-8 leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray focus:outline-none focus:shadow-outline{{ $errors->has('track') ? ' border-red-500' : '' }}"
+                                        class="block w-full px-4 py-2 text-sm pr-8 leading-tight bg-white border border-gray rounded shadow appearance-none hover:border-gray focus:outline-none focus:shadow-outline{{ $errors->has('track') ? ' border-cabernet' : '' }}"
                                         name="track"
                                         aria-labelledby="track-label">
                                         @foreach (App\Models\Track::all() as $track)
@@ -122,7 +122,7 @@
                                     </select>
 
                                     <div
-                                        class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
+                                        class="absolute inset-y-0 right-0 flex items-center px-2 text-steel pointer-events-none">
                                         <svg class="w-4 h-4 fill-current"
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 20 20">
@@ -133,7 +133,7 @@
                                 </div>
 
                                 @error('track')
-                                    <p class="mt-2 text-xs italic text-red-500">
+                                    <p class="mt-2 text-xs italic text-cabernet">
                                         {{ $errors->first('track') }}
                                     </p>
                                 @enderror

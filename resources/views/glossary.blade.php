@@ -24,7 +24,7 @@
                                 @endif
                             </div>
 
-                            <div class="mt-4 text-base text-gray-700 glossary-description lg:text-lg">{!! (new Parsedown)->text($term->getTranslation('description', locale())) !!}</div>
+                            <div class="mt-4 text-base text-steel glossary-description lg:text-lg">{!! (new Parsedown)->text($term->getTranslation('description', locale())) !!}</div>
 
                             @if ($term->resourcesForCurrentSession->count() > 0)
                                 <div class="flex flex-col mt-4">
@@ -46,9 +46,9 @@
 
                             @if ($term->relatedTerms->count() > 0)
                                 <div class="flex items-center mt-4">
-                                    <span class="text-gray-800">{{ __('Related Terms:') }}</span>
+                                    <span class="text-steel">{{ __('Related Terms:') }}</span>
                                     @foreach ($term->relatedTerms as $relatedTerm)
-                                    <a class="px-3 ml-2 text-sm font-semibold text-gray-700 bg-gray-400 rounded-full"
+                                    <a class="px-3 ml-2 text-sm font-semibold text-steel bg-gray rounded-full"
                                         href="#{{ $relatedTerm->name }}">#{{ $relatedTerm->name }}</a>
                                     @endforeach
                                 </div>
@@ -56,9 +56,9 @@
 
                             @if ($term->relatedTerms->count() > 0)
                                 <div class="flex items-center mt-4">
-                                    <span class="text-gray-800">{{ __('Related Terms:') }}</span>
+                                    <span class="text-steel">{{ __('Related Terms:') }}</span>
                                     @foreach ($term->relatedTerms as $relatedTerm)
-                                    <a class="px-3 ml-2 text-sm font-semibold text-gray-700 bg-gray-400 rounded-full"
+                                    <a class="px-3 ml-2 text-sm font-semibold text-steel bg-gray rounded-full"
                                         href="#{{ $relatedTerm->name }}">#{{ $relatedTerm->name }}</a>
                                     @endforeach
                                 </div>

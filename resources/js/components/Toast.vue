@@ -28,13 +28,13 @@
 
                                 <div class="ml-3 w-0 flex-1 pt-0.5">
                                     <p
-                                        class="mb-1 text-sm font-semibold leading-5 text-gray-900"
+                                        class="mb-1 text-sm font-semibold leading-5 text-steel"
                                     >
                                         {{ props.item.title }}
                                     </p>
 
                                     <p
-                                        class="text-sm font-medium leading-4 text-gray-700"
+                                        class="text-sm font-medium leading-4 text-steel"
                                     >
                                         {{ props.item.text }}
                                     </p>

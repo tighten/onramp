@@ -3,7 +3,7 @@
         <div>
             <p class="w-full mb-4 sm:w-auto sm:mb-0 text-body">{{ __('From the lovely folks at') }} <a
                     class="font-semibold"
-                    href="https://tighten.co/"><span class="underline">Tighten.</span></a></p>
+                    href="https://tighten.com/"><span class="underline">Tighten.</span></a></p>
 
             <div class="text-base text-mint">
                 <a class="mr-3 underline"

@@ -271,11 +271,6 @@ return [
                 'type' => Resource::AUDIO_TYPE,
             ],
             [
-                'name' => 'The Laravel Podcast - Queues, with Mohamed Said',
-                'url' => 'https://laravelpodcast.com/episodes/queues-with-mohamed-said',
-                'type' => Resource::AUDIO_TYPE,
-            ],
-            [
                 'name' => 'The Laravel Podcast - Upgrading, with Jason McCreary',
                 'url' => 'https://laravelpodcast.com/episodes/upgrading-with-jason-mccreary',
                 'type' => Resource::AUDIO_TYPE,

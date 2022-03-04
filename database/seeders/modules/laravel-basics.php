@@ -246,11 +246,6 @@ return [
                 'type' => Resource::AUDIO_TYPE,
             ],
             [
-                'name' => 'The Laravel Podcast - Presets & Jetstream, with Michael Dyrynda',
-                'url' => 'https://laravelpodcast.com/episodes/presets-jetstream-with-michael-dyrynda',
-                'type' => Resource::AUDIO_TYPE,
-            ],
-            [
                 'name' => 'The Laravel Podcast - The Service Container, with Christoph Rumpel',
                 'url' => 'https://laravelpodcast.com/episodes/the-service-container-with-christoph-rumpel',
                 'type' => Resource::AUDIO_TYPE,

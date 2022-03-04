@@ -24,7 +24,7 @@
     "dependencies": {
         "alpinejs": "^3.5.1",
         "autoprefixer": "^10.4.0",
-        "axios": "^0.21.1",
+        "axios": "^0.21.2",
         "bootstrap": "^4.5.2",
         "jquery": "^3.5.1",
         "lang.js": "^1.1.14",

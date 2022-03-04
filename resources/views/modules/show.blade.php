@@ -64,13 +64,13 @@ switch ($level) {
                                             id="{{ $skill->id }}"></completed-badge>
                                     </li>
                                 @else
-                                    <li class="relative block px-4 py-2 m-1 bg-opacity-25 rounded-md mg-mint">
+                                    <li class="relative block px-4 py-2 m-1 bg-opacity-25 rounded-md bg-mint">
                                         <span class="font-bold text-teal">{{ $skill->name }}</span>
                                     </li>
                                 @endif
                             @endauth
                             @guest
-                                <li class="relative block px-4 py-2 m-1 bg-opacity-25 rounded-md mg-mint">
+                                <li class="relative block px-4 py-2 m-1 bg-opacity-25 rounded-md bg-mint">
                                     <span class="font-bold text-teal">{{ $skill->name }}</span>
                                 </li>
                             @endguest

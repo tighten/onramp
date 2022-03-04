@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="flex flex-col justify-center min-h-screen py-12 bg-off-white sm:px-6 lg:px-8">
+<div class="flex flex-col justify-center py-12 bg-off-white sm:px-6 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
         <a href="{{ route_wlocale('welcome') }}">
             <img class="w-auto h-20 mx-auto" src="/images/logo/onramp-mark.svg" alt="Onramp" />
@@ -53,7 +53,7 @@
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">
-                        <input id="password-confirm" name="password_confirmation" type="password" required class="block w-full px-3 py-2 placeholder-gray-400 transition duration-200 ease-in-out border border-silver rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
+                        <input id="password-confirm" name="password_confirmation" type="password" required class="block w-full px-3 py-2 placeholder-gray-400 transition duration-200 ease-in-out border rounded-md appearance-none border-silver focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
                     </div>
                 </div>
 

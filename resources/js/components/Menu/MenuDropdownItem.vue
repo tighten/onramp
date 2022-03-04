@@ -4,7 +4,7 @@
 
         <a
             :href="href"
-            class="block px-4 py-3 text-sm font-medium leading-5 cursor-pointer hover:no-underline hover:bg-gray-100 hover:text-gray-800 focus:outline-none focus:bg-gray-100 focus:text-gray-800"
+            class="block px-4 py-3 text-sm font-medium leading-5 transition-colors duration-75 ease-in-out cursor-pointer hover:no-underline hover:bg-silver focus:outline-none focus:bg-silver"
             @click="handleClick"
         >
             {{ text }}
@@ -16,26 +16,26 @@
 export default {
     props: {
         href: {
-            type: String,
+            type: String
         },
         text: {
             type: String,
-            required: true,
+            required: true
         },
         logout: {
             type: Boolean,
-            default: false,
+            default: false
         }
     },
 
     methods: {
         handleClick(event) {
-            this.$emit('clicked');
+            this.$emit("clicked");
 
             if (this.logout) {
-                this.$root.$emit('logout', event);
+                this.$root.$emit("logout", event);
             }
         }
     }
-}
+};
 </script>

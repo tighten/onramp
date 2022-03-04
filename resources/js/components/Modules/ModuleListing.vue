@@ -2,27 +2,37 @@
     <div>
         <div
             v-if="userLoggedIn"
-            class="px-4 mt-12 text-center sm:text-right lg:mt-18 fluid-container md:px-12 xl:px-20 xxl:px-32"
+            class="px-4 text-center sm:text-right lg:mt-18 fluid-container md:px-12 xl:px-20 2xl:px-32"
         >
             <span class="relative z-0 inline-flex rounded-md shadow-sm">
                 <button
                     type="button"
-                    class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-700 bg-white border border-gray-300 rounded-l-md hover:text-gray-600 focus:z-10 focus:outline-none focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700"
-                    :class="{'pointer-events-none bg-gray-200 shadow-inner transition-none': showAllModules === true}"
+                    class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 transition duration-100 ease-in-out bg-white border-2 text-silver border-silver rounded-l-md focus:z-10 focus:outline-none focus:shadow-outline-blue"
+                    :class="{
+                        'pointer-events-none border-teal text-steel':
+                            showAllModules === true
+                    }"
                     @click="toggleShowAllModules"
-                >All Modules</button>
+                >
+                    All Modules
+                </button>
 
                 <button
                     type="button"
-                    class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-700 bg-white border border-gray-300 rounded-r-md hover:text-gray-600 focus:z-10 focus:outline-none focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700"
-                    :class="{'pointer-events-none bg-gray-200 shadow-inner transition-none': showAllModules === false}"
+                    class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 transition ease-in-out bg-white border-2 duration-210 text-gray border-silver rounded-r-md focus:z-10 focus:outline-none focus:shadow-outline-blue"
+                    :class="{
+                        'pointer-events-none border-teal border-2 text-steel':
+                            showAllModules === false
+                    }"
                     @click="toggleShowAllModules"
-                >My Modules</button>
+                >
+                    My Modules
+                </button>
             </span>
         </div>
 
-        <tabs 
-            class="mt-12 lg:mt-18"
+        <tabs
+            class="mt-10"
             ref="tabs"
             :hide-tabs-on-desktop="true"
             @activeTabUpdated="updateSelectedTab"
@@ -35,19 +45,24 @@
                 :selected="tab.selected"
             >
                 <div
-                    class="px-2 fluid-container md:px-8 lg:px-20 xxl:px-32"
-                    :class="{'lg:mt-32': index > 0}"
+                    class="px-2 fluid-container md:px-8 lg:px-20 2xl:px-32"
+                    :class="{ 'lg:mt-32': index > 0 }"
                 >
                     <h2
                         class="hidden w-full mb-10 text-4xl font-semibold leading-tight tracking-tight text-gray-900 lg:block"
-                    >{{ tab.name | capitalize }}</h2>
+                    >
+                        {{ tab.name | capitalize }}
+                    </h2>
 
                     <div class="flex flex-wrap w-full md:px-1 lg:px-0 lg:-mx-3">
                         <template v-if="tab.name === 'beginner'">
                             <p
-                                v-if="! beginnerModules.length"
+                                v-if="!beginnerModules.length"
                                 class="px-3 text-gray-700"
-                            >There are currently no modules here. Check back soon.</p>
+                            >
+                                There are currently no modules here. Check back
+                                soon.
+                            </p>
 
                             <module-card
                                 v-else
@@ -56,7 +71,9 @@
                                 :item="mod"
                                 :card-is-even="index % 2 === 0"
                                 :level="mod.skill_level"
-                                :completed-resources-count="getModuleCompletedResources(mod)"
+                                :completed-resources-count="
+                                    getModuleCompletedResources(mod)
+                                "
                                 :is-user-module="userModules.includes(mod.id)"
                                 :is-completed="getModuleIsCompleted(mod)"
                             />
@@ -64,9 +81,12 @@
 
                         <template v-else-if="tab.name === 'intermediate'">
                             <p
-                                v-if="! intermediateModules.length"
+                                v-if="!intermediateModules.length"
                                 class="px-3 text-gray-700"
-                            >There are currently no modules here. Check back soon.</p>
+                            >
+                                There are currently no modules here. Check back
+                                soon.
+                            </p>
 
                             <module-card
                                 v-else
@@ -75,7 +95,9 @@
                                 :item="mod"
                                 :card-is-even="index % 2 === 0"
                                 :level="mod.skill_level"
-                                :completed-resources-count="getModuleCompletedResources(mod)"
+                                :completed-resources-count="
+                                    getModuleCompletedResources(mod)
+                                "
                                 :is-user-module="userModules.includes(mod.id)"
                                 :is-completed="getModuleIsCompleted(mod)"
                             />
@@ -83,9 +105,12 @@
 
                         <template v-else-if="tab.name === 'advanced'">
                             <p
-                                v-if="! advancedModules.length"
+                                v-if="!advancedModules.length"
                                 class="px-3 text-gray-700"
-                            >There are currently no modules here. Check back soon.</p>
+                            >
+                                There are currently no modules here. Check back
+                                soon.
+                            </p>
 
                             <module-card
                                 v-else
@@ -94,7 +119,9 @@
                                 :item="mod"
                                 :card-is-even="index % 2 === 0"
                                 :level="mod.skill_level"
-                                :completed-resources-count="getModuleCompletedResources(mod)"
+                                :completed-resources-count="
+                                    getModuleCompletedResources(mod)
+                                "
                                 :is-user-module="userModules.includes(mod.id)"
                                 :is-completed="getModuleIsCompleted(mod)"
                             />
@@ -107,7 +134,9 @@
                                 :item="mod"
                                 :card-is-even="index % 2 === 0"
                                 level="bonus"
-                                :completed-resources-count="getModuleCompletedResources(mod)"
+                                :completed-resources-count="
+                                    getModuleCompletedResources(mod)
+                                "
                                 :is-user-module="userModules.includes(mod.id)"
                                 :is-completed="getModuleIsCompleted(mod)"
                             />
@@ -124,23 +153,23 @@ export default {
     props: {
         standardModules: {
             type: Array,
-            default: [],
+            default: []
         },
         bonusModules: {
             type: Array,
-            default: [],
+            default: []
         },
         userModules: {
             type: Array,
-            default: [],
+            default: []
         },
         completedModules: {
             type: Array,
-            default: [],
+            default: []
         },
         userResourceCompletions: {
             type: Array,
-            default: [],
+            default: []
         },
         userLoggedIn: {
             type: Boolean,
@@ -169,7 +198,7 @@ export default {
                 }
             ],
             showAllModules: !this.userLoggedIn,
-            currentBonusModules: this.filterBonusModules(),
+            currentBonusModules: this.filterBonusModules()
         };
     },
 
@@ -187,17 +216,17 @@ export default {
         },
 
         filteredTabs() {
-            if (! this.currentBonusModules.length) {
+            if (!this.currentBonusModules.length) {
                 return this.tabs.filter(tab => tab.name !== "bonus");
             }
 
             return this.tabs;
-        },
+        }
     },
 
     methods: {
         filterStandardModules(skillLevel) {
-            if (! this.userLoggedIn) {
+            if (!this.userLoggedIn) {
                 return this.standardModules.filter(
                     x => x.skill_level === skillLevel
                 );
@@ -212,9 +241,7 @@ export default {
                     this.userModules.includes(x.id)
                 );
 
-                modules = modules.filter(x =>
-                    ! this.userModules.includes(x.id)
-                );
+                modules = modules.filter(x => !this.userModules.includes(x.id));
 
                 modules.unshift(...userModules);
 
@@ -230,7 +257,7 @@ export default {
         },
 
         filterBonusModules() {
-            if (! this.userLoggedIn) {
+            if (!this.userLoggedIn) {
                 return this.bonusModules;
             }
 
@@ -239,8 +266,8 @@ export default {
                     this.userModules.includes(id)
                 );
 
-                let modules = this.bonusModules.filter(({ id }) =>
-                    ! this.userModules.includes(id)
+                let modules = this.bonusModules.filter(
+                    ({ id }) => !this.userModules.includes(id)
                 );
 
                 modules.unshift(...userModules);
@@ -262,7 +289,7 @@ export default {
 
             let activeTab = this.tabs.filter(tab => tab.selected)[0];
 
-            if(! this.filteredTabs.includes(activeTab)) {
+            if (!this.filteredTabs.includes(activeTab)) {
                 this.$refs.tabs.setActiveTab(
                     this.$refs[`tab-${this.tabs[0].name.toLowerCase()}`][0].href
                 );
@@ -270,11 +297,13 @@ export default {
         },
 
         getModuleCompletedResources({ resources_for_current_session }) {
-            if (! this.userLoggedIn) {
+            if (!this.userLoggedIn) {
                 return 0;
             }
 
-            let userResourceCompletions = this.userResourceCompletions.map(x => parseInt(x));
+            let userResourceCompletions = this.userResourceCompletions.map(x =>
+                parseInt(x)
+            );
 
             return resources_for_current_session.filter(({ id }) => {
                 return userResourceCompletions.includes(id);
@@ -288,9 +317,11 @@ export default {
 
         updateSelectedTab(newTab) {
             this.tabs.map(tab => {
-                tab.name === newTab.name.toLowerCase() ? tab.selected = true : tab.selected = false;
+                tab.name === newTab.name.toLowerCase()
+                    ? (tab.selected = true)
+                    : (tab.selected = false);
             });
-        },
-    },
+        }
+    }
 };
 </script>

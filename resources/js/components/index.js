@@ -3,7 +3,6 @@ import Vue from 'vue';
 import CompletableButton from './Completables/CompletedButton.vue';
 import CompletedBadge from './Completables/CompletedBadge.vue';
 import CompletedCheckbox from './Completables/CompletedCheckbox.vue';
-import LanguageSwitcher from './LanguageSwitcher.vue';
 import MenuDropdownItem from './Menu/MenuDropdownItem.vue';
 import MenuDropdown from './Menu/MenuDropdown.vue';
 import Modal from './Modal.vue';
@@ -19,7 +18,6 @@ import TabsWithSelect from './Tabs/TabsWithSelect.vue';
 import Toast from './Toast.vue';
 import ToggleWhenMobile from './ToggleWhenMobile.vue';
 
-Vue.component('language-switcher', LanguageSwitcher);
 Vue.component('toggle-when-mobile', ToggleWhenMobile);
 Vue.component('resource-language-preference-switcher', ResourceLanguagePreferenceSwitcher);
 Vue.component('completed-badge', CompletedBadge);

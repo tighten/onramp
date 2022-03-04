@@ -1,6 +1,8 @@
 {
     "Actions": "Actions",
     "Details": "Details",
+    "Glossary": "Glossary",
+    "Modules": "Modules",
     "If you did not request a password reset, no further action is required.": "If you did not request a password reset, no further action is required.",
     "Reset Password": "Reset Password",
     "Sorry! You are not authorized to perform this action.": "Sorry! You are not authorized to perform this action.",
@@ -16,6 +18,7 @@
     "Remember Me": "Remember Me",
     "Resources": "Resources",
     "Send Password Reset Link": "Send Password Reset Link",
+    "The tech concepts you should know in order to get a job as a Laravel developer.": "The tech concepts you should know in order to get a job as a Laravel developer.",
     "Welcome Back!": "Welcome Back!",
     "Delete Resource": "Delete Resource",
     "Delete": "Delete",

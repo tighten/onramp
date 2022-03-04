@@ -2,25 +2,16 @@
 
 @section('content')
 
-<div class="w-full bg-white">
-    <div class="py-16 overflow-hidden bg-indigo-100 lg:py-24">
-        <div class="relative fluid-container">
-            <h1 class="max-w-xl">{{ __('Tracks') }}</h1>
+<div class="w-full bg-white rounded-b">
+    <x-hero>
+        <h1 class="mb-2 font-bold tracking-wide h2 md:h1">{{ __('Tracks') }}</h1>
+    </x-hero>
 
-            <picture>
-                <source media="(min-width: 1024px)" srcset="/images/shapes/double-curve-dark-large.svg">
-
-                <img class="absolute right-0 -mr-32 transform -translate-y-1/2 pointer-events-none h-670-px opacity-10 top-1/2 lg:h-1340-px lg:-mr-48 lg:opacity-100"
-                     src="/images/shapes/single-curve-dark-small.svg" alt="Onramp">
-            </picture>
-        </div>
-    </div>
-    <div class="py-6 sm:py-16 fluid-container">
-
+    <x-panel fluid>
         <div class="sm:hidden">
             @foreach ($tracks as $track)
-                <div class="my-2 pb-8">
-                    <div class="bg-gray-100 px-4 py-2 border-b-2 font-semibold">
+                <div class="pb-8 my-2">
+                    <div class="px-4 py-2 font-semibold bg-gray-100 border-b-2">
                         {{ __($track->name) }}
                     </div>
                     <div>
@@ -34,13 +25,13 @@
         </div>
 
 
-        <table class="table-auto hidden sm:block">
+        <table class="hidden table-auto sm:block lg:py-10">
             <thead>
                 <tr class="bg-gray-100">
-                    <th class="border px-4 py-2">{{ __('Module Name') }}</th>
+                    <th class="px-4 py-2 border">{{ __('Module Name') }}</th>
 
                     @foreach ($tracks as $track)
-                        <th class="border px-4 py-2">{{ __($track->name) }}</th>
+                        <th class="px-4 py-2 border">{{ __($track->name) }}</th>
                     @endforeach
                 </tr>
             </thead>
@@ -48,13 +39,13 @@
             <tbody>
             @foreach ($modules as $module)
                 <tr>
-                    <td class="border px-4 py-2">
+                    <td class="px-4 py-2 border">
                         {{ __($module->name) }}
                     </td>
                     @foreach ($tracks as $track)
-                        <td class="border px-4 py-2 text-center">
+                        <td class="px-4 py-2 text-center border">
                             @if ($track->modules->pluck('id')->contains($module->id))
-                                <svg class="w-5 mx-auto fill-current text-green-700" viewBox="0 0 20 20"><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"/></svg>
+                                <svg class="w-5 mx-auto text-green-700 fill-current" viewBox="0 0 20 20"><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"/></svg>
                             @endif
                         </td>
                     @endforeach
@@ -62,6 +53,6 @@
             @endforeach
             </tbody>
         </table>
-    </div>
+    </x-panel>
 </div>
 @endsection

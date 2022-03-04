@@ -7,9 +7,9 @@
             <span class="relative z-0 inline-flex rounded-md shadow-sm">
                 <button
                     type="button"
-                    class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-700 bg-white border border-silver rounded-l-md hover:text-gray-600 focus:z-10 focus:outline-none focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700"
+                    class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 transition duration-100 ease-in-out bg-white border-2 text-silver border-silver rounded-l-md focus:z-10 focus:outline-none focus:shadow-outline-blue"
                     :class="{
-                        'pointer-events-none bg-gray-200 shadow-inner transition-none':
+                        'pointer-events-none border-teal text-steel':
                             showAllModules === true
                     }"
                     @click="toggleShowAllModules"
@@ -19,9 +19,9 @@
 
                 <button
                     type="button"
-                    class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-700 bg-white border border-silver rounded-r-md hover:text-gray-600 focus:z-10 focus:outline-none focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700"
+                    class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 transition ease-in-out bg-white border-2 duration-210 text-gray border-silver rounded-r-md focus:z-10 focus:outline-none focus:shadow-outline-blue"
                     :class="{
-                        'pointer-events-none bg-gray-200 shadow-inner transition-none':
+                        'pointer-events-none border-teal border-2 text-steel':
                             showAllModules === false
                     }"
                     @click="toggleShowAllModules"

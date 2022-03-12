@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5857151594c14f1e9ebfc1a8bbbfd621",
+    "content-hash": "4d7a02fdf1920b0fe40cbcfdc6c60aad",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -121,67 +121,6 @@
                 }
             ],
             "time": "2021-08-15T20:50:18+00:00"
-        },
-        {
-            "name": "brick/money",
-            "version": "0.5.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/brick/money.git",
-                "reference": "49e6597470da74f6a9f1dd7d5286ea3b4756b7e0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/brick/money/zipball/49e6597470da74f6a9f1dd7d5286ea3b4756b7e0",
-                "reference": "49e6597470da74f6a9f1dd7d5286ea3b4756b7e0",
-                "shasum": ""
-            },
-            "require": {
-                "brick/math": "~0.7.3 || ~0.8.0 || ~0.9.0",
-                "php": "^7.1 || ^8.0"
-            },
-            "require-dev": {
-                "brick/varexporter": "~0.2.1",
-                "ext-dom": "*",
-                "ext-pdo": "*",
-                "php-coveralls/php-coveralls": "^2.2",
-                "phpunit/phpunit": "^7.5.15 || ^8.0 || ^9.0",
-                "vimeo/psalm": "4.9.2"
-            },
-            "suggest": {
-                "ext-intl": "Required to format Money objects"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Brick\\Money\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Money and currency library",
-            "keywords": [
-                "brick",
-                "currency",
-                "money"
-            ],
-            "support": {
-                "issues": "https://github.com/brick/money/issues",
-                "source": "https://github.com/brick/money/tree/0.5.3"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/BenMorel",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/brick/money",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2021-10-10T11:59:43+00:00"
         },
         {
             "name": "bugsnag/bugsnag",
@@ -367,65 +306,6 @@
             "time": "2022-01-12T11:07:19+00:00"
         },
         {
-            "name": "cakephp/chronos",
-            "version": "2.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/cakephp/chronos.git",
-                "reference": "3ecd6e7ae191c676570cd1bed51fd561de4606dd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/chronos/zipball/3ecd6e7ae191c676570cd1bed51fd561de4606dd",
-                "reference": "3ecd6e7ae191c676570cd1bed51fd561de4606dd",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2"
-            },
-            "require-dev": {
-                "cakephp/cakephp-codesniffer": "^4.5",
-                "phpunit/phpunit": "^8.0 || ^9.0"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/carbon_compat.php"
-                ],
-                "psr-4": {
-                    "Cake\\Chronos\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Brian Nesbitt",
-                    "email": "brian@nesbot.com",
-                    "homepage": "http://nesbot.com"
-                },
-                {
-                    "name": "The CakePHP Team",
-                    "homepage": "http://cakephp.org"
-                }
-            ],
-            "description": "A simple API extension for DateTime.",
-            "homepage": "http://cakephp.org",
-            "keywords": [
-                "date",
-                "datetime",
-                "time"
-            ],
-            "support": {
-                "irc": "irc://irc.freenode.org/cakephp",
-                "issues": "https://github.com/cakephp/chronos/issues",
-                "source": "https://github.com/cakephp/chronos"
-            },
-            "time": "2021-10-17T02:44:05+00:00"
-        },
-        {
             "name": "composer/ca-bundle",
             "version": "1.3.1",
             "source": {
@@ -575,353 +455,6 @@
                 "source": "https://github.com/dflydev/dflydev-dot-access-data/tree/v3.0.1"
             },
             "time": "2021-08-13T13:06:58+00:00"
-        },
-        {
-            "name": "doctrine/cache",
-            "version": "2.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/cache.git",
-                "reference": "331b4d5dbaeab3827976273e9356b3b453c300ce"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/331b4d5dbaeab3827976273e9356b3b453c300ce",
-                "reference": "331b4d5dbaeab3827976273e9356b3b453c300ce",
-                "shasum": ""
-            },
-            "require": {
-                "php": "~7.1 || ^8.0"
-            },
-            "conflict": {
-                "doctrine/common": ">2.2,<2.4"
-            },
-            "require-dev": {
-                "alcaeus/mongo-php-adapter": "^1.1",
-                "cache/integration-tests": "dev-master",
-                "doctrine/coding-standard": "^8.0",
-                "mongodb/mongodb": "^1.1",
-                "phpunit/phpunit": "^7.0 || ^8.0 || ^9.0",
-                "predis/predis": "~1.0",
-                "psr/cache": "^1.0 || ^2.0 || ^3.0",
-                "symfony/cache": "^4.4 || ^5.2 || ^6.0@dev",
-                "symfony/var-exporter": "^4.4 || ^5.2 || ^6.0@dev"
-            },
-            "suggest": {
-                "alcaeus/mongo-php-adapter": "Required to use legacy MongoDB driver"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Doctrine\\Common\\Cache\\": "lib/Doctrine/Common/Cache"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com"
-                },
-                {
-                    "name": "Roman Borschel",
-                    "email": "roman@code-factory.org"
-                },
-                {
-                    "name": "Benjamin Eberlei",
-                    "email": "kontakt@beberlei.de"
-                },
-                {
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com"
-                },
-                {
-                    "name": "Johannes Schmitt",
-                    "email": "schmittjoh@gmail.com"
-                }
-            ],
-            "description": "PHP Doctrine Cache library is a popular cache implementation that supports many different drivers such as redis, memcache, apc, mongodb and others.",
-            "homepage": "https://www.doctrine-project.org/projects/cache.html",
-            "keywords": [
-                "abstraction",
-                "apcu",
-                "cache",
-                "caching",
-                "couchdb",
-                "memcached",
-                "php",
-                "redis",
-                "xcache"
-            ],
-            "support": {
-                "issues": "https://github.com/doctrine/cache/issues",
-                "source": "https://github.com/doctrine/cache/tree/2.1.1"
-            },
-            "funding": [
-                {
-                    "url": "https://www.doctrine-project.org/sponsorship.html",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://www.patreon.com/phpdoctrine",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fcache",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2021-07-17T14:49:29+00:00"
-        },
-        {
-            "name": "doctrine/dbal",
-            "version": "3.3.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/dbal.git",
-                "reference": "35eae239ef515d55ebb24e9d4715cad09a4f58ed"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/35eae239ef515d55ebb24e9d4715cad09a4f58ed",
-                "reference": "35eae239ef515d55ebb24e9d4715cad09a4f58ed",
-                "shasum": ""
-            },
-            "require": {
-                "composer-runtime-api": "^2",
-                "doctrine/cache": "^1.11|^2.0",
-                "doctrine/deprecations": "^0.5.3",
-                "doctrine/event-manager": "^1.0",
-                "php": "^7.3 || ^8.0",
-                "psr/cache": "^1|^2|^3",
-                "psr/log": "^1|^2|^3"
-            },
-            "require-dev": {
-                "doctrine/coding-standard": "9.0.0",
-                "jetbrains/phpstorm-stubs": "2021.1",
-                "phpstan/phpstan": "1.4.0",
-                "phpstan/phpstan-strict-rules": "^1.1",
-                "phpunit/phpunit": "9.5.11",
-                "psalm/plugin-phpunit": "0.16.1",
-                "squizlabs/php_codesniffer": "3.6.2",
-                "symfony/cache": "^5.2|^6.0",
-                "symfony/console": "^2.7|^3.0|^4.0|^5.0|^6.0",
-                "vimeo/psalm": "4.16.1"
-            },
-            "suggest": {
-                "symfony/console": "For helpful console commands such as SQL execution and import of files."
-            },
-            "bin": [
-                "bin/doctrine-dbal"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Doctrine\\DBAL\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com"
-                },
-                {
-                    "name": "Roman Borschel",
-                    "email": "roman@code-factory.org"
-                },
-                {
-                    "name": "Benjamin Eberlei",
-                    "email": "kontakt@beberlei.de"
-                },
-                {
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com"
-                }
-            ],
-            "description": "Powerful PHP database abstraction layer (DBAL) with many features for database schema introspection and management.",
-            "homepage": "https://www.doctrine-project.org/projects/dbal.html",
-            "keywords": [
-                "abstraction",
-                "database",
-                "db2",
-                "dbal",
-                "mariadb",
-                "mssql",
-                "mysql",
-                "oci8",
-                "oracle",
-                "pdo",
-                "pgsql",
-                "postgresql",
-                "queryobject",
-                "sasql",
-                "sql",
-                "sqlite",
-                "sqlserver",
-                "sqlsrv"
-            ],
-            "support": {
-                "issues": "https://github.com/doctrine/dbal/issues",
-                "source": "https://github.com/doctrine/dbal/tree/3.3.2"
-            },
-            "funding": [
-                {
-                    "url": "https://www.doctrine-project.org/sponsorship.html",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://www.patreon.com/phpdoctrine",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fdbal",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2022-02-05T16:33:45+00:00"
-        },
-        {
-            "name": "doctrine/deprecations",
-            "version": "v0.5.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/deprecations.git",
-                "reference": "9504165960a1f83cc1480e2be1dd0a0478561314"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/deprecations/zipball/9504165960a1f83cc1480e2be1dd0a0478561314",
-                "reference": "9504165960a1f83cc1480e2be1dd0a0478561314",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1|^8.0"
-            },
-            "require-dev": {
-                "doctrine/coding-standard": "^6.0|^7.0|^8.0",
-                "phpunit/phpunit": "^7.0|^8.0|^9.0",
-                "psr/log": "^1.0"
-            },
-            "suggest": {
-                "psr/log": "Allows logging deprecations via PSR-3 logger implementation"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Doctrine\\Deprecations\\": "lib/Doctrine/Deprecations"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "A small layer on top of trigger_error(E_USER_DEPRECATED) or PSR-3 logging with options to disable all deprecations or selectively for packages.",
-            "homepage": "https://www.doctrine-project.org/",
-            "support": {
-                "issues": "https://github.com/doctrine/deprecations/issues",
-                "source": "https://github.com/doctrine/deprecations/tree/v0.5.3"
-            },
-            "time": "2021-03-21T12:59:47+00:00"
-        },
-        {
-            "name": "doctrine/event-manager",
-            "version": "1.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/event-manager.git",
-                "reference": "41370af6a30faa9dc0368c4a6814d596e81aba7f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/event-manager/zipball/41370af6a30faa9dc0368c4a6814d596e81aba7f",
-                "reference": "41370af6a30faa9dc0368c4a6814d596e81aba7f",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1 || ^8.0"
-            },
-            "conflict": {
-                "doctrine/common": "<2.9@dev"
-            },
-            "require-dev": {
-                "doctrine/coding-standard": "^6.0",
-                "phpunit/phpunit": "^7.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Doctrine\\Common\\": "lib/Doctrine/Common"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com"
-                },
-                {
-                    "name": "Roman Borschel",
-                    "email": "roman@code-factory.org"
-                },
-                {
-                    "name": "Benjamin Eberlei",
-                    "email": "kontakt@beberlei.de"
-                },
-                {
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com"
-                },
-                {
-                    "name": "Johannes Schmitt",
-                    "email": "schmittjoh@gmail.com"
-                },
-                {
-                    "name": "Marco Pivetta",
-                    "email": "ocramius@gmail.com"
-                }
-            ],
-            "description": "The Doctrine Event Manager is a simple PHP event system that was built to be used with the various Doctrine projects.",
-            "homepage": "https://www.doctrine-project.org/projects/event-manager.html",
-            "keywords": [
-                "event",
-                "event dispatcher",
-                "event manager",
-                "event system",
-                "events"
-            ],
-            "support": {
-                "issues": "https://github.com/doctrine/event-manager/issues",
-                "source": "https://github.com/doctrine/event-manager/tree/1.1.x"
-            },
-            "funding": [
-                {
-                    "url": "https://www.doctrine-project.org/sponsorship.html",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://www.patreon.com/phpdoctrine",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fevent-manager",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2020-05-29T18:28:51+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -1218,56 +751,6 @@
                 }
             ],
             "time": "2020-12-29T14:50:06+00:00"
-        },
-        {
-            "name": "erusev/parsedown",
-            "version": "1.7.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/erusev/parsedown.git",
-                "reference": "cb17b6477dfff935958ba01325f2e8a2bfa6dab3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown/zipball/cb17b6477dfff935958ba01325f2e8a2bfa6dab3",
-                "reference": "cb17b6477dfff935958ba01325f2e8a2bfa6dab3",
-                "shasum": ""
-            },
-            "require": {
-                "ext-mbstring": "*",
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.8.35"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Parsedown": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Emanuil Rusev",
-                    "email": "hello@erusev.com",
-                    "homepage": "http://erusev.com"
-                }
-            ],
-            "description": "Parser for Markdown.",
-            "homepage": "http://parsedown.org",
-            "keywords": [
-                "markdown",
-                "parser"
-            ],
-            "support": {
-                "issues": "https://github.com/erusev/parsedown/issues",
-                "source": "https://github.com/erusev/parsedown/tree/1.7.x"
-            },
-            "time": "2019-12-30T22:54:17+00:00"
         },
         {
             "name": "fideloper/proxy",
@@ -1792,60 +1275,6 @@
             "time": "2021-10-06T17:43:30+00:00"
         },
         {
-            "name": "inspheric/nova-url-field",
-            "version": "v1.4.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/inspheric/nova-url-field.git",
-                "reference": "e8badc5936b04a3a7c022770a747550a2efbed72"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/inspheric/nova-url-field/zipball/e8badc5936b04a3a7c022770a747550a2efbed72",
-                "reference": "e8badc5936b04a3a7c022770a747550a2efbed72",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Inspheric\\Fields\\UrlFieldServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Inspheric\\Fields\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "A Laravel Nova url field.",
-            "keywords": [
-                "field",
-                "href",
-                "laravel",
-                "nova",
-                "url"
-            ],
-            "support": {
-                "issues": "https://github.com/inspheric/nova-url-field/issues",
-                "source": "https://github.com/inspheric/nova-url-field/tree/master"
-            },
-            "funding": [
-                {
-                    "url": "https://burtonsenior.com/donate/inspheric/nova-url-field",
-                    "type": "custom"
-                }
-            ],
-            "time": "2020-03-25T17:13:48+00:00"
-        },
-        {
             "name": "kg-bot/laravel-localization-to-vue",
             "version": "v1.7.1",
             "source": {
@@ -2081,105 +1510,6 @@
                 "source": "https://github.com/laravel/framework"
             },
             "time": "2022-03-03T15:14:29+00:00"
-        },
-        {
-            "name": "laravel/nova",
-            "version": "3.31.0",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:laravel/nova.git",
-                "reference": "7f4781370193d23e9ffa218ae2c03fee3883821e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://nova.laravel.com/dist/laravel/nova/laravel-nova-7f4781370193d23e9ffa218ae2c03fee3883821e-zip-54dd0e.zip",
-                "reference": "7f4781370193d23e9ffa218ae2c03fee3883821e",
-                "shasum": "ec28a6bf339d138367029f5e24d9b0968ca87726"
-            },
-            "require": {
-                "brick/money": "^0.5.0",
-                "cakephp/chronos": "^1.0|^2.0",
-                "doctrine/dbal": "^2.13.3|^3.1.2",
-                "illuminate/support": "^8.67|^9.0",
-                "laravel/ui": "^3.3",
-                "php": "^7.3|^8.0",
-                "spatie/once": "^1.1|^2.0|^3.0",
-                "symfony/console": "^5.4|^6.0",
-                "symfony/finder": "^5.4|^6.0",
-                "symfony/intl": "^5.4|^6.0",
-                "symfony/process": "^5.4|^6.0"
-            },
-            "require-dev": {
-                "laravel/legacy-factories": "^1.3",
-                "laravel/nova-dusk-suite": "8.3.x-dev|9.3.x-dev",
-                "mockery/mockery": "^1.4.4",
-                "orchestra/testbench-dusk": "^6.23|^7.0",
-                "phpunit/phpunit": "^9.5.10",
-                "predis/predis": "^1.1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.x-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "Laravel\\Nova\\NovaCoreServiceProvider"
-                    ],
-                    "aliases": {
-                        "Nova": "Laravel\\Nova\\Nova"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Laravel\\Nova\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Laravel\\Nova\\Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "dusk:prepare": [
-                    "./vendor/bin/dusk-updater detect --auto-update",
-                    "@php -r \"file_exists('phpunit.dusk.xml') || copy('phpunit.dusk.xml.dist', 'phpunit.dusk.xml'); \"",
-                    "@php -r \"if (file_exists('.env.dusk')) { copy('.env.dusk', 'vendor/laravel/nova-dusk-suite/.env'); } else { copy('.env.dusk.example', 'vendor/laravel/nova-dusk-suite/.env'); }\"",
-                    "./vendor/bin/testbench-dusk package:discover"
-                ],
-                "dusk:dev-assets": [
-                    "yarn install",
-                    "yarn run dev",
-                    "./vendor/bin/testbench-dusk nova:publish"
-                ],
-                "dusk:assets": [
-                    "yarn install",
-                    "yarn run prod",
-                    "./vendor/bin/testbench-dusk nova:publish"
-                ],
-                "dusk:test": [
-                    "./vendor/bin/phpunit -c phpunit.dusk.xml"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "A wonderful administration interface for Laravel.",
-            "keywords": [
-                "admin",
-                "laravel"
-            ],
-            "support": {
-                "source": "https://github.com/laravel/nova/tree/v3.31.0"
-            },
-            "time": "2022-02-08T17:30:45+00:00"
         },
         {
             "name": "laravel/serializable-closure",
@@ -2866,53 +2196,6 @@
             "time": "2021-10-01T21:08:31+00:00"
         },
         {
-            "name": "mrmonat/nova-translatable",
-            "version": "2.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mrmonat/nova-translatable.git",
-                "reference": "509311219073b91289a04dc0855426a37f0e18e4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mrmonat/nova-translatable/zipball/509311219073b91289a04dc0855426a37f0e18e4",
-                "reference": "509311219073b91289a04dc0855426a37f0e18e4",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1.0|^8.0",
-                "spatie/laravel-translatable": "^4.0|^5.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "MrMonat\\Translatable\\FieldServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "MrMonat\\Translatable\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "A Laravel Nova field for spatie/laravel-translatable.",
-            "keywords": [
-                "laravel",
-                "nova",
-                "translatable"
-            ],
-            "support": {
-                "issues": "https://github.com/mrmonat/nova-translatable/issues",
-                "source": "https://github.com/mrmonat/nova-translatable/tree/2.2.0"
-            },
-            "time": "2021-08-29T13:41:11+00:00"
-        },
-        {
             "name": "nesbot/carbon",
             "version": "2.57.0",
             "source": {
@@ -3346,55 +2629,6 @@
                 }
             ],
             "time": "2021-12-04T23:24:31+00:00"
-        },
-        {
-            "name": "psr/cache",
-            "version": "3.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/cache.git",
-                "reference": "aa5030cfa5405eccfdcb1083ce040c2cb8d253bf"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/cache/zipball/aa5030cfa5405eccfdcb1083ce040c2cb8d253bf",
-                "reference": "aa5030cfa5405eccfdcb1083ce040c2cb8d253bf",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.0.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Psr\\Cache\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "https://www.php-fig.org/"
-                }
-            ],
-            "description": "Common interface for caching libraries",
-            "keywords": [
-                "cache",
-                "psr",
-                "psr-6"
-            ],
-            "support": {
-                "source": "https://github.com/php-fig/cache/tree/3.0.0"
-            },
-            "time": "2021-02-03T23:26:27+00:00"
         },
         {
             "name": "psr/container",
@@ -4197,68 +3431,6 @@
             "time": "2022-01-13T11:15:07+00:00"
         },
         {
-            "name": "spatie/once",
-            "version": "3.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/once.git",
-                "reference": "90d5b02f1fdf31edd5a5919ff94aab456a1143e0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/once/zipball/90d5b02f1fdf31edd5a5919ff94aab456a1143e0",
-                "reference": "90d5b02f1fdf31edd5a5919ff94aab456a1143e0",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^9.3",
-                "symfony/var-dumper": "^5.1"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/functions.php"
-                ],
-                "psr-4": {
-                    "Spatie\\Once\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A magic memoization function",
-            "homepage": "https://github.com/spatie/once",
-            "keywords": [
-                "cache",
-                "callable",
-                "memoization",
-                "once",
-                "spatie"
-            ],
-            "support": {
-                "source": "https://github.com/spatie/once/tree/3.0.2"
-            },
-            "funding": [
-                {
-                    "url": "https://spatie.be/open-source/support-us",
-                    "type": "custom"
-                }
-            ],
-            "time": "2022-02-04T09:04:33+00:00"
-        },
-        {
             "name": "swiftmailer/swiftmailer",
             "version": "v6.3.0",
             "source": {
@@ -5047,86 +4219,6 @@
                 }
             ],
             "time": "2022-02-28T07:57:55+00:00"
-        },
-        {
-            "name": "symfony/intl",
-            "version": "v6.0.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/intl.git",
-                "reference": "aa9dd5a6b4b75a4b3dcd002ae588f9792f33defe"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/intl/zipball/aa9dd5a6b4b75a4b3dcd002ae588f9792f33defe",
-                "reference": "aa9dd5a6b4b75a4b3dcd002ae588f9792f33defe",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.0.2"
-            },
-            "require-dev": {
-                "symfony/filesystem": "^5.4|^6.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Intl\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bernhard Schussek",
-                    "email": "bschussek@gmail.com"
-                },
-                {
-                    "name": "Eriksen Costa",
-                    "email": "eriksen.costa@infranology.com.br"
-                },
-                {
-                    "name": "Igor Wiedler",
-                    "email": "igor@wiedler.ch"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Provides a PHP replacement layer for the C intl extension that includes additional data from the ICU library",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "i18n",
-                "icu",
-                "internationalization",
-                "intl",
-                "l10n",
-                "localization"
-            ],
-            "support": {
-                "source": "https://github.com/symfony/intl/tree/v6.0.5"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2022-02-27T08:47:28+00:00"
         },
         {
             "name": "symfony/mime",
@@ -6610,89 +5702,6 @@
             "time": "2022-02-21T15:00:19+00:00"
         },
         {
-            "name": "tightenco/nova-releases",
-            "version": "v1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/tighten/nova-releases.git",
-                "reference": "42ee696ebc9bfe1d89ef41c090987adbc3e31988"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/tighten/nova-releases/zipball/42ee696ebc9bfe1d89ef41c090987adbc3e31988",
-                "reference": "42ee696ebc9bfe1d89ef41c090987adbc3e31988",
-                "shasum": ""
-            },
-            "require": {
-                "erusev/parsedown": "^1.7",
-                "laravel/framework": ">=7.0",
-                "php": ">=7.2.5"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Tightenco\\NovaReleases\\CardServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Tightenco\\NovaReleases\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Keep on top of Nova Releases",
-            "keywords": [
-                "laravel",
-                "nova"
-            ],
-            "support": {
-                "issues": "https://github.com/tighten/nova-releases/issues",
-                "source": "https://github.com/tighten/nova-releases/tree/v1.0.0"
-            },
-            "time": "2020-09-12T02:08:21+00:00"
-        },
-        {
-            "name": "tightenco/suggested-resources-shortcuts",
-            "version": "dev-shift-ci-v8.83.3",
-            "dist": {
-                "type": "path",
-                "url": "./nova-components/SuggestedResourcesShortcuts",
-                "reference": "5fea46e40103b083bb09738f868b778423c54b7e"
-            },
-            "require": {
-                "php": ">=7.1.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Tightenco\\SuggestedResourcesShortcuts\\CardServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Tightenco\\SuggestedResourcesShortcuts\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "A Laravel Nova card.",
-            "keywords": [
-                "laravel",
-                "nova"
-            ],
-            "transport-options": {
-                "relative": true
-            }
-        },
-        {
             "name": "tightenco/ziggy",
             "version": "v1.4.3",
             "source": {
@@ -7698,6 +6707,353 @@
                 "source": "https://github.com/doctrine/annotations/tree/1.13.2"
             },
             "time": "2021-08-05T19:00:23+00:00"
+        },
+        {
+            "name": "doctrine/cache",
+            "version": "2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/cache.git",
+                "reference": "331b4d5dbaeab3827976273e9356b3b453c300ce"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/331b4d5dbaeab3827976273e9356b3b453c300ce",
+                "reference": "331b4d5dbaeab3827976273e9356b3b453c300ce",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~7.1 || ^8.0"
+            },
+            "conflict": {
+                "doctrine/common": ">2.2,<2.4"
+            },
+            "require-dev": {
+                "alcaeus/mongo-php-adapter": "^1.1",
+                "cache/integration-tests": "dev-master",
+                "doctrine/coding-standard": "^8.0",
+                "mongodb/mongodb": "^1.1",
+                "phpunit/phpunit": "^7.0 || ^8.0 || ^9.0",
+                "predis/predis": "~1.0",
+                "psr/cache": "^1.0 || ^2.0 || ^3.0",
+                "symfony/cache": "^4.4 || ^5.2 || ^6.0@dev",
+                "symfony/var-exporter": "^4.4 || ^5.2 || ^6.0@dev"
+            },
+            "suggest": {
+                "alcaeus/mongo-php-adapter": "Required to use legacy MongoDB driver"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Common\\Cache\\": "lib/Doctrine/Common/Cache"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "PHP Doctrine Cache library is a popular cache implementation that supports many different drivers such as redis, memcache, apc, mongodb and others.",
+            "homepage": "https://www.doctrine-project.org/projects/cache.html",
+            "keywords": [
+                "abstraction",
+                "apcu",
+                "cache",
+                "caching",
+                "couchdb",
+                "memcached",
+                "php",
+                "redis",
+                "xcache"
+            ],
+            "support": {
+                "issues": "https://github.com/doctrine/cache/issues",
+                "source": "https://github.com/doctrine/cache/tree/2.1.1"
+            },
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fcache",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-07-17T14:49:29+00:00"
+        },
+        {
+            "name": "doctrine/dbal",
+            "version": "3.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/dbal.git",
+                "reference": "35eae239ef515d55ebb24e9d4715cad09a4f58ed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/35eae239ef515d55ebb24e9d4715cad09a4f58ed",
+                "reference": "35eae239ef515d55ebb24e9d4715cad09a4f58ed",
+                "shasum": ""
+            },
+            "require": {
+                "composer-runtime-api": "^2",
+                "doctrine/cache": "^1.11|^2.0",
+                "doctrine/deprecations": "^0.5.3",
+                "doctrine/event-manager": "^1.0",
+                "php": "^7.3 || ^8.0",
+                "psr/cache": "^1|^2|^3",
+                "psr/log": "^1|^2|^3"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "9.0.0",
+                "jetbrains/phpstorm-stubs": "2021.1",
+                "phpstan/phpstan": "1.4.0",
+                "phpstan/phpstan-strict-rules": "^1.1",
+                "phpunit/phpunit": "9.5.11",
+                "psalm/plugin-phpunit": "0.16.1",
+                "squizlabs/php_codesniffer": "3.6.2",
+                "symfony/cache": "^5.2|^6.0",
+                "symfony/console": "^2.7|^3.0|^4.0|^5.0|^6.0",
+                "vimeo/psalm": "4.16.1"
+            },
+            "suggest": {
+                "symfony/console": "For helpful console commands such as SQL execution and import of files."
+            },
+            "bin": [
+                "bin/doctrine-dbal"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\DBAL\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                }
+            ],
+            "description": "Powerful PHP database abstraction layer (DBAL) with many features for database schema introspection and management.",
+            "homepage": "https://www.doctrine-project.org/projects/dbal.html",
+            "keywords": [
+                "abstraction",
+                "database",
+                "db2",
+                "dbal",
+                "mariadb",
+                "mssql",
+                "mysql",
+                "oci8",
+                "oracle",
+                "pdo",
+                "pgsql",
+                "postgresql",
+                "queryobject",
+                "sasql",
+                "sql",
+                "sqlite",
+                "sqlserver",
+                "sqlsrv"
+            ],
+            "support": {
+                "issues": "https://github.com/doctrine/dbal/issues",
+                "source": "https://github.com/doctrine/dbal/tree/3.3.2"
+            },
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fdbal",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2022-02-05T16:33:45+00:00"
+        },
+        {
+            "name": "doctrine/deprecations",
+            "version": "v0.5.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/deprecations.git",
+                "reference": "9504165960a1f83cc1480e2be1dd0a0478561314"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/deprecations/zipball/9504165960a1f83cc1480e2be1dd0a0478561314",
+                "reference": "9504165960a1f83cc1480e2be1dd0a0478561314",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1|^8.0"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "^6.0|^7.0|^8.0",
+                "phpunit/phpunit": "^7.0|^8.0|^9.0",
+                "psr/log": "^1.0"
+            },
+            "suggest": {
+                "psr/log": "Allows logging deprecations via PSR-3 logger implementation"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Deprecations\\": "lib/Doctrine/Deprecations"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A small layer on top of trigger_error(E_USER_DEPRECATED) or PSR-3 logging with options to disable all deprecations or selectively for packages.",
+            "homepage": "https://www.doctrine-project.org/",
+            "support": {
+                "issues": "https://github.com/doctrine/deprecations/issues",
+                "source": "https://github.com/doctrine/deprecations/tree/v0.5.3"
+            },
+            "time": "2021-03-21T12:59:47+00:00"
+        },
+        {
+            "name": "doctrine/event-manager",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/event-manager.git",
+                "reference": "41370af6a30faa9dc0368c4a6814d596e81aba7f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/event-manager/zipball/41370af6a30faa9dc0368c4a6814d596e81aba7f",
+                "reference": "41370af6a30faa9dc0368c4a6814d596e81aba7f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1 || ^8.0"
+            },
+            "conflict": {
+                "doctrine/common": "<2.9@dev"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "^6.0",
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Common\\": "lib/Doctrine/Common"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                },
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com"
+                }
+            ],
+            "description": "The Doctrine Event Manager is a simple PHP event system that was built to be used with the various Doctrine projects.",
+            "homepage": "https://www.doctrine-project.org/projects/event-manager.html",
+            "keywords": [
+                "event",
+                "event dispatcher",
+                "event manager",
+                "event system",
+                "events"
+            ],
+            "support": {
+                "issues": "https://github.com/doctrine/event-manager/issues",
+                "source": "https://github.com/doctrine/event-manager/tree/1.1.x"
+            },
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fevent-manager",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-05-29T18:28:51+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -9360,6 +8716,55 @@
                 }
             ],
             "time": "2022-02-23T17:10:58+00:00"
+        },
+        {
+            "name": "psr/cache",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/cache.git",
+                "reference": "aa5030cfa5405eccfdcb1083ce040c2cb8d253bf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/cache/zipball/aa5030cfa5405eccfdcb1083ce040c2cb8d253bf",
+                "reference": "aa5030cfa5405eccfdcb1083ce040c2cb8d253bf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Cache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for caching libraries",
+            "keywords": [
+                "cache",
+                "psr",
+                "psr-6"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/cache/tree/3.0.0"
+            },
+            "time": "2021-02-03T23:26:27+00:00"
         },
         {
             "name": "sebastian/cli-parser",

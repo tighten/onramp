@@ -12,16 +12,12 @@
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
-        "inspheric/nova-url-field": "^1.4",
         "kg-bot/laravel-localization-to-vue": "^1.6",
         "laravel/framework": "^8.83",
-        "laravel/nova": "^3.22",
         "laravel/slack-notification-channel": "^2.4",
         "laravel/tinker": "^2.5",
-        "mrmonat/nova-translatable": "^2.2",
+        "laravel/ui": "^3.4",
         "spatie/laravel-translatable": "^5.2",
-        "tightenco/nova-releases": "^1.0",
-        "tightenco/suggested-resources-shortcuts": "*",
         "tightenco/ziggy": "^1.4"
     },
     "require-dev": {
@@ -74,6 +70,13 @@
             "url": "./nova-components/SuggestedResourcesShortcuts"
         }
     ],
+    "suggest": {
+        "laravel/nova": "Administration panel for Laravel",
+        "mrmonat/nova-translatable": "A Laravel Nova field for spatie/laravel-translatable.",
+        "tightenco/nova-releases": "Keep on top of Nova Releases",
+        "inspheric/nova-url-field": "A Laravel Nova url field.",
+        "tightenco/suggested-resources-shortcuts": ""
+    },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
@@ -86,6 +89,9 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "post-install-cmd": [
+            "[ $COMPOSER_DEV_MODE -eq 1 ] || composer require laravel/nova mrmonat/nova-translatable tightenco/nova-releases inspheric/nova-url-field tightenco/suggested-resources-shortcuts"
         ]
     }
 }

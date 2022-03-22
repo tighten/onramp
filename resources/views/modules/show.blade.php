@@ -91,7 +91,7 @@ switch ($level) {
                                 @else
                                     <li class="relative block px-4 py-2 m-1">
                                         <span
-                                            class="absolute inset-0 w-full h-full bg-teal rounded-md opacity-10"></span>
+                                            class="absolute inset-0 w-full h-full rounded-md bg-teal opacity-10"></span>
                                         <span class="font-bold text-teal">{{ $skill->name }}</span>
                                     </li>
                                 @endif
@@ -114,17 +114,19 @@ switch ($level) {
             </tab>
 
             {{-- @todo Show this once we add in quizzes and exercises --}}
-            {{-- <tab
-            @if ($resourceType === 'quizzes') :selected="true" @endif
-            name="Quizzes"
-            url="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'quizzes']) }}">
-        </tab>
+            {{-- 
+                <tab
+                    @if ($resourceType === 'quizzes') :selected="true" @endif
+                    name="Quizzes"
+                    url="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'quizzes']) }}">
+                </tab>
 
-        <tab
-            @if ($resourceType === 'exercises') :selected="true" @endif
-            name="Exercises"
-            url="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'exercises']) }}">
-        </tab> --}}
+                <tab
+                    @if ($resourceType === 'exercises') :selected="true" @endif
+                    name="Exercises"
+                    url="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'exercises']) }}">
+                </tab> 
+            --}}
         </tabs>
 
         <x-panel>
@@ -161,5 +163,41 @@ switch ($level) {
                 @endswitch
             </div>
         </x-panel>
+
+        <div class="flex items-start justify-between px-6 py-10 sm:pt-16 sm:pb-20">
+
+            <div class="flex-1">
+                @if ($previousModule)
+                    <a class="flex flex-col items-start text-white group hover:text-mint"
+                        href="{{ route_wlocale('modules.show', ['module' => $previousModule->slug, 'resourceType' => 'free-resources']) }}"
+                    >
+                        <div class="flex items-center mb-1 text-sm font-semibold tracking-widest uppercase text-mint lg:text-base">
+                            @include('partials.svg.chevron', ['classes' => 'mr-0.5 rotate-180 -ml-2'])
+                            Previous
+                        </div>
+                        <span class="text-sm leading-tight word-spacing-tight sm:text-base sm:leading-tight lg:text-lg lg:leading-tight group-hover:underline group-hover:underline-offset-2">
+                            {!! $previousModule->name !!}
+                        </span>
+                    </a>
+                @endif
+            </div>
+
+            <div class="flex-1">
+                @if ($nextModule)
+                    <a class="flex flex-col items-end text-white group hover:text-mint"
+                        href="{{ route_wlocale('modules.show', ['module' => $nextModule->slug, 'resourceType' => 'free-resources']) }}"
+                    >
+                        <div class="flex items-center mb-1 text-sm font-semibold tracking-widest uppercase text-mint lg:text-base">
+                            Next
+                            @include('partials.svg.chevron', ['classes' => 'ml-0.5 -mr-2'])
+                        </div>
+                        <span class="text-sm leading-tight text-right word-spacing-tight sm:text-base sm:leading-tight lg:text-lg lg:leading-tight group-hover:underline group-hover:underline-offset-2">
+                            {!! $nextModule->name !!}
+                        </span>
+                    </a>
+                @endif
+            </div>
+
+        </div>
     </div>
 @endsection

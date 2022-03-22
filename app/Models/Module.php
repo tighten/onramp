@@ -86,4 +86,18 @@ class Module extends Model implements Completable
     {
         return $query->where('skill_level', self::ADVANCED_SKILL_LEVEL);
     }
+
+    public function getPrevious()
+    {
+        return Module::where('id', '<', $this->id)
+            ->orderBy('id', 'asc')
+            ->first();
+    }
+
+    public function getNext()
+    {
+        return Module::where('id', '>', $this->id)
+            ->orderBy('id', 'asc')
+            ->first();
+    }
 }

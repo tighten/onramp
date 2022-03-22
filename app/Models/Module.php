@@ -90,7 +90,7 @@ class Module extends Model implements Completable
     public function getPrevious()
     {
         return Module::where('id', '<', $this->id)
-            ->orderBy('id', 'asc')
+            ->orderBy('id', 'desc')
             ->first();
     }
 

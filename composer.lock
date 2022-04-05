@@ -2094,7 +2094,7 @@
                 "type": "zip",
                 "url": "https://nova.laravel.com/dist/laravel/nova/laravel-nova-7f4781370193d23e9ffa218ae2c03fee3883821e-zip-54dd0e.zip",
                 "reference": "7f4781370193d23e9ffa218ae2c03fee3883821e",
-                "shasum": "ec28a6bf339d138367029f5e24d9b0968ca87726"
+                "shasum": "a09e6d2bad5f8dcde3c3dce647835e86c06cdf47"
             },
             "require": {
                 "brick/money": "^0.5.0",
@@ -10838,5 +10838,5 @@
         "php": "^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }

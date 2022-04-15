@@ -40,7 +40,7 @@
             @foreach ($modules as $module)
                 <tr>
                     <td class="px-4 py-2 border">
-                        {{ __($module->name) }}
+                        {{ $module->name }}
                     </td>
                     @foreach ($tracks as $track)
                         <td class="px-4 py-2 text-center border">

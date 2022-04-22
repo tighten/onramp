@@ -6,11 +6,13 @@ use App\Models\Resource;
 return [
     'name' => ['en' => 'Auth', 'es' => ''],
     'description' => [
-        'en' => '',
+        'en' => 'Learn how to verify your application\'s users and other preventative measures you can take to protect your app against security vulnerabilities.',
         'es' => '',
     ],
     'skills' => [
-        ['es' => '', 'en' => ''],
+        ['es' => '', 'en' => 'Authorize user actions'],
+        ['es' => '', 'en' => 'Authenticate users'],
+        ['es' => '', 'en' => 'Manage user roles and permissions'],
     ],
     'resources' => [
         'es' => [],

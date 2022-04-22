@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Module;
+
 return [
     'name' => ['en' => 'Laravel Vs WordPress', 'es' => ''],
     'description' => [
@@ -11,4 +13,5 @@ return [
         'es' => [],
         'en' => [],
     ],
+    'skill_level' => Module::INTERMEDIATE_SKILL_LEVEL,
 ];

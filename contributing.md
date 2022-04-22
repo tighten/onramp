@@ -44,7 +44,7 @@ Now you have this set up, run the following commands to install the dependencies
 
 ```bash
 composer install
-npm install 
+npm install
 npm run dev
 ```
 
@@ -106,6 +106,8 @@ Look to [this blog post](https://chris.beams.io/posts/git-commit/) for how to wr
 
 When you have your changes ready in your own branch on your fork, it's time to create a pull request.
 Try to describe what kind of changes you have made and why you have made them. This helps us in understanding why you are suggesting this change and what your reasoning behind it is.
+
+Onramp utilizes laravel nova in production, but the package and its dependencies are optional when working on Onramp locally. If you install nova locally, please ensure that the nova package and any packages that utilize nova are missing from the `require` and `require-dev` keys in `package.json` when creating commits.
 
 Look to [this blog post](https://tighten.co/blog/building-a-great-pull-request/) for how to create a great pull request.
 

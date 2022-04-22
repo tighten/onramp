@@ -9,9 +9,7 @@ return [
         'en' => 'Take your mastery of Laravel to the next level by diving into the internal features at the framework\'s core.',
         'es' => '',
     ],
-    'skills' => [
-        ['es' => '', 'en' => ''],
-    ],
+    'skills' => [],
     'resources' => [
         'es' => [],
         'en' => [

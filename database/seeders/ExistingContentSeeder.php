@@ -21,6 +21,7 @@ class ExistingContentSeeder extends Seeder
                 'description' => $moduleArray['description'],
                 'slug' => Str::slug($moduleArray['name']['en']),
                 'is_bonus' => Arr::get($moduleArray, 'bonus', false),
+                'skill_level' => data_get($moduleArray, 'skill_level', Module::BEGINNER_SKILL_LEVEL),
             ]);
 
             $module->tracks()->save($tracks->random());

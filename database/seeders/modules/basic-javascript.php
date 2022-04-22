@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Module;
 use App\Models\Resource;
 
 return [
@@ -40,4 +41,5 @@ return [
             ],
         ],
     ],
+    'skill_level' => Module::BEGINNER_SKILL_LEVEL,
 ];

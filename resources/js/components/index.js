@@ -24,8 +24,6 @@ Vue.component('completed-badge', CompletedBadge);
 Vue.component('completed-button', CompletableButton);
 Vue.component('completed-checkbox', CompletedCheckbox);
 Vue.component('toast', Toast);
-Vue.component('menu-dropdown-item', MenuDropdownItem);
-Vue.component('menu-dropdown', MenuDropdown);
 Vue.component('modal', Modal);
 Vue.component('modal-mobile-menu', ModalMobileMenu);
 Vue.component('module-listing', ModuleListing);

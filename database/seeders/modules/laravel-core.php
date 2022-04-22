@@ -6,7 +6,7 @@ use App\Models\Resource;
 return [
     'name' => ['en' => 'Laravel Core', 'es' => ''],
     'description' => [
-        'en' => '',
+        'en' => 'Take your mastery of Laravel to the next level by diving into the internal features at the framework\'s core.',
         'es' => '',
     ],
     'skills' => [

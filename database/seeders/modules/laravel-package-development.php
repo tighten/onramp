@@ -6,11 +6,13 @@ use App\Models\Resource;
 return [
     'name' => ['en' => 'Laravel Package Development', 'es' => ''],
     'description' => [
-        'en' => '',
+        'en' => 'Enhance the functionality of your application by creating extensible packages you can share with the community.',
         'es' => '',
     ],
     'skills' => [
-        ['es' => '', 'en' => ''],
+        ['es' => '', 'en' => 'Publish configuration files'],
+        ['es' => '', 'en' => 'Create a package-specific service provider'],
+        ['es' => '', 'en' => 'Test with Testbench'],
     ],
     'resources' => [
         'es' => [],

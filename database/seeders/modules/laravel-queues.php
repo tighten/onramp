@@ -6,11 +6,13 @@ use App\Models\Resource;
 return [
     'name' => ['en' => 'Laravel Queues', 'es' => ''],
     'description' => [
-        'en' => '',
+        'en' => 'Learn how to create performant Laravel apps by using queues to process your time intensive tasks in the background.',
         'es' => '',
     ],
     'skills' => [
-        ['es' => '', 'en' => ''],
+        ['es' => '', 'en' => 'Push jobs to queue'],
+        ['es' => '', 'en' => 'Enqueue mail'],
+        ['es' => '', 'en' => 'Run queue worker'],
     ],
     'resources' => [
         'es' => [],

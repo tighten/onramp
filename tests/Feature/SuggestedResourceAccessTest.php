@@ -5,9 +5,9 @@ namespace Tests\Feature;
 use App\Models\SuggestedResource;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
+use Tests\NovaTestCase;
 
-class SuggestedResourceAccessTest extends TestCase
+class SuggestedResourceAccessTest extends NovaTestCase
 {
     use RefreshDatabase;
 

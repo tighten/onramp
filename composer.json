@@ -18,7 +18,8 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
         "spatie/laravel-translatable": "^5.2",
-        "tightenco/ziggy": "^1.4"
+        "tightenco/ziggy": "^1.4",
+        "erusev/parsedown": "^1.7"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
@@ -91,7 +92,7 @@
             "@php artisan key:generate --ansi"
         ],
         "post-install-cmd": [
-            "[ $COMPOSER_DEV_MODE -eq 1 ] || composer require laravel/nova mrmonat/nova-translatable tightenco/nova-releases inspheric/nova-url-field tightenco/suggested-resources-shortcuts"
+            "[ $COMPOSER_DEV_MODE -eq 1 ] || composer require laravel/nova:3.32.0 mrmonat/nova-translatable tightenco/nova-releases inspheric/nova-url-field tightenco/suggested-resources-shortcuts"
         ]
     }
 }

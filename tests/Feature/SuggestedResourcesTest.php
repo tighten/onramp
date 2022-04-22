@@ -3,17 +3,18 @@
 namespace Tests\Feature;
 
 use App\Models\Module;
-use App\Nova\Actions\ApproveSuggestedResource;
 use App\Models\SuggestedResource;
 use App\Models\User;
+use App\Nova\Actions\ApproveSuggestedResource;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Laravel\Nova\Fields\ActionFields;
-use Tests\TestCase;
+use Tests\NovaTestCase;
 
-class SuggestedResourcesTest extends TestCase
+class SuggestedResourcesTest extends NovaTestCase
 {
-    use RefreshDatabase, WithFaker;
+    use RefreshDatabase;
+    use WithFaker;
 
     /** @test */
     function rejected_reason_field_shows_when_a_resource_has_been_rejected()

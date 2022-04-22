@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1512047320330a300d9aa41ab183d623",
+    "content-hash": "8f3e2bca3c7e9af39e09816371aee143",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1390,16 +1390,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v8.83.9",
+            "version": "8.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "ac6e16bb56510eda2e373c6365d5c92da3fd559d"
+                "reference": "6fea6c271086e2ad017a6078e1ee457a2b8c398e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/ac6e16bb56510eda2e373c6365d5c92da3fd559d",
-                "reference": "ac6e16bb56510eda2e373c6365d5c92da3fd559d",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/6fea6c271086e2ad017a6078e1ee457a2b8c398e",
+                "reference": "6fea6c271086e2ad017a6078e1ee457a2b8c398e",
                 "shasum": ""
             },
             "require": {
@@ -1559,7 +1559,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-04-19T15:01:38+00:00"
+            "time": "2022-04-21T22:14:18+00:00"
         },
         {
             "name": "laravel/serializable-closure",

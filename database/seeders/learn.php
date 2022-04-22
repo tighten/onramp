@@ -19,4 +19,8 @@ return [
     require 'modules/mapping-the-wordpress-concepts.php',
     require 'modules/local-php-environment-for-wordpress-developers.php',
     require 'modules/laravel-basics-for-wordpress-developers.php',
+    require 'modules/auth.php',
+    require 'modules/laravel-core.php',
+    require 'modules/laravel-queues.php',
+    require 'modules/laravel-package-development.php',
 ];

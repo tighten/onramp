@@ -18,7 +18,7 @@
                 {{ __('Profile') }}
             </a>
 
-            <a thref="{{ route_wlocale('user.preferences.index') }}" class="block px-4 py-3 text-sm font-medium leading-5 transition-colors duration-75 ease-in-out cursor-pointer hover:no-underline hover:bg-silver focus:outline-none focus:bg-silver">
+            <a href="{{ route_wlocale('user.preferences.index') }}" class="block px-4 py-3 text-sm font-medium leading-5 transition-colors duration-75 ease-in-out cursor-pointer hover:no-underline hover:bg-silver focus:outline-none focus:bg-silver">
                 {{ __('Preferences') }}
             </a>
 

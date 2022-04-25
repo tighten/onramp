@@ -5,6 +5,14 @@
 
 Onramp aims to be a collection of resources presented in a way that makes it possible for folks to become Laravel programmers as easily and effectively as possible.
 
+## Requirements
+
+> TODO
+
+## Installation
+
+> TODO
+
 ## How can I help?
 
 Check out the [Dev Page](https://onramp.dev/en/dev) to learn more about how to contribute.
@@ -16,3 +24,16 @@ To make language translation strings available to the Vue.js frontend, a `transl
 ```bash
 php artisan export:messages-flat
 ```
+
+## Security
+
+If you discover any security related issues, please email matt.stauffer@tighten.co instead of using the issue tracker.
+
+## Credits
+
+- [Matt Stauffer](https://github.com/mattstauffer)
+- [All Contributors](https://github.com/tighten/onramp/graphs/contributors)
+
+## Support us
+
+Tighten's whole-business approach transcends engineering, propelling software-driven businesses forward with clarity and confidence. You can learn more about us on our [web site](https://tighten.com/).

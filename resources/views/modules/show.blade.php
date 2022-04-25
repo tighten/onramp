@@ -164,37 +164,39 @@ switch ($level) {
             </div>
         </x-panel>
 
-        <div class="flex items-start justify-between px-6 py-10 sm:pt-16 sm:pb-20">
+        <div class="flex items-start justify-between py-10 sm:pt-16 sm:pb-20">
 
-            <div class="flex-1">
+            <div class="flex justify-start flex-1">
                 @if ($previousModule)
-                    <a class="flex flex-col items-start text-white group hover:text-mint"
-                        href="{{ route_wlocale('modules.show', ['module' => $previousModule->slug, 'resourceType' => 'free-resources']) }}"
-                    >
-                        <div class="flex items-center mb-1 text-sm font-semibold tracking-widest uppercase text-mint lg:text-base">
-                            @include('partials.svg.chevron', ['classes' => 'mr-0.5 rotate-180 -ml-2'])
-                            Previous
-                        </div>
-                        <span class="text-sm leading-tight word-spacing-tight sm:text-base sm:leading-tight lg:text-lg lg:leading-tight group-hover:underline group-hover:underline-offset-2">
+                    <div class="flex flex-col items-start text-white group">
+                        <x-button.primary 
+                            href="{{ route_wlocale('modules.show', ['module' => $previousModule->slug, 'resourceType' => 'free-resources']) }}"
+                            class="flex tracking-widest uppercase lg:px-10 lg:min-w-[185px] lg:rounded-xl lg:py-3 lg:justify-center"
+                        >
+                            <span class="inline-block mr-4 font-semibold">&lt;</span>
+                            <span class="inline-block font-semibold">Previous</span>
+                        </x-button.primary>
+                        <span class="mt-5 text-sm leading-tight word-spacing-tight sm:text-base sm:leading-tight lg:text-lg lg:leading-tight">
                             {!! $previousModule->name !!}
                         </span>
-                    </a>
+                    </div>
                 @endif
             </div>
 
-            <div class="flex-1">
+            <div class="flex justify-end flex-1">
                 @if ($nextModule)
-                    <a class="flex flex-col items-end text-white group hover:text-mint"
-                        href="{{ route_wlocale('modules.show', ['module' => $nextModule->slug, 'resourceType' => 'free-resources']) }}"
-                    >
-                        <div class="flex items-center mb-1 text-sm font-semibold tracking-widest uppercase text-mint lg:text-base">
-                            Next
-                            @include('partials.svg.chevron', ['classes' => 'ml-0.5 -mr-2'])
-                        </div>
-                        <span class="text-sm leading-tight text-right word-spacing-tight sm:text-base sm:leading-tight lg:text-lg lg:leading-tight group-hover:underline group-hover:underline-offset-2">
+                    <div class="flex flex-col items-end text-white group">
+                        <x-button.primary
+                            href="{{ route_wlocale('modules.show', ['module' => $nextModule->slug, 'resourceType' => 'free-resources']) }}"
+                            class="flex tracking-widest uppercase lg:px-10 lg:min-w-[185px] lg:rounded-xl lg:py-3 lg:justify-center"
+                        >
+                            <span class="inline-block font-semibold">Next</span>
+                            <span class="inline-block ml-4 font-semibold">&gt;</span>
+                        </x-button.primary>
+                        <span class="mt-5 text-sm leading-tight text-right word-spacing-tight sm:text-base sm:leading-tight lg:text-lg lg:leading-tight">
                             {!! $nextModule->name !!}
                         </span>
-                    </a>
+                    </div>
                 @endif
             </div>
 

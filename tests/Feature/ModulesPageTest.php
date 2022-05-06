@@ -25,6 +25,18 @@ class ModulesPageTest extends TestCase
     }
 
     /** @test */
+    function module_can_access_previous_and_next_module()
+    {
+        $modules = Module::factory(4)->create();
+        $current = $modules->skip(2)->first();
+        $prev = $modules->skip(1)->first();
+        $next = $modules->last();
+
+        $this->assertEquals($prev->id, $current->getPrevious()->id);
+        $this->assertEquals($next->id, $current->getNext()->id);
+    }
+
+    /** @test */
     function modules_index_page_lists_modules()
     {
         $standardModule = Module::factory()->create([

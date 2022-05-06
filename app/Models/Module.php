@@ -13,11 +13,11 @@ class Module extends Model implements Completable
 
     use HasTranslations;
 
-    const BEGINNER_SKILL_LEVEL = 'beginner';
-    const INTERMEDIATE_SKILL_LEVEL = 'intermediate';
-    const ADVANCED_SKILL_LEVEL = 'advanced';
+    public const BEGINNER_SKILL_LEVEL = 'beginner';
+    public const INTERMEDIATE_SKILL_LEVEL = 'intermediate';
+    public const ADVANCED_SKILL_LEVEL = 'advanced';
 
-    const SKILL_LEVELS = [
+    public const SKILL_LEVELS = [
         self::BEGINNER_SKILL_LEVEL => 'Beginner',
         self::INTERMEDIATE_SKILL_LEVEL => 'Intermediate',
         self::ADVANCED_SKILL_LEVEL => 'Advanced',
@@ -85,5 +85,19 @@ class Module extends Model implements Completable
     public function scopeAdvanced($query)
     {
         return $query->where('skill_level', self::ADVANCED_SKILL_LEVEL);
+    }
+
+    public function getPrevious()
+    {
+        return Module::where('id', '<', $this->id)
+            ->orderBy('id', 'desc')
+            ->first();
+    }
+
+    public function getNext()
+    {
+        return Module::where('id', '>', $this->id)
+            ->orderBy('id', 'asc')
+            ->first();
     }
 }

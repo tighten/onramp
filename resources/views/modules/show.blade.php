@@ -91,7 +91,7 @@ switch ($level) {
                                 @else
                                     <li class="relative block px-4 py-2 m-1">
                                         <span
-                                            class="absolute inset-0 w-full h-full bg-teal rounded-md opacity-10"></span>
+                                            class="absolute inset-0 w-full h-full rounded-md bg-teal opacity-10"></span>
                                         <span class="font-bold text-teal">{{ $skill->name }}</span>
                                     </li>
                                 @endif
@@ -114,17 +114,19 @@ switch ($level) {
             </tab>
 
             {{-- @todo Show this once we add in quizzes and exercises --}}
-            {{-- <tab
-            @if ($resourceType === 'quizzes') :selected="true" @endif
-            name="Quizzes"
-            url="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'quizzes']) }}">
-        </tab>
+            {{-- 
+                <tab
+                    @if ($resourceType === 'quizzes') :selected="true" @endif
+                    name="Quizzes"
+                    url="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'quizzes']) }}">
+                </tab>
 
-        <tab
-            @if ($resourceType === 'exercises') :selected="true" @endif
-            name="Exercises"
-            url="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'exercises']) }}">
-        </tab> --}}
+                <tab
+                    @if ($resourceType === 'exercises') :selected="true" @endif
+                    name="Exercises"
+                    url="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'exercises']) }}">
+                </tab> 
+            --}}
         </tabs>
 
         <x-panel>
@@ -161,5 +163,43 @@ switch ($level) {
                 @endswitch
             </div>
         </x-panel>
+
+        <div class="flex items-start justify-between py-10 sm:pt-16 sm:pb-20">
+
+            <div class="flex justify-start flex-1">
+                @if ($previousModule)
+                    <div class="flex flex-col items-start text-white group">
+                        <x-button.primary 
+                            href="{{ route_wlocale('modules.show', ['module' => $previousModule->slug, 'resourceType' => 'free-resources']) }}"
+                            class="flex tracking-widest uppercase lg:px-10 lg:min-w-[185px] lg:rounded-xl lg:py-3 lg:justify-center"
+                        >
+                            <span class="inline-block mr-4 font-semibold">&lt;</span>
+                            <span class="inline-block font-semibold">Previous</span>
+                        </x-button.primary>
+                        <span class="mt-5 text-sm leading-tight word-spacing-tight sm:text-base sm:leading-tight lg:text-lg lg:leading-tight">
+                            {!! $previousModule->name !!}
+                        </span>
+                    </div>
+                @endif
+            </div>
+
+            <div class="flex justify-end flex-1">
+                @if ($nextModule)
+                    <div class="flex flex-col items-end text-white group">
+                        <x-button.primary
+                            href="{{ route_wlocale('modules.show', ['module' => $nextModule->slug, 'resourceType' => 'free-resources']) }}"
+                            class="flex tracking-widest uppercase lg:px-10 lg:min-w-[185px] lg:rounded-xl lg:py-3 lg:justify-center"
+                        >
+                            <span class="inline-block font-semibold">Next</span>
+                            <span class="inline-block ml-4 font-semibold">&gt;</span>
+                        </x-button.primary>
+                        <span class="mt-5 text-sm leading-tight text-right word-spacing-tight sm:text-base sm:leading-tight lg:text-lg lg:leading-tight">
+                            {!! $nextModule->name !!}
+                        </span>
+                    </div>
+                @endif
+            </div>
+
+        </div>
     </div>
 @endsection

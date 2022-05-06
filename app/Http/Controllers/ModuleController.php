@@ -42,6 +42,8 @@ class ModuleController extends Controller
             'completedSkills' => auth()->check() ? auth()->user()->skillCompletions()->pluck('completable_id') : collect([]),
             'currentResourceLanguagePreference' => Preferences::get('resource-language'),
             'resourceType' => $resourceType,
+            'previousModule' => $module->getPrevious(),
+            'nextModule' => $module->getNext(),
         ]);
     }
 }

@@ -22,9 +22,9 @@
     <x-button.primary
         id="top-button"
         href="#top"
-        class="fixed flex flex-col items-center self-end invisible w-16 h-16 uppercase rounded-full bottom-10 right-48"
+        class="fixed invisible uppercase rounded-full bottom-10 right-48"
     >
-        <span class="inline-block font-semibold transform -rotate-90">&gt;</span>
-        <span class="inline-block font-semibold">{{ __('Top') }}</span>
+        <span class="block font-semibold text-center transform -rotate-90">&gt;</span>
+        <span class="block font-semibold text-center">{{ __('Top') }}</span>
     </x-button.primary>
 </footer>

@@ -1,18 +1,30 @@
 <footer class="w-full px-4 py-10 text-white bg-blue-black">
-    <div class="flex items-center justify-center mx-auto text-center">
-        <div>
-            <p class="w-full mb-4 sm:w-auto sm:mb-0 text-body">{{ __('From the lovely folks at') }} <a
-                    class="font-semibold"
-                    href="https://tighten.com/"><span class="underline">Tighten.</span></a></p>
+    <div class="flex flex-col items-center">
+        <p class="w-full mb-4 sm:w-auto sm:mb-0 text-body">
+            {{ __('From the lovely folks at') }}
 
-            <div class="text-base text-mint">
-                <a class="mr-3 underline"
-                    href="{{ route_wlocale('use-of-data') }}">{{ __('Use of Data') }}</a>
+            <a class="font-semibold" href="https://tighten.com/">
+                <span class="underline">Tighten.</span>
+            </a>
+        </p>
 
-                <a href="https://github.com/tighten/onramp"
-                    class="underline"
-                    target="_blank">{{ __('Source & Roadmap') }}</a>
-            </div>
+        <div class="text-base text-mint">
+            <a class="mr-3 underline" href="{{ route_wlocale('use-of-data') }}">
+                {{ __('Use of Data') }}
+            </a>
+
+            <a href="https://github.com/tighten/onramp" class="underline" target="_blank">
+                {{ __('Source & Roadmap') }}
+            </a>
         </div>
     </div>
+
+    <x-button.primary
+        id="top-button"
+        href="#top"
+        class="fixed flex flex-col items-center self-end invisible w-16 h-16 uppercase rounded-full bottom-10 right-48"
+    >
+        <span class="inline-block font-semibold transform -rotate-90">&gt;</span>
+        <span class="inline-block font-semibold">{{ __('Top') }}</span>
+    </x-button.primary>
 </footer>

@@ -10,8 +10,8 @@ class AddExpirationDateAndCanExpireColumnsToResourcesTable extends Migration
     public function up()
     {
         Schema::table('resources', function (Blueprint $table) {
-            $table->timestamp('expiration_date')->nullable()->after('module_id');
-            $table->boolean('can_expire')->default(false)->after('is_bonus');
+            $table->timestamp('expiration_date')->default(now()->months(6))->after('module_id');
+            $table->boolean('can_expire')->default(true)->after('is_bonus');
         });
     }
 

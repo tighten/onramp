@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Inspheric\Fields\Url;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
@@ -79,6 +80,17 @@ class Resource extends BaseResource
             Boolean::make('Is Assigned To Module', function () {
                 return $this->isAssignedToAModule();
             }),
+
+            Boolean::make('Can Expire')
+                ->hideFromIndex(),
+
+            DateTime::make('Expiration Date')
+                ->hideFromIndex(),
+
+            DateTime::make('Date Added', 'created_at')
+                ->hideFromIndex()
+                ->hideWhenCreating()
+                ->hideWhenUpdating(),
 
             BelongsToMany::make('Modules'),
         ];

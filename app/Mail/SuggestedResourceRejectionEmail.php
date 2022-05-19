@@ -10,7 +10,8 @@ use Illuminate\Queue\SerializesModels;
 
 class SuggestedResourceRejectionEmail extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
 
     protected $suggestedResource;
     protected $user;

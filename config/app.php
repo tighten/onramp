@@ -176,6 +176,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\PreferencesServiceProvider::class,
+        App\Providers\LocalizationServiceProvider::class,
         App\Providers\ViewServiceProvider::class,
         KgBot\LaravelLocalization\LaravelLocalizationServiceProvider::class,
     ],

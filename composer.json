@@ -9,11 +9,10 @@
     "require": {
         "php": "^8.0",
         "bugsnag/bugsnag-laravel": "^2.23",
-        "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
-        "kg-bot/laravel-localization-to-vue": "^1.6",
-        "laravel/framework": "^8.89",
+        "kg-bot/laravel-localization-to-vue": "^2.0",
+        "laravel/framework": "^9.0",
         "laravel/slack-notification-channel": "^2.4",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
@@ -26,15 +25,14 @@
         "barryvdh/laravel-ide-helper": "^2.12",
         "beyondcode/laravel-dump-server": "^1.8",
         "brianium/paratest": "^6.3",
-        "facade/ignition": "^2.5",
+        "spatie/laravel-ignition": "^1.0",
         "fakerphp/faker": "^1.9.1",
         "filp/whoops": "^2.14",
-        "friendsofphp/php-cs-fixer": "^2.18",
+        "friendsofphp/php-cs-fixer": "^3.8",
         "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^5.10",
+        "nunomaduro/collision": "^6.1",
         "phpunit/phpunit": "^9.5.10",
-        "tightenco/tlint": "^6.0",
-        "wulfheart/pretty_routes": "^0.1.2"
+        "tightenco/tlint": "^6.0"
     },
     "config": {
         "optimize-autoloader": true,

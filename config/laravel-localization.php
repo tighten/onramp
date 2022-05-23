@@ -77,7 +77,7 @@ return [
          * In you .env file just add:
          * LARAVEL_LOCALIZATION_LANG_DIRS=resources/lang,Modules/Blog/Resources/lang
          */
-        'lang_dirs' => [resource_path('lang')],
+        'lang_dirs' => [app()->langPath()],
     ],
     /*
      * You can customize the regexp for lang files to be able to exclude certain files.

@@ -8,6 +8,6 @@ class Localization extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return \App\Localization\Locale::class;
+        return 'localization';
     }
 }

@@ -76,6 +76,7 @@
                                 "
                                 :is-user-module="userModules.includes(mod.id)"
                                 :is-completed="getModuleIsCompleted(mod)"
+                                :has-new-content="moduleHasNewResources(mod)"
                             />
                         </template>
 
@@ -100,6 +101,7 @@
                                 "
                                 :is-user-module="userModules.includes(mod.id)"
                                 :is-completed="getModuleIsCompleted(mod)"
+                                :has-new-content="moduleHasNewResources(mod)"
                             />
                         </template>
 
@@ -124,6 +126,7 @@
                                 "
                                 :is-user-module="userModules.includes(mod.id)"
                                 :is-completed="getModuleIsCompleted(mod)"
+                                :has-new-content="moduleHasNewResources(mod)"
                             />
                         </template>
 
@@ -139,6 +142,7 @@
                                 "
                                 :is-user-module="userModules.includes(mod.id)"
                                 :is-completed="getModuleIsCompleted(mod)"
+                                :has-new-content="moduleHasNewResources(mod)"
                             />
                         </template>
                     </div>
@@ -321,6 +325,9 @@ export default {
                     ? (tab.selected = true)
                     : (tab.selected = false);
             });
+        },
+        moduleHasNewResources({ resources_for_current_session }) {
+            return resources_for_current_session.filter(resource => resource.is_new).length > 0
         }
     }
 };

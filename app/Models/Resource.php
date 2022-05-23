@@ -31,7 +31,10 @@ class Resource extends Model implements Completable
         'id' => 'int',
         'is_bonus' => 'boolean',
         'is_free' => 'boolean',
+        'can_expire' => 'boolean',
+        'expiration_date' => 'datetime',
     ];
+
 
     public function modules()
     {

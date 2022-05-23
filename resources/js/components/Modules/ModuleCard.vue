@@ -6,24 +6,18 @@
             class="flex flex-col w-full h-full transition-transform duration-300 transform shadow-md hover:no-underline hover:scale-95"
             :href="moduleUrl"
         >
-            <span
-                v-show="isCompleted && isUserModule"
-                class="absolute top-0 right-0 z-10 inline-flex items-center px-3 py-1 mt-3 mr-3 text-sm font-semibold bg-white rounded-full shadow-md text-east-bay"
-            >
-                Completed
-                <svg
-                    class="w-4 h-4 ml-2 fill-current text-teal"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 30 30"
-                >
-                    <path
-                        d="M15 0c8.284 0 15 6.716 15 15 0 8.284-6.716 15-15 15-8.284 0-15-6.716-15-15C0 6.716 6.716 0 15 0zm6.44 9.44l-8.69 8.689-3.44-3.44-2.12 2.122 5.56 5.56 10.81-10.81-2.12-2.122z"
-                        fill-rule="evenodd"
-                    />
-                </svg>
-            </span>
 
             <span :class="`relative block w-full h-44 ${cardColorClass}`">
+                <div v-if="hasNewContent" :class="`h-2 ${labelColorClass}`"></div>
+                <div class="absolute top-0 right-0 z-10 flex flex-col items-end">
+                    <span
+                        v-if="hasNewContent"
+                        :class="`inline-flex items-center px-3 py-1 text-sm font-semibold text-white ${labelColorClass} rounded-bl-md`"
+                    >
+                        New Resources
+                    </span>
+                </div>
+
                 <img
                     v-show="imageExists"
                     class="absolute bottom-0 w-full h-auto max-h-full transform -translate-x-1/2 left-1/2 will-change-transform"
@@ -31,6 +25,23 @@
                     :src="`/images/modules/${imageName}.svg`"
                     @load="handleImageLoaded"
                 />
+
+                <span
+                    v-show="isCompleted && isUserModule"
+                    class="absolute bottom-0 right-0 z-10 inline-flex items-center px-3 py-1 mb-3 mr-3 text-sm font-semibold bg-white rounded-full shadow-md absolue text-east-bay"
+                >
+                    Completed
+                    <svg
+                        class="w-4 h-4 ml-2 fill-current text-teal"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 30 30"
+                    >
+                        <path
+                            d="M15 0c8.284 0 15 6.716 15 15 0 8.284-6.716 15-15 15-8.284 0-15-6.716-15-15C0 6.716 6.716 0 15 0zm6.44 9.44l-8.69 8.689-3.44-3.44-2.12 2.122 5.56 5.56 10.81-10.81-2.12-2.122z"
+                            fill-rule="evenodd"
+                        />
+                    </svg>
+                </span>
             </span>
 
             <span class="flex-1 block p-4 bg-white">
@@ -46,7 +57,7 @@
 
                     <template v-if="!isCompleted && isUserModule">
                         <p
-                            class="pt-5 mt-5 text-sm font-semibold tracking-wider text-steel uppercase border-t border-silver"
+                            class="pt-5 mt-5 text-sm font-semibold tracking-wider uppercase border-t text-steel border-silver"
                         >
                             My progress:
                         </p>
@@ -101,6 +112,10 @@ export default {
         isCompleted: {
             type: Boolean,
             default: false
+        },
+        hasNewContent: {
+            type: Boolean,
+            default: false
         }
     },
 
@@ -135,7 +150,11 @@ export default {
                 ? this.moduleCardColors[this.level].even
                 : this.moduleCardColors[this.level].odd;
         },
-
+        labelColorClass() {
+            return this.cardIsEven
+                ? this.moduleCardColors[this.level].odd
+                : this.moduleCardColors[this.level].even;
+        },
         imageName() {
             return this.$options.filters.slug(this.item.name["en"]);
         },

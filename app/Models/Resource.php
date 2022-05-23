@@ -26,6 +26,7 @@ class Resource extends Model implements Completable
         self::ARTICLE_TYPE,
     ];
 
+    protected $appends = ['is_new'];
     protected $guarded = ['id'];
     protected $casts = [
         'id' => 'int',
@@ -72,6 +73,11 @@ class Resource extends Model implements Completable
             case 'all':
                 break;
         }
+    }
+
+    public function getIsNewAttribute()
+    {
+        return $this->created_at->diffInDays(now()) <= 14;
     }
 
     public function isAssignedToAModule()

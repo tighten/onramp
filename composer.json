@@ -71,7 +71,7 @@
     ],
     "suggest": {
         "laravel/nova": "Administration panel for Laravel",
-        "mrmonat/nova-translatable": "A Laravel Nova field for spatie/laravel-translatable.",
+        "spatie/nova-translatable": "A Laravel Nova field for spatie/laravel-translatable.",
         "tightenco/nova-releases": "Keep on top of Nova Releases",
         "inspheric/nova-url-field": "A Laravel Nova url field.",
         "tightenco/suggested-resources-shortcuts": ""
@@ -90,7 +90,7 @@
             "@php artisan key:generate --ansi"
         ],
         "post-install-cmd": [
-            "[ $COMPOSER_DEV_MODE -eq 1 ] || composer require laravel/nova:3.32.0 mrmonat/nova-translatable tightenco/nova-releases inspheric/nova-url-field tightenco/suggested-resources-shortcuts"
+            "[ $COMPOSER_DEV_MODE -eq 1 ] || composer require laravel/nova:^4.0 spatie/nova-translatable tightenco/nova-releases inspheric/nova-url-field tightenco/suggested-resources-shortcuts"
         ]
     }
 }

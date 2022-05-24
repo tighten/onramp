@@ -1,8 +1,9 @@
 <?php
 
-use Laravel\Nova\Http\Middleware\Authenticate;
 use Laravel\Nova\Http\Middleware\Authorize;
 use Laravel\Nova\Http\Middleware\BootTools;
+use Laravel\Nova\Http\Middleware\Authenticate;
+use Laravel\Nova\Http\Middleware\HandleInertiaRequests;
 use Laravel\Nova\Http\Middleware\DispatchServingNovaEvent;
 
 return [
@@ -84,9 +85,14 @@ return [
 
     'middleware' => [
         'web',
-        Authenticate::class,
+        HandleInertiaRequests::class,
         DispatchServingNovaEvent::class,
         BootTools::class,
+    ],
+
+    'api_middleware' => [
+        'nova',
+        Authenticate::class,
         Authorize::class,
     ],
 
@@ -102,4 +108,16 @@ return [
     */
 
     'pagination' => 'simple',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Nova Storage Disk
+    |--------------------------------------------------------------------------
+    |
+    | This option was added in v4.
+    |
+    */
+
+    'storage_disk' => env('NOVA_STORAGE_DISK', 'public'),
+
 ];

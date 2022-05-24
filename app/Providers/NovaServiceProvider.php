@@ -2,10 +2,11 @@
 
 namespace App\Providers;
 
+use App\Nova\Dashboards\Main;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
-use Tightenco\SuggestedResourcesShortcuts\SuggestedResourcesShortcuts;
+use Spatie\NovaTranslatable\Translatable;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -17,6 +18,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function boot()
     {
         parent::boot();
+        Translatable::defaultLocales(['en', 'es']);
     }
 
     /**
@@ -53,10 +55,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     protected function cards()
     {
-        return [
-            new SuggestedResourcesShortcuts,
-            new \Tightenco\NovaReleases\LatestRelease,
-        ];
+        return [];
     }
 
     /**
@@ -66,7 +65,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     protected function dashboards()
     {
-        return [];
+        return [
+            new Main,
+        ];
     }
 
     /**

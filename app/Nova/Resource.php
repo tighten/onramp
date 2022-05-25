@@ -5,13 +5,13 @@ namespace App\Nova;
 use App\Facades\Localization;
 use App\Models\Resource as EloquentResource;
 use Illuminate\Http\Request;
-use Inspheric\Fields\Url;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\URL;
 
 class Resource extends BaseResource
 {
@@ -57,10 +57,9 @@ class Resource extends BaseResource
                 ->sortable()
                 ->rules('required', 'max:255'),
 
-            Url::make('URL')
-                ->rules('required', 'max:255', 'url')
-                ->clickableOnIndex()
-                ->clickable(),
+            URL::make('URL')
+                ->displayUsing(fn () => "{$this->url}")
+                ->rules('required', 'max:255', 'url'),
 
             Select::make('Type')
                 ->options($this->typeFields())

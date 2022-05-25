@@ -18,7 +18,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function boot()
     {
         parent::boot();
-        Translatable::defaultLocales(['en', 'es']);
+        Translatable::defaultLocales(['en', 'es', 'da', 'cs', 'de', 'fr', 'id', 'pl', 'pt_pt', 'sv']);
     }
 
     /**

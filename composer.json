@@ -9,6 +9,7 @@
     "require": {
         "php": "^8.0",
         "bugsnag/bugsnag-laravel": "^2.23",
+        "erusev/parsedown": "^1.7",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "kg-bot/laravel-localization-to-vue": "^2.0",
@@ -18,7 +19,7 @@
         "laravel/ui": "^3.4",
         "spatie/laravel-translatable": "^5.2",
         "tightenco/ziggy": "^1.4",
-        "erusev/parsedown": "^1.7"
+        "tightenco/suggested-resources-shortcuts": "*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",

@@ -31,10 +31,7 @@
                                     <span>{{ __('Related resources:') }}</span>
                                     @foreach ($term->resourcesForCurrentSession()->get() as $resource)
                                     <span>
-                                        {{-- @todo update this to either show first module, all modules, or none if resource unassigned --}}
-
-                                        {{-- <a href="{{ route_wlocale('modules.show', $resource->module()->first()) }}">{{ $resource->module()->first()->name }}</a>
-                                        --}}
+                                        <a href="{{ route_wlocale('modules.show', ['module' => $resource->modules()->first(), 'resourceType' => $resource->is_free ? 'free-resources' : 'paid-resources']) }}">{{ $resource->modules()->first()->name }}</a>
                                         &gt;
                                         <a href="{{ $resource->url }}">{{ $resource->name }} <img
                                                 src="/images/outbound_link_icon.svg" alt="Outbound link"
@@ -48,7 +45,7 @@
                                 <div class="flex items-center mt-4">
                                     <span class="text-steel">{{ __('Related Terms:') }}</span>
                                     @foreach ($term->relatedTerms as $relatedTerm)
-                                    <a class="px-3 ml-2 text-sm font-semibold text-steel bg-gray rounded-full"
+                                    <a class="px-3 ml-2 text-sm font-semibold rounded-full text-steel bg-gray"
                                         href="#{{ $relatedTerm->name }}">#{{ $relatedTerm->name }}</a>
                                     @endforeach
                                 </div>
@@ -58,7 +55,7 @@
                                 <div class="flex items-center mt-4">
                                     <span class="text-steel">{{ __('Related Terms:') }}</span>
                                     @foreach ($term->relatedTerms as $relatedTerm)
-                                    <a class="px-3 ml-2 text-sm font-semibold text-steel bg-gray rounded-full"
+                                    <a class="px-3 ml-2 text-sm font-semibold rounded-full text-steel bg-gray"
                                         href="#{{ $relatedTerm->name }}">#{{ $relatedTerm->name }}</a>
                                     @endforeach
                                 </div>

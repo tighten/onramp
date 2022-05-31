@@ -327,6 +327,10 @@ export default {
             });
         },
         moduleHasNewResources({ resources_for_current_session }) {
+            if (!this.userLoggedIn) {
+                return false;
+            }
+
             return resources_for_current_session.filter(resource => resource.is_new).length > 0
         }
     }

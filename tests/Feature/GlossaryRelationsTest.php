@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Module;
 use App\Models\Resource;
 use App\Models\Term;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -15,10 +16,12 @@ class GlossaryRelationsTest extends TestCase
     function glossary_page_shows_related_resources()
     {
         $currentLocale = 'en';
+        $module = Module::factory()->create();
         $resource = Resource::factory()->create(['language' => $currentLocale]);
         $otherResource = Resource::factory()->create(['language' => $currentLocale]);
         $term = Term::factory()->create();
 
+        $module->resources()->save($resource);
         $term->resources()->save($resource);
 
         $this->assertContains($resource->id, $term->fresh()->resources->pluck('id'));
@@ -32,10 +35,12 @@ class GlossaryRelationsTest extends TestCase
     function glossary_page_hides_related_resources_not_in_the_current_locale()
     {
         $currentLocale = 'en';
+        $module = Module::factory()->create();
         $englishResource = Resource::factory()->create(['language' => $currentLocale]);
         $spanishResource = Resource::factory()->create(['language' => 'es']);
         $term = Term::factory()->create();
 
+        $module->resources()->saveMany([$englishResource, $spanishResource]);
         $term->resources()->saveMany([$englishResource, $spanishResource]);
 
         $this->assertContains($englishResource->id, $term->fresh()->resources->pluck('id'));

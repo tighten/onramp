@@ -8,7 +8,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0",
-        "bugsnag/bugsnag-laravel": "^2.23",
+        "bugsnag/bugsnag-laravel": "^2.24",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
         "kg-bot/laravel-localization-to-vue": "^2.0",

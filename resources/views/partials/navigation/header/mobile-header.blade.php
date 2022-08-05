@@ -1,5 +1,5 @@
 <div x-data="{isMenuOpen: false, toggle() { this.isMenuOpen = !this.isMenuOpen}}"
-    class="relative px-4 lg:hidden"
+    class="relative px-4 xl:hidden"
     x-cloak
     v-pre>
     <div class="flex items-center justify-between w-full">
@@ -34,7 +34,7 @@
 
         <div>
             @auth
-                <a class="block px-3 py-4 mx-1 font-bold transition-colors duration-300 ease-in-out border-t border-silver lg:border-none text-body lg:py-1 text-mint hover:text-white hover:no-underline"
+                <a class="block px-3 py-4 mx-1 font-bold transition-colors duration-300 ease-in-out border-t border-silver xl:border-none text-body xl:py-1 text-mint hover:text-white hover:no-underline"
                     href="{{ url_wlocale('preferences') }}">
                     <span>{{ __('Preferences') }}</span>
                 </a>

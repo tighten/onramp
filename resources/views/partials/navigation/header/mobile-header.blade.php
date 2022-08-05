@@ -47,18 +47,20 @@
             @guest
                 @include('partials.navigation.header.guest-menu')
             @endguest
-            <a href="{{ route_wlocale('logout') }}"
-                class="block w-full px-4 py-1 mx-auto text-lg font-semibold text-center transition duration-200 ease-in-out bg-transparent border-2 hover:no-underline rounded-3xl text-mint border-mint hover:bg-mint hover:text-blue-black"
-                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                <span>{{ __('Log out') }}</span>
-            </a>
 
-            <form id="logout-form"
-                action="{{ route_wlocale('logout') }}"
-                method="POST"
-                class="hidden">
-                {{ csrf_field() }}
-            </form>
+            @auth
+                <a href="{{ route_wlocale('logout') }}"
+                    class="block w-full px-4 py-1 mx-auto text-lg font-semibold text-center transition duration-200 ease-in-out bg-transparent border-2 hover:no-underline rounded-3xl text-mint border-mint hover:bg-mint hover:text-blue-black"
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <span>{{ __('Log out') }}</span>
+                </a>
+                <form id="logout-form"
+                    action="{{ route_wlocale('logout') }}"
+                    method="POST"
+                    class="hidden">
+                    {{ csrf_field() }}
+                </form>
+            @endauth
         </div>
         <div class="fixed z-[-2] top-0 left-0 opacity-70 flex items-center justify-center w-full inset-0  bg-black"
             x-show="isMenuOpen"></div>

@@ -18,8 +18,7 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
         "spatie/laravel-translatable": "^5.2",
-        "tightenco/ziggy": "^1.4",
-        "tightenco/suggested-resources-shortcuts": "*"
+        "tightenco/ziggy": "^1.4"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",

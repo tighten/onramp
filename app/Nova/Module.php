@@ -10,7 +10,7 @@ use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
-use MrMonat\Translatable\Translatable;
+use Spatie\NovaTranslatable\Translatable;
 
 class Module extends BaseResource
 {
@@ -45,17 +45,17 @@ class Module extends BaseResource
         return [
             ID::make()->sortable(),
 
-            Translatable::make('Name')
-                ->singleLine()
-                // @todo Figure out why this is necessary
-                ->indexLocale('en'),
+            Translatable::make([
+                Text::make('Name'),
+            ]),
 
             Text::make('Slug')
                 ->sortable()
                 ->rules('required', 'max:255'),
 
-            Translatable::make('Description')
-                ->hideFromIndex(),
+            Translatable::make([
+                Text::make('Description')->hideFromIndex(),
+            ]),
 
             Select::make('Skill Level')
                 ->options(EloquentModule::SKILL_LEVELS)

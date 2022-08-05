@@ -4,7 +4,8 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
-use MrMonat\Translatable\Translatable;
+use Laravel\Nova\Fields\Text;
+use Spatie\NovaTranslatable\Translatable;
 
 class Term extends BaseResource
 {
@@ -27,13 +28,10 @@ class Term extends BaseResource
         return [
             ID::make()->sortable(),
 
-            Translatable::make('Name')
-                ->singleLine()
-                ->indexLocale('en'),
-
-            Translatable::make('Description')
-                ->hideFromIndex()
-                ->indexLocale('en'),
+            Translatable::make([
+                Text::make('Name'),
+                Text::make('Description')->hideFromIndex(),
+            ])
         ];
     }
 

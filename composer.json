@@ -9,6 +9,7 @@
     "require": {
         "php": "^8.0",
         "bugsnag/bugsnag-laravel": "^2.23",
+        "erusev/parsedown": "^1.7",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "kg-bot/laravel-localization-to-vue": "^2.0",
@@ -17,8 +18,7 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
         "spatie/laravel-translatable": "^5.2",
-        "tightenco/ziggy": "^1.4",
-        "erusev/parsedown": "^1.7"
+        "tightenco/ziggy": "^1.4"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
@@ -70,11 +70,10 @@
         }
     ],
     "suggest": {
-        "laravel/nova": "Administration panel for Laravel",
-        "mrmonat/nova-translatable": "A Laravel Nova field for spatie/laravel-translatable.",
-        "tightenco/nova-releases": "Keep on top of Nova Releases",
-        "inspheric/nova-url-field": "A Laravel Nova url field.",
-        "tightenco/suggested-resources-shortcuts": ""
+        "laravel/nova": "Administration panel for Laravel.",
+        "spatie/nova-translatable": "A Laravel Nova field for spatie/laravel-translatable.",
+        "tightenco/nova-releases": "Keep on top of Nova Releases.",
+        "tightenco/suggested-resources-shortcuts": "Shortcut card for suggesting resources."
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -90,7 +89,7 @@
             "@php artisan key:generate --ansi"
         ],
         "post-install-cmd": [
-            "[ $COMPOSER_DEV_MODE -eq 1 ] || composer require laravel/nova:3.32.0 mrmonat/nova-translatable tightenco/nova-releases inspheric/nova-url-field tightenco/suggested-resources-shortcuts"
+            "[ $COMPOSER_DEV_MODE -eq 1 ] || composer require laravel/nova:^4.0 spatie/nova-translatable tightenco/nova-releases tightenco/suggested-resources-shortcuts"
         ]
     }
 }

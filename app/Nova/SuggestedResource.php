@@ -9,7 +9,6 @@ use App\Nova\Filters\SuggestedResourceStatus;
 use App\Nova\Filters\SuggestResourceOwner;
 use App\Models\SuggestedResource as EloquentSuggestedResource;
 use Illuminate\Http\Request;
-use Inspheric\Fields\Url;
 use Laravel\Nova\Fields\Badge;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
@@ -17,6 +16,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\URL;
 
 class SuggestedResource extends BaseResource
 {
@@ -50,10 +50,9 @@ class SuggestedResource extends BaseResource
                 ->sortable()
                 ->rules('required', 'max:255'),
 
-            Url::make('URL')
-                ->rules('required', 'max:255', 'url')
-                ->clickableOnIndex()
-                ->clickable(),
+            URL::make('URL')
+                ->displayUsing(fn () => "{$this->url}")
+                ->rules('required', 'max:255', 'url'),
 
             Badge::make('Status')
                 ->map([

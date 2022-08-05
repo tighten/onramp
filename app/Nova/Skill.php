@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
-use MrMonat\Translatable\Translatable;
+use Laravel\Nova\Fields\Text;
+use Spatie\NovaTranslatable\Translatable;
 
 class Skill extends Resource
 {
@@ -29,8 +30,9 @@ class Skill extends Resource
         return [
             ID::make()->sortable(),
 
-            Translatable::make('Name')
-                ->indexLocale('en'),
+            Translatable::make([
+                Text::make('Name'),
+            ]),
 
             Boolean::make('Is Bonus'),
 

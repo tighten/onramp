@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Mail;
 use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
 use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class RejectSuggestedResource extends Action
 {
@@ -43,7 +44,7 @@ class RejectSuggestedResource extends Action
      *
      * @return array
      */
-    public function fields()
+    public function fields(NovaRequest $request)
     {
         return [
             Textarea::make('Reason For Rejection')

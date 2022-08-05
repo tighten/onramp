@@ -1,5 +1,5 @@
 <div>
-    <div x-data="{isOpen: false, language: window.language, languages: window.locales}" @click.away="isOpen = false" class="relative hidden text-left lg:block">
+    <div x-data="{isOpen: false, language: window.language, languages: window.locales}" @click.away="isOpen = false" class="relative hidden text-left xl:block">
         <div>
             <button type="button" class="inline-flex items-center justify-center w-full h-12 text-base font-semibold text-white transition-colors duration-300 ease-in-out focus:outline-none focus:border-white hover:text-mint" @click="isOpen = !isOpen">
                 <span x-text="language"></span>
@@ -29,10 +29,10 @@
         </div>
     </div>
 
-    <div x-data="{isOpen: false, language: window.language, languages: window.locales}" class="relative z-50 mb-6 lg:hidden">
+    <div x-data="{isOpen: false, language: window.language, languages: window.locales}" class="relative z-50 mb-6 xl:hidden">
         <button x-show="isOpen" x-on:click="isOpen = false" tabindex="-1" class="fixed inset-0 hidden w-full h-full cursor-default" aria-label="close language switcher"></button>
 
-        <div class="px-6 py-3 lg:p-0">
+        <div class="px-6 py-3 xl:p-0">
             <label for="language-switcher" class="flex items-center -ml-2 text-white focus:outline-none ">
                 <button x-text="language" x-on:click="isOpen = !isOpen" id="alpine-language-switcher" tabindex="1" class="mr-3 font-bold text-body focus:outline-none focus:border-white">
                 </button>
@@ -43,7 +43,7 @@
             </label>
         </div>
 
-        <div x-show="isOpen" x-on:click.away="isOpen = false" class="overflow-hidden bg-steel lg:absolute lg:mt-12 lg:shadow-xl lg:left-0 lg:top-0"
+        <div x-show="isOpen" x-on:click.away="isOpen = false" class="overflow-hidden bg-steel xl:absolute xl:mt-12 xl:shadow-xl xl:left-0 xl:top-0"
             x-transition:enter="transition-all ease-in duration-200 origin-top"
             x-transition:enter-start="opacity-0 transform scale-y-0"
             x-transition:enter-end="opacity-100 transform scale-y-100"

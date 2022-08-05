@@ -4,12 +4,12 @@
     </template>
 </sitewide-banner-->
 
-<div class="container items-center hidden lg:flex">
+<div class="container items-center hidden xl:flex">
     <a href="{{ route_wlocale('welcome') }}" class="ml-4">
         @include('partials.svg.logo-nav')
     </a>
 
-    <div class="items-center justify-between flex-1 hidden pl-12 lg:flex">
+    <div class="items-center justify-between flex-1 hidden pl-12 xl:flex">
         <div class="flex-1">
             <nav class="flex items-center">
                 @include('partials.navigation.header.main-nav')

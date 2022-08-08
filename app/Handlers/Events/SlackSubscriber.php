@@ -2,6 +2,7 @@
 
 namespace App\Handlers\Events;
 
+use App\Notifications\SendExpiredResources;
 use App\Notifications\SuggestedResourceSubmitted;
 use App\Notifications\UserSignedUp;
 use App\TightenSlack;
@@ -25,6 +26,8 @@ class SlackSubscriber
         $events->listen('new-signup', [$this, 'onNewSignup']);
 
         $events->listen('new-suggested-resource', [$this, 'onNewSuggestedResource']);
+
+        $events->listen('send-expired-resources', [$this, 'onExpiredResources']);
     }
 
     public function onNewSignup($user, $request)
@@ -35,5 +38,10 @@ class SlackSubscriber
     public function onNewSuggestedResource($suggestedResource)
     {
         $this->slack->notify(new SuggestedResourceSubmitted($suggestedResource));
+    }
+
+    public function onExpiredResources($expiredResources)
+    {
+        $this->slack->notify(new SendExpiredResources($expiredResources));
     }
 }

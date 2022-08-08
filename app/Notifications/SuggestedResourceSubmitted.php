@@ -45,9 +45,9 @@ class SuggestedResourceSubmitted extends Notification
 
     public function toSlack($notifiable)
     {
-        return (new SlackMessage)
+        return (new SlackMessage())
             ->content('New resource suggested!')
-            ->attachment(function(SlackAttachment $attachment) {
+            ->attachment(function (SlackAttachment $attachment) {
                 $attachment
                     ->title('View in Nova', url('/nova'))
                     ->fields($this->fields)

@@ -76,9 +76,26 @@ class Resource extends Model implements Completable
         }
     }
 
+    public function scopeExpired($query)
+    {
+        return $query->where('expiration_date', '<', Carbon::now()->toDateTimeString());
+    }
+
     public function getIsNewAttribute()
     {
         return $this->created_at->diffInDays(now()) <= 14;
+    }
+
+    public function getDaysExpiredAttribute()
+    {
+        if (! $this->isExpired()) {
+            return '0 Days';
+        }
+
+        $daysExpired = $this->expiration_date->diffInDays(now());
+        $daysLabel = $daysExpired === 1 ? ' Day' : ' Days';
+
+        return $daysExpired . $daysLabel;
     }
 
     public function isAssignedToAModule()
@@ -86,8 +103,8 @@ class Resource extends Model implements Completable
         return collect($this->modules)->isNotEmpty();
     }
 
-    public function scopeExpired($query)
+    public function isExpired()
     {
-        return $query->where('expiration_date', '<', Carbon::now()->toDateTimeString());
+        return $this->expiration_date->isPast();
     }
 }

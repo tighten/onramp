@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\Resource;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Event;
 
 class GetExpiredResources extends Command
 {
@@ -26,6 +27,7 @@ class GetExpiredResources extends Command
         }
 
         if ($this->option('notify')) {
+            Event::dispatch('send-expired-resources', [$expiredResources]);
             return;
         }
 

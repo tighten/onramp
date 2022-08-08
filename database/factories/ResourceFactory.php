@@ -3,8 +3,9 @@
 namespace Database\Factories;
 
 use App\Models\Module;
-use App\OperatingSystem;
 use App\Models\Resource;
+use App\OperatingSystem;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ResourceFactory extends Factory
@@ -32,6 +33,8 @@ class ResourceFactory extends Factory
             'module_id' => Module::factory(),
             'language' => $this->faker->randomElement(['en', 'es']),
             'os' => $this->faker->randomElement(OperatingSystem::ALL),
+            'can_expire' => true,
+            'expiration_date' => Carbon::now()->addMonths(6),
         ];
     }
 }

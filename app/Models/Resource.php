@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Completable;
 use App\Facades\Preferences;
 use App\OperatingSystem;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -83,5 +84,10 @@ class Resource extends Model implements Completable
     public function isAssignedToAModule()
     {
         return collect($this->modules)->isNotEmpty();
+    }
+
+    public function scopeExpired($query)
+    {
+        return $query->where('expiration_date', '<', Carbon::now()->toDateTimeString());
     }
 }

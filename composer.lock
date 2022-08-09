@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5585120db28e259e59aaf38574d70b41",
+    "content-hash": "7fcdcb78c10e4d1f27c0ca7824ee14dc",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2267,6 +2267,66 @@
                 }
             ],
             "time": "2022-05-10T09:36:00+00:00"
+        },
+        {
+            "name": "nathanheffley/laravel-slack-blocks",
+            "version": "v2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nathanheffley/laravel-slack-blocks.git",
+                "reference": "dc0795cfce554f27697e8cee3965b4b1dde956c8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nathanheffley/laravel-slack-blocks/zipball/dc0795cfce554f27697e8cee3965b4b1dde956c8",
+                "reference": "dc0795cfce554f27697e8cee3965b4b1dde956c8",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0|^7.0",
+                "laravel/slack-notification-channel": "^2.0",
+                "php": "^7.1.3|^8.0"
+            },
+            "require-dev": {
+                "illuminate/notifications": "~5.8.0|^6.0|^7.0|^8.0",
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^7.0|^8.0|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NathanHeffley\\LaravelSlackBlocks\\SlackChannelServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NathanHeffley\\LaravelSlackBlocks\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nathan Heffley",
+                    "email": "nathan@nathanheffley.com"
+                }
+            ],
+            "description": "Slack Blocks support for laravel notifications.",
+            "keywords": [
+                "blocks",
+                "laravel",
+                "notifications",
+                "slack"
+            ],
+            "support": {
+                "issues": "https://github.com/nathanheffley/laravel-slack-blocks/issues",
+                "source": "https://github.com/nathanheffley/laravel-slack-blocks/tree/v2.3.0"
+            },
+            "time": "2020-12-01T19:20:19+00:00"
         },
         {
             "name": "nesbot/carbon",

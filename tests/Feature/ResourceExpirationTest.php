@@ -6,7 +6,6 @@ use App\Models\Resource;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Event;
-use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
 
 class ResourceExpirationTest extends TestCase
@@ -36,9 +35,8 @@ class ResourceExpirationTest extends TestCase
     }
 
     /** @test */
-    public function notification_is_sent_for_expired_content()
+    public function event_is_dispatched_for_expired_content_notification()
     {
-        Notification::fake();
         Event::fake();
 
         Resource::factory()
@@ -52,9 +50,8 @@ class ResourceExpirationTest extends TestCase
     }
 
     /** @test */
-    public function notification_is_sent_for_expiring_content()
+    public function event_is_dispatched_for_expiring_content_notification()
     {
-        Notification::fake();
         Event::fake();
 
         Resource::factory()

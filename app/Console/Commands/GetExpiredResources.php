@@ -17,11 +17,13 @@ class GetExpiredResources extends Command
         $expiredResources = Resource::expired()
             ->orWhere(function ($query) {
                 $query->expiring();
-            })->get([
+            })
+            ->with('modules')
+            ->get([
                 'name',
                 'url',
-                'created_at',
                 'expiration_date',
+                'created_at',
             ]);
 
         if (! count($expiredResources)) {
@@ -38,7 +40,7 @@ class GetExpiredResources extends Command
             ['Resource Name', 'URL', 'Days Til Expired'],
             $expiredResources->each
                 ->setAppends(['days_til_expired'])
-                ->makeHidden(['created_at', 'expiration_date'])
+                ->makeHidden(['modules', 'created_at', 'expiration_date'])
                 ->toArray(),
         );
     }

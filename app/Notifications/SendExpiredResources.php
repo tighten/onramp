@@ -2,15 +2,11 @@
 
 namespace App\Notifications;
 
-use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
-use Illuminate\Notifications\Messages\SlackMessage;
-use Illuminate\Notifications\Messages\SlackAttachment;
+use NathanHeffley\LaravelSlackBlocks\Messages\SlackMessage;
 
 class SendExpiredResources extends Notification
 {
-    use Queueable;
-
     public function __construct(protected $expiredResources)
     {
         //
@@ -24,14 +20,49 @@ class SendExpiredResources extends Notification
     public function toSlack($notifiable)
     {
         $msg = (new SlackMessage())
-                ->content('*Expired Resources Report*');
+            ->from('Onramp', ':onramp:')
+            ->content(sprintf('Here is your expired resources report: %s', url('/nova')));
 
-        collect($this->expiredResources)->map(function ($resource) use ($msg) {
-            $msg->attachment(function (SlackAttachment $attachment) use ($resource) {
-                $attachment->fields([
-                    '*Name*' => $resource->name,
-                    '*Days Expired*' => $resource->days_expired,
-                ]);
+        $this->expiredResources->each(function ($resource) use ($msg) {
+            $msg->attachment(function ($attachment) use ($resource) {
+                if ($resource->isExpiring()) {
+                    $hexColor = '#f9c336';
+                }
+
+                if ($resource->isExpired()) {
+                    $hexColor = '#e43b3b';
+                }
+
+                $attachment
+                    ->color($hexColor)
+                    ->block(function ($block) use ($resource) {
+                        $block
+                            ->type('section')
+                            ->text([
+                                'type' => 'mrkdwn',
+                                'text' => sprintf(
+                                    '*<%s|%s>*: *%s*',
+                                    $resource->url,
+                                    ucwords($resource->name),
+                                    $resource->days_til_expired,
+                                ),
+                            ]);
+                    })
+                    ->block(function ($block) use ($resource) {
+                        $block
+                            ->type('context')
+                            ->elements([
+                                [
+                                    'type' => 'mrkdwn',
+                                    'text' => sprintf(
+                                        "Used in %s modules\t\t\tExpiration Date: %s",
+                                        $resource->modules->count(),
+                                        $resource->expiration_date->format('m/d/Y'),
+                                    ),
+                                ],
+                            ]);
+                    })
+                    ->dividerBlock();
             });
         });
 

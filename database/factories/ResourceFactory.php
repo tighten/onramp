@@ -37,4 +37,39 @@ class ResourceFactory extends Factory
             'expiration_date' => Carbon::now()->addMonths(6),
         ];
     }
+
+
+    public function doesntExpire()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'can_expire' => false,
+                'expiration_date' => null,
+            ];
+        });
+    }
+
+    public function expired()
+    {
+        Carbon::setTestNow(Carbon::today());
+
+        return $this->state(function (array $attributes) {
+            return [
+                'can_expire' => true,
+                'expiration_date' => Carbon::now()->subDays(1),
+            ];
+        });
+    }
+
+    public function expiring()
+    {
+        Carbon::setTestNow(Carbon::today());
+
+        return $this->state(function (array $attributes) {
+            return [
+                'can_expire' => true,
+                'expiration_date' => Carbon::now()->addDays(14),
+            ];
+        });
+    }
 }

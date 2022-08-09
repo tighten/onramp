@@ -8,17 +8,20 @@ use Illuminate\Support\Facades\Event;
 
 class GetExpiredResources extends Command
 {
-    protected $signature = 'resources:expired {--N|notify}';
+    protected $signature = 'resource:expired {--N|notify}';
 
     protected $description = 'List or notify Tighten of expired resources.';
 
     public function handle()
     {
-        $expiredResources = Resource::expired()->get([
+        $expiredResources = Resource::expired()
+            ->orWhere(function ($query) {
+                $query->expiring();
+            })->get([
                 'name',
                 'url',
-                'expiration_date',
                 'created_at',
+                'expiration_date',
             ]);
 
         if (! count($expiredResources)) {
@@ -32,8 +35,11 @@ class GetExpiredResources extends Command
         }
 
         $this->table(
-            ['Resource Name', 'URL', 'Expired On', 'Created On'],
-            $expiredResources->each->setAppends([])->toArray(),
+            ['Resource Name', 'URL', 'Days Til Expired'],
+            $expiredResources->each
+                ->setAppends(['days_til_expired'])
+                ->makeHidden(['created_at', 'expiration_date'])
+                ->toArray(),
         );
     }
 }

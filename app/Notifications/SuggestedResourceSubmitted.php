@@ -46,6 +46,7 @@ class SuggestedResourceSubmitted extends Notification
     public function toSlack($notifiable)
     {
         return (new SlackMessage())
+            ->from('Onramp', ':onramp:')
             ->content('New resource suggested!')
             ->attachment(function (SlackAttachment $attachment) {
                 $attachment

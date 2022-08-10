@@ -1,3 +1,5 @@
+![Onramp - Providing an easy entrance into Laravel for new developers.](onramp-banner.png?version=1)
+
 # Onramp
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](code_of_conduct.md)

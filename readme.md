@@ -7,6 +7,11 @@
 
 Onramp aims to be a collection of resources presented in a way that makes it possible for folks to become Laravel programmers as easily and effectively as possible.
 
+## Requirements
+
+- [Composer](https://getcomposer.org/download/)
+- [NPM](https://nodejs.org/)
+
 ## How can I help?
 
 Check out the [Contribution Guide](https://github.com/tighten/onramp/blob/main/contributing.md) or [Onramp Dev Page](https://onramp.dev/en/dev) to learn more about how to contribute.

@@ -14,7 +14,7 @@ Onramp aims to be a collection of resources presented in a way that makes it pos
 
 ## How can I help?
 
-Check out the [Contribution Guide](https://github.com/tighten/onramp/blob/main/contributing.md) or [Onramp Dev Page](https://onramp.dev/en/dev) to learn more about how to contribute.
+Check out the [Contribution Guide](https://github.com/tighten/onramp/blob/main/contributing.md) to learn more about how to contribute.
 
 ## Language translations
 

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Database\DBAL\TimestampType;
 use Illuminate\Support\Str;
 
 return [
@@ -142,6 +143,21 @@ return [
             'database' => env('REDIS_CACHE_DB', 1),
         ],
 
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Doctrine DBAL
+    |--------------------------------------------------------------------------
+    |
+    | Supports modifying certain column types in migrations.
+    |
+    */
+
+    'dbal' => [
+        'types' => [
+            'timestamp' => TimestampType::class,
+        ],
     ],
 
 ];

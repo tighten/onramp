@@ -3,8 +3,9 @@
 namespace Database\Factories;
 
 use App\Models\Module;
-use App\OperatingSystem;
 use App\Models\Resource;
+use App\OperatingSystem;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ResourceFactory extends Factory
@@ -32,6 +33,43 @@ class ResourceFactory extends Factory
             'module_id' => Module::factory(),
             'language' => $this->faker->randomElement(['en', 'es']),
             'os' => $this->faker->randomElement(OperatingSystem::ALL),
+            'can_expire' => true,
+            'expiration_date' => Carbon::now()->addMonths(6),
         ];
+    }
+
+
+    public function doesntExpire()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'can_expire' => false,
+                'expiration_date' => null,
+            ];
+        });
+    }
+
+    public function expired()
+    {
+        Carbon::setTestNow(Carbon::today());
+
+        return $this->state(function (array $attributes) {
+            return [
+                'can_expire' => true,
+                'expiration_date' => Carbon::now()->subDays(1),
+            ];
+        });
+    }
+
+    public function expiring()
+    {
+        Carbon::setTestNow(Carbon::today());
+
+        return $this->state(function (array $attributes) {
+            return [
+                'can_expire' => true,
+                'expiration_date' => Carbon::now()->addDays(14),
+            ];
+        });
     }
 }

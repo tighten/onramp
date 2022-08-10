@@ -5,17 +5,9 @@
 
 Onramp aims to be a collection of resources presented in a way that makes it possible for folks to become Laravel programmers as easily and effectively as possible.
 
-## Requirements
-
-> TODO
-
-## Installation
-
-> TODO
-
 ## How can I help?
 
-Check out the [Dev Page](https://onramp.dev/en/dev) to learn more about how to contribute.
+Check out the [Contribution Guide](https://github.com/tighten/onramp/blob/main/contributing.md) or [Onramp Dev Page](https://onramp.dev/en/dev) to learn more about how to contribute.
 
 ## Language translations
 

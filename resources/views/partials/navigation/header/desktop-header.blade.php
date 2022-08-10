@@ -1,9 +1,3 @@
-<!--sitewide-banner>
-    <template v-slot:message>
-        <span class="font-semibold uppercase">{{ __('NOTE:') }}</span> {{ __("This site is under active development, so it's not complete right now. Check out the") }} <a href="{{ route_wlocale('dev') }}" class="font-semibold hover:underline">{{ __('dev page') }}</a> {{ __('to learn more.') }}
-    </template>
-</sitewide-banner-->
-
 <div class="container items-center hidden xl:flex">
     <a href="{{ route_wlocale('welcome') }}" class="ml-4">
         @include('partials.svg.logo-nav')

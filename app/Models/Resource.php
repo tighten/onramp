@@ -12,13 +12,13 @@ class Resource extends Model implements Completable
 {
     use HasFactory;
 
-    const VIDEO_TYPE = 'video';
-    const COURSE_TYPE = 'course';
-    const AUDIO_TYPE = 'audio';
-    const BOOK_TYPE = 'book';
-    const ARTICLE_TYPE = 'article';
+    public const VIDEO_TYPE = 'video';
+    public const COURSE_TYPE = 'course';
+    public const AUDIO_TYPE = 'audio';
+    public const BOOK_TYPE = 'book';
+    public const ARTICLE_TYPE = 'article';
 
-    const TYPES = [
+    public const TYPES = [
         self::VIDEO_TYPE,
         self::COURSE_TYPE,
         self::AUDIO_TYPE,
@@ -75,13 +75,44 @@ class Resource extends Model implements Completable
         }
     }
 
+    public function scopeExpired($query)
+    {
+        return $query->where('expiration_date', '<', now()->toDateTimeString());
+    }
+
+    public function scopeExpiring($query)
+    {
+        return $query->whereBetween('expiration_date', [
+            now()->toDateTimeString(),
+            now()->addDays(15)->toDateTimeString(),
+        ]);
+    }
+
     public function getIsNewAttribute()
     {
         return $this->created_at->diffInDays(now()) <= 14;
     }
 
+    public function getDaysTilExpiredAttribute()
+    {
+        return $this->expiration_date->diffForHumans();
+    }
+
     public function isAssignedToAModule()
     {
         return collect($this->modules)->isNotEmpty();
+    }
+
+    public function isExpired()
+    {
+        return $this->expiration_date->isPast();
+    }
+
+    public function isExpiring()
+    {
+        return $this->expiration_date->between(
+            now()->toDateTimeString(),
+            now()->addDays(15)->toDateTimeString(),
+        );
     }
 }

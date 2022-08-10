@@ -31,6 +31,7 @@ If you discover any security related issues, please email matt.stauffer@tighten.
 ## Credits
 
 - [Matt Stauffer](https://github.com/mattstauffer)
+- [Tammy Robinson](https://github.com/tammytee)
 - [All Contributors](https://github.com/tighten/onramp/graphs/contributors)
 
 ## Support us

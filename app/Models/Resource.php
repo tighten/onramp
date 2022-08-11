@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Completable;
 use App\Facades\Preferences;
+use App\Models\Term;
 use App\OperatingSystem;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -45,6 +46,11 @@ class Resource extends Model implements Completable
     public function completions()
     {
         return $this->morphMany(Completion::class, 'completable');
+    }
+
+    public function terms()
+    {
+        return $this->belongsToMany(Term::class);
     }
 
     public function scopeForCurrentSession($query)

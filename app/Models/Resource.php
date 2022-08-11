@@ -50,7 +50,7 @@ class Resource extends Model implements Completable
 
     public function terms()
     {
-        return $this->belongsToMany(Term::class);
+        return $this->belongsToMany(Term::class)->withTimestamps();
     }
 
     public function scopeForCurrentSession($query)

@@ -92,6 +92,8 @@ class Resource extends BaseResource
                 ->hideWhenUpdating(),
 
             BelongsToMany::make('Modules'),
+
+            BelongsToMany::make('Terms'),
         ];
     }
 

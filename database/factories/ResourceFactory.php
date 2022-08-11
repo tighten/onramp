@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Module;
 use App\Models\Resource;
 use App\OperatingSystem;
 use Carbon\Carbon;
@@ -30,7 +29,6 @@ class ResourceFactory extends Factory
             'is_free' => $this->faker->boolean,
             'is_bonus' => $this->faker->boolean(20),
             'type' => $this->faker->randomElement(Resource::TYPES),
-            'module_id' => Module::factory(),
             'language' => $this->faker->randomElement(['en', 'es']),
             'os' => $this->faker->randomElement(OperatingSystem::ALL),
             'can_expire' => true,

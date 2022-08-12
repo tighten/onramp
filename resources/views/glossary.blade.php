@@ -28,14 +28,15 @@
 
                             @if ($term->resourcesForCurrentSession->count() > 0)
                                 <div class="flex flex-col mt-4">
-                                    <span>{{ __('Related resources:') }}</span>
+                                    <span class="mb-2 font-semibold">{{ __('Related resources:') }}</span>
                                     @foreach ($term->resourcesForCurrentSession()->get() as $resource)
                                     <span>
-                                        <a href="{{ route_wlocale('modules.show', ['module' => $resource->modules()->first(), 'resourceType' => $resource->is_free ? 'free-resources' : 'paid-resources']) }}">{{ $resource->modules()->first()->name }}</a>
+                                        <a class="underline" href="{{ route_wlocale('modules.show', ['module' => $resource->modules()->first(), 'resourceType' => $resource->is_free ? 'free-resources' : 'paid-resources']) }}">{{ $resource->modules()->first()->name }}</a>
                                         &gt;
-                                        <a href="{{ $resource->url }}">{{ $resource->name }} <img
-                                                src="/images/outbound_link_icon.svg" alt="Outbound link"
-                                                class="inline w-4 align-text-top"></a>
+                                        <a class="inline-flex items-center" href="{{ $resource->url }}">
+                                            <span class="underline">{{ $resource->name }}</span>
+                                            <img src="/images/outbound_link_icon.svg" alt="Outbound link" class="inline w-4 ml-2 align-text-top">
+                                        </a>
                                     </span>
                                     @endforeach
                                 </div>

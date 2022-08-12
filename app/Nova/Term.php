@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Spatie\NovaTranslatable\Translatable;
@@ -31,7 +32,9 @@ class Term extends BaseResource
             Translatable::make([
                 Text::make('Name'),
                 Text::make('Description')->hideFromIndex(),
-            ])
+            ]),
+
+            BelongsToMany::make('Resources'),
         ];
     }
 

@@ -10,7 +10,6 @@ return new class extends Migration
     public function up()
     {
         Schema::table('module_resource', function (Blueprint $table) {
-            $table->foreign('module_id')->references('id')->on('modules');
             $table->foreign('resource_id')->references('id')->on('resources');
         });
     }
@@ -19,7 +18,6 @@ return new class extends Migration
     {
         Schema::table('module_resource', function (Blueprint $table) {
             if (DB::getDriverName() !== 'sqlite') {
-                $table->dropForeign(['module_id']);
                 $table->dropForeign(['resource_id']);    
             }
         });

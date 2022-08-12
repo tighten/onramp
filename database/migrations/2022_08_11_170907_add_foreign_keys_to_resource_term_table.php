@@ -10,8 +10,16 @@ return new class extends Migration
     public function up()
     {
         Schema::table('resource_term', function (Blueprint $table) {
-            $table->foreign('resource_id')->references('id')->on('resources');
-            $table->foreign('term_id')->references('id')->on('terms');
+            $table
+                ->foreign('resource_id')
+                ->references('id')
+                ->on('resources')
+                ->onDelete('cascade');
+            $table
+                ->foreign('term_id')
+                ->references('id')
+                ->on('terms')
+                ->onDelete('cascade');
         });
     }
 

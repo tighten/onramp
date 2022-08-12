@@ -16,11 +16,12 @@ return new class extends Migration
 
             $table->foreign('module_id')
                 ->references('id')
-                ->on('modules');
+                ->on('modules')
+                ->onDelete('cascade');
             $table->foreign('resource_id')
-                ->nullable()
                 ->references('id')
-                ->on('resources');
+                ->on('resources')
+                ->onDelete('cascade');
         });
     }
 

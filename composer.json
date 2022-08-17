@@ -15,6 +15,7 @@
         "kg-bot/laravel-localization-to-vue": "^2.0",
         "laravel/framework": "^9.29",
         "laravel/slack-notification-channel": "^2.4",
+        "laravel/socialite": "^5.5",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.4",
         "larswiegers/laravel-translations-checker": "^0.2.0",

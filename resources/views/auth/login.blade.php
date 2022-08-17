@@ -15,6 +15,7 @@
                 <form method="POST"
                     action="{{ route_wlocale('login') }}">
                     @csrf
+                    @honeypot
                     <h2 class="mb-6 text-3xl font-extrabold leading-9 text-center text-steel">
                         {{ __('Log in') }}
                     </h2>

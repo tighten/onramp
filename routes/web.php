@@ -10,6 +10,7 @@ use App\Http\Controllers\RootRedirectController;
 use App\Http\Controllers\TrackController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Spatie\Honeypot\ProtectAgainstSpam;
 
 Route::get('/', RootRedirectController::class);
 
@@ -40,5 +41,7 @@ Route::group(['prefix' => '{locale}'], function () {
 
     Route::patch('preferences', [PreferenceController::class, 'update'])->name('user.preferences.update');
 
-    Auth::routes();
+    Route::middleware(ProtectAgainstSpam::class)->group(function () {
+        Auth::routes();
+    });
 });

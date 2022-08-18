@@ -20,7 +20,6 @@
         "laravel/ui": "^3.4",
         "larswiegers/laravel-translations-checker": "^0.2.0",
         "nathanheffley/laravel-slack-blocks": "^2.3",
-        "spatie/laravel-honeypot": "^4.3",
         "spatie/laravel-translatable": "^5.2",
         "tightenco/ziggy": "^1.4"
     },

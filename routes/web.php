@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\WizardController;
 use App\Http\Controllers\CompletionsController;
 use App\Http\Controllers\GlossaryController;
@@ -10,7 +11,6 @@ use App\Http\Controllers\RootRedirectController;
 use App\Http\Controllers\TrackController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Spatie\Honeypot\ProtectAgainstSpam;
 
 Route::get('/', RootRedirectController::class);
 
@@ -41,7 +41,10 @@ Route::group(['prefix' => '{locale}'], function () {
 
     Route::patch('preferences', [PreferenceController::class, 'update'])->name('user.preferences.update');
 
-    Route::middleware(ProtectAgainstSpam::class)->group(function () {
-        Auth::routes();
+    Auth::routes(['register' => false]);
+
+    Route::prefix('login')->group(function () {
+        Route::get('github', [LoginController::class, 'redirectToProvider'])->name('login.github');
+        Route::get('github/callback', [LoginController::class, 'handleProviderCallback']);
     });
 });

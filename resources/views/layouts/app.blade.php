@@ -20,7 +20,7 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to La
     <meta property="twitter:url" content="{{ $ogUrl ?? url()->current() }}">
     <meta property="twitter:title" content="{{ $fullPageTitle }}">
     <meta property="twitter:description" content="{{ $ogDescription ?? __('Learn everything you need to get hired writing Laravel, quickly and easily.') }}">
-    <meta property="twitter:image" content="{{ $ogImage ?? url('/images/twitter_card.png') }}">
+    <meta property="twitter:image" content="{{ $ogImage ?? url('/images/opengraph-logo-dark.png') }}">
 
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,600,700&display=swap" rel="stylesheet">
 

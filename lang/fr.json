@@ -42,5 +42,6 @@
     "Source & Roadmap": "Code source & projets",
     "All resources": "Toutes les resources",
     ":locale resources": "Resources en :locale",
-    "English and :locale resources": "Resources en anglais et :locale"
+    "English and :locale resources": "Resources en anglais et :locale",
+    "No": "Non"
 }

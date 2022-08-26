@@ -11,5 +11,6 @@
     "Glossary": "Ordlista",
     "All resources": "Alla resurser",
     ":locale resources": ":locale resurser",
-    "English and :locale resources": "Engelska och :locale resurser"
+    "English and :locale resources": "Engelska och :locale resurser",
+    "No" : "Nej"
 }

@@ -7,8 +7,6 @@
     "The tech concepts you should know in order to get a job as a Laravel developer.": "Konsep-konsep teknologi yang wajib kamu kuasai untuk mendapatkan pekerjaan sebagai Laravel Developer",
     "That's all, for now.": "Cukup sekian.",
     "Soon: more and better organized links to places to learn each of these technologies/tools, a more robust list of technologies, etc., and then later maybe exercises to test them and prove out your learning.": "Soon: Link yang update ke tempat belajar mengenai teknologi-teknologi ini, daftar teknologi yang lebih handal, dst., dan kedepannya latihan-latihan untuk mencoba teknologi-teknologi ini dan mengevaluasi apa yang telah kamu pelajari.",
-    "Join Onramp for free today to see the technologies and processes the team at Tighten thinks are best for you to learn and our favorite resources for learning them.": "Bergabunglah dengan Onramp secara gratis hari ini untuk melihat teknologi dan proses yang menurut tim di Tighten paling baik untuk Anda pelajari dan sumber daya favorit kami untuk mempelajarinya.",
-    "Learn Laravel quickly, no matter your background.": "Pelajari Laravel dengan cepat, apa pun latar belakang Anda.",
     "Log in": "Masuk",
     "E-Mail Address": "Alamat E-mail",
     "Password": "Kata Sandi",
@@ -44,5 +42,6 @@
     "Table of contents": "Daftar isi",
     "All resources": "Semua Materi",
     ":locale resources": "Materi dalam Bahasa Indonesia",
-    "English and :locale resources": "Materi dalam Bahasa Inggris & Bahasa Indonesia"
+    "English and :locale resources": "Materi dalam Bahasa Inggris & Bahasa Indonesia",
+    "No": "Tidak"
 }

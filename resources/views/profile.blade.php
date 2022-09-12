@@ -19,7 +19,12 @@
                 <div class="flex flex-wrap justify-center w-full pb-2 text-base sm:justify-start">
                     <div class="md:flex-shrink-0">
                         <img class="w-48 p-3 mx-auto rounded-full md:ml-3" src="{{ auth()->user()->profile_picture }}" alt="{{ auth()->user()->name }}">
-                        <p class="self-center py-2 text-sm font-normal">{{ __('Your current public profile picture is sourced from Gravatar.') }} <a href="http://gravatar.com" class="py-2 underline">{{ __('Change') }}</a></p>
+
+                        @if(! auth()->user()->github_user_id)
+                        <p class="self-center py-2 text-sm font-normal">
+                            {{ __('Your current public profile picture is sourced from Gravatar.') }} <a href="http://gravatar.com" class="py-2 underline">{{ __('Change') }}</a>
+                        </p>
+                        @endif
                     </div>
                 </div>
             </x-form.picture>

@@ -43,7 +43,7 @@ Route::group(['prefix' => '{locale}'], function () {
 
     Auth::routes(['register' => false]);
 
-    Route::prefix('login')->group(function () {
+    Route::group(['prefix' => 'login'], function () {
         Route::get('github', [LoginController::class, 'redirectToProvider'])->name('login.github');
         Route::get('github/callback', [LoginController::class, 'handleProviderCallback']);
     });

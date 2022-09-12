@@ -5,21 +5,13 @@ namespace App\Http\Controllers\Auth;
 use App\Models\User;
 use App\Facades\Preferences;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Event;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
     use AuthenticatesUsers;
 
     public function redirectTo()
@@ -27,21 +19,11 @@ class LoginController extends Controller
         return Preferences::get('locale') . '/modules';
     }
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
     }
 
-    /**
-     * Show the application's login form.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function showLoginForm()
     {
         return view('auth.login', [
@@ -59,10 +41,11 @@ class LoginController extends Controller
     public function handleProviderCallback()
     {
         $user = Socialite::driver('github')->user();
+        $userExists = true;
 
         if (! User::where('github_user_id', $user->getId())->exists()) {
             if (! User::where('github_username', $user->getNickname())->exists()) {
-                User::create([
+                $newUser = User::create([
                     'name' => $user->getName(),
                     'email' => $user->getEmail(),
                     'github_username' => $user->getNickname(),
@@ -70,6 +53,10 @@ class LoginController extends Controller
                     'github_token' => encrypt($user->token),
                     'github_user_id' => $user->getId(),
                 ]);
+
+                Event::dispatch('new-signup', [$newUser, app('request')]);
+
+                $userExists = false;
             } else {
                 $storedUser = User::where('github_username', $user->getNickname());
                 $storedUser->update(['github_user_id' => $user->getId()]);
@@ -78,7 +65,7 @@ class LoginController extends Controller
 
         Auth::login(User::firstWhere('github_user_id', $user->getId()), true);
 
-        return redirect()->intended();
+        return $userExists ? redirect(route_wlocale('modules.index')) : redirect()->intended();
     }
 
     /**

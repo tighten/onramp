@@ -13,7 +13,7 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
         "kg-bot/laravel-localization-to-vue": "^2.0",
-        "laravel/framework": "^9.29",
+        "laravel/framework": "^9.30",
         "laravel/slack-notification-channel": "^2.4",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.4",

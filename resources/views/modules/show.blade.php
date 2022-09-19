@@ -79,7 +79,6 @@ switch ($level) {
                         @endforelse
 
                         @if ($bonusSkills->isNotEmpty())
-                            <li class="mt-4 font-bold list-none">BONUS:</li>
                             @foreach ($bonusSkills as $skill)
                                 @if (Auth::check())
                                     <li class="block m-1 md:m-2">

@@ -43,60 +43,30 @@ switch ($level) {
             <div class="grid gap-6 px-4 pt-6 pb-8 -mt-16 bg-white shadow-md sm:grid-cols-2 md:p-10 md:pb-16 md:-mt-32">
                 @if ($module->description)
                     <div>
-                        <p class="mb-3 text-xl font-semibold md:mb-8 md:text-2xl lg:text-4xl">{{ __('Overview') }}</p>
+                        <p class="mb-3 text-xl font-semibold md:mb-7 md:text-2xl lg:text-3xl">{{ __('Overview') }}</p>
 
-                        <p class="max-w-lg md:mb-10 xl:leading-normal">
+                        <p class="max-w-lg text-gray-600 md:mb-10 xl:text-xl xl:leading-10">
                             {{ $module->description }}
                         </p>
                     </div>
                 @endif
 
                 <div>
-                    <p class="mb-3 text-xl font-semibold md:mb-8 md:text-2xl lg:text-4xl">{{ __('Skills') }}</p>
+                    <p class="mb-3 text-xl font-semibold md:mb-7 md:text-2xl lg:text-3xl">{{ __('Skills') }}</p>
                     <ul class="flex flex-wrap -m-1 md:-m-2">
                         @forelse ($skills as $skill)
-                            @auth
-                                @if (Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id))
-                                    <li class="block m-1 md:m-2">
-                                        <completed-badge badge-text="{{ $skill->name }}"
-                                            :initial-is-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
-                                            type="{{ $skill->getMorphClass() }}"
-                                            id="{{ $skill->id }}"></completed-badge>
-                                    </li>
-                                @else
-                                    <li class="relative block px-4 py-2 m-1 bg-opacity-25 rounded-md bg-mint">
-                                        <span class="font-bold text-teal">{{ $skill->name }}</span>
-                                    </li>
-                                @endif
-                            @endauth
-                            @guest
-                                <li class="relative block px-4 py-2 m-1 bg-opacity-25 rounded-md bg-mint">
-                                    <span class="font-bold text-teal">{{ $skill->name }}</span>
-                                </li>
-                            @endguest
+                            <skill
+                                @if (Auth::check() && Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id)) :completable="true" @else :completable="false" @endif
+                                :init-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
+                                id="{{ $skill->id }}"
+                                text="{{ $skill->name }}"
+                                type="{{ $skill->getMorphClass() }}"
+                            ></skill>
                         @empty
-                            <li class="relative block m-1">{{ __('No skills') }}</li>
+                            <li class="relative block m-1 md:m-2">
+                                <span class="text-gray-600 xl:text-xl xl:leading-10">{{ __('No skills') }}</span>
+                            </li>
                         @endforelse
-
-                        @if ($bonusSkills->isNotEmpty())
-                            <li class="mt-4 font-bold list-none">BONUS:</li>
-                            @foreach ($bonusSkills as $skill)
-                                @if (Auth::check())
-                                    <li class="block m-1 md:m-2">
-                                        <completed-badge badge-text="{{ $skill->name }}"
-                                            :initial-is-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
-                                            type="{{ $skill->getMorphClass() }}"
-                                            id="{{ $skill->id }}"></completed-badge>
-                                    </li>
-                                @else
-                                    <li class="relative block px-4 py-2 m-1">
-                                        <span
-                                            class="absolute inset-0 w-full h-full rounded-md bg-teal opacity-10"></span>
-                                        <span class="font-bold text-teal">{{ $skill->name }}</span>
-                                    </li>
-                                @endif
-                            @endforeach
-                        @endif
                     </ul>
                 </div>
             </div>

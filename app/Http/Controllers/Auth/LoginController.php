@@ -46,24 +46,29 @@ class LoginController extends Controller
 
             $userExists = true;
 
-            if (! User::where('github_user_id', $user->getId())->exists()) {
-                if (! User::where('github_username', $user->getNickname())->exists()) {
-                    $newUser = User::create([
-                        'name' => $user->getName(),
-                        'email' => $user->getEmail(),
-                        'github_username' => $user->getNickname(),
-                        'github_avatar' => $user->getAvatar(),
-                        'github_token' => encrypt($user->token),
-                        'github_user_id' => $user->getId(),
-                    ]);
-
-                    Event::dispatch('new-signup', [$newUser, app('request')]);
-
-                    $userExists = false;
-                } else {
-                    $storedUser = User::where('github_username', $user->getNickname());
-                    $storedUser->update(['github_user_id' => $user->getId()]);
+            if (User::where('email', $user->getEmail())->exists()) {
+                if (! User::where('github_user_id', $user->getId())->exists()) {
+                    User::where('email', $user->getEmail())
+                        ->update([
+                            'github_username' => $user->getNickname(),
+                            'github_avatar' => $user->getAvatar(),
+                            'github_token' => encrypt($user->token),
+                            'github_user_id' => $user->getId(),
+                        ]);
                 }
+            } else {
+                $newUser = User::create([
+                    'name' => $user->getName(),
+                    'email' => $user->getEmail(),
+                    'github_username' => $user->getNickname(),
+                    'github_avatar' => $user->getAvatar(),
+                    'github_token' => encrypt($user->token),
+                    'github_user_id' => $user->getId(),
+                ]);
+
+                Event::dispatch('new-signup', [$newUser, app('request')]);
+
+                $userExists = false;
             }
 
             Auth::login(User::firstWhere('github_user_id', $user->getId()), true);

@@ -12,7 +12,8 @@ use Laravel\Nova\Fields\ActionFields;
 
 class ApproveSuggestedResource extends Action
 {
-    use InteractsWithQueue, Queueable;
+    use InteractsWithQueue;
+    use Queueable;
 
     /**
      * Perform the action on the given models.
@@ -32,7 +33,6 @@ class ApproveSuggestedResource extends Action
                 'name' => $model->name,
                 'url' => $model->url,
                 'type' => $model->type,
-                'module_id' => $model->module_id,
                 'language' => $model->language,
                 'is_free' => $model->is_free,
             ]);

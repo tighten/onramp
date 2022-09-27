@@ -19,7 +19,28 @@
                         {{ __('Log in') }}
                     </h2>
 
-                    <div>
+                    <div class="mt-6">
+                        <span class="block w-full rounded-md shadow-sm">
+                            <a href="{{ route_wlocale('login.github') }}" class="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-white no-underline transition duration-200 ease-in-out border border-transparent rounded-md focus:bg-white focus:text-purple bg-purple hover:bg-white hover:text-purple hover:no-underline focus:outline-none border-purple active:bg-white active:text-purple">
+                                <span>{{ __('Log in') }} or {{ __('Register') }} with</span>
+                                <span class="ml-2 text-lg"><i class="fa fa-github" aria-label="Github" title="Github"></i></span>
+                            </a>
+                        </span>
+                    </div>
+
+                    <div class="mt-6">
+                        <div class="relative">
+                            <div class="absolute inset-0 flex items-center">
+                                <div class="w-full border-t border-silver"></div>
+                            </div>
+    
+                            <div class="relative flex justify-center text-sm leading-5">
+                                <span class="px-2 bg-white text-steel">{{ __('Legacy User Login') }}</span>
+                            </div>
+                        </div>
+                    </div>    
+
+                    <div class="mt-6">
                         <label for="email"
                             class="block text-sm font-medium leading-5 text-steel">
                             {{ __('Email address') }}
@@ -90,25 +111,6 @@
                         </span>
                     </div>
                 </form>
-
-                <div class="mt-6">
-                    <div class="relative">
-                        <div class="absolute inset-0 flex items-center">
-                            <div class="w-full border-t border-silver"></div>
-                        </div>
-
-                        <div class="relative flex justify-center text-sm leading-5">
-                            <span class="px-2 text-steel bg-white">{{ __('Don\'t have an account?') }}</span>
-                        </div>
-                    </div>
-
-                    <div class="mt-6">
-                        <a href="{{ route_wlocale('register') }}"
-                            class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white no-underline transition duration-200 ease-in-out border border-transparent rounded-md focus:bg-white focus:text-purple bg-purple hover:bg-white hover:text-purple hover:no-underline focus:outline-none border-purple active:bg-white active:text-purple">
-                            {{ __('Register') }}
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

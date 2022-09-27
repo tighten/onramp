@@ -26,6 +26,8 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to La
 
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
     @stack('styles')
 
     <script>

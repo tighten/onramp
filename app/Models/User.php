@@ -19,7 +19,7 @@ class User extends Authenticatable
     ];
 
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'github_token',
     ];
 
     protected $casts = [
@@ -103,7 +103,7 @@ class User extends Authenticatable
 
     public function getProfilePictureAttribute()
     {
-        return 'https://www.gravatar.com/avatar/' . md5(strtolower($this->email)) . '?d=mp';
+        return $this->github_avatar ?? 'https://www.gravatar.com/avatar/' . md5(strtolower($this->email)) . '?d=mp';
     }
 
     public function sendPasswordResetNotification($token)

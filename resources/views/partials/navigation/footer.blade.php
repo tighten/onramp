@@ -9,9 +9,7 @@
         </p>
 
         <div class="text-base text-mint">
-            <a class="mr-3 underline" href="{{ route_wlocale('use-of-data') }}">
-                {{ __('Use of Data') }}
-            </a>
+            <a class="mr-3 underline" href="{{ route_wlocale('use-of-data') }}">{{ __('Use of Data') }}</a>
 
             <a href="https://github.com/tighten/onramp" class="underline" target="_blank">
                 {{ __('Source & Roadmap') }}

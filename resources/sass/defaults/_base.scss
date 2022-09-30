@@ -4,7 +4,8 @@
 }
 
 body {
-    @apply font-normal font-work-sans min-w-screen-xs text-gray-black mt-16;
+    @apply font-normal font-work-sans text-gray-black mt-16;
+    min-width: 320px;
 }
 
 [x-cloak] {

@@ -72,7 +72,7 @@ switch ($level) {
             </div>
         </div>
 
-        <tabs>
+        <tabs dark-mode>
             <tab @if ($resourceType === 'free-resources') :selected="true" @endif
                 name="{{ __('Free resources') }}"
                 url="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'free-resources']) }}">

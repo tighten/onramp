@@ -58,8 +58,10 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to La
 
         const isInViewport = (element) => {
             const rect = element.getBoundingClientRect();
+            const offset = (rect.bottom - rect.top) / 2;
+
             return (
-                rect.top >= 0 &&
+                (rect.top === 0 || Math.abs(rect.top + offset) <= rect.bottom) &&
                 rect.left >= 0 &&
                 rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
                 rect.right <= (window.innerWidth || document.documentElement.clientWidth)
@@ -89,14 +91,15 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to La
         <div id="app-body">
             @includeWhen(! request()->routeIs('wizard.index'), 'partials.choose-track')
             @yield('content')
-
-            @include('partials.navigation.footer')
+           
+            @include('partials.navigation.back-to-top')
 
             <!-- toast notifications -->
             @if (session('toast'))
             <toast message="{{ session('toast') }}"></toast>
             @endif
         </div>
+        @include('partials.navigation.footer')
     </div>
     @routes
     <script src="{{ mix('js/app.js') }}"></script>

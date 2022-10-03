@@ -16,13 +16,4 @@
             </a>
         </div>
     </div>
-
-    <x-button.primary
-        id="top-button"
-        href="#top"
-        class="fixed invisible uppercase rounded-full bottom-10 right-48"
-    >
-        <span class="block font-semibold text-center transform -rotate-90">&gt;</span>
-        <span class="block font-semibold text-center">{{ __('Top') }}</span>
-    </x-button.primary>
 </footer>

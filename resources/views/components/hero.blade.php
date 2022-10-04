@@ -3,7 +3,7 @@
         @include('partials.svg.path-sm')
     </div>
 
-    <div class="flex flex-col items-center justify-center order-first col-span-2 px-4 md:order-none">
+    <div class="relative z-10 flex flex-col items-center justify-center order-first col-span-2 px-4 md:order-none">
         {{ $slot }}
     </div>
 

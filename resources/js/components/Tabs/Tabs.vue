@@ -7,7 +7,7 @@
             >
                 <div class="pb-6 overflow-scroll">
                     <ul
-                        class="inline-flex flex-no-wrap min-w-full border-b-4 text-none"
+                        class="inline-flex flex-no-wrap min-w-full border-b-4 text-none border-gray"
                     >
                         <li
                             v-for="tab in tabs"

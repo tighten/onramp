@@ -5,7 +5,7 @@
 
 	<div class="px-4 mlg:px-0 max-w-[1100px] mx-auto relative gap-4 grid grid-cols-1 pt-6 mt-8 sm:grid-cols-3">
 		<div class="p-1 rounded-md bg-gradient-to-r from-mint via-mint to-violet">
-			<div class="py-16 text-2xl rounded-md bg-blue-black lg:h4">
+			<div class="py-16 text-2xl rounded-md bg-blue-black lg:h4 full-height">
 				<div
 					class="flex items-center justify-center w-16 h-16 mx-auto rounded-full bg-mint md:w-20 md:h-20">
 					@include('partials.svg.star')
@@ -15,7 +15,7 @@
 		</div>
 
 		<div class="p-1 rounded-md bg-gradient-to-r from-mint via-mint to-violet">
-			<div class="py-16 text-2xl rounded-md bg-blue-black lg:h4">
+			<div class="py-16 text-2xl rounded-md bg-blue-black lg:h4 full-height">
 				<div
 					class="flex items-center justify-center w-16 h-16 mx-auto rounded-full bg-mint md:w-20 md:h-20">
 					@include('partials.svg.code')
@@ -25,7 +25,7 @@
 		</div>
 
 		<div class="p-1 rounded-md bg-gradient-to-r from-mint via-mint to-violet">
-			<div class="py-16 text-2xl rounded-md lg:h4 bg-blue-black">
+			<div class="py-16 text-2xl rounded-md lg:h4 bg-blue-black full-height">
 				<div
 					class="flex items-center justify-center w-16 h-16 mx-auto rounded-full bg-mint md:w-20 md:h-20">
 					@include('partials.svg.wp')

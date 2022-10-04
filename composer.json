@@ -13,7 +13,7 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
         "kg-bot/laravel-localization-to-vue": "^2.0",
-        "laravel/framework": "^9.33",
+        "laravel/framework": "^9.34",
         "laravel/slack-notification-channel": "^2.4",
         "laravel/socialite": "^5.5",
         "laravel/tinker": "^2.7",
@@ -21,7 +21,7 @@
         "larswiegers/laravel-translations-checker": "^0.2.0",
         "nathanheffley/laravel-slack-blocks": "^2.3",
         "spatie/laravel-translatable": "^5.2",
-        "tightenco/ziggy": "^1.4"
+        "tightenco/ziggy": "^1.5"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.7",

@@ -6,7 +6,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
 @endphp
 
 @section('content')
-    <div class="w-full bg-white">
+    <div class="w-full">
         <x-hero>
             <h1 class="mb-2 font-bold tracking-wide h2 md:h1">{{ __('Preferences') }}</h1>
         </x-hero>
@@ -37,7 +37,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                                         value="{{ $index }}"
                                         type="radio"
                                         {{ $currentResourceLanguagePreference == $index ? 'checked' : '' }}
-                                        class="flex-none w-4 h-4 text-purple transition duration-200 ease-in-out" />
+                                        class="flex-none w-4 h-4 transition duration-200 ease-in-out text-purple" />
 
                                     <label for="lang_pref_{{ $index }}"
                                         class="ml-3">
@@ -80,7 +80,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                                     </select>
 
                                     <div
-                                        class="absolute inset-y-0 right-0 flex items-center px-2 text-steel pointer-events-none">
+                                        class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none text-steel">
                                         <svg class="w-4 h-4 fill-current"
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 20 20">
@@ -117,7 +117,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                                     </select>
 
                                     <div
-                                        class="absolute inset-y-0 right-0 flex items-center px-2 text-steel pointer-events-none">
+                                        class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none text-steel">
                                         <svg class="w-4 h-4 fill-current"
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 20 20">
@@ -166,7 +166,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
                                     </select>
 
                                     <div
-                                        class="absolute inset-y-0 right-0 flex items-center px-2 text-steel pointer-events-none">
+                                        class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none text-steel">
                                         <svg class="w-4 h-4 fill-current"
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 20 20">

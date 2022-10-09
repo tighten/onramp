@@ -16,6 +16,7 @@ import Tabs from './Tabs/Tabs.vue';
 import TabsWithSelect from './Tabs/TabsWithSelect.vue';
 import Toast from './Toast.vue';
 import ToggleWhenMobile from './ToggleWhenMobile.vue';
+import ShowMoreSkills from "./ShowMoreSkills";
 
 Vue.component('toggle-when-mobile', ToggleWhenMobile);
 Vue.component('resource-language-preference-switcher', ResourceLanguagePreferenceSwitcher);
@@ -30,6 +31,7 @@ Vue.component('module-card', ModuleCard);
 Vue.component('select-dropdown', SelectDropdown);
 Vue.component('sitewide-banner', SitewideBanner);
 Vue.component('skill', Skill);
+Vue.component('show-more-skills', ShowMoreSkills);
 Vue.component('tab', Tab);
 Vue.component('tabs', Tabs);
 Vue.component('tabs-with-select', TabsWithSelect);

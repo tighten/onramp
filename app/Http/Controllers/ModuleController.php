@@ -36,6 +36,8 @@ class ModuleController extends Controller
             'module' => $module,
             'resources' => $module->resourcesForCurrentSession,
             'skills' => $module->skills,
+            'showMoreSkills' => $module->showMoreSkills(),
+            'countShowMoreSkills' => ($module->showMoreSkills() != null) ? count($module->showMoreSkills()): null,
             'completedModules' => auth()->check() ? auth()->user()->moduleCompletions()->pluck('completable_id') : collect([]),
             'completedResources' => auth()->check() ? auth()->user()->resourceCompletions()->pluck('completable_id') : collect([]),
             'completedSkills' => auth()->check() ? auth()->user()->skillCompletions()->pluck('completable_id') : collect([]),

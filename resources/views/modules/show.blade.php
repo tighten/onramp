@@ -55,13 +55,22 @@ switch ($level) {
                     <p class="mb-3 text-xl font-semibold md:mb-7 md:text-2xl lg:text-3xl">{{ __('Skills') }}</p>
                     <ul class="flex flex-wrap -m-1 md:-m-2">
                         @forelse ($skills as $skill)
-                            <skill
-                                @if (Auth::check() && Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id)) :completable="true" @else :completable="false" @endif
+                            @if ($loop->index < 4)
+                                <skill
+                                    @if (Auth::check() && Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id)) :completable="true" @else :completable="false" @endif
                                 :init-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
-                                id="{{ $skill->id }}"
-                                text="{{ $skill->name }}"
-                                type="{{ $skill->getMorphClass() }}"
-                            ></skill>
+                                    id="{{ $skill->id }}"
+                                    text="{{ $skill->name }}"
+                                    type="{{ $skill->getMorphClass() }}"
+                                ></skill>
+                            @else
+                                <show-more-skills
+                                    :skills="{{ json_encode($showMoreSkills) }}"
+                                    :button-text-plus="'{{ '+ ' . $countShowMoreSkills . ' ' . __('more') }}'"
+                                    :button-text-minus="'{{ '- ' . $countShowMoreSkills . ' ' . __('less') }}'"
+                                ></show-more-skills>
+                                @break
+                            @endif
                         @empty
                             <li class="relative block m-1 md:m-2">
                                 <span class="text-gray-600 xl:text-xl xl:leading-10">{{ __('No skills') }}</span>
@@ -84,7 +93,7 @@ switch ($level) {
             </tab>
 
             {{-- @todo Show this once we add in quizzes and exercises --}}
-            {{-- 
+            {{--
                 <tab
                     @if ($resourceType === 'quizzes') :selected="true" @endif
                     name="Quizzes"
@@ -95,7 +104,7 @@ switch ($level) {
                     @if ($resourceType === 'exercises') :selected="true" @endif
                     name="Exercises"
                     url="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'exercises']) }}">
-                </tab> 
+                </tab>
             --}}
         </tabs>
 
@@ -139,7 +148,7 @@ switch ($level) {
             <div class="flex justify-start flex-1">
                 @if ($previousModule)
                     <div class="flex flex-col items-start text-white group">
-                        <x-button.primary 
+                        <x-button.primary
                             href="{{ route_wlocale('modules.show', ['module' => $previousModule->slug, 'resourceType' => 'free-resources']) }}"
                             class="flex tracking-widest uppercase lg:px-10 lg:min-w-[185px] lg:rounded-xl lg:py-3 lg:justify-center"
                         >

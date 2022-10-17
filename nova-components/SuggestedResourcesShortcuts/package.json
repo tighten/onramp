@@ -1,12 +1,12 @@
 {
   "private": true,
   "scripts": {
-    "dev": "npm run development",
+    "dev": "npm run dev",
     "development": "mix",
     "watch": "mix watch",
     "watch-poll": "mix watch -- --watch-options-poll=1000",
     "hot": "mix watch --hot",
-    "prod": "npm run production",
+    "prod": "npm run build",
     "production": "mix --production",
     "nova:install": "npm --prefix='../../vendor/laravel/nova' ci"
   },

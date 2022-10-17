@@ -1,15 +1,10 @@
 {
     "private": true,
     "scripts": {
-        "dev": "npm run development",
-        "development": "mix",
-        "watch": "mix watch",
-        "watch-poll": "mix watch -- --watch-options-poll=1000",
-        "hot": "mix watch --hot",
-        "prod": "npm run production",
-        "production": "mix --production",
         "build-suggested-resources-shortcuts": "cd nova-components/SuggestedResourcesShortcuts && npm run dev",
-        "build-suggested-resources-shortcuts-prod": "cd nova-components/SuggestedResourcesShortcuts && npm run prod"
+        "build-suggested-resources-shortcuts-prod": "cd nova-components/SuggestedResourcesShortcuts && npm run build",
+        "dev": "vite",
+        "build": "vite build"
     },
     "devDependencies": {
         "browser-sync": "^2.27.10",

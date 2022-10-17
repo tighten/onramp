@@ -14,12 +14,13 @@
     "devDependencies": {
         "browser-sync": "^2.27.10",
         "browser-sync-webpack-plugin": "^2.2.2",
-        "laravel-mix": "^6.0.49",
         "postcss": "^8.3.11",
         "sass": "^1.32.12",
         "sass-loader": "^11.0.1",
         "vue-loader": "^15.10.0",
-        "vue-template-compiler": "^2.6.12"
+        "vue-template-compiler": "^2.6.12",
+        "vite": "^3.0.2",
+        "laravel-vite-plugin": "^0.6.0"
     },
     "dependencies": {
         "alpinejs": "^3.5.1",
@@ -31,7 +32,8 @@
         "lodash": "^4.17.21",
         "popper.js": "^1.16.1",
         "tailwindcss": "^2.2.19",
-        "vue": "^2.6.12",
-        "vue-notification": "^1.3.20"
+        "vue": "^2.7.0",
+        "vue-notification": "^1.3.20",
+        "@vitejs/plugin-vue2": "^1.1.2"
     }
 }

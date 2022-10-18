@@ -18,3 +18,11 @@
         }
     }
 }
+
+.scroll-padding-header {
+    scroll-padding-top: 110px;
+
+    @screen xl {
+        scroll-padding-top: 130px;
+    }
+}

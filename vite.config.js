@@ -6,11 +6,11 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/sass/app.scss',
                 'resources/js/app.js',
                 'resources/js/scripts.js',
             ],
             refresh: true,
+            valetTls: 'onramp.test',
         }),
         vue({
             template: {

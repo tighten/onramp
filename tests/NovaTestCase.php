@@ -11,8 +11,9 @@ abstract class NovaTestCase extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         if (! class_exists(\Laravel\Nova\NovaApplicationServiceProvider::class)) {
-            $this->markTestSkipped("This test requires Laravel Nova to be successful.");
+            $this->markTestSkipped('This test requires Laravel Nova to be successful.');
         }
     }
 }

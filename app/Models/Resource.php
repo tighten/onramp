@@ -8,10 +8,12 @@ use App\Models\Term;
 use App\OperatingSystem;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Resource extends Model implements Completable
 {
     use HasFactory;
+    use SoftDeletes;
 
     public const VIDEO_TYPE = 'video';
     public const COURSE_TYPE = 'course';

@@ -3,7 +3,7 @@
 @php
 $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to Laravel');
 @endphp
-<html lang="{{ locale() }}" style="scroll-behavior:smooth;">
+<html lang="{{ locale() }}" class="scroll-padding-header" style="scroll-behavior:smooth;">
 
 <head>
     <meta charset="utf-8">

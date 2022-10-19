@@ -24,6 +24,7 @@ class GetExpiredResources extends Command
                 'url',
                 'expiration_date',
                 'created_at',
+                'deleted_at',
             ]);
 
         if (! count($expiredResources)) {
@@ -37,10 +38,10 @@ class GetExpiredResources extends Command
         }
 
         $this->table(
-            ['Resource Name', 'URL', 'Days Til Expired'],
+            ['Resource Name', 'URL', 'Days Til Expired', 'Trashed'],
             $expiredResources->each
-                ->setAppends(['days_til_expired'])
-                ->makeHidden(['modules', 'created_at', 'expiration_date'])
+                ->setAppends(['days_til_expired', 'is_trashed'])
+                ->makeHidden(['modules', 'created_at', 'expiration_date', 'deleted_at'])
                 ->toArray(),
         );
     }

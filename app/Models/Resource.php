@@ -85,7 +85,7 @@ class Resource extends Model implements Completable
 
     public function scopeExpired($query)
     {
-        return $query->where('expiration_date', '<', now()->toDateTimeString());
+        return $query->where('expiration_date', '<', now()->toDateTimeString())->withTrashed();
     }
 
     public function scopeExpiring($query)
@@ -104,6 +104,11 @@ class Resource extends Model implements Completable
     public function getDaysTilExpiredAttribute()
     {
         return $this->expiration_date->diffForHumans();
+    }
+
+    public function getIsTrashedAttribute()
+    {
+        return $this->deleted_at ? 'Yes' : 'No';
     }
 
     public function isAssignedToAModule()

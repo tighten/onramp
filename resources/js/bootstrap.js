@@ -7,12 +7,13 @@ window._ = _;
  * code may be modified to fit the specific needs of your application.
  */
 
-try {
-    window.Popper = require('popper.js').default;
-    window.$ = window.jQuery = require('jquery');
+import popper from 'popper.js';
+window.Popper = popper;
 
-    require('bootstrap');
-} catch (e) {}
+import jQuery from 'jquery';
+window.$ = window.jQuery = jQuery;
+
+import 'bootstrap';
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests

@@ -12,7 +12,7 @@
         "erusev/parsedown": "^1.7",
         "guzzlehttp/guzzle": "^7.2",
         "kg-bot/laravel-localization-to-vue": "^2.0",
-        "laravel/framework": "^9.35",
+        "laravel/framework": "^9.36",
         "laravel/slack-notification-channel": "^2.4",
         "laravel/socialite": "^5.5",
         "laravel/tinker": "^2.7",

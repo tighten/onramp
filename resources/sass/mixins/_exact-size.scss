@@ -2,7 +2,7 @@
 // be used with tailwindcss
 
 @mixin exact-size {
-    @for $i from 10 through ceil(5000 / 20) {
+    @for $i from 10 through ceil(calc(5000 / 20)) {
         $value: $i * 10;
 
         .h-#{$value}-px {

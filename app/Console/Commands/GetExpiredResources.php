@@ -18,6 +18,7 @@ class GetExpiredResources extends Command
             ->orWhere(function ($query) {
                 $query->expiring();
             })
+            ->withTrashed()
             ->with('modules')
             ->get([
                 'name',

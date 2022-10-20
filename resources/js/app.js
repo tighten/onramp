@@ -14,8 +14,6 @@ import Notifications from 'vue-notification';
 import Translations from './translations';
 import Alpine from 'alpinejs';
 
-import '../sass/app.scss';
-
 window.Alpine = Alpine;
 Alpine.start();
 

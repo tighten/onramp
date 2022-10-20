@@ -17,7 +17,7 @@ class Main extends Dashboard
     {
         return [
             new SuggestedResourcesShortcuts(),
-            new LatestRelease(),
+            // new LatestRelease(),
         ];
     }
 }

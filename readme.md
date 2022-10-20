@@ -9,8 +9,11 @@ Onramp aims to be a collection of resources presented in a way that makes it pos
 
 ## Requirements
 
+- PHP 8.1
 - [Composer](https://getcomposer.org/download/)
 - [NPM](https://nodejs.org/)
+
+> [Vite](https://vitejs.dev/) requires node `^14.18.0 || >=16.0.0` to run
 
 ## How can I help?
 

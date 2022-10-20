@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import Completable from "./Completable";
+import Completable from "./Completable.vue";
 
 export default {
     components: {

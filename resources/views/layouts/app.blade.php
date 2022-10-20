@@ -24,7 +24,7 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to La
 
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,600,700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    @vite(['resources/sass/app.scss'])
 
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
@@ -99,8 +99,7 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to La
         </div>
     </div>
     @routes
-    <script src="{{ mix('js/app.js') }}"></script>
-    <script src="{{ mix('js/scripts.js') }}"></script>
+    @vite(['resources/js/app.js', 'resources/js/scripts.js'])
 </body>
 
 </html>

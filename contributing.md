@@ -42,6 +42,8 @@ git fetch upstream --prune
 
 Now you have this set up, run the following commands to install the dependencies:
 
+>  [Vite](https://vitejs.dev/) requires node `^14.18.0 || >=16.0.0` to run
+
 ```bash
 composer install
 npm install

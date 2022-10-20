@@ -85,7 +85,7 @@ class Resource extends Model implements Completable
 
     public function scopeExpired($query)
     {
-        return $query->where('expiration_date', '<', now()->toDateTimeString())->withTrashed();
+        return $query->where('expiration_date', '<', now()->toDateTimeString());
     }
 
     public function scopeExpiring($query)

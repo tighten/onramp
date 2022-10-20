@@ -73,15 +73,4 @@ class ResourceExpirationTest extends TestCase
         $this->assertSame('1 day ago', $resourceA->days_til_expired);
         $this->assertSame('2 weeks from now', $resourceB->days_til_expired);
     }
-
-    /** @test */
-    public function soft_deleted_expired_resources_are_returned_with_expired_scope()
-    {
-        $resourceA = Resource::factory()->expired()->create();
-        $resourceB = Resource::factory()->expired()->create();
-
-        $resourceB->delete();
-
-        $this->assertCount(2, Resource::expired()->get());
-    }
 }

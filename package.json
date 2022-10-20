@@ -4,18 +4,20 @@
         "build-suggested-resources-shortcuts": "cd nova-components/SuggestedResourcesShortcuts && npm run dev",
         "build-suggested-resources-shortcuts-prod": "cd nova-components/SuggestedResourcesShortcuts && npm run build",
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "preview": "vite preview"
     },
     "devDependencies": {
         "browser-sync": "^2.27.10",
         "browser-sync-webpack-plugin": "^2.2.2",
+        "laravel-vite-plugin": "^0.6.0",
         "postcss": "^8.3.11",
         "sass": "^1.32.12",
-        "vue-loader": "^15.10.0",
         "vite": "^3.0.2",
-        "laravel-vite-plugin": "^0.6.0"
+        "vue-loader": "^15.10.0"
     },
     "dependencies": {
+        "@vitejs/plugin-vue2": "^1.1.2",
         "alpinejs": "^3.5.1",
         "autoprefixer": "^10.4.0",
         "axios": "^0.27",
@@ -26,7 +28,6 @@
         "popper.js": "^1.16.1",
         "tailwindcss": "^2.2.19",
         "vue": "^2.7.0",
-        "vue-notification": "^1.3.20",
-        "@vitejs/plugin-vue2": "^1.1.2"
+        "vue-notification": "^1.3.20"
     }
 }

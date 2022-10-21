@@ -7,7 +7,7 @@
             <span class="relative z-0 inline-flex rounded-md shadow-sm">
                 <button
                     type="button"
-                    class="relative inline-flex items-center px-4 py-2 text-sm leading-5 transition duration-100 ease-in-out bg-white border-2 border-silver rounded-l-md focus:z-10 focus:outline-none focus:shadow-outline-teal"
+                    class="relative inline-flex items-center p-2 text-sm leading-5 transition duration-100 ease-in-out bg-white border-2 md:px-4 border-silver rounded-l-md focus:z-10 focus:outline-none focus:shadow-outline-teal"
                     :class="{
                         'pointer-events-none border-emerald text-emerald shadow-md font-semibold':
                             showAllModules === true

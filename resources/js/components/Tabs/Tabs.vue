@@ -2,28 +2,28 @@
     <div>
         <slot name="tabs-navigation">
             <div
-                class="w-full h-16 mb-8 overflow-hidden md:mb-10 lg:mb-12"
+                class="w-full h-16 mb-4 overflow-hidden md:mb-10 lg:mb-12"
                 :class="{ 'lg:hidden': hideTabsOnDesktop }"
             >
-                <div class="pb-6">
+                <div class="pb-6 overflow-scroll">
                     <ul
-                        class="inline-flex flex-no-wrap min-w-full text-white border-b-4 text-none"
+                        class="inline-flex flex-no-wrap min-w-full border-b-4 text-none border-gray"
                     >
                         <li
                             v-for="tab in tabs"
                             :key="tab.name"
-                            :class="{ 'text-white': tab.isActive }"
-                            class="inline-block pr-5 text-xl font-semibold leading-tight tracking-tight whitespace-no-wrap transition duration-200 ease-in-out last:pr-0 sm:pr-10 lg:pr-20 md:text-2xl xl:text-4xl focus:outline-none"
+                            :class="[darkMode ? 'text-white' : 'text-gray', {'text-gray-black': tab.isActive && !darkMode}]"
+                            class="inline-block text-xl font-semibold leading-tight tracking-tight whitespace-no-wrap transition duration-200 ease-in-out md:text-2xl xl:text-4xl focus:outline-none"
                         >
                             <a
                                 :href="tab.href"
                                 :class="{
                                     'border-b-4 border-teal': tab.isActive
                                 }"
-                                class="inline-block pb-5 -mb-1 border-b-4 hover:no-underline"
+                                class="inline-block pb-5 -mb-1 border-b-4 hover:no-underline whitespace-nowrap"
                                 @click="setActiveTab(tab.href)"
                             >
-                                <span>{{ tab.name }}</span>
+                                <span class="px-4">{{ tab.name }}</span>
                             </a>
                         </li>
                     </ul>
@@ -41,7 +41,11 @@ export default {
         hideTabsOnDesktop: {
             type: Boolean,
             default: false
-        }
+        },
+        darkMode: {
+            type: Boolean,
+            default: false,
+        },
     },
 
     data() {

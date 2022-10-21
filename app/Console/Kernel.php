@@ -19,11 +19,11 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
-
         $schedule->command('resource:expired -N')
             ->weeklyOn(Schedule::FRIDAY, '06:00');
+
+        $schedule->command('resource:tidy')
+            ->daily();
     }
 
     /**

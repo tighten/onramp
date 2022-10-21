@@ -4,7 +4,7 @@
 <div class="w-full bg-off-white">
     @include('partials.you-should-log-in')
 
-    <x-hero>
+    <x-hero id="top">
         <h1 class="mb-2 font-bold tracking-wide h2 md:h1">{{ __('Modules') }}</h1>
 		<p class="max-w-96">{{ __('The tech concepts you should know in order to get a job as a Laravel developer.') }}</p>
 

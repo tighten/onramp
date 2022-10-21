@@ -24,15 +24,16 @@
         </button>
 
         <ul
-            class="absolute top-0 left-0 w-full h-0 mt-12 overflow-hidden bg-silver"
-            :class="{ 'h-auto border-t border-gray': isOpen }"
+            class="absolute top-0 left-0 w-full mt-12 overflow-hidden shadow-md rounded-b-md"
+            :class="[isOpen ? 'h-auto border border-t-0' : 'h-0']"
         >
             <li
+                v-for="(option) of options"
+                :key="option"
                 class="border-t first:border-t-0"
-                v-for="(option, i) of options"
             >
                 <button
-                    class="relative block w-full px-5 py-4 pr-12 text-base font-semibold text-left truncate focus:outline-none hover:bg-silver"
+                    class="relative block w-full px-5 py-4 pr-12 text-base font-semibold text-left truncate bg-white focus:outline-none"
                     :class="{ '': selected === option }"
                     @click="setSelected(option)"
                 >
@@ -40,7 +41,7 @@
 
                     <template v-if="selected === option">
                         <svg
-                            class="absolute right-0 w-3 h-3 mr-5 text-emerald transform -translate-y-1/2 fill-current top-1/2"
+                            class="absolute right-0 w-3 h-3 mr-5 transform -translate-y-1/2 fill-current text-emerald top-1/2"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
                         >

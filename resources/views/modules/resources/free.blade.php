@@ -3,9 +3,12 @@ use App\Models\Resource;
 @endphp
 
 <div class="lg:hidden">
-    <div>
-        <tab name="Videos &amp; Courses"
-            :selected="true">
+    <tabs-with-select :select-options="[
+            'Videos &amp; Courses',
+            'Books, Articles &amp; Audio',
+        ]"
+    >
+        <tab name="Videos &amp; Courses" :selected="true">
             <div class="bg-white border-t-4 shadow-md border-teal js-show-more-less">
                 <div class="pt-8 pb-6 pl-6 pr-5">
                     <p class="text-xl font-bold md:text-2xl">{{ __('Videos & Courses') }}</p>
@@ -38,7 +41,7 @@ use App\Models\Resource;
                     </div>
 
                     <button
-                        class="hidden block w-full px-8 py-4 font-semibold text-left border-t-2 border-silver text-persian-green js-show-more-less-button">
+                        class="w-full px-8 py-4 font-semibold text-left border-t-2 border-silver text-persian-green js-show-more-less-button">
                         {{ __('View more') }}
                     </button>
                 </div>
@@ -60,7 +63,7 @@ use App\Models\Resource;
                 </div>
 
                 <button
-                    class="hidden block w-full px-8 py-4 font-semibold text-left border-t-2 border-silver text-persian-green js-show-more-less-button">
+                    class="w-full px-8 py-4 font-semibold text-left border-t-2 border-silver text-persian-green js-show-more-less-button">
                     {{ __('View more') }}
                 </button>
             </div>
@@ -78,13 +81,13 @@ use App\Models\Resource;
                     </div>
 
                     <button
-                        class="hidden block w-full px-8 py-4 font-semibold text-left border-t-2 border-silver text-persian-green js-show-more-less-button">
+                        class="w-full px-8 py-4 font-semibold text-left border-t-2 border-silver text-persian-green js-show-more-less-button">
                         {{ __('View more') }}
                     </button>
                 </div>
             @endif
         </tab>
-    </div>
+    </tabs-with-select>
 </div>
 
 <div class="hidden pb-4 lg:flex lg:-mx-2">

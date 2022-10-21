@@ -72,7 +72,7 @@ switch ($level) {
             </div>
         </div>
 
-        <tabs>
+        <tabs dark-mode>
             <tab @if ($resourceType === 'free-resources') :selected="true" @endif
                 name="{{ __('Free resources') }}"
                 url="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'free-resources']) }}">
@@ -99,12 +99,13 @@ switch ($level) {
             --}}
         </tabs>
 
-        <x-panel>
-            <resource-language-preference-switcher class="md:-mt-5 lg:-mt-8 xl:-mt-6"
-                language="{{ Localization::languageForLocale(locale()) }}"
-                initial-choice="{{ $currentResourceLanguagePreference }}">
-            </resource-language-preference-switcher>
+        <resource-language-preference-switcher
+            class="px-4 mb-8 sm:px-0"
+            language="{{ Localization::languageForLocale(locale()) }}"
+            initial-choice="{{ $currentResourceLanguagePreference }}">
+        </resource-language-preference-switcher>
 
+        <x-panel>
             <div>
                 @php
                     $freeResources = $resources->where('is_free', true);

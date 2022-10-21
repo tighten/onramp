@@ -8,10 +8,12 @@ use App\Models\Term;
 use App\OperatingSystem;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Resource extends Model implements Completable
 {
     use HasFactory;
+    use SoftDeletes;
 
     public const VIDEO_TYPE = 'video';
     public const COURSE_TYPE = 'course';
@@ -102,6 +104,11 @@ class Resource extends Model implements Completable
     public function getDaysTilExpiredAttribute()
     {
         return $this->expiration_date->diffForHumans();
+    }
+
+    public function getIsTrashedAttribute()
+    {
+        return $this->deleted_at ? 'Yes' : 'No';
     }
 
     public function isAssignedToAModule()

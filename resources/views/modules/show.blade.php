@@ -51,7 +51,7 @@ switch ($level) {
                     </div>
                 @endif
 
-                <div x-data="{ showMore: false, hideMore: true }">
+                <div x-data="{ showMore: false }">
                     <p class="mb-3 text-xl font-semibold md:mb-7 md:text-2xl lg:text-3xl">{{ __('Skills') }}</p>
                     <ul class="flex flex-wrap -m-1 md:-m-2">
                         @forelse ($skills as $skill)

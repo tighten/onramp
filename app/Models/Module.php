@@ -6,7 +6,6 @@ use App\Completable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
-use stdClass;
 
 class Module extends Model implements Completable
 {
@@ -45,7 +44,7 @@ class Module extends Model implements Completable
 
     public function skills()
     {
-        return $this->hasMany(Skill::class)->oldest('id');
+        return $this->hasMany(Skill::class);
     }
 
     public function completions()
@@ -102,38 +101,4 @@ class Module extends Model implements Completable
             ->first();
     }
 
-    public function showMoreSkills() {
-        $total = $this->skills()->count();
-        if ( $total - 4 > 0) {
-            $result = [];
-            $moreSkills = $this->hasMany(Skill::class)->latest('id')->take($total - 4)->get();
-            foreach ($moreSkills as $index => $moreSkill) {
-                $preparedObjectFE = new stdClass();
-                //completable
-                if (auth()->check() && auth()->user()->hasTrack() && auth()->user()->track->modules->contains($this->id)) {
-                    $preparedObjectFE->completable = true;
-                } else {
-                    $preparedObjectFE->completable = false;
-                }
-
-                //init-completed
-                if (auth()->check() ? auth()->user()->skillCompletions()->pluck('completable_id') : collect([])->contains($moreSkill->id)) {
-                    $preparedObjectFE->initCompleted = true;
-                } else {
-                    $preparedObjectFE->initCompleted = false;
-                }
-
-                //id
-                $preparedObjectFE->id = $moreSkill->id;
-                //text
-                $preparedObjectFE->text = $moreSkill->name;
-                //type
-                $preparedObjectFE->type = $moreSkill->getMorphClass();
-
-                $result[] = $preparedObjectFE;
-            }
-            return $result;
-        }
-        return null;
-    }
 }

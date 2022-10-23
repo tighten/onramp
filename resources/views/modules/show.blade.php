@@ -63,7 +63,7 @@ switch ($level) {
                                     text="{{ $skill->name }}"
                                     type="{{ $skill->getMorphClass() }}"
                                 ></skill>
-                            @elseif ($loop->index == 4)
+                            @else
                                 <skill x-show="showMore" x-transition
                                        @if (Auth::check() && Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id)) :completable="true" @else :completable="false" @endif
                                        :init-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
@@ -71,30 +71,20 @@ switch ($level) {
                                        text="{{ $skill->name }}"
                                        type="{{ $skill->getMorphClass() }}"
                                 ></skill>
+                            @endif
+
+                            @if ($loop->index == 3 && count($skills) > 4)
                                 <button x-on:click="showMore = !showMore;"  x-show="!showMore" class="relative block px-4 py-2 m-1 font-bold leading-5 text-left md:m-2 text-teal sm:leading-6 lg:text-xl lg:leading-8">
                                     <span class="absolute inset-0 w-full h-full transition-all duration-200 ease-in-out rounded-md bg-opacity-20 bg-teal"></span>
                                     <span>+ {{ count($skills) - 4  . ' ' . __('more') }}</span>
                                 </button>
-                            @elseif ($loop->last)
-                                <skill x-show="showMore"
-                                       @if (Auth::check() && Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id)) :completable="true" @else :completable="false" @endif
-                                       :init-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
-                                       id="{{ $skill->id }}"
-                                       text="{{ $skill->name }}"
-                                       type="{{ $skill->getMorphClass() }}"
-                                ></skill>
+                            @endif
+
+                            @if ($loop->last && count($skills) > 4)
                                 <button x-on:click="showMore = !showMore;"  x-show="showMore" x-transition class="relative block px-4 py-2 m-1 font-bold leading-5 text-left md:m-2 text-teal sm:leading-6 lg:text-xl lg:leading-8">
                                     <span class="absolute inset-0 w-full h-full transition-all duration-200 ease-in-out rounded-md bg-opacity-20 bg-teal"></span>
                                     <span>- {{ count($skills) - 4  . ' ' . __('more') }}</span>
                                 </button>
-                            @else
-                                <skill x-show="showMore" x-transition
-                                    @if (Auth::check() && Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id)) :completable="true" @else :completable="false" @endif
-                                :init-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
-                                    id="{{ $skill->id }}"
-                                    text="{{ $skill->name }}"
-                                    type="{{ $skill->getMorphClass() }}"
-                                ></skill>
                             @endif
                         @empty
                             <li class="relative block m-1 md:m-2">

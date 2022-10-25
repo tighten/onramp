@@ -58,18 +58,18 @@ switch ($level) {
                             @if ($loop->index < 4)
                                 <skill
                                     @if (Auth::check() && Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id)) :completable="true" @else :completable="false" @endif
-                                :init-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
+                                    :init-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
                                     id="{{ $skill->id }}"
                                     text="{{ $skill->name }}"
                                     type="{{ $skill->getMorphClass() }}"
                                 ></skill>
                             @else
                                 <skill x-show="showMore"
-                                       @if (Auth::check() && Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id)) :completable="true" @else :completable="false" @endif
-                                       :init-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
-                                       id="{{ $skill->id }}"
-                                       text="{{ $skill->name }}"
-                                       type="{{ $skill->getMorphClass() }}"
+                                   @if (Auth::check() && Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id)) :completable="true" @else :completable="false" @endif
+                                   :init-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
+                                   id="{{ $skill->id }}"
+                                   text="{{ $skill->name }}"
+                                   type="{{ $skill->getMorphClass() }}"
                                 ></skill>
                             @endif
 

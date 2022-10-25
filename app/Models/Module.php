@@ -100,5 +100,4 @@ class Module extends Model implements Completable
             ->orderBy('id', 'asc')
             ->first();
     }
-
 }

@@ -10,7 +10,7 @@ class GetExpiredResources extends Command
 {
     protected $signature = 'resource:expired {--N|notify} {--T|trashed}';
 
-    protected $description = 'List or notify Tighten of expired resources. Used the --trashed option to view resources that have been soft deleted.';
+    protected $description = 'List or notify Tighten of expired resources. Use the --trashed option to view resources that have been soft deleted.';
 
     protected $outputHeaders = [
         'Resource Name',

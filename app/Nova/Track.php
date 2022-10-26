@@ -29,6 +29,8 @@ class Track extends BaseResource
         'id', 'name',
     ];
 
+    public static $tableStyle = 'tight';
+
     /**
      * Get the fields displayed by the resource.
      *

@@ -18,6 +18,8 @@ class Term extends BaseResource
         'id', 'name', 'description',
     ];
 
+    public static $tableStyle = 'tight';
+
     /**
      * Get the fields displayed by the resource.
      *

@@ -35,6 +35,8 @@ class Resource extends BaseResource
         'id', 'name',
     ];
 
+    public static $tableStyle = 'tight';
+
     public function typeFields()
     {
         return collect(EloquentResource::TYPES)->mapWithKeys(function ($value) {
@@ -59,7 +61,12 @@ class Resource extends BaseResource
 
             URL::make('URL')
                 ->displayUsing(fn () => "{$this->url}")
-                ->rules('required', 'max:255', 'url'),
+                ->rules('required', 'max:255', 'url')
+                ->hideFromIndex(),
+
+            URL::make('URL')
+                ->displayUsing(fn () => 'Visit Link')
+                ->onlyOnIndex(),
 
             Select::make('Type')
                 ->options($this->typeFields())
@@ -76,7 +83,7 @@ class Resource extends BaseResource
             Boolean::make('Is Bonus')
                 ->hideFromIndex(),
 
-            Boolean::make('Is Assigned To Module', function () {
+            Boolean::make('Assigned To Module', function () {
                 return $this->isAssignedToAModule();
             }),
 

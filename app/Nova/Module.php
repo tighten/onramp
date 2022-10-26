@@ -34,6 +34,8 @@ class Module extends BaseResource
         'id', 'name', 'slug',
     ];
 
+    public static $tableStyle = 'tight';
+
     /**
      * Get the fields displayed by the resource.
      *

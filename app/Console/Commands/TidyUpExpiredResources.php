@@ -13,7 +13,7 @@ class TidyUpExpiredResources extends Command
 
     protected $signature = 'resource:tidy {--P|prune} {--preview}';
 
-    protected $description = 'Soft or force delete expired resources. Use the --preview option to view the expired resources report.';
+    protected $description = 'Soft or force delete expired resources. Use the --preview option to view the full expired resources report.';
 
     public function handle()
     {
@@ -24,7 +24,9 @@ class TidyUpExpiredResources extends Command
         }
 
         if ($this->option('preview')) {
-            return $this->call('resource:expired');
+            return $this->call('resource:expired', [
+                '--trashed' => true,
+            ]);
         }
 
         if ($this->pruneExpiredResources()) {

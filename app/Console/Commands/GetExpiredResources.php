@@ -8,9 +8,19 @@ use Illuminate\Support\Facades\Event;
 
 class GetExpiredResources extends Command
 {
-    protected $signature = 'resource:expired {--N|notify}';
+    protected $signature = 'resource:expired {--N|notify} {--T|trashed}';
 
-    protected $description = 'List or notify Tighten of expired resources.';
+    protected $description = 'List or notify Tighten of expired resources. Use the --trashed option to view resources that have been soft deleted.';
+
+    protected $outputHeaders = [
+        'Resource Name',
+        'URL',
+        'Days Til Expired',
+    ];
+
+    protected $outputAppends = [
+        'days_til_expired',
+    ];
 
     public function handle()
     {
@@ -18,7 +28,9 @@ class GetExpiredResources extends Command
             ->orWhere(function ($query) {
                 $query->expiring();
             })
-            ->withTrashed()
+            ->when($this->option('trashed'), function ($query) {
+                return $query->withTrashed();
+            })
             ->with('modules')
             ->get([
                 'name',
@@ -38,10 +50,15 @@ class GetExpiredResources extends Command
             return;
         }
 
+        if ($this->option('trashed')) {
+            array_push($this->outputHeaders, 'Trashed');
+            array_push($this->outputAppends, 'is_trashed');
+        }
+
         $this->table(
-            ['Resource Name', 'URL', 'Days Til Expired', 'Trashed'],
+            $this->outputHeaders,
             $expiredResources->each
-                ->setAppends(['days_til_expired', 'is_trashed'])
+                ->setAppends($this->outputAppends)
                 ->makeHidden(['modules', 'created_at', 'expiration_date', 'deleted_at'])
                 ->toArray(),
         );

@@ -21,9 +21,6 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('resource:expired -N')
             ->weeklyOn(Schedule::FRIDAY, '06:00');
-
-        $schedule->command('resource:tidy')
-            ->daily();
     }
 
     /**

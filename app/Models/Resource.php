@@ -126,7 +126,7 @@ class Resource extends Model implements Completable
 
     public function isExpired()
     {
-        return $this->expiration_date->isPast();
+        return $this->expiration_date?->isPast();
     }
 
     public function isExpiring()

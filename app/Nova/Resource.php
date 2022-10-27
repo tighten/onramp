@@ -123,7 +123,9 @@ class Resource extends BaseResource
      */
     public function filters(Request $request)
     {
-        return [];
+        return [
+            new Filters\ExpiredResource(),
+        ];
     }
 
     /**

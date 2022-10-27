@@ -9,9 +9,11 @@ use App\OperatingSystem;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Nova\Actions\Actionable;
 
 class Resource extends Model implements Completable
 {
+    use Actionable;
     use HasFactory;
     use SoftDeletes;
 
@@ -28,6 +30,9 @@ class Resource extends Model implements Completable
         self::BOOK_TYPE,
         self::ARTICLE_TYPE,
     ];
+
+    public const NOT_TRASHED = 'no';
+    public const TRASHED = 'yes';
 
     protected $appends = ['is_new'];
     protected $guarded = ['id'];
@@ -122,7 +127,7 @@ class Resource extends Model implements Completable
 
     public function getIsTrashedAttribute()
     {
-        return $this->deleted_at ? 'Yes' : 'No';
+        return $this->deleted_at ? self::TRASHED : self::NOT_TRASHED;
     }
 
     public function isAssignedToAModule()

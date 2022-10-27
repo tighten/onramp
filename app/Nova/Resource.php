@@ -12,6 +12,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\URL;
+use Laravel\Nova\Http\Requests\ActionRequest;
 
 class Resource extends BaseResource
 {
@@ -147,6 +148,13 @@ class Resource extends BaseResource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            (new Actions\RenewResource())
+                ->canSee(function ($request) {
+                    return $request instanceof ActionRequest
+                        || ($this->resource->exists && ($this->resource->isExpired() && ! $this->resource->trashed()));
+                })
+                ->exceptOnIndex(),
+        ];
     }
 }

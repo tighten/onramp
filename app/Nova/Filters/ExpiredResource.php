@@ -13,14 +13,14 @@ class ExpiredResource extends Filter
 
     public function apply(NovaRequest $request, $query, $value)
     {
-        return $query->where('expiration_date', $value === 'expired' ? '<' : '>', now());
+        return $query->where('expiration_date', $value, now());
     }
 
     public function options(NovaRequest $request)
     {
         return [
-            'Only Expired' => 'expired',
-            'Only Active' => 'active',
+            'Only Expired' => '<',
+            'Only Active' => '>',
         ];
     }
 }

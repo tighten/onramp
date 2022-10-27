@@ -10,7 +10,7 @@ use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class RenewResource extends Action implements ShouldQueue
+class RenewResource extends Action
 {
     use InteractsWithQueue;
     use Queueable;

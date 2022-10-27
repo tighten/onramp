@@ -32,14 +32,13 @@ class ResourceFactory extends Factory
             'language' => $this->faker->randomElement(['en', 'es']),
             'os' => $this->faker->randomElement(OperatingSystem::ALL),
             'can_expire' => true,
-            'expiration_date' => Carbon::now()->addMonths(6),
         ];
     }
 
 
     public function doesntExpire()
     {
-        return $this->state(function (array $attributes) {
+        return $this->quiet()->state(function (array $attributes) {
             return [
                 'can_expire' => false,
                 'expiration_date' => null,
@@ -51,7 +50,7 @@ class ResourceFactory extends Factory
     {
         Carbon::setTestNow(Carbon::today());
 
-        return $this->state(function (array $attributes) {
+        return $this->quiet()->state(function (array $attributes) {
             return [
                 'can_expire' => true,
                 'expiration_date' => Carbon::now()->subDays(1),
@@ -63,7 +62,7 @@ class ResourceFactory extends Factory
     {
         Carbon::setTestNow(Carbon::today());
 
-        return $this->state(function (array $attributes) {
+        return $this->quiet()->state(function (array $attributes) {
             return [
                 'can_expire' => true,
                 'expiration_date' => Carbon::now()->addDays(14),

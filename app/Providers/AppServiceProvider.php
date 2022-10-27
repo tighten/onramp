@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Handlers\Events\SlackSubscriber;
+use Illuminate\Database\Eloquent\Factories\Factory as ModelFactory;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
@@ -43,5 +44,10 @@ class AppServiceProvider extends ServiceProvider
         }
 
         $this->app->setLocale(locale());
+
+        ModelFactory::macro('quiet', function () {
+            $this->model::flushEventListeners();
+            return $this;
+        });
     }
 }

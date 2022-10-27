@@ -96,4 +96,35 @@ class ResourceExpirationTest extends TestCase
 
         $this->assertNull($resource->expiration_date);
     }
+
+    /** @test */
+    public function a_six_month_expiration_date_is_set_when_a_resource_is_updated_to_expire()
+    {
+        Carbon::setTestNow($date = Carbon::createFromDate(today()));
+
+        $resource = Resource::factory()->create([
+            'can_expire' => false,
+            'expiration_date' => null,
+        ]);
+
+        $resource->can_expire = true;
+        $resource->save();
+
+        $this->assertTrue($date->addMonths(6)->eq($resource->expiration_date));
+    }
+
+    /** @test */
+    public function expiration_date_is_unset_when_a_resource_is_updated_to_not_expire()
+    {
+        Carbon::setTestNow($date = Carbon::createFromDate(today()));
+
+        $resource = Resource::factory()->create([
+            'can_expire' => true,
+        ]);
+
+        $resource->can_expire = false;
+        $resource->save();
+
+        $this->assertNull($resource->expiration_date);
+    }
 }

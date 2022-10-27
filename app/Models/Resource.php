@@ -46,6 +46,12 @@ class Resource extends Model implements Completable
                 $resource->expiration_date = now()->addMonths(6);
             }
         });
+
+        static::updating(function ($resource) {
+            if (! $resource->can_expire) {
+                $resource->expiration_date = null;
+            }
+        });
     }
 
     public function modules()

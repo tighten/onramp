@@ -91,7 +91,7 @@ class Resource extends BaseResource
                 ->hideFromIndex(),
 
             DateTime::make('Expiration Date')
-                ->hideFromIndex(),
+                ->onlyOnDetail(),
 
             DateTime::make('Date Added', 'created_at')
                 ->hideFromIndex()

@@ -31,6 +31,14 @@
             </span>
         </div>
 
+        <div class="px-4 lg:mt-18 fluid-container md:px-12 xl:px-20 2xl:px-32 relative flex items-center w-full">
+            <div class="relative w-full">
+                <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                    <svg aria-hidden="true" class="w-5 h-5 text-gray" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
+                </div>
+                <input type="text" v-model="search" class="border border-purple text-gray text-sm rounded-lg block w-full pl-10 p-2.5" placeholder="Search" required>
+            </div>
+        </div>
         <tabs
             class="mt-10"
             ref="tabs"
@@ -202,7 +210,8 @@ export default {
                 }
             ],
             showAllModules: !this.userLoggedIn,
-            currentBonusModules: this.filterBonusModules()
+            allModules: this.standardModules.concat(this.bonusModules),
+            search: '',
         };
     },
 
@@ -225,20 +234,32 @@ export default {
             }
 
             return this.tabs;
+        },
+        currentBonusModules() {
+            return this.filterBonusModules()
         }
     },
 
+    watch: {
+        search: function (value) {
+            this.allModules = this.standardModules.concat(this.bonusModules);
+            this.allModules = this.allModules.filter(module => {
+                return module.name.en.toLowerCase().includes(value.toLowerCase())
+            });
+            console.log(this.allModules);
+        }
+    },
     methods: {
         filterStandardModules(skillLevel) {
             if (!this.userLoggedIn) {
                 return this.standardModules.filter(
-                    x => x.skill_level === skillLevel
+                    x => x.skill_level === skillLevel && this.allModules.includes(x)
                 );
             }
 
             if (this.userLoggedIn && this.showAllModules) {
                 let modules = this.standardModules.filter(
-                    x => x.skill_level === skillLevel
+                    x => x.skill_level === skillLevel && this.allModules.includes(x)
                 );
 
                 let userModules = modules.filter(x =>
@@ -262,15 +283,21 @@ export default {
 
         filterBonusModules() {
             if (!this.userLoggedIn) {
-                return this.bonusModules;
+                return this.bonusModules.filter(
+                    x => this.allModules != undefined && this.allModules.includes(x)
+                );
             }
 
             if (this.userLoggedIn && this.showAllModules) {
-                let userModules = this.bonusModules.filter(({ id }) =>
+                let bonusModules = this.bonusModules.filter(
+                    x => this.allModules != undefined && this.allModules.includes(x)
+                );
+
+                let userModules = bonusModules.filter(({ id }) =>
                     this.userModules.includes(id)
                 );
 
-                let modules = this.bonusModules.filter(
+                let modules = bonusModules.filter(
                     ({ id }) => !this.userModules.includes(id)
                 );
 

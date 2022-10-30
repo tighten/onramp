@@ -244,9 +244,8 @@ export default {
         search: function (value) {
             this.allModules = this.standardModules.concat(this.bonusModules);
             this.allModules = this.allModules.filter(module => {
-                return module.name.en.toLowerCase().includes(value.toLowerCase())
+                return module.name[trans.locale].toLowerCase().includes(value.toLowerCase())
             });
-            console.log(this.allModules);
         }
     },
     methods: {

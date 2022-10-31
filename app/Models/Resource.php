@@ -9,11 +9,9 @@ use App\OperatingSystem;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Laravel\Nova\Actions\Actionable;
 
 class Resource extends Model implements Completable
 {
-    use Actionable;
     use HasFactory;
     use SoftDeletes;
 

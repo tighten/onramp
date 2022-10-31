@@ -42,17 +42,22 @@ class Resource extends Model implements Completable
         'expiration_date' => 'datetime',
     ];
 
+    public static function getNewExpirationDate()
+    {
+        return now()->addMonths(config('resources.default_expiration_length'));
+    }
+
     protected static function booted()
     {
         static::creating(function ($resource) {
             if ($resource->can_expire) {
-                $resource->expiration_date = now()->addMonths(6);
+                $resource->expiration_date = self::getNewExpirationDate();
             }
         });
 
         static::updating(function ($resource) {
             $resource->expiration_date = $resource->can_expire
-                ? now()->addMonths(6)
+                ? self::getNewExpirationDate()
                 : null;
         });
     }

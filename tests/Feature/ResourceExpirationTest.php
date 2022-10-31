@@ -84,7 +84,9 @@ class ResourceExpirationTest extends TestCase
             'can_expire' => true,
         ]);
 
-        $this->assertTrue($date->addMonths(6)->eq($resource->expiration_date));
+        $this->assertTrue(
+            $date->addMonths(config('resources.default_expiration_length'))->eq($resource->expiration_date)
+        );
     }
 
     /** @test */
@@ -110,7 +112,9 @@ class ResourceExpirationTest extends TestCase
         $resource->can_expire = true;
         $resource->save();
 
-        $this->assertTrue($date->addMonths(6)->eq($resource->expiration_date));
+        $this->assertTrue(
+            $date->addMonths(config('resources.default_expiration_length'))->eq($resource->expiration_date)
+        );
     }
 
     /** @test */

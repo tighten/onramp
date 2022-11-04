@@ -161,6 +161,9 @@
 </template>
 
 <script>
+import Fuse from 'fuse.js'
+import Vue from "vue";
+
 export default {
     props: {
         standardModules: {
@@ -243,9 +246,28 @@ export default {
     watch: {
         search: function (value) {
             this.allModules = this.standardModules.concat(this.bonusModules);
-            this.allModules = this.allModules.filter(module => {
-                return module.name[trans.locale].toLowerCase().includes(value.toLowerCase())
+            let arrayOfModulesName = [];
+            this.allModules.filter(module => {
+                let variable = {};
+                let locale = Vue.prototype.trans.getLocale();
+                variable.id = module.id;
+                variable.name = module.name[locale];
+                arrayOfModulesName.push(variable);
             });
+            const fuse = new Fuse(arrayOfModulesName, {
+                keys: ['name']
+            })
+            if (value != '') {
+                const result = fuse.search(value);
+
+                this.allModules = this.allModules.filter(module => {
+                    for (let i = 0; i < result.length; i++) {
+                        if (module.id == result[i].item.id) {
+                            return module;
+                        }
+                    }
+                });
+            }
         }
     },
     methods: {

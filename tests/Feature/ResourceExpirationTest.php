@@ -16,8 +16,8 @@ class ResourceExpirationTest extends TestCase
     /** @test */
     public function resources_can_be_expired_or_expiring()
     {
-        $resourceA = Resource::factory()->expired()->create();
-        $resourceB = Resource::factory()->expiring()->create();
+        $resourceA = Resource::factory()->expired()->createQuietly();
+        $resourceB = Resource::factory()->expiring()->createQuietly();
 
         $this->assertTrue($resourceA->isExpired());
         $this->assertTrue($resourceB->isExpiring());
@@ -26,8 +26,8 @@ class ResourceExpirationTest extends TestCase
     /** @test */
     public function can_scope_expiring_and_expired_resources()
     {
-        Resource::factory()->expired()->create();
-        Resource::factory()->expiring()->create();
+        Resource::factory()->expired()->createQuietly();
+        Resource::factory()->expiring()->createQuietly();
 
         $this->assertCount(2, Resource::expired()
             ->orWhere(function ($query) {
@@ -43,7 +43,7 @@ class ResourceExpirationTest extends TestCase
         Resource::factory()
             ->count(3)
             ->expired()
-            ->create();
+            ->createQuietly();
 
         Artisan::call('resource:expired -N');
 
@@ -58,7 +58,7 @@ class ResourceExpirationTest extends TestCase
         Resource::factory()
             ->count(3)
             ->expiring()
-            ->create();
+            ->createQuietly();
 
         Artisan::call('resource:expired -N');
 
@@ -68,8 +68,8 @@ class ResourceExpirationTest extends TestCase
     /** @test */
     public function expired_resources_have_an_expiration_label()
     {
-        $resourceA = Resource::factory()->expired()->create();
-        $resourceB = Resource::factory()->expiring()->create();
+        $resourceA = Resource::factory()->expired()->createQuietly();
+        $resourceB = Resource::factory()->expiring()->createQuietly();
 
         $this->assertSame('1 day ago', $resourceA->days_til_expired);
         $this->assertSame('2 weeks from now', $resourceB->days_til_expired);

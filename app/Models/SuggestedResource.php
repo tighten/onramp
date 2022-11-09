@@ -10,7 +10,6 @@ use Laravel\Nova\Actions\Actionable;
 class SuggestedResource extends Model
 {
     use HasFactory;
-
     use Actionable;
 
     const VIDEO_TYPE = 'video';

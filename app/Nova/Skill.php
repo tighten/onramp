@@ -19,6 +19,8 @@ class Skill extends Resource
         'name',
     ];
 
+    public static $tableStyle = 'tight';
+
     /**
      * Get the fields displayed by the resource.
      *
@@ -34,9 +36,9 @@ class Skill extends Resource
                 Text::make('Name'),
             ]),
 
-            Boolean::make('Is Bonus'),
-
             BelongsTo::make('Module'),
+
+            Boolean::make('Is Bonus'),
         ];
     }
 

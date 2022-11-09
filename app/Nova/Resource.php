@@ -12,6 +12,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\URL;
+use Laravel\Nova\Http\Requests\ActionRequest;
 
 class Resource extends BaseResource
 {
@@ -34,6 +35,8 @@ class Resource extends BaseResource
     public static $search = [
         'id', 'name',
     ];
+
+    public static $tableStyle = 'tight';
 
     public function typeFields()
     {
@@ -59,7 +62,12 @@ class Resource extends BaseResource
 
             URL::make('URL')
                 ->displayUsing(fn () => "{$this->url}")
-                ->rules('required', 'max:255', 'url'),
+                ->rules('required', 'max:255', 'url')
+                ->hideFromIndex(),
+
+            URL::make('URL')
+                ->displayUsing(fn () => 'Visit Link')
+                ->onlyOnIndex(),
 
             Select::make('Type')
                 ->options($this->typeFields())
@@ -76,7 +84,7 @@ class Resource extends BaseResource
             Boolean::make('Is Bonus')
                 ->hideFromIndex(),
 
-            Boolean::make('Is Assigned To Module', function () {
+            Boolean::make('Assigned To Module', function () {
                 return $this->isAssignedToAModule();
             }),
 
@@ -84,7 +92,7 @@ class Resource extends BaseResource
                 ->hideFromIndex(),
 
             DateTime::make('Expiration Date')
-                ->hideFromIndex(),
+                ->onlyOnDetail(),
 
             DateTime::make('Date Added', 'created_at')
                 ->hideFromIndex()
@@ -116,7 +124,9 @@ class Resource extends BaseResource
      */
     public function filters(Request $request)
     {
-        return [];
+        return [
+            new Filters\ExpiredResource(),
+        ];
     }
 
     /**
@@ -138,6 +148,13 @@ class Resource extends BaseResource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            (new Actions\RenewResource())
+                ->canSee(function ($request) {
+                    return $request instanceof ActionRequest
+                        || ($this->resource->exists && ($this->resource->isExpired() && ! $this->resource->trashed()));
+                })
+                ->exceptOnIndex(),
+        ];
     }
 }

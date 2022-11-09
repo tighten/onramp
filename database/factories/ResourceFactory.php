@@ -38,7 +38,7 @@ class ResourceFactory extends Factory
 
     public function doesntExpire()
     {
-        return $this->quiet()->state(function (array $attributes) {
+        return $this->state(function (array $attributes) {
             return [
                 'can_expire' => false,
                 'expiration_date' => null,
@@ -50,7 +50,7 @@ class ResourceFactory extends Factory
     {
         Carbon::setTestNow(Carbon::today());
 
-        return $this->quiet()->state(function (array $attributes) {
+        return $this->state(function (array $attributes) {
             return [
                 'can_expire' => true,
                 'expiration_date' => Carbon::now()->subDays(1),
@@ -62,7 +62,7 @@ class ResourceFactory extends Factory
     {
         Carbon::setTestNow(Carbon::today());
 
-        return $this->quiet()->state(function (array $attributes) {
+        return $this->state(function (array $attributes) {
             return [
                 'can_expire' => true,
                 'expiration_date' => Carbon::now()->addDays(14),

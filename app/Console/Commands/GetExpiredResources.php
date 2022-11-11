@@ -32,6 +32,7 @@ class GetExpiredResources extends Command
                 return $query->withTrashed();
             })
             ->with('modules')
+            ->oldest('expiration_date')
             ->get([
                 'name',
                 'url',

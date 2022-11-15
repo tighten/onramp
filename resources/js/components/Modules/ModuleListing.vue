@@ -31,12 +31,21 @@
             </span>
         </div>
 
-        <div class="px-4 lg:mt-18 fluid-container md:px-12 xl:px-20 2xl:px-32 relative flex items-center w-full">
+        <div class="px-4 lg:mt-18 fluid-container md:px-12 xl:px-20 2xl:px-32 relative flex items-center w-full mt-5">
             <div class="relative w-full">
                 <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                     <svg aria-hidden="true" class="w-5 h-5 text-gray" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
                 </div>
-                <input type="text" v-model="search" class="border border-purple text-gray text-sm rounded-lg block w-full pl-10 p-2.5" placeholder="Search" required>
+                <v-select
+                    :filter="fuseSearch"
+                    :options="allModules"
+                    @input="changeRoute($event)"
+                    :get-option-label="(option) => option.slug"
+                >
+                    <template #option="{ id, slug, name }">
+                        {{ name["en"] }}
+                    </template>
+                </v-select>
             </div>
         </div>
         <tabs
@@ -162,8 +171,11 @@
 
 <script>
 import Fuse from 'fuse.js'
-import Vue from "vue";
+import Vue from 'vue';
+import vSelect from 'vue-select'
+import 'vue-select/dist/vue-select.css';
 
+Vue.component('v-select', vSelect)
 export default {
     props: {
         standardModules: {
@@ -213,8 +225,8 @@ export default {
                 }
             ],
             showAllModules: !this.userLoggedIn,
+            currentBonusModules: this.filterBonusModules(),
             allModules: this.standardModules.concat(this.bonusModules),
-            search: '',
         };
     },
 
@@ -238,49 +250,33 @@ export default {
 
             return this.tabs;
         },
-        currentBonusModules() {
-            return this.filterBonusModules()
-        }
-    },
-
-    watch: {
-        search: function (value) {
-            this.allModules = this.standardModules.concat(this.bonusModules);
-            let arrayOfModulesName = [];
-            this.allModules.filter(module => {
-                let variable = {};
-                let locale = Vue.prototype.trans.getLocale();
-                variable.id = module.id;
-                variable.name = module.name[locale];
-                arrayOfModulesName.push(variable);
-            });
-            const fuse = new Fuse(arrayOfModulesName, {
-                keys: ['name']
-            })
-            if (value != '') {
-                const result = fuse.search(value);
-
-                this.allModules = this.allModules.filter(module => {
-                    for (let i = 0; i < result.length; i++) {
-                        if (module.id == result[i].item.id) {
-                            return module;
-                        }
-                    }
-                });
-            }
-        }
+        allModules: () => this.allModules,
     },
     methods: {
+        fuseSearch (options, search) {
+            let locale = 'name.' + Vue.prototype.trans.getLocale();
+
+            const fuse = new Fuse(options, {
+                keys: ["`${locale}", "slug", "id"],
+                shouldSort: true,
+            })
+            return search.length
+                ? fuse.search(search).map(({ item }) => item)
+                : fuse.list
+        },
+        changeRoute(e) {
+            window.location.href = `/${Vue.prototype.trans.getLocale()}/modules/${e.slug}/free-resources`;
+        },
         filterStandardModules(skillLevel) {
             if (!this.userLoggedIn) {
                 return this.standardModules.filter(
-                    x => x.skill_level === skillLevel && this.allModules.includes(x)
+                    x => x.skill_level === skillLevel
                 );
             }
 
             if (this.userLoggedIn && this.showAllModules) {
                 let modules = this.standardModules.filter(
-                    x => x.skill_level === skillLevel && this.allModules.includes(x)
+                    x => x.skill_level === skillLevel
                 );
 
                 let userModules = modules.filter(x =>
@@ -304,21 +300,15 @@ export default {
 
         filterBonusModules() {
             if (!this.userLoggedIn) {
-                return this.bonusModules.filter(
-                    x => this.allModules != undefined && this.allModules.includes(x)
-                );
+                return this.bonusModules;
             }
 
             if (this.userLoggedIn && this.showAllModules) {
-                let bonusModules = this.bonusModules.filter(
-                    x => this.allModules != undefined && this.allModules.includes(x)
-                );
-
-                let userModules = bonusModules.filter(({ id }) =>
+                let userModules = this.bonusModules.filter(({ id }) =>
                     this.userModules.includes(id)
                 );
 
-                let modules = bonusModules.filter(
+                let modules = this.bonusModules.filter(
                     ({ id }) => !this.userModules.includes(id)
                 );
 

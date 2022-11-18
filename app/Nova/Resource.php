@@ -151,12 +151,19 @@ class Resource extends BaseResource
         return [
             (new Actions\RenewResource())
                 ->canSee(function ($request) {
-                    $shouldRenew = $this->resource->isExpired() || $this->resource->isExpiring();
+                    if (! $resourceIds = $request->input('resources')) {
+                        return;
+                    }
 
-                    return $request instanceof ActionRequest
-                        || ($this->resource->exists && ($shouldRenew && ! $this->resource->trashed()));
-                })
-                ->exceptOnIndex(),
+                    $resources = EloquentResource::whereIn('id', $resourceIds)->get();
+
+                    $cantRenew = $resources->filter(function ($resource) {
+                        // if resource not expired or expiring or is in trash, cant renew
+                        return ! ($resource->isExpired() || $resource->isExpiring()) || $resource->trashed();
+                    });
+
+                    return $request instanceof ActionRequest || ! count($cantRenew);
+                }),
         ];
     }
 }

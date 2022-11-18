@@ -56,6 +56,10 @@ class Resource extends Model implements Completable
         });
 
         static::updating(function ($resource) {
+            if (! $resource->isDirty('can_expire')) {
+                return;
+            }
+
             $resource->expiration_date = $resource->can_expire
                 ? self::getNewExpirationDate()
                 : null;

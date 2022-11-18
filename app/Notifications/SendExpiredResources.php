@@ -7,7 +7,7 @@ use NathanHeffley\LaravelSlackBlocks\Messages\SlackMessage;
 
 class SendExpiredResources extends Notification
 {
-    const REPORT_LIMIT = 9;
+    public const REPORT_LIMIT = 9;
 
     public function __construct(protected $expiredResources)
     {
@@ -68,7 +68,7 @@ class SendExpiredResources extends Notification
             });
         });
 
-        if($remainingResources = $this->getRemainingResourcesCount()) {
+        if ($remainingResources = $this->getRemainingResourcesCount()) {
             $msg->attachment(function ($attachment) use ($remainingResources) {
                 $attachment->block(function ($block) use ($remainingResources) {
                     $block

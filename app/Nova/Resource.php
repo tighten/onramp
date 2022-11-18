@@ -151,8 +151,10 @@ class Resource extends BaseResource
         return [
             (new Actions\RenewResource())
                 ->canSee(function ($request) {
+                    $shouldRenew = $this->resource->isExpired() || $this->resource->isExpiring();
+
                     return $request instanceof ActionRequest
-                        || ($this->resource->exists && ($this->resource->isExpired() && ! $this->resource->trashed()));
+                        || ($this->resource->exists && ($shouldRenew && ! $this->resource->trashed()));
                 })
                 ->exceptOnIndex(),
         ];

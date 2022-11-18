@@ -149,7 +149,7 @@ class Resource extends Model implements Completable
 
     public function isExpiring()
     {
-        return $this->expiration_date->between(
+        return $this->expiration_date?->between(
             now()->toDateTimeString(),
             now()->addDays(15)->toDateTimeString(),
         );

@@ -41,6 +41,7 @@
                     :options="allModules"
                     @input="changeRoute($event)"
                     :get-option-label="(option) => option.slug"
+                    placeholder="Search Modules"
                 >
                     <template #option="{ id, slug, name }">
                         {{ name["en"] }}

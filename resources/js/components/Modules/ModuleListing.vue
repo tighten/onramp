@@ -1,62 +1,46 @@
 <template>
     <div>
         <div
-            v-if="userLoggedIn"
-            class="px-4 text-center sm:text-right lg:mt-18 fluid-container md:px-12 xl:px-20 2xl:px-32"
+            class="w-full grid grid-cols-12 px-4 space-y-4 sm:space-y-0 lg:mt-18 md:px-8 lg:px-20 2xl:px-32"
         >
-            <span class="relative z-0 inline-flex rounded-md shadow-sm">
-                <button
-                    type="button"
-                    class="relative inline-flex items-center p-2 text-sm leading-5 transition duration-100 ease-in-out bg-white border-2 md:px-4 border-silver rounded-l-md focus:z-10 focus:outline-none focus:shadow-outline-teal"
-                    :class="{
-                        'pointer-events-none border-emerald text-emerald shadow-md font-semibold':
-                            showAllModules === true,
-                    }"
-                    @click="toggleShowAllModules"
-                >
-                    All Modules
-                </button>
-
-                <button
-                    type="button"
-                    class="relative inline-flex items-center px-4 py-2 -ml-px text-sm leading-5 transition duration-100 ease-in-out bg-white border-2 border-silver rounded-r-md focus:z-10 focus:outline-none focus:shadow-outline-blue"
-                    :class="{
-                        'pointer-events-none border-emerald text-emerald shadow-md font-semibold':
-                            showAllModules === false,
-                    }"
-                    @click="toggleShowAllModules"
-                >
-                    My Modules
-                </button>
-            </span>
-        </div>
-
-        <div
-            class="px-4 lg:mt-18 fluid-container md:px-12 xl:px-20 2xl:px-32 relative flex items-center w-full mt-5"
-        >
-            <div class="relative w-full">
-                <div
-                    class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
-                >
-                    <svg
-                        aria-hidden="true"
-                        class="w-5 h-5 text-gray"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
+            <div
+                v-if="userLoggedIn"
+                class="col-span-12 md:col-span-5 lg:col-span-4"
+            >
+                <span class="rounded-md shadow-sm">
+                    <button
+                        type="button"
+                        class="w-1/2 p-2 text-sm leading-5 transition duration-100 ease-in-out bg-white border-2 border-silver rounded-l-md focus:z-10 focus:outline-none focus:shadow-outline-teal"
+                        :class="{
+                            'pointer-events-none border-emerald text-emerald shadow-md font-semibold':
+                                showAllModules === true,
+                        }"
+                        @click="toggleShowAllModules"
                     >
-                        <path
-                            fill-rule="evenodd"
-                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                            clip-rule="evenodd"
-                        ></path>
-                    </svg>
-                </div>
+                        All Modules
+                    </button>
+
+                    <button
+                        type="button"
+                        class="w-1/2 p-2 -ml-px text-sm leading-5 transition duration-100 ease-in-out bg-white border-2 border-silver rounded-r-md focus:z-10 focus:outline-none focus:shadow-outline-blue"
+                        :class="{
+                            'pointer-events-none border-emerald text-emerald shadow-md font-semibold':
+                                showAllModules === false,
+                        }"
+                        @click="toggleShowAllModules"
+                    >
+                        My Modules
+                    </button>
+                </span>
+            </div>
+
+            <div class="col-span-12 md:col-span-7 lg:col-span-8 sm:pl-6">
                 <v-select
                     :filter="fuseSearch"
                     :options="showAllModules ? allModules : myModules"
                     @input="changeRoute($event)"
                     :get-option-label="(option) => option.slug"
+                    :components="{ Deselect }"
                     :placeholder="`Search ${
                         showAllModules ? 'All' : 'My'
                     } Modules`"
@@ -81,7 +65,7 @@
                 :selected="tab.selected"
             >
                 <div
-                    class="px-2 fluid-container md:px-8 lg:px-20 2xl:px-32"
+                    class="px-2 md:px-8 lg:px-20 2xl:px-32"
                     :class="{ 'lg:mt-32': index > 0 }"
                 >
                     <h2
@@ -90,7 +74,7 @@
                         {{ tab.name | capitalize }}
                     </h2>
 
-                    <div class="flex flex-wrap w-full md:px-1 lg:px-0 lg:-mx-3">
+                    <div class="flex flex-wrap w-full">
                         <template v-if="tab.name === 'beginner'">
                             <p
                                 v-if="!beginnerModules.length"
@@ -246,6 +230,9 @@ export default {
             showAllModules: !this.userLoggedIn,
             currentBonusModules: this.filterBonusModules(),
             allModules: this.standardModules.concat(this.bonusModules),
+            Deselect: {
+                render: (createElement) => createElement("span", ""),
+            },
         };
     },
 
@@ -269,7 +256,6 @@ export default {
 
             return this.tabs;
         },
-        allModules: () => this.allModules,
         myModules() {
             return [
                 ...this.filterStandardModules("beginner"),
@@ -410,3 +396,24 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+>>> {
+    --vs-actions-padding: 13px 10px 10px;
+    --vs-border-color: #319795;
+    --vs-border-width: 2px;
+    --vs-border-style: solid;
+    --vs-border-radius: 6px;
+    --vs-font-size: 0.875rem;
+    --vs-controls-color: #096866;
+    --vs-dropdown-option--active-bg: #a0aec0;
+
+    /* Search Input */
+    --vs-search-input-color: #096866;
+    --vs-search-input-placeholder-color: #718096;
+
+    /* Search Options */
+    --vs-dropdown-option-padding: 3px 10px;
+}
+</style>
+-->

@@ -10,7 +10,7 @@
                     class="relative inline-flex items-center p-2 text-sm leading-5 transition duration-100 ease-in-out bg-white border-2 md:px-4 border-silver rounded-l-md focus:z-10 focus:outline-none focus:shadow-outline-teal"
                     :class="{
                         'pointer-events-none border-emerald text-emerald shadow-md font-semibold':
-                            showAllModules === true
+                            showAllModules === true,
                     }"
                     @click="toggleShowAllModules"
                 >
@@ -22,7 +22,7 @@
                     class="relative inline-flex items-center px-4 py-2 -ml-px text-sm leading-5 transition duration-100 ease-in-out bg-white border-2 border-silver rounded-r-md focus:z-10 focus:outline-none focus:shadow-outline-blue"
                     :class="{
                         'pointer-events-none border-emerald text-emerald shadow-md font-semibold':
-                            showAllModules === false
+                            showAllModules === false,
                     }"
                     @click="toggleShowAllModules"
                 >
@@ -31,17 +31,35 @@
             </span>
         </div>
 
-        <div class="px-4 lg:mt-18 fluid-container md:px-12 xl:px-20 2xl:px-32 relative flex items-center w-full mt-5">
+        <div
+            class="px-4 lg:mt-18 fluid-container md:px-12 xl:px-20 2xl:px-32 relative flex items-center w-full mt-5"
+        >
             <div class="relative w-full">
-                <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                    <svg aria-hidden="true" class="w-5 h-5 text-gray" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
+                <div
+                    class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
+                >
+                    <svg
+                        aria-hidden="true"
+                        class="w-5 h-5 text-gray"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                            clip-rule="evenodd"
+                        ></path>
+                    </svg>
                 </div>
                 <v-select
                     :filter="fuseSearch"
-                    :options="allModules"
+                    :options="showAllModules ? allModules : myModules"
                     @input="changeRoute($event)"
                     :get-option-label="(option) => option.slug"
-                    placeholder="Search Modules"
+                    :placeholder="`Search ${
+                        showAllModules ? 'All' : 'My'
+                    } Modules`"
                 >
                     <template #option="{ id, slug, name }">
                         {{ name["en"] }}
@@ -171,38 +189,38 @@
 </template>
 
 <script>
-import Fuse from 'fuse.js'
-import Vue from 'vue';
-import vSelect from 'vue-select'
-import 'vue-select/dist/vue-select.css';
+import Fuse from "fuse.js";
+import Vue from "vue";
+import vSelect from "vue-select";
+import "vue-select/dist/vue-select.css";
 
-Vue.component('v-select', vSelect)
+Vue.component("v-select", vSelect);
 export default {
     props: {
         standardModules: {
             type: Array,
-            default: []
+            default: [],
         },
         bonusModules: {
             type: Array,
-            default: []
+            default: [],
         },
         userModules: {
             type: Array,
-            default: []
+            default: [],
         },
         completedModules: {
             type: Array,
-            default: []
+            default: [],
         },
         userResourceCompletions: {
             type: Array,
-            default: []
+            default: [],
         },
         userLoggedIn: {
             type: Boolean,
-            default: false
-        }
+            default: false,
+        },
     },
 
     data() {
@@ -210,20 +228,20 @@ export default {
             tabs: [
                 {
                     name: "beginner",
-                    selected: true
+                    selected: true,
                 },
                 {
                     name: "intermediate",
-                    selected: false
+                    selected: false,
                 },
                 {
                     name: "advanced",
-                    selected: false
+                    selected: false,
                 },
                 {
                     name: "bonus",
-                    selected: false
-                }
+                    selected: false,
+                },
             ],
             showAllModules: !this.userLoggedIn,
             currentBonusModules: this.filterBonusModules(),
@@ -246,52 +264,63 @@ export default {
 
         filteredTabs() {
             if (!this.currentBonusModules.length) {
-                return this.tabs.filter(tab => tab.name !== "bonus");
+                return this.tabs.filter((tab) => tab.name !== "bonus");
             }
 
             return this.tabs;
         },
         allModules: () => this.allModules,
+        myModules() {
+            return [
+                ...this.filterStandardModules("beginner"),
+                ...this.filterStandardModules("intermediate"),
+                ...this.filterStandardModules("advanced"),
+            ];
+        },
     },
     methods: {
-        fuseSearch (options, search) {
-            let locale = 'name.' + Vue.prototype.trans.getLocale();
+        fuseSearch(options, search) {
+            let locale = "name." + Vue.prototype.trans.getLocale();
 
             const fuse = new Fuse(options, {
                 keys: ["`${locale}", "slug", "id"],
                 shouldSort: true,
-            })
+            });
             return search.length
                 ? fuse.search(search).map(({ item }) => item)
-                : fuse.list
+                : fuse.list;
         },
         changeRoute(e) {
-            window.location.href = `/${Vue.prototype.trans.getLocale()}/modules/${e.slug}/free-resources`;
+            window.location.href = `/${Vue.prototype.trans.getLocale()}/modules/${
+                e.slug
+            }/free-resources`;
         },
         filterStandardModules(skillLevel) {
             if (!this.userLoggedIn) {
                 return this.standardModules.filter(
-                    x => x.skill_level === skillLevel
+                    (x) => x.skill_level === skillLevel
                 );
             }
 
             if (this.userLoggedIn && this.showAllModules) {
                 let modules = this.standardModules.filter(
-                    x => x.skill_level === skillLevel
+                    (x) => x.skill_level === skillLevel
                 );
 
-                let userModules = modules.filter(x =>
+                let userModules = modules.filter((x) =>
                     this.userModules.includes(x.id)
                 );
 
-                modules = modules.filter(x => !this.userModules.includes(x.id));
+                modules = modules.filter(
+                    (x) => !this.userModules.includes(x.id)
+                );
 
                 modules.unshift(...userModules);
 
                 return modules;
             }
 
-            return this.standardModules.filter(x => {
+            return this.standardModules.filter((x) => {
                 return (
                     x.skill_level === skillLevel &&
                     this.userModules.includes(x.id)
@@ -330,7 +359,7 @@ export default {
             this.filterStandardModules("intermediate");
             this.filterStandardModules("advanced");
 
-            let activeTab = this.tabs.filter(tab => tab.selected)[0];
+            let activeTab = this.tabs.filter((tab) => tab.selected)[0];
 
             if (!this.filteredTabs.includes(activeTab)) {
                 this.$refs.tabs.setActiveTab(
@@ -344,8 +373,8 @@ export default {
                 return 0;
             }
 
-            let userResourceCompletions = this.userResourceCompletions.map(x =>
-                parseInt(x)
+            let userResourceCompletions = this.userResourceCompletions.map(
+                (x) => parseInt(x)
             );
 
             return resources_for_current_session.filter(({ id }) => {
@@ -354,12 +383,14 @@ export default {
         },
 
         getModuleIsCompleted({ id }) {
-            let completedModules = this.completedModules.map(x => parseInt(x));
+            let completedModules = this.completedModules.map((x) =>
+                parseInt(x)
+            );
             return completedModules.includes(id);
         },
 
         updateSelectedTab(newTab) {
-            this.tabs.map(tab => {
+            this.tabs.map((tab) => {
                 tab.name === newTab.name.toLowerCase()
                     ? (tab.selected = true)
                     : (tab.selected = false);
@@ -370,8 +401,12 @@ export default {
                 return false;
             }
 
-            return resources_for_current_session.filter(resource => resource.is_new).length > 0
-        }
-    }
+            return (
+                resources_for_current_session.filter(
+                    (resource) => resource.is_new
+                ).length > 0
+            );
+        },
+    },
 };
 </script>

@@ -7,6 +7,8 @@ use NathanHeffley\LaravelSlackBlocks\Messages\SlackMessage;
 
 class SendExpiredResources extends Notification
 {
+    public const REPORT_LIMIT = 9;
+
     public function __construct(protected $expiredResources)
     {
         //
@@ -23,7 +25,7 @@ class SendExpiredResources extends Notification
             ->from('Onramp', ':onramp:')
             ->content(sprintf('Here is your expired resources report: %s', url('/nova')));
 
-        $this->expiredResources->each(function ($resource) use ($msg) {
+        $this->expiredResources->take(self::REPORT_LIMIT)->each(function ($resource) use ($msg) {
             $msg->attachment(function ($attachment) use ($resource) {
                 if ($resource->isExpiring()) {
                     $hexColor = '#f9c336';
@@ -66,6 +68,28 @@ class SendExpiredResources extends Notification
             });
         });
 
+        if ($remainingResources = $this->getRemainingResourcesCount()) {
+            $msg->attachment(function ($attachment) use ($remainingResources) {
+                $attachment->block(function ($block) use ($remainingResources) {
+                    $block
+                        ->type('section')
+                        ->text([
+                            'type' => 'mrkdwn',
+                            'text' => sprintf(
+                                '*<%s|%s>*',
+                                url('/nova'),
+                                "+ $remainingResources more expired or expiring resources",
+                            ),
+                        ]);
+                });
+            });
+        }
+
         return $msg;
+    }
+
+    private function getRemainingResourcesCount(): int
+    {
+        return count($this->expiredResources) - self::REPORT_LIMIT;
     }
 }

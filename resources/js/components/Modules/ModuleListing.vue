@@ -34,7 +34,13 @@
                 </span>
             </div>
 
-            <div class="col-span-12 md:col-span-7 lg:col-span-8 md:pl-6">
+            <div
+                :class="
+                    userLoggedIn
+                        ? 'col-span-12 md:col-span-7 lg:col-span-8 md:pl-6'
+                        : 'col-span-12'
+                "
+            >
                 <v-select
                     :filter="fuseSearch"
                     :options="showAllModules ? allModules : myModules"

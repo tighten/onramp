@@ -1,36 +1,56 @@
 <template>
     <div>
         <div
-            v-if="userLoggedIn"
-            class="px-4 text-center sm:text-right lg:mt-18 fluid-container md:px-12 xl:px-20 2xl:px-32"
+            class="w-full grid grid-cols-12 px-4 space-y-4 md:space-y-0 lg:mt-18 md:px-8 lg:px-20 2xl:px-32"
         >
-            <span class="relative z-0 inline-flex rounded-md shadow-sm">
-                <button
-                    type="button"
-                    class="relative inline-flex items-center p-2 text-sm leading-5 transition duration-100 ease-in-out bg-white border-2 md:px-4 border-silver rounded-l-md focus:z-10 focus:outline-none focus:shadow-outline-teal"
-                    :class="{
-                        'pointer-events-none border-emerald text-emerald shadow-md font-semibold':
-                            showAllModules === true
-                    }"
-                    @click="toggleShowAllModules"
-                >
-                    All Modules
-                </button>
+            <div
+                v-if="userLoggedIn"
+                class="col-span-12 md:col-span-5 lg:col-span-4"
+            >
+                <span class="rounded-md shadow-sm">
+                    <button
+                        type="button"
+                        class="w-1/2 p-2 text-sm leading-5 transition duration-100 ease-in-out bg-white border-2 border-silver rounded-l-md focus:z-10 focus:outline-none focus:shadow-outline-teal"
+                        :class="{
+                            'pointer-events-none border-emerald text-emerald shadow-md font-semibold':
+                                showAllModules === true,
+                        }"
+                        @click="toggleShowAllModules"
+                    >
+                        All Modules
+                    </button>
 
-                <button
-                    type="button"
-                    class="relative inline-flex items-center px-4 py-2 -ml-px text-sm leading-5 transition duration-100 ease-in-out bg-white border-2 border-silver rounded-r-md focus:z-10 focus:outline-none focus:shadow-outline-blue"
-                    :class="{
-                        'pointer-events-none border-emerald text-emerald shadow-md font-semibold':
-                            showAllModules === false
-                    }"
-                    @click="toggleShowAllModules"
+                    <button
+                        type="button"
+                        class="w-1/2 p-2 -ml-px text-sm leading-5 transition duration-100 ease-in-out bg-white border-2 border-silver rounded-r-md focus:z-10 focus:outline-none focus:shadow-outline-blue"
+                        :class="{
+                            'pointer-events-none border-emerald text-emerald shadow-md font-semibold':
+                                showAllModules === false,
+                        }"
+                        @click="toggleShowAllModules"
+                    >
+                        My Modules
+                    </button>
+                </span>
+            </div>
+
+            <div class="col-span-12 md:col-span-7 lg:col-span-8 md:pl-6">
+                <v-select
+                    :filter="fuseSearch"
+                    :options="showAllModules ? allModules : myModules"
+                    @input="changeRoute($event)"
+                    :get-option-label="(option) => option.slug"
+                    :components="{ Deselect }"
+                    :placeholder="`Search ${
+                        showAllModules ? 'All' : 'My'
+                    } Modules`"
                 >
-                    My Modules
-                </button>
-            </span>
+                    <template #option="{ id, slug, name }">
+                        {{ name["en"] }}
+                    </template>
+                </v-select>
+            </div>
         </div>
-
         <tabs
             class="mt-10"
             ref="tabs"
@@ -45,7 +65,7 @@
                 :selected="tab.selected"
             >
                 <div
-                    class="px-2 fluid-container md:px-8 lg:px-20 2xl:px-32"
+                    class="px-2 md:px-8 lg:px-20 2xl:px-32"
                     :class="{ 'lg:mt-32': index > 0 }"
                 >
                     <h2
@@ -54,7 +74,7 @@
                         {{ tab.name | capitalize }}
                     </h2>
 
-                    <div class="flex flex-wrap w-full md:px-1 lg:px-0 lg:-mx-3">
+                    <div class="flex flex-wrap w-full">
                         <template v-if="tab.name === 'beginner'">
                             <p
                                 v-if="!beginnerModules.length"
@@ -153,32 +173,38 @@
 </template>
 
 <script>
+import Fuse from "fuse.js";
+import Vue from "vue";
+import vSelect from "vue-select";
+import "vue-select/dist/vue-select.css";
+
+Vue.component("v-select", vSelect);
 export default {
     props: {
         standardModules: {
             type: Array,
-            default: []
+            default: [],
         },
         bonusModules: {
             type: Array,
-            default: []
+            default: [],
         },
         userModules: {
             type: Array,
-            default: []
+            default: [],
         },
         completedModules: {
             type: Array,
-            default: []
+            default: [],
         },
         userResourceCompletions: {
             type: Array,
-            default: []
+            default: [],
         },
         userLoggedIn: {
             type: Boolean,
-            default: false
-        }
+            default: false,
+        },
     },
 
     data() {
@@ -186,23 +212,27 @@ export default {
             tabs: [
                 {
                     name: "beginner",
-                    selected: true
+                    selected: true,
                 },
                 {
                     name: "intermediate",
-                    selected: false
+                    selected: false,
                 },
                 {
                     name: "advanced",
-                    selected: false
+                    selected: false,
                 },
                 {
                     name: "bonus",
-                    selected: false
-                }
+                    selected: false,
+                },
             ],
             showAllModules: !this.userLoggedIn,
-            currentBonusModules: this.filterBonusModules()
+            currentBonusModules: this.filterBonusModules(),
+            allModules: this.standardModules.concat(this.bonusModules),
+            Deselect: {
+                render: (createElement) => createElement("span", ""),
+            },
         };
     },
 
@@ -221,38 +251,62 @@ export default {
 
         filteredTabs() {
             if (!this.currentBonusModules.length) {
-                return this.tabs.filter(tab => tab.name !== "bonus");
+                return this.tabs.filter((tab) => tab.name !== "bonus");
             }
 
             return this.tabs;
-        }
+        },
+        myModules() {
+            return [
+                ...this.filterStandardModules("beginner"),
+                ...this.filterStandardModules("intermediate"),
+                ...this.filterStandardModules("advanced"),
+            ];
+        },
     },
-
     methods: {
+        fuseSearch(options, search) {
+            let locale = "name." + Vue.prototype.trans.getLocale();
+
+            const fuse = new Fuse(options, {
+                keys: ["`${locale}", "slug", "id"],
+                shouldSort: true,
+            });
+            return search.length
+                ? fuse.search(search).map(({ item }) => item)
+                : fuse.list;
+        },
+        changeRoute(e) {
+            window.location.href = `/${Vue.prototype.trans.getLocale()}/modules/${
+                e.slug
+            }/free-resources`;
+        },
         filterStandardModules(skillLevel) {
             if (!this.userLoggedIn) {
                 return this.standardModules.filter(
-                    x => x.skill_level === skillLevel
+                    (x) => x.skill_level === skillLevel
                 );
             }
 
             if (this.userLoggedIn && this.showAllModules) {
                 let modules = this.standardModules.filter(
-                    x => x.skill_level === skillLevel
+                    (x) => x.skill_level === skillLevel
                 );
 
-                let userModules = modules.filter(x =>
+                let userModules = modules.filter((x) =>
                     this.userModules.includes(x.id)
                 );
 
-                modules = modules.filter(x => !this.userModules.includes(x.id));
+                modules = modules.filter(
+                    (x) => !this.userModules.includes(x.id)
+                );
 
                 modules.unshift(...userModules);
 
                 return modules;
             }
 
-            return this.standardModules.filter(x => {
+            return this.standardModules.filter((x) => {
                 return (
                     x.skill_level === skillLevel &&
                     this.userModules.includes(x.id)
@@ -291,7 +345,7 @@ export default {
             this.filterStandardModules("intermediate");
             this.filterStandardModules("advanced");
 
-            let activeTab = this.tabs.filter(tab => tab.selected)[0];
+            let activeTab = this.tabs.filter((tab) => tab.selected)[0];
 
             if (!this.filteredTabs.includes(activeTab)) {
                 this.$refs.tabs.setActiveTab(
@@ -305,8 +359,8 @@ export default {
                 return 0;
             }
 
-            let userResourceCompletions = this.userResourceCompletions.map(x =>
-                parseInt(x)
+            let userResourceCompletions = this.userResourceCompletions.map(
+                (x) => parseInt(x)
             );
 
             return resources_for_current_session.filter(({ id }) => {
@@ -315,12 +369,14 @@ export default {
         },
 
         getModuleIsCompleted({ id }) {
-            let completedModules = this.completedModules.map(x => parseInt(x));
+            let completedModules = this.completedModules.map((x) =>
+                parseInt(x)
+            );
             return completedModules.includes(id);
         },
 
         updateSelectedTab(newTab) {
-            this.tabs.map(tab => {
+            this.tabs.map((tab) => {
                 tab.name === newTab.name.toLowerCase()
                     ? (tab.selected = true)
                     : (tab.selected = false);
@@ -331,8 +387,33 @@ export default {
                 return false;
             }
 
-            return resources_for_current_session.filter(resource => resource.is_new).length > 0
-        }
-    }
+            return (
+                resources_for_current_session.filter(
+                    (resource) => resource.is_new
+                ).length > 0
+            );
+        },
+    },
 };
 </script>
+
+<style scoped>
+>>> {
+    --vs-actions-padding: 13px 10px 10px;
+    --vs-border-color: #a0aec0;
+    --vs-border-width: 2px;
+    --vs-border-style: solid;
+    --vs-border-radius: 6px;
+    --vs-font-size: 0.875rem;
+    --vs-controls-color: #a0aec0;
+    --vs-dropdown-option--active-bg: #a0aec0;
+
+    /* Search Input */
+    --vs-search-input-color: #096866;
+    --vs-search-input-placeholder-color: #718096;
+
+    /* Search Options */
+    --vs-dropdown-option-padding: 3px 10px;
+}
+</style>
+-->

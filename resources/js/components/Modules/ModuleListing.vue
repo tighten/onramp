@@ -1,7 +1,7 @@
 <template>
     <div>
         <div
-            class="w-full grid grid-cols-12 px-4 space-y-4 sm:space-y-0 lg:mt-18 md:px-8 lg:px-20 2xl:px-32"
+            class="w-full grid grid-cols-12 px-4 space-y-4 md:space-y-0 lg:mt-18 md:px-8 lg:px-20 2xl:px-32"
         >
             <div
                 v-if="userLoggedIn"
@@ -34,7 +34,7 @@
                 </span>
             </div>
 
-            <div class="col-span-12 md:col-span-7 lg:col-span-8 sm:pl-6">
+            <div class="col-span-12 md:col-span-7 lg:col-span-8 md:pl-6">
                 <v-select
                     :filter="fuseSearch"
                     :options="showAllModules ? allModules : myModules"
@@ -400,12 +400,12 @@ export default {
 <style scoped>
 >>> {
     --vs-actions-padding: 13px 10px 10px;
-    --vs-border-color: #319795;
+    --vs-border-color: #a0aec0;
     --vs-border-width: 2px;
     --vs-border-style: solid;
     --vs-border-radius: 6px;
     --vs-font-size: 0.875rem;
-    --vs-controls-color: #096866;
+    --vs-controls-color: #a0aec0;
     --vs-dropdown-option--active-bg: #a0aec0;
 
     /* Search Input */

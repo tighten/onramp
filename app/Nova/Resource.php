@@ -13,6 +13,7 @@ use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\BelongsToMany;
 use App\Models\Resource as EloquentResource;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\ActionRequest;
 
 class Resource extends BaseResource
@@ -99,6 +100,13 @@ class Resource extends BaseResource
                 ->hideFromIndex()
                 ->hideWhenCreating()
                 ->hideWhenUpdating(),
+
+            Textarea::make('Internal Notes', 'notes')
+                ->alwaysShow()
+                ->rows(4)
+                ->withMeta(['extraAttributes' => [
+                    'placeholder' => 'Add notes that are helpful for managing this resource.',
+                ]]),
 
             BelongsToMany::make('Modules'),
 

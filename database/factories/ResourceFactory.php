@@ -32,7 +32,6 @@ class ResourceFactory extends Factory
             'language' => $this->faker->randomElement(['en', 'es']),
             'os' => $this->faker->randomElement(OperatingSystem::ALL),
             'can_expire' => true,
-            'expiration_date' => Carbon::now()->addMonths(6),
         ];
     }
 

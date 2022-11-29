@@ -2,16 +2,19 @@
 
 namespace App\Nova;
 
-use App\Facades\Localization;
-use App\Models\Resource as EloquentResource;
+use Illuminate\Support\Str;
+use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\URL;
+use App\Facades\Localization;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
-use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Select;
-use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\URL;
+use Laravel\Nova\Fields\BelongsToMany;
+use App\Models\Resource as EloquentResource;
+use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Http\Requests\ActionRequest;
 
 class Resource extends BaseResource
 {
@@ -34,6 +37,8 @@ class Resource extends BaseResource
     public static $search = [
         'id', 'name',
     ];
+
+    public static $tableStyle = 'tight';
 
     public function typeFields()
     {
@@ -59,7 +64,12 @@ class Resource extends BaseResource
 
             URL::make('URL')
                 ->displayUsing(fn () => "{$this->url}")
-                ->rules('required', 'max:255', 'url'),
+                ->rules('required', 'max:255', 'url')
+                ->hideFromIndex(),
+
+            URL::make('URL')
+                ->displayUsing(fn () => 'Visit Link')
+                ->onlyOnIndex(),
 
             Select::make('Type')
                 ->options($this->typeFields())
@@ -76,7 +86,7 @@ class Resource extends BaseResource
             Boolean::make('Is Bonus')
                 ->hideFromIndex(),
 
-            Boolean::make('Is Assigned To Module', function () {
+            Boolean::make('Assigned To Module', function () {
                 return $this->isAssignedToAModule();
             }),
 
@@ -84,12 +94,19 @@ class Resource extends BaseResource
                 ->hideFromIndex(),
 
             DateTime::make('Expiration Date')
-                ->hideFromIndex(),
+                ->onlyOnDetail(),
 
             DateTime::make('Date Added', 'created_at')
                 ->hideFromIndex()
                 ->hideWhenCreating()
                 ->hideWhenUpdating(),
+
+            Textarea::make('Internal Notes', 'notes')
+                ->alwaysShow()
+                ->rows(4)
+                ->withMeta(['extraAttributes' => [
+                    'placeholder' => 'Add notes that are helpful for managing this resource.',
+                ]]),
 
             BelongsToMany::make('Modules'),
 
@@ -116,7 +133,9 @@ class Resource extends BaseResource
      */
     public function filters(Request $request)
     {
-        return [];
+        return [
+            new Filters\ExpiredResource(),
+        ];
     }
 
     /**
@@ -138,6 +157,20 @@ class Resource extends BaseResource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            (new Actions\RenewResource())
+                ->canSee(function ($request) {
+                    if (! $resourceIds = (array) $request->input('resources')) {
+                        return;
+                    }
+                    $resources = EloquentResource::whereIn('id', $resourceIds)->get();
+                    $cantRenew = $resources->filter(function ($resource) {
+                        // if resource not expired or expiring or is in trash, cant renew
+                        return ! ($resource->isExpired() || $resource->isExpiring()) || $resource->trashed();
+                    });
+
+                    return $request instanceof ActionRequest || ! count($cantRenew);
+                }),
+        ];
     }
 }

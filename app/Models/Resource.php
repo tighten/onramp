@@ -154,4 +154,9 @@ class Resource extends Model implements Completable
             now()->addDays(15)->toDateTimeString(),
         );
     }
+
+    public function isDueForRenewal()
+    {
+        return $this->isExpired() || $this->isExpiring();
+    }
 }

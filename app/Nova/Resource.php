@@ -60,7 +60,8 @@ class Resource extends BaseResource
 
             Text::make('Name')
                 ->sortable()
-                ->rules('required', 'max:255'),
+                ->rules('required', 'max:255')
+                ->showOnPreview(),
 
             URL::make('URL')
                 ->displayUsing(fn () => "{$this->url}")
@@ -94,7 +95,8 @@ class Resource extends BaseResource
                 ->hideFromIndex(),
 
             DateTime::make('Expiration Date')
-                ->onlyOnDetail(),
+                ->onlyOnDetail()
+                ->showOnPreview(),
 
             DateTime::make('Date Added', 'created_at')
                 ->hideFromIndex()
@@ -106,7 +108,8 @@ class Resource extends BaseResource
                 ->rows(4)
                 ->withMeta(['extraAttributes' => [
                     'placeholder' => 'Add notes that are helpful for managing this resource.',
-                ]]),
+                ]])
+                ->showOnPreview(),
 
             BelongsToMany::make('Modules'),
 

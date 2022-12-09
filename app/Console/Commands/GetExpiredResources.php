@@ -33,13 +33,7 @@ class GetExpiredResources extends Command
             })
             ->with('modules')
             ->oldest('expiration_date')
-            ->get([
-                'name',
-                'url',
-                'expiration_date',
-                'created_at',
-                'deleted_at',
-            ]);
+            ->get();
 
         if (! count($expiredResources)) {
             $this->info('All resources are up to date!');
@@ -60,7 +54,21 @@ class GetExpiredResources extends Command
             $this->outputHeaders,
             $expiredResources->each
                 ->setAppends($this->outputAppends)
-                ->makeHidden(['modules', 'created_at', 'expiration_date', 'deleted_at'])
+                ->makeHidden([
+                    'id',
+                    'modules',
+                    'is_free',
+                    'is_bonus',
+                    'can_expire',
+                    'type',
+                    'language',
+                    'notes',
+                    'os',
+                    'created_at',
+                    'expiration_date',
+                    'updated_at',
+                    'deleted_at',
+                ])
                 ->toArray(),
         );
     }

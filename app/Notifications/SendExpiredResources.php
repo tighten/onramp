@@ -90,6 +90,10 @@ class SendExpiredResources extends Notification
 
     private function getRemainingResourcesCount(): int
     {
+        if (count($this->expiredResources) < self::REPORT_LIMIT) {
+            return 0;
+        }
+
         return count($this->expiredResources) - self::REPORT_LIMIT;
     }
 }

@@ -9,7 +9,7 @@ return [
     require 'modules/object-oriented-programming.php',
     require 'modules/laravel-basics.php',
     require 'modules/basic-javascript.php',
-    require 'modules/laravel-mix.php',
+    require 'modules/module-bundlers-and-tooling.php',
     require 'modules/easy-session-backed-internal-apis.php',
     require 'modules/deployments.php',
     require 'modules/monitoring.php',

@@ -4,7 +4,7 @@ use App\Models\Module;
 use App\Models\Resource;
 
 return [
-    'name' => ['en' => 'Laravel Mix', 'es' => ''],
+    'name' => ['en' => 'Module Bundlers and Tooling', 'es' => ''],
     'description' => [
         'en' => 'Ease into module-bundler configuration with a Webpack wrapper that\'s completely optimized for use with Laravel.',
         'es' => '',

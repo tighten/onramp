@@ -14,7 +14,7 @@ class GenerateSeedsFromDatabase extends Command
 
     protected const SEED_FILE_EXT = 'json';
 
-    protected $signature = 'generate:seeds-from-db {--override}';
+    protected $signature = 'generate:seeds-from-db {--override} {--all}';
 
     protected $description = 'Sync core data and generate new seed files for local development.';
 
@@ -24,7 +24,7 @@ class GenerateSeedsFromDatabase extends Command
 
         dispatch(new CreateTunnel());
 
-        $this->dirPath = 'database/seeders/prod';
+        $this->dirPath = config('seeder.directory');
     }
 
     public function handle()
@@ -37,6 +37,11 @@ class GenerateSeedsFromDatabase extends Command
             'Tracks' => 'syncTracks',
             'All' => 'syncAll',
         ]);
+
+        if ($this->option('all')) {
+            $this->syncAll();
+            return 0;
+        }
 
         $option = $this->choice('Which seeder data would you like to sync?', $methods->keys()->toArray());
 
@@ -107,13 +112,14 @@ class GenerateSeedsFromDatabase extends Command
     {
         $override = $this->option('override') ?: $override;
 
-        $seederName = $table . '.' . self::SEED_FILE_EXT;
+        $ext = config('seeder.extension', self::SEED_FILE_EXT);
+        $seederName = $table . '.' . $ext;
 
         $this->line("Getting $table from " . config('database.connections.mysql_tunnel.database'));
 
         $this->line("Generating $seederName");
 
-        $path = $this->createFile($table, self::SEED_FILE_EXT);
+        $path = $this->createFile($table, $ext);
 
         if (File::exists($path)) {
             $continue = $override ?: $this->confirm("The seeder source file $seederName already exists. Are you sure you want to override its contents?");

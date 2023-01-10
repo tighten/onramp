@@ -47,6 +47,7 @@ class GenerateSeedsFromDatabase extends Command
 
     private function syncAll()
     {
+        // sync content
         $this->line('Preparing to overwrite all seeder files ...');
 
         $this->syncData('modules', true);
@@ -55,22 +56,39 @@ class GenerateSeedsFromDatabase extends Command
         $this->syncData('terms', true);
         $this->syncData('tracks', true);
 
+        // sync relationships
+        $this->line('Syncing relationships ...');
+
+        $this->syncData('module_resource', true);
+        $this->syncData('module_track', true);
+        $this->syncData('resource_term', true);
+        $this->syncData('term_term', true);
+
         $this->info('Done!');
     }
 
     private function syncTerms()
     {
-        $this->syncData('terms');
+        if ($this->syncData('terms')) {
+            $this->syncData('resource_term', true);
+            $this->syncData('term_term', true);
+        }
     }
 
     private function syncModules()
     {
-        $this->syncData('modules');
+        if ($this->syncData('modules')) {
+            $this->syncData('module_resource', true);
+            $this->syncData('module_track', true);
+        }
     }
 
     private function syncResources()
     {
-        $this->syncData('resources');
+        if ($this->syncData('resources')) {
+            $this->syncData('module_resource', true);
+            $this->syncData('resource_term', true);
+        }
     }
 
     private function syncSkills()
@@ -80,7 +98,9 @@ class GenerateSeedsFromDatabase extends Command
 
     private function syncTracks()
     {
-        $this->syncData('tracks');
+        if ($this->syncData('tracks')) {
+            $this->syncData('module_track', true);
+        }
     }
 
     private function syncData(string $table, bool $override = false)
@@ -114,5 +134,7 @@ class GenerateSeedsFromDatabase extends Command
         File::put($path, json_encode($data->toArray()));
 
         $this->info("$table synced" . PHP_EOL);
+
+        return 1;
     }
 }

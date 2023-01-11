@@ -34,7 +34,9 @@ jobs:
           restore-keys: npm-
 
       - name: Copy ENV Laravel Configuration for CI
-        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+        run: |
+          php -r "file_exists('.env') || copy('.env.example', '.env');"
+          echo APP_ENV=testing >> $GITHUB_ENV
 
       - name: Install dependencies
         run: |
@@ -46,9 +48,6 @@ jobs:
 
       - name: Generate key
         run: php artisan key:generate
-
-      - name: Verify Tunnel Activated
-        run: php artisan tunneler:activate
 
       - name: Run PHP tests
         run: vendor/bin/phpunit

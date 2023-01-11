@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use Database\Seeders\FreshInstallSeeder;
+use Database\Seeders\ContentSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use ReplaceOnlyContentFromSeedersSeeder;
 use Tests\TestCase;
@@ -12,9 +12,9 @@ class DatabaseSeederTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function fresh_install_seeder_runs()
+    function content_seeder_runs()
     {
-        $this->seed(FreshInstallSeeder::class);
+        $this->seed(ContentSeeder::class);
         $this->assertTrue(true);
     }
 

@@ -3,14 +3,16 @@
 namespace App\Console\Commands;
 
 use App\Concerns\CanGenerateFile;
+use App\Concerns\CanSeedProdData;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
-use STS\Tunneler\Jobs\CreateTunnel;
 use Illuminate\Support\Facades\File;
+use STS\Tunneler\Jobs\CreateTunnel;
 
 class GenerateSeedsFromDatabase extends Command
 {
     use CanGenerateFile;
+    use CanSeedProdData;
 
     protected const SEED_FILE_EXT = 'json';
 
@@ -24,7 +26,7 @@ class GenerateSeedsFromDatabase extends Command
 
         dispatch(new CreateTunnel());
 
-        $this->dirPath = config('seeder.directory');
+        $this->dirPath = config('seeder.directory', 'database/json');
     }
 
     public function handle()
@@ -46,11 +48,9 @@ class GenerateSeedsFromDatabase extends Command
         $option = $this->choice('Which seeder data would you like to sync?', $methods->keys()->toArray());
 
         $this->{$methods[$option]}();
-
-        // call artisan command to update seeder and run
     }
 
-    private function syncAll()
+    protected function syncAll()
     {
         // sync content
         $this->line('Preparing to overwrite all seeder files ...');
@@ -72,43 +72,59 @@ class GenerateSeedsFromDatabase extends Command
         $this->info('Done!');
     }
 
-    private function syncTerms()
+    protected function syncTerms()
     {
         if ($this->syncData('terms')) {
             $this->syncData('resource_term', true);
             $this->syncData('term_term', true);
+
+            $seeds = $this->getSeedFiles($this->dirPath, ['terms', 'resource_term', 'term_term']);
+
+            $this->seed($this, $seeds);
         }
     }
 
-    private function syncModules()
+    protected function syncModules()
     {
         if ($this->syncData('modules')) {
             $this->syncData('module_resource', true);
             $this->syncData('module_track', true);
+
+            $seeds = $this->getSeedFiles($this->dirPath, ['modules', 'module_resource', 'module_track']);
+
+            $this->seed($this, $seeds);
         }
     }
 
-    private function syncResources()
+    protected function syncResources()
     {
         if ($this->syncData('resources')) {
             $this->syncData('module_resource', true);
             $this->syncData('resource_term', true);
+
+            $seeds = $this->getSeedFiles($this->dirPath, ['resources', 'module_resource', 'resource_term']);
+
+            $this->seed($this, $seeds);
         }
     }
 
-    private function syncSkills()
+    protected function syncSkills()
     {
         $this->syncData('skills');
     }
 
-    private function syncTracks()
+    protected function syncTracks()
     {
         if ($this->syncData('tracks')) {
             $this->syncData('module_track', true);
+
+            $seeds = $this->getSeedFiles($this->dirPath, ['tracks', 'module_track']);
+
+            $this->seed($this, $seeds);
         }
     }
 
-    private function syncData(string $table, bool $override = false)
+    protected function syncData(string $table, bool $override = false)
     {
         $override = $this->option('override') ?: $override;
 

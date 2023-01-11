@@ -27,6 +27,24 @@ To make language translation strings available to the Vue.js frontend, a `transl
 php artisan export:messages-flat
 ```
 
+## Seeding Data
+
+Onramp creates and uses JSON files to seed your local database. To update these JSON files use the following command. Be sure to commit your changes to the repo:
+
+> Note: You may run the below command without the `--all` flag to choose a table to sync. Run with `--override` to automatically override the contents in an existing seed file.
+
+```bash
+php artisan generate:seeds-from-db --all
+```
+
+Then, to seed your local database run:
+
+```bash
+php art migrate:fresh --seed
+```
+
+> Warning: Any changes made to your local database will be overridden when seeding your database from the production seeder files.
+
 ## Security
 
 If you discover any security related issues, please email matt.stauffer@tighten.co instead of using the issue tracker.

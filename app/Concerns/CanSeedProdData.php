@@ -11,7 +11,14 @@ use Illuminate\Support\Facades\Schema;
 
 trait CanSeedProdData
 {
-    protected function seed(Command $command, array $seeds)
+    /**
+     * Seed local database from JSON seeder files
+     *
+     * @param Command $command
+     * @param array $seeds
+     * @return void
+     */
+    protected function seed(Command $command, array $seeds): void
     {
         Schema::disableForeignKeyConstraints();
 
@@ -46,6 +53,13 @@ trait CanSeedProdData
         Schema::enableForeignKeyConstraints();
     }
 
+    /**
+     * Get seeder files to populate local database with
+     *
+     * @param string $dir
+     * @param array $tables
+     * @return array
+     */
     protected function getSeedFiles(string $dir, array $tables = []): array
     {
         $files = File::files($dir);

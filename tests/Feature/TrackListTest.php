@@ -12,7 +12,7 @@ class TrackListTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function anyone_can_access_the_tracks_page()
+    public function anyone_can_access_the_tracks_page()
     {
         $track = Track::factory()->create();
         $module = Module::factory()->create();
@@ -27,7 +27,7 @@ class TrackListTest extends TestCase
     }
 
     /** @test */
-    function it_doesnt_show_tracks_with_no_modules()
+    public function it_doesnt_show_tracks_with_no_modules()
     {
         $track = Track::factory()->create();
         $response = $this->get(route('tracks', ['locale' => 'en']));

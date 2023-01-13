@@ -16,11 +16,6 @@ class SuggestedResourceRejectionEmail extends Mailable
     protected $suggestedResource;
     protected $user;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
     public function __construct(SuggestedResource $suggestedResource, User $user)
     {
         $this->suggestedResource = $suggestedResource;

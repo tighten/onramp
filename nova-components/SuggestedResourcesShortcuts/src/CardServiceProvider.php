@@ -21,9 +21,19 @@ class CardServiceProvider extends ServiceProvider
         });
 
         Nova::serving(function (ServingNova $event) {
-            Nova::script('suggested-resources-shortcuts', __DIR__.'/../dist/js/card.js');
-            Nova::style('suggested-resources-shortcuts', __DIR__.'/../dist/css/card.css');
+            Nova::script('suggested-resources-shortcuts', __DIR__ . '/../dist/js/card.js');
+            Nova::style('suggested-resources-shortcuts', __DIR__ . '/../dist/css/card.css');
         });
+    }
+
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
     }
 
     /**
@@ -39,16 +49,6 @@ class CardServiceProvider extends ServiceProvider
 
         Route::middleware(['nova'])
                 ->prefix('nova-vendor/suggested-resources-shortcuts')
-                ->group(__DIR__.'/../routes/api.php');
-    }
-
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
+                ->group(__DIR__ . '/../routes/api.php');
     }
 }

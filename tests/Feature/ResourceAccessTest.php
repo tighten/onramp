@@ -12,7 +12,7 @@ class ResourceAccessTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function users_with_user_role_cannot_update_resources()
+    public function users_with_user_role_cannot_update_resources()
     {
         $user = User::factory()->create(['role' => 'user']);
 
@@ -20,7 +20,7 @@ class ResourceAccessTest extends TestCase
     }
 
     /** @test */
-    function users_with_editor_role_can_update_resources()
+    public function users_with_editor_role_can_update_resources()
     {
         $user = User::factory()->create(['role' => 'editor']);
 
@@ -28,7 +28,7 @@ class ResourceAccessTest extends TestCase
     }
 
     /** @test */
-    function users_with_admin_role_can_update_resources()
+    public function users_with_admin_role_can_update_resources()
     {
         $user = User::factory()->create(['role' => 'admin']);
 

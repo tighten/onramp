@@ -11,7 +11,7 @@ class TermsTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function glossary_page_loads()
+    public function glossary_page_loads()
     {
         $term = Term::factory()->create();
 
@@ -20,7 +20,7 @@ class TermsTest extends TestCase
     }
 
     /** @test */
-    function glossary_terms_can_be_multi_lingual()
+    public function glossary_terms_can_be_multi_lingual()
     {
         $term = Term::factory()->create();
 
@@ -33,7 +33,7 @@ class TermsTest extends TestCase
     }
 
     /** @test */
-    function a_term_that_only_exists_in_english_shows_it_in_english_on_other_locales()
+    public function a_term_that_only_exists_in_english_shows_it_in_english_on_other_locales()
     {
         $term = Term::factory()->create([
             'name' => ['en' => 'Routes'],

@@ -22,7 +22,7 @@ return [
                 'url' => 'https://laravelpodcast.com/episodes/packages-with-freek-van-der-herten-marcel-pociot',
                 'type' => Resource::AUDIO_TYPE,
             ],
-        ]
+        ],
     ],
     'skill_level' => Module::ADVANCED_SKILL_LEVEL,
 ];

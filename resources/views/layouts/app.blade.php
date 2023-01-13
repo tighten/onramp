@@ -91,7 +91,7 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to La
         <div id="app-body">
             @includeWhen(! request()->routeIs('wizard.index'), 'partials.choose-track')
             @yield('content')
-           
+
             @include('partials.navigation.back-to-top')
 
             <!-- toast notifications -->

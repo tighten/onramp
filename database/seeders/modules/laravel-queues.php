@@ -22,7 +22,7 @@ return [
                 'url' => 'https://laravelpodcast.com/episodes/queues-with-mohamed-said',
                 'type' => Resource::AUDIO_TYPE,
             ],
-        ]
+        ],
     ],
     'skill_level' => Module::INTERMEDIATE_SKILL_LEVEL,
 ];

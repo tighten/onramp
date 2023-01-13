@@ -2,37 +2,35 @@
 
 namespace App\Nova;
 
-use Illuminate\Support\Str;
-use Laravel\Nova\Fields\ID;
-use Illuminate\Http\Request;
-use Laravel\Nova\Fields\URL;
 use App\Facades\Localization;
-use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Select;
+use App\Models\Resource as EloquentResource;
+use App\Nova\Actions\RenewResource;
+use App\Nova\Filters\ExpiredResource;
+use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
-use Laravel\Nova\Fields\BelongsToMany;
-use App\Models\Resource as EloquentResource;
+use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\URL;
 use Laravel\Nova\Http\Requests\ActionRequest;
 
 class Resource extends BaseResource
 {
     /**
      * The model the resource corresponds to.
-     *
      */
     public static $model = \App\Models\Resource::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
-     *
      */
     public static $title = 'name';
 
     /**
      * The columns that should be searched.
-     *
      */
     public static $search = [
         'id', 'name',
@@ -137,7 +135,7 @@ class Resource extends BaseResource
     public function filters(Request $request)
     {
         return [
-            new Filters\ExpiredResource(),
+            new ExpiredResource,
         ];
     }
 
@@ -161,7 +159,7 @@ class Resource extends BaseResource
     public function actions(Request $request)
     {
         return [
-            (new Actions\RenewResource())
+            (new RenewResource)
                 ->showInline()
                 ->canSee(function ($request) {
                     if (! $resourceIds = (array) $request->input('resources')) {

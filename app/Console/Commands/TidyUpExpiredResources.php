@@ -7,13 +7,13 @@ use Illuminate\Console\Command;
 
 class TidyUpExpiredResources extends Command
 {
-    private $expiredResourcesCount;
-
-    private $trashedResourcesCount;
-
     protected $signature = 'resource:tidy {--P|prune} {--preview}';
 
     protected $description = 'Soft or force delete expired resources. Use the --preview option to view the full expired resources report.';
+
+    private $expiredResourcesCount;
+
+    private $trashedResourcesCount;
 
     public function handle()
     {
@@ -30,7 +30,7 @@ class TidyUpExpiredResources extends Command
         }
 
         if ($this->pruneExpiredResources()) {
-            $this->withProgressBar($expiredResources, fn($resource) => $resource->forceDelete());
+            $this->withProgressBar($expiredResources, fn ($resource) => $resource->forceDelete());
 
             return $this->info(PHP_EOL . 'Done!');
         }
@@ -43,7 +43,7 @@ class TidyUpExpiredResources extends Command
             return;
         }
 
-        $this->withProgressBar(Resource::expired()->get(), fn($resource) => $resource->delete());
+        $this->withProgressBar(Resource::expired()->get(), fn ($resource) => $resource->delete());
 
         $this->info(PHP_EOL . 'Done! To permanently delete resources moved to the trash, use the --prune option.');
     }

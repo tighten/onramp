@@ -12,7 +12,7 @@ class SuggestedResourcePolicy
 
     public function before($user)
     {
-        return ($user->isAtLeastEditor() ?: null);
+        return $user->isAtLeastEditor() ?: null;
     }
 
     /**

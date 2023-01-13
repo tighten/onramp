@@ -33,12 +33,12 @@
                             <div class="absolute inset-0 flex items-center">
                                 <div class="w-full border-t border-silver"></div>
                             </div>
-    
+
                             <div class="relative flex justify-center text-sm leading-5">
                                 <span class="px-2 bg-white text-steel">{{ __('Legacy User Login') }}</span>
                             </div>
                         </div>
-                    </div>    
+                    </div>
 
                     <div class="mt-6">
                         <label for="email"

@@ -3,7 +3,7 @@ use App\Models\Resource;
 @endphp
 
 <div>
-    <div class="bg-white border-t-4 border-teal shadow-md js-show-more-less">
+    <div class="bg-white border-t-4 shadow-md border-teal js-show-more-less">
         <div class="pt-8 pb-6 lg:pt-12">
             <p class="pl-6 pr-5 text-xl font-bold lg:px-12">{{ __('Basic') }}</p>
 
@@ -12,7 +12,8 @@ use App\Models\Resource;
 
                 {{-- @forelse ($freeResources as $resource)
                     @include('partials.resource-on-module-page-with-border')
-                @empty --}}
+                @empty
+                --}}
                 <li class="px-6 pb-4 list-none lg:px-12">{{ __('No quizzes') }}</li>
                 {{-- @endforelse --}}
             </ul>
@@ -27,7 +28,7 @@ use App\Models\Resource;
     {{-- @todo update this to be quizzes --}}
 
     {{-- @if ($freeResources->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])->where('is_bonus', true)->isNotEmpty())
-        <div class="mt-6 bg-white border-t-4 border-teal shadow-md js-show-more-less">
+        <div class="mt-6 bg-white border-t-4 shadow-md border-teal js-show-more-less">
             <div class="pt-8 pb-6 lg:pt-12">
                 <p class="pl-6 pr-5 text-xl font-bold lg:px-12">Bonus</p>
 

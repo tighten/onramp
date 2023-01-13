@@ -11,7 +11,7 @@ class UserAccessTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function users_with_user_role_cannot_update_users()
+    public function users_with_user_role_cannot_update_users()
     {
         $user = User::factory()->create(['role' => 'user']);
 
@@ -19,7 +19,7 @@ class UserAccessTest extends TestCase
     }
 
     /** @test */
-    function users_with_editor_role_cannot_update_users()
+    public function users_with_editor_role_cannot_update_users()
     {
         $user = User::factory()->create(['role' => 'editor']);
 
@@ -27,7 +27,7 @@ class UserAccessTest extends TestCase
     }
 
     /** @test */
-    function users_with_admin_role_can_update_users()
+    public function users_with_admin_role_can_update_users()
     {
         $user = User::factory()->create(['role' => 'admin']);
 

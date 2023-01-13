@@ -1,9 +1,9 @@
 <?php
 
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -27,8 +27,8 @@ return new class extends Migration
     {
         Schema::table('resource_term', function (Blueprint $table) {
             if (DB::getDriverName() !== 'sqlite') {
-                $table->dropForeign(['resource_id']);   
-                $table->dropForeign(['term_id']);   
+                $table->dropForeign(['resource_id']);
+                $table->dropForeign(['term_id']);
             }
         });
     }

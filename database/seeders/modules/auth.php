@@ -22,7 +22,7 @@ return [
                 'url' => 'https://laravelpodcast.com/episodes/presets-jetstream-with-michael-dyrynda',
                 'type' => Resource::AUDIO_TYPE,
             ],
-        ]
+        ],
     ],
     'skill_level' => Module::INTERMEDIATE_SKILL_LEVEL,
 ];

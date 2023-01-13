@@ -4,9 +4,9 @@ namespace Tests\Feature;
 
 use App\Facades\Preferences;
 use App\Models\Module;
-use App\OperatingSystem;
 use App\Models\Resource;
 use App\Models\User;
+use App\OperatingSystem;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -15,7 +15,7 @@ class OperatingSystemScopeTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function users_preferring_windows_only_see_windows_and_ANY_resources()
+    public function users_preferring_windows_only_see_windows_and_ANY_resources()
     {
         $commonAttributes = [
             'type' => Resource::VIDEO_TYPE,

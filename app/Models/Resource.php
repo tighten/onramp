@@ -4,7 +4,6 @@ namespace App\Models;
 
 use App\Completable;
 use App\Facades\Preferences;
-use App\Models\Term;
 use App\OperatingSystem;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -90,25 +89,6 @@ class Resource extends Model implements Completable
         }
     }
 
-    protected function scopeForLocalePreferences($query)
-    {
-        switch (Preferences::get('resource-language')) {
-            case 'local':
-                $query->where(['language' => locale()]);
-
-                break;
-            case 'local-and-english':
-                $query->where(function ($query) {
-                    $query->where(['language' => locale()])
-                        ->orWhere('language', 'en');
-                });
-
-                break;
-            case 'all':
-                break;
-        }
-    }
-
     public function scopeExpired($query)
     {
         return $query->where('expiration_date', '<', now()->toDateTimeString());
@@ -158,5 +138,24 @@ class Resource extends Model implements Completable
     public function isDueForRenewal()
     {
         return $this->isExpired() || $this->isExpiring();
+    }
+
+    protected function scopeForLocalePreferences($query)
+    {
+        switch (Preferences::get('resource-language')) {
+            case 'local':
+                $query->where(['language' => locale()]);
+
+                break;
+            case 'local-and-english':
+                $query->where(function ($query) {
+                    $query->where(['language' => locale()])
+                        ->orWhere('language', 'en');
+                });
+
+                break;
+            case 'all':
+                break;
+        }
     }
 }

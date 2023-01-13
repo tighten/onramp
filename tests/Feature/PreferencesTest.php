@@ -3,8 +3,8 @@
 namespace Tests\Feature;
 
 use App\Models\Module;
-use App\Preferences\Preferences;
 use App\Models\User;
+use App\Preferences\Preferences;
 use Exception;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -14,7 +14,7 @@ class PreferencesTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function guests_can_use_pages_with_preferences_without_errors()
+    public function guests_can_use_pages_with_preferences_without_errors()
     {
         $module = Module::factory()->create();
         $response = $this->get('/en/modules/' . $module->slug . '/free-resources');
@@ -22,7 +22,7 @@ class PreferencesTest extends TestCase
     }
 
     /** @test */
-    function preference_service_uses_logged_in_user_by_default()
+    public function preference_service_uses_logged_in_user_by_default()
     {
         $user = User::factory()->create();
         $this->be($user);
@@ -33,7 +33,7 @@ class PreferencesTest extends TestCase
     }
 
     /** @test */
-    function preferences_not_defined_cannot_be_used()
+    public function preferences_not_defined_cannot_be_used()
     {
         $this->expectException(Exception::class);
         $user = User::factory()->create();
@@ -42,7 +42,7 @@ class PreferencesTest extends TestCase
     }
 
     /** @test */
-    function user_can_set_and_get_preferences()
+    public function user_can_set_and_get_preferences()
     {
         $user = User::factory()->create();
         $this->be($user);
@@ -52,7 +52,7 @@ class PreferencesTest extends TestCase
     }
 
     /** @test */
-    function get_honors_preference_defaults_if_user_hasnt_set_preferences()
+    public function get_honors_preference_defaults_if_user_hasnt_set_preferences()
     {
         $user = User::factory()->create([
             'preferences' => [],
@@ -63,7 +63,7 @@ class PreferencesTest extends TestCase
     }
 
     /** @test */
-    function get_can_have_default_overridden()
+    public function get_can_have_default_overridden()
     {
         $user = User::factory()->create([
             'preferences' => [],

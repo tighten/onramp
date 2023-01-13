@@ -35,7 +35,6 @@ class ResourceFactory extends Factory
         ];
     }
 
-
     public function doesntExpire()
     {
         return $this->state(function (array $attributes) {

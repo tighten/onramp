@@ -37,11 +37,13 @@ class GetExpiredResources extends Command
 
         if (! count($expiredResources)) {
             $this->info('All resources are up to date!');
+
             return;
         }
 
         if ($this->option('notify')) {
             Event::dispatch('send-expired-resources', [$expiredResources]);
+
             return;
         }
 

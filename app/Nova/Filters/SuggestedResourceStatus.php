@@ -10,7 +10,6 @@ class SuggestedResourceStatus extends Filter
 {
     /**
      * The filter's component.
-     *
      */
     public $component = 'select-filter';
 

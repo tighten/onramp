@@ -20,6 +20,7 @@
         "larswiegers/laravel-translations-checker": "^0.3",
         "nathanheffley/laravel-slack-blocks": "^2.3",
         "spatie/laravel-translatable": "^5.2",
+        "stechstudio/laravel-ssh-tunnel": "^3.2",
         "tightenco/ziggy": "^1.5"
     },
     "require-dev": {

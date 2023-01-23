@@ -87,7 +87,7 @@ class ModulesPageTest extends TestCase
         $response = $this->get(route('modules.index', ['locale' => 'en']));
 
         $response->assertViewHas('bonusModules', function ($bonusModules) {
-            return $bonusModules->count() == 1;
+            return $bonusModules->count() === 1;
         });
 
         $response->assertViewHas('bonusModules', function ($bonusModules) use ($bonusModule) {
@@ -115,7 +115,7 @@ class ModulesPageTest extends TestCase
             ])->toArray()
         );
         $user = User::factory()->create([
-            'track_id' => 1,
+            'track_id' => $track->id,
         ]);
 
         $response = $this->actingAs($user)->get(route('modules.index', ['locale' => 'en']));

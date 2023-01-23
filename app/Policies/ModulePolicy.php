@@ -13,7 +13,7 @@ class ModulePolicy
 
     public function before($user)
     {
-        return ($user->isAdmin() ?: null);
+        return $user->isAdmin() ?: null;
     }
 
     /**

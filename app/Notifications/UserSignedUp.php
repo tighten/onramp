@@ -39,7 +39,7 @@ class UserSignedUp extends Notification
 
     public function toSlack($notifiable)
     {
-        return (new SlackMessage())
+        return (new SlackMessage)
             ->from('Onramp', ':onramp:')
             ->attachment(function (SlackAttachment $attachment) {
                 $attachment

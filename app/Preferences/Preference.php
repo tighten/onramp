@@ -5,6 +5,7 @@ namespace App\Preferences;
 abstract class Preference
 {
     abstract public function options();
+
     abstract public function default();
 
     public function validate($value)

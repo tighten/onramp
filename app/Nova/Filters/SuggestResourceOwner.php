@@ -9,7 +9,6 @@ class SuggestResourceOwner extends Filter
 {
     /**
      * The filter's component.
-     *
      */
     public $component = 'select-filter';
 

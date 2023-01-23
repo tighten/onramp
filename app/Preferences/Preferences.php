@@ -66,7 +66,7 @@ class Preferences
     public function preferenceForKey($key)
     {
         if (array_key_exists($key, $this->preferences)) {
-            return (new $this->preferences[$key]);
+            return new $this->preferences[$key];
         }
 
         throw new Exception('No preference matching key ' . $key);

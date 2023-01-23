@@ -16,7 +16,7 @@ class Main extends Dashboard
     public function cards()
     {
         return [
-            new SuggestedResourcesShortcuts(),
+            new SuggestedResourcesShortcuts,
             // new LatestRelease(),
         ];
     }

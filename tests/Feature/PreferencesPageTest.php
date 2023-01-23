@@ -12,7 +12,7 @@ class PreferencesPageTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function it_loads()
+    public function it_loads()
     {
         $this->be(User::factory()->create());
         $response = $this->get(route('user.preferences.index', ['locale' => 'en']));
@@ -21,7 +21,7 @@ class PreferencesPageTest extends TestCase
     }
 
     /** @test */
-    function it_modifies_operating_system_when_changed()
+    public function it_modifies_operating_system_when_changed()
     {
         $this->withoutExceptionHandling();
         $this->be(User::factory()->create());
@@ -45,7 +45,7 @@ class PreferencesPageTest extends TestCase
     }
 
     /** @test */
-    function on_failed_validation_it_persists_old_submitted_values()
+    public function on_failed_validation_it_persists_old_submitted_values()
     {
         $this->markTestIncomplete();
     }

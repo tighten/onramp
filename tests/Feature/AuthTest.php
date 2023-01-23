@@ -11,7 +11,7 @@ class AuthTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function user_can_log_in()
+    public function user_can_log_in()
     {
         $this->be($user = User::factory()->create());
 

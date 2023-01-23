@@ -16,19 +16,16 @@ class Module extends BaseResource
 {
     /**
      * The model the resource corresponds to.
-     *
      */
     public static $model = \App\Models\Module::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
-     *
      */
     public static $title = 'name';
 
     /**
      * The columns that should be searched.
-     *
      */
     public static $search = [
         'id', 'name', 'slug',

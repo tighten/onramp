@@ -12,7 +12,7 @@ class SkillAccessTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function users_with_user_role_cannot_view_skills()
+    public function users_with_user_role_cannot_view_skills()
     {
         $user = User::factory()->create(['role' => 'user']);
 
@@ -20,7 +20,7 @@ class SkillAccessTest extends TestCase
     }
 
     /** @test */
-    function users_with_editor_role_can_only_view_skills()
+    public function users_with_editor_role_can_only_view_skills()
     {
         $user = User::factory()->create(['role' => 'editor']);
 

@@ -15,14 +15,14 @@ class LoginController extends Controller
 {
     use AuthenticatesUsers;
 
-    public function redirectTo()
-    {
-        return Preferences::get('locale') . '/modules';
-    }
-
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function redirectTo()
+    {
+        return Preferences::get('locale') . '/modules';
     }
 
     public function showLoginForm()

@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class AddExpirationDateAndCanExpireColumnsToResourcesTable extends Migration
 {
-
     public function up()
     {
         Schema::table('resources', function (Blueprint $table) {

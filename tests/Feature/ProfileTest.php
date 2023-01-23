@@ -11,7 +11,7 @@ class ProfileTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function users_can_access_their_profile_page()
+    public function users_can_access_their_profile_page()
     {
         $user = User::factory()->create();
 
@@ -20,7 +20,7 @@ class ProfileTest extends TestCase
     }
 
     /** @test */
-    function users_can_update_their_profile_settings()
+    public function users_can_update_their_profile_settings()
     {
         $user = User::factory()->create([
             'name' => 'Caleb Dume',
@@ -41,7 +41,7 @@ class ProfileTest extends TestCase
     }
 
     /** @test */
-    function only_authenticated_users_can_update_their_profile()
+    public function only_authenticated_users_can_update_their_profile()
     {
         $response = $this->put(route_wlocale('user.profile.update'));
 
@@ -49,7 +49,7 @@ class ProfileTest extends TestCase
     }
 
     /** @test */
-    function updating_user_profile_requires_a_name_and_email()
+    public function updating_user_profile_requires_a_name_and_email()
     {
         $user = User::factory()->create();
 
@@ -60,7 +60,7 @@ class ProfileTest extends TestCase
     }
 
     /** @test */
-    function updating_user_profile_requires_a_valid_email()
+    public function updating_user_profile_requires_a_valid_email()
     {
         $user = User::factory()->create();
 

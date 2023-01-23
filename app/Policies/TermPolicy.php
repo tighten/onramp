@@ -12,8 +12,9 @@ class TermPolicy
 
     public function before($user)
     {
-        return ($user->isAtLeastEditor() ?: null);
+        return $user->isAtLeastEditor() ?: null;
     }
+
     /**
      * Determine whether the user can view any terms.
      *

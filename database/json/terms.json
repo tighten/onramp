@@ -1,0 +1,240 @@
+[
+  {
+    "id": 1,
+    "name": "{\"en\": \"Collections\", \"sv\": null, \"pt_pt\": \"Cole\u00e7\u00f5es\"}",
+    "description": "{\"en\": \"A Laravel Collection is a convenient wrapper around arrays, providing methods for manipulating the array data in useful ways.\", \"sv\": null, \"pt_pt\": \"Uma cole\u00e7\u00e3o no laravel \u00e9 um wrapper para arrays, fornecendo m\u00e9todos para manipular os dados do array de forma mais f\u00e1cil.\"}",
+    "created_at": "2020-08-24 21:25:52",
+    "updated_at": "2023-01-11 13:28:22"
+  },
+  {
+    "id": 2,
+    "name": "{\"en\": \"HTML\", \"sv\": null, \"pt_pt\": \"HTML\"}",
+    "description": "{\"en\": \"HTML (Hypertext Markup Language) is the primary language used to represent content on web pages. For example, it allows the the web browser to determine which parts of the content are headings, which parts are paragraph text, and which parts should be formatted as tables.\", \"sv\": null, \"pt_pt\": \"HTML (Hypertext Markup Language) \u00e9 a linguagem principal usada para representar o conte\u00fado em p\u00e1ginas web. Por exemplo, permite que o navegador web determine que partes do conte\u00fado s\u00e3o t\u00edtulos, que partes s\u00e3o texto de par\u00e1grafo e que partes devem ser formatadas como tabelas.\"}",
+    "created_at": "2020-08-24 21:25:52",
+    "updated_at": "2023-01-11 13:28:52"
+  },
+  {
+    "id": 3,
+    "name": "{\"en\": \"CSS\", \"sv\": null, \"pt_pt\": \"CSS\"}",
+    "description": "{\"en\": \"CSS (Cascading Style Sheet) is the primary language used in websites to describe the intended visual appearance of the site and its content. For example, it allows the the web browser to determine what size text should be, what color the background of a heading should be, or the spacing between two elements on the page.\", \"sv\": null, \"pt_pt\": \"CSS (Cascading Style Sheet) \u00e9 a linguagem principal usada em sites para descrever a apar\u00eancia visual pretendida do site e do seu conte\u00fado. Por exemplo, permite que o navegador web determine o tamanho do texto, a cor do fundo de um t\u00edtulo ou o espa\u00e7amento entre dois elementos na p\u00e1gina.\"}",
+    "created_at": "2020-08-24 21:25:52",
+    "updated_at": "2023-01-11 13:41:07"
+  },
+  {
+    "id": 4,
+    "name": "{\"en\": \"Vagrant\", \"sv\": null, \"pt_pt\": \"Vagrant\"}",
+    "description": "{\"en\": \"Vagrant is a software program used to manage and standardize development environments. It's a Ruby-based configuration layer that makes it easy to provision and control hypervisors (VMWare, Parallels, HyperV, etc.) with simple configuration scripts.\", \"sv\": null, \"pt_pt\": \"Vagrant \u00e9 um programa usado para gerir e padronizar ambientes de desenvolvimento. \u00c9 uma camada de configura\u00e7\u00e3o baseada em Ruby que facilita o provisionamento e o controlo de virtualizadores (VMWare, Parallels, HyperV, etc.) com scripts de configura\u00e7\u00e3o simples.\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:40:46"
+  },
+  {
+    "id": 5,
+    "name": "{\"en\": \"Homestead\", \"sv\": null, \"pt_pt\": \"Homestead\"}",
+    "description": "{\"en\": \"Laravel Homestead is an official, pre-set Vagrant box that is pre-configured to serve Laravel applications and mirrors Laravel Forge almost exactly.\", \"sv\": null, \"pt_pt\": \"O Laravel Homestead \u00e9 uma caixa Vagrant oficial e pr\u00e9-configurada para aplica\u00e7\u00f5es Laravel e clona de forma muito semelhante o Laravel Forge.\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:40:29"
+  },
+  {
+    "id": 6,
+    "name": "{\"en\": \"Valet\", \"sv\": null, \"pt_pt\": \"Valet\"}",
+    "description": "{\"en\": \"Valet is a Laravel development environment for Mac minimalists. Using Homebrew and a few bundled applications, it serves your Laravel projects (and also those in WordPress, Statamic, and more) with almost no configuration on your end.\", \"sv\": null, \"pt_pt\": \"O Valet \u00e9 um ambiente minimalista de desenvolvimento Laravel para Mac. Usando o Homebrew e um conjunto de algumas aplica\u00e7\u00f5es, ele serve projetos Laravel (mas tamb\u00e9m WordPress, Statamic e outros) sem necessitar praticamente de nenhuma qconfigura\u00e7\u00e3o da sua parte.\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:40:08"
+  },
+  {
+    "id": 7,
+    "name": "{\"en\": \"Request Lifecycle\", \"sv\": null, \"pt_pt\": \"Request Lifecycle\"}",
+    "description": "{\"en\": \"The request lifecycle describes what happens as a request (whether via HTTP or the console) comes into the Laravel application and generates a response, which is returned to the user.\\r\\n\\r\\nEach request enters the application through `public\/index.php`, where Laravel is bootstrapped and the request is converted to a `Request` object. This object is passed to the kernel, and then the router, which passes it to the application's matching route closure or controller. These routes will act on the request, and then return a response, which is sent to the end user.\", \"sv\": null, \"pt_pt\": \"O 'request lifecycle' descreve o que acontece quando um pedido (seja via HTTP ou na consola) chega ao Laravel e gera uma resposta, que \u00e9 devolvida ao utilizador.\\\\n\\\\nCada pedido entra na aplica\u00e7\u00e3o atrav\u00e9s de `public\/index.php`, onde o Laravel \u00e9 inicializado e o pedido \u00e9 convertido num objeto `Request`. Este objeto \u00e9 passado para o kernel e, em seguida, para o roteador, que o passa para o controlador ou encerramento de rota correspondente na aplica\u00e7\u00e3o. Essas rotas atuar\u00e3o no pedido e devolver\u00e3o uma resposta, que ser\u00e1 enviado ao utilizdor.\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:39:40"
+  },
+  {
+    "id": 8,
+    "name": "{\"en\": \"Service Provider\", \"sv\": null, \"pt_pt\": \"Service Provider\"}",
+    "description": "{\"en\": \"Service providers are the heart of every Laravel application. These PHP classes contain and organize the relevant code in which the framework (and dependencies) bootstrap themselves. This includes binding classes, defining event listeners, and registering everything Laravel uses across multiple systems like middleware and routes. Service providers run at the beginning of each request; as the app boostraps Laravel runs through each service provider listend in `app\/config\/app.php`. Laravel comes with core service providers, but programmers can also build our own.\", \"sv\": null, \"pt_pt\": \"Os 'Service Providers' s\u00e3o o cora\u00e7\u00e3o de cada aplica\u00e7\u00e3o Laravel. Estas classes PHP cont\u00eam e organizam o c\u00f3digo relevante no qual a estrutura (e depend\u00eancias) se autoinicializam. Isto inclui 'binding classes', 'event listeners' e registro de tudo o que o Laravel usa em v\u00e1rios sistemas como 'middleware' e rotas. Os 'service providers' s\u00e3o executados no in\u00edcio de cada pedido; quando a aplica\u00e7\u00e3o arranca, o Laravel executa cada lista de 'service providers' em \u02bbapp\/config\/app.php`. O Laravel vem com 'service providers' b\u00e1sicos, mas os programadores tamb\u00e9m podem construir os seus pr\u00f3prios.\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:39:20"
+  },
+  {
+    "id": 9,
+    "name": "{\"en\": \"Service Container\", \"sv\": null, \"pt_pt\": \"Service Container\"}",
+    "description": "{\"en\": \"Laravel's service container, also known as the Inversion Of Control (IOC) container, Application container or Dependency Injection (DI) container, manages class dependencies and performs dependency injections. A dependency exists whenever one class uses (or depends on) another class or an interface, and it cannot do its work without them. The service container manages these dependencies and makes sure everything works as intended.\", \"sv\": null, \"pt_pt\": \"O Service Container do Laravel, tamb\u00e9m conhecido como Inversion Of Control (IOC) container, Application container ou Dependency Injection (DI), gere as depend\u00eancias de classes e executa a inje\u00e7\u00e3o de depend\u00eancias. Existe uma depend\u00eancia sempre que uma classe usa (ou depende de) outra classe ou interface e n\u00e3o pode executar o seu c\u00f3digo sem eles. O Service Container gere essas depend\u00eancias e garante que tudo funciona conforme esperado.\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:38:35"
+  },
+  {
+    "id": 10,
+    "name": "{\"en\": \"Helper Methods\", \"sv\": null, \"pt_pt\": \"M\u00e9todos Helper\"}",
+    "description": "{\"en\": \"Laravel provides a large number of global functions called helpers that make some common tasks easier to perform. The list includes methods for working with strings, arrays, objects, URLs and other miscellaneous methods.\", \"sv\": null, \"pt_pt\": \"O Laravel fornece um grande n\u00famero de fun\u00e7\u00f5es globais chamadas de Helpers que tornam algumas tarefas comuns mais f\u00e1ceis de executar. A lista inclui m\u00e9todos para trabalhar com strings, arrays, objetos, URLs e outros m\u00e9todos.\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:38:15"
+  },
+  {
+    "id": 11,
+    "name": "{\"en\": \"CSRF Protection\", \"sv\": null, \"pt_pt\": \"Prote\u00e7\u00e3o CSRF\"}",
+    "description": "{\"en\": \"To protect your application from cross-site request forgery, which is a type of malicious exploit of a website, Laravel generates (and validates) a CSRF token for each upcoming POST request to verify the authenticated user. Simply add `@csrf` inside your `<form>` and Laravel will take care of the rest.\", \"sv\": null, \"pt_pt\": \"Para proteger sua aplica\u00e7\u00e3o contra falsifica\u00e7\u00e3o de pedidos entre sites, que \u00e9 um tipo de ataque malicioso de um site, o Laravel gera (e valida) um token CSRF para cada pedido POST para verificar o utilizador autenticado. Adicione `@ csrf` dentro da tag do seu `<form>` e o Laravel cuidar\u00e1 do resto.\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:37:50"
+  },
+  {
+    "id": 12,
+    "name": "{\"en\": \"Blade\", \"sv\": null, \"pt_pt\": \"Blade\"}",
+    "description": "{\"en\": \"Blade is a templating engine provided with Laravel. While we could use plain `PHP` inside `HTML` files, the markup up would quickly become messy and hard to read. With Blade we can still loop through data in our views using `@for`, `@foreach`, `@forelse` or `@while`, echo data by using the mustache syntax `{{}}`, or display data conditionally by using clear syntax such as `@if`, `@elseif`, `@else` and `@unless`. Blade also offers many more directives and the ability to build your own, and a robust inheritance system, which make Blade a very powerful, yet easy to understand, templating language.\", \"sv\": null, \"pt_pt\": \"Blade \u00e9 o motor de templates fornecido com o Laravel. Embora pud\u00e9ssemos usar `PHP` simples dentro de arquivos `HTML`, o c\u00f3digo rapidamente se tornaria confusa e dif\u00edcil de ler. Com o Blade, ainda podemos percorrer os dados das visualiza\u00e7\u00f5es usando `@for`,`@foreach`, `@forelse` ou `@while`, exportar dados usando a sintaxe das chavetas `{{}}`, ou exibir dados condicionalmente usando sintaxe clara como `@if`, `@elseif`, `@else` e `@menos`. O Blade tamb\u00e9m oferece muito mais diretivas e a capacidade de construir as suas pr\u00f3prias, e um potente sistema de heran\u00e7a, que tornam o Blade uma linguagem de templates muito poderosa, mas f\u00e1cil de entender.\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:37:22"
+  },
+  {
+    "id": 13,
+    "name": "{\"en\": \"Localization\", \"sv\": null, \"pt_pt\": \"Localiza\u00e7\u00e3o\"}",
+    "description": "{\"en\": \"Localization is a way to translate a website or web app to different languages, including local currencies and units of measurement. Laravel provides an easy way to retrieve strings in various languages by either using the `__` helper function or the `@lang` Blade directive. Laravel also supports pluralization for languages that have different pluralization rules.\", \"sv\": null, \"pt_pt\": \"A localiza\u00e7\u00e3o \u00e9 uma maneira de traduzir um site ou aplica\u00e7\u00e3o para diferentes idiomas, incluindo moedas locais e unidades de medida. O Laravel fornece uma maneira f\u00e1cil de recuperar strings em v\u00e1rias linguagens usando a fun\u00e7\u00e3o auxiliar `__` ou a diretiva Blade `@lang`. O Laravel tamb\u00e9m suporta pluraliza\u00e7\u00e3o para linguagens que possuem regras de pluraliza\u00e7\u00e3o diferentes.\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:36:57"
+  },
+  {
+    "id": 14,
+    "name": "{\"en\": \"VueJS\", \"sv\": null, \"pt_pt\": \"VueJS\"}",
+    "description": "{\"en\": \"VueJS is a progressive frontend JavaScript framework for creating user interfaces, the `view` layer of the application. Its ease of use and a smooth learning curve means that Vue is a popular choice when choosing a front-end framework, so much so that Laravel provides an easy way to install and setup Vue inside Laravel app by running `php artisan ui vue` or `php artisan ui vue --auth`.\", \"sv\": null, \"pt_pt\": \"VueJS \u00e9 uma estrutura progressiva de frontend JavaScript para criar interfaces de utilizador, a camada `view` da aplica\u00e7\u00e3o. A sua simplicidade de uso e uma curva de aprendizem facil significa que o Vue \u00e9 uma escolha popular ao escolher uma framework front-end, tanto que o Laravel fornece uma maneira f\u00e1cil de instalar e configurar o Vue dentro da aplica\u00e7\u00e3o Laravel executando `php artisan ui vue` ou `php artisan ui vue --auth`.\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:36:34"
+  },
+  {
+    "id": 15,
+    "name": "{\"en\": \"Artisan\", \"sv\": null, \"pt_pt\": \"Artisan\"}",
+    "description": "{\"en\": \"Laravel's Artisan is a command-line tool that comes part of every Laravel application, and can be accessed by running `php artisan` from the root of any Laravel app. Artisan comes with a large list of commands that make it easy to do anything from creating models, controllers, migrating database tables or interacting with a database using the command line interface. In addition to the commands that are already provided, programmers can alsocreate custom commands to simplify the process of interacting with each app from the command line.\", \"sv\": null, \"pt_pt\": \"Laravel's Artisan \u00e9 uma ferramenta de linha de comando que faz parte de todas as aplica\u00e7\u00f5es Laravel, e pode ser acedida executando `php artisan` a partir da raiz de qualquer aplica\u00e7\u00e3o Laravel. O Artisan vem com uma grande lista de comandos que tornam f\u00e1cil fazer qualquer coisa, desde criar modelos, controladores, migrar tabelas de base de dados ou interagir com uma base de dados usando a interface de linha de comando. Al\u00e9m dos comandos que j\u00e1 s\u00e3o fornecidos, os programadores tamb\u00e9m podem criar comandos personalizados para simplificar o processo de intera\u00e7\u00e3o com cada aplica\u00e7\u00e3o a partir da linha de comando.\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:36:13"
+  },
+  {
+    "id": 16,
+    "name": "{\"en\": \"Tinker\", \"sv\": null, \"pt_pt\": \"Tinker\"}",
+    "description": "{\"en\": \"Tinker is a REPL (Read, Evaluate, Print, Loop) interactive tool that is included with every Laravel installation. Like Ruby's IRB, Tinker allows programmers to interact with their Laravel application and see the output of their actions.\", \"sv\": null, \"pt_pt\": \"Tinker \u00e9 uma ferramenta interativa REPL (Read, Evaluate, Print, Loop) que est\u00e1 inclu\u00edda em todas as instala\u00e7\u00f5es do Laravel. Como o IRB do Ruby, o Tinker permite que os programadores interajam com a sua aplica\u00e7\u00e3o Laravel e vejam o resultado imediato das suas instru\u00e7\u00f5es.\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:35:41"
+  },
+  {
+    "id": 17,
+    "name": "{\"en\": \"Redis\", \"sv\": null, \"pt_pt\": \"Redis\"}",
+    "description": "{\"en\": \"Redis (RemoteDictionaryServer) is an in-memory key-value store used as a database, cache, and a message broker. It is a no-SQL database, which means it does not use structures such like tables, rows or columns, and it does not use statements such as `SELECT`, `INSERT`, `UPDATE` or `DELETE`. Instead, it uses data structures like `strings`, `lists`, `sets`, `sorted sets`, `hashes`, `bitmaps` and others to store data. Because Redis is an in-memory database (with available persistence options), it is also very fast and therefore ideal for caching, real-time comment streams or queue jobs.\", \"sv\": null, \"pt_pt\": \"Redis (RemoteDictionaryServer) \u00e9 um armazenamento de valores-chave na mem\u00f3ria usado como base de dados, cache e mensagens. \u00c9 uma base de dados sem SQL, o que significa que n\u00e3o usa estruturas como tabelas, linhas ou colunas, e n\u00e3o usa instru\u00e7\u00f5es como `SELECT`, \u02bbINSERT`, \u02bbUPDATE` ou` DELETE`. Em vez disso, usa estruturas de dados como `strings`, `listas`, `conjuntos`, `conjuntos ordenados`, `hashes`, `bitmaps` entre outros para armazenar dados. Como o Redis \u00e9 uma base de dados em mem\u00f3ria (com op\u00e7\u00f5es de persist\u00eancia dispon\u00edveis), tamb\u00e9m \u00e9 muito r\u00e1pido e, portanto, ideal para armazenamento em cache, fluxos em tempo real ou trabalhos em pilha.\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:35:14"
+  },
+  {
+    "id": 18,
+    "name": "{\"en\": \"Cashier\", \"sv\": null, \"pt_pt\": \"Cashier\"}",
+    "description": "{\"en\": \"Laravel Cashier is a package that provides an easy to use and configurable interface to various billing services, such as Stripe, Paddle or Mollie.\", \"sv\": null, \"pt_pt\": \"Laravel Cashier \u00e9 um pacote que oferece uma interface f\u00e1cil de usar e configur\u00e1vel para diversos servi\u00e7os de pagamento, como Stripe, Paddle ou Mollie.\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:34:53"
+  },
+  {
+    "id": 19,
+    "name": "{\"en\": \"Dusk\", \"sv\": null, \"pt_pt\": \"Dusk\"}",
+    "description": "{\"en\": \"Laravel Dusk is a browser automation and API testing package. With Dusk you can programmatically test your Laravel application or visit any website using a real Chrome browser. Dusk can automate repetitive tasks or scrape information from other websites and while Dusk uses a Chrome driver out of the box, you can use any other Selenium compatible drivers instead.\", \"sv\": null, \"pt_pt\": \"Laravel Dusk \u00e9 um pacote de automatiza\u00e7\u00e3o de testes de browser e API. Com o Dusk, pode testar programaticamente a sua aplica\u00e7\u00e3o Laravel ou visitar qualquer site usando o browser Chrome. O Dusk pode automatizar tarefas repetitivas ou extrair informa\u00e7\u00f5es de outros sites e, embora o Dusk use um driver do Chrome, pode usar qualquer outro driver compat\u00edvel com Selenium.\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:34:30"
+  },
+  {
+    "id": 20,
+    "name": "{\"en\": \"Envoy\", \"sv\": null, \"pt_pt\": \"Envoy\"}",
+    "description": "{\"en\": \"Laravel Envoy provides a clear and concise, Blade-like syntax to define common tasks run on remote servers.\", \"sv\": null, \"pt_pt\": \"O Laravel Envoy fornece uma sintaxe clara e concisa semelhante ao Blade para definir tarefas comuns executadas em servidores remotos.\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:34:13"
+  },
+  {
+    "id": 21,
+    "name": "{\"en\": \"Horizon\", \"sv\": null, \"pt_pt\": \"Horizon\"}",
+    "description": "{\"en\": \"Horizon is a dashboard and configuration package for Laravel-powered Redis queues. Redis (RemoteDictionaryServer) is an in-memory key-value store used as a database, cache, and a message broker and Horizon makes it easy to monitor key metrics, for example, the health, performance, failures or history of any queue system in your Laravel application.\", \"sv\": null, \"pt_pt\": \"Horizon \u00e9 um painel e pacote de configura\u00e7\u00e3o para pilhas Redis em Laravel. Redis (RemoteDictionaryServer) \u00e9 um armazenamento de valores-chave na mem\u00f3ria usado como base de dados, cache e mensagens, e o Horizon facilita a monitoriza\u00e7\u00e3o das principais m\u00e9tricas, por exemplo, integridade, desempenho, falhas ou hist\u00f3rico de qualquer sistema de pilha na sua aplica\u00e7\u00e3o Laravel.\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:33:56"
+  },
+  {
+    "id": 22,
+    "name": "{\"en\": \"Passport\", \"sv\": null, \"pt_pt\": \"Passport\"}",
+    "description": "{\"en\": \"Laravel Passport is a package to authenticate APIs. Due to the unique nature of APIs as they typically use tokens to authenticate users and do not maintain session state between requests, authenticating APIs has not always been straightforward. Laravel Passport makes it possible by implementing an OAuth2 server inside your Laravel application.\", \"sv\": null, \"pt_pt\": \"Laravel Passport \u00e9 um pacote para autenticar APIs. Devido \u00e0 natureza \u00fanica das APIs, ue normalmente usam tokens para autenticar utilizadores e n\u00e3o mant\u00eam o estado da sess\u00e3o entre os pedidos, a autentica\u00e7\u00e3o de APIs nem sempre foi simples. O Laravel Passport torna isso poss\u00edvel implementando um servidor OAuth2 dentro da sua aplica\u00e7\u00e3o Laravel.\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:33:32"
+  },
+  {
+    "id": 23,
+    "name": "{\"en\": \"Scout\", \"sv\": null, \"pt_pt\": \"Scout\"}",
+    "description": "{\"en\": \"Laravel Scout is a full-text search package that uses an Algolia driver under the hood. However, it is possible to write a custom driver and extend Scout with your own search implementation, which makes Laravel Scout a great solution for any text-search related needs.\", \"sv\": null, \"pt_pt\": \"Laravel Scout \u00e9 um pacote de pesquisa de texto completo que usa um driver Algolia sob o cap\u00f4. No entanto, \u00e9 poss\u00edvel escrever um driver personalizado e extender o Scout com uma implementa\u00e7\u00e3o de pesquisa pr\u00f3pria, o que torna o Laravel Scout uma \u00f3tima solu\u00e7\u00e3o para qualquer necessidade relacionada \u00e0 pesquisa de texto.\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:33:04"
+  },
+  {
+    "id": 24,
+    "name": "{\"en\": \"Socialite\", \"sv\": null, \"pt_pt\": \"Socialite\"}",
+    "description": "{\"en\": \"Laravel Socialite is a package that makes it easy to set up and use OAuth authentication in a Laravel application.\", \"sv\": null, \"pt_pt\": \"Laravel Socialite \u00e9 um pacote que facilita a configura\u00e7\u00e3o e o uso da autentica\u00e7\u00e3o OAuth numa aplica\u00e7\u00e3o Laravel.\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:32:41"
+  },
+  {
+    "id": 25,
+    "name": "{\"en\": \"Telescope\", \"sv\": null, \"pt_pt\": \"Telescope\"}",
+    "description": "{\"en\": \"Laravel Telescope is a debug assistant package that allows to debug and monitor various aspects of Laravel application, such as exceptions, notifications, scheduled tasks, variable dumps and others.\", \"sv\": null, \"pt_pt\": \"Laravel Telescope \u00e9 um pacote assistente de depura\u00e7\u00e3o que permite depurar e monitorar v\u00e1rios aspectos da aplica\u00e7\u00e3o Laravel, como exce\u00e7\u00f5es, notifica\u00e7\u00f5es, tarefas agendadas, exporta\u00e7\u00e3o de vari\u00e1veis entre outros.\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:32:21"
+  },
+  {
+    "id": 26,
+    "name": "{\"en\": \"Echo\", \"sv\": null, \"pt_pt\": \"Echo\"}",
+    "description": "{\"en\": \"Laravel Echo is a JavaScript library for event broadcasting. It makes it easy to handle authentication, authorization and subscribing to channels and listen for event broadcasts. Because Laravel Echo is a Javascript library, it needs to be installed via NPM package manager.\", \"sv\": null, \"pt_pt\": \"Laravel Echo \u00e9 uma biblioteca JavaScript para transmiss\u00e3o de eventos. Facilita o manuseamento da autentica\u00e7\u00e3o, autoriza\u00e7\u00e3o, assinatura de canais e a escuta de eventos. Como o Laravel Echo \u00e9 uma biblioteca Javascript, ele precisa ser instalado via gestor de pacotes NPM.\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:31:58"
+  },
+  {
+    "id": 27,
+    "name": "{\"en\": \"Vapor\", \"sv\": null, \"pt_pt\": \"Vapor\"}",
+    "description": "{\"en\": \"Laravel Vapor is an auto-scaling, serverless deployment platform developed specifically for Laravel, powered by AWS Lambda.\", \"sv\": null, \"pt_pt\": \"Laravel Vapor \u00e9 uma plataforma de implanta\u00e7\u00e3o sem servidor com escalonamento autom\u00e1tico, desenvolvida especificamente para Laravel, com tecnologia da AWS Lambda.\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:31:37"
+  },
+  {
+    "id": 28,
+    "name": "{\"en\": \"Forge\", \"sv\": null, \"pt_pt\": \"Forge\"}",
+    "description": "{\"en\": \"Laravel Forge is a server provisioning and management tool for PHP applications. Server provisioning is the process of setting up a server and making it ready to be used. This includes installing and configuring all necessary software and applications, connecting it to middleware, networks and storage and finally deploying the application. Laravel Forge makes this process as well as the management of the server easy and convenient.\", \"sv\": null, \"pt_pt\": \"Laravel Forge \u00e9 uma ferramenta de aprovisionamento e gest\u00e3o de servidor para aplica\u00e7\u00f5es PHP. O aprovisionamento de servidor \u00e9 o processo de configurar um servidor e torn\u00e1-lo pronto para ser usado. Este processo inclui instalar e configurar todas as aplica\u00e7\u00f5es necess\u00e1rias, conect\u00e1-las ao middleware, redes, armazenamento e, finalmente, implementar a aplica\u00e7\u00e3o. O Laravel Forge torna este processo assim como o gest\u00e3o do servidor f\u00e1cil e conveniente.\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:31:14"
+  },
+  {
+    "id": 29,
+    "name": "{\"en\": \"Nova\", \"sv\": null, \"pt_pt\": \"Nova\"}",
+    "description": "{\"en\": \"Laravel Nova is an administration dashboard that is known for its great design and the ability to administer the app's database records using Eloquent, the Laravel ORM (Object-Relational Mapping).\", \"sv\": null, \"pt_pt\": \"O Laravel Nova \u00e9 um painel de administra\u00e7\u00e3o conhecido por seu excelente design e capacidade de administrar os registros da base de dados da aplica\u00e7\u00e3o, utilizando o Eloquent, o Laravel ORM (Object-Relational Mapping).\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:30:54"
+  },
+  {
+    "id": 30,
+    "name": "{\"en\": \"Lumen\", \"sv\": null, \"pt_pt\": \"Lumen\"}",
+    "description": "{\"en\": \"Lumen is a free, API-focused microframework built by Laravel. Its incredible speed makes it one of the fastest microframeworks on the market, and because it is powered by Laravel's components, it is very easy to upgrade your Lumen application to a full Laravel application.\", \"sv\": null, \"pt_pt\": \"Lumen \u00e9 uma micro framework gratuita focada numa API desenvolvida pelo Laravel. Com uma velocidade incr\u00edvel torna-se um das micro frameworks mais r\u00e1pidas do mercado e, por ser movida por componentes do Laravel, \u00e9 muito f\u00e1cil atualizar a aplica\u00e7\u00e3o Lumen para uma aplica\u00e7\u00e3o Laravel completa.\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:30:33"
+  },
+  {
+    "id": 31,
+    "name": "{\"en\": \"Spark\", \"sv\": null, \"pt_pt\": \"Spark\"}",
+    "description": "{\"en\": \"Spark is a software as a service (SaaS) application scaffolding. Using Spark in your application makes it easy to set up many common features of web applications such as subscriptions, invoices, team billing, user impersonation and many others.\", \"sv\": null, \"pt_pt\": \"Spark \u00e9 um scaffolding de aplica\u00e7\u00e3o como servi\u00e7o (SaaS). O uso do Spark na sua aplica\u00e7\u00e3o facilita a configura\u00e7\u00e3o de muitos recursos comuns de aplica\u00e7\u00f5es web, como assinaturas, faturas, cobran\u00e7as, alterego de utilizadores e muitos outros.\"}",
+    "created_at": "2020-08-24 21:25:53",
+    "updated_at": "2023-01-11 13:30:04"
+  },
+  {
+    "id": 32,
+    "name": "{\"en\": \"Eloquent\", \"sv\": null}",
+    "description": "{\"en\": \"Eloquent is an object-relational mapper (ORM) that makes interacting with your database a breeze.\", \"sv\": null}",
+    "created_at": "2022-08-11 17:55:29",
+    "updated_at": "2022-08-11 17:55:29"
+  },
+  {
+    "id": 33,
+    "name": "{\"en\": \"Contracts\", \"sv\": null}",
+    "description": "{\"en\": \"Laravel's core services are defined by a set of PHP interfaces called contracts. Contracts allow you to explicitly define dependencies for your classes. For example, a class that implements the <code>Illuminate\\\\Contracts\\\\Mail\\\\Mailer<\/code> contract is required to provide an implementation for all of the methods needed for sending an email. Each of Laravel's contracts has a corresponding implementation provided by the framework.\", \"sv\": null}",
+    "created_at": "2022-10-25 15:46:23",
+    "updated_at": "2022-10-25 16:29:52"
+  },
+  {
+    "id": 34,
+    "name": "{\"en\": \"Concerns\", \"sv\": null}",
+    "description": "{\"en\": \"Concerns in Laravel are simply a collection of traits \u2013 a language feature native to PHP. The term \\\"concerns\\\" comes from the programming design principle \\\"separation of concerns.\\\" The authors of Laravel implement this design principle by using traits.\", \"sv\": null}",
+    "created_at": "2022-10-25 16:04:48",
+    "updated_at": "2022-10-25 16:05:24"
+  }
+]

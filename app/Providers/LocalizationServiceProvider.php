@@ -10,7 +10,7 @@ class LocalizationServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('localization', function ($app) {
-            return new Locale();
+            return new Locale;
         });
     }
 }

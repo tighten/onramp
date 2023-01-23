@@ -11,7 +11,7 @@ class GlossaryFromScratchSeeder extends Seeder
     {
         Term::truncate();
 
-        collect(require('glossary.php'))->each(function ($term) {
+        collect(require 'glossary.php')->each(function ($term) {
             Term::create($term);
         });
     }

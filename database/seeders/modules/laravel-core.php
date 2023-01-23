@@ -18,7 +18,7 @@ return [
                 'url' => 'https://laravelpodcast.com/episodes/the-service-container-with-christoph-rumpel',
                 'type' => Resource::AUDIO_TYPE,
             ],
-        ]
+        ],
     ],
     'skill_level' => Module::INTERMEDIATE_SKILL_LEVEL,
 ];

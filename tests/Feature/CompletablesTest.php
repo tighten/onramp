@@ -16,7 +16,7 @@ class CompletablesTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function user_can_complete_a_resource()
+    public function user_can_complete_a_resource()
     {
         $user = User::factory()->create();
         $resource = Resource::factory()->create();
@@ -27,7 +27,7 @@ class CompletablesTest extends TestCase
     }
 
     /** @test */
-    function user_can_undo_a_resource_completion()
+    public function user_can_undo_a_resource_completion()
     {
         $user = User::factory()->create();
         $resource = Resource::factory()->create();
@@ -39,7 +39,7 @@ class CompletablesTest extends TestCase
     }
 
     /** @test */
-    function user_can_complete_a_module()
+    public function user_can_complete_a_module()
     {
         $user = User::factory()->create();
         $module = Module::factory()->create();
@@ -50,7 +50,7 @@ class CompletablesTest extends TestCase
     }
 
     /** @test */
-    function user_can_undo_a_module_completion()
+    public function user_can_undo_a_module_completion()
     {
         $user = User::factory()->create();
         $module = Module::factory()->create();
@@ -62,7 +62,7 @@ class CompletablesTest extends TestCase
     }
 
     /** @test */
-    function user_can_complete_a_skill()
+    public function user_can_complete_a_skill()
     {
         $user = User::factory()->create();
         $skill = Skill::factory()->create();
@@ -73,7 +73,7 @@ class CompletablesTest extends TestCase
     }
 
     /** @test */
-    function user_can_undo_a_skill_completion()
+    public function user_can_undo_a_skill_completion()
     {
         $user = User::factory()->create();
         $skill = Skill::factory()->create();
@@ -85,7 +85,7 @@ class CompletablesTest extends TestCase
     }
 
     /** @test */
-    function user_cannot_complete_another_user()
+    public function user_cannot_complete_another_user()
     {
         $this->expectException(TypeError::class);
 
@@ -98,7 +98,7 @@ class CompletablesTest extends TestCase
     }
 
     /** @test */
-    function user_can_list_module_completions()
+    public function user_can_list_module_completions()
     {
         $user = User::factory()->create();
         $module = Module::factory()->create();
@@ -110,7 +110,7 @@ class CompletablesTest extends TestCase
     }
 
     /** @test */
-    function user_can_list_resource_completions()
+    public function user_can_list_resource_completions()
     {
         $user = User::factory()->create();
         $resource = Resource::factory()->create();
@@ -122,7 +122,7 @@ class CompletablesTest extends TestCase
     }
 
     /** @test */
-    function user_can_list_skill_completions()
+    public function user_can_list_skill_completions()
     {
         $user = User::factory()->create();
         $skill = Skill::factory()->create();

@@ -3,11 +3,11 @@
 namespace App\Nova;
 
 use App\Facades\Localization;
+use App\Models\SuggestedResource as EloquentSuggestedResource;
 use App\Nova\Actions\ApproveSuggestedResource;
 use App\Nova\Actions\RejectSuggestedResource;
 use App\Nova\Filters\SuggestedResourceStatus;
 use App\Nova\Filters\SuggestResourceOwner;
-use App\Models\SuggestedResource as EloquentSuggestedResource;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Badge;
 use Laravel\Nova\Fields\BelongsTo;

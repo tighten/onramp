@@ -21,7 +21,7 @@ class SendExpiredResources extends Notification
 
     public function toSlack($notifiable)
     {
-        $msg = (new SlackMessage())
+        $msg = (new SlackMessage)
             ->from('Onramp', ':onramp:')
             ->content(sprintf('Here is your expired resources report: %s', url('/nova')));
 
@@ -78,7 +78,7 @@ class SendExpiredResources extends Notification
                             'text' => sprintf(
                                 '*<%s|%s>*',
                                 url('/nova'),
-                                "+ $remainingResources more expired or expiring resources",
+                                "+ {$remainingResources} more expired or expiring resources",
                             ),
                         ]);
                 });

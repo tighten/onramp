@@ -12,7 +12,7 @@ class SkillPolicy
 
     public function before($user)
     {
-        return ($user->isAdmin() ?: null);
+        return $user->isAdmin() ?: null;
     }
 
     /**

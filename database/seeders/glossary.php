@@ -253,16 +253,16 @@ return [
             'pt' => 'Laravel Telescope é um pacote assistente de depuração que permite depurar e monitorar vários aspectos da aplicação Laravel, como exceções, notificações, tarefas agendadas, exportação de variáveis entre outros.',
         ],
     ],
-     [
-         'name' => [
+    [
+        'name' => [
             'en' => 'Echo',
             'pt' => 'Echo',
-         ],
-         'description' => [
+        ],
+        'description' => [
             'en' => 'Laravel Echo is a JavaScript library for event broadcasting. It makes it easy to handle authentication, authorization and subscribing to channels and listen for event broadcasts. Because Laravel Echo is a Javascript library, it needs to be installed via NPM package manager.',
             'pt' => 'Laravel Echo é uma biblioteca JavaScript para transmissão de eventos. Facilita o manuseamento da autenticação, autorização, assinatura de canais e a escuta de eventos. Como o Laravel Echo é uma biblioteca Javascript, ele precisa ser instalado via gestor de pacotes NPM.',
-         ],
-     ],
+        ],
+    ],
     [
         'name' => [
             'en' => 'Vapor',

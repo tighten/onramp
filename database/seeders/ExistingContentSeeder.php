@@ -15,7 +15,7 @@ class ExistingContentSeeder extends Seeder
     {
         $tracks = Track::all();
 
-        collect(require('learn.php'))->each(function ($moduleArray) use ($tracks) {
+        collect(require 'learn.php')->each(function ($moduleArray) use ($tracks) {
             $module = Module::create([
                 'name' => $moduleArray['name'],
                 'description' => $moduleArray['description'],
@@ -30,7 +30,7 @@ class ExistingContentSeeder extends Seeder
             $this->createResources($moduleArray, $module);
         });
 
-        collect(require('glossary.php'))->each(function ($term) {
+        collect(require 'glossary.php')->each(function ($term) {
             Term::create($term);
         });
     }

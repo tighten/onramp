@@ -11,7 +11,7 @@ class WizardTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function it_loads()
+    public function it_loads()
     {
         $this->withoutExceptionHandling();
         $this->be(User::factory()->create());

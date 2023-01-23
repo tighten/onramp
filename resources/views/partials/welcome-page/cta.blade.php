@@ -1,4 +1,3 @@
-
 <div class="relative w-full overflow-hidden bg-mint lg:mt-16 xl:to-blue-black text-blue-black md:flex md:justify-between">
 	<div class="relative p-16 md:p-0 md:left-20 md:top-20">
 		<h4 class="font-bold leading-none h4 sm:h3 lg:h2">

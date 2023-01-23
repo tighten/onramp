@@ -17,7 +17,7 @@ class SuggestedResourcesTest extends NovaTestCase
     use WithFaker;
 
     /** @test */
-    function rejected_reason_field_shows_when_a_resource_has_been_rejected()
+    public function rejected_reason_field_shows_when_a_resource_has_been_rejected()
     {
         $user = User::factory()->create([
             'track_id' => $this->faker->randomDigit,
@@ -39,7 +39,7 @@ class SuggestedResourcesTest extends NovaTestCase
     }
 
     /** @test */
-    function rejected_reason_field_does_not_show_when_a_resource_has_not_been_rejected()
+    public function rejected_reason_field_does_not_show_when_a_resource_has_not_been_rejected()
     {
         $user = User::factory()->create([
             'track_id' => $this->faker->randomDigit,
@@ -61,7 +61,7 @@ class SuggestedResourcesTest extends NovaTestCase
     }
 
     /** @test */
-    function a_new_resource_is_created_after_a_suggested_resource_is_approved()
+    public function a_new_resource_is_created_after_a_suggested_resource_is_approved()
     {
         $module = Module::factory()->create();
 

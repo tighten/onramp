@@ -2,20 +2,21 @@
 
 namespace  App\Concerns;
 
+use Exception;
 use Illuminate\Console\Command;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
 
 trait CanSeedProdData
 {
     /**
      * Seed local database from JSON seeder files
      *
-     * @param Command $command
-     * @param array $seeds
+     * @param  Command  $command
+     * @param  array  $seeds
      * @return void
      */
     protected function seed(Command $command, array $seeds): void
@@ -26,7 +27,7 @@ trait CanSeedProdData
             $filename = $seed->getFilename();
             $tableName = Str::before($filename, '.' . config('seeder.extension'));
 
-            $command->line("Seeding $tableName...");
+            $command->line("Seeding {$tableName}...");
 
             $path = $seed->getRealPath();
             $content = File::get($path);
@@ -41,7 +42,7 @@ trait CanSeedProdData
             foreach ($rows as $row) {
                 try {
                     DB::table($tableName)->insert($row);
-                } catch (\Exception $e) {
+                } catch (Exception $e) {
                     Log::warning($e->getMessage());
                     break;
                 }
@@ -56,8 +57,8 @@ trait CanSeedProdData
     /**
      * Get seeder files to populate local database with
      *
-     * @param string $dir
-     * @param array $tables
+     * @param  string  $dir
+     * @param  array  $tables
      * @return array
      */
     protected function getSeedFiles(string $dir, array $tables = []): array

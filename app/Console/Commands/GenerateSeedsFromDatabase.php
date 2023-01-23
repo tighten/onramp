@@ -25,7 +25,7 @@ class GenerateSeedsFromDatabase extends Command
         parent::__construct();
 
         if (app()->environment() === 'local') {
-            dispatch(new CreateTunnel());
+            dispatch(new CreateTunnel);
         }
 
         $this->dirPath = config('seeder.directory', 'database/json');
@@ -44,6 +44,7 @@ class GenerateSeedsFromDatabase extends Command
 
         if ($this->option('all')) {
             $this->syncAll();
+
             return 0;
         }
 
@@ -133,17 +134,18 @@ class GenerateSeedsFromDatabase extends Command
         $ext = config('seeder.extension', self::SEED_FILE_EXT);
         $seederName = $table . '.' . $ext;
 
-        $this->line("Getting $table from " . config('database.connections.mysql_tunnel.database'));
+        $this->line("Getting {$table} from " . config('database.connections.mysql_tunnel.database'));
 
-        $this->line("Generating $seederName");
+        $this->line("Generating {$seederName}");
 
         $path = $this->createFile($table, $ext);
 
         if (File::exists($path)) {
-            $continue = $override ?: $this->confirm("The seeder source file $seederName already exists. Are you sure you want to override its contents?");
+            $continue = $override ?: $this->confirm("The seeder source file {$seederName} already exists. Are you sure you want to override its contents?");
 
             if (! $continue) {
                 $this->info('Goodbye!');
+
                 return 0;
             }
         }
@@ -157,7 +159,7 @@ class GenerateSeedsFromDatabase extends Command
 
         File::put($path, json_encode($data->toArray()));
 
-        $this->info("$table synced" . PHP_EOL);
+        $this->info("{$table} synced" . PHP_EOL);
 
         return 1;
     }

@@ -12,7 +12,7 @@ class DatabaseSeederTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function content_seeder_runs()
+    public function content_seeder_runs()
     {
         $this->markTestSkipped();
         $this->seed(ContentSeeder::class);

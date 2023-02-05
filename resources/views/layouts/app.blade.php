@@ -1,4 +1,3 @@
-{{-- Template from https://templates.digizu.co.uk/ --}}
 <!DOCTYPE html>
 @php
 $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to Laravel');
@@ -79,6 +78,10 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to La
             }
         });
     </script>
+
+    @if (app()->environment() === 'production')
+    <script src="https://cdn.usefathom.com/script.js" data-site="HTCOORML" defer></script>
+    @endif
 
     <title>{{ $fullPageTitle }}</title>
 </head>

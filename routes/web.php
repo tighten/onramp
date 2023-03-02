@@ -14,21 +14,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', RootRedirectController::class);
 
-Route::group(['prefix' => '{locale}'], function () {
+Route::prefix('{locale}')->group(function () {
     Route::view('/', 'welcome')->name('welcome');
 
     Route::view('use-of-data', 'use-of-data')->name('use-of-data');
     Route::get('glossary', [GlossaryController::class, 'index'])->name('glossary');
     Route::get('tracks', [TrackController::class, 'index'])->name('tracks');
 
-    Route::group(['prefix' => 'modules', 'as' => 'modules.'], function () {
+    Route::prefix('modules')->name('modules.')->group(function () {
         Route::get('/', [ModuleController::class, 'index'])->name('index');
         Route::get('{module}/{resourceType}', [ModuleController::class, 'show'])
             ->name('show')
             ->where('resourceType', 'free-resources|paid-resources|quizzes|exercises');
     });
 
-    Route::group(['middleware' => 'auth'], function () {
+    Route::middleware('auth')->group(function () {
         Route::get('wizard', [WizardController::class, 'index'])->name('wizard.index');
         Route::post('wizard', [WizardController::class, 'store'])->name('wizard.store');
         Route::get('profile', [ProfileController::class, 'show'])->name('user.profile.show');
@@ -42,7 +42,7 @@ Route::group(['prefix' => '{locale}'], function () {
 
     Auth::routes(['register' => false]);
 
-    Route::group(['prefix' => 'login'], function () {
+    Route::prefix('login')->group(function () {
         Route::get('github', [LoginController::class, 'redirectToProvider'])->name('login.github');
         Route::get('github/callback', [LoginController::class, 'handleProviderCallback']);
     });

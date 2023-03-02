@@ -8,32 +8,32 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
-        "bugsnag/bugsnag-laravel": "^2.25",
+        "bugsnag/bugsnag-laravel": "^2.26",
         "erusev/parsedown": "^1.7",
         "guzzlehttp/guzzle": "^7.2",
         "kg-bot/laravel-localization-to-vue": "^2.0",
-        "laravel/framework": "^9.52",
+        "laravel/framework": "^10.1",
         "laravel/slack-notification-channel": "^2.5",
         "laravel/socialite": "^5.6",
-        "laravel/tinker": "^2.7",
-        "laravel/ui": "^3.4",
+        "laravel/tinker": "^2.8",
+        "laravel/ui": "^4.2",
         "larswiegers/laravel-translations-checker": "^0.4",
         "nathanheffley/laravel-slack-blocks": "^2.3",
-        "spatie/laravel-translatable": "^5.2",
-        "stechstudio/laravel-ssh-tunnel": "^3.2",
+        "spatie/laravel-translatable": "^6.3",
+        "stechstudio/laravel-ssh-tunnel": "^3.3",
         "tightenco/ziggy": "^1.5"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8",
         "barryvdh/laravel-ide-helper": "^2.13",
-        "beyondcode/laravel-dump-server": "^1.8",
+        "beyondcode/laravel-dump-server": "^1.9",
         "brianium/paratest": "^6.6",
         "fakerphp/faker": "^1.9.1",
         "filp/whoops": "^2.14",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.3",
         "phpunit/phpunit": "^9.5.10",
-        "spatie/laravel-ignition": "^1.5",
+        "spatie/laravel-ignition": "^2.0",
         "tightenco/duster": "^0.5.5"
     },
     "config": {
@@ -77,7 +77,7 @@
         "tightenco/nova-releases": "Keep on top of Nova Releases.",
         "tightenco/suggested-resources-shortcuts": "Shortcut card for suggesting resources."
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "scripts": {
         "post-autoload-dump": [

@@ -18,8 +18,6 @@ class ModulePolicy
 
     /**
      * Determine whether the user can view any modules.
-     *
-     * @return mixed
      */
     public function viewAny(User $user): bool
     {
@@ -28,8 +26,6 @@ class ModulePolicy
 
     /**
      * Determine whether the user can view the module.
-     *
-     * @return mixed
      */
     public function view(User $user, Module $module): bool
     {
@@ -38,8 +34,6 @@ class ModulePolicy
 
     /**
      * Determine whether the user can create modules.
-     *
-     * @return mixed
      */
     public function create(User $user): bool
     {
@@ -48,8 +42,6 @@ class ModulePolicy
 
     /**
      * Determine whether the user can update the module.
-     *
-     * @return mixed
      */
     public function update(User $user, Module $module): bool
     {
@@ -58,8 +50,6 @@ class ModulePolicy
 
     /**
      * Determine whether the user can delete the module.
-     *
-     * @return mixed
      */
     public function delete(User $user, Module $module): bool
     {
@@ -68,8 +58,6 @@ class ModulePolicy
 
     /**
      * Determine whether the user can restore the module.
-     *
-     * @return mixed
      */
     public function restore(User $user, Module $module): bool
     {
@@ -78,8 +66,6 @@ class ModulePolicy
 
     /**
      * Determine whether the user can permanently delete the module.
-     *
-     * @return mixed
      */
     public function forceDelete(User $user, Module $module): bool
     {

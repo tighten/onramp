@@ -72,8 +72,6 @@ class Module extends BaseResource
 
     /**
      * Get the cards available for the request.
-     *
-     * @return array
      */
     public function cards(Request $request): array
     {
@@ -82,8 +80,6 @@ class Module extends BaseResource
 
     /**
      * Get the filters available for the resource.
-     *
-     * @return array
      */
     public function filters(Request $request): array
     {
@@ -94,8 +90,6 @@ class Module extends BaseResource
 
     /**
      * Get the lenses available for the resource.
-     *
-     * @return array
      */
     public function lenses(Request $request): array
     {
@@ -104,8 +98,6 @@ class Module extends BaseResource
 
     /**
      * Get the actions available for the resource.
-     *
-     * @return array
      */
     public function actions(Request $request): array
     {

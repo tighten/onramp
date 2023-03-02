@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\View\View;
 use App\Facades\Preferences;
 use App\Preferences\ResourceLanguagePreference;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class PreferenceController extends Controller
 {

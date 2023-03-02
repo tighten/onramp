@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\View\View;
 use App\Models\Term;
+use Illuminate\View\View;
 
 class GlossaryController extends Controller
 {

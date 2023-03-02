@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\View\View;
 use App\Facades\Preferences;
 use App\Models\Module;
+use Illuminate\View\View;
 
 class ModuleController extends Controller
 {

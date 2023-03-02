@@ -2,8 +2,8 @@
 
 namespace App\Nova\Filters;
 
-use Illuminate\Database\Eloquent\Builder;
 use App\Models\SuggestedResource;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Laravel\Nova\Filters\Filter;
 

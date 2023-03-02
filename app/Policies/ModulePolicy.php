@@ -33,51 +33,19 @@ class ModulePolicy
     }
 
     /**
-     * Determine whether the user can create modules.
-     */
-    public function create(User $user): bool
-    {
-        //
-    }
-
-    /**
      * Determine whether the user can update the module.
      */
     public function update(User $user, Module $module): bool
     {
-        //
+        return false;
     }
 
-    /**
-     * Determine whether the user can delete the module.
-     */
-    public function delete(User $user, Module $module): bool
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can restore the module.
-     */
-    public function restore(User $user, Module $module): bool
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can permanently delete the module.
-     */
-    public function forceDelete(User $user, Module $module): bool
-    {
-        //
-    }
-
-    public function attachResource(User $user, Module $module, Resource $resource)
+    public function attachResource(User $user, Module $module, Resource $resource): bool
     {
         return $user->isAtLeastEditor();
     }
 
-    public function detachResource(User $user, Module $module, Resource $resource)
+    public function detachResource(User $user, Module $module, Resource $resource): bool
     {
         return $user->isAtLeastEditor();
     }

@@ -14,7 +14,7 @@ class ResourceExpirationTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function resources_can_be_expired_or_expiring()
+    public function resources_can_be_expired_or_expiring(): void
     {
         $resourceA = Resource::factory()->expired()->createQuietly();
         $resourceB = Resource::factory()->expiring()->createQuietly();
@@ -24,7 +24,7 @@ class ResourceExpirationTest extends TestCase
     }
 
     /** @test */
-    public function can_scope_expiring_and_expired_resources()
+    public function can_scope_expiring_and_expired_resources(): void
     {
         Resource::factory()->expired()->createQuietly();
         Resource::factory()->expiring()->createQuietly();
@@ -36,7 +36,7 @@ class ResourceExpirationTest extends TestCase
     }
 
     /** @test */
-    public function event_is_dispatched_for_expired_content_notification()
+    public function event_is_dispatched_for_expired_content_notification(): void
     {
         Event::fake();
 
@@ -51,7 +51,7 @@ class ResourceExpirationTest extends TestCase
     }
 
     /** @test */
-    public function event_is_dispatched_for_expiring_content_notification()
+    public function event_is_dispatched_for_expiring_content_notification(): void
     {
         Event::fake();
 
@@ -66,7 +66,7 @@ class ResourceExpirationTest extends TestCase
     }
 
     /** @test */
-    public function expired_resources_have_an_expiration_label()
+    public function expired_resources_have_an_expiration_label(): void
     {
         $resourceA = Resource::factory()->expired()->createQuietly();
         $resourceB = Resource::factory()->expiring()->createQuietly();
@@ -76,7 +76,7 @@ class ResourceExpirationTest extends TestCase
     }
 
     /** @test */
-    public function a_six_month_expiration_date_is_set_when_a_resource_can_expire()
+    public function a_six_month_expiration_date_is_set_when_a_resource_can_expire(): void
     {
         Carbon::setTestNow($date = Carbon::createFromDate(today()));
 
@@ -90,7 +90,7 @@ class ResourceExpirationTest extends TestCase
     }
 
     /** @test */
-    public function a_six_month_expiration_date_is_not_set_when_a_resource_cant_expire()
+    public function a_six_month_expiration_date_is_not_set_when_a_resource_cant_expire(): void
     {
         $resource = Resource::factory()->create([
             'can_expire' => false,
@@ -100,7 +100,7 @@ class ResourceExpirationTest extends TestCase
     }
 
     /** @test */
-    public function a_six_month_expiration_date_is_set_when_a_resource_is_updated_to_expire()
+    public function a_six_month_expiration_date_is_set_when_a_resource_is_updated_to_expire(): void
     {
         Carbon::setTestNow($date = Carbon::createFromDate(today()));
 
@@ -118,7 +118,7 @@ class ResourceExpirationTest extends TestCase
     }
 
     /** @test */
-    public function expiration_date_is_unset_when_a_resource_is_updated_to_not_expire()
+    public function expiration_date_is_unset_when_a_resource_is_updated_to_not_expire(): void
     {
         Carbon::setTestNow($date = Carbon::createFromDate(today()));
 

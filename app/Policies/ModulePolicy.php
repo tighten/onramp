@@ -18,92 +18,34 @@ class ModulePolicy
 
     /**
      * Determine whether the user can view any modules.
-     *
-     * @param  \App\Models\User  $user
-     * @return mixed
      */
-    public function viewAny(User $user)
+    public function viewAny(User $user): bool
     {
         return true;
     }
 
     /**
      * Determine whether the user can view the module.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Module  $module
-     * @return mixed
      */
-    public function view(User $user, Module $module)
+    public function view(User $user, Module $module): bool
     {
         return true;
     }
 
     /**
-     * Determine whether the user can create modules.
-     *
-     * @param  \App\Models\User  $user
-     * @return mixed
-     */
-    public function create(User $user)
-    {
-        //
-    }
-
-    /**
      * Determine whether the user can update the module.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Module  $module
-     * @return mixed
      */
-    public function update(User $user, Module $module)
+    public function update(User $user, Module $module): bool
     {
-        //
+        return false;
     }
 
-    /**
-     * Determine whether the user can delete the module.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Module  $module
-     * @return mixed
-     */
-    public function delete(User $user, Module $module)
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can restore the module.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Module  $module
-     * @return mixed
-     */
-    public function restore(User $user, Module $module)
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can permanently delete the module.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Module  $module
-     * @return mixed
-     */
-    public function forceDelete(User $user, Module $module)
-    {
-        //
-    }
-
-    public function attachResource(User $user, Module $module, Resource $resource)
+    public function attachResource(User $user, Module $module, Resource $resource): bool
     {
         return $user->isAtLeastEditor();
     }
 
-    public function detachResource(User $user, Module $module, Resource $resource)
+    public function detachResource(User $user, Module $module, Resource $resource): bool
     {
         return $user->isAtLeastEditor();
     }

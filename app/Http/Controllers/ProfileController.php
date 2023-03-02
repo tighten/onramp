@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
+
 class ProfileController extends Controller
 {
-    public function show()
+    public function show(): View
     {
         return view('profile');
     }
 
-    public function update()
+    public function update(): RedirectResponse
     {
         $validated = request()->validate([
             'name' => 'required',

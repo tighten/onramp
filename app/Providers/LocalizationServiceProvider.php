@@ -7,7 +7,7 @@ use Illuminate\Support\ServiceProvider;
 
 class LocalizationServiceProvider extends ServiceProvider
 {
-    public function register()
+    public function register(): void
     {
         $this->app->singleton('localization', function ($app) {
             return new Locale;

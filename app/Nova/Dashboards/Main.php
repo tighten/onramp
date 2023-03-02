@@ -10,10 +10,8 @@ class Main extends Dashboard
 {
     /**
      * Get the cards for the dashboard.
-     *
-     * @return array
      */
-    public function cards()
+    public function cards(): array
     {
         return [
             new SuggestedResourcesShortcuts,

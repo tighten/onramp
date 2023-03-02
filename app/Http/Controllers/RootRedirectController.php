@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Facades\Preferences;
 use App\Preferences\LocalePreference;
+use Illuminate\Http\RedirectResponse;
 
 class RootRedirectController extends Controller
 {
-    public function __invoke()
+    public function __invoke(): RedirectResponse
     {
         if (auth()->check()) {
             return redirect(Preferences::get('locale'));

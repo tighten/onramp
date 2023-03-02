@@ -13,7 +13,7 @@ class ModuleAccessTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function users_with_user_role_can_only_view_modules()
+    public function users_with_user_role_can_only_view_modules(): void
     {
         $user = User::factory()->create(['role' => 'user']);
 
@@ -25,7 +25,7 @@ class ModuleAccessTest extends TestCase
     }
 
     /** @test */
-    public function users_with_editor_role_can_only_view_modules()
+    public function users_with_editor_role_can_only_view_modules(): void
     {
         $user = User::factory()->create(['role' => 'editor']);
 
@@ -37,7 +37,7 @@ class ModuleAccessTest extends TestCase
     }
 
     /** @test */
-    public function users_with_editor_role_cannot_attach_track_to_module()
+    public function users_with_editor_role_cannot_attach_track_to_module(): void
     {
         $user = User::factory()->create(['role' => 'editor']);
 
@@ -45,7 +45,7 @@ class ModuleAccessTest extends TestCase
     }
 
     /** @test */
-    public function users_with_editor_role_can_attach_and_detach_resources_to_module()
+    public function users_with_editor_role_can_attach_and_detach_resources_to_module(): void
     {
         $user = User::factory()->create(['role' => 'editor']);
 
@@ -54,7 +54,7 @@ class ModuleAccessTest extends TestCase
     }
 
     /** @test */
-    public function users_with_admin_role_can_update_modules()
+    public function users_with_admin_role_can_update_modules(): void
     {
         $user = User::factory()->create(['role' => 'admin']);
         $module = Module::factory()->create();

@@ -13,7 +13,7 @@ class CompletionsApiTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function it_completes_a_passed_in_resource()
+    public function it_completes_a_passed_in_resource(): void
     {
         $this->be(User::factory()->create());
         $resource = Resource::factory()->create();
@@ -27,7 +27,7 @@ class CompletionsApiTest extends TestCase
     }
 
     /** @test */
-    public function it_deletes_a_passed_in_resources_completion()
+    public function it_deletes_a_passed_in_resources_completion(): void
     {
         $this->be($user = User::factory()->create());
         $resource = Resource::factory()->create();
@@ -49,7 +49,7 @@ class CompletionsApiTest extends TestCase
     }
 
     /** @test */
-    public function non_authenticated_users_cannot_delete_completions()
+    public function non_authenticated_users_cannot_delete_completions(): void
     {
         $user = User::factory()->create();
         $resource = Resource::factory()->create();

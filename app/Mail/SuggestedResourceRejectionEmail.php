@@ -14,6 +14,7 @@ class SuggestedResourceRejectionEmail extends Mailable
     use SerializesModels;
 
     protected $suggestedResource;
+
     protected $user;
 
     public function __construct(SuggestedResource $suggestedResource, User $user)
@@ -24,10 +25,8 @@ class SuggestedResourceRejectionEmail extends Mailable
 
     /**
      * Build the message.
-     *
-     * @return $this
      */
-    public function build()
+    public function build(): static
     {
         return $this->subject('Your Resource Has Been Reviewed')
             ->from(config('mail.from.address'))

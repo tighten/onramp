@@ -10,11 +10,12 @@ use Spatie\Translatable\HasTranslations;
 class Module extends Model implements Completable
 {
     use HasFactory;
-
     use HasTranslations;
 
     public const BEGINNER_SKILL_LEVEL = 'beginner';
+
     public const INTERMEDIATE_SKILL_LEVEL = 'intermediate';
+
     public const ADVANCED_SKILL_LEVEL = 'advanced';
 
     public const SKILL_LEVELS = [

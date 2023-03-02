@@ -12,7 +12,7 @@ class DatabaseSeederTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function content_seeder_runs()
+    public function content_seeder_runs(): void
     {
         $this->markTestSkipped();
         $this->seed(ContentSeeder::class);
@@ -20,7 +20,7 @@ class DatabaseSeederTest extends TestCase
     }
 
     /** @test */
-    public function old_install_seeder_runs_after_fresh()
+    public function old_install_seeder_runs_after_fresh(): void
     {
         $this->markTestIncomplete('Need to figure out how to run a test when the seeder asks for user input');
         $this->seed(FreshInstallSeeder::class);

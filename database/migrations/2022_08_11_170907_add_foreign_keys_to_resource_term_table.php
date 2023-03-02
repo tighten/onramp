@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    public function up()
+    public function up(): void
     {
         Schema::table('resource_term', function (Blueprint $table) {
             $table
@@ -23,7 +23,7 @@ return new class extends Migration
         });
     }
 
-    public function down()
+    public function down(): void
     {
         Schema::table('resource_term', function (Blueprint $table) {
             if (DB::getDriverName() !== 'sqlite') {

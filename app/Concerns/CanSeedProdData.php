@@ -14,10 +14,6 @@ trait CanSeedProdData
 {
     /**
      * Seed local database from JSON seeder files
-     *
-     * @param  Command  $command
-     * @param  array  $seeds
-     * @return void
      */
     protected function seed(Command $command, array $seeds): void
     {
@@ -25,7 +21,7 @@ trait CanSeedProdData
 
         foreach ($seeds as $seed) {
             $filename = $seed->getFilename();
-            $tableName = Str::before($filename, '.' . config('seeder.extension'));
+            $tableName = Str::before($filename, '.'.config('seeder.extension'));
 
             $command->line("Seeding {$tableName}...");
 
@@ -48,7 +44,7 @@ trait CanSeedProdData
                 }
             }
 
-            $command->info('Seeding successful!' . PHP_EOL);
+            $command->info('Seeding successful!'.PHP_EOL);
         }
 
         Schema::enableForeignKeyConstraints();
@@ -56,10 +52,6 @@ trait CanSeedProdData
 
     /**
      * Get seeder files to populate local database with
-     *
-     * @param  string  $dir
-     * @param  array  $tables
-     * @return array
      */
     protected function getSeedFiles(string $dir, array $tables = []): array
     {

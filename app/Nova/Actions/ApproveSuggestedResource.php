@@ -18,8 +18,6 @@ class ApproveSuggestedResource extends Action
     /**
      * Perform the action on the given models.
      *
-     * @param  \Laravel\Nova\Fields\ActionFields  $fields
-     * @param  \Illuminate\Support\Collection  $suggestedResources
      * @return mixed
      */
     public function handle(ActionFields $fields, Collection $suggestedResources)

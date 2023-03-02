@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Facades\Preferences;
 use App\Models\Module;
+use Illuminate\View\View;
 
 class ModuleController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         return view('modules.index', [
             'pageTitle' => __('Modules'),
@@ -29,7 +30,7 @@ class ModuleController extends Controller
         ]);
     }
 
-    public function show($locale, Module $module, $resourceType)
+    public function show($locale, Module $module, $resourceType): View
     {
         return view('modules.show', [
             'pageTitle' => $module->name,

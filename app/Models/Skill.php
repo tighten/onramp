@@ -10,7 +10,6 @@ use Spatie\Translatable\HasTranslations;
 class Skill extends Model implements Completable
 {
     use HasFactory;
-
     use HasTranslations;
 
     public $translatable = ['name'];

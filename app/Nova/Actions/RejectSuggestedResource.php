@@ -21,8 +21,6 @@ class RejectSuggestedResource extends Action
     /**
      * Perform the action on the given models.
      *
-     * @param  \Laravel\Nova\Fields\ActionFields  $fields
-     * @param  \Illuminate\Support\Collection  $suggestedResources
      * @return mixed
      */
     public function handle(ActionFields $fields, Collection $suggestedResources)
@@ -41,10 +39,8 @@ class RejectSuggestedResource extends Action
 
     /**
      * Get the fields available on the action.
-     *
-     * @return array
      */
-    public function fields(NovaRequest $request)
+    public function fields(NovaRequest $request): array
     {
         return [
             Textarea::make('Reason For Rejection')

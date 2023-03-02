@@ -18,7 +18,6 @@ class TrackPolicy
     /**
      * Determine whether the user can view any modules.
      *
-     * @param  \App\Models\User  $user
      * @return mixed
      */
     public function viewAny(User $user)
@@ -29,8 +28,6 @@ class TrackPolicy
     /**
      * Determine whether the user can view the module.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Track  $track
      * @return mixed
      */
     public function view(User $user, Track $track)
@@ -41,7 +38,6 @@ class TrackPolicy
     /**
      * Determine whether the user can create modules.
      *
-     * @param  \App\Models\User  $user
      * @return mixed
      */
     public function create(User $user)
@@ -52,8 +48,6 @@ class TrackPolicy
     /**
      * Determine whether the user can update the module.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Track  $track
      * @return mixed
      */
     public function update(User $user, Track $track)
@@ -64,8 +58,6 @@ class TrackPolicy
     /**
      * Determine whether the user can delete the module.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Track  $track
      * @return mixed
      */
     public function delete(User $user, Track $track)
@@ -76,8 +68,6 @@ class TrackPolicy
     /**
      * Determine whether the user can restore the module.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Track  $track
      * @return mixed
      */
     public function restore(User $user, Track $track)
@@ -88,8 +78,6 @@ class TrackPolicy
     /**
      * Determine whether the user can permanently delete the module.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Track  $track
      * @return mixed
      */
     public function forceDelete(User $user, Track $track)

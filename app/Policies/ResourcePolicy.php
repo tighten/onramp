@@ -18,7 +18,6 @@ class ResourcePolicy
     /**
      * Determine whether the user can view any terms.
      *
-     * @param  \App\Models\User  $user
      * @return mixed
      */
     public function viewAny(User $user)
@@ -29,7 +28,6 @@ class ResourcePolicy
     /**
      * Determine whether the user can view the term.
      *
-     * @param  \App\Models\User  $user
      * @param  \App\Models\Resource  $term
      * @return mixed
      */
@@ -41,7 +39,6 @@ class ResourcePolicy
     /**
      * Determine whether the user can create terms.
      *
-     * @param  \App\Models\User  $user
      * @return mixed
      */
     public function create(User $user)
@@ -52,7 +49,6 @@ class ResourcePolicy
     /**
      * Determine whether the user can update the term.
      *
-     * @param  \App\Models\User  $user
      * @param  \App\Models\Resource  $term
      * @return mixed
      */
@@ -64,7 +60,6 @@ class ResourcePolicy
     /**
      * Determine whether the user can delete the term.
      *
-     * @param  \App\Models\User  $user
      * @param  \App\Models\Resource  $term
      * @return mixed
      */
@@ -76,7 +71,6 @@ class ResourcePolicy
     /**
      * Determine whether the user can restore the term.
      *
-     * @param  \App\Models\User  $user
      * @param  \App\Models\Resource  $term
      * @return mixed
      */
@@ -88,7 +82,6 @@ class ResourcePolicy
     /**
      * Determine whether the user can permanently delete the term.
      *
-     * @param  \App\Models\User  $user
      * @param  \App\Models\Resource  $term
      * @return mixed
      */

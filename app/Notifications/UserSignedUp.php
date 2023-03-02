@@ -13,6 +13,7 @@ class UserSignedUp extends Notification
     use Queueable;
 
     public $user;
+
     public $ip;
 
     /**

@@ -15,7 +15,7 @@ class TidyUpExpiredResources extends Command
 
     private $trashedResourcesCount;
 
-    public function handle(): int
+    public function handle() 
     {
         $expiredResources = Resource::expired()->withTrashed()->get();
 

@@ -28,7 +28,7 @@ class LocaleTest extends TestCase
         $invalid = 'invalid_locale';
 
         $this->expectException(Exception::class);
-        $this->expectExceptionMessage('Cannot resolve language for locale: ' . $invalid);
+        $this->expectExceptionMessage('Cannot resolve language for locale: '.$invalid);
 
         $locales = new Locale;
         $locales->languageForLocale($invalid);

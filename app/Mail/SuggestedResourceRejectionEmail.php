@@ -14,6 +14,7 @@ class SuggestedResourceRejectionEmail extends Mailable
     use SerializesModels;
 
     protected $suggestedResource;
+
     protected $user;
 
     public function __construct(SuggestedResource $suggestedResource, User $user)

@@ -37,7 +37,7 @@ class PreferenceController extends Controller
 
         if ($request->input('locale') !== locale()) {
             return redirect(
-                str_replace('/' . locale() . '/', '/' . $request->input('locale') . '/', back()->getTargetUrl())
+                str_replace('/'.locale().'/', '/'.$request->input('locale').'/', back()->getTargetUrl())
             );
         }
 

@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 class ResolveLocale
 {
     protected $request;
+
     protected $app;
 
     public function __construct(Request $request, Application $app)

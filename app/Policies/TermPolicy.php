@@ -20,7 +20,7 @@ class TermPolicy
      *
      * @return mixed
      */
-    public function viewAny(User $user)
+    public function viewAny(User $user): bool
     {
         //
     }
@@ -30,7 +30,7 @@ class TermPolicy
      *
      * @return mixed
      */
-    public function view(User $user, Term $term)
+    public function view(User $user, Term $term): bool
     {
         //
     }
@@ -40,7 +40,7 @@ class TermPolicy
      *
      * @return mixed
      */
-    public function create(User $user)
+    public function create(User $user): bool
     {
         //
     }
@@ -50,7 +50,7 @@ class TermPolicy
      *
      * @return mixed
      */
-    public function update(User $user, Term $term)
+    public function update(User $user, Term $term): bool
     {
         //
     }
@@ -60,7 +60,7 @@ class TermPolicy
      *
      * @return mixed
      */
-    public function delete(User $user, Term $term)
+    public function delete(User $user, Term $term): bool
     {
         //
     }
@@ -70,7 +70,7 @@ class TermPolicy
      *
      * @return mixed
      */
-    public function restore(User $user, Term $term)
+    public function restore(User $user, Term $term): bool
     {
         //
     }
@@ -80,7 +80,7 @@ class TermPolicy
      *
      * @return mixed
      */
-    public function forceDelete(User $user, Term $term)
+    public function forceDelete(User $user, Term $term): bool
     {
         //
     }

@@ -12,21 +12,21 @@ class SuggestedResourceAccessTest extends NovaTestCase
     use RefreshDatabase;
 
     /** @test */
-    public function users_can_view_any_suggested_resources()
+    public function users_can_view_any_suggested_resources(): void
     {
         $user = User::factory()->create(['role' => 'user']);
         $this->assertTrue($user->can('viewAny', SuggestedResource::class));
     }
 
     /** @test */
-    public function users_can_suggest_resources()
+    public function users_can_suggest_resources(): void
     {
         $user = User::factory()->create(['role' => 'user']);
         $this->assertTrue($user->can('create', SuggestedResource::class));
     }
 
     /** @test */
-    public function users_can_see_their_own_suggested_resources()
+    public function users_can_see_their_own_suggested_resources(): void
     {
         $user = User::factory()->create(['role' => 'user']);
         $suggestedResource = SuggestedResource::factory()->create(['user_id' => $user->id]);
@@ -35,7 +35,7 @@ class SuggestedResourceAccessTest extends NovaTestCase
     }
 
     /** @test */
-    public function users_can_edit_their_own_suggested_resources()
+    public function users_can_edit_their_own_suggested_resources(): void
     {
         $user = User::factory()->create(['role' => 'user']);
         $suggestedResource = SuggestedResource::factory()->create(['user_id' => $user->id]);
@@ -44,7 +44,7 @@ class SuggestedResourceAccessTest extends NovaTestCase
     }
 
     /** @test */
-    public function users_can_see_other_users_suggested_resources()
+    public function users_can_see_other_users_suggested_resources(): void
     {
         $user = User::factory()->create(['role' => 'user']);
         $otherUser = User::factory()->create(['role' => 'user']);
@@ -54,7 +54,7 @@ class SuggestedResourceAccessTest extends NovaTestCase
     }
 
     /** @test */
-    public function users_cannot_edit_other_users_suggested_resources()
+    public function users_cannot_edit_other_users_suggested_resources(): void
     {
         $user = User::factory()->create(['role' => 'user']);
         $otherUser = User::factory()->create(['role' => 'user']);
@@ -64,7 +64,7 @@ class SuggestedResourceAccessTest extends NovaTestCase
     }
 
     /** @test */
-    public function users_cannot_delete_other_users_suggested_resources()
+    public function users_cannot_delete_other_users_suggested_resources(): void
     {
         $user = User::factory()->create(['role' => 'user']);
         $otherUser = User::factory()->create(['role' => 'user']);
@@ -74,7 +74,7 @@ class SuggestedResourceAccessTest extends NovaTestCase
     }
 
     /** @test */
-    public function users_can_delete_their_own_suggested_resources()
+    public function users_can_delete_their_own_suggested_resources(): void
     {
         $user = User::factory()->create(['role' => 'user']);
         $suggestedResource = SuggestedResource::factory()->create(['user_id' => $user->id]);
@@ -83,7 +83,7 @@ class SuggestedResourceAccessTest extends NovaTestCase
     }
 
     /** @test */
-    public function admins_can_see_and_edit_all_suggested_resources()
+    public function admins_can_see_and_edit_all_suggested_resources(): void
     {
         $user = User::factory()->create(['role' => 'user']);
         $adminUser = User::factory()->create(['role' => 'admin']);
@@ -94,7 +94,7 @@ class SuggestedResourceAccessTest extends NovaTestCase
     }
 
     /** @test */
-    public function editors_can_see_and_edit_all_suggested_resources()
+    public function editors_can_see_and_edit_all_suggested_resources(): void
     {
         $user = User::factory()->create(['role' => 'user']);
         $editorUser = User::factory()->create(['role' => 'editor']);

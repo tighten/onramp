@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\View\View;
 use App\Facades\Preferences;
 use App\Preferences\ResourceLanguagePreference;
 use Illuminate\Http\Request;
 
 class PreferenceController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         return view('preferences', [
             'currentResourceLanguagePreference' => Preferences::get('resource-language'),

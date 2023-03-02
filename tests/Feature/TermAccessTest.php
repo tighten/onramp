@@ -12,7 +12,7 @@ class TermAccessTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function users_with_user_role_cannot_update_terms()
+    public function users_with_user_role_cannot_update_terms(): void
     {
         $user = User::factory()->create(['role' => 'user']);
 
@@ -20,7 +20,7 @@ class TermAccessTest extends TestCase
     }
 
     /** @test */
-    public function users_with_editor_role_can_update_terms()
+    public function users_with_editor_role_can_update_terms(): void
     {
         $user = User::factory()->create(['role' => 'editor']);
 
@@ -28,7 +28,7 @@ class TermAccessTest extends TestCase
     }
 
     /** @test */
-    public function users_with_admin_role_can_update_terms()
+    public function users_with_admin_role_can_update_terms(): void
     {
         $user = User::factory()->create(['role' => 'admin']);
 

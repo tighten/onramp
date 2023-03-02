@@ -22,7 +22,7 @@ class GetExpiredResources extends Command
         'days_til_expired',
     ];
 
-    public function handle()
+    public function handle(): int
     {
         $expiredResources = Resource::expired()
             ->orWhere(function ($query) {

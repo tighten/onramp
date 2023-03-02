@@ -19,7 +19,7 @@ class UserPolicy
      *
      * @return mixed
      */
-    public function viewAny(User $user)
+    public function viewAny(User $user): bool
     {
         //
     }
@@ -29,7 +29,7 @@ class UserPolicy
      *
      * @return mixed
      */
-    public function view(User $user, User $model)
+    public function view(User $user, User $model): bool
     {
         //
     }
@@ -39,7 +39,7 @@ class UserPolicy
      *
      * @return mixed
      */
-    public function create(User $user)
+    public function create(User $user): bool
     {
         //
     }
@@ -49,7 +49,7 @@ class UserPolicy
      *
      * @return mixed
      */
-    public function update(User $user, User $model)
+    public function update(User $user, User $model): bool
     {
         //
     }
@@ -59,7 +59,7 @@ class UserPolicy
      *
      * @return mixed
      */
-    public function delete(User $user, User $model)
+    public function delete(User $user, User $model): bool
     {
         //
     }
@@ -69,7 +69,7 @@ class UserPolicy
      *
      * @return mixed
      */
-    public function restore(User $user, User $model)
+    public function restore(User $user, User $model): bool
     {
         //
     }
@@ -79,7 +79,7 @@ class UserPolicy
      *
      * @return mixed
      */
-    public function forceDelete(User $user, User $model)
+    public function forceDelete(User $user, User $model): bool
     {
         //
     }

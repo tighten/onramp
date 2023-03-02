@@ -9,21 +9,21 @@ use Tests\TestCase;
 class LocaleTest extends TestCase
 {
     /** @test */
-    public function english_is_valid()
+    public function english_is_valid(): void
     {
         $locales = new Locale;
         $this->assertTrue($locales->isValid('en'));
     }
 
     /** @test */
-    public function fandango_is_invalid()
+    public function fandango_is_invalid(): void
     {
         $locales = new Locale;
         $this->assertFalse($locales->isValid('fandango'));
     }
 
     /** @test */
-    public function if_throws_an_exception_when_resolving_a_language_for_an_invalid_locale()
+    public function if_throws_an_exception_when_resolving_a_language_for_an_invalid_locale(): void
     {
         $invalid = 'invalid_locale';
 
@@ -35,7 +35,7 @@ class LocaleTest extends TestCase
     }
 
     /** @test */
-    public function it_retrieves_the_proper_language_for_a_given_locale()
+    public function it_retrieves_the_proper_language_for_a_given_locale(): void
     {
         // We don't need to test all of them, just a few
         $locales = new Locale;

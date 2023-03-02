@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\View\View;
 use App\Facades\Preferences;
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -25,7 +26,7 @@ class LoginController extends Controller
         return Preferences::get('locale').'/modules';
     }
 
-    public function showLoginForm()
+    public function showLoginForm(): View
     {
         return view('auth.login', [
             'pageTitle' => __('Log in'),

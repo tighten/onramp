@@ -20,7 +20,7 @@ class SkillPolicy
      *
      * @return mixed
      */
-    public function viewAny(User $user)
+    public function viewAny(User $user): bool
     {
         return $user->isAtLeastEditor();
     }
@@ -30,7 +30,7 @@ class SkillPolicy
      *
      * @return mixed
      */
-    public function view(User $user, Skill $skill)
+    public function view(User $user, Skill $skill): bool
     {
         return $user->isAtLeastEditor();
     }
@@ -40,7 +40,7 @@ class SkillPolicy
      *
      * @return mixed
      */
-    public function create(User $user)
+    public function create(User $user): bool
     {
         //
     }
@@ -50,7 +50,7 @@ class SkillPolicy
      *
      * @return mixed
      */
-    public function update(User $user, Skill $skill)
+    public function update(User $user, Skill $skill): bool
     {
         //
     }
@@ -60,7 +60,7 @@ class SkillPolicy
      *
      * @return mixed
      */
-    public function delete(User $user, Skill $skill)
+    public function delete(User $user, Skill $skill): bool
     {
         //
     }
@@ -70,7 +70,7 @@ class SkillPolicy
      *
      * @return mixed
      */
-    public function restore(User $user, Skill $skill)
+    public function restore(User $user, Skill $skill): bool
     {
         //
     }
@@ -80,7 +80,7 @@ class SkillPolicy
      *
      * @return mixed
      */
-    public function forceDelete(User $user, Skill $skill)
+    public function forceDelete(User $user, Skill $skill): bool
     {
         //
     }

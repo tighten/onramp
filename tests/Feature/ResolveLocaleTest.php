@@ -11,7 +11,7 @@ use Tests\TestCase;
 class ResolveLocaleTest extends TestCase
 {
     /** @test */
-    public function it_resolves_locale_from_path()
+    public function it_resolves_locale_from_path(): void
     {
         $requestMock = Mockery::mock(Request::class);
         $requestMock->shouldReceive('segments')
@@ -24,7 +24,7 @@ class ResolveLocaleTest extends TestCase
     }
 
     /** @test */
-    public function it_errors_for_invalid_locales()
+    public function it_errors_for_invalid_locales(): void
     {
         $this->expectException(Exception::class);
         $requestMock = Mockery::mock(Request::class);

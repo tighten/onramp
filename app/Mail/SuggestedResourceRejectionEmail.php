@@ -28,7 +28,7 @@ class SuggestedResourceRejectionEmail extends Mailable
      *
      * @return $this
      */
-    public function build()
+    public function build(): static
     {
         return $this->subject('Your Resource Has Been Reviewed')
             ->from(config('mail.from.address'))

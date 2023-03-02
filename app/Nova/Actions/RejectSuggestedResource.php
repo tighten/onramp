@@ -42,7 +42,7 @@ class RejectSuggestedResource extends Action
      *
      * @return array
      */
-    public function fields(NovaRequest $request)
+    public function fields(NovaRequest $request): array
     {
         return [
             Textarea::make('Reason For Rejection')

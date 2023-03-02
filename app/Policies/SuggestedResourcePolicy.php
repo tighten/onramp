@@ -20,7 +20,7 @@ class SuggestedResourcePolicy
      *
      * @return mixed
      */
-    public function viewAny(User $user)
+    public function viewAny(User $user): bool
     {
         return true;
     }
@@ -30,7 +30,7 @@ class SuggestedResourcePolicy
      *
      * @return mixed
      */
-    public function view(User $user, SuggestedResource $suggestedResource)
+    public function view(User $user, SuggestedResource $suggestedResource): bool
     {
         return true;
     }
@@ -40,7 +40,7 @@ class SuggestedResourcePolicy
      *
      * @return mixed
      */
-    public function create(User $user)
+    public function create(User $user): bool
     {
         return true;
     }
@@ -50,7 +50,7 @@ class SuggestedResourcePolicy
      *
      * @return mixed
      */
-    public function update(User $user, SuggestedResource $suggestedResource)
+    public function update(User $user, SuggestedResource $suggestedResource): bool
     {
         return $user->id === $suggestedResource->user_id || $user->isAtLeastEditor();
     }
@@ -60,7 +60,7 @@ class SuggestedResourcePolicy
      *
      * @return mixed
      */
-    public function delete(User $user, SuggestedResource $suggestedResource)
+    public function delete(User $user, SuggestedResource $suggestedResource): bool
     {
         return $user->id === $suggestedResource->user_id;
     }
@@ -70,7 +70,7 @@ class SuggestedResourcePolicy
      *
      * @return mixed
      */
-    public function restore(User $user, SuggestedResource $suggestedResource)
+    public function restore(User $user, SuggestedResource $suggestedResource): bool
     {
         //
     }
@@ -80,7 +80,7 @@ class SuggestedResourcePolicy
      *
      * @return mixed
      */
-    public function forceDelete(User $user, SuggestedResource $suggestedResource)
+    public function forceDelete(User $user, SuggestedResource $suggestedResource): bool
     {
         //
     }

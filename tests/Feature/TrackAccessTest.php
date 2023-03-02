@@ -12,7 +12,7 @@ class TrackAccessTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function users_with_user_role_cannot_update_tracks()
+    public function users_with_user_role_cannot_update_tracks(): void
     {
         $user = User::factory()->create(['role' => 'user']);
 
@@ -20,7 +20,7 @@ class TrackAccessTest extends TestCase
     }
 
     /** @test */
-    public function users_with_editor_role_can_only_view_tracks()
+    public function users_with_editor_role_can_only_view_tracks(): void
     {
         $user = User::factory()->create(['role' => 'editor']);
 
@@ -32,7 +32,7 @@ class TrackAccessTest extends TestCase
     }
 
     /** @test */
-    public function users_with_editor_role_cannot_attach_module_to_track()
+    public function users_with_editor_role_cannot_attach_module_to_track(): void
     {
         $user = User::factory()->create(['role' => 'editor']);
 
@@ -40,7 +40,7 @@ class TrackAccessTest extends TestCase
     }
 
     /** @test */
-    public function users_with_admin_role_can_update_tracks()
+    public function users_with_admin_role_can_update_tracks(): void
     {
         $user = User::factory()->create(['role' => 'admin']);
 

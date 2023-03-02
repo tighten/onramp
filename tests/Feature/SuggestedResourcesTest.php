@@ -17,10 +17,10 @@ class SuggestedResourcesTest extends NovaTestCase
     use WithFaker;
 
     /** @test */
-    public function rejected_reason_field_shows_when_a_resource_has_been_rejected()
+    public function rejected_reason_field_shows_when_a_resource_has_been_rejected(): void
     {
         $user = User::factory()->create([
-            'track_id' => $this->faker->randomDigit,
+            'track_id' => $this->faker->randomDigit(),
         ]);
 
         $suggestedResource = SuggestedResource::factory()->create([
@@ -31,7 +31,7 @@ class SuggestedResourcesTest extends NovaTestCase
 
         $this->actingAs($user);
 
-        $response = $this->json('GET', '/nova-api/suggested-resources/' . $suggestedResource->id);
+        $response = $this->json('GET', '/nova-api/suggested-resources/'.$suggestedResource->id);
 
         $response->assertJsonFragment([
             'attribute' => 'rejected_reason',
@@ -39,10 +39,10 @@ class SuggestedResourcesTest extends NovaTestCase
     }
 
     /** @test */
-    public function rejected_reason_field_does_not_show_when_a_resource_has_not_been_rejected()
+    public function rejected_reason_field_does_not_show_when_a_resource_has_not_been_rejected(): void
     {
         $user = User::factory()->create([
-            'track_id' => $this->faker->randomDigit,
+            'track_id' => $this->faker->randomDigit(),
         ]);
 
         $suggestedResource = SuggestedResource::factory()->create([
@@ -53,7 +53,7 @@ class SuggestedResourcesTest extends NovaTestCase
 
         $this->actingAs($user);
 
-        $response = $this->json('GET', '/nova-api/suggested-resources/' . $suggestedResource->id);
+        $response = $this->json('GET', '/nova-api/suggested-resources/'.$suggestedResource->id);
 
         $response->assertJsonMissing([
             'attribute' => 'rejected_reason',
@@ -61,12 +61,12 @@ class SuggestedResourcesTest extends NovaTestCase
     }
 
     /** @test */
-    public function a_new_resource_is_created_after_a_suggested_resource_is_approved()
+    public function a_new_resource_is_created_after_a_suggested_resource_is_approved(): void
     {
         $module = Module::factory()->create();
 
         $suggestedResource = SuggestedResource::factory()->create([
-            'user_id' => $this->faker->randomDigit,
+            'user_id' => $this->faker->randomDigit(),
             'type' => 'article',
             'module_id' => $module->id,
         ]);

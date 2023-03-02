@@ -13,7 +13,7 @@ class ModulesPageTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function module_show_loads()
+    public function module_show_loads(): void
     {
         $module = Module::factory()->create();
         $response = $this->get(route('modules.show', [
@@ -25,7 +25,7 @@ class ModulesPageTest extends TestCase
     }
 
     /** @test */
-    public function module_can_access_previous_and_next_module()
+    public function module_can_access_previous_and_next_module(): void
     {
         $modules = Module::factory(4)->create();
         $current = $modules->skip(2)->first();
@@ -37,7 +37,7 @@ class ModulesPageTest extends TestCase
     }
 
     /** @test */
-    public function modules_index_page_lists_modules()
+    public function modules_index_page_lists_modules(): void
     {
         $standardModule = Module::factory()->create([
             'name' => 'Standard module',
@@ -58,7 +58,7 @@ class ModulesPageTest extends TestCase
     }
 
     /** @test */
-    public function modules_index_page_loads_if_the_user_has_not_selected_a_track()
+    public function modules_index_page_loads_if_the_user_has_not_selected_a_track(): void
     {
         $user = User::factory()->create();
 
@@ -72,7 +72,7 @@ class ModulesPageTest extends TestCase
     }
 
     /** @test */
-    public function list_of_bonus_modules_only_contains_bonus_modules()
+    public function list_of_bonus_modules_only_contains_bonus_modules(): void
     {
         $standardModule = Module::factory()->create([
             'name' => 'Standard module',
@@ -100,7 +100,7 @@ class ModulesPageTest extends TestCase
     }
 
     /** @test */
-    public function list_of_user_modules_only_contains_modules_in_users_track()
+    public function list_of_user_modules_only_contains_modules_in_users_track(): void
     {
         $track = Track::factory()->create();
         $otherTrack = Track::factory()->create();
@@ -126,7 +126,7 @@ class ModulesPageTest extends TestCase
     }
 
     /** @test */
-    public function list_of_completed_modules_only_contains_modules_completed_by_user()
+    public function list_of_completed_modules_only_contains_modules_completed_by_user(): void
     {
         $user = User::factory()->create();
         $anotherUser = User::factory()->create();

@@ -2,27 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Track;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class TrackFactory extends Factory
 {
     /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
-    protected $model = Track::class;
-
-    /**
      * Define the model's default state.
-     *
-     * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         return [
-            'name' => $this->faker->sentence,
+            'name' => $this->faker->sentence(),
         ];
     }
 }

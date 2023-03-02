@@ -8,10 +8,7 @@ class TightenSlack
 {
     use NotifiableTrait;
 
-    /**
-     * @return string|null
-     */
-    public function routeNotificationForSlack()
+    public function routeNotificationForSlack(): ?string
     {
         return config('services.slack.notification_endpoint');
     }

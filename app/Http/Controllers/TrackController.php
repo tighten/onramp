@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Track;
+use Illuminate\View\View;
 
 class TrackController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         $tracks = Track::has('modules')->with('modules')->get();
 

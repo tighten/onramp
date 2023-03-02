@@ -4,9 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddModuleIdToSuggestedResourcesTable extends Migration
+return new class extends Migration
 {
-    public function up()
+    public function up(): void
     {
         Schema::table('suggested_resources', function (Blueprint $table) {
             $table->unsignedBigInteger('module_id')->nullable();
@@ -14,11 +14,11 @@ class AddModuleIdToSuggestedResourcesTable extends Migration
         });
     }
 
-    public function down()
+    public function down(): void
     {
         Schema::table('suggested_resources', function (Blueprint $table) {
             $table->dropForeign('suggested_resources_module_id_foreign');
             $table->dropColumn('module_id');
         });
     }
-}
+};

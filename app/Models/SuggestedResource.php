@@ -13,9 +13,13 @@ class SuggestedResource extends Model
     use Actionable;
 
     const VIDEO_TYPE = 'video';
+
     const COURSE_TYPE = 'course';
+
     const AUDIO_TYPE = 'audio';
+
     const BOOK_TYPE = 'book';
+
     const ARTICLE_TYPE = 'article';
 
     const TYPES = [
@@ -27,10 +31,13 @@ class SuggestedResource extends Model
     ];
 
     const SUGGESTED_STATUS = 'suggested';
+
     const APPROVED_STATUS = 'approved';
+
     const REJECTED_STATUS = 'rejected';
 
     protected $guarded = ['id'];
+
     protected $casts = [
         'user_id' => 'integer',
     ];

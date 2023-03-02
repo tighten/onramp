@@ -4,9 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSuggestedResourcesTable extends Migration
+return new class extends Migration
 {
-    public function up()
+    public function up(): void
     {
         Schema::create('suggested_resources', function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -19,8 +19,8 @@ class CreateSuggestedResourcesTable extends Migration
         });
     }
 
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('suggested_resources');
     }
-}
+};

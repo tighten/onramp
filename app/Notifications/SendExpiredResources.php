@@ -14,7 +14,7 @@ class SendExpiredResources extends Notification
         //
     }
 
-    public function via($notifiable)
+    public function via($notifiable): array
     {
         return ['slack'];
     }

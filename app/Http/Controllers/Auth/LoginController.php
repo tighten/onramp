@@ -9,6 +9,7 @@ use Exception;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
+use Illuminate\View\View;
 use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
@@ -22,10 +23,10 @@ class LoginController extends Controller
 
     public function redirectTo()
     {
-        return Preferences::get('locale') . '/modules';
+        return Preferences::get('locale').'/modules';
     }
 
-    public function showLoginForm()
+    public function showLoginForm(): View
     {
         return view('auth.login', [
             'pageTitle' => __('Log in'),

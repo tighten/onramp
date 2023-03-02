@@ -10,7 +10,6 @@ use Spatie\Translatable\HasTranslations;
 class Term extends Model
 {
     use HasFactory;
-
     use HasTranslations;
 
     public $translatable = ['name', 'description'];

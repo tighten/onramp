@@ -10,23 +10,14 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class ResourceFactory extends Factory
 {
     /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
-    protected $model = Resource::class;
-
-    /**
      * Define the model's default state.
-     *
-     * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         return [
-            'name' => $this->faker->sentence,
-            'url' => $this->faker->url,
-            'is_free' => $this->faker->boolean,
+            'name' => $this->faker->sentence(),
+            'url' => $this->faker->url(),
+            'is_free' => $this->faker->boolean(),
             'is_bonus' => $this->faker->boolean(20),
             'type' => $this->faker->randomElement(Resource::TYPES),
             'language' => $this->faker->randomElement(['en', 'es']),

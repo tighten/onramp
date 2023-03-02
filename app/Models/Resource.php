@@ -15,9 +15,13 @@ class Resource extends Model implements Completable
     use SoftDeletes;
 
     public const VIDEO_TYPE = 'video';
+
     public const COURSE_TYPE = 'course';
+
     public const AUDIO_TYPE = 'audio';
+
     public const BOOK_TYPE = 'book';
+
     public const ARTICLE_TYPE = 'article';
 
     public const TYPES = [
@@ -29,10 +33,13 @@ class Resource extends Model implements Completable
     ];
 
     public const NOT_TRASHED = 'no';
+
     public const TRASHED = 'yes';
 
     protected $appends = ['is_new'];
+
     protected $guarded = ['id'];
+
     protected $casts = [
         'id' => 'int',
         'is_bonus' => 'boolean',

@@ -11,10 +11,8 @@ class AppServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
-     *
-     * @return void
      */
-    public function register()
+    public function register(): void
     {
         if ($this->app->environment() !== 'production') {
             $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
@@ -27,15 +25,13 @@ class AppServiceProvider extends ServiceProvider
 
     /**
      * Bootstrap any application services.
-     *
-     * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         Relation::morphMap([
-            'App\Module' => 'App\Models\Module',
-            'App\Resource' => 'App\Models\Resource',
-            'App\Skill' => 'App\Models\Skill',
+            'App\Module' => \App\Models\Module::class,
+            'App\Resource' => \App\Models\Resource::class,
+            'App\Skill' => \App\Models\Skill::class,
         ]);
 
         if ($this->app->environment() !== 'testing') {

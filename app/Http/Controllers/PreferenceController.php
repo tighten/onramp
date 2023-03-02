@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use App\Facades\Preferences;
 use App\Preferences\ResourceLanguagePreference;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class PreferenceController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         return view('preferences', [
             'currentResourceLanguagePreference' => Preferences::get('resource-language'),
@@ -37,7 +38,7 @@ class PreferenceController extends Controller
 
         if ($request->input('locale') !== locale()) {
             return redirect(
-                str_replace('/' . locale() . '/', '/' . $request->input('locale') . '/', back()->getTargetUrl())
+                str_replace('/'.locale().'/', '/'.$request->input('locale').'/', back()->getTargetUrl())
             );
         }
 

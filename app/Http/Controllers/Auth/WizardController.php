@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\View\View;
-use Illuminate\Http\RedirectResponse;
 use App\Facades\Preferences;
 use App\Http\Controllers\Controller;
 use App\Localization\Locale;
 use App\OperatingSystem;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Validation\Rule;
+use Illuminate\View\View;
 
 class WizardController extends Controller
 {

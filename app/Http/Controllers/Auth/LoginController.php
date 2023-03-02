@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\View\View;
 use App\Facades\Preferences;
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -10,6 +9,7 @@ use Exception;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
+use Illuminate\View\View;
 use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller

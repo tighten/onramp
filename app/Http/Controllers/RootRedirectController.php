@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\RedirectResponse;
 use App\Facades\Preferences;
 use App\Preferences\LocalePreference;
+use Illuminate\Http\RedirectResponse;
 
 class RootRedirectController extends Controller
 {

@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\Track;
-use App\Models\User;
 use App\OperatingSystem;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Arr;

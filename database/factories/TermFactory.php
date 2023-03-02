@@ -26,11 +26,11 @@ class TermFactory extends Factory
 
         return [
             'name' => [
-                'en' => $this->faker->word,
+                'en' => $this->faker->word(),
                 'es' => $spanishFaker->word,
             ],
             'description' => [
-                'en' => $this->faker->paragraph,
+                'en' => $this->faker->paragraph(),
                 'es' => $spanishFaker->paragraph,
             ],
         ];

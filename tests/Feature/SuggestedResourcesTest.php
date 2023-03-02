@@ -20,7 +20,7 @@ class SuggestedResourcesTest extends NovaTestCase
     public function rejected_reason_field_shows_when_a_resource_has_been_rejected()
     {
         $user = User::factory()->create([
-            'track_id' => $this->faker->randomDigit,
+            'track_id' => $this->faker->randomDigit(),
         ]);
 
         $suggestedResource = SuggestedResource::factory()->create([
@@ -42,7 +42,7 @@ class SuggestedResourcesTest extends NovaTestCase
     public function rejected_reason_field_does_not_show_when_a_resource_has_not_been_rejected()
     {
         $user = User::factory()->create([
-            'track_id' => $this->faker->randomDigit,
+            'track_id' => $this->faker->randomDigit(),
         ]);
 
         $suggestedResource = SuggestedResource::factory()->create([
@@ -66,7 +66,7 @@ class SuggestedResourcesTest extends NovaTestCase
         $module = Module::factory()->create();
 
         $suggestedResource = SuggestedResource::factory()->create([
-            'user_id' => $this->faker->randomDigit,
+            'user_id' => $this->faker->randomDigit(),
             'type' => 'article',
             'module_id' => $module->id,
         ]);

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Database\DBAL\TimestampType;
 use Illuminate\Support\Str;
 
 return [
@@ -161,6 +162,15 @@ return [
         ],
 
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Doctrine DBAL
+    |--------------------------------------------------------------------------
+    |
+    | Supports modifying certain column types in migrations.
+    |
+    */
 
     'dbal' => [
         'types' => [

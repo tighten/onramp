@@ -26,7 +26,7 @@ class ContentSeeder extends Seeder
             $this->command->warn('The directory '.$seedsDirectory.' is empty.');
             $this->command->line('You can create seeds from the production database by calling <info>php artisan generate:seeds-from-db --all</info>');
 
-            return 0;
+            return;
         }
 
         $this->seed($this->command, $seeds);

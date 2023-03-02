@@ -21,7 +21,7 @@ class ModulePolicy
      *
      * @return mixed
      */
-    public function viewAny(User $user)
+    public function viewAny(User $user): bool
     {
         return true;
     }
@@ -31,7 +31,7 @@ class ModulePolicy
      *
      * @return mixed
      */
-    public function view(User $user, Module $module)
+    public function view(User $user, Module $module): bool
     {
         return true;
     }
@@ -41,7 +41,7 @@ class ModulePolicy
      *
      * @return mixed
      */
-    public function create(User $user)
+    public function create(User $user): bool
     {
         //
     }
@@ -51,7 +51,7 @@ class ModulePolicy
      *
      * @return mixed
      */
-    public function update(User $user, Module $module)
+    public function update(User $user, Module $module): bool
     {
         //
     }
@@ -61,7 +61,7 @@ class ModulePolicy
      *
      * @return mixed
      */
-    public function delete(User $user, Module $module)
+    public function delete(User $user, Module $module): bool
     {
         //
     }
@@ -71,7 +71,7 @@ class ModulePolicy
      *
      * @return mixed
      */
-    public function restore(User $user, Module $module)
+    public function restore(User $user, Module $module): bool
     {
         //
     }
@@ -81,7 +81,7 @@ class ModulePolicy
      *
      * @return mixed
      */
-    public function forceDelete(User $user, Module $module)
+    public function forceDelete(User $user, Module $module): bool
     {
         //
     }

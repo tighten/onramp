@@ -31,7 +31,7 @@ class GenerateSeedsFromDatabase extends Command
         $this->dirPath = config('seeder.directory', 'database/json');
     }
 
-    public function handle()
+    public function handle(): int
     {
         $methods = collect([
             'Modules' => 'syncModules',

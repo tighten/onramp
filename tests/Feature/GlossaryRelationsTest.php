@@ -13,7 +13,7 @@ class GlossaryRelationsTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function glossary_page_shows_related_resources()
+    public function glossary_page_shows_related_resources(): void
     {
         $currentLocale = 'en';
         $module = Module::factory()->create();
@@ -32,7 +32,7 @@ class GlossaryRelationsTest extends TestCase
     }
 
     /** @test */
-    public function glossary_page_hides_related_resources_not_in_the_current_locale()
+    public function glossary_page_hides_related_resources_not_in_the_current_locale(): void
     {
         $currentLocale = 'en';
         $module = Module::factory()->create();

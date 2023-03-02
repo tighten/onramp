@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\View\View;
 use App\Models\Term;
 
 class GlossaryController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         return view('glossary', [
             'pageTitle' => __('Glossary'),

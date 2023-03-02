@@ -20,7 +20,7 @@ class ResourcePolicy
      *
      * @return mixed
      */
-    public function viewAny(User $user)
+    public function viewAny(User $user): bool
     {
         //
     }
@@ -31,7 +31,7 @@ class ResourcePolicy
      * @param  \App\Models\Resource  $term
      * @return mixed
      */
-    public function view(User $user, Resource $resource)
+    public function view(User $user, Resource $resource): bool
     {
         //
     }
@@ -41,7 +41,7 @@ class ResourcePolicy
      *
      * @return mixed
      */
-    public function create(User $user)
+    public function create(User $user): bool
     {
         //
     }
@@ -52,7 +52,7 @@ class ResourcePolicy
      * @param  \App\Models\Resource  $term
      * @return mixed
      */
-    public function update(User $user, Resource $resource)
+    public function update(User $user, Resource $resource): bool
     {
         //
     }
@@ -63,7 +63,7 @@ class ResourcePolicy
      * @param  \App\Models\Resource  $term
      * @return mixed
      */
-    public function delete(User $user, Resource $resource)
+    public function delete(User $user, Resource $resource): bool
     {
         //
     }
@@ -74,7 +74,7 @@ class ResourcePolicy
      * @param  \App\Models\Resource  $term
      * @return mixed
      */
-    public function restore(User $user, Resource $resource)
+    public function restore(User $user, Resource $resource): bool
     {
         //
     }
@@ -85,7 +85,7 @@ class ResourcePolicy
      * @param  \App\Models\Resource  $term
      * @return mixed
      */
-    public function forceDelete(User $user, Resource $resource)
+    public function forceDelete(User $user, Resource $resource): bool
     {
         //
     }

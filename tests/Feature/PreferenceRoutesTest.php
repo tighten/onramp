@@ -12,7 +12,7 @@ class PreferenceRoutesTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function resource_language_can_be_changed()
+    public function resource_language_can_be_changed(): void
     {
         $this->be(User::factory()->create());
 
@@ -29,7 +29,7 @@ class PreferenceRoutesTest extends TestCase
     }
 
     /** @test */
-    public function locale_can_be_changed()
+    public function locale_can_be_changed(): void
     {
         $this->be(User::factory()->create());
 
@@ -44,7 +44,7 @@ class PreferenceRoutesTest extends TestCase
     }
 
     /** @test */
-    public function operating_system_can_be_changed()
+    public function operating_system_can_be_changed(): void
     {
         $this->be(User::factory()->create());
 

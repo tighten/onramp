@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use App\Models\Completion;
 use Illuminate\Http\Request;
 
 class CompletionsController extends Controller
 {
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
         Completion::updateOrCreate([
             'completable_id' => $request->input('completable_id'),
@@ -18,7 +19,7 @@ class CompletionsController extends Controller
         return response()->json(['message' => 'Marked as complete.']);
     }
 
-    public function destroy(Request $request)
+    public function destroy(Request $request): JsonResponse
     {
         Completion::where([
             'completable_id' => $request->input('completable_id'),

@@ -6,14 +6,14 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    public function up()
+    public function up(): void
     {
         Schema::table('resources', function (Blueprint $table) {
             $table->string('os')->default('any');
         });
     }
 
-    public function down()
+    public function down(): void
     {
         Schema::table('resources', function (Blueprint $table) {
             $table->dropColumn('os');

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 use App\Facades\Preferences;
 use App\Http\Controllers\Controller;
 use App\Localization\Locale;
@@ -12,12 +14,12 @@ class WizardController extends Controller
 {
     protected $redirectTo = 'modules';
 
-    public function index()
+    public function index(): View
     {
         return view('wizard');
     }
 
-    public function store()
+    public function store(): RedirectResponse
     {
         $valid = $this->validate(request(), [
             'os' => ['required', 'string', Rule::in(OperatingSystem::ALL)],

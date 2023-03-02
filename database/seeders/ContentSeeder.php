@@ -10,7 +10,7 @@ class ContentSeeder extends Seeder
 {
     use CanSeedProdData;
 
-    public function run()
+    public function run(): void
     {
         User::factory()->create([
             'email' => 'matt@tighten.co',

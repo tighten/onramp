@@ -20,7 +20,7 @@ class TrackPolicy
      *
      * @return mixed
      */
-    public function viewAny(User $user)
+    public function viewAny(User $user): bool
     {
         return $user->isAtLeastEditor();
     }
@@ -30,7 +30,7 @@ class TrackPolicy
      *
      * @return mixed
      */
-    public function view(User $user, Track $track)
+    public function view(User $user, Track $track): bool
     {
         return $user->isAtLeastEditor();
     }
@@ -40,7 +40,7 @@ class TrackPolicy
      *
      * @return mixed
      */
-    public function create(User $user)
+    public function create(User $user): bool
     {
         //
     }
@@ -50,7 +50,7 @@ class TrackPolicy
      *
      * @return mixed
      */
-    public function update(User $user, Track $track)
+    public function update(User $user, Track $track): bool
     {
         //
     }
@@ -60,7 +60,7 @@ class TrackPolicy
      *
      * @return mixed
      */
-    public function delete(User $user, Track $track)
+    public function delete(User $user, Track $track): bool
     {
         //
     }
@@ -70,7 +70,7 @@ class TrackPolicy
      *
      * @return mixed
      */
-    public function restore(User $user, Track $track)
+    public function restore(User $user, Track $track): bool
     {
         //
     }
@@ -80,7 +80,7 @@ class TrackPolicy
      *
      * @return mixed
      */
-    public function forceDelete(User $user, Track $track)
+    public function forceDelete(User $user, Track $track): bool
     {
         //
     }

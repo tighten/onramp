@@ -14,7 +14,7 @@ class PreferencesTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function guests_can_use_pages_with_preferences_without_errors()
+    public function guests_can_use_pages_with_preferences_without_errors(): void
     {
         $module = Module::factory()->create();
         $response = $this->get('/en/modules/'.$module->slug.'/free-resources');
@@ -22,7 +22,7 @@ class PreferencesTest extends TestCase
     }
 
     /** @test */
-    public function preference_service_uses_logged_in_user_by_default()
+    public function preference_service_uses_logged_in_user_by_default(): void
     {
         $user = User::factory()->create();
         $this->be($user);
@@ -33,7 +33,7 @@ class PreferencesTest extends TestCase
     }
 
     /** @test */
-    public function preferences_not_defined_cannot_be_used()
+    public function preferences_not_defined_cannot_be_used(): void
     {
         $this->expectException(Exception::class);
         $user = User::factory()->create();
@@ -42,7 +42,7 @@ class PreferencesTest extends TestCase
     }
 
     /** @test */
-    public function user_can_set_and_get_preferences()
+    public function user_can_set_and_get_preferences(): void
     {
         $user = User::factory()->create();
         $this->be($user);
@@ -52,7 +52,7 @@ class PreferencesTest extends TestCase
     }
 
     /** @test */
-    public function get_honors_preference_defaults_if_user_hasnt_set_preferences()
+    public function get_honors_preference_defaults_if_user_hasnt_set_preferences(): void
     {
         $user = User::factory()->create([
             'preferences' => [],
@@ -63,7 +63,7 @@ class PreferencesTest extends TestCase
     }
 
     /** @test */
-    public function get_can_have_default_overridden()
+    public function get_can_have_default_overridden(): void
     {
         $user = User::factory()->create([
             'preferences' => [],

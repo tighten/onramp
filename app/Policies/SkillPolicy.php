@@ -17,8 +17,6 @@ class SkillPolicy
 
     /**
      * Determine whether the user can view any skills.
-     *
-     * @return mixed
      */
     public function viewAny(User $user): bool
     {
@@ -27,8 +25,6 @@ class SkillPolicy
 
     /**
      * Determine whether the user can view the skill.
-     *
-     * @return mixed
      */
     public function view(User $user, Skill $skill): bool
     {
@@ -37,8 +33,6 @@ class SkillPolicy
 
     /**
      * Determine whether the user can create skills.
-     *
-     * @return mixed
      */
     public function create(User $user): bool
     {
@@ -47,8 +41,6 @@ class SkillPolicy
 
     /**
      * Determine whether the user can update the skill.
-     *
-     * @return mixed
      */
     public function update(User $user, Skill $skill): bool
     {
@@ -57,8 +49,6 @@ class SkillPolicy
 
     /**
      * Determine whether the user can delete the skill.
-     *
-     * @return mixed
      */
     public function delete(User $user, Skill $skill): bool
     {
@@ -67,8 +57,6 @@ class SkillPolicy
 
     /**
      * Determine whether the user can restore the skill.
-     *
-     * @return mixed
      */
     public function restore(User $user, Skill $skill): bool
     {
@@ -77,8 +65,6 @@ class SkillPolicy
 
     /**
      * Determine whether the user can permanently delete the skill.
-     *
-     * @return mixed
      */
     public function forceDelete(User $user, Skill $skill): bool
     {

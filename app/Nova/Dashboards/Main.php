@@ -10,8 +10,6 @@ class Main extends Dashboard
 {
     /**
      * Get the cards for the dashboard.
-     *
-     * @return array
      */
     public function cards(): array
     {

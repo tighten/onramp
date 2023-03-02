@@ -81,7 +81,7 @@
         "tightenco/nova-releases": "Keep on top of Nova Releases.",
         "tightenco/suggested-resources-shortcuts": "Shortcut card for suggesting resources."
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
         "post-autoload-dump": [

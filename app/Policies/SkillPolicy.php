@@ -30,44 +30,4 @@ class SkillPolicy
     {
         return $user->isAtLeastEditor();
     }
-
-    /**
-     * Determine whether the user can create skills.
-     */
-    public function create(User $user): bool
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can update the skill.
-     */
-    public function update(User $user, Skill $skill): bool
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can delete the skill.
-     */
-    public function delete(User $user, Skill $skill): bool
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can restore the skill.
-     */
-    public function restore(User $user, Skill $skill): bool
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can permanently delete the skill.
-     */
-    public function forceDelete(User $user, Skill $skill): bool
-    {
-        //
-    }
 }

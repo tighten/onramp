@@ -16,7 +16,7 @@ class TrackPolicy
     }
 
     /**
-     * Determine whether the user can view any modules.
+     * Determine whether the user can view any tracks.
      */
     public function viewAny(User $user): bool
     {
@@ -24,7 +24,7 @@ class TrackPolicy
     }
 
     /**
-     * Determine whether the user can view the module.
+     * Determine whether the user can view the track.
      */
     public function view(User $user, Track $track): bool
     {
@@ -32,42 +32,10 @@ class TrackPolicy
     }
 
     /**
-     * Determine whether the user can create modules.
-     */
-    public function create(User $user): bool
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can update the module.
+     * Determine whether the user can update the track.
      */
     public function update(User $user, Track $track): bool
     {
-        //
-    }
-
-    /**
-     * Determine whether the user can delete the module.
-     */
-    public function delete(User $user, Track $track): bool
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can restore the module.
-     */
-    public function restore(User $user, Track $track): bool
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can permanently delete the module.
-     */
-    public function forceDelete(User $user, Track $track): bool
-    {
-        //
+        return false;
     }
 }

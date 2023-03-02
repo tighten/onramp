@@ -4,8 +4,8 @@ namespace App\Nova\Filters;
 
 use App\Models\Module;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Http\Request;
 use Laravel\Nova\Filters\Filter;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class ModuleSkillLevel extends Filter
 {
@@ -19,7 +19,7 @@ class ModuleSkillLevel extends Filter
      *
      * @param  mixed  $value
      */
-    public function apply(Request $request, Builder $query, $value): Builder
+    public function apply(NovaRequest $request, $query, $value): Builder
     {
         return $query->where('skill_level', $value);
     }
@@ -27,7 +27,7 @@ class ModuleSkillLevel extends Filter
     /**
      * Get the filter's available options.
      */
-    public function options(Request $request): array
+    public function options(NovaRequest $request): array
     {
         return array_flip(Module::SKILL_LEVELS);
     }

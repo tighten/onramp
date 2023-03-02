@@ -24,9 +24,9 @@ class ResourceFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->sentence,
-            'url' => $this->faker->url,
-            'is_free' => $this->faker->boolean,
+            'name' => $this->faker->sentence(),
+            'url' => $this->faker->url(),
+            'is_free' => $this->faker->boolean(),
             'is_bonus' => $this->faker->boolean(20),
             'type' => $this->faker->randomElement(Resource::TYPES),
             'language' => $this->faker->randomElement(['en', 'es']),

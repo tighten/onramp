@@ -23,10 +23,10 @@ class SuggestedResourceFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->sentence,
-            'url' => $this->faker->url,
+            'name' => $this->faker->sentence(),
+            'url' => $this->faker->url(),
             'language' => $this->faker->randomElement(array_merge(['all'], Localization::slugs())),
-            'is_free' => $this->faker->boolean,
+            'is_free' => $this->faker->boolean(),
         ];
     }
 }

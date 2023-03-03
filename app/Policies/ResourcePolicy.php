@@ -17,8 +17,6 @@ class ResourcePolicy
 
     /**
      * Determine whether the user can update the resource.
-     *
-     * @param  \App\Models\Resource  $resource
      */
     public function update(User $user, Resource $resource): bool
     {

@@ -37,8 +37,8 @@ trait CanGenerateFile
      */
     public function makePath(string $fileName, string $fileExt): string
     {
-        $file = str_replace('.', '/', $fileName).".{$fileExt}";
+        $file = str_replace('.', '/', $fileName) . ".{$fileExt}";
 
-        return $this->dirPath.'/'.$file;
+        return $this->dirPath . '/' . $file;
     }
 }

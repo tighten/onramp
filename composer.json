@@ -34,7 +34,7 @@
         "nunomaduro/collision": "^6.3",
         "phpunit/phpunit": "^9.5.10",
         "spatie/laravel-ignition": "^2.0",
-        "tightenco/duster": "^0.5.5"
+        "tightenco/duster": "^0.7.0"
     },
     "config": {
         "optimize-autoloader": true,
@@ -98,10 +98,10 @@
             "[ $COMPOSER_DEV_MODE -eq 1 ] || composer require laravel/nova:^4.0 spatie/nova-translatable tightenco/nova-releases tightenco/suggested-resources-shortcuts"
         ],
         "lint": [
-            "vendor/bin/duster"
+            "vendor/bin/duster lint"
         ],
         "fix": [
-            "vendor/bin/duster --fix"
+            "vendor/bin/duster fix"
         ]
     }
 }

@@ -31,7 +31,7 @@ class SuggestedResourcesTest extends NovaTestCase
 
         $this->actingAs($user);
 
-        $response = $this->json('GET', '/nova-api/suggested-resources/'.$suggestedResource->id);
+        $response = $this->json('GET', '/nova-api/suggested-resources/' . $suggestedResource->id);
 
         $response->assertJsonFragment([
             'attribute' => 'rejected_reason',
@@ -53,7 +53,7 @@ class SuggestedResourcesTest extends NovaTestCase
 
         $this->actingAs($user);
 
-        $response = $this->json('GET', '/nova-api/suggested-resources/'.$suggestedResource->id);
+        $response = $this->json('GET', '/nova-api/suggested-resources/' . $suggestedResource->id);
 
         $response->assertJsonMissing([
             'attribute' => 'rejected_reason',

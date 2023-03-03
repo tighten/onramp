@@ -32,24 +32,24 @@ class TidyUpExpiredResources extends Command
         if ($this->pruneExpiredResources()) {
             $this->withProgressBar($expiredResources, fn ($resource) => $resource->forceDelete());
 
-            return $this->info(PHP_EOL.'Done!');
+            return $this->info(PHP_EOL . 'Done!');
         }
 
         $this->trashedResourcesCount = Resource::expired()->onlyTrashed()->count();
 
         if ($this->expiredResourcesCount === $this->trashedResourcesCount) {
-            $this->info('No resources to tidy up. There are '.$this->trashedResourcesCount.' resources in the trash. To permanently delete them, use the --prune option.');
+            $this->info('No resources to tidy up. There are ' . $this->trashedResourcesCount . ' resources in the trash. To permanently delete them, use the --prune option.');
 
             return;
         }
 
         $this->withProgressBar(Resource::expired()->get(), fn ($resource) => $resource->delete());
 
-        $this->info(PHP_EOL.'Done! To permanently delete resources moved to the trash, use the --prune option.');
+        $this->info(PHP_EOL . 'Done! To permanently delete resources moved to the trash, use the --prune option.');
     }
 
     private function pruneExpiredResources(): bool
     {
-        return $this->option('prune') && $this->confirm('You are permanently removing '.$this->expiredResourcesCount.' expired resources. This action can not be reversed. Continue?');
+        return $this->option('prune') && $this->confirm('You are permanently removing ' . $this->expiredResourcesCount . ' expired resources. This action can not be reversed. Continue?');
     }
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "73fc050838b0730ef0432ab7d748f6b1",
+    "content-hash": "b9a0b7c39f712701f967ab120f93cf0b",
     "packages": [
         {
             "name": "brick/math",
@@ -9902,25 +9902,25 @@
         },
         {
             "name": "tightenco/duster",
-            "version": "v0.5.7",
+            "version": "v0.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tighten/duster.git",
-                "reference": "0d06a8a55d4644dfd3771caecd96e8133981789f"
+                "reference": "46cb0a95db92f91c6c7134bea839796b98f27468"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tighten/duster/zipball/0d06a8a55d4644dfd3771caecd96e8133981789f",
-                "reference": "0d06a8a55d4644dfd3771caecd96e8133981789f",
+                "url": "https://api.github.com/repos/tighten/duster/zipball/46cb0a95db92f91c6c7134bea839796b98f27468",
+                "reference": "46cb0a95db92f91c6c7134bea839796b98f27468",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.12",
+                "friendsofphp/php-cs-fixer": "^3.14",
                 "laravel-zero/framework": "^9.2",
-                "laravel/pint": "^1.2",
+                "laravel/pint": "1.5",
                 "mockery/mockery": "^1.4.4",
                 "nunomaduro/larastan": "^2.2",
                 "nunomaduro/termwind": "^1.14",
@@ -9967,11 +9967,11 @@
                 "issues": "https://github.com/tighten/duster/issues",
                 "source": "https://github.com/tighten/duster"
             },
-            "time": "2023-01-23T18:53:55+00:00"
+            "time": "2023-03-03T17:55:59+00:00"
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "kg-bot/laravel-localization-to-vue": 20
     },

@@ -7,7 +7,7 @@ function locale()
 
 function path_wlocale($path)
 {
-    return locale().'/'.$path;
+    return locale() . '/' . $path;
 }
 
 function url_wlocale($path)

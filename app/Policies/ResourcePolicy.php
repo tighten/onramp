@@ -15,11 +15,38 @@ class ResourcePolicy
         return $user->isAtLeastEditor() ?: null;
     }
 
-    /**
-     * Determine whether the user can update the resource.
-     */
-    public function update(User $user, Resource $resource): bool
+    public function viewAny(User $user)
     {
-        return false;
+        //
+    }
+
+    public function view(User $user, User $model)
+    {
+        //
+    }
+
+    public function create(User $user)
+    {
+        //
+    }
+
+    public function update(User $user, Resource $resource)
+    {
+        //
+    }
+
+    public function delete(User $user, Resource $resource)
+    {
+        //
+    }
+
+    public function restore(User $user, Resource $resource)
+    {
+        //
+    }
+
+    public function forceDelete(User $user, Resource $resource)
+    {
+        //
     }
 }

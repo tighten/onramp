@@ -16,28 +16,39 @@ class ModulePolicy
         return $user->isAdmin() ?: null;
     }
 
-    /**
-     * Determine whether the user can view any modules.
-     */
     public function viewAny(User $user): bool
     {
         return true;
     }
 
-    /**
-     * Determine whether the user can view the module.
-     */
     public function view(User $user, Module $module): bool
     {
         return true;
     }
 
-    /**
-     * Determine whether the user can update the module.
-     */
+    public function create(User $user)
+    {
+        //
+    }
+
     public function update(User $user, Module $module): bool
     {
         return false;
+    }
+
+    public function delete(User $user, Module $module)
+    {
+        //
+    }
+
+    public function restore(User $user, Module $module)
+    {
+        //
+    }
+
+    public function forceDelete(User $user, Module $module)
+    {
+        //
     }
 
     public function attachResource(User $user, Module $module, Resource $resource): bool

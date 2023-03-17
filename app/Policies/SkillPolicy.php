@@ -15,19 +15,38 @@ class SkillPolicy
         return $user->isAdmin() ?: null;
     }
 
-    /**
-     * Determine whether the user can view any skills.
-     */
     public function viewAny(User $user): bool
     {
         return $user->isAtLeastEditor();
     }
 
-    /**
-     * Determine whether the user can view the skill.
-     */
-    public function view(User $user, Skill $skill): bool
+    public function view(User $user, Skill $skill)
     {
         return $user->isAtLeastEditor();
+    }
+
+    public function create(User $user)
+    {
+        //
+    }
+
+    public function update(User $user, Skill $skill)
+    {
+        //
+    }
+
+    public function delete(User $user, Skill $skill)
+    {
+        //
+    }
+
+    public function restore(User $user, Skill $skill)
+    {
+        //
+    }
+
+    public function forceDelete(User $user, Skill $skill)
+    {
+        //
     }
 }

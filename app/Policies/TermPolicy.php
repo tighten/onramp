@@ -15,11 +15,38 @@ class TermPolicy
         return $user->isAtLeastEditor() ?: null;
     }
 
-    /**
-     * Determine whether the user can update the term.
-     */
-    public function update(User $user, Term $term): bool
+    public function viewAny(User $user)
     {
-        return false;
+        //
+    }
+
+    public function view(User $user, Term $term)
+    {
+        //
+    }
+
+    public function create(User $user)
+    {
+        //
+    }
+
+    public function update(User $user, Term $term)
+    {
+        //
+    }
+
+    public function delete(User $user, Term $term)
+    {
+        //
+    }
+
+    public function restore(User $user, Term $term)
+    {
+        //
+    }
+
+    public function forceDelete(User $user, Term $term)
+    {
+        //
     }
 }

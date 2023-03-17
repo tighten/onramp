@@ -15,27 +15,33 @@ class TrackPolicy
         return $user->isAdmin() ?: null;
     }
 
-    /**
-     * Determine whether the user can view any tracks.
-     */
     public function viewAny(User $user): bool
     {
         return $user->isAtLeastEditor();
     }
 
-    /**
-     * Determine whether the user can view the track.
-     */
     public function view(User $user, Track $track): bool
     {
         return $user->isAtLeastEditor();
     }
 
-    /**
-     * Determine whether the user can update the track.
-     */
-    public function update(User $user, Track $track): bool
+    public function update(User $user, Track $track)
     {
-        return false;
+        //
+    }
+
+    public function delete(User $user, Track $track)
+    {
+        //
+    }
+
+    public function restore(User $user, Track $track)
+    {
+        //
+    }
+
+    public function forceDelete(User $user, Track $track)
+    {
+        //
     }
 }

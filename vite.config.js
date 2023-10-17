@@ -11,7 +11,7 @@ export default defineConfig(({command}) => ({
                 'resources/js/scripts.js',
             ],
             refresh: true,
-            valetTls: 'onramp.test',
+            detectTls: 'onramp.test',
         }),
         vue({
             template: {

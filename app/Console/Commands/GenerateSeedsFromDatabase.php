@@ -24,15 +24,15 @@ class GenerateSeedsFromDatabase extends Command
     {
         parent::__construct();
 
-        if (app()->environment() === 'local') {
-            dispatch(new CreateTunnel);
-        }
-
         $this->dirPath = config('seeder.directory', 'database/json');
     }
 
     public function handle(): int
     {
+        if (app()->environment() === 'local') {
+            dispatch(new CreateTunnel);
+        }
+
         $methods = collect([
             'Modules' => 'syncModules',
             'Resources' => 'syncResources',

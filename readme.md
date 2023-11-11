@@ -15,6 +15,12 @@ Onramp aims to be a collection of resources presented in a way that makes it pos
 
 > [Vite](https://vitejs.dev/) requires node `^14.18.0 || >=16.0.0` to run
 
+- Create a [GitHub OAuth Application](https://github.com/settings/developers). If you use Valet to serve your application locally, you can use the following settings:
+    - Application Name: `Local Onramp`
+    - Homepage URL: `http://onramp.test`
+    - Application Description: `Local Version of Onramp`
+    - Authorization Callback URL: `http://onramp.test/en/login/github/callback`
+
 ## How can I help?
 
 Check out the [Contribution Guide](https://github.com/tighten/onramp/blob/main/contributing.md) to learn more about how to contribute.
@@ -40,7 +46,7 @@ php artisan generate:seeds-from-db --all
 Then, to seed your local database run:
 
 ```bash
-php art migrate:fresh --seed
+php artisan migrate:fresh --seed
 ```
 
 > Warning: Any changes made to your local database will be overridden when seeding your database from the production seeder files.

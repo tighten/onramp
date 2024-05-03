@@ -20,19 +20,14 @@ class GenerateSeedsFromDatabase extends Command
 
     protected $description = 'Sync core data and generate new seed files for local development.';
 
-    public function __construct()
+    public function handle(): int
     {
-        parent::__construct();
-
         if (app()->environment() === 'local') {
             dispatch(new CreateTunnel);
         }
 
         $this->dirPath = config('seeder.directory', 'database/json');
-    }
 
-    public function handle(): int
-    {
         $methods = collect([
             'Modules' => 'syncModules',
             'Resources' => 'syncResources',

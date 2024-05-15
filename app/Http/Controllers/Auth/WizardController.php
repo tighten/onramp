@@ -21,7 +21,7 @@ class WizardController extends Controller
 
     public function store(): RedirectResponse
     {
-        $valid = $this->validate(request(), [
+        $valid = request()->validate(request(), [
             'os' => ['required', 'string', Rule::in(OperatingSystem::ALL)],
             'track' => ['required', 'int', 'exists:tracks,id'],
             'locale' => ['required', 'string', Rule::in((new Locale)->slugs())],

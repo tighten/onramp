@@ -1,6 +1,6 @@
 <?php
 
-namespace  App\Concerns;
+namespace App\Concerns;
 
 use Exception;
 use Illuminate\Console\Command;

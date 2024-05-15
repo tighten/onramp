@@ -41,7 +41,7 @@ jobs:
       - name: Install dependencies
         run: |
           composer config "http-basic.nova.laravel.com" "${{ secrets.NOVA_USERNAME }}" "${{ secrets.NOVA_PASSWORD }}"
-          composer install --prefer-dist --no-interaction --no-progress --no-suggest
+          composer install --prefer-dist --no-interaction --no-progress
           npm install
       - name: Build Assets
         run: npm run build

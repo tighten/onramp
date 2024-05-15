@@ -7,7 +7,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "bugsnag/bugsnag-laravel": "^2.26",
         "erusev/parsedown": "^1.7",
         "guzzlehttp/guzzle": "^7.2",

@@ -7,7 +7,10 @@
         <template slot-scope="{ toggle, isCompleted }">
             <button
                 class="flex items-center justify-center w-full px-4 py-2 mt-8 text-sm font-semibold leading-none text-white transition-colors duration-200 ease-in-out border-2 border-white rounded-3xl hover:bg-white hover:text-teal focus:outline-none lg:mt-0"
-                :class="{ 'bg-white text-teal hover:bg-transparent hover:text-white': isCompleted }"
+                :class="{
+                    'bg-white text-teal hover:bg-transparent hover:text-white':
+                        isCompleted,
+                }"
                 @click="toggle"
                 :aria-label="
                     isCompleted ? 'mark as incomplete' : 'mark as completed'
@@ -28,6 +31,9 @@
                 <svg
                     v-else
                     class="w-5 h-5 mr-4 fill-current"
+                    :class="{
+                        'fill-teal': isCompleted,
+                    }"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                 >
@@ -36,7 +42,12 @@
                     />
                 </svg>
 
-                <span class="inline-block">
+                <span
+                    class="inline-block"
+                    :class="{
+                        'bg-white text-teal hover:bg-transparent': isCompleted,
+                    }"
+                >
                     {{
                         isCompleted ? "Mark as Incomplete" : "Mark as Completed"
                     }}
@@ -51,16 +62,16 @@ import Completable from "./Completable.vue";
 
 export default {
     components: {
-        Completable
+        Completable,
     },
 
     props: {
         initialIsCompleted: {
             type: Boolean,
-            default: false
+            default: false,
         },
         type: {},
-        id: {}
-    }
+        id: {},
+    },
 };
 </script>

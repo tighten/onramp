@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    name: PHP 8.2, Laravel 9.*
+    name: PHP 8.2, Laravel 10.*
     runs-on: ubuntu-latest
 
     steps:
@@ -23,8 +23,8 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.composer/cache/files
-          key: php-8.2-laravel-9.*-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: php-8.2-laravel-9.*-composer-
+          key: php-8.2-laravel-10.*-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: php-8.2-laravel-10.*-composer-
 
       - name: Cache npm dependencies
         uses: actions/cache@v3

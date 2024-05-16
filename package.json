@@ -20,7 +20,7 @@
     "dependencies": {
         "@vitejs/plugin-vue2": "^2.0.0",
         "alpinejs": "^3.5.1",
-        "autoprefixer": "^10.4.0",
+        "autoprefixer": "^10.4.19",
         "axios": "^0.27",
         "bootstrap": "^4.5.2",
         "fuse.js": "^6.6.2",

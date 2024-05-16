@@ -5,7 +5,7 @@
 		</h4>
 
 		<p class="my-6 text-xl leading-normal md:text-2xl lg:text-3xl lg:mt-10">
-			{{ __('Join for free today to see the technologies and processes the team at Tighten thinks are best for you to learn, and our favorite resources for learning them.') }}
+			{{ __('Join Onramp for free today to see the technologies and processes the team at Tighten thinks are best for you to learn and our favorite resources for learning them.') }}
 		</p>
 
 		<a class="inline-block px-4 py-1 text-lg font-semibold text-center transition duration-200 ease-in-out border-2 rounded-full text-mint under border-blue-black bg-blue-black hover:no-underline hover:bg-mint hover:text-blue-black"

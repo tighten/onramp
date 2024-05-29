@@ -7,7 +7,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "bugsnag/bugsnag-laravel": "^2.26",
         "erusev/parsedown": "^1.7",
         "guzzlehttp/guzzle": "^7.2",
@@ -19,7 +19,8 @@
         "laravel/ui": "^4.2",
         "larswiegers/laravel-translations-checker": "^0.4",
         "nathanheffley/laravel-slack-blocks": "^2.3",
-        "spatie/laravel-translatable": "^6.3",
+        "spatie/laravel-translatable": "^6.7",
+        "spatie/nova-translatable": "^4.0",
         "stechstudio/laravel-ssh-tunnel": "^3.3",
         "tightenco/ziggy": "^1.5"
     },
@@ -34,7 +35,7 @@
         "nunomaduro/collision": "^6.3",
         "phpunit/phpunit": "^9.5.10",
         "spatie/laravel-ignition": "^2.0",
-        "tightenco/duster": "^0.7.0"
+        "tightenco/duster": "^v2.7.5"
     },
     "config": {
         "optimize-autoloader": true,
@@ -95,7 +96,7 @@
             "@php artisan key:generate --ansi"
         ],
         "post-install-cmd": [
-            "[ $COMPOSER_DEV_MODE -eq 1 ] || composer require laravel/nova:^4.0 spatie/nova-translatable tightenco/nova-releases tightenco/suggested-resources-shortcuts"
+            "[ $COMPOSER_DEV_MODE -eq 1 ] || composer require laravel/nova:^4.0 spatie/nova-translatable spatie/laravel-translatable tightenco/nova-releases tightenco/suggested-resources-shortcuts"
         ],
         "lint": [
             "vendor/bin/duster lint"

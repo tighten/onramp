@@ -11,6 +11,6 @@
     }
 }
 
-@responsive {
+@layer {
     @include exact-size();
 }

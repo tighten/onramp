@@ -19,7 +19,7 @@ class Preferences
 
     protected $cookieLength = 43200; // one month-ish
 
-    public function __construct(User $user = null)
+    public function __construct(?User $user = null)
     {
         $this->user = $user;
     }

@@ -2,19 +2,17 @@ name: Run Duster Fix
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
 
 jobs:
   duster:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.head_ref }}
+      - uses: actions/checkout@v2
 
       - name: "Duster Fix"
-        uses: tighten/duster-action@v1
+        uses: tighten/duster-action@v2
         with:
           args: fix
 

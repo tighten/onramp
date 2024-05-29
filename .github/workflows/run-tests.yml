@@ -3,31 +3,31 @@ name: Run tests
 on:
   pull_request:
   push:
-    branches:
-      - main
+    branches: [main]
+
 jobs:
   test:
-    name: PHP 8.1, Laravel 9.*
+    name: PHP 8.2, Laravel 10.*
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.1
+          php-version: 8.2
 
       - name: Cache Composer dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.composer/cache/files
-          key: php-8.1-laravel-8.*-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: php-8.1-laravel-8.*-composer-
+          key: php-8.2-laravel-10.*-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: php-8.2-laravel-10.*-composer-
 
       - name: Cache npm dependencies
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ~/.npm
           key: npm-${{ hashFiles('**/package-lock.json') }}
@@ -41,7 +41,7 @@ jobs:
       - name: Install dependencies
         run: |
           composer config "http-basic.nova.laravel.com" "${{ secrets.NOVA_USERNAME }}" "${{ secrets.NOVA_PASSWORD }}"
-          composer install --prefer-dist --no-interaction --no-progress --no-suggest
+          composer install --prefer-dist --no-interaction --no-progress
           npm install
       - name: Build Assets
         run: npm run build

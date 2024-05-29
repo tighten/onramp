@@ -1,9 +1,9 @@
 @if (auth()->check() && is_null(auth()->user()->track_id))
-<div class="bg-orange-300 border-t-4 border-orange-600" role="alert">
+<div class="border-t-4" role="alert">
     <div class="py-3 mx-auto fluid-container lg:py-4">
         <div class="flex flex-wrap items-center justify-between">
-            <div class="flex items-start flex-1 w-0">
-                <svg class="flex-none w-5 h-5 mt-1 text-orange-600 fill-current" xmlns="http://www.w3.org/2000/svg"
+            <div class="flex items-center justify-center flex-1 w-0">
+                <svg class="flex-none w-5 h-5 mt-3 text-orange-600 fill-current" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 320.83 320.83">
                     <path
                         d="M21.617 290.246h277.604c9.469 0 17.013-4.553 20.168-12.184 2.904-7.011 1.36-14.8-4.107-21.212L180.497 39.684l-1.333-1.333c-5.009-5.009-11.667-7.767-18.748-7.767-7.082 0-13.739 2.758-18.743 7.767l-1.333 1.333L5.55 256.844c-5.466 6.413-7.016 14.207-4.106 21.212 3.159 7.632 10.698 12.19 20.173 12.19zM160.416 69.213L277.35 257.606H43.487L160.416 69.213z" />

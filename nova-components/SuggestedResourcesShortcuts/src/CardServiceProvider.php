@@ -48,7 +48,7 @@ class CardServiceProvider extends ServiceProvider
         }
 
         Route::middleware(['nova'])
-                ->prefix('nova-vendor/suggested-resources-shortcuts')
-                ->group(__DIR__ . '/../routes/api.php');
+            ->prefix('nova-vendor/suggested-resources-shortcuts')
+            ->group(__DIR__ . '/../routes/api.php');
     }
 }

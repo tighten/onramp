@@ -18,7 +18,7 @@
                 @csrf
 
                 <div>
-                    <div class="pb-5 mt-12">
+                    <div class="py-6 ">
                         <h2 class="text-xl font-medium md:text-2xl lg:text-3xl">{{ __('A bit about yourself') }}</h2>
                     </div>
 
@@ -48,7 +48,7 @@
                                     </select>
 
                                     <div
-                                        class="absolute inset-y-0 right-0 flex items-center px-2 text-steel pointer-events-none">
+                                        class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none text-steel">
                                         <svg class="w-4 h-4 fill-current"
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 20 20">
@@ -85,7 +85,7 @@
                                     </select>
 
                                     <div
-                                        class="absolute inset-y-0 right-0 flex items-center px-2 text-steel pointer-events-none">
+                                        class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none text-steel">
                                         <svg class="w-4 h-4 fill-current"
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 20 20">
@@ -122,7 +122,7 @@
                                     </select>
 
                                     <div
-                                        class="absolute inset-y-0 right-0 flex items-center px-2 text-steel pointer-events-none">
+                                        class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none text-steel">
                                         <svg class="w-4 h-4 fill-current"
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 20 20">

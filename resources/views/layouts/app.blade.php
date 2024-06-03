@@ -99,7 +99,7 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to La
 
             <!-- toast notifications -->
             @if (session('toast'))
-            <toast message="{{ session('toast') }}"></toast>
+            <toast {!! session('toast-title') ? 'title="'.session('toast-title').'"' : '' !!} message="{{ session('toast') }}"></toast>
             @endif
         </div>
         @include('partials.navigation.footer')

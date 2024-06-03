@@ -9,6 +9,7 @@ use Exception;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -76,6 +77,13 @@ class LoginController extends Controller
 
             return $userExists ? redirect(route_wlocale('modules.index')) : redirect()->intended();
         } catch (Exception $e) {
+            if (request()->has('code') && request()->has('state')) {
+                Log::error($e);
+
+                session()->flash('toast-title', 'GitHub Error');
+                session()->flash('toast', 'There was an error authenticating with GitHub.');
+            }
+
             return redirect(route_wlocale('login'));
         }
     }

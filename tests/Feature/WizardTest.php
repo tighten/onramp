@@ -29,9 +29,9 @@ class WizardTest extends TestCase
         $this->be($user = User::factory()->create());
         $response = $this->post(route('wizard.store', ['locale' => 'en']),
             [
-            'os' => OperatingSystem::MACOS,
-            'track' => $track_id = Track::factory()->create()->id,
-            'locale' => 'en',
+                'os' => OperatingSystem::MACOS,
+                'track' => $track_id = Track::factory()->create()->id,
+                'locale' => 'en',
             ]
         );
 

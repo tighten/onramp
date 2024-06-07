@@ -6,6 +6,7 @@ use App\Models\Module as EloquentModule;
 use App\Nova\Filters\ModuleSkillLevel;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
@@ -54,6 +55,8 @@ class Module extends BaseResource
             Translatable::make([
                 Text::make('Description')->hideFromIndex(),
             ]),
+
+            Boolean::make('Is Bonus'),
 
             Select::make('Skill Level')
                 ->options(EloquentModule::SKILL_LEVELS)

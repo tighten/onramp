@@ -60,7 +60,7 @@ class LoginController extends Controller
                 }
             } else {
                 $newUser = User::create([
-                    'name' => $user->getName(),
+                    'name' => $user->getName() ?: $user->getNickName(),
                     'email' => $user->getEmail(),
                     'github_username' => $user->getNickname(),
                     'github_avatar' => $user->getAvatar(),

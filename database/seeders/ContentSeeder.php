@@ -13,7 +13,7 @@ class ContentSeeder extends Seeder
     public function run(): void
     {
         User::factory()->create([
-            'email' => 'matt@tighten.co',
+            'email' => 'testuser@tighten.co',
             'password' => bcrypt('password'),
             'role' => 'admin',
         ]);

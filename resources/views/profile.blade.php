@@ -54,5 +54,4 @@
         </form>
     </x-panel>
 </div>
-
 @endsection

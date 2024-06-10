@@ -20,7 +20,6 @@
         "larswiegers/laravel-translations-checker": "^0.4",
         "nathanheffley/laravel-slack-blocks": "^2.3",
         "spatie/laravel-translatable": "^6.7",
-        "spatie/nova-translatable": "^4.0",
         "stechstudio/laravel-ssh-tunnel": "^3.3",
         "tightenco/ziggy": "^1.5"
     },

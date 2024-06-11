@@ -1,22 +1,22 @@
 @extends('layouts.app')
 
 @php
-$level = !$module->is_bonus ? $module->skill_level : 'bonus';
+    $level = !$module->is_bonus ? $module->skill_level : 'bonus';
 
-switch ($level) {
-    case 'intermediate':
-        $bgColor = 'bg-sea';
-        break;
-    case 'advanced':
-        $bgColor = 'bg-merlot';
-        break;
-    case 'bonus':
-        $bgColor = 'bg-steel';
-        break;
-    default:
-        $bgColor = 'bg-emerald';
-        break;
-}
+    switch ($level) {
+        case 'intermediate':
+            $bgColor = 'bg-sea';
+            break;
+        case 'advanced':
+            $bgColor = 'bg-merlot';
+            break;
+        case 'bonus':
+            $bgColor = 'bg-steel';
+            break;
+        default:
+            $bgColor = 'bg-emerald';
+            break;
+    }
 @endphp
 
 @section('content')
@@ -31,8 +31,8 @@ switch ($level) {
                     @if (Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id))
                         <completed-button
                             :initial-is-completed="{{ $completedModules->contains($module->id) ? 'true' : 'false' }}"
-                            type="{{ $module->getMorphClass() }}"
-                            id="{{ $module->id }}">
+                            id="{{ $module->id }}"
+                            type="{{ $module->getMorphClass() }}">
                         </completed-button>
                     @endif
                 @endauth
@@ -56,34 +56,39 @@ switch ($level) {
                     <ul class="flex flex-wrap -m-1 md:-m-2">
                         @forelse ($skills as $skill)
                             @if ($loop->index < 4)
-                                <skill
+                                <skill :init-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
                                     @if (Auth::check() && Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id)) :completable="true" @else :completable="false" @endif
-                                    :init-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
+                                    id="{{ $skill->id }}"
+                                    text="{{ $skill->name }}"
+                                    type="{{ $skill->getMorphClass() }}"></skill>
+                            @else
+                                <skill :init-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
+                                    @if (Auth::check() && Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id)) :completable="true" @else :completable="false" @endif
                                     id="{{ $skill->id }}"
                                     text="{{ $skill->name }}"
                                     type="{{ $skill->getMorphClass() }}"
-                                ></skill>
-                            @else
-                                <skill x-show="showMore"
-                                   @if (Auth::check() && Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id)) :completable="true" @else :completable="false" @endif
-                                   :init-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
-                                   id="{{ $skill->id }}"
-                                   text="{{ $skill->name }}"
-                                   type="{{ $skill->getMorphClass() }}"
-                                ></skill>
+                                    x-show="showMore"></skill>
                             @endif
 
                             @if ($loop->index == 3 && count($skills) > 4)
-                                <button x-on:click="showMore = !showMore;"  x-show="!showMore" class="relative block px-4 py-2 m-1 font-bold leading-5 text-left md:m-2 text-teal sm:leading-6 lg:text-xl lg:leading-8">
-                                    <span class="absolute inset-0 w-full h-full transition-all duration-200 ease-in-out rounded-md bg-opacity-20 bg-teal"></span>
-                                    <span>+ {{ count($skills) - 4  . ' ' . __('more') }}</span>
+                                <button
+                                    class="relative block px-4 py-2 m-1 font-bold leading-5 text-left md:m-2 text-emerald sm:leading-6 lg:leading-8"
+                                    x-on:click="showMore = !showMore;"
+                                    x-show="!showMore">
+                                    <span
+                                        class="absolute inset-0 w-full h-full transition-all duration-200 ease-in-out rounded-md bg-opacity-20 bg-teal"></span>
+                                    <span>+ {{ count($skills) - 4 . ' ' . __('more') }}</span>
                                 </button>
                             @endif
 
                             @if ($loop->last && count($skills) > 4)
-                                <button x-on:click="showMore = !showMore;"  x-show="showMore" class="relative block px-4 py-2 m-1 font-bold leading-5 text-left md:m-2 text-teal sm:leading-6 lg:text-xl lg:leading-8">
-                                    <span class="absolute inset-0 w-full h-full transition-all duration-200 ease-in-out rounded-md bg-opacity-20 bg-teal"></span>
-                                    <span>- {{ count($skills) - 4  . ' ' . __('more') }}</span>
+                                <button
+                                    class="relative block px-4 py-2 m-1 font-bold leading-5 text-left md:m-2 text-emerald sm:leading-6 lg:leading-8"
+                                    x-on:click="showMore = !showMore;"
+                                    x-show="showMore">
+                                    <span
+                                        class="absolute inset-0 w-full h-full transition-all duration-200 ease-in-out rounded-md bg-opacity-20 bg-teal"></span>
+                                    <span>- {{ count($skills) - 4 . ' ' . __('more') }}</span>
                                 </button>
                             @endif
                         @empty
@@ -123,10 +128,9 @@ switch ($level) {
             --}}
         </tabs>
 
-        <resource-language-preference-switcher
-            class="px-4 mb-8 sm:px-0"
-            language="{{ Localization::languageForLocale(locale()) }}"
-            initial-choice="{{ $currentResourceLanguagePreference }}">
+        <resource-language-preference-switcher class="px-4 mb-8 sm:px-0"
+            initial-choice="{{ $currentResourceLanguagePreference }}"
+            language="{{ Localization::languageForLocale(locale()) }}">
         </resource-language-preference-switcher>
 
         <x-panel>
@@ -165,13 +169,13 @@ switch ($level) {
                 @if ($previousModule)
                     <div class="flex flex-col items-start text-white group">
                         <x-button.primary
-                            href="{{ route_wlocale('modules.show', ['module' => $previousModule->slug, 'resourceType' => 'free-resources']) }}"
                             class="flex tracking-widest uppercase lg:px-10 lg:min-w-[185px] lg:rounded-xl lg:py-3 lg:justify-center"
-                        >
+                            href="{{ route_wlocale('modules.show', ['module' => $previousModule->slug, 'resourceType' => 'free-resources']) }}">
                             <span class="inline-block mr-4 font-semibold">&lt;</span>
                             <span class="inline-block font-semibold">Previous</span>
                         </x-button.primary>
-                        <span class="mt-5 text-sm leading-tight word-spacing-tight sm:text-base sm:leading-tight lg:text-lg lg:leading-tight">
+                        <span
+                            class="mt-5 text-sm leading-tight word-spacing-tight sm:text-base sm:leading-tight lg:text-lg lg:leading-tight">
                             {!! $previousModule->name !!}
                         </span>
                     </div>
@@ -182,13 +186,13 @@ switch ($level) {
                 @if ($nextModule)
                     <div class="flex flex-col items-end text-white group">
                         <x-button.primary
-                            href="{{ route_wlocale('modules.show', ['module' => $nextModule->slug, 'resourceType' => 'free-resources']) }}"
                             class="flex tracking-widest uppercase lg:px-10 lg:min-w-[185px] lg:rounded-xl lg:py-3 lg:justify-center"
-                        >
+                            href="{{ route_wlocale('modules.show', ['module' => $nextModule->slug, 'resourceType' => 'free-resources']) }}">
                             <span class="inline-block font-semibold">Next</span>
                             <span class="inline-block ml-4 font-semibold">&gt;</span>
                         </x-button.primary>
-                        <span class="mt-5 text-sm leading-tight text-right word-spacing-tight sm:text-base sm:leading-tight lg:text-lg lg:leading-tight">
+                        <span
+                            class="mt-5 text-sm leading-tight text-right word-spacing-tight sm:text-base sm:leading-tight lg:text-lg lg:leading-tight">
                             {!! $nextModule->name !!}
                         </span>
                     </div>

@@ -1,7 +1,7 @@
 <template>
     <div>
         <div
-            class="w-full grid grid-cols-12 px-4 space-y-4 md:space-y-0 lg:mt-18 md:px-8 lg:px-20 2xl:px-32"
+            class="grid w-full grid-cols-12 px-4 space-y-4 md:space-y-0 lg:mt-18 md:px-8 lg:px-20 2xl:px-32"
         >
             <div
                 v-if="userLoggedIn"
@@ -422,4 +422,3 @@ export default {
     --vs-dropdown-option-padding: 3px 10px;
 }
 </style>
--->

@@ -21,7 +21,7 @@
 
                     <div class="mt-6">
                         <span class="block w-full rounded-md shadow-sm">
-                            <a href="{{ route_wlocale('login.github') }}" class="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-white no-underline transition duration-200 ease-in-out border border-transparent rounded-md focus:bg-white focus:text-purple bg-purple hover:bg-white hover:text-purple hover:no-underline focus:outline-none border-purple active:bg-white active:text-purple">
+                            <a href="{{ route_wlocale('login.github') }}" class="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-white no-underline transition duration-200 ease-in-out border border-transparent rounded-md hover:border-purple focus:border-purple focus:bg-white focus:text-purple bg-purple hover:bg-white hover:text-purple hover:no-underline focus:outline-none border-purple active:bg-white active:text-purple">
                                 <span>{{ __('Log in') }} or {{ __('Register') }} with</span>
                                 <span class="ml-2 text-lg"><i class="fa fa-github" aria-label="Github" title="Github"></i></span>
                             </a>
@@ -105,7 +105,7 @@
                     <div class="mt-6">
                         <span class="block w-full rounded-md shadow-sm">
                             <button type="submit"
-                                class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white no-underline transition duration-200 ease-in-out border border-transparent rounded-md focus:bg-white focus:text-purple bg-purple hover:bg-white hover:text-purple hover:no-underline focus:outline-none border-purple active:bg-white active:text-purple">
+                                class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white no-underline transition duration-200 ease-in-out border border-transparent rounded-md hover:border-purple focus:border-purple focus:bg-white focus:text-purple bg-purple hover:bg-white hover:text-purple hover:no-underline focus:outline-none border-purple active:bg-white active:text-purple">
                                 {{ __('Log in') }}
                             </button>
                         </span>

@@ -45,7 +45,7 @@ class Module extends Model implements Completable
 
     public function skills()
     {
-        return $this->hasMany(Skill::class);
+        return $this->hasMany(Skill::class)->take(6);
     }
 
     public function completions()

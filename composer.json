@@ -13,6 +13,7 @@
         "guzzlehttp/guzzle": "^7.2",
         "kg-bot/laravel-localization-to-vue": "dev-l10-compatibility",
         "laravel/framework": "^10.3",
+        "laravel/nova": "4.33.3",
         "laravel/slack-notification-channel": "^2.5",
         "laravel/socialite": "^5.6",
         "laravel/tinker": "^2.8",
@@ -20,7 +21,10 @@
         "larswiegers/laravel-translations-checker": "^0.4",
         "nathanheffley/laravel-slack-blocks": "^2.3",
         "spatie/laravel-translatable": "^6.7",
+        "spatie/nova-translatable": "^4.0",
         "stechstudio/laravel-ssh-tunnel": "^3.3",
+        "tightenco/nova-releases": "^1.0",
+        "tightenco/suggested-resources-shortcuts": "dev-mla/resource-digest",
         "tightenco/ziggy": "^1.5"
     },
     "require-dev": {
@@ -95,7 +99,7 @@
             "@php artisan key:generate --ansi"
         ],
         "post-install-cmd": [
-            "[ $COMPOSER_DEV_MODE -eq 1 ] || composer require laravel/nova:^4.0 spatie/nova-translatable spatie/laravel-translatable tightenco/nova-releases tightenco/suggested-resources-shortcuts"
+            "[ $COMPOSER_DEV_MODE -eq 1 ] && composer require laravel/nova:4.33.3 spatie/nova-translatable spatie/laravel-translatable tightenco/nova-releases tightenco/suggested-resources-shortcuts"
         ],
         "lint": [
             "vendor/bin/duster lint"

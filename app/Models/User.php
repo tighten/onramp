@@ -84,7 +84,7 @@ class User extends Authenticatable
 
     public function hasTrack()
     {
-        return ! is_null($this->track_id);
+        return !is_null($this->track_id);
     }
 
     public function getInitialsAttribute()

@@ -32,7 +32,7 @@ class SendResourceDigestEmail extends Command
 
         User::where('is_subscriber', true)->chunk(100, function ($subscribedUsers) use ($data) {
             foreach ($subscribedUsers as $user) {
-                Mail::to($user->email)->send(new ResourceDigestEmail(['details' => $data]));
+                Mail::to($user->email)->queue(new ResourceDigestEmail(['details' => $data]));
             }
         });
 

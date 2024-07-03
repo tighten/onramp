@@ -53,20 +53,17 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['daily', 'bugsnag'],
-            'ignore_exceptions' => false,
-        ],
-
-        'bugsnag' => [
-            'driver' => 'bugsnag',
+            'channels' => ['single'],
         ],
 
         'single' => [
             'driver' => 'single',
             'path' => storage_path('logs/laravel.log'),
-            'level' => env('LOG_LEVEL', 'debug'),
+            'level' => 'debug',
         ],
-
+        'bugsnag' => [
+            'driver' => 'bugsnag',
+        ],
         'daily' => [
             'driver' => 'daily',
             'path' => storage_path('logs/laravel.log'),

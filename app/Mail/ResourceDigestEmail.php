@@ -24,7 +24,7 @@ class ResourceDigestEmail extends Mailable implements ShouldQueue
     {
         return new Envelope(
             subject: 'New Onramp Resources!',
-            from: config('mail.from.address'),
+            from: 'no-reply@onramp.com',
         );
     }
 

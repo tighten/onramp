@@ -21,21 +21,18 @@ class SendResourceDigestEmail extends Command
 
     public function handle()
     {
-        $this->info('Starting to send resource digest emails.');
-
         $resources = Resource::where('created_at', '>=', Carbon::now()->subDays(30))->get();
 
         if ($resources->isEmpty()) {
             $this->info('No resources created in the last 30 days. Email not sent.');
+
             return;
         }
 
         $data = $resources->toArray();
 
         User::where('is_subscriber', true)->chunk(100, function ($subscribedUsers) use ($data) {
-            $this->info('Processing a chunk of subscribed users.');
             foreach ($subscribedUsers as $user) {
-                $this->info('Queueing email for user: ' . $user->email);
                 Mail::to($user->email)->queue(new ResourceDigestEmail(['details' => $data]));
             }
         });

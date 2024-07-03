@@ -31,7 +31,7 @@ class ResourceDigestEmail extends Mailable implements ShouldQueue
     public function content()
     {
         return new Content(
-            view: 'emails.resource-digest',
+            markdown: 'emails.resource-digest',
             with: ['data' => $this->data],
         );
     }

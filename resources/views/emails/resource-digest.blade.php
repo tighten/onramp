@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html>
+@component('mail::message')
+    # hello this is email
 
-    <head>
-        <title>Monthly Resource Digest</title>
-    </head>
-
-    <body>
-        <h1>Monthly Resource Digest</h1>
-        <p>Here are the resources created in the last 30 days:</p>
-    </body>
-
-</html>
+    @component('mail::panel')
+        [some markdown](https://www.cats.com)
+    @endcomponent
+@endcomponent

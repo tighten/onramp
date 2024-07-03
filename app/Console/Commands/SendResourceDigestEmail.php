@@ -2,12 +2,12 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Mail;
 use App\Mail\ResourceDigestEmail;
 use App\Models\Resource;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Mail;
 
 class SendResourceDigestEmail extends Command
 {

@@ -2,6 +2,4 @@
 
 namespace App;
 
-interface Completable
-{
-}
+interface Completable {}

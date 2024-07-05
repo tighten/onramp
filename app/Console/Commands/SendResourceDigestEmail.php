@@ -29,7 +29,6 @@ class SendResourceDigestEmail extends Command
             return;
         }
 
-        // Convert resources to array
         $data = $resources->toArray();
 
         User::where('is_subscriber', true)->chunk(100, function ($subscribedUsers) use ($data) {

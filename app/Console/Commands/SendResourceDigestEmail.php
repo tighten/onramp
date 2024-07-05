@@ -6,6 +6,7 @@ use App\Mail\ResourceDigestEmail;
 use App\Models\Resource;
 use App\Models\User;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -26,6 +27,7 @@ class SendResourceDigestEmail extends Command
 
         if ($resources->isEmpty()) {
             $this->info('No resources created in the last 30 days. Email not sent.');
+
             return;
         }
 
@@ -35,7 +37,7 @@ class SendResourceDigestEmail extends Command
             foreach ($subscribedUsers as $user) {
                 try {
                     Mail::to($user->email)->queue(new ResourceDigestEmail($data));
-                } catch (\Exception $e) {
+                } catch (Exception $e) {
                     Log::error('Failed to send email to ' . $user->email . ': ' . $e->getMessage());
                 }
             }

@@ -13,11 +13,11 @@ class ResourceDigestEmail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
-    public $data;
+    public $resources;
 
-    public function __construct($data)
+    public function __construct($resources)
     {
-        $this->data = $data;
+        $this->resources = $resources;
     }
 
     public function envelope()
@@ -32,7 +32,7 @@ class ResourceDigestEmail extends Mailable implements ShouldQueue
     {
         return new Content(
             markdown: 'emails.resource-digest',
-            with: ['data' => $this->data],
+            with: ['resources' => $this->resources],
         );
     }
 

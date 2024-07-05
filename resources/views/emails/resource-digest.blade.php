@@ -1,7 +1,19 @@
 @component('mail::message')
-    # hello this is email
+# Here are the latest resources:
 
-    @component('mail::panel')
-        [some markdown](https://www.cats.com)
-    @endcomponent
+@component('mail::panel')
+@foreach ($resources as $resource)
+- {{ $resource['name'] }}
+@endforeach
 @endcomponent
+
+### Happy Coding!
+
+### Your friends at {{ config('app.name') }}
+@endcomponent
+
+{{-- @foreach ($resources as $resource)
+<li>
+{{ $resource['name'] }}
+</li>
+@endforeach --}}

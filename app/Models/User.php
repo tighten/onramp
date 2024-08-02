@@ -10,103 +10,104 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use HasFactory;
-    use Notifiable;
+	use HasFactory;
+	use Notifiable;
 
-    protected $guarded = [
-        'id',
-    ];
+	protected $guarded = [
+		'id',
+	];
 
-    protected $hidden = [
-        'password', 'remember_token', 'github_token',
-    ];
+	protected $hidden = [
+		'password', 'remember_token', 'github_token',
+	];
 
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'preferences' => 'object',
-    ];
+	protected $casts = [
+		'email_verified_at' => 'datetime',
+		'preferences' => 'object',
+		'is_subscriber' => 'boolean',
+	];
 
-    public function track()
-    {
-        return $this->belongsTo(Track::class);
-    }
+	public function track()
+	{
+		return $this->belongsTo(Track::class);
+	}
 
-    public function completions()
-    {
-        return $this->hasMany(Completion::class);
-    }
+	public function completions()
+	{
+		return $this->hasMany(Completion::class);
+	}
 
-    public function suggestedResources()
-    {
-        return $this->hasMany(SuggestedResource::class);
-    }
+	public function suggestedResources()
+	{
+		return $this->hasMany(SuggestedResource::class);
+	}
 
-    public function complete(Completable $completable)
-    {
-        return $this->completions()->create([
-            'completable_id' => $completable->getKey(),
-            'completable_type' => $completable->getMorphClass(),
-        ]);
-    }
+	public function complete(Completable $completable)
+	{
+		return $this->completions()->create([
+			'completable_id' => $completable->getKey(),
+			'completable_type' => $completable->getMorphClass(),
+		]);
+	}
 
-    public function undoComplete($completable)
-    {
-        return $this->completions()->where([
-            'completable_id' => $completable->getKey(),
-            'completable_type' => $completable->getMorphClass(),
-        ])->delete();
-    }
+	public function undoComplete($completable)
+	{
+		return $this->completions()->where([
+			'completable_id' => $completable->getKey(),
+			'completable_type' => $completable->getMorphClass(),
+		])->delete();
+	}
 
-    public function moduleCompletions()
-    {
-        return $this->completions()->modules();
-    }
+	public function moduleCompletions()
+	{
+		return $this->completions()->modules();
+	}
 
-    public function resourceCompletions()
-    {
-        return $this->completions()->resources();
-    }
+	public function resourceCompletions()
+	{
+		return $this->completions()->resources();
+	}
 
-    public function skillCompletions()
-    {
-        return $this->completions()->skills();
-    }
+	public function skillCompletions()
+	{
+		return $this->completions()->skills();
+	}
 
-    public function isAtLeastEditor()
-    {
-        return in_array($this->role, ['editor', 'admin']);
-    }
+	public function isAtLeastEditor()
+	{
+		return in_array($this->role, ['editor', 'admin']);
+	}
 
-    public function isAdmin()
-    {
-        return in_array($this->role, ['admin']);
-    }
+	public function isAdmin()
+	{
+		return in_array($this->role, ['admin']);
+	}
 
-    public function hasTrack()
-    {
-        return ! is_null($this->track_id);
-    }
+	public function hasTrack()
+	{
+		return !is_null($this->track_id);
+	}
 
-    public function getInitialsAttribute()
-    {
-        return collect(explode(' ', $this->name))
-            ->reduce(function ($initials, $word) {
-                return $initials .= strtoupper($word[0]);
-            });
-    }
+	public function getInitialsAttribute()
+	{
+		return collect(explode(' ', $this->name))
+			->reduce(function ($initials, $word) {
+				return $initials .= strtoupper($word[0]);
+			});
+	}
 
-    public function getFirstNameAttribute()
-    {
-        return explode(' ', $this->name)[0];
-    }
+	public function getFirstNameAttribute()
+	{
+		return explode(' ', $this->name)[0];
+	}
 
-    public function getProfilePictureAttribute()
-    {
-        return $this->github_avatar ?? 'https://www.gravatar.com/avatar/' . md5(strtolower($this->email)) . '?d=mp';
-    }
+	public function getProfilePictureAttribute()
+	{
+		return $this->github_avatar ?? 'https://www.gravatar.com/avatar/' . md5(strtolower($this->email)) . '?d=mp';
+	}
 
-    public function sendPasswordResetNotification($token)
-    {
-        $this->notify(new ResetPassword($token));
-    }
+	public function sendPasswordResetNotification($token)
+	{
+		$this->notify(new ResetPassword($token));
+	}
 }

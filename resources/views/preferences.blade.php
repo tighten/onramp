@@ -136,16 +136,62 @@ $resourceLanguagePreferenceKey = 'resource-language';
                         </div>
                     </div>
 
+					<div class="pb-5 mt-12">
+                        <h2 class="text-xl font-medium md:text-2xl lg:text-3xl">{{ __('Email Preferences') }}</h2>
+                    </div>
+
+                    <div class="mt-5">
+                        <p class="text-sm leading-5 text-steel md:text-base">
+                            {{ __('Choose whether or not you\'d like to receive monthly updates listing new resources.') }}
+                        </p>
+
+                        <div class="flex flex-wrap px-5 pb-2 mt-6 border rounded-md border-silver lg:flex-no-wrap md:px-8">
+                            <div class="flex-auto w-full my-5 lg:flex-even md:my-8">
+                                <label for="digest-opt-in"
+                                    id="digest-opt-in-label"
+                                    class="text-base font-medium text-steel">
+                                    {{ __('Opt-in/Opt-out') }}
+                                </label>
+
+                                <div class="relative max-w-xs mt-4">
+                                    <select
+                                        class="block w-full px-4 py-2 pr-8 text-sm leading-tight bg-white border rounded-md border-gray shadow appearance-none hover:border-gray focus:outline-none focus:shadow-outline{{ $errors->has('name') ? ' border-cabernet' : '' }}"
+                                        name="digest-opt-in"
+                                        aria-labelledby="digest-opt-in">
+										<option value="0">No I would not like to receive emails</option>
+                                        <option value="1">Yes I would like to receive emails</option>
+                                    </select>
+
+                                    <div
+                                        class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none text-steel">
+                                        <svg class="w-4 h-4 fill-current"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                                        </svg>
+                                    </div>
+                                </div>
+
+                                @error($localePreferenceKey))
+                                    <p class="mt-2 text-xs italic text-cabernet">
+                                        {{ $errors->first($localePreferenceKey) }}
+                                    </p>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="pb-5 mt-12">
                         <h2 class="text-xl font-medium md:text-2xl lg:text-3xl">{{ __('Background Experience') }}</h2>
                     </div>
 
                     <div class="mt-5">
-                        <p class="text-sm leading-5 text-silver md:text-base">
+                        <p class="text-sm leading-5 text-steel md:text-base">
                             {{ __('Track your progress in modules based on your current background experience.') }}
                         </p>
 
-                        <div class="flex flex-wrap px-5 pb-2 lg:flex-no-wrap md:px-8">
+                        <div class="flex flex-wrap px-5 pb-2 mt-6 border rounded-md lg:flex-no-wrap md:px-8 border-silver">
                             <div class="flex-auto w-full my-5 lg:flex-even md:my-8">
                                 <label for="track"
                                     id="track-label"

@@ -11,9 +11,3 @@
 
 ### Your friends at {{ config('app.name') }}
 @endcomponent
-
-{{-- @foreach ($resources as $resource)
-<li>
-{{ $resource['name'] }}
-</li>
-@endforeach --}}

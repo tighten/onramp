@@ -15,7 +15,7 @@
         "postcss": "^8.4.38",
         "sass": "^1.32.12",
         "vite": "^4.0.0",
-        "vue-loader": "^15.10.0"
+        "vue-loader": "^17.4.2"
     },
     "dependencies": {
         "@vitejs/plugin-vue2": "^2.0.0",

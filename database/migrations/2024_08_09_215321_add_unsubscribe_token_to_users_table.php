@@ -6,17 +6,17 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-	public function up()
-	{
-		Schema::table('users', function (Blueprint $table) {
-			$table->string('unsubscribe_token', 60)->unique()->nullable();
-		});
-	}
+    public function up()
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('unsubscribe_token', 60)->unique()->nullable();
+        });
+    }
 
-	public function down()
-	{
-		Schema::table('users', function (Blueprint $table) {
-			$table->dropColumn('unsubscribe_token');
-		});
-	}
+    public function down()
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('unsubscribe_token');
+        });
+    }
 };

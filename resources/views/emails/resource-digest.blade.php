@@ -11,4 +11,6 @@ Added on {{ \Carbon\Carbon::parse($resource['created_at'])->format('F j, Y') }}<
 ### Happy Coding!
 
 ### Your friends at {{ config('app.name') }}
+
+If you no longer wish to receive these emails, you can [unsubsribe here.]({{ route('unsubscribe') }})
 @endcomponent

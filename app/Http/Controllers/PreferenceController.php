@@ -50,4 +50,25 @@ class PreferenceController extends Controller
 
 		return back();
 	}
+
+
+	public function unsubscribe(Request $request)
+	{
+		$user = auth()->user();
+
+		if ($user) {
+			$user->is_subscriber = false;
+			$user->save();
+
+			session()->flash('toast', 'You have been unsubscribed.');
+
+			if ($request->wantsJson()) {
+				return response()->json(['status' => 'success']);
+			}
+
+			return redirect()->route('home');
+		}
+
+		return redirect()->route('login');
+	}
 }

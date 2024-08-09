@@ -117,16 +117,16 @@ $resourceLanguagePreferenceKey = 'resource-language';
 
 					<div class="p-5 mt-6 border rounded-md border-silver md:p-8">
 						<div class="flex items-center">
-							<input id="digest-subscription" name="digest-subscription" type="checkbox" {{ true ? 'checked' : '' }} class="mr-2" />
-							<label for="digest-subscription" class="text-sm font-medium leading-5 text-steel md:text-base">
+							<input id="digest-subscriber" name="digest-subscriber" type="checkbox" {{ old('digest-subscriber', auth()->user()->is_subscriber) ? 'checked' : '' }} class="mr-2" />
+							<label for="digest-subscriber" class="text-sm font-medium leading-5 text-steel md:text-base">
 								{{ __('Yes I would like to receive emails') }}
 							</label>
 						</div>
 					</div>
 
-					@error('digest-subscription')
+					@error('digest-subscriber')
 					<p class="mt-2 text-xs italic text-cabernet">
-						{{ $errors->first('digest-subscription') }}
+						{{ $errors->first('digest-subscriber') }}
 					</p>
 					@enderror
 				</div>

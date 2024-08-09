@@ -9,39 +9,45 @@ use Illuminate\View\View;
 
 class PreferenceController extends Controller
 {
-    public function index(): View
-    {
-        return view('preferences', [
-            'currentResourceLanguagePreference' => Preferences::get('resource-language'),
-            'resourceLanguagePreferences' => (new ResourceLanguagePreference)->options(),
-            'preferredLocale' => Preferences::get('locale'),
-        ]);
-    }
+	public function index(): View
+	{
+		return view('preferences', [
+			'currentResourceLanguagePreference' => Preferences::get('resource-language'),
+			'resourceLanguagePreferences' => (new ResourceLanguagePreference)->options(),
+			'preferredLocale' => Preferences::get('locale'),
+		]);
+	}
 
-    public function update(Request $request)
-    {
-        Preferences::set(
-            collect($request->only(Preferences::getValidKeys()))->filter()
-        );
+	public function update(Request $request)
+	{
+		Preferences::set(
+			collect($request->only(Preferences::getValidKeys()))->filter()
+		);
 
-        if (auth()->user() && $request->filled('track')) {
-            auth()->user()->track_id = $request->input('track');
+		$user = auth()->user();
 
-            auth()->user()->save();
-        }
+		if ($user) {
+			if ($request->filled('track')) {
+				$user->track_id = $request->input('track');
+			}
 
-        session()->flash('toast', 'Your preferences were saved.');
+			$user->is_subscriber = $request->has('digest-subscriber');
 
-        if ($request->wantsJson()) {
-            return response()->json(['status' => 'success']);
-        }
+			$user->save();
+		}
 
-        if ($request->input('locale') !== locale()) {
-            return redirect(
-                str_replace('/' . locale() . '/', '/' . $request->input('locale') . '/', back()->getTargetUrl())
-            );
-        }
+		session()->flash('toast', 'Your preferences were saved.');
 
-        return back();
-    }
+		if ($request->wantsJson()) {
+			return response()->json(['status' => 'success']);
+		}
+
+		if ($request->input('locale') !== locale()) {
+			return redirect(
+				str_replace('/' . locale() . '/', '/' . $request->input('locale') . '/', back()->getTargetUrl())
+			);
+		}
+
+		return back();
+	}
 }

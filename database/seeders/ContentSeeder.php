@@ -8,33 +8,33 @@ use Illuminate\Database\Seeder;
 
 class ContentSeeder extends Seeder
 {
-	use CanSeedProdData;
+    use CanSeedProdData;
 
-	public function run(): void
-	{
-		User::factory()->create([
-			'email' => 'testadmin@tighten.co',
-			'password' => bcrypt('password'),
-			'role' => 'admin',
-		]);
+    public function run(): void
+    {
+        User::factory()->create([
+            'email' => 'testadmin@tighten.co',
+            'password' => bcrypt('password'),
+            'role' => 'admin',
+        ]);
 
-		User::factory()->create([
-			'email' => 'testuser@tighten.co',
-			'password' => bcrypt('password'),
-			'role' => 'user',
-		]);
+        User::factory()->create([
+            'email' => 'testuser@tighten.co',
+            'password' => bcrypt('password'),
+            'role' => 'user',
+        ]);
 
-		$seedsDirectory = config('seeder.directory', 'database/json');
+        $seedsDirectory = config('seeder.directory', 'database/json');
 
-		$seeds = $this->getSeedFiles($seedsDirectory);
+        $seeds = $this->getSeedFiles($seedsDirectory);
 
-		if (!$seeds) {
-			$this->command->warn('The directory ' . $seedsDirectory . ' is empty.');
-			$this->command->line('You can create seeds from the production database by calling <info>php artisan generate:seeds-from-db --all</info>');
+        if (! $seeds) {
+            $this->command->warn('The directory ' . $seedsDirectory . ' is empty.');
+            $this->command->line('You can create seeds from the production database by calling <info>php artisan generate:seeds-from-db --all</info>');
 
-			return;
-		}
+            return;
+        }
 
-		$this->seed($this->command, $seeds);
-	}
+        $this->seed($this->command, $seeds);
+    }
 }

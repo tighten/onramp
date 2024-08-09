@@ -2,31 +2,34 @@
 
 namespace App\Console;
 
+use App\Console\Commands\SendResourceDigestEmail;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
-    protected $commands = [
-        //
-    ];
+	protected $commands = [
+		SendResourceDigestEmail::class,
+	];
 
-    /**
-     * Define the application's command schedule.
-     */
-    protected function schedule(Schedule $schedule): void
-    {
-        $schedule->command('resource:expired -N')
-            ->weeklyOn(Schedule::FRIDAY, '06:00');
-    }
+	/**
+	 * Define the application's command schedule.
+	 */
+	protected function schedule(Schedule $schedule): void
+	{
+		$schedule->command('resource:expired -N')
+			->weeklyOn(Schedule::FRIDAY, '06:00');
 
-    /**
-     * Register the commands for the application.
-     */
-    protected function commands(): void
-    {
-        $this->load(__DIR__ . '/Commands');
+		$schedule->command('send:send-resource-digest-email')->monthly();
+	}
 
-        require base_path('routes/console.php');
-    }
+	/**
+	 * Register the commands for the application.
+	 */
+	protected function commands(): void
+	{
+		$this->load(__DIR__ . '/Commands');
+
+		require base_path('routes/console.php');
+	}
 }

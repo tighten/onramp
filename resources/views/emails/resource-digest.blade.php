@@ -12,5 +12,5 @@ Added on {{ \Carbon\Carbon::parse($resource['created_at'])->format('F j, Y') }}<
 
 ### Your friends at {{ config('app.name') }}
 
-If you no longer wish to receive these emails, you can [unsubsribe here.]({{ route('unsubscribe') }})
+<p>If you no longer wish to receive these emails, you can <a href="{{ route('unsubscribe') }}">unsubscribe here</a>.</p>
 @endcomponent

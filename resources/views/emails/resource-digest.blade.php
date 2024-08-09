@@ -3,8 +3,9 @@
 
 @component('mail::panel')
 @foreach ($resources as $resource)
-- [{{ $resource['name'] }}]({{ $resource['url'] }})<br>
-Added on {{ \Carbon\Carbon::parse($resource['created_at'])->format('F j, Y') }}<br><br>
+- [{{ $resource['name'] }}]({{ $resource['url'] }})
+Added on {{ \Carbon\Carbon::parse($resource['created_at'])->format('F j, Y') }}
+
 @endforeach
 @endcomponent
 
@@ -12,5 +13,7 @@ Added on {{ \Carbon\Carbon::parse($resource['created_at'])->format('F j, Y') }}<
 
 ### Your friends at {{ config('app.name') }}
 
-<p>If you no longer wish to receive these emails, you can <a href="{{ route('unsubscribe') }}">unsubscribe here</a>.</p>
+<x-mail::button :url="$unsubscribeUrl">
+	Unsubscribe
+</x-mail::button>
 @endcomponent

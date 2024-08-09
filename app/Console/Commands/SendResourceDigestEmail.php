@@ -13,36 +13,37 @@ use Illuminate\Support\Facades\Mail;
 
 class SendResourceDigestEmail extends Command
 {
-    protected $signature = 'send:send-resource-digest-email';
-    protected $description = 'Send the monthly resource digest email';
+	protected $signature = 'send:send-resource-digest-email';
+	protected $description = 'Send the monthly resource digest email';
 
-    public function __construct()
-    {
-        parent::__construct();
-    }
+	public function __construct()
+	{
+		parent::__construct();
+	}
 
-    public function handle()
-    {
-        $resources = Resource::where('created_at', '>=', Carbon::now()->subDays(30))->get();
+	public function handle()
+	{
+		$resources = Resource::where('created_at', '>=', Carbon::now()->subDays(30))->get();
 
-        if ($resources->isEmpty()) {
-            $this->info('No resources created in the last 30 days. Email not sent.');
+		if ($resources->isEmpty()) {
+			$this->info('No resources created in the last 30 days. Email not sent.');
+			return;
+		}
 
-            return;
-        }
+		User::where('is_subscriber', true)->chunk(100, function ($subscribedUsers) use ($resources) {
+			foreach ($subscribedUsers as $user) {
+				try {
+					// Compute the unsubscribe URL with locale
+					$locale = $user->locale ?? 'en'; // Use a default locale if necessary
+					$unsubscribeUrl = route('unsubscribe', ['token' => $user->unsubscribe_token, 'locale' => $locale]);
 
-        $data = $resources->toArray();
+					Mail::to($user->email)->queue(new ResourceDigestEmail($resources, $user, $unsubscribeUrl));
+				} catch (Exception $e) {
+					Log::error('Failed to send email to ' . $user->email . ': ' . $e->getMessage());
+				}
+			}
+		});
 
-        User::where('is_subscriber', true)->chunk(100, function ($subscribedUsers) use ($data) {
-            foreach ($subscribedUsers as $user) {
-                try {
-                    Mail::to($user->email)->queue(new ResourceDigestEmail($data));
-                } catch (Exception $e) {
-                    Log::error('Failed to send email to ' . $user->email . ': ' . $e->getMessage());
-                }
-            }
-        });
-
-        $this->info('Monthly resource digest sent successfully to all subscribed users.');
-    }
+		$this->info('Monthly resource digest sent successfully to all subscribed users.');
+	}
 }

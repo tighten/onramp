@@ -11,33 +11,41 @@ use Illuminate\Queue\SerializesModels;
 
 class ResourceDigestEmail extends Mailable implements ShouldQueue
 {
-    use Queueable, SerializesModels;
+	use Queueable, SerializesModels;
 
-    public $resources;
+	public $resources;
+	public $user;
+	public $unsubscribeUrl;
 
-    public function __construct($resources)
-    {
-        $this->resources = $resources;
-    }
+	public function __construct($resources, $user, $unsubscribeUrl)
+	{
+		$this->resources = $resources;
+		$this->user = $user;
+		$this->unsubscribeUrl = $unsubscribeUrl;
+	}
 
-    public function envelope()
-    {
-        return new Envelope(
-            subject: 'New Onramp Resources!',
-            from: 'no-reply@onramp.com',
-        );
-    }
+	public function envelope()
+	{
+		return new Envelope(
+			subject: 'New Onramp Resources!',
+			from: 'no-reply@onramp.com',
+		);
+	}
 
-    public function content()
-    {
-        return new Content(
-            markdown: 'emails.resource-digest',
-            with: ['resources' => $this->resources],
-        );
-    }
+	public function content()
+	{
+		return new Content(
+			markdown: 'emails.resource-digest',
+			with: [
+				'resources' => $this->resources,
+				'user' => $this->user,
+				'unsubscribeUrl' => $this->unsubscribeUrl,
+			],
+		);
+	}
 
-    public function attachments(): array
-    {
-        return [];
-    }
+	public function attachments(): array
+	{
+		return [];
+	}
 }

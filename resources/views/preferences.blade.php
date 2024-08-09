@@ -77,12 +77,12 @@ $resourceLanguagePreferenceKey = 'resource-language';
 							@enderror
 						</div>
 
-						<div class="flex-auto w-full my-5 lg:flex-even md:my-8">
+						<div class="flex-auto w-full mb-5 lg:flex-even md:mb-8">
 							<label for="operating-system" id="os-label" class="text-base font-medium text-steel">
 								{{ __('Preferred Operating System') }}
 							</label>
 
-							<div class="relative max-w-xs mt-4">
+							<div class="relative max-w-xs">
 								<select class="block w-full text-sm px-4 py-2 pr-8 leading-tight bg-white border rounded-md border-gray shadow appearance-none hover:border-gray focus:outline-none focus:shadow-outline{{ $errors->has('operating-system') ? ' border-cabernet' : '' }}" name="operating-system" aria-labelledby="os-label">
 									@foreach (App\OperatingSystem::ALL as $key)
 									<option value="{{ $key }}" {{ Preferences::get('operating-system')==$key || old('operating-system')==$key ? 'selected' : '' }}>
@@ -116,7 +116,7 @@ $resourceLanguagePreferenceKey = 'resource-language';
 					</p>
 
 					<div class="p-5 mt-6 border rounded-md border-silver md:p-8">
-						<div class="flex items-center mt-4">
+						<div class="flex items-center">
 							<input id="digest-subscription" name="digest-subscription" type="checkbox" {{ true ? 'checked' : '' }} class="mr-2" />
 							<label for="digest-subscription" class="text-sm font-medium leading-5 text-steel md:text-base">
 								{{ __('Yes I would like to receive emails') }}
@@ -136,12 +136,12 @@ $resourceLanguagePreferenceKey = 'resource-language';
 				</div>
 
 				<div class="mt-5">
-					<p class="text-sm leading-5 text-silver md:text-base">
+					<p class="text-sm leading-5 text-steel md:text-base">
 						{{ __('Track your progress in modules based on your current background experience.') }}
 					</p>
 
-					<div class="flex flex-wrap px-5 pb-2 lg:flex-no-wrap md:px-8">
-						<div class="flex-auto w-full my-5 lg:flex-even md:my-8">
+					<div class="flex flex-wrap p-5 mt-6 border rounded-md border-silver md:p-8">
+						<div class="flex-auto w-full lg:flex-even">
 							<label for="track" id="track-label" class="text-base font-medium text-steel">
 								{{ __('Current Track') }}
 							</label>

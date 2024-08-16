@@ -5,7 +5,6 @@
 	@foreach ($resources as $resource)
 	- [{{ $resource['name'] }}]({{ $resource['url'] }})
 	Added on {{ \Carbon\Carbon::parse($resource['created_at'])->format('F j, Y') }}
-
 	@endforeach
 </x-mail::panel>
 

@@ -8,7 +8,7 @@ class InvalidLocale extends Exception
 {
     public function report()
     {
-        // Do nothing; we don't need to send this up to Bugsnag
+        // Do nothing; we don't need to send this up to Flare
     }
 
     public function render($request)

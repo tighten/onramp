@@ -1,13 +1,13 @@
 @component('mail::message')
 # Here are the latest resources:
 
-@component('mail::panel')
-@foreach ($resources as $resource)
-- [{{ $resource['name'] }}]({{ $resource['url'] }})
-Added on {{ \Carbon\Carbon::parse($resource['created_at'])->format('F j, Y') }}
+<x-mail::panel>
+	@foreach ($resources as $resource)
+	- [{{ $resource['name'] }}]({{ $resource['url'] }})
+	Added on {{ \Carbon\Carbon::parse($resource['created_at'])->format('F j, Y') }}
 
-@endforeach
-@endcomponent
+	@endforeach
+</x-mail::panel>
 
 ### Happy Coding!
 

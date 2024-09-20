@@ -20,7 +20,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('resource:expired -N')
             ->weeklyOn(Schedule::FRIDAY, '06:00');
 
-        $schedule->command('send:send-resource-digest-email')->monthly();
+        $schedule->command('mail:send-resource-digest-email')->monthly();
     }
 
     /**

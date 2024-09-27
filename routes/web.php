@@ -8,6 +8,7 @@ use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\PreferenceController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RootRedirectController;
+use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\TrackController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -36,9 +37,10 @@ Route::prefix('{locale}')->group(function () {
         Route::get('preferences', [PreferenceController::class, 'index'])->name('user.preferences.index');
         Route::post('completions', [CompletionsController::class, 'store'])->name('user.completions.store');
         Route::delete('completions', [CompletionsController::class, 'destroy'])->name('user.completions.destroy');
+        Route::patch('preferences', [PreferenceController::class, 'update'])->name('user.preferences.update');
     });
 
-    Route::patch('preferences', [PreferenceController::class, 'update'])->name('user.preferences.update');
+    Route::get('unsubscribe/{token}', [SubscriptionController::class, 'destroy'])->name('unsubscribe');
 
     Auth::routes(['register' => false]);
 

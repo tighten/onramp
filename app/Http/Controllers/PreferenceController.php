@@ -42,7 +42,7 @@ class PreferenceController extends Controller
                 $user->unsubscribe_token = Str::random(60);
             } else {
                 $user->unsubscribe_token = null;
-            }
+            $user->unsubscribe_token = $user->is_subscriber ? Str::random(60) : null;
 
             $user->save();
         }

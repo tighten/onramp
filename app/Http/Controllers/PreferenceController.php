@@ -25,15 +25,16 @@ class PreferenceController extends Controller
 			collect($request->only(Preferences::getValidKeys()))->filter()
 		);
 
+		$request->validate([
+			'is_subscriber' => 'nullable|boolean',
+			'track_id' => 'nullable|integer',
+		]);
+
 		$user = auth()->user();
 
 		if ($request->filled('track')) {
 			$user->track_id = $request->input('track');
 		}
-
-		$request->validate([
-			'is_subscriber' => 'nullable|boolean',
-		]);
 
 		$user->is_subscriber = $request->has('digest-subscriber');
 

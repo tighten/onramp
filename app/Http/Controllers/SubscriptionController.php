@@ -6,16 +6,17 @@ use App\Models\User;
 
 class SubscriptionController extends Controller
 {
-    public function destroy($locale, $token)
-    {
-        $user = User::where('unsubscribe_token', $token)->first();
+	public function destroy($locale, $token)
+	{
+		$user = User::where('unsubscribe_token', $token)->first();
 
-        $user->is_subscriber = false;
-        $user->unsubscribe_token = null;
-        $user->save();
+		$user->update([
+			'is_subscriber' => false,
+			'unsubscribe_token' => null,
+		]);
 
-        session()->flash('toast', 'You have been unsubscribed.');
+		session()->flash('toast', 'You have been unsubscribed.');
 
-        return redirect()->route('welcome', ['locale' => $locale]);
-    }
+		return redirect()->route('welcome', ['locale' => $locale]);
+	}
 }

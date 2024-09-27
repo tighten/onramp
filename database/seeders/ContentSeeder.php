@@ -13,9 +13,15 @@ class ContentSeeder extends Seeder
     public function run(): void
     {
         User::factory()->create([
-            'email' => 'testuser@tighten.co',
+            'email' => 'testadmin@tighten.co',
             'password' => bcrypt('password'),
             'role' => 'admin',
+        ]);
+
+        User::factory()->create([
+            'email' => 'testuser@tighten.co',
+            'password' => bcrypt('password'),
+            'role' => 'user',
         ]);
 
         $seedsDirectory = config('seeder.directory', 'database/json');

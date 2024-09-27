@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Facades\Preferences;
 use App\Preferences\ResourceLanguagePreference;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class PreferenceController extends Controller
@@ -24,11 +25,22 @@ class PreferenceController extends Controller
             collect($request->only(Preferences::getValidKeys()))->filter()
         );
 
-        if (auth()->user() && $request->filled('track')) {
-            auth()->user()->track_id = $request->input('track');
+        $request->validate([
+            'is_subscriber' => 'nullable|boolean',
+            'track_id' => 'nullable|integer',
+        ]);
 
-            auth()->user()->save();
+        $user = auth()->user();
+
+        if ($request->filled('track')) {
+            $user->track_id = $request->input('track');
         }
+
+        $user->is_subscriber = $request->has('digest-subscriber');
+
+        $user->unsubscribe_token = $user->is_subscriber ? Str::random(60) : null;
+
+        $user->save();
 
         session()->flash('toast', 'Your preferences were saved.');
 

@@ -2,13 +2,14 @@
 
 namespace App\Console;
 
+use App\Console\Commands\SendResourceDigestEmail;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
     protected $commands = [
-        //
+        SendResourceDigestEmail::class,
     ];
 
     /**
@@ -18,6 +19,8 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('resource:expired -N')
             ->weeklyOn(Schedule::FRIDAY, '06:00');
+
+        $schedule->command('mail:send-resource-digest-email')->monthly();
     }
 
     /**

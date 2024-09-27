@@ -18,12 +18,15 @@ class User extends Authenticatable
     ];
 
     protected $hidden = [
-        'password', 'remember_token', 'github_token',
+        'password',
+        'remember_token',
+        'github_token',
     ];
 
     protected $casts = [
         'email_verified_at' => 'datetime',
         'preferences' => 'object',
+        'is_subscriber' => 'boolean',
     ];
 
     public function track()

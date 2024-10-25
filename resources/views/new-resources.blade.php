@@ -8,7 +8,11 @@
 	</x-hero>
 
 	<x-panel>
-		wassap
+		<div class="grid gap-2 underline">
+			@foreach ($resources as $resource)
+			<a href="{{ $resource['url'] }}">{{ $resource['name'] }}</a>
+			@endforeach
+		</div>
 	</x-panel>
 </div>
 @endsection

@@ -8,11 +8,19 @@
 	</x-hero>
 
 	<x-panel>
-		<div class="grid gap-2 underline">
+		@if ($resources->count())
+		<ul class="grid gap-2">
 			@foreach ($resources as $resource)
-			<a href="{{ $resource['url'] }}">{{ $resource['name'] }}</a>
+			<li>
+				<a href="{{ $resource['url'] }}" class="underline">
+					{{ $resource['name'] }}
+				</a>
+			</li>
 			@endforeach
-		</div>
+		</ul>
+		@else
+		<p class="text-center">There are no new resources.</p>
+		@endif
 	</x-panel>
 </div>
 @endsection

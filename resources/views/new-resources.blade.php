@@ -9,12 +9,20 @@
 
 	<x-panel>
 		@if ($resources->count())
-		<ul class="grid gap-2">
+		<ul class="grid gap-4">
 			@foreach ($resources as $resource)
-			<li>
-				<a href="{{ $resource['url'] }}" class="underline">
+			<li class="flex gap-2">
+				<a href="{{ $resource['url'] }}" class="font-semibold underline">
 					{{ $resource['name'] }}
 				</a>
+				<span>-</span>
+				<p> Modules:
+					@forelse ($resource['modules'] as $module)
+					{{ $module['name'] }}@if (!$loop->last), @endif
+					@empty
+					No Modules
+					@endforelse
+				</p>
 			</li>
 			@endforeach
 		</ul>

@@ -7,6 +7,7 @@ use App\Http\Controllers\GlossaryController;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\PreferenceController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\RootRedirectController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\TrackController;
@@ -38,6 +39,7 @@ Route::prefix('{locale}')->group(function () {
         Route::post('completions', [CompletionsController::class, 'store'])->name('user.completions.store');
         Route::delete('completions', [CompletionsController::class, 'destroy'])->name('user.completions.destroy');
         Route::patch('preferences', [PreferenceController::class, 'update'])->name('user.preferences.update');
+        Route::get('new-resources', [ResourceController::class, 'index'])->name('user.new-resources');
     });
 
     Route::get('unsubscribe/{token}', [SubscriptionController::class, 'destroy'])->name('unsubscribe');

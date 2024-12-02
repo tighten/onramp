@@ -13,7 +13,10 @@ Added on {{ \Carbon\Carbon::parse($resource['created_at'])->format('F j, Y') }}
 
 ### Your friends at {{ config('app.name') }}
 
-<x-mail::button :url="$unsubscribeUrl">
-Unsubscribe
-</x-mail::button>
+
+<x-mail::subcopy>
+You are receiving this email because you subscribed at [{{ config('app.name') }}]({{ config('app.url') }}).<br />
+[Unsubscribe]({{ $unsubscribeUrl }})
+</x-mail::subcopy>
+
 </x-mail::message>

@@ -11,7 +11,7 @@ Added on {{ \Carbon\Carbon::parse($resource['created_at'])->format('F j, Y') }}
 
 ### Happy Coding!
 
-### Your friends at {{ config('app.name') }}
+### Your friends at Tighten
 
 
 <x-mail::subcopy>

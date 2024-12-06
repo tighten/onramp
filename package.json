@@ -22,7 +22,7 @@
         "alpinejs": "^3.5.1",
         "autoprefixer": "^10.4.19",
         "axios": "^0.28",
-        "bootstrap": "^4.5.2",
+        "bootstrap": "^5.0.1",
         "fuse.js": "^6.6.2",
         "jquery": "^3.5.1",
         "lang.js": "^1.1.14",

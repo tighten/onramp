@@ -1,19 +1,22 @@
 <x-mail::message>
-	# Here are the latest resources:
+# Here are the latest resources:
 
-	<x-mail::panel>
-		@foreach ($resources as $resource)
-		- [{{ $resource['name'] }}]({{ $resource['url'] }})
-		Added on {{ \Carbon\Carbon::parse($resource['created_at'])->format('F j, Y') }}
+<x-mail::panel>
+@foreach ($resources as $resource)
+- [{{ $resource['name'] }}]({{ $resource['url'] }}) <br />
+Added on {{ \Carbon\Carbon::parse($resource['created_at'])->format('F j, Y') }}
 
-		@endforeach
-	</x-mail::panel>
+@endforeach
+</x-mail::panel>
 
-	### Happy Coding!
+### Happy Coding!
 
-	### Your friends at {{ config('app.name') }}
+### Your friends at Tighten
 
-	<x-mail::button :url="$unsubscribeUrl">
-		Unsubscribe
-	</x-mail::button>
+
+<x-mail::subcopy>
+You are receiving this email because you subscribed at [{{ config('app.name') }}]({{ config('app.url') }}).<br />
+[Unsubscribe]({{ $unsubscribeUrl }})
+</x-mail::subcopy>
+
 </x-mail::message>

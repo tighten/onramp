@@ -12,11 +12,11 @@
         "postcss": "^8.4.38",
         "sass": "^1.32.12",
         "vite": "^6.0.3",
-        "vue-loader": "^15.10.0"
+        "vue-loader": "^17.4.2"
     },
     "dependencies": {
         "@vitejs/plugin-vue": "^5.2.1",
-        "alpinejs": "^3.5.1",
+        "alpinejs": "^3.14.7",
         "autoprefixer": "^10.4.19",
         "axios": "^0.28",
         "bootstrap": "^5.0.1",
@@ -25,7 +25,7 @@
         "lang.js": "^1.1.14",
         "lodash": "^4.17.21",
         "popper.js": "^1.16.1",
-        "tailwindcss": "^3.4.3",
+        "tailwindcss": "^3.4.16",
         "vue": "^3.5.13"
     }
 }

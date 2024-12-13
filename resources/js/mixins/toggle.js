@@ -2,18 +2,18 @@ export default {
     data() {
         return {
             isOpen: false,
-        }
+        };
     },
 
     methods: {
         open() {
             this.isOpen = true;
-            document.addEventListener('keydown', this.handleEscape);
+            document.addEventListener("keydown", this.handleEscape);
         },
 
         close() {
             this.isOpen = false;
-            document.removeEventListener('keydown', this.handleEscape);
+            document.removeEventListener("keydown", this.handleEscape);
         },
 
         toggle() {
@@ -21,9 +21,13 @@ export default {
         },
 
         handleEscape(e) {
-            if (e.key === 'Esc' || e.key === 'Escape') {
+            if (e.key === "Esc" || e.key === "Escape") {
                 this.close();
             }
-        }
-    }
-}
+        },
+    },
+
+    unmounted() {
+        document.removeEventListener("keydown", this.handleEscape);
+    },
+};

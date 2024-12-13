@@ -8,12 +8,12 @@ export default {
             binding.value();
         };
 
-        document.addEventListener("click", listener);
+        document.addEventListener('click', listener);
 
         el._clickOutsideHandler = listener;
     },
 
     unmounted(el) {
-        document.removeEventListener("click", el._clickOutsideHandler);
+        document.removeEventListener('click', el._clickOutsideHandler);
     },
 };

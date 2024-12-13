@@ -80,8 +80,8 @@ class LoginController extends Controller
             if (request()->has('code') && request()->has('state')) {
                 Log::error($e);
 
-                session()->flash('toast-title', 'GitHub Error');
-                session()->flash('toast', 'There was an error authenticating with GitHub.');
+                // session()->flash('toast-title', 'GitHub Error');
+                // session()->flash('toast', 'There was an error authenticating with GitHub.');
             }
 
             return redirect(route_wlocale('login'));

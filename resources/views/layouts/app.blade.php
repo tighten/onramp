@@ -98,9 +98,9 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to La
             @include('partials.navigation.back-to-top')
 
             <!-- toast notifications -->
-            @if (session('toast'))
-            <toast {!! session('toast-title') ? 'title="'.session('toast-title').'"' : '' !!} message="{{ session('toast') }}"></toast>
-            @endif
+            {{-- @if (session('toast'))
+            <toast {!! session('toast-title') ? 'title="' .session('toast-title').'"' : '' !!} message="{{ session('toast') }}"></toast>
+            @endif --}}
         </div>
         @include('partials.navigation.footer')
     </div>

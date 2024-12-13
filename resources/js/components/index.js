@@ -1,5 +1,4 @@
-import Vue from "vue";
-
+import app from "./app"; // Import the Vue app instance
 import CompletableButton from "./Completables/CompletedButton.vue";
 import CompletedBadge from "./Completables/CompletedBadge.vue";
 import CompletedCheckbox from "./Completables/CompletedCheckbox.vue";
@@ -14,25 +13,29 @@ import Skill from "./Skill.vue";
 import Tab from "./Tabs/Tab.vue";
 import Tabs from "./Tabs/Tabs.vue";
 import TabsWithSelect from "./Tabs/TabsWithSelect.vue";
-import Toast from "./Toast.vue";
+// import Toast from "./Toast.vue";
 import ToggleWhenMobile from "./ToggleWhenMobile.vue";
 
-Vue.component("toggle-when-mobile", ToggleWhenMobile);
-Vue.component(
+// Register components
+app.component("toggle-when-mobile", ToggleWhenMobile);
+app.component(
     "resource-language-preference-switcher",
     ResourceLanguagePreferenceSwitcher
 );
-Vue.component("completed-badge", CompletedBadge);
-Vue.component("completed-button", CompletableButton);
-Vue.component("completed-checkbox", CompletedCheckbox);
-// Vue.component('toast', Toast);
-Vue.component("modal", Modal);
-Vue.component("modal-mobile-menu", ModalMobileMenu);
-Vue.component("module-listing", ModuleListing);
-Vue.component("module-card", ModuleCard);
-Vue.component("select-dropdown", SelectDropdown);
-Vue.component("sitewide-banner", SitewideBanner);
-Vue.component("skill", Skill);
-Vue.component("tab", Tab);
-Vue.component("tabs", Tabs);
-Vue.component("tabs-with-select", TabsWithSelect);
+app.component("completed-badge", CompletedBadge);
+app.component("completed-button", CompletableButton);
+app.component("completed-checkbox", CompletedCheckbox);
+// app.component('toast', Toast);
+app.component("modal", Modal);
+app.component("modal-mobile-menu", ModalMobileMenu);
+app.component("module-listing", ModuleListing);
+app.component("module-card", ModuleCard);
+app.component("select-dropdown", SelectDropdown);
+app.component("sitewide-banner", SitewideBanner);
+app.component("skill", Skill);
+app.component("tab", Tab);
+app.component("tabs", Tabs);
+app.component("tabs-with-select", TabsWithSelect);
+
+// Mount the app
+app.mount("#app-body");

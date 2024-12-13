@@ -41,7 +41,7 @@
                         : 'col-span-12'
                 "
             >
-                <v-select
+                <!-- <v-select
                     :filter="fuseSearch"
                     :options="showAllModules ? allModules : myModules"
                     @input="changeRoute($event)"
@@ -54,7 +54,7 @@
                     <template #option="{ id, slug, name }">
                         {{ name["en"] }}
                     </template>
-                </v-select>
+                </v-select> -->
             </div>
         </div>
         <tabs
@@ -181,8 +181,8 @@
 <script>
 import Fuse from "fuse.js";
 import Vue from "vue";
-import vSelect from "vue-select";
-import "vue-select/dist/vue-select.css";
+// import vSelect from "vue-select";
+// import "vue-select/dist/vue-select.css";
 
 Vue.component("v-select", vSelect);
 export default {

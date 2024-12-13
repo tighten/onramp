@@ -15,7 +15,7 @@ class SubscriptionController extends Controller
             'unsubscribe_token' => null,
         ]);
 
-        session()->flash('toast', 'You have been unsubscribed.');
+        // session()->flash('toast', 'You have been unsubscribed.');
 
         return redirect()->route('welcome', ['locale' => $locale]);
     }

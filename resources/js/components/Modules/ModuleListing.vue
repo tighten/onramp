@@ -41,7 +41,7 @@
                         : 'col-span-12'
                 "
             >
-                <!-- <v-select
+                <v-select
                     :filter="fuseSearch"
                     :options="showAllModules ? allModules : myModules"
                     @input="changeRoute($event)"
@@ -52,9 +52,9 @@
                     } Modules`"
                 >
                     <template #option="{ id, slug, name }">
-                        {{ name["en"] }}
+                        {{ name['en'] }}
                     </template>
-                </v-select> -->
+                </v-select>
             </div>
         </div>
         <tabs
@@ -179,12 +179,12 @@
 </template>
 
 <script>
-import Fuse from "fuse.js";
-import Vue from "vue";
-// import vSelect from "vue-select";
-// import "vue-select/dist/vue-select.css";
+import Fuse from 'fuse.js';
+import Vue from 'vue';
+import vSelect from 'vue-select';
+import 'vue-select/dist/vue-select.css';
 
-Vue.component("v-select", vSelect);
+Vue.component('v-select', vSelect);
 export default {
     props: {
         standardModules: {
@@ -217,19 +217,19 @@ export default {
         return {
             tabs: [
                 {
-                    name: "beginner",
+                    name: 'beginner',
                     selected: true,
                 },
                 {
-                    name: "intermediate",
+                    name: 'intermediate',
                     selected: false,
                 },
                 {
-                    name: "advanced",
+                    name: 'advanced',
                     selected: false,
                 },
                 {
-                    name: "bonus",
+                    name: 'bonus',
                     selected: false,
                 },
             ],
@@ -237,45 +237,45 @@ export default {
             currentBonusModules: this.filterBonusModules(),
             allModules: this.standardModules.concat(this.bonusModules),
             Deselect: {
-                render: (createElement) => createElement("span", ""),
+                render: (createElement) => createElement('span', ''),
             },
         };
     },
 
     computed: {
         beginnerModules() {
-            return this.filterStandardModules("beginner");
+            return this.filterStandardModules('beginner');
         },
 
         intermediateModules() {
-            return this.filterStandardModules("intermediate");
+            return this.filterStandardModules('intermediate');
         },
 
         advancedModules() {
-            return this.filterStandardModules("advanced");
+            return this.filterStandardModules('advanced');
         },
 
         filteredTabs() {
             if (!this.currentBonusModules.length) {
-                return this.tabs.filter((tab) => tab.name !== "bonus");
+                return this.tabs.filter((tab) => tab.name !== 'bonus');
             }
 
             return this.tabs;
         },
         myModules() {
             return [
-                ...this.filterStandardModules("beginner"),
-                ...this.filterStandardModules("intermediate"),
-                ...this.filterStandardModules("advanced"),
+                ...this.filterStandardModules('beginner'),
+                ...this.filterStandardModules('intermediate'),
+                ...this.filterStandardModules('advanced'),
             ];
         },
     },
     methods: {
         fuseSearch(options, search) {
-            let locale = "name." + Vue.prototype.trans.getLocale();
+            let locale = 'name.' + Vue.prototype.trans.getLocale();
 
             const fuse = new Fuse(options, {
-                keys: ["`${locale}", "slug", "id"],
+                keys: ['`${locale}', 'slug', 'id'],
                 shouldSort: true,
             });
             return search.length
@@ -347,9 +347,9 @@ export default {
         toggleShowAllModules() {
             this.showAllModules = !this.showAllModules;
             this.currentBonusModules = this.filterBonusModules();
-            this.filterStandardModules("beginner");
-            this.filterStandardModules("intermediate");
-            this.filterStandardModules("advanced");
+            this.filterStandardModules('beginner');
+            this.filterStandardModules('intermediate');
+            this.filterStandardModules('advanced');
 
             let activeTab = this.tabs.filter((tab) => tab.selected)[0];
 

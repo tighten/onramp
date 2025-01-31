@@ -1,11 +1,9 @@
+@forward './variables/index';
+@forward './defaults/index';
+@forward './mixins/index';
+@forward './components/index';
+@forward './utilities/index';
+@forward './temp';
 @tailwind base;
 @tailwind components;
-
-@import './variables/index';
-@import './defaults/index';
-@import './mixins/index';
-@import './components/index';
-@import './utilities/index';
-@import './temp';
-
 @tailwind utilities;

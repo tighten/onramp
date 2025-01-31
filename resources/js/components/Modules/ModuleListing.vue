@@ -178,233 +178,184 @@
     </div>
 </template>
 
-<script>
+<script setup>
+import { ref, computed } from 'vue';
 import Fuse from 'fuse.js';
-import Vue from 'vue';
 import vSelect from 'vue-select';
 import 'vue-select/dist/vue-select.css';
 
-Vue.component('v-select', vSelect);
-export default {
-    props: {
-        standardModules: {
-            type: Array,
-            default: [],
-        },
-        bonusModules: {
-            type: Array,
-            default: [],
-        },
-        userModules: {
-            type: Array,
-            default: [],
-        },
-        completedModules: {
-            type: Array,
-            default: [],
-        },
-        userResourceCompletions: {
-            type: Array,
-            default: [],
-        },
-        userLoggedIn: {
-            type: Boolean,
-            default: false,
-        },
-    },
+const props = defineProps({
+    standardModules: { type: Array, default: () => [] },
+    bonusModules: { type: Array, default: () => [] },
+    userModules: { type: Array, default: () => [] },
+    completedModules: { type: Array, default: () => [] },
+    userResourceCompletions: { type: Array, default: () => [] },
+    userLoggedIn: { type: Boolean, default: false },
+});
 
-    data() {
-        return {
-            tabs: [
-                {
-                    name: 'beginner',
-                    selected: true,
-                },
-                {
-                    name: 'intermediate',
-                    selected: false,
-                },
-                {
-                    name: 'advanced',
-                    selected: false,
-                },
-                {
-                    name: 'bonus',
-                    selected: false,
-                },
-            ],
-            showAllModules: !this.userLoggedIn,
-            currentBonusModules: this.filterBonusModules(),
-            allModules: this.standardModules.concat(this.bonusModules),
-            Deselect: {
-                render: (createElement) => createElement('span', ''),
-            },
-        };
-    },
+const tabs = ref([
+    { name: 'beginner', selected: true },
+    { name: 'intermediate', selected: false },
+    { name: 'advanced', selected: false },
+    { name: 'bonus', selected: false },
+]);
 
-    computed: {
-        beginnerModules() {
-            return this.filterStandardModules('beginner');
-        },
+const tabsRef = ref(null);
+const showAllModules = ref(!props.userLoggedIn);
+const allModules = computed(() =>
+    props.standardModules.concat(props.bonusModules)
+);
+const Deselect = { render: (createElement) => createElement('span', '') };
 
-        intermediateModules() {
-            return this.filterStandardModules('intermediate');
-        },
+const filterStandardModules = (skillLevel) => {
+    if (!props.userLoggedIn) {
+        return props.standardModules.filter(
+            (x) => x.skill_level === skillLevel
+        );
+    }
 
-        advancedModules() {
-            return this.filterStandardModules('advanced');
-        },
+    if (props.userLoggedIn && showAllModules.value) {
+        let modules = props.standardModules.filter(
+            (x) => x.skill_level === skillLevel
+        );
+        let userModules = modules.filter((x) =>
+            props.userModules.includes(x.id)
+        );
+        modules = modules.filter((x) => !props.userModules.includes(x.id));
+        modules.unshift(...userModules);
+        return modules;
+    }
 
-        filteredTabs() {
-            if (!this.currentBonusModules.length) {
-                return this.tabs.filter((tab) => tab.name !== 'bonus');
-            }
-
-            return this.tabs;
-        },
-        myModules() {
-            return [
-                ...this.filterStandardModules('beginner'),
-                ...this.filterStandardModules('intermediate'),
-                ...this.filterStandardModules('advanced'),
-            ];
-        },
-    },
-    methods: {
-        fuseSearch(options, search) {
-            let locale = 'name.' + Vue.prototype.trans.getLocale();
-
-            const fuse = new Fuse(options, {
-                keys: ['`${locale}', 'slug', 'id'],
-                shouldSort: true,
-            });
-            return search.length
-                ? fuse.search(search).map(({ item }) => item)
-                : fuse.list;
-        },
-        changeRoute(e) {
-            window.location.href = `/${Vue.prototype.trans.getLocale()}/modules/${
-                e.slug
-            }/free-resources`;
-        },
-        filterStandardModules(skillLevel) {
-            if (!this.userLoggedIn) {
-                return this.standardModules.filter(
-                    (x) => x.skill_level === skillLevel
-                );
-            }
-
-            if (this.userLoggedIn && this.showAllModules) {
-                let modules = this.standardModules.filter(
-                    (x) => x.skill_level === skillLevel
-                );
-
-                let userModules = modules.filter((x) =>
-                    this.userModules.includes(x.id)
-                );
-
-                modules = modules.filter(
-                    (x) => !this.userModules.includes(x.id)
-                );
-
-                modules.unshift(...userModules);
-
-                return modules;
-            }
-
-            return this.standardModules.filter((x) => {
-                return (
-                    x.skill_level === skillLevel &&
-                    this.userModules.includes(x.id)
-                );
-            });
-        },
-
-        filterBonusModules() {
-            if (!this.userLoggedIn) {
-                return this.bonusModules;
-            }
-
-            if (this.userLoggedIn && this.showAllModules) {
-                let userModules = this.bonusModules.filter(({ id }) =>
-                    this.userModules.includes(id)
-                );
-
-                let modules = this.bonusModules.filter(
-                    ({ id }) => !this.userModules.includes(id)
-                );
-
-                modules.unshift(...userModules);
-
-                return modules;
-            }
-
-            return this.bonusModules.filter(({ id }) =>
-                this.userModules.includes(id)
-            );
-        },
-
-        toggleShowAllModules() {
-            this.showAllModules = !this.showAllModules;
-            this.currentBonusModules = this.filterBonusModules();
-            this.filterStandardModules('beginner');
-            this.filterStandardModules('intermediate');
-            this.filterStandardModules('advanced');
-
-            let activeTab = this.tabs.filter((tab) => tab.selected)[0];
-
-            if (!this.filteredTabs.includes(activeTab)) {
-                this.$refs.tabs.setActiveTab(
-                    this.$refs[`tab-${this.tabs[0].name.toLowerCase()}`][0].href
-                );
-            }
-        },
-
-        getModuleCompletedResources({ resources_for_current_session }) {
-            if (!this.userLoggedIn) {
-                return 0;
-            }
-
-            let userResourceCompletions = this.userResourceCompletions.map(
-                (x) => parseInt(x)
-            );
-
-            return resources_for_current_session.filter(({ id }) => {
-                return userResourceCompletions.includes(id);
-            }).length;
-        },
-
-        getModuleIsCompleted({ id }) {
-            let completedModules = this.completedModules.map((x) =>
-                parseInt(x)
-            );
-            return completedModules.includes(id);
-        },
-
-        updateSelectedTab(newTab) {
-            this.tabs.map((tab) => {
-                tab.name === newTab.name.toLowerCase()
-                    ? (tab.selected = true)
-                    : (tab.selected = false);
-            });
-        },
-        moduleHasNewResources({ resources_for_current_session }) {
-            if (!this.userLoggedIn) {
-                return false;
-            }
-
-            return (
-                resources_for_current_session.filter(
-                    (resource) => resource.is_new
-                ).length > 0
-            );
-        },
-    },
+    return props.standardModules.filter(
+        (x) => x.skill_level === skillLevel && props.userModules.includes(x.id)
+    );
 };
+
+const filterBonusModules = () => {
+    if (!props.userLoggedIn) return props.bonusModules;
+
+    if (props.userLoggedIn && showAllModules.value) {
+        let userModules = props.bonusModules.filter(({ id }) =>
+            props.userModules.includes(id)
+        );
+        let modules = props.bonusModules.filter(
+            ({ id }) => !props.userModules.includes(id)
+        );
+        modules.unshift(...userModules);
+        return modules;
+    }
+
+    return props.bonusModules.filter(({ id }) =>
+        props.userModules.includes(id)
+    );
+};
+
+const currentBonusModules = ref(filterBonusModules());
+
+const beginnerModules = computed(() => filterStandardModules('beginner'));
+const intermediateModules = computed(() =>
+    filterStandardModules('intermediate')
+);
+const advancedModules = computed(() => filterStandardModules('advanced'));
+const filteredTabs = computed(() =>
+    !currentBonusModules.value.length
+        ? tabs.value.filter((tab) => tab.name !== 'bonus')
+        : tabs.value
+);
+
+const myModules = computed(() => [
+    ...filterStandardModules('beginner'),
+    ...filterStandardModules('intermediate'),
+    ...filterStandardModules('advanced'),
+]);
+
+const fuseSearch = (options, search) => {
+    const locale = 'name.' + Vue.prototype.trans.getLocale();
+    const fuse = new Fuse(options, {
+        keys: ['`${locale}', 'slug', 'id'],
+        shouldSort: true,
+    });
+    return search.length
+        ? fuse.search(search).map(({ item }) => item)
+        : fuse.list;
+};
+
+const changeRoute = (e) => {
+    window.location.href = `/${Vue.prototype.trans.getLocale()}/modules/${
+        e.slug
+    }/free-resources`;
+};
+
+const toggleShowAllModules = () => {
+    showAllModules.value = !showAllModules.value;
+    currentBonusModules.value = filterBonusModules();
+    filterStandardModules('beginner');
+    filterStandardModules('intermediate');
+    filterStandardModules('advanced');
+
+    const activeTab = tabs.value.find((tab) => tab.selected);
+
+    if (!filteredTabs.value.includes(activeTab)) {
+        tabsRef.value.setActiveTab(
+            tabsRef.value.$refs[`tab-${tabs.value[0].name.toLowerCase()}`][0]
+                .href
+        );
+    }
+};
+
+const getModuleCompletedResources = ({ resources_for_current_session }) => {
+    if (!props.userLoggedIn) return 0;
+
+    const userResourceCompletions = props.userResourceCompletions.map((x) =>
+        parseInt(x)
+    );
+    return resources_for_current_session.filter(({ id }) =>
+        userResourceCompletions.includes(id)
+    ).length;
+};
+
+const getModuleIsCompleted = ({ id }) => {
+    const completedModules = props.completedModules.map((x) => parseInt(x));
+    return completedModules.includes(id);
+};
+
+const updateSelectedTab = (newTab) => {
+    tabs.value = tabs.value.map((tab) => ({
+        ...tab,
+        selected: tab.name === newTab.name.toLowerCase(),
+    }));
+};
+
+const moduleHasNewResources = ({ resources_for_current_session }) => {
+    if (!props.userLoggedIn) return false;
+    return (
+        resources_for_current_session.filter((resource) => resource.is_new)
+            .length > 0
+    );
+};
+
+defineExpose({
+    showAllModules,
+    beginnerModules,
+    intermediateModules,
+    advancedModules,
+    filteredTabs,
+    myModules,
+    allModules,
+    currentBonusModules,
+    Deselect,
+    fuseSearch,
+    changeRoute,
+    toggleShowAllModules,
+    getModuleCompletedResources,
+    getModuleIsCompleted,
+    updateSelectedTab,
+    moduleHasNewResources,
+});
 </script>
 
-<style scoped>
->>> {
+<!-- <style scoped>
+:deep {
     --vs-actions-padding: 13px 10px 10px;
     --vs-border-color: #a0aec0;
     --vs-border-width: 2px;
@@ -421,4 +372,4 @@ export default {
     /* Search Options */
     --vs-dropdown-option-padding: 3px 10px;
 }
-</style>
+</style> -->

@@ -3,6 +3,12 @@ import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
 
 export default defineConfig(({ command }) => ({
+    server: {
+        cors: true,
+        hmr: {
+            host: 'onramp.test',
+        },
+    },
     plugins: [
         laravel({
             input: [

@@ -36,6 +36,3 @@ app.component('skill', Skill);
 app.component('tab', Tab);
 app.component('tabs', Tabs);
 app.component('tabs-with-select', TabsWithSelect);
-
-// Mount the app
-app.mount('#app-body');

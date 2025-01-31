@@ -66,4 +66,5 @@ app.config.globalProperties.$filters = {
 app.directive('click-outside', ClickOutside);
 
 // Export the app instance
+app.mount('#app-body');
 export default app;

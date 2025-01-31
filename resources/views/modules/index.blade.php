@@ -12,7 +12,7 @@
             <div class="mt-6 text-sm text-comet">{!! __('You are on the :track track.', ['track' => '<span class="font-semibold">'.auth()->user()->track->name.'</span>']) !!}
                 <a class="ml-2 mr-4 font-semibold text-teal" href="{{ url_wlocale('preferences') }}">{{ __('Change settings') }}</a>
             </div>
-            @endif
+        @endif
     </x-hero>
 
 
@@ -24,6 +24,7 @@
             :completed-modules="{{ $completedModules }}"
             :user-resource-completions="{{ $userResourceCompletions }}"
             :user-logged-in="{{ auth()->check() ? 'true' : 'false' }}"
+
         ></module-listing>
     </x-panel>
 </div>

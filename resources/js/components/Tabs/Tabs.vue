@@ -12,13 +12,19 @@
                         <li
                             v-for="tab in tabs"
                             :key="tab.name"
-                            :class="[darkMode ? 'text-white' : 'text-gray', {'text-gray-black': tab.isActive && !darkMode}]"
+                            :class="[
+                                darkMode ? 'text-white' : 'text-gray',
+                                {
+                                    'text-gray-black':
+                                        tab.isActive && !darkMode,
+                                },
+                            ]"
                             class="inline-block text-xl font-semibold leading-tight tracking-tight whitespace-no-wrap transition duration-200 ease-in-out md:text-2xl xl:text-4xl focus:outline-none"
                         >
                             <a
                                 :href="tab.href"
                                 :class="{
-                                    'border-b-4 border-teal': tab.isActive
+                                    'border-b-4 border-teal': tab.isActive,
                                 }"
                                 class="inline-block pb-5 -mb-1 border-b-4 hover:no-underline whitespace-nowrap"
                                 @click="setActiveTab(tab.href)"
@@ -40,7 +46,7 @@ export default {
     props: {
         hideTabsOnDesktop: {
             type: Boolean,
-            default: false
+            default: false,
         },
         darkMode: {
             type: Boolean,
@@ -51,7 +57,7 @@ export default {
     data() {
         return {
             tabs: [],
-            windowWidth: window.innerWidth
+            windowWidth: window.innerWidth,
         };
     },
 
@@ -62,34 +68,34 @@ export default {
     mounted() {
         this.$nextTick(() => {
             this.checkShowAllTabContent();
-            window.addEventListener("resize", this.checkShowAllTabContent);
+            window.addEventListener('resize', this.checkShowAllTabContent);
         });
     },
 
     destroyed() {
-        window.removeEventListener("resize", this.checkShowAllTabContent);
+        window.removeEventListener('resize', this.checkShowAllTabContent);
     },
 
     watch: {
         tabs(value) {
             this.checkShowAllTabContent();
-        }
+        },
     },
 
     methods: {
         setActiveTab(selectedTabHref) {
-            this.tabs.forEach(tab => {
+            this.tabs.forEach((tab) => {
                 tab.isActive = tab.href == selectedTabHref;
             });
 
             this.$emit(
-                "activeTabUpdated",
-                this.tabs.filter(tab => tab.isActive)[0]
+                'activeTabUpdated',
+                this.tabs.filter((tab) => tab.isActive)[0]
             );
         },
 
         showAllTabs() {
-            this.tabs.forEach(tab => {
+            this.tabs.forEach((tab) => {
                 tab.isActive = true;
             });
         },
@@ -112,7 +118,7 @@ export default {
                 this.setActiveTab(this.tabs[0].href);
                 this.windowWidth = window.innerWidth;
             }
-        }
-    }
+        },
+    },
 };
 </script>

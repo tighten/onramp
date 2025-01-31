@@ -20,13 +20,11 @@
         "alpinejs": "^3.14.7",
         "autoprefixer": "^10.4.19",
         "axios": "^0.28",
-        "bootstrap": "^5.0.1",
         "fuse.js": "^6.6.2",
-        "jquery": "^3.5.1",
         "lang.js": "^1.1.14",
         "lodash": "^4.17.21",
-        "popper.js": "^1.16.1",
         "tailwindcss": "^3.4.16",
-        "vue": "^3.5.13"
+        "vue": "^3.5.13",
+        "vue-select": "^4.0.0-beta.6"
     }
 }

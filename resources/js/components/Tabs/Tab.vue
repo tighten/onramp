@@ -23,7 +23,7 @@ export default {
     data() {
         return {
             isActive: false,
-        }
+        };
     },
 
     computed: {
@@ -33,11 +33,11 @@ export default {
             }
 
             return `#${this.name.toLowerCase().replace(/ /g, '-')}`;
-        }
+        },
     },
 
     mounted() {
         this.isActive = this.selected;
-    }
-}
+    },
+};
 </script>

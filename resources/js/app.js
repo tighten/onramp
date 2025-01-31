@@ -1,39 +1,88 @@
-import { createApp } from 'vue'; // Import Vue
-import './bootstrap'; // Ensure any global libraries are initialized
-import ClickOutside from './directives/ClickOutside';
+// app.js
+import { createApp, ref } from 'vue';
+import './bootstrap';
 import Lang from 'lang.js';
 import Translations from './translations';
+import ClickOutside from './directives/ClickOutside';
 import Alpine from 'alpinejs';
+
+// Import components
+import CompletableButton from './components/Completables/CompletedButton.vue';
+import CompletedBadge from './components/Completables/CompletedBadge.vue';
+import CompletedCheckbox from './components/Completables/CompletedCheckbox.vue';
+import Modal from './components/Modal.vue';
+import ModalMobileMenu from './components/ModalMobileMenu.vue';
+import ModuleListing from './components/Modules/ModuleListing.vue';
+import ModuleCard from './components/Modules/ModuleCard.vue';
+import ResourceLanguagePreferenceSwitcher from './components/ResourceLanguagePreferenceSwitcher.vue';
+import SelectDropdown from './components/SelectDropdown.vue';
+import SitewideBanner from './components/SitewideBanner.vue';
+import Skill from './components/Skill.vue';
+import Tab from './components/Tabs/Tab.vue';
+import Tabs from './components/Tabs/Tabs.vue';
+import TabsWithSelect from './components/Tabs/TabsWithSelect.vue';
+import ToggleWhenMobile from './components/ToggleWhenMobile.vue';
 
 // Setup Alpine.js
 window.Alpine = Alpine;
 Alpine.start();
 
-// Create the Vue app instance
+// Create app instance
 const app = createApp({
-    data() {
-        return {
-            modals: {
-                mobileMenu: false,
-            },
-        };
-    },
-    methods: {
-        openModal(modalName) {
-            this.modals[modalName] = true;
+    setup() {
+        // State
+        const modals = ref({
+            mobileMenu: false,
+        });
+
+        // Methods
+        const openModal = (modalName) => {
+            modals.value[modalName] = true;
             document.documentElement.style.overflow = 'hidden';
-        },
-        closeModal() {
-            for (let modal in this.modals) {
-                this.modals[modal] = false;
-            }
+        };
+
+        const closeModal = () => {
+            Object.keys(modals.value).forEach((modal) => {
+                modals.value[modal] = false;
+            });
             document.documentElement.style.overflow = 'auto';
-        },
-        logout(e) {
+        };
+
+        const logout = (e) => {
             e.preventDefault();
             document.getElementById('logout-form').submit();
-        },
+        };
+
+        return {
+            modals,
+            openModal,
+            closeModal,
+            logout,
+        };
     },
+});
+
+// Register components
+const components = {
+    'toggle-when-mobile': ToggleWhenMobile,
+    'resource-language-preference-switcher': ResourceLanguagePreferenceSwitcher,
+    'completed-badge': CompletedBadge,
+    'completed-button': CompletableButton,
+    'completed-checkbox': CompletedCheckbox,
+    modal: Modal,
+    'modal-mobile-menu': ModalMobileMenu,
+    'module-listing': ModuleListing,
+    'module-card': ModuleCard,
+    'select-dropdown': SelectDropdown,
+    'sitewide-banner': SitewideBanner,
+    skill: Skill,
+    tab: Tab,
+    tabs: Tabs,
+    'tabs-with-select': TabsWithSelect,
+};
+
+Object.entries(components).forEach(([name, component]) => {
+    app.component(name, component);
 });
 
 // Add global properties
@@ -43,6 +92,7 @@ app.config.globalProperties.trans = new Lang({
     fallback: window.fallback_locale,
 });
 
+// Global filters as properties
 app.config.globalProperties.$filters = {
     capitalize(string) {
         if (!string) return '';
@@ -65,6 +115,7 @@ app.config.globalProperties.$filters = {
 // Add custom directives
 app.directive('click-outside', ClickOutside);
 
-// Export the app instance
+// Mount app
 app.mount('#app-body');
+
 export default app;

@@ -6,12 +6,16 @@
             class="flex flex-col w-full h-full transition-transform duration-300 transform shadow-md hover:no-underline hover:scale-95"
             :href="moduleUrl"
         >
-
             <span :class="`relative block w-full h-44 ${cardColorClass}`">
-                <div v-if="hasNewContent" :class="`h-2 ${labelColorClass}`"></div>
-                <div class="absolute top-0 right-0 z-10 flex flex-col items-end">
+                <div
+                    v-if="props.hasNewContent"
+                    :class="`h-2 ${labelColorClass}`"
+                ></div>
+                <div
+                    class="absolute top-0 right-0 z-10 flex flex-col items-end"
+                >
                     <span
-                        v-if="hasNewContent"
+                        v-if="props.hasNewContent"
                         :class="`inline-flex items-center px-3 py-1 text-sm font-semibold text-white ${labelColorClass} rounded-bl-md`"
                     >
                         New Resources
@@ -21,13 +25,13 @@
                 <img
                     v-show="imageExists"
                     class="absolute bottom-0 w-full h-auto max-h-full transform -translate-x-1/2 left-1/2 will-change-transform"
-                    :alt="item.name[trans.locale]"
+                    :alt="props.item.name[trans.locale]"
                     :src="`/images/modules/${imageName}.svg`"
                     @load="handleImageLoaded"
                 />
 
                 <span
-                    v-show="isCompleted && isUserModule"
+                    v-show="props.isCompleted && props.isUserModule"
                     class="absolute bottom-0 right-0 z-10 inline-flex items-center px-3 py-1 mb-3 mr-3 text-sm font-semibold bg-white rounded-full shadow-md absolue text-east-bay"
                 >
                     Completed
@@ -45,35 +49,33 @@
             </span>
 
             <span class="flex-1 block p-4 bg-white">
-                <h4
-                    class="text-base font-semibold leading-5 tracking-normal"
-                >
+                <h4 class="text-base font-semibold leading-5 tracking-normal">
                     {{
-                        item.name[trans.locale]
-                            ? item.name[trans.locale]
-                            : item.name["en"]
+                        props.item.name[trans.locale]
+                            ? props.item.name[trans.locale]
+                            : props.item.name['en']
                     }}
                 </h4>
 
-                    <template v-if="!isCompleted && isUserModule">
-                        <p
-                            class="pt-5 mt-5 text-sm font-semibold tracking-wider uppercase border-t text-steel border-silver"
+                <template v-if="!props.isCompleted && props.isUserModule">
+                    <p
+                        class="pt-5 mt-5 text-sm font-semibold tracking-wider uppercase border-t text-steel border-silver"
+                    >
+                        My progress:
+                    </p>
+
+                    <ul class="block mt-2 text-base">
+                        <li
+                            class="inline-flex items-center justify-between w-full"
                         >
-                            My progress:
-                        </p>
+                            <span class="text-east-bay">Resources</span>
+                            <span class="font-semibold text-steel">
+                                {{ completedResourcesPercentage }}%
+                            </span>
+                        </li>
 
-                        <ul class="block mt-2 text-base">
-                            <li
-                                class="inline-flex items-center justify-between w-full"
-                            >
-                                <span class="text-east-bay">Resources</span>
-                                <span class="font-semibold text-steel">
-                                    {{ completedResourcesPercentage }}%
-                                </span>
-                            </li>
-
-                            <!-- @todo display this once Quizzes and Exercises created -->
-                            <!-- <li class="inline-flex items-center justify-between w-full mt-3">
+                        <!-- @todo display this once Quizzes and Exercises created -->
+                        <!-- <li class="inline-flex items-center justify-between w-full mt-3">
                                 <span class="text-east-bay">Quizzes</span>
                                 <span class="font-semibold text-steel">20%</span>
                             </li>
@@ -82,105 +84,112 @@
                                 <span class="text-east-bay">Exercises</span>
                                 <span class="font-semibold text-steel">20%</span>
                             </li> -->
-                        </ul>
-                    </template>
-                </span>
-            </a>
-        </div>
-    </template>
-<script>
-export default {
-    props: {
-        item: {
-            type: Object
-        },
-        cardIsEven: {
-            type: Boolean,
-            default: false
-        },
-        level: {
-            type: String
-        },
-        completedResourcesCount: {
-            type: Number,
-            default: 0
-        },
-        isUserModule: {
-            type: Boolean,
-            default: false
-        },
-        isCompleted: {
-            type: Boolean,
-            default: false
-        },
-        hasNewContent: {
-            type: Boolean,
-            default: false
-        }
+                    </ul>
+                </template>
+            </span>
+        </a>
+    </div>
+</template>
+
+<script setup>
+import { ref, computed } from 'vue';
+
+const props = defineProps({
+    item: {
+        type: Object,
+        required: true,
     },
-
-    data() {
-        return {
-            moduleCardColors: {
-                beginner: {
-                    even: "bg-teal",
-                    odd: "bg-emerald"
-                },
-                intermediate: {
-                    even: "bg-sea",
-                    odd: "bg-lake"
-                },
-                advanced: {
-                    even: "bg-cabernet",
-                    odd: "bg-merlot"
-                },
-                bonus: {
-                    even: "bg-steel",
-                    odd: "bg-gray"
-                }
-            },
-            moduleUrl: `/${this.trans.locale}/modules/${this.item.slug}/free-resources`,
-            imageExists: false
-        };
+    cardIsEven: {
+        type: Boolean,
+        default: false,
     },
-
-    computed: {
-        cardColorClass() {
-            return this.cardIsEven
-                ? this.moduleCardColors[this.level].even
-                : this.moduleCardColors[this.level].odd;
-        },
-        labelColorClass() {
-            return this.cardIsEven
-                ? this.moduleCardColors[this.level].odd
-                : this.moduleCardColors[this.level].even;
-        },
-        imageName() {
-            return this.$options.filters.slug(this.item.name["en"]);
-        },
-
-        freeResourcesForSessionCount() {
-            let freeResourcesForSession = this.item.resources_for_current_session.filter(
-                resrc => resrc.is_free
-            ).length;
-            return freeResourcesForSession ? freeResourcesForSession : 0;
-        },
-
-        completedResourcesPercentage() {
-            return this.freeResourcesForSessionCount > 0
-                ? Math.round(
-                      (this.completedResourcesCount /
-                          this.freeResourcesForSessionCount) *
-                          100
-                  )
-                : 0;
-        }
+    level: {
+        type: String,
+        required: true,
     },
+    completedResourcesCount: {
+        type: Number,
+        default: 0,
+    },
+    isUserModule: {
+        type: Boolean,
+        default: false,
+    },
+    isCompleted: {
+        type: Boolean,
+        default: false,
+    },
+    hasNewContent: {
+        type: Boolean,
+        default: false,
+    },
+});
 
-    methods: {
-        handleImageLoaded() {
-            this.imageExists = true;
-        }
-    }
+const imageExists = ref(false);
+
+const moduleCardColors = {
+    beginner: {
+        even: 'bg-teal',
+        odd: 'bg-emerald',
+    },
+    intermediate: {
+        even: 'bg-sea',
+        odd: 'bg-lake',
+    },
+    advanced: {
+        even: 'bg-cabernet',
+        odd: 'bg-merlot',
+    },
+    bonus: {
+        even: 'bg-steel',
+        odd: 'bg-gray',
+    },
 };
+
+const moduleUrl = computed(() => `/${props.item?.slug}/free-resources`);
+
+const cardColorClass = computed(() =>
+    props.cardIsEven
+        ? moduleCardColors[props.level].even
+        : moduleCardColors[props.level].odd
+);
+
+const labelColorClass = computed(() =>
+    props.cardIsEven
+        ? moduleCardColors[props.level].odd
+        : moduleCardColors[props.level].even
+);
+
+const imageName = computed(() => slugify(props.item.name['en']));
+
+const freeResourcesForSessionCount = computed(() => {
+    const freeResources = props.item.resources_for_current_session.filter(
+        (resrc) => resrc.is_free
+    ).length;
+    return freeResources || 0;
+});
+
+const completedResourcesPercentage = computed(() => {
+    return freeResourcesForSessionCount.value > 0
+        ? Math.round(
+              (props.completedResourcesCount /
+                  freeResourcesForSessionCount.value) *
+                  100
+          )
+        : 0;
+});
+
+function handleImageLoaded() {
+    imageExists.value = true;
+}
+
+function slugify(text) {
+    return text
+        .toString()
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w\-]+/g, '')
+        .replace(/\-\-+/g, '-');
+}
 </script>

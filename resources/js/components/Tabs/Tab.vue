@@ -4,40 +4,33 @@
     </div>
 </template>
 
-<script>
-export default {
-    props: {
-        url: {
-            type: String,
-        },
-        name: {
-            type: String,
-            required: true,
-        },
-        selected: {
-            type: Boolean,
-            default: false,
-        },
-    },
+<script setup>
+import { ref, onMounted, watch } from 'vue';
 
-    data() {
-        return {
-            isActive: false,
-        };
+const props = defineProps({
+    url: {
+        type: String,
     },
-
-    computed: {
-        href() {
-            if (this.url && this.url !== '') {
-                return this.url;
-            }
-
-            return `#${this.name.toLowerCase().replace(/ /g, '-')}`;
-        },
+    name: {
+        type: String,
+        required: true,
     },
-
-    mounted() {
-        this.isActive = this.selected;
+    selected: {
+        type: Boolean,
+        default: false,
     },
-};
+});
+
+const isActive = ref(false);
+
+onMounted(() => {
+    isActive.value = props.selected;
+});
+
+watch(
+    () => props.selected,
+    (newVal) => {
+        isActive.value = newVal;
+    }
+);
 </script>

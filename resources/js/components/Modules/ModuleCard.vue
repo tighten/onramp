@@ -146,7 +146,9 @@ const moduleCardColors = {
     },
 };
 
-const moduleUrl = computed(() => `/${props.item?.slug}/free-resources`);
+const moduleUrl = computed(
+    () => `/${window.locale}/modules/${props.item?.slug}/free-resources`
+);
 
 const cardColorClass = computed(() =>
     props.cardIsEven
@@ -192,4 +194,7 @@ function slugify(text) {
         .replace(/[^\w\-]+/g, '')
         .replace(/\-\-+/g, '-');
 }
+
+console.log('props.item:', props.item);
+console.log('props.item.slug:', props.item?.slug);
 </script>

@@ -194,7 +194,4 @@ function slugify(text) {
         .replace(/[^\w\-]+/g, '')
         .replace(/\-\-+/g, '-');
 }
-
-console.log('props.item:', props.item);
-console.log('props.item.slug:', props.item?.slug);
 </script>

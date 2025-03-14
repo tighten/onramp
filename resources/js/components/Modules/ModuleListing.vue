@@ -55,9 +55,8 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
 import ModulesMobile from './ModulesMobile.vue';
-import useModules from '../../composables/useModules.js'; // wherever you store it!
+import useModules from '../../composables/useModules.js';
 
 const props = defineProps({
     standardModules: Array,

@@ -1,5 +1,6 @@
 {
     "private": true,
+    "type": "module",
     "scripts": {
         "build-suggested-resources-shortcuts": "cd nova-components/SuggestedResourcesShortcuts && npm run dev",
         "build-suggested-resources-shortcuts-prod": "cd nova-components/SuggestedResourcesShortcuts && npm run prod",

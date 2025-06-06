@@ -7,7 +7,7 @@
         <h1 class="mb-2 font-bold tracking-wide h2 md:h1">{{ __('Tracks') }}</h1>
     </x-hero>
 
-    <x-panel fluid>
+    <x-panel>
         <div class="sm:hidden">
             @foreach ($tracks as $track)
                 <div class="pb-8 my-2">
@@ -25,34 +25,36 @@
         </div>
 
 
-        <table class="hidden table-auto sm:block lg:py-10">
-            <thead>
-                <tr class="bg-opacity-50 bg-silver">
-                    <th class="px-4 py-2 border">{{ __('Module Name') }}</th>
+        <div class="flex justify-center">
+            <table class="hidden table-auto sm:block lg:py-10">
+                <thead>
+                    <tr class="bg-opacity-50 bg-silver">
+                        <th class="px-4 py-2 border">{{ __('Module Name') }}</th>
 
-                    @foreach ($tracks as $track)
-                        <th class="px-4 py-2 border">{{ __($track->name) }}</th>
-                    @endforeach
-                </tr>
-            </thead>
+                        @foreach ($tracks as $track)
+                            <th class="px-4 py-2 border">{{ __($track->name) }}</th>
+                        @endforeach
+                    </tr>
+                </thead>
 
-            <tbody>
-            @foreach ($modules as $module)
-                <tr>
-                    <td class="px-4 py-2 border">
-                        {{ $module->name }}
-                    </td>
-                    @foreach ($tracks as $track)
-                        <td class="px-4 py-2 text-center border">
-                            @if ($track->modules->pluck('id')->contains($module->id))
-                                <svg class="w-5 mx-auto fill-current text-emerald" viewBox="0 0 20 20"><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"/></svg>
-                            @endif
+                <tbody>
+                @foreach ($modules as $module)
+                    <tr>
+                        <td class="px-4 py-2 border">
+                            {{ $module->name }}
                         </td>
-                    @endforeach
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
+                        @foreach ($tracks as $track)
+                            <td class="px-4 py-2 text-center border">
+                                @if ($track->modules->pluck('id')->contains($module->id))
+                                    <svg class="w-5 mx-auto fill-current text-emerald" viewBox="0 0 20 20"><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"/></svg>
+                                @endif
+                            </td>
+                        @endforeach
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
     </x-panel>
 </div>
 @endsection

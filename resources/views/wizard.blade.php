@@ -12,7 +12,7 @@
             </div>
         </x-hero>
 
-        <div class="pb-48 -mt-px bg-white fluid-container lg:pt-8">
+        <div class="pb-48 -mt-px bg-white container lg:pt-8">
             <form action="{{ route_wlocale('wizard.store') }}"
                 method="POST">
                 @csrf

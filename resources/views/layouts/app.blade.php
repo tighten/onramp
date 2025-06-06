@@ -2,7 +2,7 @@
 @php
 $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to Laravel');
 @endphp
-<html lang="{{ locale() }}" class="scroll-padding-header" style="scroll-behavior:smooth;">
+<html lang="{{ locale() }}" class="scroll-pt-[110px] xl:scroll-pt-[130px] antialiased" style="scroll-behavior:smooth;">
 
 <head>
     <meta charset="utf-8">
@@ -86,7 +86,7 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to La
     <title>{{ $fullPageTitle }}</title>
 </head>
 
-<body class="bg-blue-black">
+<body class="bg-blue-black font-normal font-work-sans text-gray-black mt-16 min-w-xs">
     <div class="mx-auto sm:container">
         <header class="fixed top-0 left-0 w-full z-[9999]">
             @include('partials.navigation.header.main-header')

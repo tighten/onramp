@@ -1,7 +1,7 @@
-@props(['flex' => null, 'fluid' => null])
+@props(['flex' => null])
 
 <div class="w-full mx-auto">
-    <div {{ $attributes }} class="py-8 -mt-px bg-white rounded-b-lg panel mx-auto {{ $fluid ? 'fluid-container' : 'container' }} {{ $flex ? 'md:flex items-start' : '' }} max-w-screen-2xl">
+    <div {{ $attributes }} class="py-8 -mt-px bg-white rounded-b-lg panel container {{ $flex ? 'md:flex items-start' : '' }} max-w-screen-2xl">
         {{ $slot }}
     </div>
 </div>

@@ -1,9 +1,9 @@
 @if (auth()->check() && is_null(auth()->user()->track_id))
-<div class="border-t-4 mt-20" role="alert">
-    <div class="mx-auto fluid-container">
+<div class="border-t-4" role="alert">
+    <div class="mx-auto container">
         <div class="flex flex-wrap items-center justify-between">
             <div class="flex items-center justify-center flex-1 w-0">
-                <svg class="flex-none w-5 h-5 mt-3 text-orange-600 fill-current" xmlns="http://www.w3.org/2000/svg"
+                <svg class="flex-none w-5 h-5 mt-3 text-amber fill-current" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 320.83 320.83">
                     <path
                         d="M21.617 290.246h277.604c9.469 0 17.013-4.553 20.168-12.184 2.904-7.011 1.36-14.8-4.107-21.212L180.497 39.684l-1.333-1.333c-5.009-5.009-11.667-7.767-18.748-7.767-7.082 0-13.739 2.758-18.743 7.767l-1.333 1.333L5.55 256.844c-5.466 6.413-7.016 14.207-4.106 21.212 3.159 7.632 10.698 12.19 20.173 12.19zM160.416 69.213L277.35 257.606H43.487L160.416 69.213z" />
@@ -12,7 +12,7 @@
                     <circle cx="160.248" cy="234.903" r="16.486" />
                 </svg>
 
-                <p class="mt-4 ml-3 text-base font-medium text-silver lg:ml-5">
+                <p class="mt-4 ml-3 text-base font-medium text-white lg:ml-5">
                     <span class="font-bold">{{ __('Recommended updates to your preferences') }}</span><br>
 
                     <span class="text-sm">{{ __("If you'd like to track your progress based on your current track, we recommend updating this setting in your") }} <a class="underline" href="{{ url_wlocale('preferences') }}">{{ __('user preferences') }}</a>.</span>

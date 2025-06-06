@@ -24,7 +24,7 @@
         @include('partials.you-should-log-in')
 
         <div class="{{ $bgColor }} pb-24 pt-16 md:pb-40 lg:pt-24 lg:pb-48">
-            <div class="relative fluid-container lg:flex lg:items-center lg:justify-between">
+            <div class="relative container lg:flex lg:items-center lg:justify-between">
                 <h1 class="max-w-3xl font-bold text-white h2 lg:h1">{{ $module->name }}</h1>
 
                 @auth
@@ -39,7 +39,7 @@
             </div>
         </div>
 
-        <div class="pb-16 fluid-container">
+        <div class="pb-16 container">
             <div class="grid gap-6 px-4 pt-6 pb-8 -mt-16 bg-white shadow-md sm:grid-cols-2 md:p-10 md:pb-16 md:-mt-32">
                 @if ($module->description)
                     <div>

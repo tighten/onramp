@@ -7,7 +7,7 @@
     </x-hero>
 
 
-    <div class="pt-12 pb-48 lg:pt-20 fluid-container">
+    <div class="pt-12 pb-48 lg:pt-20 fcontainer">
         <div class="w-full max-w-screen-md mx-auto mb-6 text-base lg:text-lg">
             <p class="leading-normal text-steel">
                 The following is meant to describe how we obtain and use information collected from you, which may be considered personal data when maintained in an identifiable manner.
@@ -41,7 +41,7 @@
 
             <h2 class="mt-8 mb-5 text-xl font-semibold lg:mt-12 md:text-2xl">Securing Data</h2>
 
-            <p class="mb-4 leading-normal text-steel">We only ask for personal information when we truly need it to provide certain functions of this site to you. What data we store, we’ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorized access, disclosure, copying, use or modification.</p>
+            <p class="mb-4 leading-normal text-steel">We only ask for personal information when we truly need it to provide certain functions of this site to you. What data we store, we'll protect within commercially acceptable means to prevent loss and theft, as well as unauthorized access, disclosure, copying, use or modification.</p>
 
             <h2 class="mt-8 mb-5 text-xl font-semibold lg:mt-12 md:text-2xl">Links</h2>
 

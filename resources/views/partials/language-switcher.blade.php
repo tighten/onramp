@@ -22,7 +22,7 @@
         >
             <div class="overflow-hidden bg-white rounded-md shadow-xs">
                 <template x-for="(lang, slug) in languages" :key="slug">
-                    <a href="#" @click="chooseLanguage(slug)" x-text="lang" class="block px-4 py-3 text-sm font-medium leading-5 transition-colors duration-75 ease-in-out cursor-pointer hover:no-underline hover:bg-silver focus:outline-none focus:bg-silver">
+                    <a href="#" @click="chooseLanguage(slug)" x-text="lang" class="block px-4 py-3 text-sm font-medium leading-5 transition-colors duration-75 ease-in-out cursor-pointer hover:no-underline hover:bg-silver/50 focus:outline-none focus:bg-silver/50">
                     </a>
                 </template>
             </div>

@@ -9,7 +9,7 @@ use App\Models\Resource;
         ]"
     >
         <tab name="Videos &amp; Courses" :selected="true">
-            <div class="bg-white border-t-4 border-teal-600 shadow-md js-show-more-less">
+            <div class="bg-white border-t-4 border-teal shadow-md js-show-more-less">
                 <div class="pt-8 pb-6 pl-6 pr-5">
                     <p class="text-xl font-bold md:text-2xl">Videos &amp; Courses</p>
 

@@ -5,7 +5,7 @@
             class="px-6 text-center bg-oxford-blue"
             role="alert"
         >
-            <div class="relative py-4 fluid-container">
+            <div class="relative py-4 container">
                 <p class="text-base text-white">
                     <slot name="message"></slot>
                 </p>
@@ -43,18 +43,18 @@
 export default {
     data() {
         return {
-            isVisible: false
+            isVisible: false,
         };
     },
 
     methods: {
         dismiss() {
             this.isVisible = false;
-        }
+        },
     },
 
     mounted() {
-        document.addEventListener("DOMContentLoaded", () => {
+        document.addEventListener('DOMContentLoaded', () => {
             if (localStorage.showSiteBanner) {
                 this.isVisible = JSON.parse(localStorage.showSiteBanner);
 
@@ -72,8 +72,8 @@ export default {
     watch: {
         isVisible(value) {
             localStorage.showSiteBanner = value;
-        }
-    }
+        },
+    },
 };
 </script>
 

@@ -1,4 +1,3 @@
-<!-- ModulesMobile.vue -->
 <template>
     <div>
         <tabs
@@ -36,7 +35,7 @@
                             There are currently no modules here. Check back
                             soon.
                         </p>
-                        <module-card
+                        <ModuleCard
                             v-else
                             v-for="(mod, index) in beginnerModules"
                             :key="mod.id"
@@ -60,7 +59,7 @@
                             There are currently no modules here. Check back
                             soon.
                         </p>
-                        <module-card
+                        <ModuleCard
                             v-else
                             v-for="(mod, index) in intermediateModules"
                             :key="mod.id"
@@ -84,7 +83,7 @@
                             There are currently no modules here. Check back
                             soon.
                         </p>
-                        <module-card
+                        <ModuleCard
                             v-else
                             v-for="(mod, index) in advancedModules"
                             :key="mod.id"
@@ -101,7 +100,7 @@
                     </template>
 
                     <template v-else-if="tab.name === 'Bonus'">
-                        <module-card
+                        <ModuleCard
                             v-for="(mod, index) in currentBonusModules"
                             :key="mod.id"
                             :item="mod"

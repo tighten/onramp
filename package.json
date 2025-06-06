@@ -9,7 +9,7 @@
         "preview": "vite preview"
     },
     "devDependencies": {
-        "browser-sync": "^3.0.4",
+        "browser-sync": "^2.29.3",
         "browser-sync-webpack-plugin": "^2.2.2",
         "laravel-mix": "^6.0.49",
         "laravel-vite-plugin": "^1.2.0",

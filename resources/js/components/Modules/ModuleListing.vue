@@ -50,6 +50,8 @@
             :get-module-completed-resources="getModuleCompletedResources"
             :get-module-is-completed="getModuleIsCompleted"
             :module-has-new-resources="moduleHasNewResources"
+            :selectedTab="selectedTab"
+            @update:selectedTab="selectedTab = $event"
         />
     </div>
 </template>

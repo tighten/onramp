@@ -1,6 +1,6 @@
 @if (auth()->check() && is_null(auth()->user()->track_id))
-<div class="border-t-4" role="alert">
-    <div class="py-3 mx-auto fluid-container lg:py-4">
+<div class="border-t-4 mt-20" role="alert">
+    <div class="mx-auto fluid-container">
         <div class="flex flex-wrap items-center justify-between">
             <div class="flex items-center justify-center flex-1 w-0">
                 <svg class="flex-none w-5 h-5 mt-3 text-orange-600 fill-current" xmlns="http://www.w3.org/2000/svg"

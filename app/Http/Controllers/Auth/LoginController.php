@@ -49,7 +49,7 @@ class LoginController extends Controller
             $userExists = true;
 
             if (User::where('email', $user->getEmail())->exists()) {
-                if (! User::where('github_user_id', $user->getId())->exists()) {
+                if (!User::where('github_user_id', $user->getId())->exists()) {
                     User::where('email', $user->getEmail())
                         ->update([
                             'github_username' => $user->getNickname(),
@@ -80,8 +80,8 @@ class LoginController extends Controller
             if (request()->has('code') && request()->has('state')) {
                 Log::error($e);
 
-                // session()->flash('toast-title', 'GitHub Error');
-                // session()->flash('toast', 'There was an error authenticating with GitHub.');
+                session()->flash('toast-title', 'GitHub Error');
+                session()->flash('toast', 'There was an error authenticating with GitHub.');
             }
 
             return redirect(route_wlocale('login'));

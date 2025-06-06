@@ -1,12 +1,11 @@
-// app.js
 import { createApp, ref } from 'vue';
 import './bootstrap';
 import Lang from 'lang.js';
 import Translations from './translations';
 import ClickOutside from './directives/ClickOutside';
 import Alpine from 'alpinejs';
+import Notifications from '@kyvg/vue3-notification';
 
-// Import components
 import CompletableButton from './components/Completables/CompletedButton.vue';
 import CompletedBadge from './components/Completables/CompletedBadge.vue';
 import CompletedCheckbox from './components/Completables/CompletedCheckbox.vue';
@@ -21,13 +20,12 @@ import Skill from './components/Skill.vue';
 import Tab from './components/Tabs/Tab.vue';
 import Tabs from './components/Tabs/Tabs.vue';
 import TabsWithSelect from './components/Tabs/TabsWithSelect.vue';
+import Toast from './components/Toast.vue';
 import ToggleWhenMobile from './components/ToggleWhenMobile.vue';
 
-// Setup Alpine.js
 window.Alpine = Alpine;
 Alpine.start();
 
-// Create app instance
 const app = createApp({
     setup() {
         // State
@@ -62,7 +60,6 @@ const app = createApp({
     },
 });
 
-// Register components
 const components = {
     'toggle-when-mobile': ToggleWhenMobile,
     'resource-language-preference-switcher': ResourceLanguagePreferenceSwitcher,
@@ -78,6 +75,7 @@ const components = {
     skill: Skill,
     tab: Tab,
     tabs: Tabs,
+    Toast: Toast, // CHANGED: Uppercase to match Blade template
     'tabs-with-select': TabsWithSelect,
 };
 
@@ -85,14 +83,12 @@ Object.entries(components).forEach(([name, component]) => {
     app.component(name, component);
 });
 
-// Add global properties
 app.config.globalProperties.trans = new Lang({
     messages: Translations,
     locale: window.locale,
     fallback: window.fallback_locale,
 });
 
-// Global filters as properties
 app.config.globalProperties.$filters = {
     capitalize(string) {
         if (!string) return '';
@@ -112,10 +108,10 @@ app.config.globalProperties.$filters = {
     },
 };
 
-// Add custom directives
 app.directive('click-outside', ClickOutside);
 
-// Mount app
+app.use(Notifications);
+
 app.mount('#app-body');
 
 export default app;

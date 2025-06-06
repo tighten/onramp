@@ -21,6 +21,8 @@ class ProfileController extends Controller
 
         auth()->user()->update($validated);
 
+        session()->flash('toast', 'Your profile has been successfully saved.');
+
         return redirect(route_wlocale('user.profile.show'));
     }
 }

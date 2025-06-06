@@ -16,6 +16,7 @@
         "vue-loader": "^17.4.2"
     },
     "dependencies": {
+        "@kyvg/vue3-notification": "^3.4.1",
         "@vitejs/plugin-vue": "^5.2.1",
         "alpinejs": "^3.14.7",
         "autoprefixer": "^10.4.19",

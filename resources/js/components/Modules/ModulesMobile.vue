@@ -7,7 +7,7 @@
             :hide-tabs-on-desktop="true"
             :selectedTab="selectedTab"
             class="mt-10"
-            @update:selectedTab="selectedTab = $event"
+            @update:selectedTab="handleTabChange"
         />
 
         <tab
@@ -142,4 +142,10 @@ const props = defineProps({
     getModuleIsCompleted: Function,
     moduleHasNewResources: Function,
 });
+
+const emit = defineEmits(['update:selectedTab']);
+
+const handleTabChange = (newTab) => {
+    emit('update:selectedTab', newTab);
+};
 </script>

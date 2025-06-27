@@ -1,10 +1,11 @@
-import { createApp, ref } from 'vue';
+import {createApp, ref} from 'vue';
 import './bootstrap';
 import Lang from 'lang.js';
 import Translations from './translations';
 import ClickOutside from './directives/ClickOutside';
 import Alpine from 'alpinejs';
 import Notifications from '@kyvg/vue3-notification';
+import VueSelect from "vue-select";
 
 import CompletableButton from './components/Completables/CompletedButton.vue';
 import CompletedBadge from './components/Completables/CompletedBadge.vue';
@@ -61,22 +62,23 @@ const app = createApp({
 });
 
 const components = {
-    'toggle-when-mobile': ToggleWhenMobile,
-    'resource-language-preference-switcher': ResourceLanguagePreferenceSwitcher,
-    'completed-badge': CompletedBadge,
-    'completed-button': CompletableButton,
-    'completed-checkbox': CompletedCheckbox,
-    modal: Modal,
-    'modal-mobile-menu': ModalMobileMenu,
-    'module-listing': ModuleListing,
-    'module-card': ModuleCard,
-    'select-dropdown': SelectDropdown,
-    'sitewide-banner': SitewideBanner,
-    skill: Skill,
-    tab: Tab,
-    tabs: Tabs,
-    Toast: Toast, // CHANGED: Uppercase to match Blade template
-    'tabs-with-select': TabsWithSelect,
+    CompletedBadge: CompletedBadge,
+    CompletableButton: CompletableButton,
+    CompletedCheckbox: CompletedCheckbox,
+    Modal: Modal,
+    ModalMobileMenu: ModalMobileMenu,
+    ModuleCard: ModuleCard,
+    ModuleListing: ModuleListing,
+    ResourceLanguagePreferenceSwitcher: ResourceLanguagePreferenceSwitcher,
+    SelectDropdown: SelectDropdown,
+    Skill: Skill,
+    SitewideBanner: SitewideBanner,
+    Tab: Tab,
+    Tabs: Tabs,
+    TabsWithSelect: TabsWithSelect,
+    Toast: Toast,
+    ToggleWhenMobile: ToggleWhenMobile,
+    VueSelect: VueSelect,
 };
 
 Object.entries(components).forEach(([name, component]) => {

@@ -103,36 +103,36 @@
             </div>
         </div>
 
-        <Tabs dark-mode>
-            <Tab @if ($resourceType === 'free-resources') :selected="true" @endif
+        <tabs dark-mode>
+            <tab @if ($resourceType === 'free-resources') :selected="true" @endif
             name="{{ __('Free resources') }}"
                  url="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'free-resources']) }}">
-            </Tab>
+            </tab>
 
-            <Tab @if ($resourceType === 'paid-resources') :selected="true" @endif
+            <tab @if ($resourceType === 'paid-resources') :selected="true" @endif
             name="{{ __('Paid resources') }}"
                  url="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'paid-resources']) }}">
-            </Tab>
+            </tab>
 
             {{-- @todo Show this once we add in quizzes and exercises --}}
             {{--
-                <Tab
+                <tab
                     @if ($resourceType === 'quizzes') :selected="true" @endif
                     name="Quizzes"
                     url="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'quizzes']) }}">
-                </Tab>
+                </tab>
 
-                <Tab
+                <tab
                     @if ($resourceType === 'exercises') :selected="true" @endif
                     name="Exercises"
                     url="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'exercises']) }}">
-                </Tab>
+                </tab>
             --}}
-        </Tabs>
+        </tabs>
 
         <resource-language-preference-switcher class="px-4 mb-8 sm:px-0"
-            initial-choice="{{ $currentResourceLanguagePreference }}"
-            language="{{ Localization::languageForLocale(locale()) }}">
+                                               initial-choice="{{ $currentResourceLanguagePreference }}"
+                                               language="{{ Localization::languageForLocale(locale()) }}">
         </resource-language-preference-switcher>
 
         <x-panel>

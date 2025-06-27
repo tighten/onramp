@@ -5,7 +5,7 @@
                 :class="{ 'lg:hidden': hideTabsOnDesktop }"
                 class="w-full h-16 mb-4 overflow-hidden md:mb-10 lg:mb-12"
             >
-                <div class="pb-6 overflow-scroll">
+                <div class="pb-6 overflow-x-scroll">
                     <ul
                         class="inline-flex flex-no-wrap min-w-full border-b-4 text-none border-gray"
                     >

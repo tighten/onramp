@@ -1,13 +1,14 @@
+<template></template>
 <script setup>
-import { onMounted, nextTick } from 'vue';
-import { useNotification } from '@kyvg/vue3-notification';
+import {nextTick, onMounted} from 'vue';
+import {useNotification} from '@kyvg/vue3-notification';
 
 const props = defineProps({
     title: String,
     text: String,
 });
 
-const { notify } = useNotification();
+const {notify} = useNotification();
 
 onMounted(async () => {
     await nextTick();

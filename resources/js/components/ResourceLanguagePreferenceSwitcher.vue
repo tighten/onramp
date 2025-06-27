@@ -22,50 +22,48 @@
     </p>
 </template>
 
-<script>
-export default {
-    props: {
-        language: {
-            type: String,
-            required: true
-        },
-        initialChoice: {
-            type: String,
-            required: true
-        },
-    },
+<script setup>
+import { ref } from 'vue';
 
-    data() {
-        return {
-            choice: this.initialChoice,
-        }
+const props = defineProps({
+    language: {
+        type: String,
+        required: true
     },
+    initialChoice: {
+        type: String,
+        required: true
+    },
+});
 
-    methods: {
-        choose(value) {
-            this.choice = value;
-            axios.patch(route('user.preferences.update', {'locale': 'en'}), {
-                'resource-language': value,
-            })
-            .then(function () {
-                window.location.reload(false);
-            })
-            .catch(function (error) {
-                alert('Error!');
-            });
-        },
-        showAll() {
-            this.choose('all');
-        },
-        showOnlyLocalLanguage() {
-            this.choose('local');
-        },
-        showEnglishAndLocalLanguage() {
-            this.choose('local-and-english');
-        },
-        choiceIsSelected(value) {
-            return this.choice === value;
-        },
-    },
+const choice = ref(props.initialChoice);
+
+function choose(value) {
+    choice.value = value;
+    axios.patch(route('user.preferences.update', {'locale': 'en'}), {
+        'resource-language': value,
+    })
+    .then(function() {
+        window.location.reload(false);
+    })
+    .catch(function(error) {
+        alert('Error!');
+    });
+}
+
+function showAll() {
+    choose('all');
+}
+
+function showOnlyLocalLanguage() {
+    choose('local');
+}
+
+function showEnglishAndLocalLanguage() {
+    choose('local-and-english');
+}
+
+function choiceIsSelected(value) {
+    return choice.value === value;
 }
 </script>

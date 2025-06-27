@@ -49,7 +49,7 @@ class LoginController extends Controller
             $userExists = true;
 
             if (User::where('email', $user->getEmail())->exists()) {
-                if (!User::where('github_user_id', $user->getId())->exists()) {
+                if (! User::where('github_user_id', $user->getId())->exists()) {
                     User::where('email', $user->getEmail())
                         ->update([
                             'github_username' => $user->getNickname(),

@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue';
+import {computed, inject, onMounted, onUnmounted} from 'vue';
 
 const props = defineProps({
     url: {
@@ -21,16 +21,37 @@ const props = defineProps({
     },
 });
 
-const isActive = ref(false);
+const tabsContext = inject('tabs', null);
 
-onMounted(() => {
-    isActive.value = props.selected;
+if (!tabsContext) {
+    console.warn('Tab component must be used within a Tabs component');
+}
+
+const isActive = computed(() => {
+    if (!tabsContext) return props.selected;
+
+    if (tabsContext.isDesktop?.value) {
+        return true;
+    }
+
+    return tabsContext.activeTabName.value === props.name;
 });
 
-watch(
-    () => props.selected,
-    (newVal) => {
-        isActive.value = newVal;
+onMounted(() => {
+    if (tabsContext) {
+        const href = props.url || `#${props.name.toLowerCase().replace(/ /g, '-')}`;
+        tabsContext.registerTab({
+            name: props.name,
+            href,
+            selected: props.selected,
+            hasUrl: !!props.url
+        });
     }
-);
+});
+
+onUnmounted(() => {
+    if (tabsContext) {
+        tabsContext.unregisterTab(props.name);
+    }
+});
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <div class="relative" :tabindex="tabindex" @blur="open = false">
+    <div class="relative" :tabindex="tabindex" @blur="isOpen = false">
         <button
             class="relative block w-full h-12 px-5 py-4 pr-12 text-base font-semibold leading-none text-left text-black truncate bg-white border rounded-md focus:outline-none"
             :class="{ 'rounded-bl-none rounded-br-none': isOpen }"
@@ -56,33 +56,28 @@
     </div>
 </template>
 
-<script>
-export default {
-    props: {
-        options: Array,
-        tabindex: {
-            type: Number,
-            default: 0
-        }
-    },
+<script setup>
+import { ref, onMounted } from 'vue';
 
-    data() {
-        return {
-            isOpen: false,
-            selected: this.options.length > 0 ? this.options[0] : null
-        };
-    },
-
-    methods: {
-        setSelected(option) {
-            this.selected = option;
-            this.isOpen = false;
-            this.$emit("selectChanged", option);
-        }
-    },
-
-    mounted() {
-        this.$emit("selectChanged", this.selected);
+const props = defineProps({
+    options: Array,
+    tabindex: {
+        type: Number,
+        default: 0
     }
-};
+});
+
+const emit = defineEmits(['selectChanged']);
+const isOpen = ref(false);
+const selected = ref(props.options.length > 0 ? props.options[0] : null);
+
+function setSelected(option) {
+    selected.value = option;
+    isOpen.value = false;
+    emit('selectChanged', option);
+}
+
+onMounted(() => {
+    emit('selectChanged', selected.value);
+});
 </script>

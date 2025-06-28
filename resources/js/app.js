@@ -1,17 +1,15 @@
-import {createApp, ref} from 'vue';
+import {createApp} from 'vue';
 import './bootstrap';
 import Lang from 'lang.js';
 import Translations from './translations';
 import ClickOutside from './directives/ClickOutside';
 import Alpine from 'alpinejs';
 import Notifications from '@kyvg/vue3-notification';
-import VueSelect from "vue-select";
+import VueSelect from 'vue-select';
 
 import CompletableButton from './components/Completables/CompletedButton.vue';
 import CompletedBadge from './components/Completables/CompletedBadge.vue';
 import CompletedCheckbox from './components/Completables/CompletedCheckbox.vue';
-import Modal from './components/Modal.vue';
-import ModalMobileMenu from './components/ModalMobileMenu.vue';
 import ModuleListing from './components/Modules/ModuleListing.vue';
 import ModuleCard from './components/Modules/ModuleCard.vue';
 import ResourceLanguagePreferenceSwitcher from './components/ResourceLanguagePreferenceSwitcher.vue';
@@ -29,33 +27,11 @@ Alpine.start();
 
 const app = createApp({
     setup() {
-        // State
-        const modals = ref({
-            mobileMenu: false,
-        });
-
-        // Methods
-        const openModal = (modalName) => {
-            modals.value[modalName] = true;
-            document.documentElement.style.overflow = 'hidden';
-        };
-
-        const closeModal = () => {
-            Object.keys(modals.value).forEach((modal) => {
-                modals.value[modal] = false;
-            });
-            document.documentElement.style.overflow = 'auto';
-        };
-
-        const logout = (e) => {
+        const logout = function (e) {
             e.preventDefault();
             document.getElementById('logout-form').submit();
         };
-
         return {
-            modals,
-            openModal,
-            closeModal,
             logout,
         };
     },
@@ -65,8 +41,6 @@ const components = {
     'completed-badge': CompletedBadge,
     'completable-button': CompletableButton,
     'completed-checkbox': CompletedCheckbox,
-    'modal': Modal,
-    'modal-mobile-menu': ModalMobileMenu,
     'module-card': ModuleCard,
     'module-listing': ModuleListing,
     'resource-language-preference-switcher': ResourceLanguagePreferenceSwitcher,
@@ -93,7 +67,10 @@ app.config.globalProperties.trans = new Lang({
 
 app.config.globalProperties.$filters = {
     capitalize(string) {
-        if (!string) return '';
+        if (!string) {
+            return ''
+        }
+        ;
         return string
             .toString()
             .toLowerCase()
@@ -116,4 +93,4 @@ app.use(Notifications);
 
 app.mount('#app-body');
 
-export default app;
+

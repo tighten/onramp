@@ -33,7 +33,7 @@ export default {
         },
 
         markCompleted() {
-            axios.post(route('user.completions.store', {'locale': 'en'}), {
+            window.axios.post(route('user.completions.store', {'locale': 'en'}), {
                 'completable_type': this.type,
                 'completable_id': this.id,
             })
@@ -43,7 +43,7 @@ export default {
         },
 
         markNotCompleted() {
-            axios.delete(route('user.completions.destroy', {'locale': 'en'}), {
+            window.axios.delete(route('user.completions.destroy', {'locale': 'en'}), {
                 data:{
                     'completable_type': this.type,
                     'completable_id': this.id,

@@ -4,7 +4,7 @@
         :id="id"
         :initial-is-completed="initialIsCompleted"
     >
-        <template slot-scope="{ toggle, isCompleted }">
+        <template v-slot="{ toggle, isCompleted }">
             <button
                 class="relative flex items-start px-4 py-2 font-bold leading-5 text-left transition rounded cursor-pointer text-emerald bg-teal bg-opacity-20 focus:outline-none sm:leading-6 lg:leading-8 lg:items-center"
                 :class="
@@ -34,25 +34,25 @@
     </completable>
 </template>
 
-<script>
+<script setup>
 import Completable from "./Completable.vue";
 
-export default {
-    components: {
-        Completable,
+defineProps({
+    badgeText: {
+        type: String,
+        required: true,
     },
-
-    props: {
-        badgeText: {
-            type: String,
-            required: true,
-        },
-        initialIsCompleted: {
-            type: Boolean,
-            default: false,
-        },
-        type: {},
-        id: {},
+    initialIsCompleted: {
+        type: Boolean,
+        default: false,
     },
-};
+    type: {
+        type: String,
+        required: true
+    },
+    id: {
+        type: [String, Number],
+        required: true
+    },
+});
 </script>

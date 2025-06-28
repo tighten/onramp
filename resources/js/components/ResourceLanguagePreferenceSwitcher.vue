@@ -40,7 +40,7 @@ const choice = ref(props.initialChoice);
 
 function choose(value) {
     choice.value = value;
-    axios.patch(route('user.preferences.update', {'locale': 'en'}), {
+    window.axios.patch(route('user.preferences.update', {'locale': 'en'}), {
         'resource-language': value,
     })
     .then(function() {

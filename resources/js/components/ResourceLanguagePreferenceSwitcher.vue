@@ -44,7 +44,7 @@ export default {
     methods: {
         choose(value) {
             this.choice = value;
-            axios.patch(route('user.preferences.update', {'locale': 'en'}), {
+            window.axios.patch(route('user.preferences.update', {'locale': 'en'}), {
                 'resource-language': value,
             })
             .then(function () {

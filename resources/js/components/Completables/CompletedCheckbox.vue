@@ -4,7 +4,7 @@
         :id="id"
         :initial-is-completed="initialIsCompleted"
     >
-        <template slot-scope="{ toggle, isCompleted }">
+        <template v-slot="{ toggle, isCompleted }">
             <div class="inline-block mr-1">
                 <div
                     @click="toggle"
@@ -27,21 +27,21 @@
     </completable>
 </template>
 
-<script>
+<script setup>
 import Completable from "./Completable.vue";
 
-export default {
-    components: {
-        Completable
+defineProps({
+    initialIsCompleted: {
+        type: Boolean,
+        default: false
     },
-
-    props: {
-        initialIsCompleted: {
-            type: Boolean,
-            default: false
-        },
-        type: {},
-        id: {}
+    type: {
+        type: String,
+        required: true
+    },
+    id: {
+        type: [String, Number],
+        required: true
     }
-};
+});
 </script>

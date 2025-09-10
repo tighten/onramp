@@ -15,7 +15,7 @@
         "laravel-vite-plugin": "^1.2.0",
         "postcss": "^8.4.38",
         "sass": "^1.32.12",
-        "vite": "^6.3.4",
+        "vite": "^6.3.6",
         "vue-loader": "^15.10.0"
     },
     "dependencies": {

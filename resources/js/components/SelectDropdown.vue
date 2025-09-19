@@ -1,8 +1,11 @@
 <template>
     <div class="relative" :tabindex="tabindex" @blur="isOpen = false">
         <button
+            type="button"
             class="relative block w-full h-12 px-5 py-4 pr-12 text-base font-semibold leading-none text-left text-black truncate bg-white border rounded-md focus:outline-none"
             :class="{ 'rounded-bl-none rounded-br-none': isOpen }"
+            aria-haspopup="listbox"
+            :aria-expanded="isOpen.toString()"
             @click="isOpen = !isOpen"
         >
             <span>{{ selected }}</span>
@@ -26,6 +29,7 @@
         <ul
             class="absolute top-0 left-0 w-full mt-12 overflow-hidden shadow-md rounded-b-md"
             :class="[isOpen ? 'h-auto border border-t-0' : 'h-0']"
+            role="listbox"
         >
             <li
                 v-for="(option) of options"
@@ -33,8 +37,11 @@
                 class="border-t first:border-t-0"
             >
                 <button
+                    type="button"
                     class="relative block w-full px-5 py-4 pr-12 text-base font-semibold text-left truncate bg-white focus:outline-none"
                     :class="{ '': selected === option }"
+                    role="option"
+                    :aria-selected="(selected === option).toString()"
                     @click="setSelected(option)"
                 >
                     <span>{{ option }}</span>
@@ -59,12 +66,15 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
-const {options, tabIndex} = defineProps({
-    options: Array,
+const { options, tabindex } = defineProps({
+    options: {
+        type: Array,
+        default: () => [],
+    },
     tabindex: {
         type: Number,
-        default: 0
-    }
+        default: 0,
+    },
 });
 
 const emit = defineEmits(['selectChanged']);

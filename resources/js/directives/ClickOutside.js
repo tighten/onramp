@@ -1,15 +1,12 @@
 export default {
-    mounted(el, binding) {
+    mounted(el, {value}) {
         const listener = (e) => {
-            if (e.target === el || el.contains(e.target)) {
-                return;
+            if (!(e.target === el || el.contains(e.target))) {
+                value();
             }
-
-            binding.value();
         };
 
         document.addEventListener('click', listener);
-
         el._clickOutsideHandler = listener;
     },
 

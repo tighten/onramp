@@ -5,7 +5,7 @@ class ShowMoreLess {
         this.resizeTimeout = null;
         this.init();
     }
-    
+
     init() {
         this.components = document.querySelectorAll('.js-show-more-less');
 
@@ -17,9 +17,6 @@ class ShowMoreLess {
         this.setupResizeListener();
     }
 
-    /**
-     * Set up each component with show more/less functionality
-     */
     setupComponents() {
         this.components.forEach(function (component) {
             try {
@@ -41,7 +38,6 @@ class ShowMoreLess {
                 const initialButtonText = button.textContent;
                 const defaultLimit = this.getDefaultLimit();
 
-                // Store component data as properties on the component element
                 component._showMoreLess = {
                     items: items,
                     button: button,
@@ -57,9 +53,6 @@ class ShowMoreLess {
         }, this);
     }
 
-    /**
-     * Set up the button click event for a component
-     */
     setupComponentButton(component) {
         const data = component._showMoreLess;
         const button = data.button;
@@ -70,9 +63,6 @@ class ShowMoreLess {
         }.bind(this));
     }
 
-    /**
-     * Toggle between showing all items and showing limited items
-     */
     toggleComponentItems(component) {
         const data = component._showMoreLess;
         const items = data.items;
@@ -92,9 +82,6 @@ class ShowMoreLess {
         }
     }
 
-    /**
-     * Update component display based on current state
-     */
     updateComponentDisplay(component) {
         const data = component._showMoreLess;
         const items = data.items;
@@ -110,9 +97,6 @@ class ShowMoreLess {
         }
     }
 
-    /**
-     * Set up window resize event listener
-     */
     setupResizeListener() {
         window.addEventListener('resize', function () {
             clearTimeout(this.resizeTimeout);
@@ -123,9 +107,6 @@ class ShowMoreLess {
         }.bind(this));
     }
 
-    /**
-     * Handle window resize event
-     */
     handleResize() {
         const newLimit = this.getDefaultLimit();
 
@@ -145,18 +126,12 @@ class ShowMoreLess {
         }, this);
     }
 
-    /**
-     * Show all items in a collection
-     */
     showAllItems(items) {
         Array.from(items).forEach(function (item) {
             item.style.display = '';
         });
     }
 
-    /**
-     * Hide items after the specified limit
-     */
     hideItemsAfterLimit(items, limit) {
         Array.from(items).forEach(function (item, index) {
             if (index >= limit) {
@@ -167,9 +142,6 @@ class ShowMoreLess {
         });
     }
 
-    /**
-     * Get the default limit based on screen width
-     */
     getDefaultLimit() {
         return window.innerWidth < 992 ? 3 : 7;
     }

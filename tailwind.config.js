@@ -22,6 +22,7 @@ module.exports = {
             mint: '#4FD1C5',
             teal: '#319795',
             emerald: '#096866',
+            violet: "#657EEA",
             purple: '#5B55CC',
             cabernet: '#97266D',
             merlot: '#702459',

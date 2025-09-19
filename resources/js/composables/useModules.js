@@ -1,14 +1,14 @@
-import { ref, computed } from 'vue';
+import {ref, computed} from 'vue';
 
 export default function useModules(props) {
     const tabRefs = ref({});
     const showAllModules = ref(!props.userLoggedIn);
 
     const tabs = ref([
-        { name: 'Beginner', selected: true },
-        { name: 'Intermediate', selected: false },
-        { name: 'Advanced', selected: false },
-        { name: 'Bonus', selected: false },
+        {name: 'Beginner', selected: true},
+        {name: 'Intermediate', selected: false},
+        {name: 'Advanced', selected: false},
+        {name: 'Bonus', selected: false},
     ]);
 
     const selectedTab = ref(tabs.value[0].name);
@@ -21,30 +21,22 @@ export default function useModules(props) {
         showAllModules.value = !showAllModules.value;
     };
 
+    const userModuleIds = computed(() => new Set((props.userModules || []).map((id) => parseInt(id, 10))));
+    const completedModuleIds = computed(() => new Set((props.completedModules || []).map((id) => parseInt(id, 10))));
+    const completedResourceIds = computed(() => new Set((props.userResourceCompletions || []).map((id) => parseInt(id, 10))));
+
     const filterStandardModules = (skillLevel) => {
         const lowerSkill = skillLevel.toLowerCase();
-
         const modulesByLevel = props.standardModules.filter(
             (module) => module.skill_level.toLowerCase() === lowerSkill
         );
 
-        if (!props.userLoggedIn) {
-            return modulesByLevel;
-        }
+        if (!props.userLoggedIn) return modulesByLevel;
 
-        if (showAllModules.value) {
-            const user = modulesByLevel.filter((mod) =>
-                props.userModules.includes(mod.id)
-            );
-            const nonUser = modulesByLevel.filter(
-                (mod) => !props.userModules.includes(mod.id)
-            );
-            return [...user, ...nonUser];
-        }
-
-        return modulesByLevel.filter((mod) =>
-            props.userModules.includes(mod.id)
-        );
+        const filterByUser = (mod) => userModuleIds.value.has(mod.id);
+        return showAllModules.value
+            ? [...modulesByLevel.filter(filterByUser), ...modulesByLevel.filter((mod) => !filterByUser(mod))]
+            : modulesByLevel.filter(filterByUser);
     };
 
     const beginnerModules = computed(() => filterStandardModules('Beginner'));
@@ -54,62 +46,31 @@ export default function useModules(props) {
     const advancedModules = computed(() => filterStandardModules('Advanced'));
 
     const currentBonusModules = computed(() => {
-        if (!props.userLoggedIn) {
-            return props.bonusModules;
-        }
+        if (!props.userLoggedIn) return props.bonusModules;
 
-        if (showAllModules.value) {
-            const user = props.bonusModules.filter(({ id }) =>
-                props.userModules.includes(id)
-            );
-            const nonUser = props.bonusModules.filter(
-                ({ id }) => !props.userModules.includes(id)
-            );
-            return [...user, ...nonUser];
-        }
-
-        return props.bonusModules.filter(({ id }) =>
-            props.userModules.includes(id)
-        );
+        const filterByUser = ({id}) => userModuleIds.value.has(id);
+        return showAllModules.value
+            ? [...props.bonusModules.filter(filterByUser), ...props.bonusModules.filter((mod) => !filterByUser(mod))]
+            : props.bonusModules.filter(filterByUser);
     });
 
-    const getModuleCompletedResources = (mod) => {
-        if (!props.userLoggedIn) return 0;
-
-        const completedResources = props.userResourceCompletions.map((id) =>
-            parseInt(id, 10)
-        );
-
-        return mod.resources_for_current_session.filter(({ id }) =>
-            completedResources.includes(id)
-        ).length;
-    };
+    const getModuleCompletedResources = (mod) =>
+        props.userLoggedIn
+            ? mod.resources_for_current_session.filter(({id}) =>
+                completedResourceIds.value.has(id)
+            ).length
+            : 0;
 
     const getModuleIsCompleted = (mod) => {
-        const completedModules = props.completedModules.map((id) =>
-            parseInt(id, 10)
-        );
-        return completedModules.includes(mod.id);
+        return completedModuleIds.value.has(mod.id);
     };
 
-    const moduleHasNewResources = (mod) => {
-        if (!props.userLoggedIn) return false;
+    const moduleHasNewResources = (mod) =>
+        props.userLoggedIn && mod.resources_for_current_session.some(resource => resource.is_new);
 
-        return mod.resources_for_current_session.some(
-            (resource) => resource.is_new
-        );
-    };
-
-    const filteredTabs = computed(() => {
-        const activeTabs = tabs.value.filter((tab) => {
-            if (tab.name === 'Bonus' && !currentBonusModules.value.length) {
-                return false;
-            }
-            return true;
-        });
-
-        return activeTabs;
-    });
+    const filteredTabs = computed(() =>
+        tabs.value.filter((tab) => tab.name !== 'Bonus' || currentBonusModules.value.length)
+    );
 
     return {
         tabRefs,

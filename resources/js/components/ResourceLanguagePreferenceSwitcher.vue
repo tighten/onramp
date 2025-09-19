@@ -27,7 +27,7 @@
 <script setup>
 import {ref} from 'vue';
 
-defineProps({
+const {initialChoice} = defineProps({
     language: {
         type: String,
         required: true

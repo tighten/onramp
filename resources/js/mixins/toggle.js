@@ -1,33 +1,31 @@
-export default {
-    data() {
-        return {
-            isOpen: false,
-        };
-    },
+import {ref, onMounted, onUnmounted} from 'vue';
 
-    methods: {
-        open() {
-            this.isOpen = true;
-            document.addEventListener('keydown', this.handleEscape);
-        },
+export function useToggle() {
+    const isOpen = ref(false);
 
-        close() {
-            this.isOpen = false;
-            document.removeEventListener('keydown', this.handleEscape);
-        },
+    const handleEscape = (e) => {
+        if (e.key === 'Escape' || e.key === 'Esc') close();
+    };
 
-        toggle() {
-            this.isOpen ? this.close() : this.open();
-        },
+    const open = () => {
+        if (!isOpen.value) {
+            isOpen.value = true;
+            document.addEventListener('keydown', handleEscape);
+        }
+    };
 
-        handleEscape(e) {
-            if (e.key === 'Esc' || e.key === 'Escape') {
-                this.close();
-            }
-        },
-    },
+    const close = () => {
+        if (isOpen.value) {
+            isOpen.value = false;
+            document.removeEventListener('keydown', handleEscape);
+        }
+    };
 
-    unmounted() {
-        document.removeEventListener('keydown', this.handleEscape);
-    },
-};
+    const toggle = () => (isOpen.value ? close() : open());
+
+    onUnmounted(() => {
+        document.removeEventListener('keydown', handleEscape);
+    });
+
+    return {isOpen, open, close, toggle};
+}

@@ -6,12 +6,14 @@
     >
         <template v-slot="{ toggle, isCompleted }">
             <button
+                type="button"
                 class="relative flex items-start px-4 py-2 font-bold leading-5 text-left transition rounded cursor-pointer text-emerald bg-teal bg-opacity-20 focus:outline-none sm:leading-6 lg:leading-8 lg:items-center"
                 :class="
                     isCompleted
                         ? 'bg-opacity-10 hover:bg-opacity-20'
                         : 'bg-opacity-25 hover:bg-opacity-30'
                 "
+                :aria-pressed="isCompleted.toString()"
                 @click="toggle"
             >
                 <span>

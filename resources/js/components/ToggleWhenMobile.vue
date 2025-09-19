@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button @click="toggle" class="px-6 border rounded button button-white md:hidden">{{ buttonLabel }}</button>
+        <button type="button" @click="toggle" :aria-expanded="isOpen.toString()" class="px-6 border rounded button button-white md:hidden">{{ buttonLabel }}</button>
         <div class="md:block" :class="{ hidden: !isOpen }">
             <slot></slot>
         </div>

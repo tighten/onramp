@@ -1,5 +1,5 @@
 <template>
-  <li v-if="completable" :key="id" class="block m-1 md:m-2">
+  <li v-if="completable" class="block m-1 md:m-2">
     <CompletedBadge
       :id="id"
       :badge-text="text"

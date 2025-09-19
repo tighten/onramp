@@ -7,7 +7,7 @@
 <script setup>
 import {ref} from 'vue';
 
-const props = defineProps({
+const {initialIsCompleted, type, id} = defineProps({
     initialIsCompleted: {
         type: Boolean,
         default: false
@@ -22,7 +22,6 @@ const props = defineProps({
     },
 });
 
-const {type, id, initialIsCompleted} = props;
 const isCompleted = ref(initialIsCompleted);
 
 const markCompleted = () => {

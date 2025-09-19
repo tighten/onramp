@@ -125,7 +125,7 @@ import ModuleCard from './ModuleCard.vue';
 import Tabs from '../Tabs/Tabs.vue';
 import Tab from '../Tabs/Tab.vue';
 
-const props = defineProps({
+defineProps({
     filteredTabs: Array,
     selectedTab: String,
     beginnerModules: Array,

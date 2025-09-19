@@ -91,7 +91,7 @@ import IntermediateCard from './IntermediateCard.vue';
 import AdvancedCard from './AdvancedCard.vue';
 import BonusCard from './BonusCard.vue';
 
-const props = defineProps({
+defineProps({
     beginnerModules: Array,
     intermediateModules: Array,
     advancedModules: Array,

@@ -17,7 +17,7 @@ import {ref} from 'vue';
 import SelectDropdown from '../SelectDropdown.vue';
 import Tabs from './Tabs.vue';
 
-const props = defineProps({
+defineProps({
     selectOptions: Array,
 });
 

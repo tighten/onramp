@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import {ref} from 'vue';
+import { ref } from 'vue';
 import SelectDropdown from '../SelectDropdown.vue';
 import Tabs from './Tabs.vue';
 

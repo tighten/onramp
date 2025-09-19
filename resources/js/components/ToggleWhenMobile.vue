@@ -1,6 +1,13 @@
 <template>
     <div>
-        <button type="button" @click="toggle" :aria-expanded="isOpen.toString()" class="px-6 border rounded button button-white md:hidden">{{ buttonLabel }}</button>
+        <button
+            type="button"
+            @click="toggle"
+            :aria-expanded="isOpen.toString()"
+            class="button button-white rounded border px-6 md:hidden"
+        >
+            {{ buttonLabel }}
+        </button>
         <div class="md:block" :class="{ hidden: !isOpen }">
             <slot></slot>
         </div>
@@ -8,7 +15,7 @@
 </template>
 
 <script setup>
-import {ref, computed} from 'vue';
+import { ref, computed } from 'vue';
 
 const isOpen = ref(false);
 
@@ -18,4 +25,3 @@ function toggle() {
 
 const buttonLabel = computed(() => (isOpen.value ? 'Hide' : 'Show'));
 </script>
-

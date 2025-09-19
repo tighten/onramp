@@ -1,13 +1,9 @@
 <template>
-    <completable
-        :type="type"
-        :id="id"
-        :initial-is-completed="initialIsCompleted"
-    >
+    <completable :type="type" :id="id" :initial-is-completed="initialIsCompleted">
         <template v-slot="{ toggle, isCompleted }">
             <button
                 type="button"
-                class="relative flex items-start px-4 py-2 font-bold leading-5 text-left transition rounded cursor-pointer text-emerald bg-teal bg-opacity-20 focus:outline-none sm:leading-6 lg:leading-8 lg:items-center"
+                class="relative flex cursor-pointer items-start rounded bg-teal bg-opacity-20 px-4 py-2 text-left font-bold leading-5 text-emerald transition focus:outline-none sm:leading-6 lg:items-center lg:leading-8"
                 :class="
                     isCompleted
                         ? 'bg-opacity-10 hover:bg-opacity-20'
@@ -22,7 +18,7 @@
 
                 <svg
                     v-if="isCompleted"
-                    class="w-3 h-3 ml-3 fill-current"
+                    class="ml-3 h-3 w-3 fill-current"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                 >
@@ -37,7 +33,7 @@
 </template>
 
 <script setup>
-import Completable from "./Completable.vue";
+import Completable from './Completable.vue';
 
 defineProps({
     badgeText: {
@@ -50,11 +46,11 @@ defineProps({
     },
     type: {
         type: String,
-        required: true
+        required: true,
     },
     id: {
         type: [String, Number],
-        required: true
+        required: true,
     },
 });
 </script>

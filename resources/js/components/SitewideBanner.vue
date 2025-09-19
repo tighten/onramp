@@ -1,26 +1,20 @@
 <template>
     <transition name="slide">
-        <div
-            v-if="isVisible"
-            class="px-6 text-center pt-12"
-            role="alert"
-        >
-            <div class="relative py-4 container bg-lake">
+        <div v-if="isVisible" class="px-6 pt-12 text-center" role="alert">
+            <div class="container relative bg-lake py-4">
                 <p class="text-base text-white">
-                    <slot name="message"/>
+                    <slot name="message" />
                 </p>
 
-                <div
-                    class="absolute right-0 transform -translate-y-1/2 top-1/2"
-                >
+                <div class="absolute right-0 top-1/2 -translate-y-1/2 transform">
                     <button
                         aria-label="dismiss"
-                        class="flex p-2 transition duration-200 ease-in-out rounded-md focus:outline-none focus:bg-purple"
+                        class="flex rounded-md p-2 transition duration-200 ease-in-out focus:bg-purple focus:outline-none"
                         type="button"
                         @click="dismiss"
                     >
                         <svg
-                            class="w-6 h-6 text-white"
+                            class="h-6 w-6 text-white"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -40,7 +34,7 @@
 </template>
 
 <script setup>
-import {useLocalStorage} from '@vueuse/core';
+import { useLocalStorage } from '@vueuse/core';
 
 const isVisible = useLocalStorage('showSiteBanner', true);
 
@@ -49,7 +43,6 @@ const dismiss = () => {
 };
 
 defineExpose({
-    isVisible
+    isVisible,
 });
 </script>
-

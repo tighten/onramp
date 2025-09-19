@@ -2,7 +2,7 @@
     <div class="relative" :tabindex="tabindex" @blur="isOpen = false">
         <button
             type="button"
-            class="relative block w-full h-12 px-5 py-4 pr-12 text-base font-semibold leading-none text-left text-black truncate bg-white border rounded-md focus:outline-none"
+            class="text-black relative block h-12 w-full truncate rounded-md border bg-white px-5 py-4 pr-12 text-left text-base font-semibold leading-none focus:outline-none"
             :class="{ 'rounded-bl-none rounded-br-none': isOpen }"
             aria-haspopup="listbox"
             :aria-expanded="isOpen.toString()"
@@ -11,8 +11,8 @@
             <span>{{ selected }}</span>
 
             <svg
-                class="absolute top-0 right-0 w-4 h-full mr-5 stroke-current"
-                :class="{ 'mt-0 transform -scale-y-100': isOpen }"
+                class="absolute right-0 top-0 mr-5 h-full w-4 stroke-current"
+                :class="{ 'mt-0 -scale-y-100 transform': isOpen }"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 11"
             >
@@ -27,18 +27,14 @@
         </button>
 
         <ul
-            class="absolute top-0 left-0 w-full mt-12 overflow-hidden shadow-md rounded-b-md"
+            class="absolute left-0 top-0 mt-12 w-full overflow-hidden rounded-b-md shadow-md"
             :class="[isOpen ? 'h-auto border border-t-0' : 'h-0']"
             role="listbox"
         >
-            <li
-                v-for="(option) of options"
-                :key="option"
-                class="border-t first:border-t-0"
-            >
+            <li v-for="option of options" :key="option" class="border-t first:border-t-0">
                 <button
                     type="button"
-                    class="relative block w-full px-5 py-4 pr-12 text-base font-semibold text-left truncate bg-white focus:outline-none"
+                    class="relative block w-full truncate bg-white px-5 py-4 pr-12 text-left text-base font-semibold focus:outline-none"
                     :class="{ '': selected === option }"
                     role="option"
                     :aria-selected="(selected === option).toString()"
@@ -48,7 +44,7 @@
 
                     <template v-if="selected === option">
                         <svg
-                            class="absolute right-0 w-3 h-3 mr-5 transform -translate-y-1/2 fill-current text-emerald top-1/2"
+                            class="absolute right-0 top-1/2 mr-5 h-3 w-3 -translate-y-1/2 transform fill-current text-emerald"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
                         >

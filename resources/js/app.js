@@ -1,4 +1,4 @@
-import {createApp} from 'vue';
+import { createApp } from 'vue';
 import './bootstrap';
 import Lang from 'lang.js';
 import Translations from './translations';
@@ -45,12 +45,12 @@ const components = {
     'module-listing': ModuleListing,
     'resource-language-preference-switcher': ResourceLanguagePreferenceSwitcher,
     'select-dropdown': SelectDropdown,
-    'skill': Skill,
+    skill: Skill,
     'sitewide-banner': SitewideBanner,
-    'tab': Tab,
-    'tabs': Tabs,
+    tab: Tab,
+    tabs: Tabs,
     'tabs-with-select': TabsWithSelect,
-    'toast': Toast,
+    toast: Toast,
     'toggle-when-mobile': ToggleWhenMobile,
     'vue-select': VueSelect,
 };
@@ -68,9 +68,8 @@ app.config.globalProperties.trans = new Lang({
 app.config.globalProperties.$filters = {
     capitalize(string) {
         if (!string) {
-            return ''
+            return '';
         }
-        ;
         return string
             .toString()
             .toLowerCase()
@@ -92,5 +91,3 @@ app.directive('click-outside', ClickOutside);
 app.use(Notifications);
 
 app.mount('#app-body');
-
-

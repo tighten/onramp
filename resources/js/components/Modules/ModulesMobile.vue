@@ -16,24 +16,17 @@
             :name="capitalize(tab.name)"
             :selected="selectedTab === tab.name"
         >
-            <div
-                class="px-2 md:px-8 lg:px-20 2xl:px-32"
-                :class="{ 'lg:mt-32': index > 0 }"
-            >
+            <div class="px-2 md:px-8 lg:px-20 2xl:px-32" :class="{ 'lg:mt-32': index > 0 }">
                 <h2
-                    class="hidden w-full mb-10 text-4xl font-semibold leading-tight tracking-tight text-steel lg:block"
+                    class="mb-10 hidden w-full text-4xl font-semibold leading-tight tracking-tight text-steel lg:block"
                 >
                     {{ capitalize(tab.name) }}
                 </h2>
 
-                <div class="flex flex-wrap w-full">
+                <div class="flex w-full flex-wrap">
                     <template v-if="tab.name === 'Beginner'">
-                        <p
-                            v-if="!beginnerModules.length"
-                            class="px-3 text-steel"
-                        >
-                            There are currently no modules here. Check back
-                            soon.
+                        <p v-if="!beginnerModules.length" class="px-3 text-steel">
+                            There are currently no modules here. Check back soon.
                         </p>
                         <ModuleCard
                             v-else
@@ -42,9 +35,7 @@
                             :item="mod"
                             :card-is-even="index % 2 === 0"
                             :level="mod.skill_level"
-                            :completed-resources-count="
-                                getModuleCompletedResources(mod)
-                            "
+                            :completed-resources-count="getModuleCompletedResources(mod)"
                             :is-user-module="userModules.includes(mod.id)"
                             :is-completed="getModuleIsCompleted(mod)"
                             :has-new-content="moduleHasNewResources(mod)"
@@ -52,12 +43,8 @@
                     </template>
 
                     <template v-else-if="tab.name === 'Intermediate'">
-                        <p
-                            v-if="!intermediateModules.length"
-                            class="px-3 text-steel"
-                        >
-                            There are currently no modules here. Check back
-                            soon.
+                        <p v-if="!intermediateModules.length" class="px-3 text-steel">
+                            There are currently no modules here. Check back soon.
                         </p>
                         <ModuleCard
                             v-else
@@ -66,9 +53,7 @@
                             :item="mod"
                             :card-is-even="index % 2 === 0"
                             :level="mod.skill_level"
-                            :completed-resources-count="
-                                getModuleCompletedResources(mod)
-                            "
+                            :completed-resources-count="getModuleCompletedResources(mod)"
                             :is-user-module="userModules.includes(mod.id)"
                             :is-completed="getModuleIsCompleted(mod)"
                             :has-new-content="moduleHasNewResources(mod)"
@@ -76,12 +61,8 @@
                     </template>
 
                     <template v-else-if="tab.name === 'Advanced'">
-                        <p
-                            v-if="!advancedModules.length"
-                            class="px-3 text-steel"
-                        >
-                            There are currently no modules here. Check back
-                            soon.
+                        <p v-if="!advancedModules.length" class="px-3 text-steel">
+                            There are currently no modules here. Check back soon.
                         </p>
                         <ModuleCard
                             v-else
@@ -90,9 +71,7 @@
                             :item="mod"
                             :card-is-even="index % 2 === 0"
                             :level="mod.skill_level"
-                            :completed-resources-count="
-                                getModuleCompletedResources(mod)
-                            "
+                            :completed-resources-count="getModuleCompletedResources(mod)"
                             :is-user-module="userModules.includes(mod.id)"
                             :is-completed="getModuleIsCompleted(mod)"
                             :has-new-content="moduleHasNewResources(mod)"
@@ -106,9 +85,7 @@
                             :item="mod"
                             :card-is-even="index % 2 === 0"
                             level="bonus"
-                            :completed-resources-count="
-                                getModuleCompletedResources(mod)
-                            "
+                            :completed-resources-count="getModuleCompletedResources(mod)"
                             :is-user-module="userModules.includes(mod.id)"
                             :is-completed="getModuleIsCompleted(mod)"
                             :has-new-content="moduleHasNewResources(mod)"

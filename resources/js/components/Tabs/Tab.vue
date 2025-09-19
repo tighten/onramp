@@ -5,9 +5,9 @@
 </template>
 
 <script setup>
-import {computed, inject, onMounted, onUnmounted} from 'vue';
+import { computed, inject, onMounted, onUnmounted } from 'vue';
 
-const {url, name, selected} = defineProps({
+const { url, name, selected } = defineProps({
     url: {
         type: String,
     },
@@ -44,7 +44,7 @@ onMounted(() => {
             name: name,
             href,
             selected: selected,
-            hasUrl: !!url
+            hasUrl: !!url,
         });
     }
 });

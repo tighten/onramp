@@ -5,30 +5,31 @@
 </template>
 
 <script setup>
-import {ref} from 'vue';
+import { ref } from 'vue';
 
-const {initialIsCompleted, type, id} = defineProps({
+const { initialIsCompleted, type, id } = defineProps({
     initialIsCompleted: {
         type: Boolean,
-        default: false
+        default: false,
     },
     type: {
         type: String,
-        required: true
+        required: true,
     },
     id: {
         type: [String, Number],
-        required: true
+        required: true,
     },
 });
 
 const isCompleted = ref(initialIsCompleted);
 
 const markCompleted = () => {
-    window.axios.post(route('user.completions.store', {'locale': 'en'}), {
-        'completable_type': type,
-        'completable_id': id,
-    })
+    window.axios
+        .post(route('user.completions.store', { locale: 'en' }), {
+            completable_type: type,
+            completable_id: id,
+        })
         .then(() => {
             console.log('Successfully marked as completed');
         })
@@ -36,15 +37,16 @@ const markCompleted = () => {
             console.error('Error marking as completed:', error);
             alert('Error marking as completed. Please try again.');
         });
-}
+};
 
 const markNotCompleted = () => {
-    window.axios.delete(route('user.completions.destroy', {'locale': 'en'}), {
-        data: {
-            'completable_type': type,
-            'completable_id': id,
-        }
-    })
+    window.axios
+        .delete(route('user.completions.destroy', { locale: 'en' }), {
+            data: {
+                completable_type: type,
+                completable_id: id,
+            },
+        })
         .then(() => {
             console.log('Successfully marked as not completed');
         })
@@ -52,7 +54,7 @@ const markNotCompleted = () => {
             console.error('Error marking as not completed:', error);
             alert('Error marking as not completed. Please try again.');
         });
-}
+};
 
 const toggle = () => {
     if (isCompleted.value) {
@@ -62,5 +64,5 @@ const toggle = () => {
     }
 
     isCompleted.value = !isCompleted.value;
-}
+};
 </script>

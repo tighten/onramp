@@ -42,7 +42,7 @@ class ShowMoreLess {
                     items: items,
                     button: button,
                     initialButtonText: initialButtonText,
-                    defaultLimit: defaultLimit
+                    defaultLimit: defaultLimit,
                 };
 
                 this.updateComponentDisplay(component);
@@ -57,10 +57,13 @@ class ShowMoreLess {
         const data = component._showMoreLess;
         const button = data.button;
 
-        button.addEventListener('click', function (e) {
-            e.preventDefault();
-            this.toggleComponentItems(component);
-        }.bind(this));
+        button.addEventListener(
+            'click',
+            function (e) {
+                e.preventDefault();
+                this.toggleComponentItems(component);
+            }.bind(this)
+        );
     }
 
     toggleComponentItems(component) {
@@ -98,13 +101,19 @@ class ShowMoreLess {
     }
 
     setupResizeListener() {
-        window.addEventListener('resize', function () {
-            clearTimeout(this.resizeTimeout);
+        window.addEventListener(
+            'resize',
+            function () {
+                clearTimeout(this.resizeTimeout);
 
-            this.resizeTimeout = setTimeout(function () {
-                this.handleResize();
-            }.bind(this), 250);
-        }.bind(this));
+                this.resizeTimeout = setTimeout(
+                    function () {
+                        this.handleResize();
+                    }.bind(this),
+                    250
+                );
+            }.bind(this)
+        );
     }
 
     handleResize() {

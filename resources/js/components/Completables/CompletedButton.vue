@@ -1,24 +1,17 @@
 <template>
-    <completable
-        :id="id"
-        :initial-is-completed="initialIsCompleted"
-        :type="type"
-    >
+    <completable :id="id" :initial-is-completed="initialIsCompleted" :type="type">
         <template v-slot="{ toggle, isCompleted }">
             <button
-                :aria-label="
-                    isCompleted ? 'mark as incomplete' : 'mark as completed'
-                "
+                :aria-label="isCompleted ? 'mark as incomplete' : 'mark as completed'"
                 :class="{
-                    'bg-white text-teal hover:bg-transparent hover:text-white':
-                        isCompleted,
+                    'bg-white text-teal hover:bg-transparent hover:text-white': isCompleted,
                 }"
-                class="flex items-center justify-center w-full px-4 py-2 mt-8 text-sm font-semibold leading-none text-white transition-colors duration-200 ease-in-out border-2 border-white rounded-3xl hover:bg-white hover:text-teal focus:outline-none lg:mt-0"
+                class="mt-8 flex w-full items-center justify-center rounded-3xl border-2 border-white px-4 py-2 text-sm font-semibold leading-none text-white transition-colors duration-200 ease-in-out hover:bg-white hover:text-teal focus:outline-none lg:mt-0"
                 @click="toggle"
             >
                 <svg
                     v-if="!isCompleted"
-                    class="w-5 h-5 mr-4 fill-current"
+                    class="mr-4 h-5 w-5 fill-current"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
                 >
@@ -33,7 +26,7 @@
                     :class="{
                         'fill-teal': isCompleted,
                     }"
-                    class="w-5 h-5 mr-4 fill-current"
+                    class="mr-4 h-5 w-5 fill-current"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                 >
@@ -44,13 +37,11 @@
 
                 <span
                     :class="{
-                        'bg-white text-teal hover:bg-transparent': isCompleted
+                        'bg-white text-teal hover:bg-transparent': isCompleted,
                     }"
                     class="inline-block"
                 >
-                    {{
-                        isCompleted ? "Mark as Incomplete" : "Mark as Completed"
-                    }}
+                    {{ isCompleted ? 'Mark as Incomplete' : 'Mark as Completed' }}
                 </span>
             </button>
         </template>
@@ -58,7 +49,7 @@
 </template>
 
 <script setup>
-import Completable from "./Completable.vue";
+import Completable from './Completable.vue';
 
 defineProps({
     initialIsCompleted: {
@@ -67,11 +58,11 @@ defineProps({
     },
     type: {
         type: String,
-        required: true
+        required: true,
     },
     id: {
         type: [String, Number],
-        required: true
+        required: true,
     },
 });
 </script>

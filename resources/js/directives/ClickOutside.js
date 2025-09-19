@@ -1,5 +1,5 @@
 export default {
-    mounted(el, {value}) {
+    mounted(el, { value }) {
         const listener = (e) => {
             if (!(e.target === el || el.contains(e.target))) {
                 value();

@@ -2,19 +2,16 @@
     <div>
         <!-- Search and Filter Controls -->
         <div
-            class="grid w-full grid-cols-12 px-4 space-y-4 md:space-y-0 lg:mt-18 md:px-8 lg:px-20 2xl:px-32"
+            class="lg:mt-18 grid w-full grid-cols-12 space-y-4 px-4 md:space-y-0 md:px-8 lg:px-20 2xl:px-32"
         >
-            <div
-                v-if="userLoggedIn"
-                class="col-span-12 md:col-span-5 lg:col-span-4"
-            >
+            <div v-if="userLoggedIn" class="col-span-12 md:col-span-5 lg:col-span-4">
                 <span class="rounded-md shadow-sm">
                     <button
                         :class="{
-                            'pointer-events-none border-emerald text-emerald shadow-md font-semibold':
+                            'pointer-events-none border-emerald font-semibold text-emerald shadow-md':
                                 showAllModules,
                         }"
-                        class="w-1/2 p-2 text-sm leading-5 transition duration-100 ease-in-out bg-white border-2 border-silver rounded-l-md focus:z-10 focus:outline-none focus:shadow-outline-teal"
+                        class="focus:shadow-outline-teal w-1/2 rounded-l-md border-2 border-silver bg-white p-2 text-sm leading-5 transition duration-100 ease-in-out focus:z-10 focus:outline-none"
                         type="button"
                         @click="toggleShowAllModules"
                     >
@@ -23,10 +20,10 @@
 
                     <button
                         :class="{
-                            'pointer-events-none border-emerald text-emerald shadow-md font-semibold':
+                            'pointer-events-none border-emerald font-semibold text-emerald shadow-md':
                                 !showAllModules,
                         }"
-                        class="w-1/2 p-2 -ml-px text-sm leading-5 transition duration-100 ease-in-out bg-white border-2 border-silver rounded-r-md focus:z-10 focus:outline-none focus:shadow-outline-blue"
+                        class="focus:shadow-outline-blue -ml-px w-1/2 rounded-r-md border-2 border-silver bg-white p-2 text-sm leading-5 transition duration-100 ease-in-out focus:z-10 focus:outline-none"
                         type="button"
                         @click="toggleShowAllModules"
                     >
@@ -37,9 +34,7 @@
 
             <div
                 :class="
-                    userLoggedIn
-                        ? 'col-span-12 md:col-span-7 lg:col-span-8 md:pl-6'
-                        : 'col-span-12'
+                    userLoggedIn ? 'col-span-12 md:col-span-7 md:pl-6 lg:col-span-8' : 'col-span-12'
                 "
             >
                 <VueSelect
@@ -95,10 +90,10 @@ import ModulesMobile from './ModulesMobile.vue';
 import ModulesDesktop from './ModulesDesktop.vue';
 import useModules from '../../composables/useModules.js';
 import VueSelect from 'vue-select';
-import Fuse from "fuse.js";
-import {computed} from 'vue';
+import Fuse from 'fuse.js';
+import { computed } from 'vue';
 
-defineExpose({'vue-select': VueSelect});
+defineExpose({ 'vue-select': VueSelect });
 
 const props = defineProps({
     standardModules: Array,
@@ -131,11 +126,7 @@ const allModules = computed(() => {
 });
 
 const myModules = computed(() => {
-    return [
-        ...beginnerModules.value,
-        ...intermediateModules.value,
-        ...advancedModules.value,
-    ];
+    return [...beginnerModules.value, ...intermediateModules.value, ...advancedModules.value];
 });
 
 const fuseSearch = (options, search) => {
@@ -146,9 +137,7 @@ const fuseSearch = (options, search) => {
         shouldSort: true,
     });
 
-    return search.length
-        ? fuse.search(search).map(({item}) => item)
-        : fuse.list;
+    return search.length ? fuse.search(search).map(({ item }) => item) : fuse.list;
 };
 
 const changeRoute = (selected) => {
@@ -157,8 +146,7 @@ const changeRoute = (selected) => {
         window.location.href = `/${locale}/modules/${selected.slug}/free-resources`;
     }
 };
-
 </script>
 <style>
-@import "vue-select/dist/vue-select.css";
+@import 'vue-select/dist/vue-select.css';
 </style>

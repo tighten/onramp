@@ -1,4 +1,4 @@
-import {ref, onMounted, onUnmounted} from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 
 export function useToggle() {
     const isOpen = ref(false);
@@ -27,5 +27,5 @@ export function useToggle() {
         document.removeEventListener('keydown', handleEscape);
     });
 
-    return {isOpen, open, close, toggle};
+    return { isOpen, open, close, toggle };
 }

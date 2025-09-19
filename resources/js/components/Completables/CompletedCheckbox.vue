@@ -1,18 +1,17 @@
 <template>
-    <completable
-        :type="type"
-        :id="id"
-        :initial-is-completed="initialIsCompleted"
-    >
+    <completable :type="type" :id="id" :initial-is-completed="initialIsCompleted">
         <template v-slot="{ toggle, isCompleted }">
-            <div class="inline-block mr-1">
+            <div class="mr-1 inline-block">
                 <div
                     @click="toggle"
-                    class="transition duration-200 ease-in-out cursor-pointer"
-                    :class="{ 'text-teal hover:text-teal': isCompleted, 'text-gray hover:text-gray': !isCompleted }"
+                    class="cursor-pointer transition duration-200 ease-in-out"
+                    :class="{
+                        'text-teal hover:text-teal': isCompleted,
+                        'text-gray hover:text-gray': !isCompleted,
+                    }"
                 >
                     <svg
-                        class="w-6 h-6 fill-current"
+                        class="h-6 w-6 fill-current"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 30 30"
                     >
@@ -28,20 +27,20 @@
 </template>
 
 <script setup>
-import Completable from "./Completable.vue";
+import Completable from './Completable.vue';
 
 defineProps({
     initialIsCompleted: {
         type: Boolean,
-        default: false
+        default: false,
     },
     type: {
         type: String,
-        required: true
+        required: true,
     },
     id: {
         type: [String, Number],
-        required: true
-    }
+        required: true,
+    },
 });
 </script>

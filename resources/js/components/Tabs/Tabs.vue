@@ -3,11 +3,11 @@
         <slot name="tabs-navigation">
             <div
                 :class="{ 'lg:hidden': hideTabsOnDesktop }"
-                class="w-full h-16 mb-4 overflow-hidden md:mb-10 lg:mb-12"
+                class="mb-4 h-16 w-full overflow-hidden md:mb-10 lg:mb-12"
             >
-                <div class="pb-6 overflow-x-scroll">
+                <div class="overflow-x-scroll pb-6">
                     <ul
-                        class="inline-flex flex-no-wrap min-w-full border-b-4 text-none border-gray"
+                        class="flex-no-wrap text-none inline-flex min-w-full border-b-4 border-gray"
                     >
                         <li
                             v-for="tab in registeredTabs"
@@ -15,18 +15,17 @@
                             :class="[
                                 darkMode ? 'text-white' : 'text-gray',
                                 {
-                                    'text-gray-black':
-                                        tab.name === activeTabName && !darkMode,
+                                    'text-gray-black': tab.name === activeTabName && !darkMode,
                                 },
                             ]"
-                            class="inline-block text-xl font-semibold leading-tight tracking-tight whitespace-no-wrap transition duration-200 ease-in-out md:text-2xl xl:text-4xl focus:outline-none"
+                            class="whitespace-no-wrap inline-block text-xl font-semibold leading-tight tracking-tight transition duration-200 ease-in-out focus:outline-none md:text-2xl xl:text-4xl"
                         >
                             <a
                                 :class="{
                                     'border-b-4 border-teal': tab.name === activeTabName,
                                 }"
                                 :href="tab.href"
-                                class="inline-block pb-5 -mb-1 border-b-4 hover:no-underline whitespace-nowrap"
+                                class="-mb-1 inline-block whitespace-nowrap border-b-4 pb-5 hover:no-underline"
                                 @click="handleTabClick(tab, $event)"
                             >
                                 <span class="px-4">{{ tab.name }}</span>
@@ -42,7 +41,7 @@
 </template>
 
 <script setup>
-import {computed, onMounted, onUnmounted, provide, readonly, ref, toRefs} from 'vue';
+import { computed, onMounted, onUnmounted, provide, readonly, ref, toRefs } from 'vue';
 
 const props = defineProps({
     hideTabsOnDesktop: {
@@ -55,7 +54,7 @@ const props = defineProps({
     },
 });
 
-const {hideTabsOnDesktop, darkMode} = toRefs(props);
+const { hideTabsOnDesktop, darkMode } = toRefs(props);
 
 const emit = defineEmits(['activeTabUpdated']);
 
@@ -64,7 +63,7 @@ const activeTabName = ref('');
 const windowWidth = ref(window.innerWidth);
 
 function registerTab(tab) {
-    const existingIndex = registeredTabs.value.findIndex(t => t.name === tab.name);
+    const existingIndex = registeredTabs.value.findIndex((t) => t.name === tab.name);
     if (existingIndex >= 0) {
         registeredTabs.value[existingIndex] = tab;
     } else {
@@ -77,7 +76,7 @@ function registerTab(tab) {
 }
 
 function unregisterTab(tabName) {
-    const index = registeredTabs.value.findIndex(t => t.name === tabName);
+    const index = registeredTabs.value.findIndex((t) => t.name === tabName);
     if (index >= 0) {
         registeredTabs.value.splice(index, 1);
     }
@@ -138,10 +137,10 @@ provide('tabs', {
     registerTab,
     unregisterTab,
     activeTabName: readonly(activeTabName),
-    isDesktop: computed(() => hideTabsOnDesktop.value && window.innerWidth >= 992)
+    isDesktop: computed(() => hideTabsOnDesktop.value && window.innerWidth >= 992),
 });
 
 defineExpose({
-    setActiveTab
+    setActiveTab,
 });
 </script>

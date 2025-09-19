@@ -1,19 +1,12 @@
 <template>
-    <div
-        class="flex-initial w-full p-1.5 sm:max-w-xs sm:w-1/2 lg:w-1/3 xl:w-1/4"
-    >
+    <div class="w-full flex-initial p-1.5 sm:w-1/2 sm:max-w-xs lg:w-1/3 xl:w-1/4">
         <a
-            class="flex flex-col w-full h-full transition-transform duration-300 transform shadow-md hover:no-underline hover:scale-95"
+            class="flex h-full w-full transform flex-col shadow-md transition-transform duration-300 hover:scale-95 hover:no-underline"
             :href="moduleUrl"
         >
-            <span :class="`relative block w-full h-44 ${cardColorClass}`">
-                <div
-                    v-if="hasNewContent"
-                    :class="`h-2 ${labelColorClass}`"
-                ></div>
-                <div
-                    class="absolute top-0 right-0 z-10 flex flex-col items-end"
-                >
+            <span :class="`relative block h-44 w-full ${cardColorClass}`">
+                <div v-if="hasNewContent" :class="`h-2 ${labelColorClass}`"></div>
+                <div class="absolute right-0 top-0 z-10 flex flex-col items-end">
                     <span
                         v-if="hasNewContent"
                         :class="`inline-flex items-center px-3 py-1 text-sm font-semibold text-white ${labelColorClass} rounded-bl-md`"
@@ -24,7 +17,7 @@
 
                 <img
                     v-show="imageExists"
-                    class="absolute bottom-0 w-full h-auto max-h-full transform -translate-x-1/2 left-1/2 will-change-transform"
+                    class="absolute bottom-0 left-1/2 h-auto max-h-full w-full -translate-x-1/2 transform will-change-transform"
                     :alt="item.name[trans.locale]"
                     :src="`/images/modules/${imageName}.svg`"
                     @load="handleImageLoaded"
@@ -32,11 +25,11 @@
 
                 <span
                     v-show="isCompleted && isUserModule"
-                    class="absolute bottom-0 right-0 z-10 inline-flex items-center px-3 py-1 mb-3 mr-3 text-sm font-semibold bg-white rounded-full shadow-md absolue text-east-bay"
+                    class="absolue text-east-bay absolute bottom-0 right-0 z-10 mb-3 mr-3 inline-flex items-center rounded-full bg-white px-3 py-1 text-sm font-semibold shadow-md"
                 >
                     Completed
                     <svg
-                        class="w-4 h-4 ml-2 fill-current text-teal"
+                        class="ml-2 h-4 w-4 fill-current text-teal"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 30 30"
                     >
@@ -48,26 +41,20 @@
                 </span>
             </span>
 
-            <span class="flex-1 block p-4 bg-white">
+            <span class="block flex-1 bg-white p-4">
                 <h4 class="text-base font-semibold leading-5 tracking-normal">
-                    {{
-                        item.name[trans.locale]
-                            ? item.name[trans.locale]
-                            : item.name['en']
-                    }}
+                    {{ item.name[trans.locale] ? item.name[trans.locale] : item.name['en'] }}
                 </h4>
 
                 <template v-if="!isCompleted && isUserModule">
                     <p
-                        class="pt-5 mt-5 text-sm font-semibold tracking-wider uppercase border-t text-steel border-silver"
+                        class="mt-5 border-t border-silver pt-5 text-sm font-semibold uppercase tracking-wider text-steel"
                     >
                         My progress:
                     </p>
 
-                    <ul class="block mt-2 text-base">
-                        <li
-                            class="inline-flex items-center justify-between w-full"
-                        >
+                    <ul class="mt-2 block text-base">
+                        <li class="inline-flex w-full items-center justify-between">
                             <span class="text-east-bay">Resources</span>
                             <span class="font-semibold text-steel">
                                 {{ completedResourcesPercentage }}%
@@ -92,9 +79,17 @@
 </template>
 
 <script setup>
-import {ref, computed} from 'vue';
+import { ref, computed } from 'vue';
 
-const {item, cardIsEven, level, completedResourcesCount, isUserModule, isCompleted, hasNewContent} = defineProps({
+const {
+    item,
+    cardIsEven,
+    level,
+    completedResourcesCount,
+    isUserModule,
+    isCompleted,
+    hasNewContent,
+} = defineProps({
     item: {
         type: Object,
         required: true,
@@ -146,20 +141,14 @@ const moduleCardColors = {
     },
 };
 
-const moduleUrl = computed(
-    () => `/${window.locale}/modules/${item?.slug}/free-resources`
-);
+const moduleUrl = computed(() => `/${window.locale}/modules/${item?.slug}/free-resources`);
 
 const cardColorClass = computed(() =>
-    cardIsEven
-        ? moduleCardColors[level].even
-        : moduleCardColors[level].odd
+    cardIsEven ? moduleCardColors[level].even : moduleCardColors[level].odd
 );
 
 const labelColorClass = computed(() =>
-    cardIsEven
-        ? moduleCardColors[level].odd
-        : moduleCardColors[level].even
+    cardIsEven ? moduleCardColors[level].odd : moduleCardColors[level].even
 );
 
 const imageName = computed(() => slugify(item.name['en']));
@@ -173,11 +162,7 @@ const freeResourcesForSessionCount = computed(() => {
 
 const completedResourcesPercentage = computed(() => {
     return freeResourcesForSessionCount.value > 0
-        ? Math.round(
-            (completedResourcesCount /
-                freeResourcesForSessionCount.value) *
-            100
-        )
+        ? Math.round((completedResourcesCount / freeResourcesForSessionCount.value) * 100)
         : 0;
 });
 

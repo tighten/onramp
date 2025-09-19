@@ -19,7 +19,7 @@
 <script setup>
 import ModuleCard from './ModuleCard.vue';
 
-const props = defineProps({
+defineProps({
     intermediateModules: Array,
     userModules: Array,
     userLoggedIn: Boolean,

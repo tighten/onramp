@@ -59,7 +59,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
-const props = defineProps({
+const {options, tabIndex} = defineProps({
     options: Array,
     tabindex: {
         type: Number,
@@ -69,7 +69,7 @@ const props = defineProps({
 
 const emit = defineEmits(['selectChanged']);
 const isOpen = ref(false);
-const selected = ref(props.options.length > 0 ? props.options[0] : null);
+const selected = ref(options.length > 0 ? options[0] : null);
 
 function setSelected(option) {
     selected.value = option;

@@ -8,14 +8,14 @@
         >
             <span :class="`relative block w-full h-44 ${cardColorClass}`">
                 <div
-                    v-if="props.hasNewContent"
+                    v-if="hasNewContent"
                     :class="`h-2 ${labelColorClass}`"
                 ></div>
                 <div
                     class="absolute top-0 right-0 z-10 flex flex-col items-end"
                 >
                     <span
-                        v-if="props.hasNewContent"
+                        v-if="hasNewContent"
                         :class="`inline-flex items-center px-3 py-1 text-sm font-semibold text-white ${labelColorClass} rounded-bl-md`"
                     >
                         New Resources
@@ -25,13 +25,13 @@
                 <img
                     v-show="imageExists"
                     class="absolute bottom-0 w-full h-auto max-h-full transform -translate-x-1/2 left-1/2 will-change-transform"
-                    :alt="props.item.name[trans.locale]"
+                    :alt="item.name[trans.locale]"
                     :src="`/images/modules/${imageName}.svg`"
                     @load="handleImageLoaded"
                 />
 
                 <span
-                    v-show="props.isCompleted && props.isUserModule"
+                    v-show="isCompleted && isUserModule"
                     class="absolute bottom-0 right-0 z-10 inline-flex items-center px-3 py-1 mb-3 mr-3 text-sm font-semibold bg-white rounded-full shadow-md absolue text-east-bay"
                 >
                     Completed
@@ -51,13 +51,13 @@
             <span class="flex-1 block p-4 bg-white">
                 <h4 class="text-base font-semibold leading-5 tracking-normal">
                     {{
-                        props.item.name[trans.locale]
-                            ? props.item.name[trans.locale]
-                            : props.item.name['en']
+                        item.name[trans.locale]
+                            ? item.name[trans.locale]
+                            : item.name['en']
                     }}
                 </h4>
 
-                <template v-if="!props.isCompleted && props.isUserModule">
+                <template v-if="!isCompleted && isUserModule">
                     <p
                         class="pt-5 mt-5 text-sm font-semibold tracking-wider uppercase border-t text-steel border-silver"
                     >
@@ -92,9 +92,9 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import {ref, computed} from 'vue';
 
-const props = defineProps({
+const {item, cardIsEven, level, completedResourcesCount, isUserModule, isCompleted, hasNewContent} = defineProps({
     item: {
         type: Object,
         required: true,
@@ -147,25 +147,25 @@ const moduleCardColors = {
 };
 
 const moduleUrl = computed(
-    () => `/${window.locale}/modules/${props.item?.slug}/free-resources`
+    () => `/${window.locale}/modules/${item?.slug}/free-resources`
 );
 
 const cardColorClass = computed(() =>
-    props.cardIsEven
-        ? moduleCardColors[props.level].even
-        : moduleCardColors[props.level].odd
+    cardIsEven
+        ? moduleCardColors[level].even
+        : moduleCardColors[level].odd
 );
 
 const labelColorClass = computed(() =>
-    props.cardIsEven
-        ? moduleCardColors[props.level].odd
-        : moduleCardColors[props.level].even
+    cardIsEven
+        ? moduleCardColors[level].odd
+        : moduleCardColors[level].even
 );
 
-const imageName = computed(() => slugify(props.item.name['en']));
+const imageName = computed(() => slugify(item.name['en']));
 
 const freeResourcesForSessionCount = computed(() => {
-    const freeResources = props.item.resources_for_current_session.filter(
+    const freeResources = item.resources_for_current_session.filter(
         (resrc) => resrc.is_free
     ).length;
     return freeResources || 0;
@@ -174,10 +174,10 @@ const freeResourcesForSessionCount = computed(() => {
 const completedResourcesPercentage = computed(() => {
     return freeResourcesForSessionCount.value > 0
         ? Math.round(
-              (props.completedResourcesCount /
-                  freeResourcesForSessionCount.value) *
-                  100
-          )
+            (completedResourcesCount /
+                freeResourcesForSessionCount.value) *
+            100
+        )
         : 0;
 });
 

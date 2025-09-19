@@ -4,13 +4,15 @@
             @click="showAll"
             class="mr-2 text-base font-semibold text-white transition duration-200 ease-in-out cursor-pointer last:mr-0 lg:mr-4 lg:text-xl hover:opacity-100"
             :class="[choiceIsSelected('all') ? 'opacity-100' : 'opacity-70']"
-        >{{ trans.get('__JSON__.All resources') }}</button>
+        >{{ trans.get('__JSON__.All resources') }}
+        </button>
 
         <button
             @click="showOnlyLocalLanguage"
             class="mr-2 text-base font-semibold text-white transition duration-200 ease-in-out cursor-pointer last:mr-0 lg:mr-4 lg:text-xl hover:opacity-100"
             :class="[choiceIsSelected('local') ? 'opacity-100' : 'opacity-70']"
-        >{{ trans.get('__JSON__.:locale resources', {'locale': language}) }}</button>
+        >{{ trans.get('__JSON__.:locale resources', {'locale': language}) }}
+        </button>
 
         <span v-if="language !== 'English'">
             <button
@@ -23,9 +25,9 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import {ref} from 'vue';
 
-const props = defineProps({
+defineProps({
     language: {
         type: String,
         required: true
@@ -36,19 +38,19 @@ const props = defineProps({
     },
 });
 
-const choice = ref(props.initialChoice);
+const choice = ref(initialChoice);
 
 function choose(value) {
     choice.value = value;
     window.axios.patch(route('user.preferences.update', {'locale': 'en'}), {
         'resource-language': value,
     })
-    .then(function() {
-        window.location.reload(false);
-    })
-    .catch(function(error) {
-        alert('Error!');
-    });
+        .then(function () {
+            window.location.reload(false);
+        })
+        .catch(function (error) {
+            alert('Error!');
+        });
 }
 
 function showAll() {

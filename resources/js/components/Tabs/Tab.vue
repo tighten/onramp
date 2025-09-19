@@ -7,7 +7,7 @@
 <script setup>
 import {computed, inject, onMounted, onUnmounted} from 'vue';
 
-const props = defineProps({
+const {url, name, selected} = defineProps({
     url: {
         type: String,
     },
@@ -28,30 +28,30 @@ if (!tabsContext) {
 }
 
 const isActive = computed(() => {
-    if (!tabsContext) return props.selected;
+    if (!tabsContext) return selected;
 
     if (tabsContext.isDesktop?.value) {
         return true;
     }
 
-    return tabsContext.activeTabName.value === props.name;
+    return tabsContext.activeTabName.value === name;
 });
 
 onMounted(() => {
     if (tabsContext) {
-        const href = props.url || `#${props.name.toLowerCase().replace(/ /g, '-')}`;
+        const href = url || `#${name.toLowerCase().replace(/ /g, '-')}`;
         tabsContext.registerTab({
-            name: props.name,
+            name: name,
             href,
-            selected: props.selected,
-            hasUrl: !!props.url
+            selected: selected,
+            hasUrl: !!url
         });
     }
 });
 
 onUnmounted(() => {
     if (tabsContext) {
-        tabsContext.unregisterTab(props.name);
+        tabsContext.unregisterTab(name);
     }
 });
 </script>

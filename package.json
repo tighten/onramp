@@ -6,14 +6,17 @@
         "build-suggested-resources-shortcuts-prod": "cd nova-components/SuggestedResourcesShortcuts && npm run prod",
         "dev": "vite",
         "build": "vite build",
-        "preview": "vite preview"
+        "preview": "vite preview",
+        "format": "prettier . --write"
     },
     "devDependencies": {
         "laravel-vite-plugin": "^1.1.1",
         "postcss": "^8.4.38",
         "sass": "^1.32.12",
         "vite": "^6.0.3",
-        "vue-loader": "^17.4.2"
+        "vue-loader": "^17.4.2",
+        "prettier": "^3.3.3",
+        "prettier-plugin-tailwindcss": "^0.6.8"
     },
     "dependencies": {
         "@kyvg/vue3-notification": "^3.4.1",

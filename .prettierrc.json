@@ -4,5 +4,5 @@
     "semi": true,
     "printWidth": 100,
     "tabWidth": 4,
-    "plugins": ["prettier-plugin-blade", "prettier-plugin-tailwindcss"]
+    "plugins": ["prettier-plugin-tailwindcss"]
 }

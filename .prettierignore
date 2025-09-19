@@ -4,3 +4,4 @@ public/build
 public/hot
 storage
 bootstrap/cache
+resources/**/*.blade.php

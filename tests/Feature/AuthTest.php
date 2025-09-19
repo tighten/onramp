@@ -13,11 +13,12 @@ class AuthTest extends TestCase
     /** @test */
     public function user_can_log_in(): void
     {
-        $this->be($user = User::factory()->create());
+        $user = User::factory()->create();
 
         $response = $this->post('/en/login', [
             'email' => $user->email,
-            'password' => $user->password,
+            'password' => 'password',
+            'remember' => true,
         ]);
 
         $response->assertRedirect('/en/modules');

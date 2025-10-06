@@ -12,6 +12,7 @@
         "guzzlehttp/guzzle": "^7.2",
         "kg-bot/laravel-localization-to-vue": "dev-l10-compatibility",
         "laravel/framework": "^10.3",
+        "laravel/nova": "~4.33",
         "laravel/slack-notification-channel": "^2.5",
         "laravel/socialite": "^5.6",
         "laravel/tinker": "^2.8",
@@ -20,7 +21,9 @@
         "nathanheffley/laravel-slack-blocks": "^2.3",
         "spatie/laravel-ignition": "^2.0",
         "spatie/laravel-translatable": "^6.7",
+        "spatie/nova-translatable": "^4.1",
         "stechstudio/laravel-ssh-tunnel": "^3.3",
+        "tightenco/suggested-resources-shortcuts": "dev-mla/nova-vue-round-2",
         "tightenco/ziggy": "^1.5"
     },
     "require-dev": {
@@ -60,20 +63,24 @@
             "Tests\\": "tests/"
         }
     },
-    "repositories": [
-        {
+    "repositories": {
+        "nova": {
             "type": "composer",
             "url": "https://nova.laravel.com"
         },
-        {
+        "0": {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        },
+        "1": {
             "type": "path",
             "url": "./nova-components/SuggestedResourcesShortcuts"
         },
-        {
+        "2": {
             "type": "vcs",
             "url": "https://github.com/laravel-shift/laravel-localization-to-vue.git"
         }
-    ],
+    },
     "suggest": {
         "laravel/nova": "Administration panel for Laravel.",
         "spatie/nova-translatable": "A Laravel Nova field for spatie/laravel-translatable.",

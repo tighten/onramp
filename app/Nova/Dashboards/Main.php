@@ -10,12 +10,15 @@ class Main extends Dashboard
 {
     /**
      * Get the cards for the dashboard.
+     *
+     * @return array
      */
     public function cards(): array
     {
         return [
+            new Main,
             new SuggestedResourcesShortcuts,
-            // new LatestRelease(),
+             new LatestRelease(),
         ];
     }
 }

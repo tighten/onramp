@@ -3,7 +3,6 @@
 namespace App\Nova\Dashboards;
 
 use Laravel\Nova\Dashboards\Main as Dashboard;
-use Tightenco\NovaReleases\LatestRelease;
 use Tightenco\SuggestedResourcesShortcuts\SuggestedResourcesShortcuts;
 
 class Main extends Dashboard
@@ -18,7 +17,6 @@ class Main extends Dashboard
         return [
             new Main,
             new SuggestedResourcesShortcuts,
-             new LatestRelease(),
         ];
     }
 }

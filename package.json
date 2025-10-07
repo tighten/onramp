@@ -13,10 +13,8 @@
         "laravel-vite-plugin": "^1.1.1",
         "postcss": "^8.4.38",
         "sass": "^1.32.12",
-        "vite": "^6.0.3",
-        "vue-loader": "^17.4.2",
-        "prettier": "^3.3.3",
-        "prettier-plugin-tailwindcss": "^0.6.8"
+        "vite": "^6.3.6",
+        "vue-loader": "^15.10.0"
     },
     "dependencies": {
         "@kyvg/vue3-notification": "^3.4.1",

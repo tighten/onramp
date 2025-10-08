@@ -1,23 +1,27 @@
 <template>
     <div>
-        <button @click="toggle" class="px-6 border rounded button button-white md:hidden">{{ buttonLabel }}</button>
-
-        <div class="md:block" v-bind:class="{ hidden: !isOpen }">
+        <button
+            type="button"
+            @click="toggle"
+            :aria-expanded="isOpen.toString()"
+            class="button button-white rounded border px-6 md:hidden"
+        >
+            {{ buttonLabel }}
+        </button>
+        <div class="md:block" :class="{ hidden: !isOpen }">
             <slot></slot>
         </div>
     </div>
 </template>
 
-<script>
-import toggle from '../mixins/toggle';
+<script setup>
+import { ref, computed } from 'vue';
 
-export default {
-    mixins: [toggle],
+const isOpen = ref(false);
 
-    computed: {
-        buttonLabel() {
-            return this.isOpen ? 'Hide' : 'Show';
-        },
-    },
+function toggle() {
+    isOpen.value = !isOpen.value;
 }
+
+const buttonLabel = computed(() => (isOpen.value ? 'Hide' : 'Show'));
 </script>

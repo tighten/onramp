@@ -13,6 +13,6 @@
     <a class="mr-3 text-comet" href="{{ $resource->url }}" target="_blank">{{ $resource->name }}</a>
 
     @if ($resource->is_new)
-        <span class="px-3 py-1 text-sm font-bold text-white rounded-md {{ $bgColor }}">new<span>
+        <span class="px-3 py-1 text-sm font-bold text-white rounded-md {{ $bgColor }}">New<span>
     @endif
 </li>

@@ -24,22 +24,22 @@
         @include('partials.you-should-log-in')
 
         <div class="{{ $bgColor }} pb-24 pt-16 md:pb-40 lg:pt-24 lg:pb-48">
-            <div class="relative fluid-container lg:flex lg:items-center lg:justify-between">
+            <div class="relative container lg:flex lg:items-center lg:justify-between">
                 <h1 class="max-w-3xl font-bold text-white h2 lg:h1">{{ $module->name }}</h1>
 
                 @auth
                     @if (Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id))
-                        <completed-button
+                        <completable-button
                             :initial-is-completed="{{ $completedModules->contains($module->id) ? 'true' : 'false' }}"
                             id="{{ $module->id }}"
                             type="{{ $module->getMorphClass() }}">
-                        </completed-button>
+                        </completable-button>
                     @endif
                 @endauth
             </div>
         </div>
 
-        <div class="pb-16 fluid-container">
+        <div class="pb-16 container">
             <div class="grid gap-6 px-4 pt-6 pb-8 -mt-16 bg-white shadow-md sm:grid-cols-2 md:p-10 md:pb-16 md:-mt-32">
                 @if ($module->description)
                     <div>
@@ -57,17 +57,19 @@
                         @forelse ($skills as $skill)
                             @if ($loop->index < 4)
                                 <skill :init-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
-                                    @if (Auth::check() && Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id)) :completable="true" @else :completable="false" @endif
-                                    id="{{ $skill->id }}"
-                                    text="{{ $skill->name }}"
-                                    type="{{ $skill->getMorphClass() }}"></skill>
+                                       @if (Auth::check() && Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id)) :completable="true"
+                                       @else :completable="false" @endif
+                                       id="{{ $skill->id }}"
+                                       text="{{ $skill->name }}"
+                                       type="{{ $skill->getMorphClass() }}"></skill>
                             @else
                                 <skill :init-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
-                                    @if (Auth::check() && Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id)) :completable="true" @else :completable="false" @endif
-                                    id="{{ $skill->id }}"
-                                    text="{{ $skill->name }}"
-                                    type="{{ $skill->getMorphClass() }}"
-                                    x-show="showMore"></skill>
+                                       @if (Auth::check() && Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id)) :completable="true"
+                                       @else :completable="false" @endif
+                                       id="{{ $skill->id }}"
+                                       text="{{ $skill->name }}"
+                                       type="{{ $skill->getMorphClass() }}"
+                                       x-show="showMore"></skill>
                             @endif
 
                             @if ($loop->index == 3 && count($skills) > 4)
@@ -103,13 +105,13 @@
 
         <tabs dark-mode>
             <tab @if ($resourceType === 'free-resources') :selected="true" @endif
-                name="{{ __('Free resources') }}"
-                url="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'free-resources']) }}">
+            name="{{ __('Free resources') }}"
+                 url="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'free-resources']) }}">
             </tab>
 
             <tab @if ($resourceType === 'paid-resources') :selected="true" @endif
-                name="{{ __('Paid resources') }}"
-                url="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'paid-resources']) }}">
+            name="{{ __('Paid resources') }}"
+                 url="{{ route_wlocale('modules.show', ['module' => $module, 'resourceType' => 'paid-resources']) }}">
             </tab>
 
             {{-- @todo Show this once we add in quizzes and exercises --}}
@@ -129,8 +131,8 @@
         </tabs>
 
         <resource-language-preference-switcher class="px-4 mb-8 sm:px-0"
-            initial-choice="{{ $currentResourceLanguagePreference }}"
-            language="{{ Localization::languageForLocale(locale()) }}">
+                                               initial-choice="{{ $currentResourceLanguagePreference }}"
+                                               language="{{ Localization::languageForLocale(locale()) }}">
         </resource-language-preference-switcher>
 
         <x-panel>
@@ -143,19 +145,19 @@
                 @switch($resourceType)
                     @case('free-resources')
                         @include('modules.resources.free')
-                    @break
+                        @break
 
                     @case('paid-resources')
                         @include('modules.resources.paid')
-                    @break
+                        @break
 
                     @case('quizzes')
                         @include('modules.resources.quiz')
-                    @break
+                        @break
 
                     @case('exercises')
                         @include('modules.resources.exercise')
-                    @break
+                        @break
 
                     @default
                         @include('modules.resources.free')

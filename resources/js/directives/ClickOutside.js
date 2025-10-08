@@ -1,17 +1,16 @@
 export default {
-    bind(el, binding, vnode) {
-        const listener = e => {
-            if (e.target === el || el.contains(e.target)) {
-                return;
+    mounted(el, { value }) {
+        const listener = (e) => {
+            if (!(e.target === el || el.contains(e.target))) {
+                value();
             }
-
-            binding.value();
         };
 
         document.addEventListener('click', listener);
-
-        vnode.context.$once('hook:beforeDestroy', () => {
-            document.removeEventListener('click', listener)
-        });
+        el._clickOutsideHandler = listener;
     },
-}
+
+    unmounted(el) {
+        document.removeEventListener('click', el._clickOutsideHandler);
+    },
+};

@@ -1,28 +1,29 @@
 <template>
     <tabs ref="tabs">
-        <div slot="tabs-navigation">
-            <select-dropdown
-                class="mb-8"
+        <template #tabs-navigation>
+            <SelectDropdown
                 :options="selectOptions"
+                class="mb-8"
                 @selectChanged="setActiveTabUsingOption"
             />
-        </div>
+        </template>
 
         <slot></slot>
     </tabs>
 </template>
 
-<script>
-export default {
-    props: {
-        selectOptions: Array,
-    },
+<script setup>
+import { ref } from 'vue';
+import SelectDropdown from '../SelectDropdown.vue';
+import Tabs from './Tabs.vue';
 
-    methods: {
-        setActiveTabUsingOption(option) {
-            let href = `#${option.toLowerCase().replace(/ /g, '-')}`;
-            this.$refs.tabs.setActiveTab(href);
-        }
-    },
+defineProps({
+    selectOptions: Array,
+});
+
+const tabs = ref(null);
+
+function setActiveTabUsingOption(option) {
+    tabs.value.setActiveTab(option);
 }
 </script>

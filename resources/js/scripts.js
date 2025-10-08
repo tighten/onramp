@@ -1,89 +1,160 @@
-(function($) {
-    let ShowMoreLess = (function() {
-        const init = function() {
-            let component = $('.js-show-more-less');
+class ShowMoreLess {
+    constructor() {
+        this.components = [];
+        this.showLessText = 'Show less';
+        this.resizeTimeout = null;
+        this.init();
+    }
 
-            if(! component.length) {
-                return;
-            }
+    init() {
+        this.components = document.querySelectorAll('.js-show-more-less');
 
-            $.each(component, function(index, c) {
-                let component = $(c)
-                    , defaultLimit = getDefaultLimit()
-                    , items = component.find('.js-show-more-less-items').children()
-                    , button = component.find('.js-show-more-less-button')
-                    , initialButtonText = button.text()
-                    , showLessText = 'Show less';
+        if (!this.components.length) {
+            return;
+        }
 
-                if(items.length <= defaultLimit) {
-                    button.hide();
+        this.setupComponents();
+        this.setupResizeListener();
+    }
+
+    setupComponents() {
+        this.components.forEach(function (component) {
+            try {
+                const itemsContainer = component.querySelector('.js-show-more-less-items');
+
+                if (!itemsContainer) {
+                    console.warn('Missing items container in show more/less component');
                     return;
                 }
 
-                truncateItems(items, defaultLimit);
+                const items = itemsContainer.children;
+                const button = component.querySelector('.js-show-more-less-button');
 
-                button.show();
+                if (!button) {
+                    console.warn('Missing button in show more/less component');
+                    return;
+                }
 
-                button.click(function(e) {
-                    e.preventDefault();
+                const initialButtonText = button.textContent;
+                const defaultLimit = this.getDefaultLimit();
 
-                    let visibleItems = items.filter(':visible');
+                component._showMoreLess = {
+                    items: items,
+                    button: button,
+                    initialButtonText: initialButtonText,
+                    defaultLimit: defaultLimit,
+                };
 
-                    if(visibleItems.length <= defaultLimit) {
-                        items.show();
-                        button.text(showLessText);
-                    }else {
-                        truncateItems(items, defaultLimit);
-                        button.text(initialButtonText);
-                    }
-                });
-
-                $(window).on('resize', function () {
-                    setTimeout(function () {
-                        let cachedLimit = defaultLimit;
-
-                        defaultLimit = getDefaultLimit();
-
-                        if(cachedLimit === defaultLimit) {
-                            return;
-                        }
-
-                        items.show();
-
-                        if(items.length <= defaultLimit) {
-                            button.hide();
-                            return;
-                        }
-
-                        truncateItems(items, defaultLimit);
-
-                        button.show();
-
-                        button.text(initialButtonText);
-                    });
-                });
-            });
-        };
-
-        const truncateItems = function(items, limit) {
-            items.each(function(i) {
-                if(i > (limit - 1)) $(items[i]).hide();
-            });
-        };
-
-        const getDefaultLimit = function() {
-            if ($(window).width() < 992) {
-                return 3;
-            } else {
-                return 7;
+                this.updateComponentDisplay(component);
+                this.setupComponentButton(component);
+            } catch (error) {
+                console.error('Error setting up show more/less component:', error);
             }
-        };
+        }, this);
+    }
 
-        return {
-            init: init,
+    setupComponentButton(component) {
+        const data = component._showMoreLess;
+        const button = data.button;
+
+        button.addEventListener(
+            'click',
+            function (e) {
+                e.preventDefault();
+                this.toggleComponentItems(component);
+            }.bind(this)
+        );
+    }
+
+    toggleComponentItems(component) {
+        const data = component._showMoreLess;
+        const items = data.items;
+        const button = data.button;
+        const defaultLimit = data.defaultLimit;
+
+        const visibleItems = Array.from(items).filter(function (item) {
+            return item.style.display !== 'none';
+        });
+
+        if (visibleItems.length <= defaultLimit) {
+            this.showAllItems(items);
+            button.textContent = this.showLessText;
+        } else {
+            this.hideItemsAfterLimit(items, defaultLimit);
+            button.textContent = data.initialButtonText;
         }
-    })();
+    }
 
-    ShowMoreLess.init();
-})(window.jQuery);
+    updateComponentDisplay(component) {
+        const data = component._showMoreLess;
+        const items = data.items;
+        const button = data.button;
+        const defaultLimit = data.defaultLimit;
 
+        if (items.length <= defaultLimit) {
+            button.style.display = 'none';
+        } else {
+            this.hideItemsAfterLimit(items, defaultLimit);
+            button.style.display = 'block';
+            button.textContent = data.initialButtonText;
+        }
+    }
+
+    setupResizeListener() {
+        window.addEventListener(
+            'resize',
+            function () {
+                clearTimeout(this.resizeTimeout);
+
+                this.resizeTimeout = setTimeout(
+                    function () {
+                        this.handleResize();
+                    }.bind(this),
+                    250
+                );
+            }.bind(this)
+        );
+    }
+
+    handleResize() {
+        const newLimit = this.getDefaultLimit();
+
+        this.components.forEach(function (component) {
+            if (!component._showMoreLess) {
+                return;
+            }
+
+            const data = component._showMoreLess;
+            const oldLimit = data.defaultLimit;
+
+            if (oldLimit !== newLimit) {
+                data.defaultLimit = newLimit;
+                this.showAllItems(data.items);
+                this.updateComponentDisplay(component);
+            }
+        }, this);
+    }
+
+    showAllItems(items) {
+        Array.from(items).forEach(function (item) {
+            item.style.display = '';
+        });
+    }
+
+    hideItemsAfterLimit(items, limit) {
+        Array.from(items).forEach(function (item, index) {
+            if (index >= limit) {
+                item.style.display = 'none';
+            } else {
+                item.style.display = '';
+            }
+        });
+    }
+
+    getDefaultLimit() {
+        return window.innerWidth < 992 ? 3 : 7;
+    }
+}
+
+let showMoreLess;
+showMoreLess = new ShowMoreLess();

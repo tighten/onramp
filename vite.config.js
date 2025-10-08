@@ -1,18 +1,23 @@
-import { defineConfig } from "vite";
-import laravel from "laravel-vite-plugin";
-import vue from "@vitejs/plugin-vue2";
-import { resolve } from "path";
+import { defineConfig } from 'vite';
+import laravel from 'laravel-vite-plugin';
+import vue from '@vitejs/plugin-vue';
 
 export default defineConfig(({ command }) => ({
+    server: {
+        cors: true,
+        hmr: {
+            host: 'onramp.test',
+        },
+    },
     plugins: [
         laravel({
             input: [
-                "resources/sass/app.scss",
-                "resources/js/app.js",
-                "resources/js/scripts.js",
+                'resources/sass/app.scss',
+                'resources/js/app.js',
+                'resources/js/scripts.js',
             ],
             refresh: true,
-            detectTls: "onramp.test",
+            detectTls: 'onramp.test',
         }),
         vue({
             template: {
@@ -26,15 +31,9 @@ export default defineConfig(({ command }) => ({
     resolve: {
         alias: {
             vue:
-                command === "serve"
-                    ? resolve(
-                          __dirname,
-                          "node_modules/vue/dist/vue.esm.browser.js"
-                      )
-                    : resolve(
-                          __dirname,
-                          "node_modules/vue/dist/vue.esm.browser.min.js"
-                      ),
+                command === 'serve'
+                    ? 'vue/dist/vue.esm-browser.js'
+                    : 'vue/dist/vue.esm-browser.prod.js',
         },
     },
 }));

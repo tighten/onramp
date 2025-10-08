@@ -4,40 +4,54 @@
     </div>
 </template>
 
-<script>
-export default {
-    props: {
-        url: {
-            type: String,
-        },
-        name: {
-            type: String,
-            required: true,
-        },
-        selected: {
-            type: Boolean,
-            default: false,
-        },
+<script setup>
+import { computed, inject, onMounted, onUnmounted } from 'vue';
+
+const { url, name, selected } = defineProps({
+    url: {
+        type: String,
     },
-
-    data() {
-        return {
-            isActive: false,
-        }
+    name: {
+        type: String,
+        required: true,
     },
-
-    computed: {
-        href() {
-            if (this.url && this.url !== '') {
-                return this.url;
-            }
-
-            return `#${this.name.toLowerCase().replace(/ /g, '-')}`;
-        }
+    selected: {
+        type: Boolean,
+        default: false,
     },
+});
 
-    mounted() {
-        this.isActive = this.selected;
-    }
+const tabsContext = inject('tabs', null);
+
+if (!tabsContext) {
+    console.warn('Tab component must be used within a Tabs component');
 }
+
+const isActive = computed(() => {
+    if (!tabsContext) return selected;
+
+    if (tabsContext.isDesktop?.value) {
+        return true;
+    }
+
+    return tabsContext.activeTabName.value === name;
+});
+
+onMounted(() => {
+    if (tabsContext) {
+        const href = url || `#${name.toLowerCase().replace(/ /g, '-')}`;
+        tabsContext.registerTab({
+            name: name,
+            href,
+            selected: selected,
+            hasUrl: !!url,
+        });
+    }
+});
+
+onUnmounted(() => {
+    if (tabsContext) {
+        tabsContext.unregisterTab(name);
+    }
+});
 </script>

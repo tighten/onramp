@@ -42,7 +42,7 @@ class PreferenceController extends Controller
 
         $user->save();
 
-        session()->flash('toast', 'Your preferences were saved.');
+        session()->flash('toast', 'Your preferences have been successfully saved.');
 
         if ($request->wantsJson()) {
             return response()->json(['status' => 'success']);

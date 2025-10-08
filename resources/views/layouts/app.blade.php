@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 @php
-$fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to Laravel');
+    $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to Laravel');
 @endphp
-<html lang="{{ locale() }}" class="scroll-padding-header" style="scroll-behavior:smooth;">
-
+<html lang="{{ locale() }}" class="scroll-pt-[110px] xl:scroll-pt-[130px] antialiased scroll-smooth">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,7 +17,8 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to La
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ $ogUrl ?? url()->current() }}">
     <meta property="twitter:title" content="{{ $fullPageTitle }}">
-    <meta property="twitter:description" content="{{ $ogDescription ?? __('Learn everything you need to get hired writing Laravel, quickly and easily.') }}">
+    <meta property="twitter:description"
+          content="{{ $ogDescription ?? __('Learn everything you need to get hired writing Laravel, quickly and easily.') }}">
     <meta property="twitter:image" content="{{ $ogImage ?? url('/images/opengraph-logo-dark.png') }}">
 
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,600,700&display=swap" rel="stylesheet">
@@ -36,23 +36,17 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to La
         window.language = '{{ Localization::languageForLocale(locale()) }}';
 
         function chooseLanguage(value) {
-            axios
-                .patch(route("user.preferences.update", {
-                    locale: "en"
-                }), {
-                    locale: value
-                })
-                .then(() => {
-                    let segments = window.location.pathname.split("/");
-                    segments[1] = value;
-                    window.location = `${
-                        window.location.origin
-                    }${segments.join("/")}`;
-                })
-                .catch(error => {
-                    alert("Error!");
-                    console.log(error);
-                });
+            try {
+                if (window.localStorage) {
+                    localStorage.setItem('onramp_locale', value);
+                }
+            } catch (e) {
+            }
+            let segments = window.location.pathname.split("/");
+            if (segments.length > 1) {
+                segments[1] = value;
+            }
+            window.location = `${window.location.origin}${segments.join("/")}`;
         }
 
         const isInViewport = (element) => {
@@ -79,33 +73,44 @@ $fullPageTitle = (isset($pageTitle) ? "{$pageTitle} | " : '') . __('Onramp to La
         });
     </script>
 
+    @include('layouts.locale-selection')
+
     @if (app()->environment() === 'production')
-    <script src="https://cdn.usefathom.com/script.js" data-site="HTCOORML" defer></script>
+        <script src="https://cdn.usefathom.com/script.js" data-site="HTCOORML" defer></script>
     @endif
 
     <title>{{ $fullPageTitle }}</title>
 </head>
 
-<body class="bg-blue-black">
-    <div id="app" class="mx-auto sm:container">
-        <header class="fixed top-0 left-0 w-full z-[9999]">
-            @include('partials.navigation.header.main-header')
-        </header>
-        <div id="app-body">
-            @includeWhen(! request()->routeIs('wizard.index'), 'partials.choose-track')
-            @yield('content')
+<body class="bg-blue-black font-normal font-work-sans text-gray-black mt-16 min-w-xs">
+<div class="mx-auto sm:container">
+    <header class="fixed top-0 left-0 w-full z-[9999]">
+        @include('partials.navigation.header.main-header')
+    </header>
+    <div id="app-body">
+        @includeWhen(! request()->routeIs('wizard.index'), 'partials.choose-track')
+        @yield('content')
 
-            @include('partials.navigation.back-to-top')
+        @include('partials.navigation.back-to-top')
 
-            <!-- toast notifications -->
-            @if (session('toast'))
-            <toast {!! session('toast-title') ? 'title="'.session('toast-title').'"' : '' !!} message="{{ session('toast') }}"></toast>
-            @endif
-        </div>
-        @include('partials.navigation.footer')
+        @if (session('toast'))
+            <Toast
+                {!! session('toast-title') ? 'title="' .session('toast-title').'"' : '' !!}
+                text="{{ session('toast') }}"
+                {!! session('toast-type') ? 'type="' .session('toast-type').'"' : '' !!}
+            ></Toast>
+        @endif
+
+        <Notifications
+            position="bottom right"
+            classes="toast"
+            :speed="500"
+            width="450"
+        />
     </div>
-    @routes
-    @vite(['resources/js/app.js', 'resources/js/scripts.js'])
+    @include('partials.navigation.footer')
+</div>
+@routes
+@vite(['resources/js/app.js', 'resources/js/scripts.js'])
 </body>
-
 </html>

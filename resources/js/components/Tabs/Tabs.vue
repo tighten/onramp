@@ -2,26 +2,31 @@
     <div>
         <slot name="tabs-navigation">
             <div
-                class="w-full h-16 mb-4 overflow-hidden md:mb-10 lg:mb-12"
                 :class="{ 'lg:hidden': hideTabsOnDesktop }"
+                class="mb-4 h-16 w-full overflow-hidden md:mb-10 lg:mb-12"
             >
-                <div class="pb-6 overflow-scroll">
+                <div class="overflow-x-scroll pb-6">
                     <ul
-                        class="inline-flex flex-no-wrap min-w-full border-b-4 text-none border-gray"
+                        class="flex-no-wrap text-none inline-flex min-w-full border-b-4 border-gray"
                     >
                         <li
-                            v-for="tab in tabs"
+                            v-for="tab in registeredTabs"
                             :key="tab.name"
-                            :class="[darkMode ? 'text-white' : 'text-gray', {'text-gray-black': tab.isActive && !darkMode}]"
-                            class="inline-block text-xl font-semibold leading-tight tracking-tight whitespace-no-wrap transition duration-200 ease-in-out md:text-2xl xl:text-4xl focus:outline-none"
+                            :class="[
+                                darkMode ? 'text-white' : 'text-gray',
+                                {
+                                    'text-gray-black': tab.name === activeTabName && !darkMode,
+                                },
+                            ]"
+                            class="whitespace-no-wrap inline-block text-xl font-semibold leading-tight tracking-tight transition duration-200 ease-in-out focus:outline-none md:text-2xl xl:text-4xl"
                         >
                             <a
-                                :href="tab.href"
                                 :class="{
-                                    'border-b-4 border-teal': tab.isActive
+                                    'border-b-4 border-teal': tab.name === activeTabName,
                                 }"
-                                class="inline-block pb-5 -mb-1 border-b-4 hover:no-underline whitespace-nowrap"
-                                @click="setActiveTab(tab.href)"
+                                :href="tab.href"
+                                class="-mb-1 inline-block whitespace-nowrap border-b-4 pb-5 hover:no-underline"
+                                @click="handleTabClick(tab, $event)"
                             >
                                 <span class="px-4">{{ tab.name }}</span>
                             </a>
@@ -35,84 +40,107 @@
     </div>
 </template>
 
-<script>
-export default {
-    props: {
-        hideTabsOnDesktop: {
-            type: Boolean,
-            default: false
-        },
-        darkMode: {
-            type: Boolean,
-            default: false,
-        },
+<script setup>
+import { computed, onMounted, onUnmounted, provide, readonly, ref, toRefs } from 'vue';
+
+const props = defineProps({
+    hideTabsOnDesktop: {
+        type: Boolean,
+        default: false,
     },
-
-    data() {
-        return {
-            tabs: [],
-            windowWidth: window.innerWidth
-        };
+    darkMode: {
+        type: Boolean,
+        default: false,
     },
+});
 
-    created() {
-        this.tabs = this.$children;
-    },
+const { hideTabsOnDesktop, darkMode } = toRefs(props);
 
-    mounted() {
-        this.$nextTick(() => {
-            this.checkShowAllTabContent();
-            window.addEventListener("resize", this.checkShowAllTabContent);
-        });
-    },
+const emit = defineEmits(['activeTabUpdated']);
 
-    destroyed() {
-        window.removeEventListener("resize", this.checkShowAllTabContent);
-    },
+const registeredTabs = ref([]);
+const activeTabName = ref('');
+const windowWidth = ref(window.innerWidth);
 
-    watch: {
-        tabs(value) {
-            this.checkShowAllTabContent();
-        }
-    },
+function registerTab(tab) {
+    const existingIndex = registeredTabs.value.findIndex((t) => t.name === tab.name);
+    if (existingIndex >= 0) {
+        registeredTabs.value[existingIndex] = tab;
+    } else {
+        registeredTabs.value.push(tab);
+    }
 
-    methods: {
-        setActiveTab(selectedTabHref) {
-            this.tabs.forEach(tab => {
-                tab.isActive = tab.href == selectedTabHref;
-            });
+    if (!activeTabName.value || tab.selected) {
+        setActiveTab(tab.name);
+    }
+}
 
-            this.$emit(
-                "activeTabUpdated",
-                this.tabs.filter(tab => tab.isActive)[0]
-            );
-        },
+function unregisterTab(tabName) {
+    const index = registeredTabs.value.findIndex((t) => t.name === tabName);
+    if (index >= 0) {
+        registeredTabs.value.splice(index, 1);
+    }
+}
 
-        showAllTabs() {
-            this.tabs.forEach(tab => {
-                tab.isActive = true;
-            });
-        },
+function setActiveTab(tabName) {
+    if (!tabName) {
+        console.warn('setActiveTab received an invalid tabName:', tabName);
+        return;
+    }
 
-        checkShowAllTabContent() {
-            if (!this.hideTabsOnDesktop) {
-                return;
+    activeTabName.value = tabName;
+    emit('activeTabUpdated', tabName);
+}
+
+function handleTabClick(tab, event) {
+    if (tab.href && !tab.href.startsWith('#')) {
+        return;
+    }
+
+    event.preventDefault();
+    setActiveTab(tab.name);
+}
+
+function checkShowAllTabContent() {
+    if (!hideTabsOnDesktop.value) return;
+
+    const isDesktop = window.innerWidth >= 992;
+
+    if (!isDesktop) {
+        if (windowWidth.value !== window.innerWidth) {
+            if (registeredTabs.value.length > 0 && !activeTabName.value) {
+                setActiveTab(registeredTabs.value[0].name);
             }
-
-            if (window.innerWidth >= 992) {
-                this.showAllTabs();
-                return;
-            }
-
-            if (window.innerWidth < 992) {
-                if (this.windowWidth === window.innerWidth) {
-                    return;
-                }
-
-                this.setActiveTab(this.tabs[0].href);
-                this.windowWidth = window.innerWidth;
-            }
+            windowWidth.value = window.innerWidth;
         }
     }
-};
+}
+
+let resizeTimeout;
+
+function handleResize() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(checkShowAllTabContent, 150);
+}
+
+onMounted(() => {
+    checkShowAllTabContent();
+    window.addEventListener('resize', handleResize);
+});
+
+onUnmounted(() => {
+    window.removeEventListener('resize', handleResize);
+    clearTimeout(resizeTimeout);
+});
+
+provide('tabs', {
+    registerTab,
+    unregisterTab,
+    activeTabName: readonly(activeTabName),
+    isDesktop: computed(() => hideTabsOnDesktop.value && window.innerWidth >= 992),
+});
+
+defineExpose({
+    setActiveTab,
+});
 </script>

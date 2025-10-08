@@ -1,58 +1,68 @@
 <template>
     <div>
-        <slot :toggle="toggle" :is-completed="isCompleted"></slot>
+        <slot :is-completed="isCompleted" :toggle="toggle"></slot>
     </div>
 </template>
 
-<script>
-export default {
-    props: {
-        initialIsCompleted: {
-            type: Boolean,
-            default: false
-        },
-        type: {},
-        id: {},
+<script setup>
+import { ref } from 'vue';
+
+const { initialIsCompleted, type, id } = defineProps({
+    initialIsCompleted: {
+        type: Boolean,
+        default: false,
     },
-
-    data() {
-        return {
-            isCompleted: this.initialIsCompleted,
-        }
+    type: {
+        type: String,
+        required: true,
     },
-
-    methods: {
-        toggle() {
-            if (this.isCompleted) {
-                this.markNotCompleted();
-            } else {
-                this.markCompleted();
-            }
-
-            this.isCompleted = ! this.isCompleted;
-        },
-
-        markCompleted() {
-            window.axios.post(route('user.completions.store', {'locale': 'en'}), {
-                'completable_type': this.type,
-                'completable_id': this.id,
-            })
-            .catch(function (error) {
-                alert('Error!');
-            });
-        },
-
-        markNotCompleted() {
-            window.axios.delete(route('user.completions.destroy', {'locale': 'en'}), {
-                data:{
-                    'completable_type': this.type,
-                    'completable_id': this.id,
-                }
-            })
-            .catch(function (error) {
-                alert('Error!');
-            });
-        },
+    id: {
+        type: [String, Number],
+        required: true,
     },
-}
+});
+
+const isCompleted = ref(initialIsCompleted);
+
+const markCompleted = () => {
+    window.axios
+        .post(route('user.completions.store', { locale: 'en' }), {
+            completable_type: type,
+            completable_id: id,
+        })
+        .then(() => {
+            console.log('Successfully marked as completed');
+        })
+        .catch((error) => {
+            console.error('Error marking as completed:', error);
+            alert('Error marking as completed. Please try again.');
+        });
+};
+
+const markNotCompleted = () => {
+    window.axios
+        .delete(route('user.completions.destroy', { locale: 'en' }), {
+            data: {
+                completable_type: type,
+                completable_id: id,
+            },
+        })
+        .then(() => {
+            console.log('Successfully marked as not completed');
+        })
+        .catch((error) => {
+            console.error('Error marking as not completed:', error);
+            alert('Error marking as not completed. Please try again.');
+        });
+};
+
+const toggle = () => {
+    if (isCompleted.value) {
+        markNotCompleted();
+    } else {
+        markCompleted();
+    }
+
+    isCompleted.value = !isCompleted.value;
+};
 </script>

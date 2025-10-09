@@ -83,7 +83,7 @@
 </head>
 
 <body class="bg-blue-black font-normal font-work-sans text-gray-black mt-16 min-w-xs">
-<div class="mx-auto sm:container">
+<div class="mx-auto px-2 lg:container">
     <header class="fixed top-0 left-0 w-full z-[9999]">
         @include('partials.navigation.header.main-header')
     </header>

@@ -2,6 +2,7 @@
 
 namespace App\Handlers\Events;
 
+use App\Notifications\LaracastsMonthlyReminder;
 use App\Notifications\SendExpiredResources;
 use App\Notifications\SuggestedResourceSubmitted;
 use App\Notifications\UserSignedUp;
@@ -28,6 +29,8 @@ class SlackSubscriber
         $events->listen('new-suggested-resource', [$this, 'onNewSuggestedResource']);
 
         $events->listen('send-expired-resources', [$this, 'onExpiredResources']);
+
+        $events->listen('laracasts-monthly-reminder', [$this, 'onLaracastsMonthlyReminder']);
     }
 
     public function onNewSignup($user, $request)
@@ -43,5 +46,10 @@ class SlackSubscriber
     public function onExpiredResources($expiredResources)
     {
         $this->slack->notify(new SendExpiredResources($expiredResources));
+    }
+
+    public function onLaracastsMonthlyReminder(): void
+    {
+        $this->slack->notify(new LaracastsMonthlyReminder());
     }
 }

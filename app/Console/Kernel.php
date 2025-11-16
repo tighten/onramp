@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use Carbon\Carbon;
 use App\Console\Commands\SendResourceDigestEmail;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -19,7 +20,19 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('resource:expired -N')
             ->weeklyOn(Schedule::FRIDAY, '06:00');
-
+        
+        $schedule->call(fn () => event('laracasts-monthly-reminder'))
+            ->weeklyOn(Schedule::FRIDAY, '06:15')
+            ->when(function () {
+                $now = Carbon::now();
+                $endOfMonth = $now->copy()->endOfMonth();
+                $lastFriday = $endOfMonth->isFriday()
+                    ? $endOfMonth
+                    : $endOfMonth->previous(Carbon::FRIDAY);
+                
+                return $now->isSameDay($lastFriday);
+            });
+        
         $schedule->command('mail:send-resource-digest-email')->monthly();
     }
 

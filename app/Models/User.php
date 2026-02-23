@@ -25,15 +25,6 @@ class User extends Authenticatable
         'github_token',
     ];
 
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'preferences' => 'object',
-            'is_subscriber' => 'boolean',
-        ];
-    }
-
     public function track(): BelongsTo
     {
         return $this->belongsTo(Track::class);
@@ -110,11 +101,20 @@ class User extends Authenticatable
 
     public function getProfilePictureAttribute()
     {
-        return $this->github_avatar ?? 'https://www.gravatar.com/avatar/'.md5(strtolower($this->email)).'?d=mp';
+        return $this->github_avatar ?? 'https://www.gravatar.com/avatar/' . md5(strtolower($this->email)) . '?d=mp';
     }
 
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPassword($token));
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'preferences' => 'object',
+            'is_subscriber' => 'boolean',
+        ];
     }
 }

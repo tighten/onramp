@@ -54,13 +54,6 @@ class SuggestedResource extends Model
         });
     }
 
-    protected function casts(): array
-    {
-        return [
-            'user_id' => 'integer',
-        ];
-    }
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -74,5 +67,12 @@ class SuggestedResource extends Model
     public function isPendingReview()
     {
         return $this->status === self::SUGGESTED_STATUS;
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'user_id' => 'integer',
+        ];
     }
 }

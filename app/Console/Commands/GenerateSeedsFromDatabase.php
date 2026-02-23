@@ -132,9 +132,9 @@ class GenerateSeedsFromDatabase extends Command
         $override = $this->option('override') ?: $override;
 
         $ext = config('seeder.extension', self::SEED_FILE_EXT);
-        $seederName = $table.'.'.$ext;
+        $seederName = $table . '.' . $ext;
 
-        $this->line("Getting {$table} from ".config('database.connections.mysql_tunnel.database'));
+        $this->line("Getting {$table} from " . config('database.connections.mysql_tunnel.database'));
 
         $this->line("Generating {$seederName}");
 
@@ -159,7 +159,7 @@ class GenerateSeedsFromDatabase extends Command
 
         File::put($path, json_encode($data->toArray()));
 
-        $this->info("{$table} synced".PHP_EOL);
+        $this->info("{$table} synced" . PHP_EOL);
 
         return 1;
     }

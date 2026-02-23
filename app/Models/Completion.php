@@ -10,14 +10,6 @@ class Completion extends Model
 {
     protected $guarded = ['id'];
 
-    protected function casts(): array
-    {
-        return [
-            'user_id' => 'int',
-            'completable_id' => 'int',
-        ];
-    }
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -41,5 +33,13 @@ class Completion extends Model
     public function scopeSkills($query)
     {
         return $query->where('completable_type', (new Skill)->getMorphClass());
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'user_id' => 'int',
+            'completable_id' => 'int',
+        ];
     }
 }

@@ -18,13 +18,6 @@ class Skill extends Model implements Completable
 
     protected $guarded = ['id'];
 
-    protected function casts(): array
-    {
-        return [
-            'is_bonus' => 'boolean',
-        ];
-    }
-
     public function module(): BelongsTo
     {
         return $this->belongsTo(Module::class);
@@ -33,5 +26,12 @@ class Skill extends Model implements Completable
     public function completions(): MorphMany
     {
         return $this->morphMany(Completion::class, 'completable');
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'is_bonus' => 'boolean',
+        ];
     }
 }

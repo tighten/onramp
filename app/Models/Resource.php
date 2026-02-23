@@ -42,17 +42,6 @@ class Resource extends Model implements Completable
 
     protected $guarded = ['id'];
 
-    protected function casts(): array
-    {
-        return [
-            'id' => 'int',
-            'is_bonus' => 'boolean',
-            'is_free' => 'boolean',
-            'can_expire' => 'boolean',
-            'expiration_date' => 'datetime',
-        ];
-    }
-
     public static function getNewExpirationDate()
     {
         return now()->addMonths(config('resources.default_expiration_length'));
@@ -150,6 +139,17 @@ class Resource extends Model implements Completable
     public function isDueForRenewal()
     {
         return $this->isExpired() || $this->isExpiring();
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'id' => 'int',
+            'is_bonus' => 'boolean',
+            'is_free' => 'boolean',
+            'can_expire' => 'boolean',
+            'expiration_date' => 'datetime',
+        ];
     }
 
     protected function scopeForLocalePreferences($query)

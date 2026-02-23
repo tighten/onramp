@@ -21,7 +21,7 @@ trait CanSeedProdData
 
         foreach ($seeds as $seed) {
             $filename = $seed->getFilename();
-            $tableName = Str::before($filename, '.' . config('seeder.extension'));
+            $tableName = Str::before($filename, '.'.config('seeder.extension'));
 
             $command->line("Seeding {$tableName}...");
 
@@ -44,7 +44,7 @@ trait CanSeedProdData
                 }
             }
 
-            $command->info('Seeding successful!' . PHP_EOL);
+            $command->info('Seeding successful!'.PHP_EOL);
         }
 
         Schema::enableForeignKeyConstraints();

@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Mail;
 class SendResourceDigestEmail extends Command
 {
     protected $signature = 'mail:send-resource-digest-email';
+
     protected $description = 'Send the monthly resource digest email';
 
     public function handle()
@@ -34,7 +35,7 @@ class SendResourceDigestEmail extends Command
 
                     Mail::to($user->email)->queue(new ResourceDigestEmail($resources, $user, $unsubscribeUrl));
                 } catch (Exception $e) {
-                    Log::error('Failed to send email to ' . $user->email . ': ' . $e->getMessage());
+                    Log::error('Failed to send email to '.$user->email.': '.$e->getMessage());
                 }
             }
         });

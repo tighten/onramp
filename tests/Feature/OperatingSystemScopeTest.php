@@ -15,7 +15,7 @@ class OperatingSystemScopeTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function users_preferring_windows_only_see_windows_and_ANY_resources(): void
+    public function users_preferring_windows_only_see_windows_and_an_y_resources(): void
     {
         $commonAttributes = [
             'type' => Resource::VIDEO_TYPE,
@@ -32,7 +32,7 @@ class OperatingSystemScopeTest extends TestCase
 
         $this->be($user = User::factory()->create());
         Preferences::set(['operating-system' => OperatingSystem::WINDOWS, 'resource-language' => 'all']);
-        $response = $this->get('/en/modules/' . $module->slug . '/free-resources');
+        $response = $this->get('/en/modules/'.$module->slug.'/free-resources');
         $response->assertSee($windowsResource->name);
         $response->assertSee($anyResource->name);
         $response->assertDontSee($macResource->name);

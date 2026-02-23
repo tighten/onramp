@@ -47,7 +47,7 @@ class ResetPassword extends ResetPasswordNotification
                 'token' => $this->token,
                 'email' => $notifiable->getEmailForPasswordReset(),
             ]))
-            ->line(Lang::get('This password reset link will expire in :count minutes.', ['count' => config('auth.passwords.' . config('auth.defaults.passwords') . '.expire')]))
+            ->line(Lang::get('This password reset link will expire in :count minutes.', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')]))
             ->line(Lang::get('If you did not request a password reset, no further action is required.'));
     }
 }

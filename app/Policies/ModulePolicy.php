@@ -26,7 +26,7 @@ class ModulePolicy
         return true;
     }
 
-    public function create(User $user)
+    public function create(User $user): bool
     {
         //
     }
@@ -36,17 +36,17 @@ class ModulePolicy
         return false;
     }
 
-    public function delete(User $user, Module $module)
+    public function delete(User $user, Module $module): bool
     {
         //
     }
 
-    public function restore(User $user, Module $module)
+    public function restore(User $user, Module $module): bool
     {
         //
     }
 
-    public function forceDelete(User $user, Module $module)
+    public function forceDelete(User $user, Module $module): bool
     {
         //
     }

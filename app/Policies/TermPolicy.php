@@ -15,37 +15,37 @@ class TermPolicy
         return $user->isAtLeastEditor() ?: null;
     }
 
-    public function viewAny(User $user)
+    public function viewAny(User $user): bool
     {
         //
     }
 
-    public function view(User $user, Term $term)
+    public function view(User $user, Term $term): bool
     {
         //
     }
 
-    public function create(User $user)
+    public function create(User $user): bool
     {
         //
     }
 
-    public function update(User $user, Term $term)
+    public function update(User $user, Term $term): bool
     {
         //
     }
 
-    public function delete(User $user, Term $term)
+    public function delete(User $user, Term $term): bool
     {
         //
     }
 
-    public function restore(User $user, Term $term)
+    public function restore(User $user, Term $term): bool
     {
         //
     }
 
-    public function forceDelete(User $user, Term $term)
+    public function forceDelete(User $user, Term $term): bool
     {
         //
     }

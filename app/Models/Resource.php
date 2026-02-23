@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use App\Completable;
 use App\Facades\Preferences;
 use App\OperatingSystem;
@@ -75,17 +77,17 @@ class Resource extends Model implements Completable
         });
     }
 
-    public function modules()
+    public function modules(): BelongsToMany
     {
         return $this->belongsToMany(Module::class)->withTimestamps();
     }
 
-    public function completions()
+    public function completions(): MorphMany
     {
         return $this->morphMany(Completion::class, 'completable');
     }
 
-    public function terms()
+    public function terms(): BelongsToMany
     {
         return $this->belongsToMany(Term::class)->withTimestamps();
     }

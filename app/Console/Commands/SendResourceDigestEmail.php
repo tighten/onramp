@@ -17,7 +17,7 @@ class SendResourceDigestEmail extends Command
 
     protected $description = 'Send the monthly resource digest email';
 
-    public function handle()
+    public function handle(): void
     {
         $resources = Resource::where('created_at', '>=', Carbon::now()->subDays(30))->get();
 

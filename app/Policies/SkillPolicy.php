@@ -20,32 +20,32 @@ class SkillPolicy
         return $user->isAtLeastEditor();
     }
 
-    public function view(User $user, Skill $skill)
+    public function view(User $user, Skill $skill): bool
     {
         return $user->isAtLeastEditor();
     }
 
-    public function create(User $user)
+    public function create(User $user): bool
     {
         //
     }
 
-    public function update(User $user, Skill $skill)
+    public function update(User $user, Skill $skill): bool
     {
         //
     }
 
-    public function delete(User $user, Skill $skill)
+    public function delete(User $user, Skill $skill): bool
     {
         //
     }
 
-    public function restore(User $user, Skill $skill)
+    public function restore(User $user, Skill $skill): bool
     {
         //
     }
 
-    public function forceDelete(User $user, Skill $skill)
+    public function forceDelete(User $user, Skill $skill): bool
     {
         //
     }

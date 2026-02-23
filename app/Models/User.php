@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use App\Completable;
 use App\Notifications\ResetPassword;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -32,17 +34,17 @@ class User extends Authenticatable
         ];
     }
 
-    public function track()
+    public function track(): BelongsTo
     {
         return $this->belongsTo(Track::class);
     }
 
-    public function completions()
+    public function completions(): HasMany
     {
         return $this->hasMany(Completion::class);
     }
 
-    public function suggestedResources()
+    public function suggestedResources(): HasMany
     {
         return $this->hasMany(SuggestedResource::class);
     }

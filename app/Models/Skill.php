@@ -16,9 +16,12 @@ class Skill extends Model implements Completable
 
     protected $guarded = ['id'];
 
-    protected $casts = [
-        'is_bonus' => 'boolean',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'is_bonus' => 'boolean',
+        ];
+    }
 
     public function module()
     {

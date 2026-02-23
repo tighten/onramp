@@ -8,10 +8,13 @@ class Completion extends Model
 {
     protected $guarded = ['id'];
 
-    protected $casts = [
-        'user_id' => 'int',
-        'completable_id' => 'int',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'user_id' => 'int',
+            'completable_id' => 'int',
+        ];
+    }
 
     public function user()
     {

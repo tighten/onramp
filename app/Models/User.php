@@ -23,11 +23,14 @@ class User extends Authenticatable
         'github_token',
     ];
 
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'preferences' => 'object',
-        'is_subscriber' => 'boolean',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'preferences' => 'object',
+            'is_subscriber' => 'boolean',
+        ];
+    }
 
     public function track()
     {

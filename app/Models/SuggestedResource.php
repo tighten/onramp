@@ -38,10 +38,6 @@ class SuggestedResource extends Model
 
     protected $guarded = ['id'];
 
-    protected $casts = [
-        'user_id' => 'integer',
-    ];
-
     public static function boot()
     {
         parent::boot();
@@ -55,6 +51,13 @@ class SuggestedResource extends Model
         static::created(function ($suggestedResource) {
             Event::dispatch('new-suggested-resource', [$suggestedResource]);
         });
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'user_id' => 'integer',
+        ];
     }
 
     public function user()

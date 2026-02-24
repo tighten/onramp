@@ -25,23 +25,23 @@ class TrackPolicy
         return $user->isAtLeastEditor();
     }
 
-    public function update(User $user, Track $track)
+    public function update(User $user, Track $track): bool
     {
-        //
+        return false;
     }
 
-    public function delete(User $user, Track $track)
+    public function delete(User $user, Track $track): bool
     {
-        //
+        return false;
     }
 
-    public function restore(User $user, Track $track)
+    public function restore(User $user, Track $track): bool
     {
-        //
+        return false;
     }
 
-    public function forceDelete(User $user, Track $track)
+    public function forceDelete(User $user, Track $track): bool
     {
-        //
+        return false;
     }
 }

@@ -9,32 +9,29 @@
     "require": {
         "php": "^8.2",
         "erusev/parsedown": "^1.7",
-        "guzzlehttp/guzzle": "^7.2",
-        "kg-bot/laravel-localization-to-vue": "dev-l10-compatibility",
-        "laravel/framework": "^10.3",
+        "kg-bot/laravel-localization-to-vue": "dev-l11-compatibility@dev",
+        "laravel/framework": "^11.48",
         "laravel/nova": "4.33.3",
-        "laravel/slack-notification-channel": "^2.5",
-        "laravel/socialite": "^5.6",
-        "laravel/tinker": "^2.8",
-        "laravel/ui": "^4.2",
-        "larswiegers/laravel-translations-checker": "^0.4",
-        "nathanheffley/laravel-slack-blocks": "^2.3",
-        "spatie/laravel-ignition": "^2.0",
+        "laravel/slack-notification-channel": "^3.2",
+        "laravel/socialite": "^5.11",
+        "laravel/tinker": "^2.9",
+        "laravel/ui": "^4.4",
+        "larswiegers/laravel-translations-checker": "^0.9",
+        "spatie/laravel-ignition": "^2.4",
         "spatie/laravel-translatable": "^6.11",
         "spatie/nova-translatable": "^4.1",
-        "stechstudio/laravel-ssh-tunnel": "^3.3",
-        "tightenco/ziggy": "^1.5"
+        "tightenco/ziggy": "^2.0"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^3.8",
-        "barryvdh/laravel-ide-helper": "^2.13",
-        "beyondcode/laravel-dump-server": "^1.9",
-        "brianium/paratest": "^6.6",
-        "fakerphp/faker": "^1.9.1",
+        "barryvdh/laravel-debugbar": "^3.10",
+        "barryvdh/laravel-ide-helper": "^3.0",
+        "beyondcode/laravel-dump-server": "^2.0",
+        "brianium/paratest": "^7.5",
+        "fakerphp/faker": "^1.23",
         "filp/whoops": "^2.15",
-        "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^6.3",
-        "phpunit/phpunit": "^9.5.10",
+        "mockery/mockery": "^1.6",
+        "nunomaduro/collision": "^8.0",
+        "phpunit/phpunit": "^11.0",
         "tightenco/duster": "^v2.7.5"
     },
     "config": {
@@ -86,7 +83,7 @@
         "tightenco/nova-releases": "Keep on top of Nova Releases.",
         "tightenco/suggested-resources-shortcuts": "Shortcut card for suggesting resources."
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "scripts": {
         "post-autoload-dump": [

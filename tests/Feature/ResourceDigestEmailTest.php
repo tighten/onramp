@@ -13,7 +13,7 @@ class ResourceDigestEmailTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function resource_digest_email_content()
+    public function resource_digest_email_content(): void
     {
         $resources = Resource::factory()->count(3)->make();
         $user = User::factory()->make(['locale' => 'en']);

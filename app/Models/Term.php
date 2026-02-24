@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Spatie\Translatable\HasTranslations;
 
 class Term extends Model
@@ -28,7 +29,7 @@ class Term extends Model
         return $this->getTranslation('name', 'en');
     }
 
-    public function resources()
+    public function resources(): BelongsToMany
     {
         return $this->belongsToMany(Resource::class)->withTimestamps();
     }
@@ -38,7 +39,7 @@ class Term extends Model
         return $this->resources()->forCurrentSession();
     }
 
-    public function relatedTerms()
+    public function relatedTerms(): BelongsToMany
     {
         return $this->belongsToMany(Term::class, 'term_term', 'term_id', 'related_term_id');
     }

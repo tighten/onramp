@@ -3,22 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Completion extends Model
 {
     protected $guarded = ['id'];
 
-    protected $casts = [
-        'user_id' => 'int',
-        'completable_id' => 'int',
-    ];
-
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    public function completable()
+    public function completable(): MorphTo
     {
         return $this->morphTo();
     }
@@ -36,5 +33,13 @@ class Completion extends Model
     public function scopeSkills($query)
     {
         return $query->where('completable_type', (new Skill)->getMorphClass());
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'user_id' => 'int',
+            'completable_id' => 'int',
+        ];
     }
 }

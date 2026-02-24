@@ -17,7 +17,7 @@ class SendResourceDigestEmailCommandTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function it_can_send_resource_digest_email()
+    public function it_can_send_resource_digest_email(): void
     {
         Mail::fake();
 
@@ -42,7 +42,7 @@ class SendResourceDigestEmailCommandTest extends TestCase
     }
 
     /** @test */
-    public function it_will_not_send_email_if_no_resources()
+    public function it_will_not_send_email_if_no_resources(): void
     {
         Mail::fake();
 

@@ -15,38 +15,38 @@ class ResourcePolicy
         return $user->isAtLeastEditor() ?: null;
     }
 
-    public function viewAny(User $user)
+    public function viewAny(User $user): bool
     {
-        //
+        return false;
     }
 
-    public function view(User $user, User $model)
+    public function view(User $user, User $model): bool
     {
-        //
+        return false;
     }
 
-    public function create(User $user)
+    public function create(User $user): bool
     {
-        //
+        return false;
     }
 
-    public function update(User $user, Resource $resource)
+    public function update(User $user, Resource $resource): bool
     {
-        //
+        return false;
     }
 
-    public function delete(User $user, Resource $resource)
+    public function delete(User $user, Resource $resource): bool
     {
-        //
+        return false;
     }
 
-    public function restore(User $user, Resource $resource)
+    public function restore(User $user, Resource $resource): bool
     {
-        //
+        return false;
     }
 
-    public function forceDelete(User $user, Resource $resource)
+    public function forceDelete(User $user, Resource $resource): bool
     {
-        //
+        return false;
     }
 }

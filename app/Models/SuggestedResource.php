@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Event;
 use Laravel\Nova\Actions\Actionable;
 
@@ -38,10 +39,6 @@ class SuggestedResource extends Model
 
     protected $guarded = ['id'];
 
-    protected $casts = [
-        'user_id' => 'integer',
-    ];
-
     public static function boot()
     {
         parent::boot();
@@ -57,12 +54,12 @@ class SuggestedResource extends Model
         });
     }
 
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    public function module()
+    public function module(): BelongsTo
     {
         return $this->belongsTo(Module::class);
     }
@@ -70,5 +67,12 @@ class SuggestedResource extends Model
     public function isPendingReview()
     {
         return $this->status === self::SUGGESTED_STATUS;
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'user_id' => 'integer',
+        ];
     }
 }

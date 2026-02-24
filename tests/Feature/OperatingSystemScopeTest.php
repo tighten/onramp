@@ -15,7 +15,7 @@ class OperatingSystemScopeTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function users_preferring_windows_only_see_windows_and_ANY_resources(): void
+    public function users_preferring_windows_only_see_windows_and_an_y_resources(): void
     {
         $commonAttributes = [
             'type' => Resource::VIDEO_TYPE,

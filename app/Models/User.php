@@ -5,6 +5,8 @@ namespace App\Models;
 use App\Completable;
 use App\Notifications\ResetPassword;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -23,23 +25,17 @@ class User extends Authenticatable
         'github_token',
     ];
 
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'preferences' => 'object',
-        'is_subscriber' => 'boolean',
-    ];
-
-    public function track()
+    public function track(): BelongsTo
     {
         return $this->belongsTo(Track::class);
     }
 
-    public function completions()
+    public function completions(): HasMany
     {
         return $this->hasMany(Completion::class);
     }
 
-    public function suggestedResources()
+    public function suggestedResources(): HasMany
     {
         return $this->hasMany(SuggestedResource::class);
     }
@@ -111,5 +107,14 @@ class User extends Authenticatable
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPassword($token));
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'preferences' => 'object',
+            'is_subscriber' => 'boolean',
+        ];
     }
 }

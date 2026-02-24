@@ -6,8 +6,6 @@ use Illuminate\Foundation\Testing\TestCase;
 
 abstract class NovaTestCase extends TestCase
 {
-    use CreatesApplication;
-
     protected function setUp(): void
     {
         parent::setUp();

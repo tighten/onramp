@@ -7,6 +7,8 @@ use App\Facades\Preferences;
 use App\OperatingSystem;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Resource extends Model implements Completable
@@ -40,14 +42,6 @@ class Resource extends Model implements Completable
 
     protected $guarded = ['id'];
 
-    protected $casts = [
-        'id' => 'int',
-        'is_bonus' => 'boolean',
-        'is_free' => 'boolean',
-        'can_expire' => 'boolean',
-        'expiration_date' => 'datetime',
-    ];
-
     public static function getNewExpirationDate()
     {
         return now()->addMonths(config('resources.default_expiration_length'));
@@ -72,17 +66,17 @@ class Resource extends Model implements Completable
         });
     }
 
-    public function modules()
+    public function modules(): BelongsToMany
     {
         return $this->belongsToMany(Module::class)->withTimestamps();
     }
 
-    public function completions()
+    public function completions(): MorphMany
     {
         return $this->morphMany(Completion::class, 'completable');
     }
 
-    public function terms()
+    public function terms(): BelongsToMany
     {
         return $this->belongsToMany(Term::class)->withTimestamps();
     }
@@ -111,7 +105,7 @@ class Resource extends Model implements Completable
 
     public function getIsNewAttribute()
     {
-        return $this->created_at->diffInDays(now()) <= 14;
+        return (int) $this->created_at->diffInDays(now()) <= 14;
     }
 
     public function getDaysTilExpiredAttribute()
@@ -145,6 +139,17 @@ class Resource extends Model implements Completable
     public function isDueForRenewal()
     {
         return $this->isExpired() || $this->isExpiring();
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'id' => 'int',
+            'is_bonus' => 'boolean',
+            'is_free' => 'boolean',
+            'can_expire' => 'boolean',
+            'expiration_date' => 'datetime',
+        ];
     }
 
     protected function scopeForLocalePreferences($query)

@@ -5,6 +5,9 @@ namespace App\Models;
 use App\Completable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Spatie\Translatable\HasTranslations;
 
 class Module extends Model implements Completable
@@ -33,27 +36,27 @@ class Module extends Model implements Completable
         return 'slug';
     }
 
-    public function resources()
+    public function resources(): BelongsToMany
     {
         return $this->belongsToMany(Resource::class)->withTimestamps();
     }
 
-    public function suggestedResources()
+    public function suggestedResources(): HasMany
     {
         return $this->hasMany(SuggestedResource::class);
     }
 
-    public function skills()
+    public function skills(): HasMany
     {
         return $this->hasMany(Skill::class);
     }
 
-    public function completions()
+    public function completions(): MorphMany
     {
         return $this->morphMany(Completion::class, 'completable');
     }
 
-    public function tracks()
+    public function tracks(): BelongsToMany
     {
         return $this->belongsToMany(Track::class);
     }

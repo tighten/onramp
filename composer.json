@@ -9,7 +9,7 @@
     "require": {
         "php": "^8.2",
         "erusev/parsedown": "^1.7",
-        "kg-bot/laravel-localization-to-vue": "dev-l10-compatibility",
+        "kg-bot/laravel-localization-to-vue": "dev-l11-compatibility@dev",
         "laravel/framework": "^11.48",
         "laravel/nova": "4.33.3",
         "laravel/slack-notification-channel": "^3.2",
@@ -17,11 +17,9 @@
         "laravel/tinker": "^2.9",
         "laravel/ui": "^4.4",
         "larswiegers/laravel-translations-checker": "^0.9",
-        "nathanheffley/laravel-slack-blocks": "^2.3",
         "spatie/laravel-ignition": "^2.4",
         "spatie/laravel-translatable": "^6.11",
         "spatie/nova-translatable": "^4.1",
-        "stechstudio/laravel-ssh-tunnel": "^3.3",
         "tightenco/ziggy": "^2.0"
     },
     "require-dev": {
@@ -33,7 +31,7 @@
         "filp/whoops": "^2.15",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.0",
-        "phpunit/phpunit": "^10.5",
+        "phpunit/phpunit": "^11.0",
         "tightenco/duster": "^v2.7.5"
     },
     "config": {

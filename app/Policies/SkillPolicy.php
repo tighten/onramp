@@ -27,26 +27,26 @@ class SkillPolicy
 
     public function create(User $user): bool
     {
-        //
+        return false;
     }
 
     public function update(User $user, Skill $skill): bool
     {
-        //
+        return false;
     }
 
     public function delete(User $user, Skill $skill): bool
     {
-        //
+        return false;
     }
 
     public function restore(User $user, Skill $skill): bool
     {
-        //
+        return false;
     }
 
     public function forceDelete(User $user, Skill $skill): bool
     {
-        //
+        return false;
     }
 }

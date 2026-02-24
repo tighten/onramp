@@ -27,21 +27,21 @@ class TrackPolicy
 
     public function update(User $user, Track $track): bool
     {
-        //
+        return false;
     }
 
     public function delete(User $user, Track $track): bool
     {
-        //
+        return false;
     }
 
     public function restore(User $user, Track $track): bool
     {
-        //
+        return false;
     }
 
     public function forceDelete(User $user, Track $track): bool
     {
-        //
+        return false;
     }
 }

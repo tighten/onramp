@@ -17,36 +17,36 @@ class TermPolicy
 
     public function viewAny(User $user): bool
     {
-        //
+        return false;
     }
 
     public function view(User $user, Term $term): bool
     {
-        //
+        return false;
     }
 
     public function create(User $user): bool
     {
-        //
+        return false;
     }
 
     public function update(User $user, Term $term): bool
     {
-        //
+        return false;
     }
 
     public function delete(User $user, Term $term): bool
     {
-        //
+        return false;
     }
 
     public function restore(User $user, Term $term): bool
     {
-        //
+        return false;
     }
 
     public function forceDelete(User $user, Term $term): bool
     {
-        //
+        return false;
     }
 }

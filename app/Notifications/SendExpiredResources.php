@@ -3,7 +3,9 @@
 namespace App\Notifications;
 
 use Illuminate\Notifications\Notification;
-use NathanHeffley\LaravelSlackBlocks\Messages\SlackMessage;
+use Illuminate\Notifications\Slack\BlockKit\Blocks\ContextBlock;
+use Illuminate\Notifications\Slack\BlockKit\Blocks\SectionBlock;
+use Illuminate\Notifications\Slack\SlackMessage;
 
 class SendExpiredResources extends Notification
 {
@@ -19,69 +21,38 @@ class SendExpiredResources extends Notification
         return ['slack'];
     }
 
-    public function toSlack($notifiable)
+    public function toSlack($notifiable): SlackMessage
     {
         $msg = (new SlackMessage)
-            ->from('Onramp', ':onramp:')
-            ->content(sprintf('Here is your expired resources report: %s', url('/nova')));
+            ->text(sprintf('Here is your expired resources report: %s', url('/nova')));
 
         $this->expiredResources->take(self::REPORT_LIMIT)->each(function ($resource) use ($msg) {
-            $msg->attachment(function ($attachment) use ($resource) {
-                if ($resource->isExpiring()) {
-                    $hexColor = '#f9c336';
-                }
+            $status = $resource->isExpired() ? ':red_circle:' : ':large_yellow_circle:';
 
-                if ($resource->isExpired()) {
-                    $hexColor = '#e43b3b';
-                }
-
-                $attachment
-                    ->color($hexColor)
-                    ->block(function ($block) use ($resource) {
-                        $block
-                            ->type('section')
-                            ->text([
-                                'type' => 'mrkdwn',
-                                'text' => sprintf(
-                                    '*<%s|%s>*: *%s*',
-                                    $resource->url,
-                                    ucwords($resource->name),
-                                    $resource->days_til_expired,
-                                ),
-                            ]);
-                    })
-                    ->block(function ($block) use ($resource) {
-                        $block
-                            ->type('context')
-                            ->elements([
-                                [
-                                    'type' => 'mrkdwn',
-                                    'text' => sprintf(
-                                        "Used in %s modules\t\t\tExpiration Date: %s",
-                                        $resource->modules->count(),
-                                        $resource->expiration_date->format('m/d/Y'),
-                                    ),
-                                ],
-                            ]);
-                    })
-                    ->dividerBlock();
-            });
+            $msg->sectionBlock(function (SectionBlock $block) use ($resource, $status) {
+                $block->text(sprintf(
+                    '%s *<%s|%s>*: *%s*',
+                    $status,
+                    $resource->url,
+                    ucwords($resource->name),
+                    $resource->days_til_expired,
+                ));
+            })->contextBlock(function (ContextBlock $block) use ($resource) {
+                $block->text(sprintf(
+                    "Used in %s modules\t\t\tExpiration Date: %s",
+                    $resource->modules->count(),
+                    $resource->expiration_date->format('m/d/Y'),
+                ));
+            })->dividerBlock();
         });
 
         if ($remainingResources = $this->getRemainingResourcesCount()) {
-            $msg->attachment(function ($attachment) use ($remainingResources) {
-                $attachment->block(function ($block) use ($remainingResources) {
-                    $block
-                        ->type('section')
-                        ->text([
-                            'type' => 'mrkdwn',
-                            'text' => sprintf(
-                                '*<%s|%s>*',
-                                url('/nova'),
-                                "+ {$remainingResources} more expired or expiring resources",
-                            ),
-                        ]);
-                });
+            $msg->sectionBlock(function (SectionBlock $block) use ($remainingResources) {
+                $block->text(sprintf(
+                    '*<%s|%s>*',
+                    url('/nova'),
+                    "+ {$remainingResources} more expired or expiring resources",
+                ));
             });
         }
 

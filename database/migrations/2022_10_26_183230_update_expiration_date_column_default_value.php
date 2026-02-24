@@ -10,6 +10,7 @@ return new class extends Migration
     {
         Schema::table('resources', function (Blueprint $table) {
             $table->timestamp('expiration_date')
+                ->nullable()
                 ->default(null)
                 ->change();
         });

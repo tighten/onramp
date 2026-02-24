@@ -105,7 +105,7 @@ class Resource extends Model implements Completable
 
     public function getIsNewAttribute()
     {
-        return $this->created_at->diffInDays(now()) <= 14;
+        return (int) $this->created_at->diffInDays(now()) <= 14;
     }
 
     public function getDaysTilExpiredAttribute()

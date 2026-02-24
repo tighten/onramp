@@ -28,7 +28,7 @@ class ModulePolicy
 
     public function create(User $user): bool
     {
-        //
+        return false;
     }
 
     public function update(User $user, Module $module): bool
@@ -38,17 +38,17 @@ class ModulePolicy
 
     public function delete(User $user, Module $module): bool
     {
-        //
+        return false;
     }
 
     public function restore(User $user, Module $module): bool
     {
-        //
+        return false;
     }
 
     public function forceDelete(User $user, Module $module): bool
     {
-        //
+        return false;
     }
 
     public function attachResource(User $user, Module $module, Resource $resource): bool

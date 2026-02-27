@@ -30,7 +30,7 @@ it('can be submitted', function () {
 
     $response->assertStatus(302);
     $user->refresh();
-    $this->assertEquals($track_id, $user->track_id);
-    $this->assertEquals(OperatingSystem::MACOS, Preferences::get('operating-system'));
-    $this->assertEquals('en', Preferences::get('locale'));
+    expect($user->track_id)->toEqual($track_id);
+    expect(Preferences::get('operating-system'))->toEqual(OperatingSystem::MACOS);
+    expect(Preferences::get('locale'))->toEqual('en');
 });

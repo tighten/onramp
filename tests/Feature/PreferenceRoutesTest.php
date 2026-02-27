@@ -20,7 +20,7 @@ test('resource language can be changed', function () {
         'operating-system' => 'macos',
     ]);
 
-    $this->assertEquals('local-and-english', Preferences::get('resource-language'));
+    expect(Preferences::get('resource-language'))->toEqual('local-and-english');
 });
 
 test('locale can be changed', function () {
@@ -33,7 +33,7 @@ test('locale can be changed', function () {
         'operating-system' => 'macos',
     ]);
 
-    $this->assertEquals('es', Preferences::get('locale'));
+    expect(Preferences::get('locale'))->toEqual('es');
 });
 
 test('operating system can be changed', function () {
@@ -48,5 +48,5 @@ test('operating system can be changed', function () {
         'resource-language' => 'local-and-english',
     ]);
 
-    $this->assertEquals('linux', Preferences::get('operating-system'));
+    expect(Preferences::get('operating-system'))->toEqual('linux');
 });

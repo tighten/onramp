@@ -26,8 +26,8 @@ test('users can update their profile settings', function () {
     ]);
 
     tap($user->fresh(), function ($user) {
-        $this->assertEquals('Kanan Jarrus', $user->name);
-        $this->assertEquals('updated@example.com', $user->email);
+        expect($user->name)->toEqual('Kanan Jarrus');
+        expect($user->email)->toEqual('updated@example.com');
     });
 
     $response->assertRedirect(route_wlocale('user.profile.show'));

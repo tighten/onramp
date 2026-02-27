@@ -26,7 +26,7 @@ it('modifies operating system when changed', function () {
         'resource-language' => 'english',
     ]);
 
-    $this->assertEquals('macos', Preferences::get('operating-system'));
+    expect(Preferences::get('operating-system'))->toEqual('macos');
 
     $response = $this->patch(route_wlocale('user.preferences.update'), [
         'locale' => 'en',
@@ -34,7 +34,7 @@ it('modifies operating system when changed', function () {
         'resource-language' => 'english',
     ]);
 
-    $this->assertEquals('windows', Preferences::get('operating-system'));
+    expect(Preferences::get('operating-system'))->toEqual('windows');
 });
 
 test('on failed validation it persists old submitted values', function () {

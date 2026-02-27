@@ -21,7 +21,7 @@ test('preference service uses logged in user by default', function () {
     $preferences = new Preferences($user);
     $preferences->set(['resource-language' => 'def']);
 
-    $this->assertEquals('def', app('preferences')->get('resource-language'));
+    expect(app('preferences')->get('resource-language'))->toEqual('def');
 });
 
 test('preferences not defined cannot be used', function () {
@@ -36,7 +36,7 @@ test('user can set and get preferences', function () {
     $this->be($user);
     app('preferences')->set(['resource-language' => 'local-and-english']);
 
-    $this->assertEquals('local-and-english', app('preferences')->get('resource-language'));
+    expect(app('preferences')->get('resource-language'))->toEqual('local-and-english');
 });
 
 test('get honors preference defaults if user hasnt set preferences', function () {
@@ -45,7 +45,7 @@ test('get honors preference defaults if user hasnt set preferences', function ()
     ]);
     $this->be($user);
 
-    $this->assertEquals('local', app('preferences')->get('resource-language'));
+    expect(app('preferences')->get('resource-language'))->toEqual('local');
 });
 
 test('get can have default overridden', function () {

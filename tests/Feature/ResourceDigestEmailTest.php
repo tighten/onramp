@@ -16,10 +16,10 @@ test('resource digest email content', function () {
 
     $mailable = new ResourceDigestEmail($resources, $user, $unsubscribeUrl);
 
-    $this->assertEquals('New Onramp Resources!', $mailable->envelope()->subject);
+    expect($mailable->envelope()->subject)->toEqual('New Onramp Resources!');
 
     $renderedMailable = $mailable->render();
 
-    $this->assertStringContainsString($resources[0]->name, $renderedMailable);
-    $this->assertStringContainsString($unsubscribeUrl, $renderedMailable);
+    expect($renderedMailable)->toContain($resources[0]->name);
+    expect($renderedMailable)->toContain($unsubscribeUrl);
 });

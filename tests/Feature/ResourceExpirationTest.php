@@ -14,8 +14,8 @@ test('resources can be expired or expiring', function () {
     $resourceA = Resource::factory()->expired()->createQuietly();
     $resourceB = Resource::factory()->expiring()->createQuietly();
 
-    $this->assertTrue($resourceA->isExpired());
-    $this->assertTrue($resourceB->isExpiring());
+    expect($resourceA->isExpired())->toBeTrue();
+    expect($resourceB->isExpiring())->toBeTrue();
 });
 
 test('can scope expiring and expired resources', function () {
@@ -58,8 +58,8 @@ test('expired resources have an expiration label', function () {
     $resourceA = Resource::factory()->expired()->createQuietly();
     $resourceB = Resource::factory()->expiring()->createQuietly();
 
-    $this->assertSame('1 day ago', $resourceA->days_til_expired);
-    $this->assertSame('2 weeks from now', $resourceB->days_til_expired);
+    expect($resourceA->days_til_expired)->toBe('1 day ago');
+    expect($resourceB->days_til_expired)->toBe('2 weeks from now');
 });
 
 test('a six month expiration date is set when a resource can expire', function () {
@@ -79,7 +79,7 @@ test('a six month expiration date is not set when a resource cant expire', funct
         'can_expire' => false,
     ]);
 
-    $this->assertNull($resource->expiration_date);
+    expect($resource->expiration_date)->toBeNull();
 });
 
 test('a six month expiration date is set when a resource is updated to expire', function () {
@@ -108,5 +108,5 @@ test('expiration date is unset when a resource is updated to not expire', functi
     $resource->can_expire = false;
     $resource->save();
 
-    $this->assertNull($resource->expiration_date);
+    expect($resource->expiration_date)->toBeNull();
 });

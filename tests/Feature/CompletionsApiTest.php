@@ -18,7 +18,7 @@ it('completes a passed in resource', function () {
         'completable_id' => $resource->id,
     ]);
 
-    $this->assertEquals(1, Completion::count());
+    expect(Completion::count())->toEqual(1);
 });
 
 it('deletes a passed in resources completion', function () {
@@ -31,14 +31,14 @@ it('deletes a passed in resources completion', function () {
         'user_id' => $user->id,
     ]);
 
-    $this->assertEquals(1, Completion::count());
+    expect(Completion::count())->toEqual(1);
 
     $response = $this->delete(route_wlocale('user.completions.destroy'), [
         'completable_type' => $resource->getMorphClass(),
         'completable_id' => $resource->id,
     ]);
 
-    $this->assertEquals(0, Completion::count());
+    expect(Completion::count())->toEqual(0);
 });
 
 test('non authenticated users cannot delete completions', function () {
@@ -56,5 +56,5 @@ test('non authenticated users cannot delete completions', function () {
         'completable_id' => $resource->id,
     ]);
 
-    $this->assertEquals(1, Completion::count());
+    expect(Completion::count())->toEqual(1);
 });

@@ -19,7 +19,7 @@ test('glossary page shows related resources', function () {
     $module->resources()->save($resource);
     $term->resources()->save($resource);
 
-    $this->assertContains($resource->id, $term->fresh()->resources->pluck('id'));
+    expect($term->fresh()->resources->pluck('id'))->toContain($resource->id);
 
     $response = $this->get("/{$currentLocale}/glossary");
     $response->assertSee($resource->name);
@@ -36,8 +36,8 @@ test('glossary page hides related resources not in the current locale', function
     $module->resources()->saveMany([$englishResource, $spanishResource]);
     $term->resources()->saveMany([$englishResource, $spanishResource]);
 
-    $this->assertContains($englishResource->id, $term->fresh()->resources->pluck('id'));
-    $this->assertContains($spanishResource->id, $term->fresh()->resources->pluck('id'));
+    expect($term->fresh()->resources->pluck('id'))->toContain($englishResource->id);
+    expect($term->fresh()->resources->pluck('id'))->toContain($spanishResource->id);
     $this->assertNotContains($spanishResource->id, $term->fresh()->resourcesForCurrentSession()->pluck('resources.id'));
 
     $response = $this->get("/{$currentLocale}/glossary");

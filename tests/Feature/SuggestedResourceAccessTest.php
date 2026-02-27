@@ -10,26 +10,26 @@ uses(RefreshDatabase::class);
 
 test('users can view any suggested resources', function () {
     $user = User::factory()->create(['role' => 'user']);
-    $this->assertTrue($user->can('viewAny', SuggestedResource::class));
+    expect($user->can('viewAny', SuggestedResource::class))->toBeTrue();
 });
 
 test('users can suggest resources', function () {
     $user = User::factory()->create(['role' => 'user']);
-    $this->assertTrue($user->can('create', SuggestedResource::class));
+    expect($user->can('create', SuggestedResource::class))->toBeTrue();
 });
 
 test('users can see their own suggested resources', function () {
     $user = User::factory()->create(['role' => 'user']);
     $suggestedResource = SuggestedResource::factory()->create(['user_id' => $user->id]);
 
-    $this->assertTrue($user->can('view', $suggestedResource));
+    expect($user->can('view', $suggestedResource))->toBeTrue();
 });
 
 test('users can edit their own suggested resources', function () {
     $user = User::factory()->create(['role' => 'user']);
     $suggestedResource = SuggestedResource::factory()->create(['user_id' => $user->id]);
 
-    $this->assertTrue($user->can('update', $suggestedResource));
+    expect($user->can('update', $suggestedResource))->toBeTrue();
 });
 
 test('users can see other users suggested resources', function () {
@@ -37,7 +37,7 @@ test('users can see other users suggested resources', function () {
     $otherUser = User::factory()->create(['role' => 'user']);
     $suggestedResource = SuggestedResource::factory()->create(['user_id' => $otherUser->id]);
 
-    $this->assertTrue($user->can('view', $suggestedResource));
+    expect($user->can('view', $suggestedResource))->toBeTrue();
 });
 
 test('users cannot edit other users suggested resources', function () {
@@ -45,7 +45,7 @@ test('users cannot edit other users suggested resources', function () {
     $otherUser = User::factory()->create(['role' => 'user']);
     $suggestedResource = SuggestedResource::factory()->create(['user_id' => $otherUser->id]);
 
-    $this->assertFalse($user->can('update', $suggestedResource));
+    expect($user->can('update', $suggestedResource))->toBeFalse();
 });
 
 test('users cannot delete other users suggested resources', function () {
@@ -53,14 +53,14 @@ test('users cannot delete other users suggested resources', function () {
     $otherUser = User::factory()->create(['role' => 'user']);
     $suggestedResource = SuggestedResource::factory()->create(['user_id' => $otherUser->id]);
 
-    $this->assertFalse($user->can('delete', $suggestedResource));
+    expect($user->can('delete', $suggestedResource))->toBeFalse();
 });
 
 test('users can delete their own suggested resources', function () {
     $user = User::factory()->create(['role' => 'user']);
     $suggestedResource = SuggestedResource::factory()->create(['user_id' => $user->id]);
 
-    $this->assertTrue($user->can('delete', $suggestedResource));
+    expect($user->can('delete', $suggestedResource))->toBeTrue();
 });
 
 test('admins can see and edit all suggested resources', function () {
@@ -68,8 +68,8 @@ test('admins can see and edit all suggested resources', function () {
     $adminUser = User::factory()->create(['role' => 'admin']);
     $suggestedResource = SuggestedResource::factory()->create(['user_id' => $user->id]);
 
-    $this->assertTrue($adminUser->can('view', $suggestedResource));
-    $this->assertTrue($adminUser->can('update', $suggestedResource));
+    expect($adminUser->can('view', $suggestedResource))->toBeTrue();
+    expect($adminUser->can('update', $suggestedResource))->toBeTrue();
 });
 
 test('editors can see and edit all suggested resources', function () {
@@ -77,6 +77,6 @@ test('editors can see and edit all suggested resources', function () {
     $editorUser = User::factory()->create(['role' => 'editor']);
     $suggestedResource = SuggestedResource::factory()->create(['user_id' => $user->id]);
 
-    $this->assertTrue($editorUser->can('view', $suggestedResource));
-    $this->assertTrue($editorUser->can('update', $suggestedResource));
+    expect($editorUser->can('view', $suggestedResource))->toBeTrue();
+    expect($editorUser->can('update', $suggestedResource))->toBeTrue();
 });

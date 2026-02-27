@@ -25,8 +25,8 @@ test('module can access previous and next module', function () {
     $prev = $modules->skip(1)->first();
     $next = $modules->last();
 
-    $this->assertEquals($prev->id, $current->getPrevious()->id);
-    $this->assertEquals($next->id, $current->getNext()->id);
+    expect($current->getPrevious()->id)->toEqual($prev->id);
+    expect($current->getNext()->id)->toEqual($next->id);
 });
 
 test('modules index page lists modules', function () {

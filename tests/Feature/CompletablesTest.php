@@ -17,7 +17,7 @@ test('user can complete a resource', function () {
 
     $user->complete($resource);
 
-    $this->assertEquals(1, Completion::count());
+    expect(Completion::count())->toEqual(1);
 });
 
 test('user can undo a resource completion', function () {
@@ -27,7 +27,7 @@ test('user can undo a resource completion', function () {
     $user->complete($resource);
     $user->undoComplete($resource);
 
-    $this->assertEquals(0, Completion::count());
+    expect(Completion::count())->toEqual(0);
 });
 
 test('user can complete a module', function () {
@@ -36,7 +36,7 @@ test('user can complete a module', function () {
 
     $user->complete($module);
 
-    $this->assertEquals(1, Completion::count());
+    expect(Completion::count())->toEqual(1);
 });
 
 test('user can undo a module completion', function () {
@@ -46,7 +46,7 @@ test('user can undo a module completion', function () {
     $user->complete($module);
     $user->undoComplete($module);
 
-    $this->assertEquals(0, Completion::count());
+    expect(Completion::count())->toEqual(0);
 });
 
 test('user can complete a skill', function () {
@@ -55,7 +55,7 @@ test('user can complete a skill', function () {
 
     $user->complete($skill);
 
-    $this->assertEquals(1, Completion::count());
+    expect(Completion::count())->toEqual(1);
 });
 
 test('user can undo a skill completion', function () {
@@ -65,7 +65,7 @@ test('user can undo a skill completion', function () {
     $user->complete($skill);
     $user->undoComplete($skill);
 
-    $this->assertEquals(0, Completion::count());
+    expect(Completion::count())->toEqual(0);
 });
 
 test('user cannot complete another user', function () {
@@ -76,7 +76,7 @@ test('user cannot complete another user', function () {
 
     $user->complete($otherUser);
 
-    $this->assertEquals(0, Completion::count());
+    expect(Completion::count())->toEqual(0);
 });
 
 test('user can list module completions', function () {
@@ -85,7 +85,7 @@ test('user can list module completions', function () {
     $otherModule = Module::factory()->create();
     $user->complete($otherModule);
 
-    $this->assertContains($otherModule->id, $user->moduleCompletions->pluck('completable_id'));
+    expect($user->moduleCompletions->pluck('completable_id'))->toContain($otherModule->id);
     $this->assertNotContains($module->id, $user->moduleCompletions->pluck('completable_id'));
 });
 
@@ -95,7 +95,7 @@ test('user can list resource completions', function () {
     $otherResource = Resource::factory()->create();
     $user->complete($otherResource);
 
-    $this->assertContains($otherResource->id, $user->resourceCompletions->pluck('completable_id'));
+    expect($user->resourceCompletions->pluck('completable_id'))->toContain($otherResource->id);
     $this->assertNotContains($resource->id, $user->resourceCompletions->pluck('completable_id'));
 });
 
@@ -105,6 +105,6 @@ test('user can list skill completions', function () {
     $otherSkill = Skill::factory()->create();
     $user->complete($otherSkill);
 
-    $this->assertContains($otherSkill->id, $user->skillCompletions->pluck('completable_id'));
+    expect($user->skillCompletions->pluck('completable_id'))->toContain($otherSkill->id);
     $this->assertNotContains($skill->id, $user->skillCompletions->pluck('completable_id'));
 });

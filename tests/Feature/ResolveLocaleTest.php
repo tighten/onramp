@@ -14,7 +14,7 @@ it('resolves locale from path', function () {
 
     $resolver = new ResolveLocale($requestMock, app());
 
-    $this->assertEquals('es', $resolver());
+    expect($resolver())->toEqual('es');
 });
 
 it('errors for invalid locales', function () {

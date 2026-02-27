@@ -10,10 +10,10 @@
         "format": "prettier \"resources/**/*.{css,js,vue}\" --write"
     },
     "devDependencies": {
-        "laravel-vite-plugin": "^1.1.1",
+        "laravel-vite-plugin": "^2.0.0",
         "postcss": "^8.4.38",
         "sass": "^1.32.12",
-        "vite": "^6.4.1",
+        "vite": "^7.0.7",
         "vue-loader": "^15.10.0",
         "prettier": "^3.6.0",
         "prettier-plugin-tailwindcss": "^0.6.9",

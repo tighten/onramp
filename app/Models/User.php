@@ -101,7 +101,7 @@ class User extends Authenticatable
 
     public function getProfilePictureAttribute()
     {
-        return $this->github_avatar ?? 'https://www.gravatar.com/avatar/' . md5(strtolower($this->email)) . '?d=mp';
+        return $this->github_avatar ?? 'https://www.gravatar.com/avatar/'.md5(strtolower($this->email)).'?d=mp';
     }
 
     public function sendPasswordResetNotification($token)

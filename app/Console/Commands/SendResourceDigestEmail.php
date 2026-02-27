@@ -35,7 +35,7 @@ class SendResourceDigestEmail extends Command
 
                     Mail::to($user->email)->queue(new ResourceDigestEmail($resources, $user, $unsubscribeUrl));
                 } catch (Exception $e) {
-                    Log::error('Failed to send email to ' . $user->email . ': ' . $e->getMessage());
+                    Log::error('Failed to send email to '.$user->email.': '.$e->getMessage());
                 }
             }
         });

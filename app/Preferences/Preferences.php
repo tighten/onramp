@@ -44,7 +44,7 @@ class Preferences
     public function get($key, $default = null)
     {
         if (! array_key_exists($key, $this->preferences)) {
-            throw new Exception('Invalid preferences key: ' . $key);
+            throw new Exception('Invalid preferences key: '.$key);
         }
 
         if ($this->user) {
@@ -71,12 +71,12 @@ class Preferences
             return new $this->preferences[$key];
         }
 
-        throw new Exception('No preference matching key ' . $key);
+        throw new Exception('No preference matching key '.$key);
     }
 
     public function cookieNameForKey($key)
     {
-        return 'PREFERENCES::' . $key;
+        return 'PREFERENCES::'.$key;
     }
 
     public function getValidKeys()

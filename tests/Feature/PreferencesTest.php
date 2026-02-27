@@ -4,7 +4,6 @@ use App\Models\Module;
 use App\Models\User;
 use App\Preferences\Preferences;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
 
 uses(Tests\TestCase::class);
 uses(RefreshDatabase::class);

@@ -3,7 +3,6 @@
 use App\Models\SuggestedResource;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\NovaTestCase;
 
 uses(Tests\NovaTestCase::class);
 uses(RefreshDatabase::class);

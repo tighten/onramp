@@ -7,7 +7,6 @@ use App\Nova\Actions\ApproveSuggestedResource;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Laravel\Nova\Fields\ActionFields;
-use Tests\NovaTestCase;
 
 uses(Tests\NovaTestCase::class);
 uses(RefreshDatabase::class);

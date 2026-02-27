@@ -1,9 +1,6 @@
 <?php
 
 use Database\Seeders\ContentSeeder;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
-
 
 test('content seeder runs', function () {
     $this->markTestSkipped();

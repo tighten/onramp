@@ -1,9 +1,6 @@
 <?php
 
 use App\Models\Resource;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
-
 
 test('newly created resources display new tag', function () {
     $resource = Resource::factory()->create();

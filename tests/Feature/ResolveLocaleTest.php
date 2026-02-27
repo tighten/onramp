@@ -2,7 +2,6 @@
 
 use App\Localization\ResolveLocale;
 use Illuminate\Http\Request;
-use Tests\TestCase;
 
 uses(Tests\TestCase::class);
 

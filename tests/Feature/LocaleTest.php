@@ -1,7 +1,6 @@
 <?php
 
 use App\Localization\Locale;
-use Tests\TestCase;
 
 uses(Tests\TestCase::class);
 

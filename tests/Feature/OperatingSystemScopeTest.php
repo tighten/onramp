@@ -6,7 +6,6 @@ use App\Models\Resource;
 use App\Models\User;
 use App\OperatingSystem;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
 
 uses(Tests\TestCase::class);
 uses(RefreshDatabase::class);

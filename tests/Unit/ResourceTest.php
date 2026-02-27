@@ -4,8 +4,6 @@ use App\Models\Resource;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-uses(Tests\TestCase::class);
-uses(RefreshDatabase::class);
 
 test('newly created resources display new tag', function () {
     $resource = Resource::factory()->create();

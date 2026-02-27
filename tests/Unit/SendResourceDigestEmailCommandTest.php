@@ -10,8 +10,6 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Tests\TestCase;
 
-uses(Tests\TestCase::class);
-uses(RefreshDatabase::class);
 
 it('can send resource digest email', function () {
     Mail::fake();

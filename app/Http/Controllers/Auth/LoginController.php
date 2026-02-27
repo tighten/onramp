@@ -28,7 +28,7 @@ class LoginController extends Controller implements HasMiddleware
 
     public function redirectTo()
     {
-        return Preferences::get('locale').'/modules';
+        return Preferences::get('locale') . '/modules';
     }
 
     public function showLoginForm(): View

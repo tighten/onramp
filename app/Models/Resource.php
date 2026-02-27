@@ -82,31 +82,6 @@ class Resource extends Model implements Completable
         return $this->belongsToMany(Term::class)->withTimestamps();
     }
 
-    #[Scope]
-    protected function forCurrentSession($query)
-    {
-        $this->scopeForLocalePreferences($query);
-
-        if (auth()->check()) {
-            $query->whereIn('os', [OperatingSystem::ANY, Preferences::get('operating-system')]);
-        }
-    }
-
-    #[Scope]
-    protected function expired($query)
-    {
-        return $query->where('expiration_date', '<', now()->toDateTimeString());
-    }
-
-    #[Scope]
-    protected function expiring($query)
-    {
-        return $query->whereBetween('expiration_date', [
-            now()->toDateTimeString(),
-            now()->addDays(15)->toDateTimeString(),
-        ]);
-    }
-
     public function getIsNewAttribute()
     {
         return (int) $this->created_at->diffInDays(now()) <= 14;
@@ -143,6 +118,31 @@ class Resource extends Model implements Completable
     public function isDueForRenewal()
     {
         return $this->isExpired() || $this->isExpiring();
+    }
+
+    #[Scope]
+    protected function forCurrentSession($query)
+    {
+        $this->scopeForLocalePreferences($query);
+
+        if (auth()->check()) {
+            $query->whereIn('os', [OperatingSystem::ANY, Preferences::get('operating-system')]);
+        }
+    }
+
+    #[Scope]
+    protected function expired($query)
+    {
+        return $query->where('expiration_date', '<', now()->toDateTimeString());
+    }
+
+    #[Scope]
+    protected function expiring($query)
+    {
+        return $query->whereBetween('expiration_date', [
+            now()->toDateTimeString(),
+            now()->addDays(15)->toDateTimeString(),
+        ]);
     }
 
     protected function casts(): array

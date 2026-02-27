@@ -67,6 +67,20 @@ class Module extends Model implements Completable
         return $this->resources()->forCurrentSession();
     }
 
+    public function getPrevious()
+    {
+        return Module::where('id', '<', $this->id)
+            ->orderBy('id', 'desc')
+            ->first();
+    }
+
+    public function getNext()
+    {
+        return Module::where('id', '>', $this->id)
+            ->orderBy('id', 'asc')
+            ->first();
+    }
+
     #[Scope]
     protected function standard($query)
     {
@@ -95,19 +109,5 @@ class Module extends Model implements Completable
     protected function advanced($query)
     {
         return $query->where('skill_level', self::ADVANCED_SKILL_LEVEL);
-    }
-
-    public function getPrevious()
-    {
-        return Module::where('id', '<', $this->id)
-            ->orderBy('id', 'desc')
-            ->first();
-    }
-
-    public function getNext()
-    {
-        return Module::where('id', '>', $this->id)
-            ->orderBy('id', 'asc')
-            ->first();
     }
 }

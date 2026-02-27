@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Attributes\Scope;
 use App\Completable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -66,27 +67,32 @@ class Module extends Model implements Completable
         return $this->resources()->forCurrentSession();
     }
 
-    public function scopeStandard($query)
+    #[Scope]
+    protected function standard($query)
     {
         return $query->where('is_bonus', 0);
     }
 
-    public function scopeBonus($query)
+    #[Scope]
+    protected function bonus($query)
     {
         return $query->where('is_bonus', 1);
     }
 
-    public function scopeBeginner($query)
+    #[Scope]
+    protected function beginner($query)
     {
         return $query->where('skill_level', self::BEGINNER_SKILL_LEVEL);
     }
 
-    public function scopeIntermediate($query)
+    #[Scope]
+    protected function intermediate($query)
     {
         return $query->where('skill_level', self::INTERMEDIATE_SKILL_LEVEL);
     }
 
-    public function scopeAdvanced($query)
+    #[Scope]
+    protected function advanced($query)
     {
         return $query->where('skill_level', self::ADVANCED_SKILL_LEVEL);
     }

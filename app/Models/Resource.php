@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Attributes\Scope;
 use App\Completable;
 use App\Facades\Preferences;
 use App\OperatingSystem;
@@ -81,7 +82,8 @@ class Resource extends Model implements Completable
         return $this->belongsToMany(Term::class)->withTimestamps();
     }
 
-    public function scopeForCurrentSession($query)
+    #[Scope]
+    protected function forCurrentSession($query)
     {
         $this->scopeForLocalePreferences($query);
 
@@ -90,12 +92,14 @@ class Resource extends Model implements Completable
         }
     }
 
-    public function scopeExpired($query)
+    #[Scope]
+    protected function expired($query)
     {
         return $query->where('expiration_date', '<', now()->toDateTimeString());
     }
 
-    public function scopeExpiring($query)
+    #[Scope]
+    protected function expiring($query)
     {
         return $query->whereBetween('expiration_date', [
             now()->toDateTimeString(),
@@ -152,7 +156,8 @@ class Resource extends Model implements Completable
         ];
     }
 
-    protected function scopeForLocalePreferences($query)
+    #[Scope]
+    protected function forLocalePreferences($query)
     {
         switch (Preferences::get('resource-language')) {
             case 'local':

@@ -10,17 +10,18 @@
         "format": "prettier \"resources/**/*.{css,js,vue}\" --write"
     },
     "devDependencies": {
-        "laravel-vite-plugin": "^1.1.1",
+        "laravel-vite-plugin": "^2.0.0",
         "postcss": "^8.4.38",
         "sass": "^1.32.12",
-        "vite": "^6.4.1",
+        "vite": "^7.0.7",
         "vue-loader": "^15.10.0",
         "prettier": "^3.6.0",
-        "prettier-plugin-tailwindcss": "^0.6.9"
+        "prettier-plugin-tailwindcss": "^0.6.9",
+        "concurrently": "^9.0.1"
     },
     "dependencies": {
         "@kyvg/vue3-notification": "^3.4.1",
-        "@vitejs/plugin-vue": "^5.2.1",
+        "@vitejs/plugin-vue": "^6.0.4",
         "@vueuse/core": "^13.4.0",
         "alpinejs": "^3.14.7",
         "autoprefixer": "^10.4.19",

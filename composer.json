@@ -9,30 +9,31 @@
     "require": {
         "php": "^8.2",
         "erusev/parsedown": "^1.7",
-        "kg-bot/laravel-localization-to-vue": "dev-l11-compatibility@dev",
-        "laravel/framework": "^11.48",
-        "laravel/nova": "4.33.3",
-        "laravel/slack-notification-channel": "^3.2",
-        "laravel/socialite": "^5.11",
-        "laravel/tinker": "^2.9",
-        "laravel/ui": "^4.4",
+        "kg-bot/laravel-localization-to-vue": "dev-l12-compatibility@dev",
+        "laravel/framework": "^12.53",
+        "laravel/nova": "^4.35.11",
+        "laravel/slack-notification-channel": "^3.4",
+        "laravel/socialite": "^5.17",
+        "laravel/tinker": "^2.10.1",
+        "laravel/ui": "^4.6",
         "larswiegers/laravel-translations-checker": "^0.9",
-        "spatie/laravel-ignition": "^2.4",
+        "spatie/laravel-ignition": "^2.9",
         "spatie/laravel-translatable": "^6.11",
         "spatie/nova-translatable": "^4.1",
         "tightenco/ziggy": "^2.0"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^3.10",
-        "barryvdh/laravel-ide-helper": "^3.0",
-        "beyondcode/laravel-dump-server": "^2.0",
+        "barryvdh/laravel-debugbar": "^3.15",
+        "barryvdh/laravel-ide-helper": "^3.5",
+        "beyondcode/laravel-dump-server": "^2.1",
         "brianium/paratest": "^7.5",
         "fakerphp/faker": "^1.23",
         "filp/whoops": "^2.15",
         "mockery/mockery": "^1.6",
-        "nunomaduro/collision": "^8.0",
-        "phpunit/phpunit": "^11.0",
-        "tightenco/duster": "^v2.7.5"
+        "nunomaduro/collision": "^8.6",
+        "phpunit/phpunit": "^11.5.3",
+        "tightenco/duster": "^v2.7.5",
+        "laravel/pail": "^1.2.2"
     },
     "config": {
         "optimize-autoloader": true,
@@ -97,13 +98,32 @@
             "@php artisan key:generate --ansi"
         ],
         "post-install-cmd": [
-            "[ $COMPOSER_DEV_MODE -eq 1 ] || composer require laravel/nova:4.33.3 spatie/nova-translatable spatie/laravel-translatable tightenco/nova-releases tightenco/suggested-resources-shortcuts"
+            "[ $COMPOSER_DEV_MODE -eq 1 ] || composer require laravel/nova:^4.35.11 spatie/nova-translatable spatie/laravel-translatable tightenco/nova-releases tightenco/suggested-resources-shortcuts"
         ],
         "lint": [
             "vendor/bin/duster lint"
         ],
         "fix": [
             "vendor/bin/duster fix"
+        ],
+        "dev": [
+            "Composer\\Config::disableProcessTimeout",
+            "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite --kill-others"
+        ],
+        "setup": [
+            "composer install",
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "@php artisan key:generate",
+            "@php artisan migrate --force",
+            "npm install",
+            "npm run build"
+        ],
+        "test": [
+            "@php artisan config:clear --ansi",
+            "@php artisan test"
+        ],
+        "pre-package-uninstall": [
+            "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"
         ]
     }
 }

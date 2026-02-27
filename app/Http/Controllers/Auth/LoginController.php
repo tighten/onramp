@@ -7,19 +7,23 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Exception;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 use Laravel\Socialite\Facades\Socialite;
 
-class LoginController extends Controller
+class LoginController extends Controller implements HasMiddleware
 {
     use AuthenticatesUsers;
 
-    public function __construct()
+    public static function middleware(): array
     {
-        $this->middleware('guest')->except('logout');
+        return [
+            new Middleware('guest', except: ['logout']),
+        ];
     }
 
     public function redirectTo()

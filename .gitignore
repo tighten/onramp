@@ -5,8 +5,10 @@
 /public/build
 /public/storage
 /storage/*.key
+/storage/pail
 /vendor
 /.idea
+/.nova
 .env
 .env.backup
 .phpunit.result.cache

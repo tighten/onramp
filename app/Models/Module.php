@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Completable;
+use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -66,31 +67,6 @@ class Module extends Model implements Completable
         return $this->resources()->forCurrentSession();
     }
 
-    public function scopeStandard($query)
-    {
-        return $query->where('is_bonus', 0);
-    }
-
-    public function scopeBonus($query)
-    {
-        return $query->where('is_bonus', 1);
-    }
-
-    public function scopeBeginner($query)
-    {
-        return $query->where('skill_level', self::BEGINNER_SKILL_LEVEL);
-    }
-
-    public function scopeIntermediate($query)
-    {
-        return $query->where('skill_level', self::INTERMEDIATE_SKILL_LEVEL);
-    }
-
-    public function scopeAdvanced($query)
-    {
-        return $query->where('skill_level', self::ADVANCED_SKILL_LEVEL);
-    }
-
     public function getPrevious()
     {
         return Module::where('id', '<', $this->id)
@@ -103,5 +79,35 @@ class Module extends Model implements Completable
         return Module::where('id', '>', $this->id)
             ->orderBy('id', 'asc')
             ->first();
+    }
+
+    #[Scope]
+    protected function standard($query)
+    {
+        return $query->where('is_bonus', 0);
+    }
+
+    #[Scope]
+    protected function bonus($query)
+    {
+        return $query->where('is_bonus', 1);
+    }
+
+    #[Scope]
+    protected function beginner($query)
+    {
+        return $query->where('skill_level', self::BEGINNER_SKILL_LEVEL);
+    }
+
+    #[Scope]
+    protected function intermediate($query)
+    {
+        return $query->where('skill_level', self::INTERMEDIATE_SKILL_LEVEL);
+    }
+
+    #[Scope]
+    protected function advanced($query)
+    {
+        return $query->where('skill_level', self::ADVANCED_SKILL_LEVEL);
     }
 }

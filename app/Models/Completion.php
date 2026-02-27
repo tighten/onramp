@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
@@ -20,17 +21,20 @@ class Completion extends Model
         return $this->morphTo();
     }
 
-    public function scopeModules($query)
+    #[Scope]
+    protected function modules($query)
     {
         return $query->where('completable_type', (new Module)->getMorphClass());
     }
 
-    public function scopeResources($query)
+    #[Scope]
+    protected function resources($query)
     {
         return $query->where('completable_type', (new Resource)->getMorphClass());
     }
 
-    public function scopeSkills($query)
+    #[Scope]
+    protected function skills($query)
     {
         return $query->where('completable_type', (new Skill)->getMorphClass());
     }

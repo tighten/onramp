@@ -5,9 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\View\View;
 
-class ResetPasswordController extends Controller
+class ResetPasswordController extends Controller implements HasMiddleware
 {
     /*
     |--------------------------------------------------------------------------
@@ -29,14 +30,11 @@ class ResetPasswordController extends Controller
      */
     protected $redirectTo = '/en/modules';
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public static function middleware(): array
     {
-        $this->middleware('guest');
+        return [
+            'guest',
+        ];
     }
 
     public function showResetForm(Request $request, $token = null): View

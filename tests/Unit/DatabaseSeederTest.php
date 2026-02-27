@@ -2,7 +2,6 @@
 
 use Database\Seeders\ContentSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use ReplaceOnlyContentFromSeedersSeeder;
 use Tests\TestCase;
 
 uses(Tests\TestCase::class);

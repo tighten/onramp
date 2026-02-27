@@ -3,7 +3,6 @@
 use App\Models\Module;
 use App\Models\User;
 use App\Preferences\Preferences;
-use Exception;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 

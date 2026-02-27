@@ -1,9 +1,7 @@
 <?php
 
 use App\Localization\ResolveLocale;
-use Exception;
 use Illuminate\Http\Request;
-use Mockery;
 use Tests\TestCase;
 
 uses(Tests\TestCase::class);

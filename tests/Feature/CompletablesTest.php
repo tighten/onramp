@@ -7,7 +7,6 @@ use App\Models\Skill;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use TypeError;
 
 uses(Tests\TestCase::class);
 uses(RefreshDatabase::class);

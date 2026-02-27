@@ -1,38 +1,31 @@
 <?php
 
-namespace Tests\Feature;
-
 use App\Localization\ResolveLocale;
 use Exception;
 use Illuminate\Http\Request;
 use Mockery;
 use Tests\TestCase;
 
-class ResolveLocaleTest extends TestCase
-{
-    /** @test */
-    public function it_resolves_locale_from_path(): void
-    {
-        $requestMock = Mockery::mock(Request::class);
-        $requestMock->shouldReceive('segments')
-            ->withNoArgs()
-            ->andReturn(['es', 'learn']); // Mock onramp.dev/es/learn
+uses(Tests\TestCase::class);
 
-        $resolver = new ResolveLocale($requestMock, $this->app);
+it('resolves locale from path', function () {
+    $requestMock = Mockery::mock(Request::class);
+    $requestMock->shouldReceive('segments')
+        ->withNoArgs()
+        ->andReturn(['es', 'learn']); // Mock onramp.dev/es/learn
 
-        $this->assertEquals('es', $resolver());
-    }
+    $resolver = new ResolveLocale($requestMock, app());
 
-    /** @test */
-    public function it_errors_for_invalid_locales(): void
-    {
-        $this->expectException(Exception::class);
-        $requestMock = Mockery::mock(Request::class);
-        $requestMock->shouldReceive('segments')
-            ->withNoArgs()
-            ->andReturn(['notalocale', 'learn']); // Mock onramp.dev/notalocale/learn
+    $this->assertEquals('es', $resolver());
+});
 
-        $resolver = new ResolveLocale($requestMock, $this->app);
-        $resolver();
-    }
-}
+it('errors for invalid locales', function () {
+    $this->expectException(Exception::class);
+    $requestMock = Mockery::mock(Request::class);
+    $requestMock->shouldReceive('segments')
+        ->withNoArgs()
+        ->andReturn(['notalocale', 'learn']); // Mock onramp.dev/notalocale/learn
+
+    $resolver = new ResolveLocale($requestMock, app());
+    $resolver();
+});

@@ -1,7 +1,5 @@
 <?php
 
-namespace Tests\Feature;
-
 use App\Models\Module;
 use App\Models\User;
 use App\Preferences\Preferences;
@@ -9,70 +7,56 @@ use Exception;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class PreferencesTest extends TestCase
-{
-    use RefreshDatabase;
+uses(Tests\TestCase::class);
+uses(RefreshDatabase::class);
 
-    /** @test */
-    public function guests_can_use_pages_with_preferences_without_errors(): void
-    {
-        $module = Module::factory()->create();
-        $response = $this->get('/en/modules/' . $module->slug . '/free-resources');
-        $response->assertOk();
-    }
+test('guests can use pages with preferences without errors', function () {
+    $module = Module::factory()->create();
+    $response = $this->get('/en/modules/' . $module->slug . '/free-resources');
+    $response->assertOk();
+});
 
-    /** @test */
-    public function preference_service_uses_logged_in_user_by_default(): void
-    {
-        $user = User::factory()->create();
-        $this->be($user);
-        $preferences = new Preferences($user);
-        $preferences->set(['resource-language' => 'def']);
+test('preference service uses logged in user by default', function () {
+    $user = User::factory()->create();
+    $this->be($user);
+    $preferences = new Preferences($user);
+    $preferences->set(['resource-language' => 'def']);
 
-        $this->assertEquals('def', app('preferences')->get('resource-language'));
-    }
+    $this->assertEquals('def', app('preferences')->get('resource-language'));
+});
 
-    /** @test */
-    public function preferences_not_defined_cannot_be_used(): void
-    {
-        $this->expectException(Exception::class);
-        $user = User::factory()->create();
-        $this->be($user);
-        app('preferences')->set(['key' => 'value']);
-    }
+test('preferences not defined cannot be used', function () {
+    $this->expectException(Exception::class);
+    $user = User::factory()->create();
+    $this->be($user);
+    app('preferences')->set(['key' => 'value']);
+});
 
-    /** @test */
-    public function user_can_set_and_get_preferences(): void
-    {
-        $user = User::factory()->create();
-        $this->be($user);
-        app('preferences')->set(['resource-language' => 'local-and-english']);
+test('user can set and get preferences', function () {
+    $user = User::factory()->create();
+    $this->be($user);
+    app('preferences')->set(['resource-language' => 'local-and-english']);
 
-        $this->assertEquals('local-and-english', app('preferences')->get('resource-language'));
-    }
+    $this->assertEquals('local-and-english', app('preferences')->get('resource-language'));
+});
 
-    /** @test */
-    public function get_honors_preference_defaults_if_user_hasnt_set_preferences(): void
-    {
-        $user = User::factory()->create([
-            'preferences' => [],
-        ]);
-        $this->be($user);
+test('get honors preference defaults if user hasnt set preferences', function () {
+    $user = User::factory()->create([
+        'preferences' => [],
+    ]);
+    $this->be($user);
 
-        $this->assertEquals('local', app('preferences')->get('resource-language'));
-    }
+    $this->assertEquals('local', app('preferences')->get('resource-language'));
+});
 
-    /** @test */
-    public function get_can_have_default_overridden(): void
-    {
-        $user = User::factory()->create([
-            'preferences' => [],
-        ]);
-        $this->be($user);
+test('get can have default overridden', function () {
+    $user = User::factory()->create([
+        'preferences' => [],
+    ]);
+    $this->be($user);
 
-        $this->assertEquals(
-            'abcde',
-            app('preferences')->get('resource-language', 'abcde')
-        );
-    }
-}
+    $this->assertEquals(
+        'abcde',
+        app('preferences')->get('resource-language', 'abcde')
+    );
+});

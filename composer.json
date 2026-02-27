@@ -9,9 +9,9 @@
     "require": {
         "php": "^8.2",
         "erusev/parsedown": "^1.7",
-        "kg-bot/laravel-localization-to-vue": "dev-l11-compatibility@dev",
+        "kg-bot/laravel-localization-to-vue": "dev-l12-compatibility@dev",
         "laravel/framework": "^12.53",
-        "laravel/nova": "4.33.3",
+        "laravel/nova": "^4.35.11",
         "laravel/slack-notification-channel": "^3.4",
         "laravel/socialite": "^5.17",
         "laravel/tinker": "^2.10.1",
@@ -98,7 +98,7 @@
             "@php artisan key:generate --ansi"
         ],
         "post-install-cmd": [
-            "[ $COMPOSER_DEV_MODE -eq 1 ] || composer require laravel/nova:4.33.3 spatie/nova-translatable spatie/laravel-translatable tightenco/nova-releases tightenco/suggested-resources-shortcuts"
+            "[ $COMPOSER_DEV_MODE -eq 1 ] || composer require laravel/nova:^4.35.11 spatie/nova-translatable spatie/laravel-translatable tightenco/nova-releases tightenco/suggested-resources-shortcuts"
         ],
         "lint": [
             "vendor/bin/duster lint"

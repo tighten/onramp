@@ -21,7 +21,7 @@
     },
     "dependencies": {
         "@kyvg/vue3-notification": "^3.4.1",
-        "@vitejs/plugin-vue": "^5.2.1",
+        "@vitejs/plugin-vue": "^6.0.4",
         "@vueuse/core": "^13.4.0",
         "alpinejs": "^3.14.7",
         "autoprefixer": "^10.4.19",

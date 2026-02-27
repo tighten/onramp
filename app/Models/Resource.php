@@ -123,7 +123,7 @@ class Resource extends Model implements Completable
     #[Scope]
     protected function forCurrentSession($query)
     {
-        $this->scopeForLocalePreferences($query);
+        $this->forLocalePreferences($query);
 
         if (auth()->check()) {
             $query->whereIn('os', [OperatingSystem::ANY, Preferences::get('operating-system')]);

@@ -2,6 +2,7 @@
 
 use App\Models\Module;
 use App\Models\SuggestedResource;
+use App\Models\Track;
 use App\Models\User;
 use App\Nova\Actions\ApproveSuggestedResource;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -14,7 +15,7 @@ uses(WithFaker::class);
 
 test('rejected reason field shows when a resource has been rejected', function () {
     $user = User::factory()->create([
-        'track_id' => \App\Models\Track::factory(),
+        'track_id' => Track::factory(),
     ]);
 
     $suggestedResource = SuggestedResource::factory()->create([
@@ -34,7 +35,7 @@ test('rejected reason field shows when a resource has been rejected', function (
 
 test('rejected reason field does not show when a resource has not been rejected', function () {
     $user = User::factory()->create([
-        'track_id' => \App\Models\Track::factory(),
+        'track_id' => Track::factory(),
     ]);
 
     $suggestedResource = SuggestedResource::factory()->create([

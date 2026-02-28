@@ -1,26 +1,19 @@
 <?php
 
-namespace Tests\Feature;
-
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
 
-class AuthTest extends TestCase
-{
-    use RefreshDatabase;
+uses(Tests\TestCase::class);
+uses(RefreshDatabase::class);
 
-    /** @test */
-    public function user_can_log_in(): void
-    {
-        $user = User::factory()->create();
+test('user can log in', function () {
+    $user = User::factory()->create();
 
-        $response = $this->post('/en/login', [
-            'email' => $user->email,
-            'password' => 'password',
-            'remember' => true,
-        ]);
+    $response = $this->post('/en/login', [
+        'email' => $user->email,
+        'password' => 'password',
+        'remember' => true,
+    ]);
 
-        $response->assertRedirect('/en/modules');
-    }
-}
+    $response->assertRedirect('/en/modules');
+});

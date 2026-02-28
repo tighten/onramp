@@ -1,47 +1,36 @@
 <?php
 
-namespace Tests\Feature;
-
 use App\Models\Term;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
 
-class TermsTest extends TestCase
-{
-    use RefreshDatabase;
+uses(Tests\TestCase::class);
+uses(RefreshDatabase::class);
 
-    /** @test */
-    public function glossary_page_loads(): void
-    {
-        $term = Term::factory()->create();
+test('glossary page loads', function () {
+    $term = Term::factory()->create();
 
-        $response = $this->get('/en/glossary')
-            ->assertSuccessful();
-    }
+    $response = $this->get('/en/glossary')
+        ->assertSuccessful();
+});
 
-    /** @test */
-    public function glossary_terms_can_be_multi_lingual(): void
-    {
-        $term = Term::factory()->create();
+test('glossary terms can be multi lingual', function () {
+    $term = Term::factory()->create();
 
-        $response = $this->get('/en/glossary')
-            ->assertSee($term->name);
+    $response = $this->get('/en/glossary')
+        ->assertSee($term->name);
 
-        $this->get('/es/glossary')
-            ->assertSee($term->getTranslation('name', 'es'))
-            ->assertSee($term->getEnglishName());
-    }
+    $this->get('/es/glossary')
+        ->assertSee($term->getTranslation('name', 'es'))
+        ->assertSee($term->getEnglishName());
+});
 
-    /** @test */
-    public function a_term_that_only_exists_in_english_shows_it_in_english_on_other_locales(): void
-    {
-        $term = Term::factory()->create([
-            'name' => ['en' => 'Routes'],
-            'description' => ['en' => 'This should be some information about the routes'],
-        ]);
+test('a term that only exists in english shows it in english on other locales', function () {
+    $term = Term::factory()->create([
+        'name' => ['en' => 'Routes'],
+        'description' => ['en' => 'This should be some information about the routes'],
+    ]);
 
-        $this->get('/es/glossary')
-            ->assertSee($term->name)
-            ->assertSee($term->description);
-    }
-}
+    $this->get('/es/glossary')
+        ->assertSee($term->name)
+        ->assertSee($term->description);
+});

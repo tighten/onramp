@@ -1,44 +1,35 @@
 <?php
 
-namespace Tests\Feature;
-
 use App\Facades\Preferences;
 use App\Models\Track;
 use App\Models\User;
 use App\OperatingSystem;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
 
-class WizardTest extends TestCase
-{
-    use RefreshDatabase;
+uses(Tests\TestCase::class);
+uses(RefreshDatabase::class);
 
-    /** @test */
-    public function it_loads(): void
-    {
-        $this->withoutExceptionHandling();
-        $this->be(User::factory()->create());
-        $response = $this->get(route('wizard.index', ['locale' => 'en']));
+it('loads', function () {
+    $this->withoutExceptionHandling();
+    $this->be(User::factory()->create());
+    $response = $this->get(route('wizard.index', ['locale' => 'en']));
 
-        $response->assertStatus(200);
-    }
+    $response->assertStatus(200);
+});
 
-    /** @test */
-    public function it_can_be_submitted(): void
-    {
-        $this->be($user = User::factory()->create());
-        $response = $this->post(route('wizard.store', ['locale' => 'en']),
-            [
-                'os' => OperatingSystem::MACOS,
-                'track' => $track_id = Track::factory()->create()->id,
-                'locale' => 'en',
-            ]
-        );
+it('can be submitted', function () {
+    $this->be($user = User::factory()->create());
+    $response = $this->post(route('wizard.store', ['locale' => 'en']),
+        [
+            'os' => OperatingSystem::MACOS,
+            'track' => $track_id = Track::factory()->create()->id,
+            'locale' => 'en',
+        ]
+    );
 
-        $response->assertStatus(302);
-        $user->refresh();
-        $this->assertEquals($track_id, $user->track_id);
-        $this->assertEquals(OperatingSystem::MACOS, Preferences::get('operating-system'));
-        $this->assertEquals('en', Preferences::get('locale'));
-    }
-}
+    $response->assertStatus(302);
+    $user->refresh();
+    expect($user->track_id)->toEqual($track_id);
+    expect(Preferences::get('operating-system'))->toEqual(OperatingSystem::MACOS);
+    expect(Preferences::get('locale'))->toEqual('en');
+});

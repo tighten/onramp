@@ -1,46 +1,33 @@
 <?php
 
-namespace Tests\Feature;
-
 use App\Localization\Locale;
-use Exception;
-use Tests\TestCase;
 
-class LocaleTest extends TestCase
-{
-    /** @test */
-    public function english_is_valid(): void
-    {
-        $locales = new Locale;
-        $this->assertTrue($locales->isValid('en'));
-    }
+uses(Tests\TestCase::class);
 
-    /** @test */
-    public function fandango_is_invalid(): void
-    {
-        $locales = new Locale;
-        $this->assertFalse($locales->isValid('fandango'));
-    }
+test('english is valid', function () {
+    $locales = new Locale;
+    expect($locales->isValid('en'))->toBeTrue();
+});
 
-    /** @test */
-    public function if_throws_an_exception_when_resolving_a_language_for_an_invalid_locale(): void
-    {
-        $invalid = 'invalid_locale';
+test('fandango is invalid', function () {
+    $locales = new Locale;
+    expect($locales->isValid('fandango'))->toBeFalse();
+});
 
-        $this->expectException(Exception::class);
-        $this->expectExceptionMessage('Cannot resolve language for locale: ' . $invalid);
+test('if throws an exception when resolving a language for an invalid locale', function () {
+    $invalid = 'invalid_locale';
 
-        $locales = new Locale;
-        $locales->languageForLocale($invalid);
-    }
+    $this->expectException(Exception::class);
+    $this->expectExceptionMessage('Cannot resolve language for locale: ' . $invalid);
 
-    /** @test */
-    public function it_retrieves_the_proper_language_for_a_given_locale(): void
-    {
-        // We don't need to test all of them, just a few
-        $locales = new Locale;
-        $this->assertEquals('English', $locales->languageForLocale('en'));
-        $this->assertEquals('Español', $locales->languageForLocale('es'));
-        $this->assertEquals('Dansk', $locales->languageForLocale('da'));
-    }
-}
+    $locales = new Locale;
+    $locales->languageForLocale($invalid);
+});
+
+it('retrieves the proper language for a given locale', function () {
+    // We don't need to test all of them, just a few
+    $locales = new Locale;
+    expect($locales->languageForLocale('en'))->toEqual('English');
+    expect($locales->languageForLocale('es'))->toEqual('Español');
+    expect($locales->languageForLocale('da'))->toEqual('Dansk');
+});

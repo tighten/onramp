@@ -1,106 +1,81 @@
 <?php
 
-namespace Tests\Feature;
-
 use App\Models\SuggestedResource;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\NovaTestCase;
 
-class SuggestedResourceAccessTest extends NovaTestCase
-{
-    use RefreshDatabase;
+uses(Tests\NovaTestCase::class);
+uses(RefreshDatabase::class);
 
-    /** @test */
-    public function users_can_view_any_suggested_resources(): void
-    {
-        $user = User::factory()->create(['role' => 'user']);
-        $this->assertTrue($user->can('viewAny', SuggestedResource::class));
-    }
+test('users can view any suggested resources', function () {
+    $user = User::factory()->create(['role' => 'user']);
+    expect($user->can('viewAny', SuggestedResource::class))->toBeTrue();
+});
 
-    /** @test */
-    public function users_can_suggest_resources(): void
-    {
-        $user = User::factory()->create(['role' => 'user']);
-        $this->assertTrue($user->can('create', SuggestedResource::class));
-    }
+test('users can suggest resources', function () {
+    $user = User::factory()->create(['role' => 'user']);
+    expect($user->can('create', SuggestedResource::class))->toBeTrue();
+});
 
-    /** @test */
-    public function users_can_see_their_own_suggested_resources(): void
-    {
-        $user = User::factory()->create(['role' => 'user']);
-        $suggestedResource = SuggestedResource::factory()->create(['user_id' => $user->id]);
+test('users can see their own suggested resources', function () {
+    $user = User::factory()->create(['role' => 'user']);
+    $suggestedResource = SuggestedResource::factory()->create(['user_id' => $user->id]);
 
-        $this->assertTrue($user->can('view', $suggestedResource));
-    }
+    expect($user->can('view', $suggestedResource))->toBeTrue();
+});
 
-    /** @test */
-    public function users_can_edit_their_own_suggested_resources(): void
-    {
-        $user = User::factory()->create(['role' => 'user']);
-        $suggestedResource = SuggestedResource::factory()->create(['user_id' => $user->id]);
+test('users can edit their own suggested resources', function () {
+    $user = User::factory()->create(['role' => 'user']);
+    $suggestedResource = SuggestedResource::factory()->create(['user_id' => $user->id]);
 
-        $this->assertTrue($user->can('update', $suggestedResource));
-    }
+    expect($user->can('update', $suggestedResource))->toBeTrue();
+});
 
-    /** @test */
-    public function users_can_see_other_users_suggested_resources(): void
-    {
-        $user = User::factory()->create(['role' => 'user']);
-        $otherUser = User::factory()->create(['role' => 'user']);
-        $suggestedResource = SuggestedResource::factory()->create(['user_id' => $otherUser->id]);
+test('users can see other users suggested resources', function () {
+    $user = User::factory()->create(['role' => 'user']);
+    $otherUser = User::factory()->create(['role' => 'user']);
+    $suggestedResource = SuggestedResource::factory()->create(['user_id' => $otherUser->id]);
 
-        $this->assertTrue($user->can('view', $suggestedResource));
-    }
+    expect($user->can('view', $suggestedResource))->toBeTrue();
+});
 
-    /** @test */
-    public function users_cannot_edit_other_users_suggested_resources(): void
-    {
-        $user = User::factory()->create(['role' => 'user']);
-        $otherUser = User::factory()->create(['role' => 'user']);
-        $suggestedResource = SuggestedResource::factory()->create(['user_id' => $otherUser->id]);
+test('users cannot edit other users suggested resources', function () {
+    $user = User::factory()->create(['role' => 'user']);
+    $otherUser = User::factory()->create(['role' => 'user']);
+    $suggestedResource = SuggestedResource::factory()->create(['user_id' => $otherUser->id]);
 
-        $this->assertFalse($user->can('update', $suggestedResource));
-    }
+    expect($user->can('update', $suggestedResource))->toBeFalse();
+});
 
-    /** @test */
-    public function users_cannot_delete_other_users_suggested_resources(): void
-    {
-        $user = User::factory()->create(['role' => 'user']);
-        $otherUser = User::factory()->create(['role' => 'user']);
-        $suggestedResource = SuggestedResource::factory()->create(['user_id' => $otherUser->id]);
+test('users cannot delete other users suggested resources', function () {
+    $user = User::factory()->create(['role' => 'user']);
+    $otherUser = User::factory()->create(['role' => 'user']);
+    $suggestedResource = SuggestedResource::factory()->create(['user_id' => $otherUser->id]);
 
-        $this->assertFalse($user->can('delete', $suggestedResource));
-    }
+    expect($user->can('delete', $suggestedResource))->toBeFalse();
+});
 
-    /** @test */
-    public function users_can_delete_their_own_suggested_resources(): void
-    {
-        $user = User::factory()->create(['role' => 'user']);
-        $suggestedResource = SuggestedResource::factory()->create(['user_id' => $user->id]);
+test('users can delete their own suggested resources', function () {
+    $user = User::factory()->create(['role' => 'user']);
+    $suggestedResource = SuggestedResource::factory()->create(['user_id' => $user->id]);
 
-        $this->assertTrue($user->can('delete', $suggestedResource));
-    }
+    expect($user->can('delete', $suggestedResource))->toBeTrue();
+});
 
-    /** @test */
-    public function admins_can_see_and_edit_all_suggested_resources(): void
-    {
-        $user = User::factory()->create(['role' => 'user']);
-        $adminUser = User::factory()->create(['role' => 'admin']);
-        $suggestedResource = SuggestedResource::factory()->create(['user_id' => $user->id]);
+test('admins can see and edit all suggested resources', function () {
+    $user = User::factory()->create(['role' => 'user']);
+    $adminUser = User::factory()->create(['role' => 'admin']);
+    $suggestedResource = SuggestedResource::factory()->create(['user_id' => $user->id]);
 
-        $this->assertTrue($adminUser->can('view', $suggestedResource));
-        $this->assertTrue($adminUser->can('update', $suggestedResource));
-    }
+    expect($adminUser->can('view', $suggestedResource))->toBeTrue();
+    expect($adminUser->can('update', $suggestedResource))->toBeTrue();
+});
 
-    /** @test */
-    public function editors_can_see_and_edit_all_suggested_resources(): void
-    {
-        $user = User::factory()->create(['role' => 'user']);
-        $editorUser = User::factory()->create(['role' => 'editor']);
-        $suggestedResource = SuggestedResource::factory()->create(['user_id' => $user->id]);
+test('editors can see and edit all suggested resources', function () {
+    $user = User::factory()->create(['role' => 'user']);
+    $editorUser = User::factory()->create(['role' => 'editor']);
+    $suggestedResource = SuggestedResource::factory()->create(['user_id' => $user->id]);
 
-        $this->assertTrue($editorUser->can('view', $suggestedResource));
-        $this->assertTrue($editorUser->can('update', $suggestedResource));
-    }
-}
+    expect($editorUser->can('view', $suggestedResource))->toBeTrue();
+    expect($editorUser->can('update', $suggestedResource))->toBeTrue();
+});

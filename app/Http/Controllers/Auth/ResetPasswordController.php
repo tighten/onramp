@@ -39,8 +39,9 @@ class ResetPasswordController extends Controller implements HasMiddleware
 
     public function showResetForm(Request $request, $token = null): View
     {
-        return view('auth.passwords.reset')->with(
-            ['token' => $request->token, 'email' => $request->email]
-        );
+        return view('auth.passwords.reset', [
+            'token' => $request->token,
+            'email' => $request->email,
+        ]);
     }
 }

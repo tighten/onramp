@@ -1,5 +1,6 @@
 {
     "name": "tightenco/suggested-resources-shortcuts",
+    "version": "1.0.0",
     "description": "A Laravel Nova card.",
     "keywords": [
         "laravel",

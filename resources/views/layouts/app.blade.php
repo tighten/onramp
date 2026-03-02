@@ -23,7 +23,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,600,700&display=swap" rel="stylesheet">
 
-    @vite(['resources/sass/app.scss'])
+    @vite(['resources/css/app.css'])
 
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 

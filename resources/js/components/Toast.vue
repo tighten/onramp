@@ -23,6 +23,8 @@ onMounted(async () => {
 </script>
 
 <style>
+@reference "../../css/app.css";
+
 .vue-notification-template.toast {
     @apply m-2 rounded-md border-b border-l-8 border-r border-t border-lake bg-white px-6 py-5 text-base;
 

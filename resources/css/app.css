@@ -1,3 +1,6 @@
+@import "tailwindcss";
+@config "../../tailwind.config.js";
+
 [x-cloak] {
     display: none !important;
 }
@@ -29,7 +32,3 @@
         }
     }
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;

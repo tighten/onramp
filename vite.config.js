@@ -4,6 +4,9 @@ import vue from '@vitejs/plugin-vue';
 
 export default defineConfig(({ command }) => ({
     server: {
+        watch: {
+            ignored: ['**/storage/framework/views/**'],
+        },
         cors: true,
         hmr: {
             host: 'onramp.test',

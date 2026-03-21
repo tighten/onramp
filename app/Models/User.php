@@ -4,20 +4,18 @@ namespace App\Models;
 
 use App\Completable;
 use App\Notifications\ResetPassword;
+use Illuminate\Database\Eloquent\Attributes\Guarded;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+#[Guarded(['id'])]
 class User extends Authenticatable
 {
     use HasFactory;
     use Notifiable;
-
-    protected $guarded = [
-        'id',
-    ];
 
     protected $hidden = [
         'password',

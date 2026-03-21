@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\VerifiesEmails;
-use Illuminate\Routing\Controllers\HasMiddleware;
-use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Routing\Attributes\Controllers\Middleware;
 
-class VerificationController extends Controller implements HasMiddleware
+#[Middleware('auth')]
+#[Middleware('signed', only: ['verify'])]
+#[Middleware('throttle:6,1', only: ['verify', 'resend'])]
+class VerificationController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -29,12 +31,4 @@ class VerificationController extends Controller implements HasMiddleware
      */
     protected $redirectTo = '/en/modules';
 
-    public static function middleware(): array
-    {
-        return [
-            'auth',
-            new Middleware('signed', only: ['verify']),
-            new Middleware('throttle:6,1', only: ['verify', 'resend']),
-        ];
-    }
 }

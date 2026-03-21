@@ -7,16 +7,16 @@ use App\Models\Resource;
 use App\Models\User;
 use Carbon\Carbon;
 use Exception;
+use Illuminate\Console\Attributes\Description;
+use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
+#[Signature('mail:send-resource-digest-email')]
+#[Description('Send the monthly resource digest email')]
 class SendResourceDigestEmail extends Command
 {
-    protected $signature = 'mail:send-resource-digest-email';
-
-    protected $description = 'Send the monthly resource digest email';
-
     public function handle(): void
     {
         $resources = Resource::where('created_at', '>=', Carbon::now()->subDays(30))->get();

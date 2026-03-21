@@ -3,14 +3,14 @@
 namespace App\Console\Commands;
 
 use App\Models\Resource;
+use Illuminate\Console\Attributes\Description;
+use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
 
+#[Signature('resource:tidy {--P|prune} {--preview}')]
+#[Description('Soft or force delete expired resources. Use the --preview option to view the full expired resources report.')]
 class TidyUpExpiredResources extends Command
 {
-    protected $signature = 'resource:tidy {--P|prune} {--preview}';
-
-    protected $description = 'Soft or force delete expired resources. Use the --preview option to view the full expired resources report.';
-
     private $expiredResourcesCount;
 
     private $trashedResourcesCount;

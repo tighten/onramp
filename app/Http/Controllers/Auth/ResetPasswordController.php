@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Attributes\Controllers\Middleware;
 use Illuminate\View\View;
 
-class ResetPasswordController extends Controller implements HasMiddleware
+#[Middleware('guest')]
+class ResetPasswordController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -29,13 +30,6 @@ class ResetPasswordController extends Controller implements HasMiddleware
      * @var string
      */
     protected $redirectTo = '/en/modules';
-
-    public static function middleware(): array
-    {
-        return [
-            'guest',
-        ];
-    }
 
     public function showResetForm(Request $request, $token = null): View
     {

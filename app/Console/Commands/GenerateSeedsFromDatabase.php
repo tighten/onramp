@@ -4,21 +4,21 @@ namespace App\Console\Commands;
 
 use App\Concerns\CanGenerateFile;
 use App\Concerns\CanSeedProdData;
+use Illuminate\Console\Attributes\Description;
+use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use STS\Tunneler\Jobs\CreateTunnel;
 
+#[Signature('generate:seeds-from-db {--override} {--all}')]
+#[Description('Sync core data and generate new seed files for local development.')]
 class GenerateSeedsFromDatabase extends Command
 {
     use CanGenerateFile;
     use CanSeedProdData;
 
     protected const SEED_FILE_EXT = 'json';
-
-    protected $signature = 'generate:seeds-from-db {--override} {--all}';
-
-    protected $description = 'Sync core data and generate new seed files for local development.';
 
     public function __construct()
     {

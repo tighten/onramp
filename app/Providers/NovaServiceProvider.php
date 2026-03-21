@@ -28,14 +28,6 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     }
 
     /**
-     * Register any application services.
-     */
-    public function register(): void
-    {
-        //
-    }
-
-    /**
      * Register the Nova routes.
      */
     protected function routes(): void
@@ -44,6 +36,17 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             ->withAuthenticationRoutes()
             ->withPasswordResetRoutes()
             ->register();
+    }
+
+    /**
+     * Configure the Nova authorization services.
+     */
+    protected function authorization(): void
+    {
+        Nova::auth(function ($request) {
+            return app()->environment('local', 'testing') ||
+                   Gate::check('viewNova', [Nova::user($request)]);
+        });
     }
 
     /**

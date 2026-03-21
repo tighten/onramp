@@ -2,20 +2,20 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Attributes\Guarded;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Spatie\Translatable\HasTranslations;
 
+#[Guarded(['id'])]
 class Term extends Model
 {
     use HasFactory;
     use HasTranslations;
 
     public $translatable = ['name', 'description'];
-
-    protected $guarded = ['id'];
 
     protected static function booted()
     {

@@ -3,20 +3,20 @@
 namespace App\Models;
 
 use App\Completable;
+use Illuminate\Database\Eloquent\Attributes\Guarded;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Spatie\Translatable\HasTranslations;
 
+#[Guarded(['id'])]
 class Skill extends Model implements Completable
 {
     use HasFactory;
     use HasTranslations;
 
     public $translatable = ['name'];
-
-    protected $guarded = ['id'];
 
     public function module(): BelongsTo
     {

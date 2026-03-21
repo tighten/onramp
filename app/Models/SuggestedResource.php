@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Attributes\Guarded;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Event;
 use Laravel\Nova\Actions\Actionable;
 
+#[Guarded(['id'])]
 class SuggestedResource extends Model
 {
     use Actionable;
@@ -37,12 +39,8 @@ class SuggestedResource extends Model
 
     const REJECTED_STATUS = 'rejected';
 
-    protected $guarded = ['id'];
-
-    public static function boot()
+    protected static function booted()
     {
-        parent::boot();
-
         static::creating(function ($suggestedResource) {
             if (auth()->check()) {
                 $suggestedResource->user_id = auth()->id();

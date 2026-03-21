@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Completable;
+use Illuminate\Database\Eloquent\Attributes\Guarded;
 use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -11,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Spatie\Translatable\HasTranslations;
 
+#[Guarded(['id'])]
 class Module extends Model implements Completable
 {
     use HasFactory;
@@ -29,8 +31,6 @@ class Module extends Model implements Completable
     ];
 
     public $translatable = ['name', 'description'];
-
-    protected $guarded = ['id'];
 
     public function getRouteKeyName()
     {

@@ -64,11 +64,6 @@ module.exports = {
                 none: 'none',
             },
 
-            minWidth: (theme, { breakpoints }) => ({
-                xs: '20rem',
-                ...breakpoints(theme('screens')),
-            }),
-
             opacity: {
                 10: '0.10',
                 20: '0.20',

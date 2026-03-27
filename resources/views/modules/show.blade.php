@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends ('layouts.app')
 
 @php
     $level = !$module->is_bonus ? $module->skill_level : 'bonus';
@@ -19,13 +19,13 @@
     }
 @endphp
 
-@section('content')
+@section ('content')
     <div class="bg-off-white w-full pb-48 lg:pb-32">
-        @include('partials.you-should-log-in')
+        @include ('partials.you-should-log-in')
 
         <div class="{{ $bgColor }} pb-24 pt-16 md:pb-40 lg:pt-24 lg:pb-48">
-            <div class="container relative lg:flex lg:items-center lg:justify-between">
-                <h1 class="max-w-3xl font-bold text-white h2 lg:h1">{{ $module->name }}</h1>
+            <div class="relative container lg:flex lg:items-center lg:justify-between">
+                <h1 class="h2 lg:h1 max-w-3xl font-bold text-white">{{ $module->name }}</h1>
 
                 @auth
                     @if (Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id))
@@ -42,13 +42,19 @@
 
         <div class="container pb-16">
             <div
-                class="-mt-16 grid gap-6 bg-white px-4 pb-8 pt-6 shadow-md sm:grid-cols-2 md:-mt-32 md:p-10 md:pb-16"
+                class="-mt-16 grid gap-6 bg-white px-4 pt-6 pb-8 shadow-md sm:grid-cols-2 md:-mt-32 md:p-10 md:pb-16"
             >
                 @if ($module->description)
                     <div>
-                        <p class="mb-3 text-xl font-semibold md:mb-7 md:text-2xl lg:text-3xl">{{ __('Overview') }}</p>
+                        <p class="mb-3 text-xl font-semibold md:mb-7 md:text-2xl lg:text-3xl">
+                            {{
+                                __(
+                                    'Overview',
+                                )
+                            }}
+                        </p>
 
-                        <p class="text-gray-600 max-w-lg md:mb-10 xl:text-xl xl:leading-10">
+                        <p class="max-w-lg text-gray-600 md:mb-10 xl:text-xl xl:leading-10">
                             {{ $module->description }}
                         </p>
                     </div>
@@ -61,7 +67,9 @@
                             @if ($loop->index < 4)
                                 <skill
                                     :init-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
-                                    @if (Auth::check() && Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id))
+                                    @if (Auth::check() &&
+                                        Auth::user()->hasTrack() &&
+                                        Auth::user()->track->modules->contains($module->id))
                                         :completable="true"
                                     @else
                                         :completable="false"
@@ -73,7 +81,9 @@
                             @else
                                 <skill
                                     :init-completed="{{ $completedSkills->contains($skill->id) ? 'true' : 'false' }}"
-                                    @if (Auth::check() && Auth::user()->hasTrack() && Auth::user()->track->modules->contains($module->id))
+                                    @if (Auth::check() &&
+                                        Auth::user()->hasTrack() &&
+                                        Auth::user()->track->modules->contains($module->id))
                                         :completable="true"
                                     @else
                                         :completable="false"
@@ -86,34 +96,35 @@
                             @endif
                             @if ($loop->index == 3 && count($skills) > 4)
                                 <button
-                                    class="relative m-1 block px-4 py-2 text-left font-bold leading-5 text-emerald sm:leading-6 md:m-2 lg:leading-8"
+                                    class="text-emerald relative m-1 block cursor-pointer px-4 py-2 text-left leading-5 font-bold sm:leading-6 md:m-2 lg:leading-8"
                                     x-on:click="showMore = !showMore"
                                     x-show="!showMore"
                                 >
                                     <span
-                                        class="absolute inset-0 h-full w-full rounded-md bg-teal bg-opacity-20 transition-all duration-200 ease-in-out"
+                                        class="bg-teal/15 hover:bg-teal/30 absolute inset-0 h-full w-full rounded-md transition-all duration-200 ease-in-out"
                                     ></span>
                                     <span>+ {{ count($skills) - 4 . ' ' . __('more') }}</span>
                                 </button>
                             @endif
                             @if ($loop->last && count($skills) > 4)
                                 <button
-                                    class="relative m-1 block px-4 py-2 text-left font-bold leading-5 text-emerald sm:leading-6 md:m-2 lg:leading-8"
+                                    class="text-emerald relative m-1 block cursor-pointer px-4 py-2 text-left leading-5 font-bold sm:leading-6 md:m-2 lg:leading-8"
                                     x-on:click="showMore = !showMore"
                                     x-show="showMore"
                                 >
                                     <span
-                                        class="absolute inset-0 h-full w-full rounded-md bg-mint bg-opacity-20 transition-all duration-200 ease-in-out"
+                                        class="bg-teal/15 hover:bg-teal/30 absolute inset-0 h-full w-full rounded-md transition-all duration-200 ease-in-out"
                                     ></span>
                                     <span>- {{ count($skills) - 4 . ' ' . __('more') }}</span>
                                 </button>
                             @endif
                         @empty
                             <li class="relative m-1 block md:m-2">
-                                <span
-                                    class="text-gray-600 xl:text-xl xl:leading-10"
-                                    >{{ __('No skills') }}</span
-                                >
+                                <span class="text-gray-600 xl:text-xl xl:leading-10">{{
+                                    __(
+                                        'No skills',
+                                    )
+                                }}</span>
                             </li>
                         @endforelse
                     </ul>
@@ -164,31 +175,31 @@
                     $paidResources = $resources->where('is_free', false);
                 @endphp
 
-                @switch($resourceType)
-                    @case('free-resources')
-                        @include('modules.resources.free')
+                @switch ($resourceType)
+                    @case ('free-resources')
+                        @include ('modules.resources.free')
                         @break
-                    @case('paid-resources')
-                        @include('modules.resources.paid')
+                    @case ('paid-resources')
+                        @include ('modules.resources.paid')
                         @break
-                    @case('quizzes')
-                        @include('modules.resources.quiz')
+                    @case ('quizzes')
+                        @include ('modules.resources.quiz')
                         @break
-                    @case('exercises')
-                        @include('modules.resources.exercise')
+                    @case ('exercises')
+                        @include ('modules.resources.exercise')
                         @break
                     @default
-                        @include('modules.resources.free')
+                        @include ('modules.resources.free')
                 @endswitch
             </div>
         </x-panel>
 
-        <div class="flex items-start justify-between py-10 sm:pb-20 sm:pt-16">
+        <div class="flex items-start justify-between py-10 sm:pt-16 sm:pb-20">
             <div class="flex flex-1 justify-start">
                 @if ($previousModule)
                     <div class="group flex flex-col items-start text-white">
                         <x-button.primary
-                            class="flex uppercase tracking-widest lg:min-w-[185px] lg:justify-center lg:rounded-xl lg:px-10 lg:py-3"
+                            class="flex tracking-widest uppercase lg:min-w-[185px] lg:justify-center lg:rounded-xl lg:px-10 lg:py-3"
                             href="{{ route_wlocale('modules.show', ['module' => $previousModule->slug, 'resourceType' => 'free-resources']) }}"
                         >
                             <span class="mr-4 inline-block font-semibold">&lt;</span>
@@ -207,7 +218,7 @@
                 @if ($nextModule)
                     <div class="group flex flex-col items-end text-white">
                         <x-button.primary
-                            class="flex uppercase tracking-widest lg:min-w-[185px] lg:justify-center lg:rounded-xl lg:px-10 lg:py-3"
+                            class="flex tracking-widest uppercase lg:min-w-[185px] lg:justify-center lg:rounded-xl lg:px-10 lg:py-3"
                             href="{{ route_wlocale('modules.show', ['module' => $nextModule->slug, 'resourceType' => 'free-resources']) }}"
                         >
                             <span class="inline-block font-semibold">Next</span>

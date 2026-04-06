@@ -15,7 +15,7 @@
         "postcss": "^8.4.38",
         "prettier": "^3.6.0",
         "prettier-plugin-tailwindcss": "^0.7.2",
-        "vite": "^7.0.7",
+        "vite": "^7.3.2",
         "vue-loader": "^15.10.0"
     },
     "dependencies": {

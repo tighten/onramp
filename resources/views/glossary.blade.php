@@ -1,6 +1,6 @@
-@extends ('layouts.app')
+@extends('layouts.app')
 
-@section ('content')
+@section('content')
     <x-hero id="top">
         <h1 class="h2 md:h1 mb-2 font-bold tracking-wide">
             {{
@@ -156,7 +156,7 @@
     </div>
 @endsection
 
-@push ('styles')
+@push('styles')
     <style>
         .glossary-description p {
             margin-bottom: 2em;

@@ -15,7 +15,7 @@
                                 ->where('is_bonus', false)
                                 ->all()
                             as $resource)
-                            @include ('partials.resource-on-module-page')
+                            @include('partials.resource-on-module-page')
                         @empty
                             <li class="list-none">No resources</li>
                         @endforelse
@@ -42,7 +42,7 @@
                                     ->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])
                                     ->where('is_bonus', true)
                                 as $resource)
-                                @include ('partials.resource-on-module-page')
+                                @include('partials.resource-on-module-page')
                             @endforeach
                         </ul>
                     </div>
@@ -75,7 +75,7 @@
                                 ->where('is_bonus', false)
                                 ->all()
                             as $resource)
-                            @include ('partials.resource-on-module-page')
+                            @include('partials.resource-on-module-page')
                         @empty
                             <li class="list-none">
                                 {{
@@ -112,7 +112,7 @@
                                     ->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE, Resource::BOOK_TYPE])
                                     ->where('is_bonus', true)
                                 as $resource)
-                                @include ('partials.resource-on-module-page')
+                                @include('partials.resource-on-module-page')
                             @endforeach
                         </ul>
                     </div>
@@ -160,7 +160,7 @@
                         ->where('is_bonus', false)
                         ->all()
                     as $resource)
-                    @include ('partials.resource-on-module-page')
+                    @include('partials.resource-on-module-page')
                 @empty
                     <li class="list-none">
                         {{
@@ -180,7 +180,7 @@
                             ->whereIn('type', [Resource::VIDEO_TYPE, Resource::COURSE_TYPE])
                             ->where('is_bonus', true)
                         as $resource)
-                        @include ('partials.resource-on-module-page')
+                        @include('partials.resource-on-module-page')
                     @endforeach
                 @endif
             </ul>
@@ -224,7 +224,7 @@
                         ->where('is_bonus', false)
                         ->all()
                     as $resource)
-                    @include ('partials.resource-on-module-page')
+                    @include('partials.resource-on-module-page')
                 @empty
                     <li class="list-none">
                         {{
@@ -244,7 +244,7 @@
                             ->whereIn('type', [Resource::ARTICLE_TYPE, Resource::AUDIO_TYPE, Resource::BOOK_TYPE])
                             ->where('is_bonus', true)
                         as $resource)
-                        @include ('partials.resource-on-module-page')
+                        @include('partials.resource-on-module-page')
                     @endforeach
                 @endif
             </ul>

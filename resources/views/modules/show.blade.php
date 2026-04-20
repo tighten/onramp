@@ -1,4 +1,4 @@
-@extends ('layouts.app')
+@extends('layouts.app')
 
 @php
     $level = !$module->is_bonus ? $module->skill_level : 'bonus';
@@ -19,9 +19,9 @@
     }
 @endphp
 
-@section ('content')
+@section('content')
     <div class="bg-off-white w-full pb-48 lg:pb-32">
-        @include ('partials.you-should-log-in')
+        @include('partials.you-should-log-in')
 
         <div class="{{ $bgColor }} pb-24 pt-16 md:pb-40 lg:pt-24 lg:pb-48">
             <div class="relative container lg:flex lg:items-center lg:justify-between">
@@ -177,19 +177,19 @@
 
                 @switch ($resourceType)
                     @case ('free-resources')
-                        @include ('modules.resources.free')
+                        @include('modules.resources.free')
                         @break
                     @case ('paid-resources')
-                        @include ('modules.resources.paid')
+                        @include('modules.resources.paid')
                         @break
                     @case ('quizzes')
-                        @include ('modules.resources.quiz')
+                        @include('modules.resources.quiz')
                         @break
                     @case ('exercises')
-                        @include ('modules.resources.exercise')
+                        @include('modules.resources.exercise')
                         @break
                     @default
-                        @include ('modules.resources.free')
+                        @include('modules.resources.free')
                 @endswitch
             </div>
         </x-panel>

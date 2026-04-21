@@ -10,7 +10,7 @@
         "php": "^8.3",
         "erusev/parsedown": "^1.8",
         "kg-bot/laravel-localization-to-vue": "dev-l13-compatibility@dev",
-        "laravel/framework": "^13.4",
+        "laravel/framework": "^13.6",
         "laravel/nova": "^5.0",
         "laravel/slack-notification-channel": "^3.8",
         "laravel/socialite": "^5.26",

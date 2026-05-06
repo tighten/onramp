@@ -24,7 +24,7 @@ it('can send resource digest email', function () {
         'unsubscribe_token' => null,
     ]);
 
-    $this->artisan('mail:send-resource-digest-email')
+    $this->artisan(SendResourceDigestEmail::class)
         ->expectsOutput('Monthly resource digest sent successfully to all subscribed users.')
         ->assertExitCode(0);
 

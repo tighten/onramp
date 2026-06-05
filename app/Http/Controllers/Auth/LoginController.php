@@ -1,5 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Auth;
 
 use App\Facades\Preferences;
@@ -7,6 +11,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Exception;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Attributes\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
@@ -91,7 +96,7 @@ class LoginController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return mixed
      */
-    protected function loggedOut()
+    protected function loggedOut(): RedirectResponse
     {
         return redirect(locale());
     }

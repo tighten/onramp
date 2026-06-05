@@ -3,12 +3,11 @@
         <template v-slot="{ toggle, isCompleted }">
             <button
                 type="button"
-                class="relative flex cursor-pointer items-start rounded bg-teal bg-opacity-20 px-4 py-2 text-left font-bold leading-5 text-emerald transition focus:outline-none sm:leading-6 lg:items-center lg:leading-8"
-                :class="
-                    isCompleted
-                        ? 'bg-opacity-10 hover:bg-opacity-20'
-                        : 'bg-opacity-25 hover:bg-opacity-30'
-                "
+                class="relative flex cursor-pointer items-start rounded  px-4 py-2 text-left font-bold leading-5 text-emerald transition focus:outline-none sm:leading-6 lg:items-center lg:leading-8"
+                :class="isCompleted
+                    ? 'bg-teal/15 hover:bg-teal/30'
+                    : 'bg-teal/35 hover:bg-teal/45'
+                    "
                 :aria-pressed="isCompleted.toString()"
                 @click="toggle"
             >
@@ -33,24 +32,24 @@
 </template>
 
 <script setup>
-import Completable from './Completable.vue';
+    import Completable from './Completable.vue';
 
-defineProps({
-    badgeText: {
-        type: String,
-        required: true,
-    },
-    initialIsCompleted: {
-        type: Boolean,
-        default: false,
-    },
-    type: {
-        type: String,
-        required: true,
-    },
-    id: {
-        type: [String, Number],
-        required: true,
-    },
-});
+    defineProps({
+        badgeText: {
+            type: String,
+            required: true,
+        },
+        initialIsCompleted: {
+            type: Boolean,
+            default: false,
+        },
+        type: {
+            type: String,
+            required: true,
+        },
+        id: {
+            type: [String, Number],
+            required: true,
+        },
+    });
 </script>

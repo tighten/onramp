@@ -1,30 +1,20 @@
 <template>
     <div>
-        <tabs
-            :tabs="filteredTabs"
+        <Tabs
+            v-model="internalSelectedTab"
             :darkMode="false"
             :hide-tabs-on-desktop="true"
-            :selectedTab="selectedTab"
             class="mt-10"
-            @update:selectedTab="handleTabChange"
-        />
-
-        <tab
-            v-for="(tab, index) in filteredTabs"
-            :ref="(el) => (tabRefs[tab.name.toLowerCase()] = el)"
-            :key="tab.name"
-            :name="capitalize(tab.name)"
-            :selected="selectedTab === tab.name"
         >
-            <div class="px-2 md:px-8 lg:px-20 2xl:px-32" :class="{ 'lg:mt-32': index > 0 }">
-                <h2
-                    class="mb-10 hidden w-full text-4xl font-semibold leading-tight tracking-tight text-steel lg:block"
-                >
-                    {{ capitalize(tab.name) }}
-                </h2>
-
-                <div class="flex w-full flex-wrap">
-                    <template v-if="tab.name === 'Beginner'">
+            <Tab
+                name="Beginner"
+                :selected="internalSelectedTab === 'Beginner'"
+            >
+                <div class="px-2 md:px-8 lg:px-20 2xl:px-32">
+                    <h2 class="mb-10 hidden w-full text-4xl font-semibold leading-tight tracking-tight text-steel lg:block">
+                        {{ capitalize('Beginner') }}
+                    </h2>
+                    <div class="flex w-full flex-wrap">
                         <p v-if="!beginnerModules.length" class="px-3 text-steel">
                             There are currently no modules here. Check back soon.
                         </p>
@@ -40,9 +30,18 @@
                             :is-completed="getModuleIsCompleted(mod)"
                             :has-new-content="moduleHasNewResources(mod)"
                         />
-                    </template>
-
-                    <template v-else-if="tab.name === 'Intermediate'">
+                    </div>
+                </div>
+            </Tab>
+            <Tab
+                name="Intermediate"
+                :selected="internalSelectedTab === 'Intermediate'"
+            >
+                <div class="px-2 md:px-8 lg:px-20 2xl:px-32 lg:mt-32">
+                    <h2 class="mb-10 hidden w-full text-4xl font-semibold leading-tight tracking-tight text-steel lg:block">
+                        {{ capitalize('Intermediate') }}
+                    </h2>
+                    <div class="flex w-full flex-wrap">
                         <p v-if="!intermediateModules.length" class="px-3 text-steel">
                             There are currently no modules here. Check back soon.
                         </p>
@@ -58,9 +57,18 @@
                             :is-completed="getModuleIsCompleted(mod)"
                             :has-new-content="moduleHasNewResources(mod)"
                         />
-                    </template>
-
-                    <template v-else-if="tab.name === 'Advanced'">
+                    </div>
+                </div>
+            </Tab>
+            <Tab
+                name="Advanced"
+                :selected="internalSelectedTab === 'Advanced'"
+            >
+                <div class="px-2 md:px-8 lg:px-20 2xl:px-32 lg:mt-32">
+                    <h2 class="mb-10 hidden w-full text-4xl font-semibold leading-tight tracking-tight text-steel lg:block">
+                        {{ capitalize('Advanced') }}
+                    </h2>
+                    <div class="flex w-full flex-wrap">
                         <p v-if="!advancedModules.length" class="px-3 text-steel">
                             There are currently no modules here. Check back soon.
                         </p>
@@ -76,9 +84,18 @@
                             :is-completed="getModuleIsCompleted(mod)"
                             :has-new-content="moduleHasNewResources(mod)"
                         />
-                    </template>
-
-                    <template v-else-if="tab.name === 'Bonus'">
+                    </div>
+                </div>
+            </Tab>
+            <Tab
+                name="Bonus"
+                :selected="internalSelectedTab === 'Bonus'"
+            >
+                <div class="px-2 md:px-8 lg:px-20 2xl:px-32 lg:mt-32">
+                    <h2 class="mb-10 hidden w-full text-4xl font-semibold leading-tight tracking-tight text-steel lg:block">
+                        {{ capitalize('Bonus') }}
+                    </h2>
+                    <div class="flex w-full flex-wrap">
                         <ModuleCard
                             v-for="(mod, index) in currentBonusModules"
                             :key="mod.id"
@@ -90,38 +107,44 @@
                             :is-completed="getModuleIsCompleted(mod)"
                             :has-new-content="moduleHasNewResources(mod)"
                         />
-                    </template>
+                    </div>
                 </div>
-            </div>
-        </tab>
+            </Tab>
+        </Tabs>
     </div>
 </template>
 
 <script setup>
-import ModuleCard from './ModuleCard.vue';
-import Tabs from '../Tabs/Tabs.vue';
-import Tab from '../Tabs/Tab.vue';
+    import { ref, watch } from 'vue';
+    import Tab from '../Tabs/Tab.vue';
+    import Tabs from '../Tabs/Tabs.vue';
+    import ModuleCard from './ModuleCard.vue';
 
-defineProps({
-    filteredTabs: Array,
-    selectedTab: String,
-    beginnerModules: Array,
-    intermediateModules: Array,
-    advancedModules: Array,
-    currentBonusModules: Array,
-    capitalize: Function,
-    toggleShowAllModules: Function,
-    tabRefs: Object,
-    userModules: Array,
-    userLoggedIn: Boolean,
-    getModuleCompletedResources: Function,
-    getModuleIsCompleted: Function,
-    moduleHasNewResources: Function,
-});
+    const props = defineProps({
+        selectedTab: String,
+        beginnerModules: Array,
+        intermediateModules: Array,
+        advancedModules: Array,
+        currentBonusModules: Array,
+        capitalize: Function,
+        userModules: Array,
+        userLoggedIn: Boolean,
+        getModuleCompletedResources: Function,
+        getModuleIsCompleted: Function,
+        moduleHasNewResources: Function,
+    });
 
-const emit = defineEmits(['update:selectedTab']);
+    const emit = defineEmits(['update:selectedTab']);
 
-const handleTabChange = (newTab) => {
-    emit('update:selectedTab', newTab);
-};
+    const internalSelectedTab = ref(props.selectedTab || 'Beginner');
+
+    watch(() => props.selectedTab, (val) => {
+        if (val && val !== internalSelectedTab.value) {
+            internalSelectedTab.value = val;
+        }
+    });
+
+    watch(internalSelectedTab, (val) => {
+        emit('update:selectedTab', val);
+    });
 </script>

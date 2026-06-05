@@ -11,10 +11,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v6
+
+      - name: "Setup PHP"
+        uses: shivammathur/setup-php@v2
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          php-version: '8.4'
+          tools: composer:v2
+          coverage: none
+
+      - name: "Install Composer dependencies"
+        run: composer install --no-interaction --prefer-dist --no-progress
+
       - name: "Duster Lint"
-        uses: tighten/duster-action@v3
-        with:
-          args: lint
+        run: composer lint

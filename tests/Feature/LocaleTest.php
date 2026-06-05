@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Localization\Locale;
 
 uses(Tests\TestCase::class);

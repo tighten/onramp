@@ -1,6 +1,6 @@
-@extends ('layouts.app')
+@extends('layouts.app')
 
-@section ('content')
+@section('content')
     <div class="w-full rounded-b bg-white">
         <x-hero>
             <h1 class="h2 md:h1 mb-2 font-bold tracking-wide">{{ __('Tracks') }}</h1>

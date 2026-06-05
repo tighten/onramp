@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Models\Module;
 use App\Models\User;
 use App\Preferences\Preferences;

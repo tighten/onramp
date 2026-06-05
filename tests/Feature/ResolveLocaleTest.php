@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Localization\ResolveLocale;
 use Illuminate\Http\Request;
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 function locale()
 {
     return app(App\Localization\ResolveLocale::class)();

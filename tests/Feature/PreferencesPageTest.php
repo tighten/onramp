@@ -5,8 +5,9 @@ declare(strict_types=1);
 use App\Facades\Preferences;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
-uses(Tests\TestCase::class);
+uses(TestCase::class);
 uses(RefreshDatabase::class);
 
 it('loads', function () {

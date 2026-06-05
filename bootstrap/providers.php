@@ -1,11 +1,16 @@
 <?php
 
 declare(strict_types=1);
+use App\Providers\AppServiceProvider;
+use App\Providers\LocalizationServiceProvider;
+use App\Providers\NovaServiceProvider;
+use App\Providers\PreferencesServiceProvider;
+use App\Providers\ViewServiceProvider;
 
 return [
-    App\Providers\AppServiceProvider::class,
-    App\Providers\NovaServiceProvider::class,
-    App\Providers\PreferencesServiceProvider::class,
-    App\Providers\LocalizationServiceProvider::class,
-    App\Providers\ViewServiceProvider::class,
+    AppServiceProvider::class,
+    NovaServiceProvider::class,
+    PreferencesServiceProvider::class,
+    LocalizationServiceProvider::class,
+    ViewServiceProvider::class,
 ];

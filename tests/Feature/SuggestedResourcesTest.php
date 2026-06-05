@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Models\Module;
 use App\Models\SuggestedResource;
 use App\Models\Track;
@@ -8,8 +10,9 @@ use App\Nova\Actions\ApproveSuggestedResource;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Laravel\Nova\Fields\ActionFields;
+use Tests\NovaTestCase;
 
-uses(Tests\NovaTestCase::class);
+uses(NovaTestCase::class);
 uses(RefreshDatabase::class);
 uses(WithFaker::class);
 

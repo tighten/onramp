@@ -1,13 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
+use App\Http\Middleware\Authenticate;
 use App\Providers\AppServiceProvider;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use KgBot\LaravelLocalization\LaravelLocalizationServiceProvider;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withProviders([
-        \KgBot\LaravelLocalization\LaravelLocalizationServiceProvider::class,
+        LaravelLocalizationServiceProvider::class,
     ])
     ->withRouting(
         web: __DIR__ . '/../routes/web.php',
@@ -22,7 +26,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->throttleApi();
 
         $middleware->alias([
-            'auth' => \App\Http\Middleware\Authenticate::class,
+            'auth' => Authenticate::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

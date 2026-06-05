@@ -1,11 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Models\Module;
 use App\Models\Track;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
-uses(Tests\TestCase::class);
+uses(TestCase::class);
 uses(RefreshDatabase::class);
 
 test('module show loads', function () {

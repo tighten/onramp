@@ -1,12 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Models\Resource;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Event;
+use Tests\TestCase;
 
-uses(Tests\TestCase::class);
+uses(TestCase::class);
 uses(RefreshDatabase::class);
 
 test('resources can be expired or expiring', function () {

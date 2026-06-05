@@ -5,8 +5,9 @@ declare(strict_types=1);
 use App\Models\SuggestedResource;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\NovaTestCase;
 
-uses(Tests\NovaTestCase::class);
+uses(NovaTestCase::class);
 uses(RefreshDatabase::class);
 
 test('users can view any suggested resources', function () {

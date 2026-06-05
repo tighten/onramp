@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Nova;
 
 use App\Facades\Localization;
-use App\Models\Resource;
 use App\Models\Resource as EloquentResource;
 use App\Nova\Actions\RenewResource;
 use App\Nova\Filters\ExpiredResource;

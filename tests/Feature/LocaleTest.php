@@ -3,8 +3,9 @@
 declare(strict_types=1);
 
 use App\Localization\Locale;
+use Tests\TestCase;
 
-uses(Tests\TestCase::class);
+uses(TestCase::class);
 
 test('english is valid', function () {
     $locales = new Locale;

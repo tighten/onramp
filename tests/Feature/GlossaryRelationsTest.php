@@ -6,8 +6,9 @@ use App\Models\Module;
 use App\Models\Resource;
 use App\Models\Term;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
-uses(Tests\TestCase::class);
+uses(TestCase::class);
 uses(RefreshDatabase::class);
 
 test('glossary page shows related resources', function () {

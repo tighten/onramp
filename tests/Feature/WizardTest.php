@@ -7,8 +7,9 @@ use App\Models\Track;
 use App\Models\User;
 use App\OperatingSystem;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
-uses(Tests\TestCase::class);
+uses(TestCase::class);
 uses(RefreshDatabase::class);
 
 it('loads', function () {

@@ -1,13 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Facades\Preferences;
 use App\Models\Module;
 use App\Models\Resource;
 use App\Models\User;
 use App\OperatingSystem;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
-uses(Tests\TestCase::class);
+uses(TestCase::class);
 uses(RefreshDatabase::class);
 
 test('users preferring windows only see windows and an y resources', function () {

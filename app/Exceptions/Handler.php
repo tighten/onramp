@@ -1,16 +1,23 @@
 <?php
 
+declare(strict_types=1);
+
+declare(strict_types=1);
+
 namespace App\Exceptions;
 
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Psr\Log\LogLevel;
 use Throwable;
+use Whoops\Handler\HandlerInterface;
 
 class Handler extends ExceptionHandler
 {
     /**
      * A list of exception types with their corresponding custom log levels.
      *
-     * @var array<class-string<Throwable>, \Psr\Log\LogLevel::*>
+     * @var array<class-string<Throwable>, LogLevel::*>
      */
     protected $levels = [
         //
@@ -49,8 +56,8 @@ class Handler extends ExceptionHandler
     protected function whoopsHandler()
     {
         try {
-            return app(\Whoops\Handler\HandlerInterface::class);
-        } catch (\Illuminate\Contracts\Container\BindingResolutionException $e) {
+            return app(HandlerInterface::class);
+        } catch (BindingResolutionException $e) {
             return parent::whoopsHandler();
         }
     }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Nova;
 
 use App\Models\Module as EloquentModule;
@@ -18,7 +20,7 @@ class Module extends BaseResource
     /**
      * The model the resource corresponds to.
      */
-    public static $model = \App\Models\Module::class;
+    public static $model = EloquentModule::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.

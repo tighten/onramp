@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Nova;
 
 use App\Facades\Localization;
@@ -22,7 +24,7 @@ class Resource extends BaseResource
     /**
      * The model the resource corresponds to.
      */
-    public static $model = \App\Models\Resource::class;
+    public static $model = EloquentResource::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.

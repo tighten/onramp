@@ -1,8 +1,11 @@
 <?php
 
-use App\Localization\Locale;
+declare(strict_types=1);
 
-uses(Tests\TestCase::class);
+use App\Localization\Locale;
+use Tests\TestCase;
+
+uses(TestCase::class);
 
 test('english is valid', function () {
     $locales = new Locale;

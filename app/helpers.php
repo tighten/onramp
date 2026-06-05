@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+use App\Localization\ResolveLocale;
+
 function locale()
 {
-    return app(App\Localization\ResolveLocale::class)();
+    return app(ResolveLocale::class)();
 }
 
 function path_wlocale($path)

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Nova;
 
 use App\Facades\Localization;
@@ -20,7 +22,7 @@ use Laravel\Nova\Fields\URL;
 
 class SuggestedResource extends BaseResource
 {
-    public static $model = \App\Models\SuggestedResource::class;
+    public static $model = EloquentSuggestedResource::class;
 
     public static $title = 'name';
 

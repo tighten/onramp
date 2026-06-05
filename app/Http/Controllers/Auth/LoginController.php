@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Auth;
 
 use App\Facades\Preferences;

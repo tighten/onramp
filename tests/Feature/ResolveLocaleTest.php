@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 use App\Localization\ResolveLocale;
 use Illuminate\Http\Request;
+use Tests\TestCase;
 
-uses(Tests\TestCase::class);
+uses(TestCase::class);
 
 it('resolves locale from path', function () {
     $requestMock = Mockery::mock(Request::class);

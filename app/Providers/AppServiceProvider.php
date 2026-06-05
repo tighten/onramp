@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\Handlers\Events\SlackSubscriber;
+use App\Models\Module;
+use App\Models\Skill;
+use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Http\Request;
@@ -12,6 +15,7 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Nova\NovaApplicationServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -30,11 +34,11 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         if ($this->app->environment() !== 'production') {
-            $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
+            $this->app->register(IdeHelperServiceProvider::class);
         }
 
-        if (class_exists(\Laravel\Nova\NovaApplicationServiceProvider::class)) {
-            $this->app->register(\App\Providers\NovaServiceProvider::class);
+        if (class_exists(NovaApplicationServiceProvider::class)) {
+            $this->app->register(NovaServiceProvider::class);
         }
     }
 
@@ -44,9 +48,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Relation::morphMap([
-            'App\Module' => \App\Models\Module::class,
+            'App\Module' => Module::class,
             'App\Resource' => \App\Models\Resource::class,
-            'App\Skill' => \App\Models\Skill::class,
+            'App\Skill' => Skill::class,
         ]);
 
         if ($this->app->environment() !== 'testing') {

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Mail\ResourceDigestEmail;
 use App\Models\Resource;
 use App\Models\User;

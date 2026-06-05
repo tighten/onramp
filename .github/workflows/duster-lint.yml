@@ -19,6 +19,11 @@ jobs:
           tools: composer:v2
           coverage: none
 
+      - name: "Configure Nova auth"
+        env:
+          NOVA_PASSWORD: ${{ secrets.NOVA_PASSWORD }}
+        run: composer config --global --auth http-basic.nova.laravel.com "$NOVA_PASSWORD"
+
       - name: "Install Composer dependencies"
         run: composer install --no-interaction --prefer-dist --no-progress
 

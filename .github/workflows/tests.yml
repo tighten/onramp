@@ -22,8 +22,8 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.composer/cache/files
-          key: php-8.2-laravel-10.*-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: php-8.2-laravel-10.*-composer-
+          key: php-8.4-laravel-10.*-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: php-8.4-laravel-10.*-composer-
 
       - name: Cache npm dependencies
         uses: actions/cache@v3
@@ -42,7 +42,7 @@ jobs:
           composer config "http-basic.nova.laravel.com" "${{ secrets.NOVA_USERNAME }}" "${{ secrets.NOVA_PASSWORD }}"
           composer install --prefer-dist --no-interaction --no-progress
           npm install
-          
+
       - name: Build Assets
         run: npm run build
 

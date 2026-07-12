@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-use App\Http\Middleware\Authenticate;
 use App\Providers\AppServiceProvider;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use Illuminate\Http\Request;
 use KgBot\LaravelLocalization\LaravelLocalizationServiceProvider;
 
 return Application::configure(basePath: dirname(__DIR__))
@@ -23,11 +23,11 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->redirectUsersTo(AppServiceProvider::HOME);
 
-        $middleware->throttleApi();
+        $middleware->redirectGuestsTo(
+            fn (Request $request) => $request->expectsJson() ? null : route_wlocale('login'),
+        );
 
-        $middleware->alias([
-            'auth' => Authenticate::class,
-        ]);
+        $middleware->throttleApi();
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

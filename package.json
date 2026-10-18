@@ -16,7 +16,7 @@
         "prettier": "^3.6.0",
         "prettier-plugin-tailwindcss": "^0.7.2",
         "vite": "^8.0.16",
-        "vue-loader": "^15.10.0"
+        "vue-loader": "^17.4.2"
     },
     "dependencies": {
         "@kyvg/vue3-notification": "^3.4.1",
